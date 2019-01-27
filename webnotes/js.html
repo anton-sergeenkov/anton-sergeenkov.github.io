@@ -1,0 +1,2836 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="preloader"></div>
+<div class="menu-theme-wrapper">
+	<div class="menu-theme">
+		<a href="#menu">Starter</a>
+		
+		<div class="theme">События</div>
+		<a href="#actions">Назначение обработчиков событий</a>
+		<a href="#actions-params">Передаваемый параметр (Event)</a>
+		<a href="#actions-list">Список событий</a>
+		<a href="#actions-samples">Примеры</a>
+
+		<div class="theme">Циклы и массивы</div>
+		<a href="#cycle">Циклы</a>
+		<a href="#cycle-array">Циклы Array</a>
+		<a href="#cycle-obj">Циклы Object</a>
+		<a href="#array">Массивы</a>
+		<a href="#array_obj">Массивы обьектов</a>
+
+		<div class="theme">ES6</div>
+		<a href="#map">Map</a>
+		<a href="#set">Set</a>
+		<a href="#spread">Оператор разворота</a>
+		<a href="#pattern">Шаблонные строки</a>
+		<a href="#destructive-array">Деструтивное присваивание array</a>
+		<a href="#destructive-obj">Деструтивное присваивание object</a>
+		<a href="#symbol">Symbol</a>
+		<a href="#iterators">Iterators</a>
+
+		<div class="theme">Асинхронный код</div>
+		<a href="#collback">1. Collback Function</a>
+		<a href="#promise">2. Promise (ES6)</a>
+		<a href="#generators">3. Generators (ES6)</a>
+		<a href="#async-func">4. Async Function (ES2017)</a>
+
+		<div class="theme">Basic I</div>
+		<a href="#type">Типы данных</a>
+		<a href="#select">Выборка элементов</a>
+		<a href="#methods">Методы элементов страницы</a>
+		<a href="#css">CSS</a>
+		<a href="#attribute">Атрибуты</a>
+		<a href="#local-storage">Local Storage</a>
+		<a href="#form">Form</a>
+		<a href="#methods-this">this, bind(), call(), apply()</a>
+		<a href="#cookie">Cookie</a>
+		<a href="#dom-element">DOM</a>
+		<a href="#str">Строки</a>
+		<a href="#number">Числа</a>
+		<a href="#math">Math</a>
+		<a href="#operators">Операторы</a>
+		<a href="#catch">Исключения</a>
+		<a href="#ajax">AJAX</a>
+		<a href="#json">JSON</a>
+		<a href="#regexr">Регулярные выражения</a>
+
+		<div class="theme">Window</div>
+		<a href="#document-dict">Определения</a>
+		<a href="#bom">BOM</a>
+		<a href="#document-open">Open / Location</a>
+		<a href="#document-width">Width / Height</a>
+		<a href="#document-media">Media queries</a>
+
+		<div class="theme">Basic II</div>
+		<a href="#date">Дата и время</a>
+		<a href="#case">Условные операторы</a>
+		<a href="#timeout">Таймеры</a>
+		<a href="#prevent">Отмена обычного поведения</a>
+		<a href="#external-script">Асинхронные скрипты: defer/async</a>
+		<a href="#comparison">Сравнение и логические значения</a>
+		<a href="#console">Console</a>
+		<a href="method-chaining">Цепные вызовы методов</a>
+
+		<div class="theme">Theory</div>
+		<a href="#ecmascript">ECMAScript</a>
+		<a href="#jsdoc">Синтаксис JSDoc</a>
+		<a href="#strict-mode">Strict Mode</a>
+		<a href="#dictionary">Словарь</a>
+	</div>
+</div>
+<div id="content">
+<div id="menu"></div>
+<div id="container">
+
+
+
+<h1>JavaScript</h1>
+
+<pre><code class="js">
+var element = document.getElementById('element');
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="spread">Оператор разворота (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+Позволяет разворачить элементы массива для передачи в качестве аргументов функций 
+или в элементы другого массива
+<h3>Массив</h3>
+<pre><code class="js">
+var staticLanguages = ['C', 'C++', 'Java'];
+var dinamicLanguages = ['JavaScript', 'PHP', 'Ruby'];
+var languages = [...staticLanguages, 'C#', ...dinamicLanguages, 'Python'];
+// result: ['C', 'C++', 'Java', 'C#', 'JavaScript', 'PHP', 'Ruby']
+</code></pre>
+
+<h3>Функция</h3>
+<pre><code class="js">
+function add(x,y,z) {
+	console.log(x + y + z);
+}
+var numbers = [1, 2, 3];
+add(...numbers);
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="actions">Назначение обработчиков событий</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list">
+	<b>Стандартная модель событий</b>
+	<li><span class="list-span-select">Event.CAPTURING_PHASE=1</span> (захват) - идет от родительского до целевого (html -> body -> button)</li>
+	<li><span class="list-span-select">Event.AT_TARGET=2</span> (целевой элемент захвата)</li>
+	<li><span class="list-span-select">Event.BUBBLING_PAGE=3</span> (всплытие)</li>
+</ul>
+
+<h3>1. Использование атрибута HTML</h3>
+
+<pre><code class="html">
+&lt;button onclick="alert('action')"&gt;Action&lt;/button&gt;
+&lt;button onclick="alert(this.innerHTML)"&gt;Вывести содержимое&lt;/button&gt;
+&lt;button onclick="action()"&gt;Action&lt;/button&gt;
+</code></pre>
+
+<h3>2. Использование свойства DOM-объекта</h3>
+<pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+element.onclick = function() {
+	alert(1);
+}
+</code></pre>
+
+<pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+var item = document.querySelector('#element');
+item.onclick = function() {
+	alert(1);
+}
+</code></pre>
+
+<pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+element.onclick = action;
+function action() {
+	alert(1);
+}
+</code></pre>
+
+<h3>3. addEventListener и removeEventListener</h3>
+<pre class="js"><code>
+element.<em>addEventListener</em>(event, handler[, phase]);
+element.<em>removeEventListener</em>(event, handler[, phase]);
+<em>event</em>   - имя события, например click
+<em>handler</em> - ссылка на функцию, которую нужно поставить обработчиком
+<em>phase</em>   - необязательный аргумент, «фаза», на которой обработчик должен сработать
+</code></pre>
+
+<pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+</code></pre>
+
+<pre><code class="js">
+function action() {
+	alert(1);
+}
+var element = document.querySelector('#element');
+element.addEventListener('click', action);
+element.removeEventListener('click', action);
+</code></pre>
+
+<p>Метод addEventListener позволяет добавлять несколько обработчиков на одно событие одного элемента</p>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="actions-params">Передаваемый параметр (Event)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list">
+	<li><span class="list-span-select">Event</span> - объект созданный перед запуском события</li>
+</ul>
+
+<pre><code class="js">
+var btn = document.getElementById('btn');
+
+btn.addEventListener('click', getButton);
+
+function getButton(e) {
+	console.log(e.type);          // название события
+	console.log(e.target);        // инициатор события
+	console.log(e.currentTarget); // элемент на котором висит обработчик
+	console.log(e.eventPhase);    // число, указывающее этап (Event.CAPTURING_PHASE=1, Event.AT_TARGET=2, Event.BUBBLING_PAGE=3)
+	console.log(e.timeStamp);     // объект Date, указывающий, когда произошло событие
+	console.log(e.bubbles);       // true если событие может всплывать по дереву элементов. события blur, focus, load, unload не всплывают
+	console.log(e.cancelable);    // true если с этим событием связано действие по умолчанию и его можно отменить preventDefault
+
+	e.preventDefault();           // отключение действия события по умолчанию
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="actions-list">Список событий</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>События мыши</h3>
+<ul class="list">
+	<li><span class="list-span-select">click</span> - одиночный клик левой кнопки мыши</li>
+	<li><span class="list-span-select">contextmenu</span> - одиночный клик правой кнопкой мыши</li>
+	<li><span class="list-span-select">mouseover</span> - наведение мыши</li>
+	<li><span class="list-span-select">mousedown</span> - нажатие кнопки мыши</li>
+	<li><span class="list-span-select">mouseup</span> - отпускание кнопки мыши</li>
+	<li><span class="list-span-select">mousemove</span> - передвижение мыши</li>
+
+	<li><span class="list-span-select">mouseout</span> - увод мыши</li>
+	<li><span class="list-span-select">dblclick</span> - двойной щелчек левой кнопки мыши</li>
+</ul>
+
+<h3>События на элементах управления</h3>
+<ul class="list">
+	<li><span class="list-span-select">submit</span> - момент отправки формы обработчику (если кнопка типа "submit")</li>
+	<li><span class="list-span-select">focus</span> - момент получения фокуса объектом (работает и для ссылок)</li>
+
+	<li><span class="list-span-select">blur</span> - момент потери фокуса объектом (работает и для ссылок)</li>
+	<li><span class="list-span-select">change</span> - изменение объекта формы (поле, радиобаттон и т.д.)</li>
+	<li><span class="list-span-select">reset</span> - сброс формы (специальной кнопкой)</li>
+</ul>
+
+<h3>Клавиатурные события</h3>
+<ul class="list">
+	<li><span class="list-span-select">keydown</span> - момент нажатия клавиши, до момента отпускания</li>
+	<li><span class="list-span-select">keyup</span> - момент отпускания клавиши</li>
+
+	<li><span class="list-span-select">keypress</span> - нажатие клавиши на клавиатуре</li>
+</ul>
+
+<h3>События документа</h3>
+<ul class="list">
+	<li><span class="list-span-select">DOMContentLoaded</span> - возникает после окончательной загрузки и парсинга HTML-документа, не дожидаясь загрузки стилей, картинок и фреймов</li>
+
+	<li><span class="list-span-select">load</span> - возникает после полного окончания загрузки ресурса (всех картинок, стиле и прочего)</li>
+	<li><span class="list-span-select">resize</span> - изменение размеров окна браузера</li>
+	<li><span class="list-span-select">scroll</span> - прокрутка страницы</li>
+	<li><span class="list-span-select">unload</span> - уход со страницы</li>
+</ul>
+
+<h3>События CSS</h3>
+<ul class="list">
+	<li><span class="list-span-select">transitionend</span> - когда CSS-анимация завершена</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="actions-samples">Обработчики событий (примеры)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// полная загрузка страницы
+window.onload = function() {
+	//
+}
+</code></pre>
+
+<pre><code class="js">
+// обработка нажатия кнопки и вывод ее кода
+window.onkeydown = function(event) {
+	console.log(event.keyCode);
+}
+</code></pre>
+
+<pre><code class="js">
+// отслеживание изменения hash
+window.onhashchange = function() {
+    var a = location.hash.slice(1);
+}
+</code></pre>
+
+<pre><code class="js">
+// click на элемент
+element.onclick = function() {
+	//
+}
+</code></pre>
+
+<pre><code class="js">
+// выбрать все input и повесить обработчик focus
+var items = document.querySelectorAll('.item');
+
+for(var i=0; i<=items.length-1; i++) {
+	items[i].addEventListener('focus', function() {
+		this.style.border = '2px solid blue';
+	})
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="map">Map (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Используется для трансформации массива</li>
+	<li>Объект map, ассоциативный массив</li>
+	<li>Ключом может быть различные типы данных, не только строки и символы как у объекта</li>
+	<li>Можно перебрать в цикле for...of</li>
+	<li>Нет литеральной формы, поэтому используется конструктор new</li>
+	<li>Объект map в отличие от обычного объекта является перебираемым объектом, который можно пербирать в цикле for...of</li>
+</ul>
+
+<pre><code class="js">
+var names = ['HTML', 'CSS', 'JavaScript'];
+var nameLengths = names.map(function(name) {
+	return name.length;
+});
+// получили массив с длинами
+alert(nameLengths); // 4,3,10
+</code></pre>
+
+<h3>Задание значений при объявлении</h3>
+<pre><code class="js">
+const map = new Map([
+	['Hi', 'Привет'],
+	[42, 'Ответ на главнй вопрос'],
+	[true, false],
+	[{}, 'Объект'],
+	[function() {}, 'Функция']
+]);
+</code></pre>
+
+<h3>Основные методы</h3>
+<pre><code class="js">
+const map = new Map();
+
+map.<span class="hc">set</span>(42, 'Ответ на главный вопрос'); // установить значение
+var a = map.<span class="hc">get</span>(42);                    // получить значение
+var a = map.<span class="hc">size</span>;                       // получить кол-во элементов
+var a = map.<span class="hc">has</span>(42);                    // проверка наличия значения
+
+map.<span class="hc">delete</span>(42);                         // удалить значение
+map.<span class="hc">clear</span>();                            // удалить все значения
+
+var a = map.<span class="hc">keys</span>();                     // возвращает перебираемый объект с ключами
+var a = map.<span class="hc">values</span>();                   // возвращает перебираемый объект с значениями
+var a = map.<span class="hc">entries</span>();                  // возвращает массив массивов
+</code></pre>
+
+<h3>Перебор map</h3>
+<pre><code class="js">
+for(let [key, value] of map) {
+	console.log(key, value);
+}
+</code></pre>
+
+<pre><code class="js">
+map.forEach((value, key, map) => console.log(value, key));
+</code></pre>
+
+<h3>Примеры</h3>
+<pre><code class="js">
+const map = new Map();
+map.set('HTML', 'HyperText Markup Language')
+	.set('CSS', 'Cascading Style Sheets')
+	.set('JS', 'JavaScript');
+</code></pre>
+
+<h4>keys()</h4>
+<pre><code class="js">
+// обратно получаем не массив, а объект MapIterator (объект для перебора)
+console.log(map.keys()); // MapIterator {"HTML", "CSS", "JS"}
+
+// получить объекты по порядку можно используя оператор распространения
+console.log(...map.keys()); // HTML CSS JS
+
+// можно получить массив обернув в []
+console.log([...map.keys()]); //["HTML", "CSS", "JS"] 
+</code></pre>
+
+<h4>values()</h4>
+<pre><code class="js">
+console.log([...map.values()]); // ["HyperText Markup Language", "Cascading Style Sheets", "JavaScript"]
+</code></pre>
+
+<h4>entries()</h4>
+<pre><code class="js">
+console.log([...map.entries()]); // массив массивов
+// можно использовать для клонирования map
+const map2 = new Map(map.entries());
+</code></pre>
+
+<pre><code class="js">
+// получить ключ:значение с помощью реструктруризации
+const [first, second, third] = map;
+console.log(first);  // ["HTML", "HyperText Markup Language"] 
+console.log(second); // ["CSS", "Cascading Style Sheets"]
+console.log(third);  // ["JS", "JavaScript"]
+
+const [[key, value], second, third] = map;
+console.log(key);   // HTML 
+console.log(value); // HyperText Markup Language
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="destructive-array">Деструтивное присваивание массивов (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var languages = ['JavaScript', 'Python', 'Ruby'];
+// ES5
+var js = languages[0];
+var py = languages[1];
+var rb = languages[2];
+</code></pre>
+
+<h4>Деструтивное присваивание</h4>
+<pre><code class="js">
+var languages = ['JavaScript', 'Python', 'Ruby'];
+var [js, py, rb] = languages;
+</code></pre>
+
+<h4>Игнорирование значения</h4>
+<pre><code class="js">
+var scores = [3, 4, 5];
+var [low, , high] = scores; 
+</code></pre>
+
+<h4>Преобразование в массив оставшихся значений</h4>
+<pre><code class="js">
+var scores = [3, 4, 5];
+var [low, ...rest] = scores;
+</code></pre>
+
+<h4>Значение по умолчанию</h4>
+<pre><code class="js">
+var scores = [3, 4];
+var [low, mid, high=5] = scores;
+</code></pre>
+
+<h4>Значение из массива</h4>
+<pre><code class="js">
+var scores = [3, 4, [5, 6]];
+var [low, mid, [high, higher]] = scores;
+</code></pre>
+
+<h4>Деструктивное присванивание как параметр функции</h4>
+<pre><code class="js">
+function cumputeScore([low, mid]) {
+	console.log(low, mid);
+}
+cumputeScore([3, 4]);
+</code></pre>
+
+<h4>Деструктивное присвание для возврата нескольких значений из функции</h4>
+<pre><code class="js">
+function getScores() {
+	return [3, 4, 5];
+}
+var [low, mid, high] = getScores();
+</code></pre>
+
+<h3>Пример #1. Быстрый обмен значений переменнных</h3>
+<pre><code class="js">
+var yes = 'Yes';
+var no = 'No';
+[yes, no] = [no, yes];
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="destructive-obj">Деструтивное присваивание объектов (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="js">
+var person = {
+	firstname: 'Tony',
+	lastname: 'Stark'
+};
+// ES5
+var firstname = person.firstname;
+var lastname = person.lastname;
+</code></pre>
+
+<h4>Деструтивное присваивание объектов</h4>
+<pre><code class="js">
+// имена переменных должны совпадать с именами свойст объекта
+var {firstname, lastname} = person;
+</code></pre>
+
+<h4>Изменение имен переменных</h4>
+<pre><code class="js">
+var {firstname:first, lastname:last} = person;
+</code></pre>
+
+<h4>Значение по умолчанию</h4>
+<pre><code class="js">
+var {firstname, lastname, age=25} = person;
+</code></pre>
+
+<h4>Динамическое определение имен свойст с помощью выражения в []</h4>
+<pre><code class="js">
+var {['first'+'name']:first, lastname} = person;
+</code></pre>
+
+<h3>Извлечение свойств вложенных объектов</h3>
+<pre><code class="js">
+var user = {
+	firstname: 'Tony',
+	lastname: 'Stark',
+	social: {
+		facebook: 'tonystark',
+		twitter: 't-stark'
+	}
+};
+var {firstname, lastname, social:{facebook}} = user;
+</code></pre>
+
+
+<h3>Использование в качестве параметра функции</h3>
+<pre><code class="js">
+var user = {
+	firstname: 'Tony',
+	lastname: 'Stark'
+};
+function post(url, {data:{firstname, lastname}, cache}) {
+	console.log(firstname, lastname, cache);
+}
+var result = post('api/users', {data:user, cache:false});
+</code></pre>
+
+<h3>Возврат нескольких значений из функции</h3>
+<pre><code class="js">
+function getUser() {
+	return {
+		firstname: 'Tony',
+		lastname: 'Stark'
+	};
+}
+var {firstname, lastname} = getUser();
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="symbol">Symbol (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list">
+	<li><span class="list-span-select">Символ</span> - уникальные и неизменные значения, позволябщие разработчикам языка добавлять новые идентификаторы или свойства объектов, не резервируя строковые названия для этих свойств</li>
+	<li>Нельзя использовать ключевое слово <span class="list-span-select">new</span></li>
+</ul>
+
+<pre><code class="js">
+// создание символа
+var symbol1 = Symbol();
+</code></pre>
+
+<pre><code class="js">
+// создание символа
+var symbol2 = Symbol.for('name');
+</code></pre>
+
+<pre><code class="js">
+// получить имя символа
+var name = Symbol.keyFor(symbol2);
+</code></pre>
+
+<pre><code class="js">
+// задание необязательного аргумента, в котором указывается имя для символа
+// имя можно использовать описания символа (полезно для отладки)
+var symbol3 = Symbol('name');
+</code></pre>
+
+<pre><code class="js">
+// задание свойства объекта
+var user = {
+	username: 'r2d2',
+	[Symbol.for('password')]: 'c3po'
+};
+var password = user[Symbol.for('password')];
+console.log(password);
+// просмотреть символы у объекта
+console.log(Object.getOwnPropertySymbols(user));
+</code></pre>
+
+<pre><code class="js">
+// встроенные символы
+// хорошо известные символы
+var obj = {
+	iterator: 0,
+	[Symbol.iterator]() {}
+}
+// Symbol.iterator используется конструкцией for...of
+// благодаря которой можно перебирать (итерировать) объект
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="ecmascript">ECMAScript</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+ECMAScript является стандартом, а JavaScript — это самая популярная реализация этого стандарта
+<pre>
+<code class="js">
+<b>ES1</b> (1997)
+<b>ES2</b> (1998)
+<b>ES3</b> (1999)
+<b>ES4</b> (не была принята)
+<b>ES5</b> (2009)
+<b>ES6</b> (ES2015)
+<b>ES7</b> (ES2016)
+<b>ES8</b> (ES2017)
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="select">Выборка элементов страницы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var a = document.getElementById('item');               // по id
+var a = document.getElementsByClassName('item')[0];    // по названию класса (первый элемент)
+var a = document.getElementsByName('item');            // по атрибуту name
+var a = document.getElementsByTagName('img');          // по названию тега (все элементы)
+var a = document.querySelector('.nav.bar');            // возвращает первый элемент внутри документа
+var a = document.querySelectorAll('.nav');             // возвращает список элементов в пределах документа
+</code></pre>
+
+<p>Методы getElementsByTagName и т.д. вызывают не обычные массивы, а живые коллекции</p>
+
+<h4>Форма</h4>
+<pre><code class="js">
+var a = document.forms[0];                             // первая форма на странице
+var a = document.myform;                               // форма с name=myform (если name уникальный)
+var a = document.forms[0].elements[0];                 // первый элемент в форме
+var a = document.forms[0].element;                     // элемент в форме с name=element
+var a = document.forms['nameForm']['nameField'];       // поле формы
+</code></pre>
+
+<h4>Изображение</h4>
+<pre><code class="js">
+var a = document.images.logo;                          // img с name=logo
+var a = document.images['logo'];                       // img с name=logo
+var a = document.logo;                                 // img с name=logo (если name уникальный)
+</code></pre>
+
+<h3>Выбор родственных элементов</h3>
+<pre><code class="js">
+var a = element.childNodes;                            // дети (включая текстовые узлы)
+var a = element.children;                              // дети (не включая текстовые узлы)
+var a = element.parentNode;                            // родитель 
+var a = element.nextSibling;                           // следующий брат
+var a = element.previousSibling;                       // предыдущий брат
+var a = element.firstChild;                            // первый ребенок
+var a = element.lastChild;                             // последний ребенок
+</code></pre>
+
+<pre><code class="js">
+var a = document.childNodes;                           // дети с doctype и комментариями
+var a = document.children;                             // дети
+var a = document.children[0].children[1].children;     // выборка всех элементов из body
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="methods">Методы элементов страницы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+element.innerText   = 'new text';           // текст (не выводит невидимые элементы)
+element.textContent = 'new text';         // текст
+element.innerHTML   = '&lt;h2&gt;new text&lt;/h2&gt;';  // html
+</code></pre>
+
+<pre><code class="js">
+element.id          = 'name';
+element.className   = 'nameClass1 nameClass2';
+</code></pre>
+
+<pre><code class="js">
+element.href        = 'https://www.google.com/';
+element.src         = 'image.jpg';
+element.offsetTop;  // отступ от верха документа
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="pattern">Шаблонные строки (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var a = `
+	первая строка
+	вторая строка
+`;
+</code></pre>
+
+<h3>Интерполяция</h3>
+<pre><code class="js">
+var a = 'text'; 
+var b = `строка текста ${a} строка текста`;
+</code></pre>
+
+<h3>Тегирование</h3>
+Изменение вида шаблонов при помощи функций
+
+<pre><code class="js">
+var name = 'Tony';
+console.log(upperName`Hello ${name}`);
+
+// literals - массив строковых литералов
+// name - значение вычисленных выражений
+function upperName(literals, value) {
+	return literals[0] + value.toUpperCase();
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dictionary">Словарь</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list">
+	<li><span class="list-span-select">Statements (инструкции)</span> - var statement</li>
+	<li><span class="list-span-select">Expressions (выражения)</span> - stetement = 2+7</li>
+	<li><span class="list-span-select">Operators (операторы)</span> - арифметические, сравнения, условные, логические, побитовые</li>
+	<li><span class="list-span-select">Литерал</span> - любое значение указанное явным образом в коде. В качестве литералов в js могут выступать числа, строки (текстовые значения), логические значения</li>
+	<li><span class="list-span-select">let, const</span> - блочная область видимости</li>
+	<li><span class="list-span-select">var</span> - функциональная область видимости</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="type">Типы данных</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+1. <em>Number</em>    - число (примитивный) 
+2. <em>String</em>    - cтрока (примитивный)
+3. <em>Boolean</em>   - булевый, логический (примитивный)
+4. <em>null</em>      - специальное пустое или неизвестное значение (присваивается самостоятельно)
+5. <em>undefined</em> - специальное неприсвоеное значение (возвращается из js)
+6. <em>Object</em>    - объект 
+7. <em>Symbol</em>    - символ (примитивный) ES6
+</code></pre>
+
+<p>Специальные числовые значения <span class="list-span-select">Infinity</span> и <span class="list-span-select">NaN</span></p>
+
+<!------------------------------------------------------>
+<h3>typeof - возвращает тип аргумента</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+typeof undefined    // "undefined"
+typeof 0            // "number"
+typeof true         // "boolean"
+typeof 'foo'        // "string"
+typeof {}           // "object"
+typeof null         // "object" (*)
+typeof function(){} // "function" (*)
+</code></pre>
+
+<pre><code class="js">
+// проверка поддержки свойств
+typeof addEventListener !== 'undefined'
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Преобразование типов</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+String(77);
+Number('77');
+Boolean(77);
+</code></pre>
+
+<pre><code class="js">
+77 + ''; // string
++'77';   // number
+!!'77';  // boolean
+</code></pre>
+
+<pre><code class="js">
+77.toString();
+parseInt('77px');
+parseFloat('77.2px')
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Способы создания переменных</h3>
+<!------------------------------------------------------>
+<h4>1. Литеральная форма</h4>
+<pre><code class="js">
+var a = 'string';
+</code></pre>
+
+<h4>2. Конструктор</h4>
+<pre><code class="js">
+var a = new String('string');
+var a = new Number(77);
+var a = new Boolean(true);
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Object Wrappers</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+typeof 'string';             // "string"
+typeof new String('string'); // "object"
+</code></pre>
+
+<ul class="list-point">
+	<li>Объект-обертка вокруг примитивного типа данных создается вызовом конструктора new</li>
+	<li>Или при использовании методов для строк и чисел</li>
+	<li>Иначе это является примитивным типом данных (string, number, boolean)</li>
+</ul>
+
+<pre><code class="js">
+// позволяет достать строку из объекта
+var str = new String('string');
+console.log(str.valueOf()); 
+</code></pre>
+
+<ul class="list-point">
+	<li>Глобальная переменная относится к глобальному объект window</li>
+	<li>Переменная без var попадает в глобальную область видимости</li>
+	<li>Переменная совершают поднятие hoisting, но значение будет undefined</li>
+</ul>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="case">Условные операторы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Условный оператор case()</h3>
+<!------------------------------------------------------>
+Использование цифр в виде аргумента
+<pre><code class="js">
+switch(Number(id)) {
+	case 1: alert(id); break;
+	case 2: alert(id); break;
+	case 3: alert(id); break;
+	default: alert("default");
+}
+</code></pre>
+
+Использование строк в виде аргумента
+<pre><code class="js">
+switch(name) {
+	case 'name1': alert(name); break;
+	case 'name2': alert(name); break;
+	case 'name3': alert(name); break;
+	default: alert("default");
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Условный оператор if()</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+if (year < 2011) {
+	alert('Это слишком рано..');
+} else if (year > 2011) {
+	alert('Это поздновато..');
+} else {
+	alert('Да, точно в этом году!');
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Тернарный оператор</h3>
+<!------------------------------------------------------>
+
+<ul class="list-point">
+	<li>условие ? значение1 : значение2</li>
+	<li>если условие верно – возвращается значение1, если неверно – значение2</li>
+</ul>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+// if … else
+if (age > 14) {
+	access = true;
+} else {
+	access = false;
+}
+</code></pre></div><div class="container-half"><pre><code class="js">
+// Тернарный оператор
+access = (age > 14) ? true : false;
+<br><br><br>
+</code></pre></div></div>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+// if … else
+if(apple == orange) {
+   res = "Равно"; 
+} else {
+   res = "Не равно"; 
+}
+</code></pre></div><div class="container-half"><pre><code class="js">
+// Тернарный оператор
+res = (apple == orange) ? "Равно" : "Не равно";
+<br><br>
+</code></pre></div></div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="cycle-obj">Циклы Object</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Цикл for in</h3>
+<!------------------------------------------------------>
+<b>Перебирает ключи</b>
+<pre><code class="js">
+// обходит все свойства, в том числе наследованные от прототипа
+var browsers = ['Chrome', 'Firefox', 'Safari'];
+for (let browser in browsers) {
+	console.log(browser);
+}
+// result: 0, 1, 2
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Цикл for of</h3>
+<!------------------------------------------------------>
+<b>Перебирает значения</b>
+<pre><code class="js">
+var browsers = ['Chrome', 'Firefox', 'Safari'];
+for (let browser of browsers) {
+	console.log(browser);
+}
+// result: 'Chrome', 'Firefox', 'Safari'
+</code></pre>
+
+<pre><code class="js">
+// for of позволяет итерировать новый объекты ES6 set и map
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="cycle-array">Циклы Array</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list">
+	<li><span class="list-span-select">forEach</span> - для перебора массива</li>
+	<li><span class="list-span-select">filter</span> - для фильтрации массива</li>
+	<li><span class="list-span-select">map</span> - для трансформации массива в массив</li>
+	<li><span class="list-span-select">every/some</span> - для проверки массива</li>
+	<li><span class="list-span-select">reduce/reduceRight</span> - для прохода по массиву с вычислением значения</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>forEach</h3>
+<!------------------------------------------------------>
+<ul>
+	<li>Ничего не возвращает, используется только для перебора</li>
+</ul>
+<pre><code class="js">
+var arr = ["Яблоко", "Апельсин", "Груша"];
+arr.forEach(function(element, index, arr) {
+	console.log( index + ": " + element + " (массив:" + arr + ")" );
+});
+// "0: Яблоко   (массив:Яблоко,Апельсин,Груша)"
+// "1: Апельсин (массив:Яблоко,Апельсин,Груша)"
+// "2: Груша    (массив:Яблоко,Апельсин,Груша)"
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>filter</h3>
+<!------------------------------------------------------>
+<ul>
+	<li>Используется для фильтрации массива через функцию</li>
+	<li>Создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true</li>
+</ul>
+
+<pre><code class="js">
+var arr = [1, -1, 2, -2, 3];
+var positiveArr = arr.filter(function(number) {
+	return number > 0;
+});
+alert(positiveArr); // 1,2,3
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>map</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+<a href="#map">Ссылка</a>
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>every/some</h3>
+<!------------------------------------------------------>
+<ul>
+	<li>Используется для проверки массива</li>
+	<li>Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr</li>
+	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
+</ul>
+
+<pre><code class="js">
+var arr = [1, -1, 2, -2, 3];
+function isPositive(number) {
+  return number > 0;
+}
+alert( arr.every(isPositive) ); // false, не все положительные
+alert( arr.some(isPositive) );  // true, есть хоть одно положительное
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>reduce/reduceRight</h3>
+<!------------------------------------------------------>
+<ul>
+	<li>Используется для последовательной обработки каждого элемента массива с сохранением промежуточного результата</li>
+	<li><b>arr.reduce</b> идёт по массиву слева-направо</li>
+	<li><b>arr.reduceRight</b> идёт по массиву справа-налево</li>
+</ul>
+
+<pre><code class="js">
+<em>arr.reduce(callback[, initialValue])</em>
+</code></pre>
+
+<ul class="list-point">
+	<b>callback(previousValue, currentItem, index, arr)</b>
+	<li><span class="list-span-select">previousValue</span> - последний результат вызова функции, «промежуточный результат»</li>
+	<li><span class="list-span-select">currentItem</span> - текущий элемент массива, элементы перебираются по очереди слева-направо</li>
+	<li><span class="list-span-select">index</span> - номер текущего элемента</li>
+	<li><span class="list-span-select">arr</span> - обрабатываемый массив</li>
+</ul>
+
+<ul class="list-point">
+	<b>initialValue - начальное значение</b>
+	<li>Если есть <span class="list-span-select">initialValue</span>, то на первом вызове значение <span class="list-span-select">previousValue</span> будет равно <span class="list-span-select">initialValue</span></li>
+	<li>Если нет <span class="list-span-select">initialValue</span>, то оно равно первому элементу массива, а перебор начинается со второго</li>
+</ul>
+
+<pre><code class="js">
+// сумма элементов массива
+var arr = [1, 2, 3, 4, 5]
+
+// для каждого элемента массива запустить функцию,
+// промежуточный результат передавать первым аргументом далее
+var result = arr.reduce(function(sum, current) {
+  return sum + current
+});
+
+alert(result); // 15
+</code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="cycle">Циклы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Цикл for</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+for (var i = 1; i < 10; i++) {  
+    console.log(i); 
+}
+</code></pre>
+
+<h3>Цикл while</h3>
+<pre><code class="js">
+var i = 0;  
+while (i < 10) {  
+    console.log(i); 
+    i++;  
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Цикл do while</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var i = 0;  
+do {  
+    console.log(i); 
+    i++;  
+} while (i < 10);
+</code></pre>
+
+<pre><code class="js">
+break - выход из цикла
+continue - прекращает выполнение текущей итерации цикла и переходит на следующую
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="array">Массивы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Объявление</h3>
+<pre><code class="js">
+var arr = [];                        // объявление пустого массива
+var arr = ['Tony', 'Anne'];          // объявление массива из заполненных элементов
+var arr = [,,'Tony'];                // пропуск элементов
+var arr = new Array(5);              // объявление массива из пустых элементов с длиной 5 (конструктор)
+var arr = new Array('Tony', 'Anne'); // объявление массива (конструктор)
+</code></pre>
+
+<h3>Методы</h3>
+<pre><code class="js">
+var a = arr.<span class="hc">length</span>;                  // длина массива (индекс последнего элемента)
+var arr2 = arr1.<span class="hc">slice</span>(1, 7);         // вырезать с 1 до 7 не включая, если не указан второй аргумент, то до конца
+
+var a = colors.<span class="hc">indexOf</span>('white');     // возвращает первый индекс, по которому элемент может быть найден в массиве или -1, если индекса нет
+var a = colors.<span class="hc">lastIndexOf</span>('white'); // возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет
+
+var a = arr.<span class="hc">join</span>('.');               // преобразование массива в строку с заданным разделителем
+var arr = str.<span class="hc">split</span>(';');            // преобразование строки с заданным разделителем в массив 
+
+arr.<span class="hc">push</span>('Jack');                    // добавление нового элемента в конец массива
+arr.<span class="hc">unshift</span>('Jack');                 // добавление нового элемента в начало массива
+arr.<span class="hc">pop</span>();                           // удаление элемента из конца массива
+arr.<span class="hc">shift</span>();                         // удаление элемента из начала массива
+
+arr.<span class="hc">reverse</span>();                       // реверс (переворот массива)
+arr.<span class="hc">sort</span>();                          // сортировка по алфавиту
+var arr = arr1.<span class="hc">concat</span>(arr2, arr3);   // объединение массивов
+</code></pre>
+
+<h3>Метод splice</h3>
+<pre><code class="js">                
+arr.<span class="hc">splice</span>(3, 2);                     // удалить с 3 индекса 2 элемента
+arr.<span class="hc">splice</span>(2, 0, 'Алина', 'Марина');  // добавление элементов
+arr.<span class="hc">splice</span>(1, 2, 'Алексей", "Билл');  // замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
+</code></pre>
+
+<pre><code class="js">
+arr['someIndex'] = 'someValue';       // использование строки в виде индекса
+arr.length = 10;                      // все элементы больше 10 индекса будут удалены
+delete arr[4];                        // присваивание элементу по индексу 4 undefined
+var a = Array.isArray(arr);           // проверка на массив
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="array_obj">Массивы обьектов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var a = new Array(
+	{"name":"Андрей", "email":"andry@mail.ru"},
+	{"name":"Анна",   "email":"anna@mail.ru"}
+);
+
+console.log(a[0].name);  // "Андрей"
+console.log(a[1].email); // "anna@mail.ru"
+</code></pre>
+
+<h3>Примеры</h3>
+<pre><code class="js">
+// перебор массива
+for (var i=0; i<=arr.length-1; i++) {
+	console.log(arr[i]);
+}
+</code></pre>
+
+<pre><code class="js">
+// перебор массива и удаление выбранного элемента
+var id = 12;
+for (var i=0; i<=arr.length-1; i++) {
+	if (id == arr[i]) {
+		arr.splice(i, 1); 
+		break;
+	} 
+}
+</code></pre>
+
+<pre><code class="js">
+// добавление нового элемента в массив
+if (arr != '') {
+	arr[arr.length] = id;
+} else {
+	arr[0] = id;
+}
+</code></pre>
+
+<pre><code class="js">
+// удаление элемента массива
+arr.splice(arr.indexOf(String(id)), 1);
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="str">Строки</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var a = str.<span class="hc">length</span>;            // длина строки 
+77.<span class="hc">toString()</span>;                 // преобразование в строку
+
+var name = name.<span class="hc">toUpperCase</span>(); // верхний регистр
+var name = name.<span class="hc">toLowerCase</span>(); // нижний регистр
+
+// поиск в строке совпадений с образцом 
+var pos = str.<span class="hc">indexOf</span>('name');     // с начала (-1 не найдено)
+var pos = str.<span class="hc">lastIndexOf</span>('name'); // с конца (-1 не найдено)
+
+// обрезка строки
+var root = str.<span class="hc">substring</span>(0, 7); // вырезать с 0 до 7 не включая
+
+// обрезка строки
+var root = str.<span class="hc">slice</span>(0, 7); // вырезать с 0 до 7 не включая
+
+var root = <span class="hc">charAt</span>(2); // возвращает символ строки по индексу 
+var root = <span class="hc">charCodeAt</span>(2); // возвращает код символа строки по индексу 
+// все русские буквы находятся в диапазоне от 1040 до 1103
+
+var arr = str.<span class="hc">split</span>(';'); // преобразование строки с заданным разделителем в массив 
+</code></pre>
+
+<pre><code class="js">
+// перебор строки
+for (var i=0; i <= str.length-1; i++) {
+	console.log(str[i]);
+}
+</code></pre>
+
+<pre><code class="js">
+// длина числа
+var id = 100;
+var a = id.toString().length;
+</code></pre>
+
+<pre><code class="js">
+"Blink" + 181 + 1;   // "Blink1811"
+"Blink" + (181 + 1); // "Blink182"
+</code></pre>
+
+<pre><code class="js">
+'\n'                     // перенос строки
+alert('привет \n мир');  // вывод переноса строки
+"call me \"ziggy\" now"; // экранирование кавычек
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="number">Числа</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+isNaN(num); // если в переменной не число, вернет истину
+toFixed(2); // фиксирование кол-ва знаков после запятой
+</code></pre>
+
+<pre><code class="js">
+Number(num);     // преобразование любого объекта в число
+parseInt(num);   // преобразование в целое число
+parseFloat(num); // преобразование в целое/дробное число
+                 // н-р: "5.56 грамм", функция вернет значение "5.56"
+</code></pre>
+
+<h4>Перебор в двоичную систему отсчета</h4>
+<pre><code class="js">
+parseInt("11000", 2);              // переводит строку с двоичной записью числа в число
+n.toString(2);                     // получает для числа n запись в 2-ной системе в виде строки
+
+var access = parseInt("11000", 2); // получаем число из строки
+alert(access);                     // 24, число с таким 2-ным представлением
+
+var access2 = access.toString(2); // обратно двоичную строку из числа
+alert(access2);                   // 11000
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="operators">Операторы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h4>Остаток от деления</h4>
+<pre><code class="js">
+alert(5 % 2); // 1, остаток от деления 5 на 2
+alert(8 % 3); // 2, остаток от деления 8 на 3
+alert(6 % 3); // 0, остаток от деления 6 на 3
+</code></pre>
+
+<h4>Инкремент/декремент</h4>
+<ul class="list-point">
+	<li><span class="list-span-select">i++</span> постфиксная форм</li>
+	<li><span class="list-span-select">++i</span> префиксная форма</li>
+</ul>
+
+<pre><code class="js">
+var i = 1;
+var a = ++i;
+alert(a); // 2
+</code></pre>
+
+<pre><code class="js">
+var i = 1;
+var a = i++;
+alert(a); // 1
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="math">Math</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+Math.round(num); // округляет число к ближайшему целому
+Math.ceil(num);  // округляет число в большую сторону
+Math.floor(num); // округляет число в меньшую сторону
+</code></pre>
+
+<pre><code class="js">
+var rand = Math.random(); // метод генерации случайного числа в диапазоне от 0 до 1
+var rand = Math.round(Math.random() * 100); // от 0 до 100
+</code></pre>
+
+<pre><code class="js">
+var a = Math.pow(4,2);        // степень 4 в 2
+var a = Math.sqrt(400);       // квадратный корень числа
+var a = Math.abs(-7);         // модуль
+var a = Math.max(1, 2, 3, 4); // большее число из аргументов
+var a = Math.min(1, 2, 3, 4); // меньшее число из аргументов
+var a = Math.exp(2);          // возведение часла "e" в указанную степень
+var a = Math.log(5);          // натуральный логарифм числа
+</code></pre>
+
+<pre><code class="js">
+var a = Math.PI;              // число PI
+var a = Math.E;               // чисто E
+</code></pre>
+
+<pre><code class="js">
+var a = Math.sin(1);          // синус (радиан)
+var a = Math.cos(1);          // косинус
+var a = Math.tan(1);          // тангенс
+var a = Math.atan(1);         // арктангенс
+var a = Math.asin(1);         // арксинус
+var a = Math.acos(1);         // арккосинус
+</code></pre>
+
+<h4>Пример Random(min, max)</h4>
+<pre><code class="js">
+function mtRand(min, max) {
+	return Math.floor(Math.random() * (max - min + 1));
+	//return Math.random() * (max - min) + min;
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="date">Дата и время</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var selectDate = new Date(2012,0,1,0,0,0); // объявление для заданной даты
+// 1 - год (2012)
+// 2 - месяц (0) январь
+// 3 - число (1)
+// 4 - часы (0)
+// 5 - минуты (0)
+// 6 - секунды (0)
+selectDate.setMinutes(25);
+</code></pre>
+
+<pre><code class="js">
+var nowDate = new Date();                 // текущее дата и время на компьютере пользователя
+var yearFull = nowDate.getFullYear();     // год
+var year     = nowDate.getYear();         // год (последние 2 цифры) 
+var month    = nowDate.getMonth();        // месяц (нумерация с 0)
+var day      = nowDate.getDate();         // число
+var dayWeek  = nowDate.getDay();          // день недели, выводит численные значения, нумерация с "0"
+var hour     = nowDate.getHours();        // час
+var minutes  = nowDate.getMinutes();      // минуты
+var seconds  = nowDate.getSeconds();      // секунды
+var mseconds = nowDate.getMilliseconds(); // миллисекунды
+</code></pre>
+
+<pre><code class="js">
+var a = nowDate.getHours();    // время по гринвичу (GMT)
+var a = nowDate.getUTCHours(); // время в формате UTC
+</code></pre>
+
+<pre><code class="js">
+var a = nowDate.toTimeString(); // вывод времени в виде строки
+var a = nowDate.toDateString(); // вывод даты в виде строки
+</code></pre>
+
+<pre><code class="js">
+var a = nowDate.toLocaleTimeString(); // время с учетом локализации
+var a = nowDate.toLocaleDateString(); // дата с учетом локализации
+</code></pre>
+
+<pre><code class="js">
+
+</code></pre>
+
+
+
+<pre><code class="js">
+var weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+var month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+var nowDate = new Date();
+var nowDay   = weekday[nowDate.getDay()];
+var nowDate  = nowDate.getDate();
+var nowMonth = month[nowDate.getMonth()];
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="catch">Исключения</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Создание исключений</h3>
+<pre><code class="js">
+var calculate = function(n) {
+	if (n>10) {
+		throw new Error('n должно быть больше 10');
+	}
+	return n;
+}
+calculate(20);
+</code></pre>
+
+<h3>Обработка исключений</h3>
+<pre><code class="js">
+try {
+	// инструкции, которые могут бросить исключение
+} catch (идентификатор) {
+	// инструкции будут выполняться если в try произошло исключение
+	// передается выражение (идентификатор), которое было в throw
+} finally {
+	// инструкции будут выполняться независимо от исключения
+}
+// catch или finally может отсутствовать
+// если ошибка необработана, скрипт не будет выполняться
+// если ошибка обработана в catch, скрипт продолжит выполнение
+</code></pre>
+
+<pre><code class="js">
+var calculate = function(n) {
+	if (n>10) {
+		throw new Error('n должно быть больше 10');
+	}
+	return n;
+}
+try {
+	calculate(20);
+} catch(e) {
+	console.log('Ошибка функции calculate() ' + e.message);
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="timeout">Таймеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>setTimeout - однократное выполнение кода через некоторое время</h3>
+<!------------------------------------------------------>
+<ul class="list">
+	<b>setTimeout(code, time);</b>
+	<li><span class="list-span-select">code</span> - код или функция</li>
+	<li><span class="list-span-select">time</span> - время в миллисекундах, которое должно пройти до выполнения кода (1000 миллисекунд = 1 секунда)</li>
+</ul>
+
+<pre><code class="js">
+var timer = setTimeout("console.log('go');", 1000);
+var timer = setTimeout(function() { console.log('go'); }, 1000);
+var timer = setTimeout(func, 1000);
+
+function func () {
+    console.log('go');
+}
+
+clearTimeout(timer); // отменяет выполнение setTimeout
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>setInterval</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+setInterval();   // повторение выполнения кода через определенное время
+clearInterval(); // отменяет выполнение setInterval()
+
+var timer = setInterval("console.log('go');", 1000);
+clearInterval(timer); // остановка setInterval
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="prevent">Отмена обычного поведения элемента</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+preventDefault(); // отмена обычного поведения элемента
+return false - аналогично preventDefault(), но дальнейший код не выполняется
+</code></pre>
+
+<pre><code class="js">
+element.onclick = function(event) {
+	event.preventDefault();
+	// return false ;
+};
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="console">Console</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+console.log('Сообщение');
+console.info('Информация');
+console.warn('Предупреждение');
+console.error('Ошибка');
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="ajax">AJAX</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Fetch API</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<a href="https://github.com/github/fetch" target="_blank">https://github.com/github/fetch - полифил и описание методов</a>
+<a href="https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">MDN</a>
+</code></pre>
+
+<h4>Синтаксис метода fetch</h4>
+<ul class="list">
+	<b>let promise = fetch(url[, options])</b>
+	<li><span class="list-span-select">url</span> - URL, на который сделать запрос</li>
+	<li><span class="list-span-select">options</span> - необязательный объект с настройками запроса</li>
+</ul>
+
+<ul class="list">
+	<b>Свойства options</b>
+	<li><span class="list-span-select">method</span> - метод запроса</li>
+	<li><span class="list-span-select">headers</span> - headers </li>
+	<li><span class="list-span-select">body</span> -  тело запроса: FormData, Blob, строка и т.д.</li>
+	<li><span class="list-span-select">mode</span> - одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос</li>
+	<li><span class="list-span-select">credentials</span> - одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом</li>
+	<li><span class="list-span-select">cache</span> - одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кешировать запрос</li>
+	<li><span class="list-span-select">redirect</span> - можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки</li>
+</ul>
+
+<h4>Объект response (ответ)</h4>
+<pre><code class="js">
+var a = response.headers.get('Content-Type');
+var a = response.status; 
+
+var a = response.arrayBuffer();
+var a = response.blob();
+var a = response.formData();
+var a = response.json();
+var a = response.text();
+</code></pre>
+
+<h4>Пример #1. Без передачи значений</h4>
+<pre><code class="js">
+fetch('script.php')
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(body) {
+        document.body.innerHTML = body;
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+</code></pre>
+
+<h4>Пример #2. Передача одного значения</h4>
+<pre><code class="js">
+fetch('script.php', {
+	method: 'POST',
+	body: 'hello'
+})
+</code></pre>
+<pre><code class="php">
+// script.php
+&lt;?php
+    $content = file_get_contents("php://input");
+    echo $content;
+?&gt;
+</code></pre>
+
+<h4>Пример #3. Передача JSON</h4>
+<pre><code class="js">
+fetch('script.php', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json'
+	},
+	body: JSON.stringify({
+		name: 'Tony',
+		login: 'Admin'
+	})
+})
+</code></pre>
+<pre><code class="php">
+// script.php
+&lt;?php
+    $content = file_get_contents("php://input");
+    $decoded = json_decode($content, true);
+    echo $decoded[name];
+?&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>XMLHttpRequest</h3>
+<!------------------------------------------------------>
+<h4>Асинхронный</h4>
+<pre><code class="js">
+var xmlhttp = new XMLHttpRequest();
+// установка обработчика событий
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		dosomething(xmlhttp.responseText);
+    }
+};
+xmlhttp.open('GET', url, true); // true - скачиваем асинхронно
+xmlhttp.send(null); // отправляем запрос, результат придёт в обработчик onreadystatechange
+</code></pre>
+
+<h4>Синхронный</h4>
+<pre><code class="js">
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', url, false); // false - скачиваем синхронно
+// отправляем запрос, тут же ждём результат
+xmlhttp.send(null);
+// результат получен
+if(xmlhttp.status == 200)
+    dosomething(xmlhttp.responseText);
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="jsdoc">Синтаксис JSDoc</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+/**
+* Возвращает x в степени n, только для натуральных n
+*
+* @param {number} x Число для возведения в степень.
+* @param {number} n Показатель степени, натуральное число.
+* @return {number} x в степени n.
+*/
+function pow(x, n) {
+	...
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="external-script">Асинхронные скрипты: defer/async</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Если браузер видит тег <span class="list-span-select">script</span>, то он обязан сначала выполнить его, а потом показать оставшуюся часть страницы</li>
+	<li>Специальные атрибуты <span class="list-span-select">async</span> и <span class="list-span-select">defer</span> используются для того, чтобы пока грузится внешний скрипт - браузер показал остальную (следующую за ним) часть страницы</li>
+	<li>При одновременном указании async и defer в современных браузерах будет использован только async</li>
+	<li>Атрибуты async/defer работают только в том случае, если назначены на внешние скрипты, т.е. имеющие src</li>
+	
+</ul>
+
+<!------------------------------------------------------>
+<h3>Атрибут async</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Не сохраняет относительную последовательность скриптов</li>
+	<li>Не ждет пока весь HTML-документ будет обработан браузером</li>
+	<li>Браузер не останавливает обработку страницы, а работает дальше. Когда скрипт будет загружен – он выполнится</li>
+</ul>
+<pre><code class="js">
+// первым сработает тот скрипт, который раньше загрузится
+&lt;script src="1.js" async&gt;&lt;/script&gt;
+&lt;script src="2.js" async&gt;&lt;/script&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Атрибут defer</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Сохраняет относительную последовательность скриптов</li>
+	<li>Ждет пока весь HTML-документ будет обработан браузером</li>
+</ul>
+
+<pre><code class="js">
+// первым сработает всегда 1.js, а скрипт 2.js, даже если загрузился раньше, будет его ждать
+&lt;script src="1.js" defer&gt;&lt;/script&gt;
+&lt;script src="2.js" defer&gt;&lt;/script&gt;
+</code></pre>
+
+<pre><code class="js">
+// скрипт async.js выполнится, как только загрузится – возможно, до того, как весь документ готов
+// defer.js подождёт готовности всего документа
+&lt;script src="async.js" async&gt;&lt;/script&gt;
+&lt;script src="defer.js" defer&gt;&lt;/script&gt;
+text text text
+</code></pre>
+
+<h3>Добавление скриптов через JS</h3>
+<ul class="list-point">
+	<li>Скрипты, добавленные через JS ведут себя как async</li>
+</ul>
+
+<pre><code class="js">
+function addScript(src){
+	var script = document.createElement('script');
+	script.src = src;
+	script.async = false; // чтобы гарантировать порядок
+	document.head.appendChild(script);
+}
+
+addScript('1.js'); // загружаться эти скрипты начнут сразу
+addScript('2.js'); // выполнятся, как только загрузятся
+addScript('3.js'); // но, гарантированно, в порядке 1 -> 2 -> 3
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="comparison">Сравнение и логические значения</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Сравнение строк</h3>
+<ul class="list-point">
+	<li>Cравниваются численные коды символов Unicode</li>
+</ul>
+<pre><code class="js">
+alert('Б' > 'А');        // true
+alert('а' > 'Я');        // true, строчные буквы больше прописных
+alert('Банан' > 'Анна'); // true, если первая буква первой строки больше – значит первая строка больше, независимо от остальных символов
+alert('Привет' > 'Прив'); // true, любая буква больше отсутствия буквы
+</code></pre>
+
+<h3>Сравнение разных типов</h3>
+<ul class="list-point">
+	<li>При сравнении значений разных типов, используется числовое преобразование. Оно применяется к обоим значениям</li>
+</ul>
+<pre><code class="js">
+alert('2' > 1);    // true, сравнивается как 2 > 1
+alert( '01' == 1); // true, сравнивается как 1 == 1
+alert(false == 0); // true, false становится числом 0
+alert(true == 1);  // true, так как true становится числом 1.
+</code></pre>
+
+<h3>Сравнение с null и undefined</h3>
+<ul class="list-point">
+	<li>Значения null и undefined равны == друг другу и не равны чему бы то ни было ещё</li>
+	<li>При преобразовании в число null становится 0, а undefined становится NaN</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="attribute">Атрибуты</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var a1 = element.attributes;         // массив атрибутов
+var a2 = element.hasAttribute('id'); // проверить наличие атрибута
+var a3 = element.getAttribute('id'); // получить значение атрибута
+element.setAttribute('id', 'new');   // установить атрибут
+element.removeAttribute('id');       // удалить атрибут
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="document-dict">Определения</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list">
+	<li><span class="list-span-select">document</span> - документ, который загружается в браузер</li>
+	<li><span class="list-span-select">window</span> - окно браузера</li>
+</ul>
+
+<ul class="list">
+	<b>Window</b> - глобальный объект, состоит из
+	<li><span class="list-span-select">1. DOM</span> - объектная модель документа</li>
+	<li><span class="list-span-select">2. BOM</span> - объектная модель браузера</li>
+	<li><span class="list-span-select">3. Глобальные переменные, объекты, функции</span>  и т.д.</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="document-open">Open / Location</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Открытие окна</h3>
+<pre><code class="js">
+var newWin = window.open('', 'Новое окно', 'width=400, height=300');
+newWin.document.write('Вывод информации в новом окне');
+newWin.close(); // закрыть созданное окно
+</code></pre>
+
+<h4>Переход на страницу</h4>
+<pre><code class="js">
+window.open();
+// 1 – какую страницу загружать 
+// 2 – название окна
+// 3 – опции окна
+</code></pre>
+
+<pre><code class="js">
+window.location.href = 'page.html'; // переходим на страницу (на этой же странице)
+window.open('page.html');           // переходим на страницу (в новой вкладке)
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="document-width">Width / Height</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Width / Height</h3>
+<pre><code class="js">
+var a1 = window.innerWidth;                     // ширина окна пользователя
+var a2 = window.innerHeight;                    // высота окна пользователя
+
+var a3 = document.body.clientWidth;             // ширина документа (если body margin:0, совпадает с innerWidth)
+var a4 = document.body.clientHeight;            // высота документа (по контенту body)
+
+var a5 = document.documentElement.clientWidth;  // ширина документа (совпадает с innerWidth)
+var a6 = document.documentElement.clientHeight; // высота документа (совпадает с innerHeight)
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="document-media">Media queries</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Media queries</h3>
+<pre><code class="js">
+var screen = <span class="hc">window.matchMedia</span>('(max-width:500px)');
+if (screen.<span class="hc">matches</span>) {
+	console.log('<500px');
+} else {
+	console.log('>500px');
+}
+</code></pre>
+
+<pre><code class="js">
+var screen = window.matchMedia('(max-width:500px)');
+screen.addListener(changes);
+changes(screen);
+
+function changes(screen) {
+	if (screen.matches) {
+		console.log('<500px');
+	} else {
+		console.log('>500px');
+	}
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dom-element">DOM элементы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><span class="list-span-select">Document Object Model (DOM) </span> - объектная модель представления документа. Независящий от платформы и языка программирования способ представления документа, позволяющий программам и скриптам получить доступ к содержимому HTML, XHTML и XML документов, а также изменять содержимое, структуру и оформление таких документов</li>
+	<li><span class="list-span-select">DOM</span> - представление документа в виде дерева тегов, доступное для изменения через JS</li>
+	<li>Всё содержимое документа представлено в виде иерархии объектов</li>
+	<li>Структура этой иерархии стандартизирована, чтобы обеспечить независимость от платформы</li>
+</ul>
+
+<ul class="list-point">
+	<b>Узлы (nodes)</b>
+	<li><span class="list-span-select">Тип "element"</span> - каждый HTML тег создает узел (node) дерева</li>
+	<li><span class="list-span-select">Тип "element" дочерние узлы</span> - вложенные в него элементы</li>
+	<li><span class="list-span-select">Тип "text"</span> - для представления текста</li>
+</ul>
+
+<pre><code class="js">
+var a = element.<span class="hc">tagName</span>;  // название тега (если текстовый узел будет undefined)
+var a = element.<span class="hc">nodeName</span>; // название узла (узел элемента или тексовый узел)
+var a = element.<span class="hc">nodeType</span>; // тип узла (узел элемента 1 или текстовый узел 3)
+</code></pre>
+
+<pre><code class="js">
+<em>createElement();</em>    // создать узел элемента
+<em>createTextNode();</em>   // создать текстовый узел 
+<em>appendChild();</em>      // добавить элемент перед
+<em>insertBefore();</em>     // добавить элемент после
+<em>removeChild();</em>      // удалить элемент
+</code></pre>
+
+<h4>Создание</h4>
+<pre><code class="js">
+var element = document.<span class="hc">createElement</span>('div');
+element.innerHTML = 'Go to google';
+element.className = 'class-google';
+</code></pre>
+
+<h4>Добавление на страницу</h4>
+<pre><code class="js">
+var wrapper = document.querySelector('#wrapper');
+
+wrapper.<span class="hc">appendChild</span>(element);                      // внутри элемента после контента
+wrapper.<span class="hc">insertBefore</span>(element, wrapper.lastChild);  // внутри элемента перед контентом
+wrapper.parentNode.<span class="hc">insertBefore</span>(element, wrapper); // после элемента
+wrapper.parentNode.<span class="hc">appendChild</span>(element);           // до элемента
+wrapper.parentNode.<span class="hc">replaceChild</span>(element, wrapper); // заменить элемент другим элементом
+
+// insertBefore (1 - элемент который вставляем, 2 - элемент перед которым вставляем)
+// insertBefore (1 - чем заменяем, 2 - что заменяем)
+</code></pre>
+
+<h4>Удаление</h4>
+<pre><code class="js">
+wrapper.parentNode.<span class="hc">removeChild</span>(element); // удаление нового элемента
+wrapper.parentNode.<span class="hc">removeChild</span>(wrapper); // удаление элемента обертки
+document.body.<span class="hc">removeChild</span>(element);      // удаление нового элемента (если родитель body)
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="css">CSS</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+element.style.fontSize = '20px';          // css
+</code></pre>
+
+<pre><code class="js">
+element.classList;                        // массив классов элемента
+element.classList.add('active');          // добавление класса
+element.classList.remove('active');       // удаление класса
+element.classList.toggle('active');       // добавление / удаление класса
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="bom">BOM - объектная модель браузера</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>1. window.document</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var a = window.document; // html документ
+document.write("Текст"); // вывод на экран
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>2. Navigator - информация о браузере и ОС</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var a = navigator.userAgent;     // название браузера
+var a = navigator.platform;      // ОС
+var a = navigator.language;      // язык браузера
+var a = navigator.oscpu;         // название операционной системы
+var a = navigator.cookieEnabled; // включены ли куки
+var a = navigator.onLine;        // подключен ли пользователь к Интернету
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>3. Screen - данные о экране пользователя</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var a = screen.width;       // ширина экрана
+var a = screen.height;      // высота экрана
+var a = screen.availWidth;  // доступная ширина (на сколько можно раскрыть браузер не в полноэкранном режиме)
+var a = screen.availHeight; // доступная высота
+var a = screen.colorDepth;  // глубина цвета
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>4. Location - информация о URL, возможность перезагрузить страницу</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+location.reload();           // перезагрузка страницы
+var a = location.href;       // адрес загруженной страницы
+var a = location.toString(); // URL
+</code></pre>
+
+<h4>Ковертация URL</h4>
+<pre><code class="js">
+var encoded = encodeURI('http://google.com/на-русском');
+var decoded = decodeURI(encoded);
+
+console.log(encoded); // http://google.com/%D0%BD%D0%B0-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%BE%D0%BC
+console.log(decoded); // http://google.com/на-русском
+</code></pre>
+
+<h4>Текущий адрес страницы без .html и символа "/" в начале</h4>
+<pre><code class="js">
+var currentUrl;        
+// определяем строку пути относительно хоста страницы в формате "/page.html"       
+currentUrl = location.pathname; 
+// обрезаем символ "/" в начале и символы ".html" в конце
+currentUrl = currentUrl.slice(1,currentUrl.length-5); 
+</code></pre>
+
+<h4>Поиск совпадений</h4>
+<pre><code class="js">
+// -1 - нет совпадений
+var page = location.href.indexOf('/page/');
+var page = location.pathname.indexOf('/page/');
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>5. History - вперед/назад по истории, позвляет без перезагрузки изменить страницу браузера</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+window.history.back();         // эквивалент клика по кнопке назад
+window.history.forward();      // эквивалент клика по кнопке вперед
+window.history.go(-1);         // эквивалент history.back();
+window.history.go(1);          // эквивалент history.forward();
+var a = window.history.length; // количество страниц в стеке истории
+</code></pre>
+
+<pre><code class="js">
+if (history && history.pushState) {
+    // проверка поддержки history
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>6. Frames - содержит коллекцию всех дочерних объектов фреймов на странице</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var a = frames;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>7. Вывод сообщения пользователю</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+alert("Привет Мир");                      // модальное окно
+var age = prompt('Сколько Вам лет?', ''); // модальное окно с вопросом и полем ввода
+var answer = confirm('Вы согласны?');     // модальное окно да/нет (вернет bool значение)
+</code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="form">Form</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>input type="text"</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var a = element.<span class="hc">value</span>;
+element.<span class="hc">value</span> = 'new value';
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>input type="checkbox"</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var a = element.<span class="hc">checked</span>; 
+element.<span class="hc">checked</span> = true;
+</code></pre>
+
+<pre><code class="html">
+&lt;input type="checkbox" onchange="func();"&gt; 
+&lt;!-- onchange - изменение состояния --&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>input type="radio"</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var radio = document.querySelectorAll('input[type="radio"]');
+for(var i=0; i<=radio.length-1; i++) {
+	if(radio[i].<span class="hc">checked</span>) {
+		var value = radio[i].getAttribute('value');
+		console.log(value);
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+radio.<span class="hc">disabled</span> = true;         
+</code></pre>	
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="cookie">Cookie</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// удаляются при закрытии браузера
+document.cookie = 'info=123';  // установить cookie
+var a = document.cookie;       // прочитать cookie
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="methods-this">this, bind(), call(), apply()</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>this</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>У каждого вызова функции есть свой «контекст выполнения» <span class="list-span-select">execution context</span> и он всегда разный в зависимости от того как функция была вызвана</li>
+	<li><span class="list-span-select">Контекст выполнения</span> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор</li>
+	<li><span class="list-span-select">Контекст вызова функции</span> - тот объект который ее вызывает</li>
+	<li><span class="list-span-select">this</span> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие)</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>bind(), call(), apply()</h3>
+<!------------------------------------------------------>
+<ul class="list">
+	<li><span class="list-span-select">call()</span> - явное указание контекст вызова</li>
+	<li><span class="list-span-select">apply()</span> - аналогичен call(), только аргументы передаются массивом вторым аргументом</li>
+	<li><span class="list-span-select">bind()</span> - не вызывает функцию, а связывает с объектом. не изменяет исходную функцию, а возвращает новую</li>
+</ul>
+
+<pre><code class="js">
+var greet = function(greeting) {
+	return greeting + ' User '+this.name;
+}
+var person = {
+	name: 'Brad',
+	greet: greet
+}
+var anotherPerson = {
+	name: 'Tony',
+	greet: greet
+}
+</code></pre>
+
+<pre><code class="js">
+var a = anotherPerson.greet.<span class="hc">call</span>(person, 'Hello');    // this указывает на person
+var a = anotherPerson.greet.<span class="hc">apply</span>(person, ['Hello']); // this указывает на person
+var b = greet.<span class="hc">bind</span>(person);                           // this указывает на person
+var a = b('Hello');
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="method-chaining">Method Chaining (Цепные вызовы методов)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var str1 = 'Hello';
+var str2 = str1
+    .replace('a', 'b')
+    .concat(' add')
+    .toUpperCase();
+</code></pre>
+	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="json">JSON</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list">
+	<li><span class="list-span-select">JSON</span> - JavaScript Object Notation</li>
+	<li><span class="list-span-select">Сериализация объектов</span> - преобразование объектов в строки</li>
+	<li><span class="list-span-select">В JSON можно хранить</span> - объекты, массивы, строки, числа true, false, null. Другие значения при сериализации превращаются в null</li>
+</ul>
+
+<pre><code class="js">
+var user = {
+    name: 'Tony',
+    id: 25
+}
+var userData = <span class="hc">JSON.stringify</span>(user); // объект в JSON ("{"name":"Tony","id":25}")
+var userObj = <span class="hc">JSON.parse</span>(userData);  // JSON в строку
+</code></pre>
+	
+<pre><code class="js">
+// если в объекте есть метод toJSON при преобразовани stringify данные будут браться из него
+var user = {
+    name: 'Tony',
+    id: 25,
+    toJSON() {
+        return {
+            name: this.name
+        }
+    }
+}
+var userData = JSON.stringify(user); // объект в JSON ("{"name":"Tony"}")
+</code></pre>
+	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="strict-mode">Strict Mode</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p>Может быть прописано в начале файла или в начале функции</p>
+<pre><code class="js">
+'use strict';
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="local-storage">Local Storage</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p>Google Chrome -> F12 -> Application -> Local Storage</p>
+<p>localStorage это свойство глобального объекта браузера (window)</p>
+<pre><code class="js">
+localStorage.<span class="hc">setItem</span>('id', '77');   // добавляет в localStorage новый ключ со значением (а если такой ключ уже существует, то перезаписывает новым значением)
+var a = localStorage.<span class="hc">getItem</span>('id'); // получить значение
+localStorage.<span class="hc">removeItem</span>('id');      // удаление ключа
+localStorage.<span class="hc">clear</span>();               // очистка всего хранилища
+</code></pre>
+
+<pre><code class="js">
+localStorage["Ключ"] = "Значение"; // установка значения
+var a = localStorage["Ключ"];      // получение значения
+delete localStorage["Ключ"];       // удаление значения
+</code></pre>
+
+<h4>Объекты</h4>
+<pre><code class="js">
+var obj = {
+	item1: 1,
+	item2: [123, "two", 3.0],
+	item3: "hello"
+};
+
+var serialObj = JSON.stringify(obj);                       // сериализация объекта
+localStorage.setItem("myKey", serialObj);                  // запись в хранилище по ключу "myKey"
+var returnObj = JSON.parse(localStorage.getItem("myKey")); // из json в объект
+</code></pre>
+
+<h4>Проверка QUOTA_EXCEEDED_ERR</h4>
+<pre><code class="js">
+// браузеры выделяют 5MB под localStorage
+// при привышении исключение QUOTA_EXCEEDED_ERR
+try {
+	localStorage.setItem('ключ', 'значение');
+} catch(e) {
+	if (e == QUOTA_EXCEEDED_ERR) {
+		console.log('Превышен лимит');
+	}
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="regexr">Регулярные выражения</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+<a href="https://regexr.com/" target="_blank">https://regexr.com/</a>
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Expression Flags</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<em>//g</em>          - global (все совпадения)
+<em>//i</em>          - case insensitive (регистронезависимый поиск)
+<em>//m</em>          - multiline
+<em>//u</em>          - unicode
+<em>//y</em>          - sticky
+</code></pre>
+
+<pre><code class="html">
+<em>[]</em>           - класс символов
+<em>/[a-zA-Z]/g</em>  - глобальный поиск
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Expressions</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<em>a-zA-Z</em>               - строчные и заглавне буквы
+<em>0-9</em>                  - символы от 0-9
+<em>^0-9</em>                 - символы кроме чисел от 0-9 
+<em>\d</em>                   - символы от 0-9
+<em>\D</em>                   - символы кроме чисел от 0-9
+<em>\w</em>                   - символы, являющиеся буквами или цифрами
+<em>\W</em>                   - символы, не являющиеся буквами или цифрами
+<em>\s</em>                   - пустые символы (пробелы, табуляция, перенос строк)
+<em>\S</em>                   - все не пустые символы
+<em>\bar\b</em>               - граница слова. только слово "bar"
+<em>\bar\B</em>               - не должно быть границы слова. только символы "bar" в слове
+<em>grey|gray</em>            - или
+<em>.</em>                    - любой символ кроме переноса строк
+<em>\.</em>                   - точка (экранированно /)
+<em>a.{5}z</em>               - между буквами "a" и "z" 5 любых символов
+<em>a.{2,5}z</em>             - между буквами "a" и "z" от 2-5 любых символов
+<em>a.{2,}z</em>              - между буквами "a" и "z" от 2 и более любых символов
+<em>a.+z</em>                 - между буквами "a" и "z" от 1 и более любых символов
+<em>a.*z</em>                 - между буквами "a" и "z" от 0 и более любых символов
+<em>^edit</em>                - начало строки (установить multiline)
+<em>\.$</em>                  - конец строки (установить multiline)
+<em>and(?= hi)</em>           - слова "and" после которых есть пробел и слово "hi"
+<em>and(?! hi)</em>           - слова "and" после которых нет пробела и слова "hi"
+<em>(\b\w+)@(\w+\.\w+\b)</em> - запоминающая группа. поиск email
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Класс RegExp</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var pattern = new RegExp('\w+', 'g'); // конструктор
+var pattern = /\w+/g;                 // литерал
+</code></pre>
+
+<h4>Свойства, доступные для чтение</h4>
+<pre><code class="js">
+pattern.global;
+pattern.ignoreCase;
+pattern.mutiline;
+pattern.lastIndex; // индекс последнего результата
+</code></pre>
+
+<h4>test() - проверка соответствия строки регулярному выражению (true/false)</h4>
+<pre><code class="js">
+var text = "О дивный новый мир";
+var pattern = /новый/;
+var result = pattern.test(text); 
+</code></pre>
+
+<h4>exec() - аналогичен match()</h4>
+<pre><code class="js">
+// если не установлен флаг global, результат аналогичен методу match
+// если установлен флаг global, получаем 1 первый match
+var text = "О дивный новый мир";
+var pattern = /новый/g;
+var result = pattern.exec(text); 
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Строки</h3>
+<!------------------------------------------------------>
+
+<h4>search() - возвращает позицию первого элемента</h4>
+<pre><code class="js">
+// игнорирует флаг global
+var text = "О дивный новый мир";
+var pattern = /мы/;
+var result = text.search(pattern); // 9
+</code></pre>
+
+<h4>match() - возвращает само совпадение</h4>
+<pre><code class="js">
+// не игнорирует флаг global
+var text = "О дивный новый мир";
+var pattern = /новый/;
+var result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
+</code></pre>
+
+<h4>split() - преобразование строки с заданным разделителем в массив </h4>
+<pre><code class="js">
+var pattern = /[\s,]+/;
+var result = text.split(pattern); // разделитель пробел
+</code></pre>
+
+<h4>replace() - ищет совпадение и заменяет</h4>
+<pre><code class="js">
+var text = 'привет мир';
+var pattern = /привет/;
+
+text = text.replace(pattern, function(match) {
+    return match.toUpperCase();
+});
+</code></pre>
+
+<pre><code class="js">
+str = str.replace(/'/g, '"');         // поменять одинарные кавычки на двойные
+str = str.replace(/«/g, '"');         // поменять « 
+str = str.replace(/»/g, '"');         // поменять »
+str = str.replace(/–/g, '-');         // поменять "–"
+str = str.replace(/\r|\n/g, '');      // убрать перенос строки
+str = str.replace(/<\/?[^>]+>/g, ''); // удалить html теги из текста
+</code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="collback">Collback Function (функции обратного вызова)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+fade(this, 1000, function() {
+	this.style.display = 'none';
+})
+function fade(element, time, callbackFunction) {
+	// если callback не задан, создаем пустую функцию
+	var callback = callbackFunction || function() {};
+	// вызываем callback когда необходимо
+	callback.call(element); // передать новый контекст this
+}
+</code></pre>
+
+<pre><code class="js">
+var greeting = function(callback) {
+	var name = 'Tony';
+	return callback(name);
+}
+var a = greeting(function(name) {
+	return 'Hello ' + name;
+});
+</code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="iterators">Итераторы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li><span class="list-span-select">Итерируемый, перебираемый объект (Iterable)</span> - объект содержание которого можно перебрать по одному элементу. Пример: массив, строка, коллекция dom-элементов</li>
+	<li><span class="list-span-select">Итератор</span> - паттерн проектирования, согласно которому источник элементов прячется от клиента. Клиенту достается специальный объект с помощью которого он может получить элементы по одному. Клиенту не нужно беспокоиться о том как итерировать объект, при этом внутри самого объекта автор может использовать любую структуру для хранения элементов и любой алгоритм для их перебор. Клиент не получает саму структуру и автору не нужно беспокоиться что клиент может ее изменить</li>
+	<li><span class="list-span-select">Объект является итератором</span>, если он умеет обращаться к элементам коллекции по одному за раз, при этом отслеживая свое текущее положение внутри этой последовательности</li>
+	<li><span class="list-span-select">Конструкция for..of</span> в начале своего выполнения автоматически вызывает Symbol.iterator(), получает итератор и далее вызывает метод next() до получения done: true. Такова внутренняя механика. Внешний код при переборе через for..of видит только значения</li>
+	<li><span class="list-span-select">Интераторы</span> используются для реализации генераторов</li>
+</ul>
+
+<ul class="list-point">
+	<b>Плюсы</b>
+	<li>Разные языковые конструкции работают с разными структурами данных по одному принципу в не зависимости от их внутренней реализации</li>
+	<li>Можно написать собственную структуру данных, реализовать интерфейс iterable и работать с ней с помощью конструкций for...of, spread-операторов, Array.from и т.д.</li>
+</ul>
+
+<h4>Перебор через for...of</h4>
+<pre><code class="js">
+var arr = ['js', 'python', 'ruby'];
+for(var item of arr) {
+    console.log(item);
+}
+</code></pre>
+
+<h4>Перебор через встроенный итератор</h4>
+<pre><code class="js">
+var arr = ['js', 'python', 'ruby'];
+var iterator = arr[<span class="hc">Symbol.iterator</span>]();
+console.log(iterator.<span class="hc">next()</span>); // {value: "js", done: false}
+console.log(iterator.<span class="hc">next()</span>); // {value: "python", done: false}
+console.log(iterator.<span class="hc">next()</span>); // {value: "ruby", done: false}
+console.log(iterator.<span class="hc">next()</span>); // {value: undefined, done: true}
+</code></pre>
+
+<h4>Перебор через встроенный итератор в цикле</h4>
+<pre><code class="js">
+var arr = ['js', 'python', 'ruby'];
+var iterator = arr[Symbol.iterator]();
+var next = iterator.next();
+// по похожему алгоритму работает for...of
+while (!next.done) {
+    console.log(next.value);
+    next = iterator.next();
+}
+</code></pre>
+
+<h4>Создание итератора</h4>
+<pre><code class="js">
+// итерируемый объект
+// числа от 1 до 100
+let idGenerator = {
+    [Symbol.iterator]() {
+        let id = 1;
+        return {
+            next() {
+                let value = id++;
+                let done = false;
+                return {value, done};
+            }
+        };
+    }
+};
+// используя цикл
+// for(let id of idGenerator) {
+//     console.log(id);
+//     if (id > 100) {
+//         break;
+//     }
+// }
+// доступ к итератору
+let num = idGenerator[Symbol.iterator]();
+console.log(num.next().value);
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="promise">Promise (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list">
+	<li><span class="list-span-select">callback function</span> - функция обратного вызова button.onclick = function() {}</li>
+</ul>
+
+<ul class="list">
+	<li><span class="list-span-select">Promise Pending</span> - обещение выполняется</li>
+	<li><span class="list-span-select">Promise Resolved</span> - обещание сдержано</li>
+	<li><span class="list-span-select">Promise Rejected</span> - обещение не сдержано</li>
+</ul>
+
+<pre><code class="js">
+var promise = functionAsync();
+promise.then(resolve, reject);
+// resolve - функция, которая сработает если обещание выполняется
+// reject  - функция, которая сработает если обещание не будет выполнена
+</code></pre>
+
+<pre><code class="js">
+functionAsync()
+	.then(resolve, reject);
+</code></pre>
+
+<pre><code class="js">
+functionAsync()
+	.then(functionSuccess1)
+	.then(functionSuccess1)
+	.catch(functionError);
+</code></pre>
+
+<h3>Пример #1</h3>
+<pre><code class="js">
+function applyForVisa(document) {
+	console.log('Обработка заявления...');
+	let promise = new Promise(function(resolve, reject) {
+		setTimeout(function() {
+			Math.random() > 0 ? resolve({}) : reject('В визе отказано');
+		}, 2000);
+	});
+	return promise;
+}
+function getVisa(visa) {
+	console.info('Виза получена');
+	return new Promise(function(resolve, reject) {
+		setTimeout(() => resolve(visa), 2000);
+	});
+}
+function bookHotel(visa) {
+	console.log(visa);
+	console.log('Бронируем отель');
+	return Promise.resolve(visa);
+	// return Promise.reject('Нет мест');
+}
+function buyTickets(booking) {
+	console.log('Покупаем билеты');
+	console.log('Бронь', booking);
+}
+applyForVisa({})
+	.then(getVisa)
+	.then(bookHotel)
+	.then(buyTickets)
+	.catch(error => console.error(error))
+	.then(() => console.log('Выведется в любом случае'));
+</code></pre>
+
+<h3>Пример #2. Несколько Promise</h3>
+<pre><code class="js">
+function go(num) {
+	return new Promise(function(resolve, reject) {
+		setTimeout(() => resolve(num), 1000);
+	})
+}
+
+let p1 = go(1);
+let p2 = go(2);
+let p3 = go(3);
+
+// выполняет все обещания даже если ошибка в первом
+// но закончится всё равно ошибкой
+Promise.all([p1, p2, p3])
+	.then(value => console.log(value));
+
+// получить результат от первого
+Promise.race([p1, p2, p3])
+	.then(value => console.log(value));
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="generators">Generators (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Generators альтернатива Promise</li>
+	<li>Generators - функции, которые могут останавливать свое выполнение, возвращать промежуточный результат и далее возобновлять выполнение позже в произвольный мемент времени</li>
+</ul>
+
+<h4>Объявление генератора</h4>
+<pre><code class="js">
+function* genetare()  {} 
+function * genetare() {} 
+function *genetare()  {} 
+
+// анонимная функция
+var generator = function*() {}
+
+// метод у объекта
+var obj = {
+    *generator(start, end) {}
+}
+
+// метод у класса
+class SomeClass {
+    *generator(start, end) {}
+}
+</code></pre>
+
+<ul class="list-point">
+	<li>При вызове Генератора возвращается объект Итератор, позволяющий приостанавливать и возобновлять процесс выполнения функции</li>
+	<li><span class="list-span-select">yield</span> - позволяет поставить выполнение функции на паузу и возобновить в произвольный момент</li>
+	<li><span class="list-span-select">yield</span> - производит и отдает информацию - объек со свойствами value и done,
+но при этом также отдаем контроль за функцией</li>
+	<li><span class="list-span-select">yield 1</span> - возвращает промежуточный результат (value: 1)</li>
+</ul>
+
+<h4>Использование с Fetch</h4>
+<pre><code class="js">
+function getApi() {
+	let response = yield fetch('url');
+	let data = yield response.json();
+	return data;
+}
+</code></pre>
+
+<h4>Пример #1. Передать значение</h4>
+<pre><code class="js">
+function* generate() {
+    console.log('Start');
+    yield 1;
+    console.log('Finish');
+}
+var iterator = generate();
+console.log(iterator.next()); // Object { value: undefined, done: false } Start
+console.log(iterator.next()); // Object { value: undefined, done: true  } Finish
+console.log(iterator.next()); // Object { value: undefined, done: true  }        
+</pre></code>
+
+<h4>Пример #2. Получить значение</h4>
+<pre><code class="js">
+function* generator() {
+    var result = yield;
+    console.log(result); // 1
+}
+var iterator = generator();
+console.log(iterator.next());  // первый вызов запускает генератора, нельзя передать значение
+console.log(iterator.next(1)); // передаваемое значение
+
+iterator.return(); // остановить генератор
+iterator.throw();  // остановить с ошибкой
+</pre></code>
+
+<h4>Пример #3. Генаратор</h4>
+<pre><code class="js">
+function* range(start, end) {
+    let current = start;
+    while (current <= end) {
+        yield current++;
+    }
+}
+for (let num of range(1, 10)) {
+    console.log(num);
+}
+</pre></code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="async-func">Async Function (ES2017)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Async Function - асинхронная функция (Promise + Generator)</li>
+	<li>Асинхронная функция возвращает обещение, для получения значения используется then</li>
+	<li>Если в асинхронной функции специально вернуть обещение, оно не оборачивается в другое обещание</li>
+</ul>
+
+<pre><code class="js">
+async function getUser(id) {
+    return { id:1 };   
+}
+getUser(1).then(user => console.log(user));
+</code></pre>
+
+<ul class="list-point">
+	<li>await дожидается выполнения обещания, вытаскивает значение и возвращает его</li>
+	<li>код после await выполнится только после выполнения функции</li>
+	<li>await можно использовать только внутри асинхронной функции</li>
+	<li>await необязательно ставить перед вызовом асинхронной фунцкии. это может быть любая функция, возвращающая обещание</li>
+</ul>
+<pre><code class="js">
+async function getUser(id) {
+    return { id:1 };   
+}
+async function main() {
+    let user = await getUser(1);
+    console.log(user);
+}
+main();
+</code></pre>
+
+<pre><code class="js">
+async function getUser(id) {
+    let response = await fetch('url');
+    let data = await response.json();
+    return data;
+}
+
+async function main() {
+    try {
+        let user = await getUser(1);
+        console.log(user);
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+main();
+</code></pre>
+
+<h4>Варианты объявления</h4>
+<pre><code class="js">
+const getUser = async function(id) {}
+const getUser = async (id) => {}
+const dataService = {
+	getUser: async function(id) {}  // свойство
+	async getUserProp(id) {}        // метод
+}
+</code></pre>
+
+<pre><code class="js">
+(async function() {
+	//
+})();
+
+(async () => {
+	//
+})();
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="set">Set (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Set (ES6) - множество</li>
+	<li>Структура данных в которой хранятся уникальные значения</li>
+	<li>Нет литеральной формы, создается с помощью конструктора</li>
+	<li>Варианты использования: хранение css классов dom элементов</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Объявление</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+const set = new Set(); // Set(0) {}
+</code></pre>
+
+<pre><code class="js">
+// для указания начального значения в конструкторе указывается перебираемый объект
+const set = new Set(['button', 'active', 'small']); // Set(3) {"button", "active", "small"}
+</code></pre>
+
+<pre><code class="js">
+// буква "t" хранится 1 раз, т.к. в set только уникальные значения
+const set = new Set('button'); // Set(5) {"b", "u", "t", "o", "n"}
+</code></pre>
+
+<pre><code class="js">
+// set из 1 элемента
+const set = new Set(['button']); // Set(1) {"button"}
+</code></pre>
+
+<pre><code class="js">
+// клонирование set
+const set1 = new Set(['button']); // Set(1) {"button"}
+const set2 = new Set(set1);       // Set(1) {"button"}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Добавление нового элемента</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+const set = new Set();
+set.add('button');
+set.add('active');
+set.add('active');
+// Set(2) {"button", "active"}
+
+const set = new Set();
+set
+    .add('button')
+    .add('active')
+    .add('active');
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Методы</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var a = set.size;          // кол-во элементо в set
+var a = set.has('button'); // проверка наличия значения
+set.delete('active');      // удаление элемента 
+set.clear();               // очистка set
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Set и Объекты</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+const set = new Set();
+set.add({className: 'button'}); 
+var a = set.has({className: 'button'}); // false
+// в метод add отправляется ссылка на один объект
+// в метод has отправляется ссылка на другой объект
+
+const set = new Set();
+const buttonRef = {className: 'button'};
+set.add(buttonRef); 
+var a = set.has(buttonRef); // true
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>values, keys, entries</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+// нет метода для получения доступа к конкретному элементу
+// нет понятия как индекс, поэтому keys возвращает values
+console.log(...set);           // button active
+console.log([...set]);         // (2) ["button", "active"]
+console.log(Array.from(set));  // (2) ["button", "active"]
+
+console.log(set.values());     // SetIterator {"button", "active"}
+console.log(...set.values());  // button active
+console.log(...set.keys());    // button active
+console.log(...set.entries()); // (2) ["button", "button"] (2) ["active", "active"]
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Перебор set</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+// перебор set
+for (let item of set) {
+    console.log(item);
+}
+// button
+// active
+</code></pre>
+
+<pre><code class="js">
+set.forEach((item, item2, set) => console.log(item, item2, set));
+// button button Set(2) {"button", "active"}
+// active active Set(2) {"button", "active"}
+</code></pre>
+
+
+
+
+
+
+</div>
+</div>
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="module/scroll_up/scrollUp.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+	<script src="module/scroll_up/script.js"></script>
+</body>
+</html>

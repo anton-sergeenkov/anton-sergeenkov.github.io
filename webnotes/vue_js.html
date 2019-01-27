@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="preloader"></div>
+<div class="menu-theme-wrapper">
+	<div class="menu-theme">
+		<a href="#menu">Starter</a>
+		<a href="#create-obj">Создание объекта</a>	
+
+		<div class="theme">Директивы</div>
+		<a href="#dir-text"><span class="hm">v-text</span> <span class="hm">v-html</span></a>
+		<a href="#dir-if"><span class="hm">v-show</span> <span class="hm">v-if</span> <span class="hm">v-else</span> <span class="hm">v-else-if</span></a>
+		<a href="#dir-for"><span class="hm">v-for</span></a>
+		<a href="#dir-on"><span class="hm">v-on:</span></a>
+		<a href="#dir-bind"><span class="hm">v-bind:</span></a>
+		<a href="#dir-model"><span class="hm">v-model</span></a>
+		<a href="#dir-pre"><span class="hm">v-pre</span></a>
+		<a href="#dir-cloak"><span class="hm">v-cloak</span></a>
+		<a href="#dir-once"><span class="hm">v-once</span></a>
+
+		<div class="theme">Прочее</div>
+		<a href="#css">CSS</a>
+		<a href="#computed">Computed Properties</a>
+		<a href="#filter">Фильтры</a>
+		<a href="#component">Компоненты</a>
+		<a href="#animation">Анимация</a>
+
+		<div class="theme">Vue Router</div>
+		<a href="#router">Vue Router</a>
+
+		<div class="theme">Vue CLI</div>
+		<a href="#cli">Vue CLI</a>
+	</div>
+</div>
+<div id="content">
+<div id="menu"></div>
+<div id="container">
+
+<h1>Vue.js</h1>
+<pre>
+<code class="html">
+<a href="https://ru.vuejs.org/v2/guide/" target="_blank"><em>Vue.js</em></a>       - фреймворк
+<a href="https://router.vuejs.org/ru/" target="_blank"><em>Vue Router</em></a>   - маршрутизация
+<a href="https://vuex.vuejs.org/ru/guide/" target="_blank"><em>Vuex</em></a>         - паттерн управления состоянием
+<a href="https://cli.vuejs.org/ru/guide/" target="_blank"><em>Vue CLI 3</em></a>    - система сборки
+<a href="https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html" target="_blank"><em>Axios</em></a>        - доступ к API
+</code>
+</pre>
+
+<h3>Доступ к API</h3>
+<pre>
+<code>
+- Vue Resource (до версии 2)
+- Axios
+- Fetch API (нативный)
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="create-obj">Создание объекта</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="js">
+var app = new Vue({
+	el: '#app',
+	data: {
+		messText: 'Hello',
+		messHTML: '&lt;h1&gt;Hello&lt;/h1&gt;',
+		view: false,
+		nameClass: 'testClass'
+	}
+})
+app.messText = 'New Text'; // переопределение свойства
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dir-text">v-text, v-html</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="html">
+&lt;p&gt;{{ messText }}&lt;/p&gt;      - интерполяция, текстовое содержимое
+&lt;p <span class="code-bg">v-text</span>="messText"&gt;&lt;/p&gt;  - текстовое содержимое
+&lt;p <span class="code-bg">v-html</span>="messHTML"&gt;&lt;/p&gt;  - html содержимое
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dir-if">v-show, v-if, v-else, v-else-if</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+&lt;p <span class="code-bg">v-show</span>="view"&gt;text&lt;/p&gt;  - устанавливается display: none/block
+&lt;p <span class="code-bg">v-if</span>="view"&gt;text&lt;/p&gt;    - условие if. удаляется/добавляется в DOM дерево
+&lt;p <span class="code-bg">v-else</span>&gt;text&lt;/p&gt;         - условие else при невыполнении if
+</code></pre>
+
+<h3>v-else-if</h3>
+<pre><code class="html">
+&lt;div v-if="type === 'A'"&gt;A&lt;/div&gt;
+&lt;div v-else-if="type === 'B'"&gt;B&lt;/div&gt;
+&lt;div v-else-if="type === 'C'"&gt;C&lt;/div&gt;
+&lt;div v-else&gt;Не A/B/C&lt;/div&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dir-for">v-for</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Списки (массивы) и циклы</h3>
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;!-- без индексов --&gt;
+	&lt;ul&gt;
+		&lt;li v-for="car in cars"&gt;{{ car.model }}, {{ car.speed }}&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;!-- с индексами --&gt;
+	&lt;ul&gt;
+		&lt;li v-for="(car, i) in cars"&gt;{{i}}, {{ car.model }}, {{ car.speed }}&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+var app = new Vue({
+	el: '#app', 
+	data: {
+		show: false,
+		cars: [
+			{model: 'Bmw',    speed: 250},
+			{model: 'Audi',   speed: 350},
+			{model: 'Nissan', speed: 270},
+			{model: 'Ford',   speed: 150}
+		]
+	}
+});
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dir-on">v-on:</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="js">
+var app = new Vue({
+	el: '#app',
+	data: {
+		count: 0,
+	},
+	methods: {
+		countUp() {
+			this.count += 1
+		}
+	}
+})
+</code>
+</pre>
+<h3>Обработчики событий</h3>
+<pre>
+<code class="html">
+&lt;button <span class="code-bg">v-on:click</span>="countUp"&gt;{{count}}&lt;/button&gt; - полная запись
+&lt;button <span class="code-bg">@click</span>="countUp"&gt;{{count}}&lt;/button&gt;     - сокращенная запись
+</code>
+</pre>
+
+<h3>Отмена обычного поведения</h3>
+<pre>
+<code class="html">
+&lt;button <span class="code-bg">@click</span>="submit1"&gt;&lt;/button&gt;
+&lt;button <span class="code-bg">@click.prevent</span>="submit2"&gt;&lt;/button&gt;
+</code>
+<code class="js">
+var app = new Vue({
+	el: '#app',
+	methods: {
+		submit1(e) {
+			e.preventDefault()
+			console.log('Отмена обычного поведения');
+		}
+		submit2() {
+			console.log('Отмена обычного поведения');
+		}
+	}
+})
+</code>
+</pre>
+
+<h3>Обработка нажатия клавиш</h3>
+При нажатии enter (keyup.13/keyup.enter) вызывается getMessage()
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;input type="text" v-model="message" @keyup.13="getMessage"&gt;
+	&lt;input type="text" v-model="message" @keyup.enter="getMessage"&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+var app = new Vue({
+	el: '#app',
+	data: {
+		message: ''
+	},
+	methods: {
+		getMessage(){
+			console.log(this.message)
+		}
+	}
+})
+</code>
+</pre>
+
+<pre>
+<code>
+<a href="https://vuejs.org/v2/guide/events.html#Key-Modifiers" target="_blank">Список псевдонимов клавиш в Vue</a>
+<a href="https://css-tricks.com/snippets/javascript/javascript-keycodes/#article-header-id-1" target="_blank">Таблица с кодами клавшим</a>
+</code>
+</pre>
+
+<h3>Создание событий. Глобальный метод $emit()</h3>
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;ul&gt;
+		&lt;li v-for="message in messages"&gt;{{ message }}&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;message @message-saved="handleMessage"&gt;&lt;/message&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+Vue.component('message', {
+	template: '&lt;input type="text" v-model="message" @keyup.enter="saveMessage"&gt;',
+	data: function() {
+		return {
+			message: ''
+		}
+	},
+	methods: {
+		saveMessage() {
+			this.$emit('message-saved', this.message); // передача события родителю
+			this.message = '';
+		}
+	}
+})
+
+var app = new Vue({
+	el: '#app',
+	data: {
+		messages: []
+	}
+	methods: {
+		handleMessage(message){
+			this.messages.push(message)
+		}
+	}
+})
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dir-bind">v-bind:</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Связывание атрибутов элементов</h3>
+<blockquote>
+	Директива связывает входной атрибут тега или входной параметр компонента с выражением<br>
+	Значение атрибута берется из переменной
+</blockquote>
+
+<pre>
+<code class="html">
+&lt;a <span class="code-bg">v-bind:href</span>="url"&gt;{{ cleanUrl }}&lt;/a&gt; - полная запись
+&lt;p <span class="code-bg">v-bind:class</span>="nameClass"&gt;&lt;/p&gt;        - полная запись
+&lt;p <span class="code-bg">:class</span>="nameClass"&gt;&lt;/p&gt;              - сокращенная запись
+</code>
+<code>
+&lt;p <span class="code-bg">:class</span>="{ 'strike':true }"&gt;&lt;/p&gt;  - Явно указано название класса и присвоено true (отобразится)
+&lt;p <span class="code-bg">:class</span>="{ 'strike':false }"&gt;&lt;/p&gt; - Явно указано название класса и присвоено false (не отобразится)
+&lt;p <span class="code-bg">:class</span>="{ 'strike':view }"&gt;&lt;/p&gt;  - Явно указано название класса и присвоено свойство view (true/false)
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dir-model">v-model</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Двунаправленное связывание данных с элементами</h3> (н-р input и textarea)
+
+<pre><code class="html">
+&lt;input type="text" <span class="code-bg">v-model</span>="messText"&gt;
+&lt;p&gt;{{ messText }}&lt;/p&gt;
+
+&lt;input type="checkbox" <span class="code-bg">v-model</span>="view"&gt;
+&lt;label&gt;{{ view }}&lt;/label&gt;
+</code></pre>
+
+Аналогично
+<pre><code class="html">
+&lt;input type="text" <span class="code-bg">@input="messText = $event.target.value"</span>&gt;
+&lt;p&gt;{{ messText }}&lt;/p&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dir-pre">v-pre</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пропуск компиляции у элемента и его потомков</h3>
+<pre><code class="html">
+&lt;p <span class="code-bg">v-pre</span>&gt;{{ Lorem ipsum dolor sit ameto }}&lt;/p&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dir-cloak">v-cloak</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+Скрытие нескомпилированных шаблонов до тех пор, пока экземпляр Vue не будет готов
+<h3>v-cloak</h3>
+<pre><code class="html">
+&lt;span v-cloak&gt;{{item.name}}&lt;/span&gt;
+</code></pre>
+
+<pre><code class="css">
+[v-cloak] { display:none; }
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="dir-once">v-once</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list">
+	<li>Однократно отрисовывает элемент или компонент. При повторной отрисовке он, а также все его потомки, рассматриваются как статический контент и пропускаются</li>
+</ul>
+
+<pre><code class="html">
+&lt;span v-once&gt;Это никогда не изменится: {{ message }}&lt;/span&gt;
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="css">CSS</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;div :style="styleBlock"&gt;block&lt;/div&gt;
+	&lt;button @click="changeStyle"&gt;changeStyle&lt;/button&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+// styleBlock может содержать массивы или объекты
+var app = new Vue({
+	el: '#app',
+	data: {
+		styleBlock: {
+			width: '100px',
+			height: '100px',
+			background: 'blue'
+		}
+	},
+	methods: {
+		changeStyle() {
+			this.styleBlock.background = 'orange';
+			this.styleBlock['border-radius'] = '10px';
+		}
+	}
+})
+</code>
+</pre>
+
+<h4>Указание background-image</h4>
+<pre><code class="html">
+&lt;div class="img" :style="{ backgroundImage: 'url('+item.img+')' }"&gt;
+	&lt;a :href="'courses/'+i"&gt;&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="computed">Computed Properties</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list">
+	<li><span class="list-span-select">Computed Properties</span> - вычисляемые (обработанные) свойства применяются когда есть зависимость переменных от других переменных</li>
+</ul>
+
+<pre><code class="html">
+&lt;div id="app"&gt;
+	&lt;input type="text" @input="increment($event.target.value)"&gt;
+	&lt;p&gt;{{value}}&lt;/p&gt;
+	&lt;p&gt;{{doubleValue}}&lt;/p&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+var app = new Vue({
+	el: '#app', 
+	data: {
+		value: 1
+	},
+	methods: {
+		increment(value) {
+			this.value = value
+		}
+	},
+	computed: {
+		doubleValue() {
+			return this.value * 2
+		}
+	}
+});
+</code></pre>
+
+<h4>Пример #1. При вводе более 10 символов, скрывается кнопка</h4>
+<pre><code class="html">
+&lt;div id="app"&gt;
+	&lt;form action=""&gt;
+		&lt;span&gt;{{ count }} / 10&lt;/span&gt;
+		&lt;textarea v-model="text"&gt;&lt;/textarea&gt;
+		&lt;button <span class="code-bg">v-if="count &lt;= 10"</span>&gt;Отправить&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+var app = new Vue({
+	el: '#app',
+	data: {
+		text: ''
+	},
+	computed: {
+		count() {
+			return this.text.length
+		}
+	}
+})
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="filter">Фильтры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;p&gt;{{ message | lowercase }}&lt;/p&gt;
+	&lt;p&gt;{{ message | uppercase }}&lt;/p&gt;
+	&lt;p&gt;{{ message | filter1 | filter2 }}&lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// глобальный фильтр
+Vue.filter('uppercase', function(value){
+	return value.toUpperCase()
+});
+
+var app = new Vue({
+	el: '#app', 
+	data: {
+		message: 'Hello'
+	},
+	// локальный фильтр
+	filters: {
+		lowercase(value) {
+			return value.toLowerCase()
+		}
+	}
+});
+</code>
+</pre>
+
+<blockquote>
+	Обращение к объекту <b>data</b> и вывод его в формат <b>json</b><br>
+	Используя стандартный фильтр <b>json</b>
+</blockquote>
+<pre>
+<code>
+&lt;pre&gt;{{ $data | json }}&lt;/pre&gt;
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="component">Компоненты</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Простой компонент</h3>
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;task&gt;&lt;/task&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+Vue.component('task', {
+	template: '&lt;p&gt;this is a new component&lt;/p&gt;'
+})
+var app = new Vue({
+	el: '#app'
+})
+</code>
+</pre>
+
+<h3>Передача контента из HTML (тег slot)</h3>
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;task&gt;first&lt;/task&gt;
+	&lt;task&gt;second&lt;/task&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+Vue.component('task', {
+	template: '&lt;p&gt;this is a &lt;slot&gt;&lt;/slot&gt; new component&lt;/p&gt;'
+})
+var app = new Vue({
+	el: '#app'
+})
+</code>
+</pre>
+
+<h3>Передача контента из HTML (props)</h3>
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;task message="Hello"&gt;&lt;/task&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+Vue.component('task', {
+	template: '&lt;p&gt;{{ message }}&lt;/p&gt;',
+	props: ['message']
+})
+var app = new Vue({
+	el: '#app'
+})
+</code>
+</pre>
+
+<h3>Локальные и глобальные компоненты</h3>
+<pre>
+<code>
+// глобальный компонент, работает для всех Vue объектов
+Vue.component('task', {
+	data: function() {
+		return {}
+	},
+	template: ''
+});
+
+var app = new Vue({
+	el: '#app',
+	// локальный компонент
+	components: {
+		data: function() {
+			return {}
+		},
+		template: ''
+	}
+});
+</code>
+</pre>
+
+<h3>Тег template</h3>
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;starter&gt;Starter&lt;/starter&gt;
+	&lt;starter&gt;Starter&lt;/starter&gt;
+&lt;/div&gt;
+&lt;template id="starter"&gt;
+	&lt;div&gt;
+		&lt;h1&gt;Hello&lt;/h1&gt;
+		&lt;slot&gt;&lt;/slot&gt;
+		&lt;button&gt;Ok&lt;/button&gt;
+		&lt;button&gt;Cancel&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+</code>
+<code class="js">
+Vue.component('starter', {
+	template: '#starter',
+	data: function() {
+		return{
+			active: false
+		}
+	},
+	methods: {
+		open(){
+			this.active = true
+		}
+	}
+})
+var app = new Vue({
+	el: '#app'
+})
+</code>
+</pre>
+
+<h3>Динамические компоненты</h3>
+<pre>
+<code class="html">
+&lt;!-- если нужна анимация, component обернуть в transition --&gt;
+&lt;div id="app"&gt;
+	&lt;nav&gt;
+		&lt;a href="#" @click="changeView('orange')"&gt;orange&lt;/a&gt;
+		&lt;a href="#" @click="changeView('blue')"&gt;blue&lt;/a&gt;
+	&lt;/nav&gt;
+	<span class="code-bg">&lt;component :is="currentView"&gt;&lt;/component&gt;</span>
+&lt;/div&gt;
+
+&lt;template id="orange-template"&gt;
+	&lt;div class="orange-block"&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;template id="blue-template"&gt;
+	&lt;div class="blue-block"&gt;&lt;/div&gt;
+&lt;/template&gt;
+</code>
+<code class="js">
+var app = new Vue({
+	el: '#app',
+	data: {
+		currentView: 'orange'
+	},
+	components: {
+		orange: {
+			template: '#orange-template'
+		},
+		blue: {
+			template: '#blue-template'
+		}
+	},
+	methods: {
+		changeView(view) {
+			this.currentView = view
+		}
+	}
+})
+</code>
+</pre>
+
+
+
+<h3>Пример #1</h3>
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;app-car&gt;&lt;/app-car&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+Vue.component('app-car', {
+	data: function() {
+		return {
+			cars: [
+				{model:'Bmv'},
+				{model:'Audi'}
+			]
+		}
+	},
+	template: 
+		`&lt;div&gt;
+			&lt;div v-for="car in cars"&gt;
+				&lt;p&gt;{{ car.model }}&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;`
+		// `&lt;ul&gt;
+		// 	&lt;li v-for="car in cars"&gt;{{ car.model }}&lt;/li&gt;
+		// &lt;/ul&gt;`
+});
+
+var app = new Vue({
+	el: '#app'
+});
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="animation">Анимация</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="img/vue/animation1.png">
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;button @click="show = !show"&gt;Toggle&lt;/button&gt;
+	&lt;transition name="fade"&gt;
+		&lt;p v-if="show"&gt;Lorem ipsum dolor sit amet, consecte&lt;/p&gt;
+	&lt;/transition&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+var app = new Vue({
+	el: '#app',
+	data: {
+		show: false
+	}
+})
+</code>
+<code class="css">
+/*---------------------------------------------
+Animation CSS1
+----------------------------------------------*/
+/* fade - название transition name="fade"*/
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.4s;
+}
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
+}
+</code>
+<code class="css">
+/*---------------------------------------------
+Animation CSS2
+----------------------------------------------*/
+.fade-enter-active {
+	animation: fade 0.4s;
+}
+.fade-leave-active {
+	animation: fade 0.4s reverse;
+}
+@keyframes fade {
+	0%   { transform: scale(0); }
+	50%  { transform: scale(1.5); }
+	100% { transform: scale(1); }
+}
+p {
+	width: 200px;
+	height: 100px;
+	background: orange;
+}
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 class="select" id="router">Vue Router (Маршрутизация)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code>
+&lt;script src="https://unpkg.com/vue-router/dist/vue-router.js"&gt;&lt;/script&gt;
+</code>
+</pre>
+
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;router-link to="/home"&gt;Home&lt;/router-link&gt;
+	&lt;router-link to="/about"&gt;About&lt;/router-link&gt;
+	&lt;router-view&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+const Home = { template: '&lt;div&gt;Home&lt;/div&gt;' }
+const About = { template: '&lt;div&gt;About&lt;/div&gt;' }
+
+const routes = [
+	{ path: '/home', component: Home },
+	{ path: '/about', component: About }
+]
+
+const router = new VueRouter({
+	routes
+})
+
+const app = new Vue({
+	router
+}).$mount('#app')
+</code>
+</pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 class="select" id="cli">Vue CLI и .vue файлы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="html">
+<a href="https://github.com/vuejs/vue-cli" target="_blank">vue-cli (github)</a>
+</code>
+<code class="html">
+npm i vue-cli -g
+vue init webpack-simple www
+cd www
+npm install
+npm run dev
+</code>
+<code class="html">
+http://localhost:8080/
+</code>
+</pre>
+
+<pre>
+<code>
+App.vue
+&lt;style scoped&gt;&lt;/style&gt; - применение стилей только к .vue файлу 
+&lt;template&gt;&lt;/template&gt;  - должен содержать только 1 родительский элемент
+</code>
+</pre>
+
+
+
+</div>
+</div>
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="module/scroll_up/scrollUp.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+	<script src="module/scroll_up/script.js"></script>
+	<!-- <script src="module/menu-scroll/menu-scroll.js"></script> -->
+</body>
+</html>

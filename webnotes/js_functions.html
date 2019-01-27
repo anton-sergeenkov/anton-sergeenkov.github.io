@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="preloader"></div>
+<div class="menu-theme-wrapper">
+	<div class="menu-theme">
+		<a href="#menu">Starter</a>
+		<a href="#special">Особенности</a>
+		<a href="#announcement">Объявление</a>
+		<a href="#parameters">Параметры функции (ES6)</a>
+		<a href="#arrow">Стрелочные функции (ES6)</a>
+		<a href="#closures-theory">Замыкания (теория)</a>
+		<a href="#closures">Замыкания</a>
+		<a href="#recursion">Рекурсия</a>
+		<a href="#named">Named Function Expression</a>
+	</div>
+</div>
+<div id="content">
+<div id="menu"></div>
+<div id="container">
+
+
+
+<h1>JavaScript Functions</h1>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="special">Особенности</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><span class="list-span-select">Аргумент функции</span> - передаваемое значение</li>
+	<li><span class="list-span-select">Параметр функции</span> - принимаемое значение</li>
+	<li>Директива <span class="list-span-select">return</span> может использоваться без значения, чтобы прекратить выполнение и выйти из функции</li>
+	<li>Если в функции не указан <span class="list-span-select">return</span>, она вернет <span class="list-span-select">undefined</span></li>
+	<li>Функции совершают поднятие <span class="list-span-select">hoisting</span> к началу контекста в котором объявлены, поэтому можно использовать функции до их объявления</li>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="announcement">Объявление</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><span class="list-span-select">Function Declaration</span> - функция, объявленная в основном потоке кода, создаются интерпретатором до выполнения кода</li>
+	<li><span class="list-span-select">Function Expression</span> - объявление функции в контексте какого-либо выражения, например присваивания. Создаются в процессе выполнения выражения, в котором созданы, в данном случае при операции присваивания</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>1. Function Declaration</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+function func(num) {
+	console.log(num);
+}
+func(1);
+</code></pre>
+
+<pre><code class="js">
+// присвоили ссылку на функцию
+var a = func;
+function func(){
+	//
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>2. Function Expression (выражения функции)</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var func = function(num) {
+	console.log(num);
+}
+func(2);
+</code></pre>
+
+<pre><code class="js">
+var Task = function Task() {
+	//
+}
+// создание нового объекта использую функцию Task
+var task = new Task();
+</code></pre>
+
+<h4>Функцию можно скопировать в другую переменную</h4>
+<pre><code class="js">
+function sayHi() {   // создать функцию и поместить её в переменную sayHi
+	alert( "Привет" );
+}
+
+var func = sayHi;    // копирование функции в новую переменную
+func(); // Привет    // функцию можно вызывать и как sayHi() и как func()
+
+sayHi = null;
+sayHi();             // ошибка
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>3. Анонинимное с немедленным вызовом (самовызывающаяся)</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+(function(num) {
+	console.log(num);
+})(3);
+</code></pre>
+
+<pre><code class="js">
+var count = (function(num) {
+	console.log(num);
+})(3);
+</code></pre>
+
+<h4>Анонимная функция</h4>
+<pre><code class="js">
+function ask(question, yes, no) {
+	if (confirm(question)) yes()
+	else no();
+}
+
+ask(
+	"Вы согласны?",
+	function() { alert("Вы согласились."); },
+	function() { alert("Вы отменили выполнение."); }
+);
+</code></pre>
+
+<h4>Возвращение функции</h4>
+<pre><code class="js">
+var func = function() {
+	return function() {
+		console.log('Hi');
+	}
+}
+func()();
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>4. new Function</h3>
+<!------------------------------------------------------>
+<ul class="list">
+	<b>new Function(params, code)</b>
+	<li><span class="list-span-select">params</span> - параметры функции через запятую в виде строки</li>
+	<li><span class="list-span-select">code</span> - код функции в виде строки</li>
+</ul>
+
+<pre><code class="js">
+// создание функции из строки
+var sum = new Function('a,b', ' return a+b; ');
+var result = sum(1, 2);
+alert(result); // 3
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="named">Named Function Expression</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Named Function Expression (NFE) - именованные функциональные выражения</h3>
+
+<ul class="list-point">
+	<li>Имя NFE используется для единственной цели – позволить изнутри функции вызвать саму себя</li>
+	<li>Если функция задана как Function Expression, ей можно дать имя</li>
+	<li>Оно будет доступно только внутри функции</li>
+	<li>Это имя предназначено для надёжного рекурсивного вызова функции, даже если она записана в другую переменную</li>
+	<li>С Function Declaration так поступить нельзя</li>
+	<li>NFE нельзя перезаписать</li>
+</ul>
+
+<pre><code class="js">
+var f = function sayHi(name) {
+  alert( sayHi ); // изнутри функции - видно (выведет код функции)
+};
+
+alert( sayHi ); // снаружи - не видно (ошибка: undefined variable 'sayHi')
+</code></pre>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+function f(n) {
+  return n ? n * f(n - 1) : 1;
+};
+
+var g = f;
+f = null;
+
+alert( g(5) ); // запуск функции с новым именем - ошибка при выполнении!
+// функция из своего кода обращается к своему старому имени f
+// этой функции уже нет, f = null
+</code></pre></div><div class="container-half"><pre><code class="js">
+var f = function factorial(n) {
+  return n ? n*factorial(n-1) : 1;
+};
+
+var g = f;  // скопировали ссылку на функцию-факториал в g
+f = null;
+
+alert( g(5) ); // 120, работает!
+<br>
+</code></pre></div></div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="parameters">Параметры функции (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Параметры по умолчанию (default parameters)</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+function greet(greeting='Hello', name='Friend') {
+	console.log(greeting + ' ' + name);
+}
+greet();
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Оставшиеся параметры (rest parameters)</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+// arguments - объект, содержащий переданные агрументы
+[object Arguments] {
+	0: arg1,
+	1: arg2, 
+	2: arg3,
+	3: arg4
+}
+</code></pre>
+
+<h4>ES5</h4>
+<pre><code class="js">
+function sum() {
+	var sum = 0;
+	Array.prototype.forEach.call(arguments, function(value) {
+		sum += value;
+	});
+	console.log(sum);
+}
+sum(1, 2, 3, 4);
+</code></pre>
+
+<pre><code class="js">
+function sum() {
+	var sum = 0;
+	for (let value in arguments) {
+		sum += arguments[value];
+	}
+	console.log(sum);
+}
+sum(1, 2, 3, 4);
+</code></pre>
+
+<h4>ES6</h4>
+<pre><code class="js">
+// Синтаксис отдельных параметров превращает отдельные элементы в масссив
+function sum(...values) {
+	var sum = 0;
+	values.forEach(function(value) {
+		sum += value;
+	});
+	console.log(sum);
+}
+sum(1, 2, 3, 4);
+</code></pre>
+<pre><code class="js">
+function sum(...values) {
+	console.log(values.reduce(function(prevValue, currentValue){
+		return prevValue + currentValue;
+	}));
+}
+sum(1, 2, 3, 4);
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="arrow">Стрелочные функции (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<blockquote>Стрелка должна стразу идти после параметров (на этой же строке)</blockquote>
+
+<!------------------------------------------------------>
+<h3>2 агрумента</h3>
+<!------------------------------------------------------>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+var add = (x, y) => x + y;
+<br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+function add(x, y) {
+	return x + y;
+}
+</code></pre></div></div>
+
+<!------------------------------------------------------>
+<h3>1 агрумент</h3>
+<!------------------------------------------------------>
+<blockquote>Если функция принимает 1 параметр, не нужно заключать его в скобки</blockquote>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+var square = x => x*x;
+<br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+var square = function(x) {
+	return x*x;
+}
+</code></pre></div></div>
+
+<!------------------------------------------------------>
+<h3>Нет аргументов</h3>
+<!------------------------------------------------------>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+var giveMeAnswer = () => 42;
+<br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+var giveMeAnswer = function() {
+	return 42;
+}
+</code></pre></div></div>
+
+<!------------------------------------------------------>
+<h3>Не возвращает значение</h3>
+<!------------------------------------------------------>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+var log = () => console.log('hi');
+<br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+var log = function() {
+	console.log('hi');
+}
+</code></pre></div></div>
+
+<!------------------------------------------------------>
+<h3>Состоит из двух строк</h3>
+<!------------------------------------------------------>
+<blockquote>Если в стрелочной функции несколько строк, то используются фигурные скобки и return</blockquote>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+var multiply = (x, y) => {
+	var result = x*y;
+	return result;
+}
+</code></pre></div><div class="container-half"><pre><code class="js">
+var multiply = function(x, y) {
+	var result = x*y;
+	return result;
+}
+</code></pre></div></div>
+
+<!------------------------------------------------------>
+<h3>Возвращает объект</h3>
+<!------------------------------------------------------>
+<blockquote>Возвращаемый объект оборачивается в круглые скобки</blockquote>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+var getPerson = () => ({ name:'Jack' });
+<br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+var getPerson = function() {
+	return { name:'Jack' }
+}
+</code></pre></div></div>
+
+<!------------------------------------------------------>
+<h3>Самовызывающаяся функция (IIFE)</h3>
+<!------------------------------------------------------>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+(() => console.log('IIFE'))();
+<br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+(function(){
+	console.log('IIFE');
+})();
+</code></pre></div></div>
+
+<!------------------------------------------------------>
+<h3>Примеры</h3>
+<!------------------------------------------------------>
+<h4>Пример #1. Перебор массива (forEach) и сумма элементов</h4>
+<pre><code class="js">
+var numbers = [1, 2, 3, 4, 5];
+var sum = 0;
+// numbers.forEach(function(num){
+// 	 sum += num;
+// });
+numbers.forEach(num => sum += num);
+</code></pre>
+
+<h4>Пример #2. Перебор каждого элемента массива (map) возведение в квадрат</h4>
+<pre><code class="js">
+var numbers = [1, 2, 3, 4, 5];
+var squared = numbers.map(n => n * n);
+</code></pre>
+
+<h4>Пример #3. Объекты</h4>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+var person1 = {
+	name: 'Tony',
+	greet: function() {
+		console.log('Hello' + this.name);
+		console.log(this); // выведет объект person
+	}
+}
+person1.greet();
+</code></pre></div><div class="container-half"><pre><code class="js">
+var person2 = {
+	name: 'Tony',
+	greet: () => {
+		console.log('Hello' + this.name);
+		console.log(this); // выведет объект из контекста (window)
+	}
+}
+person2.greet();
+</code></pre></div></div>
+
+<ul class="list-point">
+	<b>Особенности</b>
+	<li>this берется из контекста (окружения) в котором функция объявлена в независимости от того где эта функция будет выполнена</li>
+	<li>нельзя использовать как конструкторы объектов</li>
+	<li>нельзя использовать .bind(), .call(), .apply(), т.к. нельзя изменить this, оно берется из контекста</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="closures-theory">Замыкания</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<b>Замыкание</b>
+	<li>сама функция и вся цепока видимости Lexical Environment, образованная при создании функции</li>
+	<li>функция и все внешние переменные, которые ей доступны</li>
+	<li>сочетании функции и окружения (глобальные переменные), где она была задана</li>
+	<li>объявление одной функции внутри другой функции, при которои внутренняя функция видит все переменные родительской функции</li>
+	<li>использование переменной, объявленной выше</li>
+	<li>функция замыкает в себе некоторую информацию из области видимости</li>
+</ul>
+
+<ul class="list-point">
+	<b>Lexical Environment (лексическое окружение, объект переменных)</b>
+	<li>При вызове функции создается словарь Lexical Environment, привязанный к этому вызову</li>
+	<li>Все определения констант, переменных и т.д. внутри функции автоматически записываются в словарь</li>
+	<li>Имя константы/переменной становится ключем, а значение значением в словаре</li>
+	<li>Лексическое окружение - это хранилище для данных в памяти и механизм для извлечения этих данных при обращении</li>
+	<li>Все переменные внутри функции - это свойства Lexical Environment, при этом объект скрыт от прямого доступа</li>
+	<li>Существует когда есть хотя бы одна функция у которой свойство Scope ссылается на него</li>
+</ul>
+
+<ul class="list-point">
+	<b>Scope</b>
+	<li>При создании функции появляется скрытое свойство-сслыка Scope</li>
+	<li>Ссылается на лексическое окружение при котором функция была создана, а также на все его свойства. Н-р если функция создана в глобальном объекте Windiw, то Scope будет ссылаться на Window</li>
+	<li>Благодаря Scope, функции доступны внешние переменные</li>
+	<li>Появляется и исчезает вместе с функцией</li>
+	<li>К Scope нет доступа</li>
+</ul>
+
+<ul class="list-point">
+	<b>Свойства замыкания</b>
+	<li>Сохранение промежуточных данных</li>
+	<li>Инкапсуляция</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="closures">Замыкания</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Пример 1</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+function sum(a) {
+	return function(b) {
+		return a + b;
+	}
+}
+var s = sum(10);
+console.log(s(15));
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Пример 2</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var func = function() {
+	var i = 10;
+	return function() {
+		return i;
+	}
+}
+var anotherFunc = function() {
+	var i = 20;
+	console.log(func()());
+}
+anotherFunc();
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Пример 3</h3>
+<!------------------------------------------------------>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+function counter() {
+	var count = 0;
+	return function() {
+		count++;
+		console.log(count);
+	}
+}
+var plus = counter();
+plus(); // 1
+plus(); // 2
+plus(); // 3
+</code></pre></div><div class="container-half"><pre><code class="js">
+function counter() {
+	var count = 0;
+	return function() {
+		return count++;
+	}
+}
+var plus = counter();
+console.log(plus()); // 0
+console.log(plus()); // 1
+console.log(plus()); // 2 <br>
+</code></pre></div></div>
+
+<pre><code class="js">
+var counter = (function() {
+	var count = 0;
+	return function() {
+		return count++;
+	}
+})();
+console.log(counter()); // 0
+console.log(counter()); // 1 
+console.log(counter()); // 2 
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="recursion">Рекурсия</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h4>Степень pow(x, n) через рекурсию</h4>
+<pre><code class="js">
+function pow(x, n) {
+	if (n != 1) { // пока n != 1, сводить вычисление pow(x,n) к pow(x,n-1)
+		return x * pow(x, n - 1);
+	} else {
+		return x;
+	}
+}
+alert( pow(2, 3) ); // 8
+</code></pre>
+
+
+
+
+</div>
+</div>
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="module/scroll_up/scrollUp.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+	<script src="module/scroll_up/script.js"></script>
+</body>
+</html>

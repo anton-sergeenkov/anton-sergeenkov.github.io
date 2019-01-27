@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="preloader"></div>
+<div class="menu-theme-wrapper">
+	<div class="menu-theme">
+		<a href="#menu">Starter</a>
+
+		<div class="theme">Объекты ES6</div>
+		<a href="#obj-create">Создание объекта</a>
+		<a href="#obj-prototype">Создание прототипа</a>
+		<a href="#descriptor">Дескрипторы свойств</a>
+		<a href="#extends-obj">Расширяемость объектов</a>
+		<a href="#obj-delete">Удаление свойств</a>
+
+		<div class="theme">Классы ES6</div>
+		<a href="#class-create">Создание класса</a>
+		<a href="#class-inherit">Наследование</a>
+		<a href="#class-expression">Выражения классов</a>
+
+		<div class="theme">ES5</div>
+		<a href="#class-es5">Классы</a>
+	</div>
+</div>
+<div id="content">
+<div id="menu"></div>
+<div id="container">
+
+<img src="img/js/proto.jpg" height="450px" class="center">
+
+<ul class="list-point">
+	<li>В простых типах данных хранятся значения (если после присвоения поменяется значение присваиваемой переменной, результат присваивания не изменится)</li>
+	<li>В объектах хранятся ссылки</li>
+</ul>
+
+<!-------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+<h1>Объекты</h1>
+<!-------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-create">Создание объекта</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Литеральная нотация</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var property = 'lastName';
+
+var person = {
+	firstName: 'Brad',
+	[property]: 'Stark',
+	age: 25,
+	children: ['Liza', 'Petro'],
+	address: {
+		street: '555 Some st',
+		city: 'Boston',
+		state: 'MA'
+	},
+	getName() {
+		return this.firstName;
+	}, 
+	get fullName() {
+		return this.firstName + ' ' + this.lastName;
+	}, 
+	set fullName(value) {
+		this.firstName = value;
+	}
+}
+
+var a = person.firstName;      // обращение к свойству
+var a = person['firstName'];   // обращение к свойству
+
+var a = person.children[0];    // обращение к свойству
+var a = person.address.street; // обращение к свойству
+var a = person.getName();      // обращение к методу
+
+person.firstName = 'Tony';     // обновление
+person.height = 190;           // задание нового свойства
+
+delete person.firstName;       // удаление свойства (можно удалить только ненаследованные свойства объекта, наследованные свойства удаляются у прототипа)
+
+var a = 'firstName' in person; // проверка наличия свойсва в объекте (различает отсутствующие свойства и те что были установлен в undefined)
+var a = person.firstName;      // проверка наличия свойсва в объекте (не различает отсутствующие свойства и те что были установлен в undefined)
+
+person.fullName = 'Steve';     // сеттер
+var a = person.fullName;       // геттер (result = Steve Stark)
+</code></pre>
+
+<pre><code class="js">
+const text = 'Some text';
+function getId() {
+	return 7;
+}
+let obj = {
+	text,
+	['prop_' + getId()]: 'some prop'
+}
+console.log(obj); // Object {text: 'Some text', prop_7: 'Some prop'}
+</code></pre>
+
+
+<!------------------------------------------------------>
+<h3>Перебор объекта</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+for(var value in person) {
+	console.log(person[value]);
+}
+</code></pre>
+
+<pre><code class="js">
+// проверка на личное свойство объекта (не берет наследованные свойства)
+for(var value in person) {
+	if(person.hasOwnProperty(value)) {
+		console.log(person[value]);
+	}
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Методы</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var a = Object.keys(person);                // возвращает массив из собственных перечисляемых свойств переданного объекта
+var a = Object.getOwnPropertyNames(person); // возвращает массив со всеми свойствами (независимо от того, перечисляемые они или нет)
+var a = person.hasOwnProperty(prop);        // указывает, содержит ли объект свойство (не берет наследованные свойства)
+</code></pre>
+
+<pre><code class="js">
+function createCar(property, value) {
+	return {
+		[property]: value,
+		['_' + property]: value,
+		[property.toUpperCase()]: value,
+		['get' + property]() {
+			return this[property];
+		}
+	};
+}
+var a = createCar('vin', 1);
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Конструктор создания объекта</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var apple = new Object();
+apple.color = 'green';
+apple.shape = 'round';
+apple.describe = function() {
+	return 'An apple is ' + this.color;
+}
+
+var a = apple.color;
+var a = apple.describe();
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Конструктор создания объекта и задание параметров</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+function fruit(color, shape) {
+	this.color = color;
+	this.shape = shape;
+}
+
+var melon = new fruit('yellow', 'round');
+var a = melon.color;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Установление свойств объекту через конструктор</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var Car = function(x,y) {
+	this.x = x;
+	this.y = y;
+}
+
+var tesla = new Car(10,20);
+tesla; // Object { x: 10, y: 20 }
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Метод для разных объектов</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var speak = function() {
+	console.log(this.sound, this.name);
+}
+</code></pre>
+<pre><code class="js">
+var animal = {
+	sound: 'Mrr',
+	name: 'Cat',
+	speak: speak
+}
+
+animal.speak(); // Mrr, Cat
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-prototype">Создание прототипа</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// объект
+var Human = {
+	type: "Human",
+	head: 1,
+	legs: 2
+};
+// прототип
+var Megahuman = <span class="hc">Object.create</span>(Human);
+</code></pre>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+Megahuman.type; // Human
+Megahuman.head; // 1
+</code></pre></div><div class="container-half"><pre><code class="js">
+Megahuman.head = 2; // 2
+Human.head;         // 1
+</code></pre></div></div>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+Megahuman.hands = 10; // 10
+Human.hands;          // undefined
+</code></pre></div><div class="container-half"><pre><code class="js">
+Human.face;     // undefined
+Megahuman.face; // undefined
+</code></pre></div></div>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+Human.face = "okay"; // okay
+Megahuman.face;      // okay
+</code></pre></div><div class="container-half"><pre><code class="js">
+Megahuman.face = "awesome"; // awesome
+Human.face;                 // okay
+</code></pre></div></div>
+
+<pre><code class="js">
+Human.<span class="hc">isPrototypeOf</span>(Megahuman); // является ли объект Human прототипом для объекта Megahuman
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Конструктор прототипа</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var Person = {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        return this;
+    },
+    greet() {
+        console.log('Hi ' + this.name);
+    }
+}
+
+var person = Object.create(Person).constructor("Jack", 25);
+
+var a = person.name;
+person.greet();
+</code></pre>
+
+<h4>Изменение конструктора</h4>
+<pre><code class="js">
+var WebDeveloper = Object.create(Person);
+
+WebDeveloper.constructor = function(name, age, skills) {
+    Person.constructor.apply(this, arguments);
+    this.skills = skills || [];
+    return this;
+}
+WebDeveloper.develop = function() {
+    console.log('In Work');
+}
+var developer = Object.create(WebDeveloper).constructor('Jack', 25, ['html', 'css', 'js']);
+
+console.log(developer.skills);
+developer.develop();
+console.log(developer.name);
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="descriptor">Дескрипторы свойств</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<b>Свойства объекта имеют:</b>
+	<li>Имя</li>
+	<li>Значение (атрибут value)</li>
+	<li>Атрибуты (writable, enumerable, configurable)</li>
+</ul>
+
+<ul class="list-point">
+	<li>value, writable, enumerable, configurable можно получить и изменять с помощью объекта Дескриптора свойства</li>
+</ul>
+
+<ul class="list">
+	<li><span class="list-span-select">writable</span> - доступность для записи</li>
+	<li><span class="list-span-select">enumerable</span> - будет ли выводиться при переборе в цикле for...in и т.д.</li>
+	<li><span class="list-span-select">configurable</span> - определение возможности изменения атрибутов свойства, а также удаления свойства</li>
+</ul>
+
+<pre><code class="js">
+var person = {
+	name: 'Tony',
+	age: 20
+}
+
+// получение дескриптора свойств
+var a = Object.<span class="hc">getOwnPropertyDescriptor</span>(person, 'name'); // {value: "Tony", writable: true, enumerable: true, configurable: true}
+</code></pre>
+
+<pre><code class="js">
+// переопределение дескриптора свойств через defineProperty
+// 1-объект, 2-свойство, 3-дескриптор
+Object.<span class="hc">defineProperty</span>(person, 'name', {
+	value: 'Jack',
+	writable: false,    // доступность для записи
+	enumerable: false,  // будет ли выводиться при переборе в цикле for...in и т.д.
+	configurable: false // определение возможности изменения атрибутов свойства, а также удаления свойства
+});
+</code></pre>
+
+<pre><code class="js">
+// переопределение дескриптора свойств через defineProperties
+// 1-объект, 2-объект с парами свойсво:дескриптор
+Object.<span class="hc">defineProperties</span>(person, {
+	name: {
+		value: 'Jack',
+		writable: false
+	}, 
+	age: {
+		value: 25,
+		writable: false
+	}
+});
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="extends-obj">Расширяемость объектов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<p>Расширяемость объектов - возможность добавления новых свойств</p>
+
+<pre><code class="js">
+var person = {
+	name: 'Tony',
+	age: 20
+}
+
+Object.<span class="hc">preventExtensions</span>(person);    // задает объект нерасширяемым (применяется только к самому объекту)
+var a = Object.<span class="hc">isExtensible</span>(person); // проверяет применение preventExtensions
+
+Object.<span class="hc">seal</span>(person);                 // аналогичен preventExtensions, дополнительно задает атрибут configurable=false для всех свойств
+var a = Object.<span class="hc">isSealed</span>(person);     // проверяет применение seal
+
+Object.<span class="hc">freeze</span>(person);               // аналогичен seal, дополнительно делает все свойства доступные только для чтения
+var a = Object.<span class="hc">isFrozen</span>(person);     // проверяет применение freeze
+</code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-delete">Удаление свойств</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// объект
+var Human = {
+	type: "Human",
+	head: 1,
+	legs: 2
+};
+
+// прототип
+var Megahuman = Object.create(Human);
+Megahuman.head = 2; // 2
+delete Megahuman.head;
+Megahuman.head;     // 1
+</code></pre>
+
+
+<!-------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+<h1>Классы</h1>
+<!-------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-create">Создание класса</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// создание класса
+class Task {
+	constructor(name = '', color = Task.getDefaultColor()) {
+		this.title = 'Выучить JS';
+		this.name = name;
+		this.color = color;
+		this._done = false;
+		Task.count += 1;
+		console.log('Создание задачи');
+	}
+	// свойство get связывает свойство объекта с функцией, которая будет вызываться 
+	// при обращении к этому свойству
+	get done() {
+		return this._done === true ? 'Выполнена' : 'Не выполнена';
+	}
+	set done(value) {
+		if(value != undefined && typeof value === 'boolean') {
+			this._done = value;
+		} else {
+			console.error('Ошибка! Укажите значение true или false');
+		}
+	}
+	complete() {
+		this.done = true;
+		console.log(`Задача ${this.title} выполнена`);
+	}
+	// статический метод, позволяющий получить значение цвета по умолчанию,
+	// если цвет не был передан
+	static getDefaultColor() {
+		return 'Orange';
+	}
+}
+
+let task = new Task('Новая задача'); // создание экземпляра класса (объекта)
+
+Task.count = 0;                      // задание статического свойства
+console.log(task instanceof Task);   // является ли объект представителем класса
+console.log(task.title);             // обращение к свойству title
+console.log(task.name);              // обращение к свойству name
+console.log(task.color);             // обращение к свойству color, не передавая color
+console.log(Task.count);             // обращение к статическому свойству count
+task.complete();                     // обращение к методу complete
+console.log(task.done, task._done);
+</code></pre>
+
+<pre><code class="js">
+// переопределение стандартных методов
+Task.prototype.toString = function() {
+	return this.name;
+}
+</code></pre>
+
+<ul class="list">
+	<li><span class="list-span-select">Классы</span> - это функции, которые создают объекты</li>
+	<li><span class="list-span-select">Объект</span> - это экземпляр, представитель класса, т.е. объект, созданный по шаблону со свойствами и методами, указанными в классе</li>
+	<li><span class="list-span-select">Конструктор</span> - метод, который вызывается в момент создания объекта т.е. когда используется ключевое слово new он создает свойства и инициализирует, т.е. подготавливает объект к использованию. В классе может быть только 1 конструктор. Если не указать конструктор, то JS создаст пустой конструктор. Свойства указываются только в конструкторе</li>
+	<li><span class="list-span-select">Статические свойства и методы</span> принадлежат самому классу, а не объектам, созданным на его основе</li>
+	<li><span class="list-span-select">Статические свойства</span> - используются для хранения вспомогательной информации</li>
+	<li><span class="list-span-select">Статические методы</span> - используются для создания вспомогательных функций. task.getDefaultColor(); нельзя вызывать напрямую</li>
+	<li><span class="list-span-select">Геттеры и Сеттеры</span> - аксессоры. Внутри класса выглядят и ведут себя как методы, а снаружи выглядят и ведут себя как свойства. Эти свойства-методы позволяют получить доступ и присвоить значения "настоящим" свойствам объекта, т.е. выступают в роли фильтра. Названия свойств get и set не должны совпадать с названиями основных свойств объекта</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-inherit">Наследование</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+class Task {
+	constructor(title, comment) {
+		this._comment = comment; 
+		this.title = title;
+		this.done = false;
+		Task.count += 1;
+		console.log('create task');
+	}
+	get comment() {
+		return this._comment;
+	}
+	set comment(value) {
+		this._comment = value;
+	}
+	static getDefaultComment() {
+		return 'Задача';
+	}
+	complete() {
+		this.done = true;
+		console.log(`Задача ${this.title} выполнена`);
+	}
+}
+Task.count = 0; // общее кол-во задач
+
+// наследование между двумя классами
+// если у подкласса нет конструктора, он будет использовать конструктор родителя
+// если подклассу указать конструктор, то он должен вызывать в начале
+// конструктор родительского класса super()
+// метод super() позволяет наследовать свойства и методы из прототипа
+class SubTask extends Task {
+	constructor(title, comment, parent) {
+		super(title, comment);
+		this.parent = parent;
+		console.log('create subtask');
+	}
+	// переопределение родительского метода
+	complete() {
+		// this.done = true;
+		super.complete();
+		console.log(`Подзадача ${this.title} выполнена`);	
+	}
+}
+
+let task = new Task('Изучить JavaScript', 'Comment Task');
+let subtask = new SubTask('Изучить ES6', 'Comment SubTask', task);
+
+task.complete();
+subtask.complete();
+
+console.log(SubTask.getDefaultComment());
+console.log(SubTask.count);
+</code></pre>
+
+<blockquote>
+В ES6 нельзя указывать класс до его объявления<br>
+Классы не засоряют глобальное пространство имен (объект window)
+</blockquote>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-expression">Выражения классов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<blockquote>Классы являются функциями, поэтому класс можно объявить двумя способами</blockquote>
+
+<b>1. Class Declaration</b>
+<pre><code class="js">
+class Task {
+	constructor() {
+		//
+	}
+}
+</code></pre>
+
+<b>2. Class Expression (выражение класса)</b>
+<pre><code class="js">
+var Task = class Task {
+	constructor() {
+		console.log('Create a task');
+	}
+}
+
+var SubTask = class extends Task {
+	constructor() {
+		super();
+		console.log('Create a subtask');
+	}
+}
+
+var task = new Task();
+var subtask = new SubTask();
+</code></pre>
+
+
+<!-------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+<h1>ES5</h1>
+<!-------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5">Классы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function User(name, id) {
+	this.name = name;
+	this.id = id;
+	this.avatar = 'Photo';
+
+	// функциональный подход
+	this.deleteAvatar = function() {
+		this.avatar = null;
+	}
+}
+
+// прототипный подход
+User.prototype.deleteAvatar = function() {
+	this.avatar = null;
+}
+
+var user = new User('Jack', 25);
+</code></pre>
+
+<pre><code class="js">
+function Admin(name, id) {
+	this.name = name;
+	this.id = id;
+	this.avatar = 'Photo';
+}
+
+Admin.prototype = Object.create(User.prototype);
+
+Admin.prototype.changeMyId = function() {
+	this.id = 1;
+}
+
+var admin = new Admin('Admin', 2);
+</code></pre>
+
+
+
+
+
+
+</div>
+</div>
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="module/scroll_up/scrollUp.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+	<script src="module/scroll_up/script.js"></script>
+</body>
+</html>

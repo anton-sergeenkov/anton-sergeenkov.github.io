@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web Courses. Module 2</title>
+	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="preloader"></div>
+<div id="container-body">
+<div id="container-menu">
+
+<!-- 
+52
+<pre><code class="html">
+<a href="" target="_blank"></a>
+</code></pre>
+ -->
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="text-header">JavaScript</div>
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b1"><span>01</span> Введение в JavaScript. Стандарт ECMAScript</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b1" class="container-code">
+
+<h3>ECMAScript</h3>
+ECMAScript является стандартом, а JavaScript — это самая популярная реализация этого стандарта
+<pre><code>
+<b>ES1</b> (1997)
+<b>ES2</b> (1998)
+<b>ES3</b> (1999)
+<b>ES4</b> (не была принята)
+<b>ES5</b> (2009)
+<b>ES6</b> (ES2015)
+<b>ES7</b> (ES2016)
+<b>ES8</b> (ES2017)
+</code></pre>
+
+<pre><code class="html">
+<a href="https://learn.javascript.ru/" target="_blank">Учебник по JavaScript</a>
+<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript" target="_blank">JavaScript MDN</a>
+<a href="https://karmazzin.gitbooks.io/eloquentjavascript_ru/content/" target="_blank">Выразительный Javascript</a>
+<a href="https://github.com/anton-sergeenkov/-training" target="_blank">Репозиторий по ссылкам</a>
+</code></pre>
+
+</div>
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b2"><span>02</span> Подключение файлов JavaScript</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b2" class="container-code">
+
+<h4>Подключение на странице</h4>
+<pre>
+<code>
+&lt;script&gt;
+	// js code
+&lt;/script&gt;
+</code>
+</pre>
+
+<h4>Подключение в отдельном файле</h4>
+<pre>
+<code>
+&lt;script src="js/main.js"&gt;&lt;/script&gt;
+</code>
+</pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b3"><span>03</span> Типы данных. Переменные и константы. Вывод в консоль</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b3" class="container-code">
+
+<h3>Типы данных</h3>
+<pre>
+<code>
+1. Число «number»
+2. Строка «string»
+3. Булевый (логический) тип «boolean»
+4. Специальное значение «null» (отсутствие значения: пустое значение. значение записывалось)
+5. Специальное значение «undefined» (отсутствие значения: полное отсутствие значения. значение не записывалось)
+6. Объекты «object»
+</code>
+</pre>
+
+<h3>Переменные и константы</h3>
+<pre>
+<code>
+var a = 'это переменная, ее можно менять'; 
+const b = 'это константа, ее нельзя менять'; 
+</code>
+</pre>
+
+
+<h4>Типы данных (примеры)</h4>
+<pre>
+<code>
+var string = 'Это строка'; // строка
+var int    = 14;           // целое число
+var float  = 0.25;         // дробное число
+var bool   = true;         // логическое значение (только true или false)
+</code>
+</pre>
+
+<h4>Сложение чисел</h4>
+<pre>
+<code>
+var a = 10;
+var b = 20;
+var c = a + b; // Результат: 30
+</code>
+</pre>
+
+<h4>Сложение (соединение) строк</h4>
+<pre>
+<code>
+var a = 'Привет ';
+var b = 'мир';
+var c = a + b; // Результат: 'Привет мир'
+</code>
+</pre>
+
+<h4>Изменение значений переменных</h4>
+<pre>
+<code>
+var count = 32;
+count = count + 16; // 1 вариант
+count += 16;        // 2 вариант
+</code>
+</pre>
+
+<h4>Инкремент и декремент</h4>
+<pre>
+<code>
+count++;   // увеличивает на 1 после выполнения действия
+count--;   // уменьшает на 1 после выполнения действия
+++count;   // увеличивает на 1 до выполнения действия
+--count;   // уменьшает на 1 до выполнения действия
+</code>
+</pre>
+
+<h3>typeof - возвращает тип аргумента</h3>
+<pre><code class="js">
+typeof 0            // "number"
+typeof true         // "boolean"
+typeof 'foo'        // "string"
+</code></pre>
+
+<h3>Вывод сообщения в консоль</h3>
+<pre>
+<code>
+console.log('Сообщение');
+console.info('Информация');
+console.warn('Предупреждение');
+console.error('Ошибка');
+</code>
+</pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b4"><span>04</span> Виды кавычек. Шаблонные строки. Комментарии</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b4" class="container-code">
+
+<h4>Виды кавычек</h4>
+<pre>
+<code>
+var str = 'одинарные кавычки';
+var str = "двойные кавычки";
+var str = `обратные кавычки`;
+</code>
+</pre>
+
+<h4>Шаблонные строки</h4>
+<pre>
+<code>
+var a = `
+	первая строка
+	вторая строка
+`;
+</code>
+</pre>
+
+Интерполяция
+<pre>
+<code>
+var a = 'text'; 
+var b = `строка текста ${a} строка текста`;
+</code>
+</pre>
+
+<h4>Комментарии</h4>
+<pre>
+<code>
+// однострочный комментарий
+/* многострочный комментарий */
+</code>
+</pre>
+
+<h4>Экранирование кавычек</h4>
+<pre>
+<code>
+var a = "call me \"ziggy\" now";
+</code>
+</pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b5"><span>05</span> Вывод сообщения пользователю (alert, prompt, confirm)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b5" class="container-code">
+<pre>
+<code>
+alert("Привет Мир");                      // модальное окно
+var age = prompt('Сколько Вам лет?', ''); // модальное окно с вопросом и полем ввода
+var answer = confirm('Вы согласны?');     // модальное окно да/нет (вернет bool значение)
+</code>
+</pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b6"><span>06</span> Условные операторы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b6" class="container-code">
+
+<h3>Условный оператор if</h3>
+
+<pre>
+<code>
+=   // присвоить
+==  // равно
+!   // отрицание
+!=  // неравно
+>   // больше
+<   // меньше
+>=  // больше или равно
+<=  // меньше или равно
+&&  // логическое «И» 
+||  // логическое «ИЛИ»
+</code>
+</pre>
+
+<span>Одно условие</span>
+<pre>
+<code>
+var weather = 'хорошая';
+if(weather == 'хорошая') {
+	console.log('Идём гулять');
+} else {
+	console.log('Идём в кино');
+}
+</code>
+</pre>
+
+<span>Несколько условий</span>
+<pre>
+<code>
+var weather = 'хорошая'; // хорошая погода
+var mood = true;         // хорошее настроение
+if( (weather == 'хорошая') && (mood) ) {
+    console.log('Идём гулять');
+} else {
+    console.log('Идём в кино');
+}
+</code>
+</pre>
+
+<h3>Тернарный оператор</h3>
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#case" target="_blank">Тернарный оператор</a>
+</code></pre>
+
+<h3>Условный оператор switch</h3>
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#case" target="_blank">Условный оператор switch</a>
+</code></pre>
+
+<h3>Сравнение и логические значения</h3>
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#comparison" target="_blank">Сравнение и логические значения</a>
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b8"><span>07</span> Объектная модель представления документа (DOM)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b8" class="container-code">
+<h4>Document Object Model (DOM)</h4>
+<pre>
+<code>
+Объектная модель представления документа
+Независящий от платформы и языка программирования способ представления документа,
+позволяющий программам и скриптам получить доступ к содержимому HTML, XHTML и XML документов,
+а также изменять содержимое, структуру и оформление таких документов
+- Всё содержимое документа представлено в виде иерархии объектов
+- Структура этой иерархии стандартизирована, чтобы обеспечить независимость от платформы
+</code>
+</pre>
+
+<h4>Структура DOM документа</h4>
+<img src="img/dev/dom.jpg" height="350">
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b9"><span>08</span> Выборка и изменение элементов страницы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b9" class="container-code">
+
+<h4>Выборка элементов страницы, выбор родственных элементов</h4>
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#select" target="_blank">Выборка элементов страницы</a>
+</code></pre>
+
+<h4>Выборка элементов формы</h4>
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#form" target="_blank">Выборка элементов формы</a>
+</code></pre>
+
+<h4>Действия над выбранными элементами</h4>
+<pre><code class="js">
+element.textContent = 'new text';           // текст
+element.innerHTML   = '&lt;h2&gt;new text&lt;/h2&gt;';  // html
+</code></pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b10"><span>09</span> Обращение к CSS свойствам и классам</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b10" class="container-code">
+
+<pre><code class="js">
+element.style.fontSize = '20px';          // css
+</code></pre>
+
+<pre><code class="js">
+element.classList;                        // массив классов элемента
+element.classList.add('active');          // добавление класса
+element.classList.remove('active');       // удаление класса
+element.classList.toggle('active');       // добавление / удаление класса
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b11"><span>10</span> Функции. Области видимости переменных</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b11" class="container-code">
+
+<h4>Функция, не возвращающая значение</h4>
+<pre>
+<code>
+sum(34, 12);
+function sum(a, b) {
+    var result = a + b;
+    alert(result);
+}
+</code>
+</pre>
+
+<h4>Функция, возвращающая значение</h4>
+<pre>
+<code>
+var result = sum(34, 12);
+function sum(a, b) {
+    var result = a + b;
+    return result;
+}
+</code>
+</pre>
+
+<h4>Глобальные и локальные переменные</h4>
+<pre>
+<code>
+var a = 10; // глобальная переменная
+function test() {
+	var b = 20; // локальная переменная
+	console.log(a, b);
+}
+</code>
+</pre>
+
+<h4>Определить площадь поверхности планет</h4>
+<h5>Решение 1</h5>
+<pre>
+<code>
+// Площадь поверхности сферы
+// A = 4*pi*r*r
+var mars    = 3390; // km
+var mercury = 2440; // km
+const pi    = 3.14;
+var surfaceMars    = 4 * pi * mercury * mars;
+var surfaceMercury = 4 * pi * mercury * mercury;
+</code>
+</pre>
+
+<h5>Решение 2 (через функции)</h5>
+<pre>
+<code>
+var mars    = 3390; // km
+var mercury = 2440; // km
+const pi    = 3.14;
+function surface(r) {
+	return 4 * pi * r * r;
+}
+var surfaceMars = surface(mars);
+var surfaceMercury = surface(mercury);
+</code>
+</pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b12"><span>11</span> События и обработчики событий</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b12" class="container-code">
+
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#actions" target="_blank">Назначение обработчиков событий</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#actions-list" target="_blank">Список событий</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#actions-params" target="_blank">Передаваемый параметр (Event)</a>
+</code></pre>
+
+<pre><code class="html">
+<a href="https://codepen.io/Sergeenkov/pen/vzxgVg" target="_blank">Keydown Move Cube (пример)</a>
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b13"><span>12</span> Циклы for, while</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b13" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#cycle" target="_blank">Циклы for, while</a>
+</code></pre>
+
+<pre><code class="html">
+<a href="https://codepen.io/Sergeenkov/pen/VdxQOj" target="_blank">Gallery (пример)</a>
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b33"><span>13</span> Объекты</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b33" class="container-code">
+<img src="img/dev/object.png">
+<pre>
+<code>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_objects.html#obj-create" target="_blank">Объекты</a>
+</code>
+</pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b47"><span>14</span> Объекты-обертки</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b47" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#type" target="_blank">Объекты-обертки</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b14"><span>15</span> Массивы. Методы работы с массивами</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b14" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#array" target="_blank">Массивы</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#array_obj" target="_blank">Массивы обьектов</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b15"><span>16</span> Строки. Методы работы со строками</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b15" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#str" target="_blank">Строки</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b16"><span>17</span> Числа. Метода работы с числами</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b16" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#number" target="_blank">Числа</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#math" target="_blank">Math</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#operators" target="_blank">Остаток от деления</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b19"><span>18</span> Работа с атрибутами. Объект this</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b19" class="container-code">
+
+<pre><code class="js">
+var a1 = element.attributes;         // массив атрибутов
+var a2 = element.hasAttribute('id'); // проверить наличие атрибута
+var a3 = element.getAttribute('id'); // получить значение атрибута
+element.setAttribute('id', 'new');   // установить атрибут
+element.removeAttribute('id');       // удалить атрибут
+</code></pre>
+
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#this" target="_blank">this</a>
+</code></pre>
+
+<pre><code class="html">
+<a href="https://codepen.io/Sergeenkov/pen/xzEwVp" target="_blank">Адаптивное меню (пример)</a>
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b32"><span>19</span> Дата и время</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b32" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#date" target="_blank">Дата и время</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b40"><span>20</span> Классы. Прототипы объектов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b40" class="container-code">
+<pre>
+<code>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_objects.html#class-create" target="_blank">Классы</a>
+</code>
+</pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b49"><span>21</span> Local Storage</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b49" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#local-storage" target="_blank">Local Storage</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#json" target="_blank">JSON</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b34"><span>22</span> BOM - объектная модель браузера</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b34" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#bom" target="_blank">Объектная модель браузера</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#document-open" target="_blank">Открытие окна</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#document-width" target="_blank">Ширина и высота экрана / документа</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b42"><span>23</span> Циклы (дополнительно)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b42" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#cycle-array" target="_blank">Циклы Array</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#cycle-obj" target="_blank">Циклы Object</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b43"><span>24</span> Функции (дополнительно)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b43" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_functions.html#announcement" target="_blank">Объявление</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_functions.html#parameters" target="_blank">Параметры функции (ES6)</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_functions.html#arrow" target="_blank">Стрелочные функции (ES6)</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_functions.html#closures-theory" target="_blank">Замыкания (теория)</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_functions.html#closures" target="_blank">Замыкания</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_functions.html#collback" target="_blank">Collback Function (функции обратного вызова)</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_functions.html#recursion" target="_blank">Рекурсия</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b45"><span>25</span> Создание элементов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b45" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#dom-element" target="_blank">Создание элементов</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b44"><span>26</span> Деструтивное присваивание</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b44" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#destructive-array" target="_blank">Деструтивное присваивание массивов (ES6)</a>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#destructive-obj" target="_blank">Деструтивное присваивание объектов (ES6)</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b48"><span>27</span> Оператор разворота (ES6)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b48" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#spread" target="_blank">Оператор разворота (ES6)</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b46"><span>28</span> Обработка исключений</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b46" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#catch" target="_blank">Обработка исключений</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b35"><span>29</span> Таймеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b35" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#timeout" target="_blank">Таймеры</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b50"><span>30</span> AJAX</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b50" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/js.html#ajax" target="_blank">AJAX</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b39"><span>31</span> HTML5 рисование на Canvas</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b39" class="container-code">
+<pre>
+<code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/canvas.html" target="_blank">Canvas</a>
+</code>
+</pre>
+</div>
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="text-header">Технологии и инструменты</div>
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b51"><span>01</span> jQuery</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b51" class="container-code">
+
+<!------------------------------------------------------>
+<h3>Работа с элементами на странице</h3>
+<!------------------------------------------------------>
+<h4>Выборка элементов страницы на jquery</h4>
+<pre>
+<code>
+var a = $('p');     // по названию тега 
+var a = $('.box');  // по названию класса
+var a = $('#box');  // по id
+var a = $('div a'); // вложенные теги
+</code>
+</pre>
+
+<h4>Действия (методы) над выбранными элементами</h4>
+<pre>
+<code>
+var text = $('#box').text();        // получить текст
+var html = $('#box').html();        // получить html
+$('#box').text('Измененный текст'); // изменить текст
+$('#box').html('Измененный html');  // изменить html
+</code>
+</pre>
+
+<h4>before(); after(); prepend(); append();</h4>
+<pre>
+<code>
+$('#box').before('content');  // добавляет контент до выбранного элемента
+$('#box').after('content');   // добавляет контент после выбранного элемента
+$('#box').prepend('content'); // добавляет контент внутрь выбранного элемента до остального кода
+$('#box').append('content');  // добавляет контент внутрь выбранного элемента после остального кода
+</code>
+</pre>
+
+<!------------------------------------------------------>
+<h3>CSS</h3>
+<!------------------------------------------------------>
+<h4>css();</h4>
+<pre>
+<code>
+var a = $('#box').css('color');    // получить css свойство
+$('#box').css('color', 'orange');  // изменить css свойство
+
+// изменение нескольких css свойств
+$('#box').css({
+	'color':'orange', 
+	'font-size':'25px'
+}); 
+</code>
+</pre>
+
+<h4>addClass(); removeClass();</h4>
+<pre>
+<code>
+$('#box').addClass('open');    // добавление класса
+$('#box').removeClass('open'); // удаление класса
+</code>
+</pre>
+
+<h4>toggleClass();</h4>
+Переключатель классов. Добавляет элементу указанный класс, если его нет. Иначе удаляет
+<pre>
+<code>
+$('#box').toggleClass('open');
+</code>
+</pre>
+
+<!------------------------------------------------------>
+<h3>События и обработчики событий</h3>
+<!------------------------------------------------------>
+<h4>Добавление обработчиков событий</h4>
+<pre>
+<code>
+// обработчик события щелчка мыши
+$('.item').on('click', function(){
+	console.log('Щелчок мыши'); 
+});
+</code>
+</pre>
+
+<h4>Удаление обработчиков событий</h4>
+Метод <b>.off()</b> удаляет обработчики событий, назначенные методом <b>.on</b>
+<pre>
+<code>
+$('.item').off('click');
+</code>
+</pre>
+
+<!------------------------------------------------------>
+<h3>Атрибуты</h3>
+<!------------------------------------------------------>
+<h4>attr(); removeAttr();</h4>
+<pre><code>
+var id = $('#box').attr("id"); // получить значение атрибута
+$('#box').attr('size', 4);     // изменить значение атрибута
+$('#box').removeAttr('title'); // удалить атрибут
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Плавное изменение свойств на jquery</h3>
+<!------------------------------------------------------>
+<h4>hide(); show();</h4>
+Скрывает/показывает элементы на странице (за счет плавного изменения его размера и прозрачности)
+<pre>
+<code>
+$('#box').hide(1000); // скрыть элемент 
+$('#box').show(1000); // показать элемент
+// 1 - скорость исчезновения (миллисекунды 1с = 1000мс)
+// 2 - функция, которая будет выполнена после завершения работы
+$('#box').hide(1000).show(1000); // цепные функции
+</code>
+</pre>
+
+<h4>slideUp(); slideDown();</h4>
+Разворачивает/сворачивает элементы на странице (за счет плавного изменения высоты элементов)
+<pre>
+<code>
+$('#box').slideUp(1000);   // исчезновение (элемент уезжает наверх)
+$('#box').slideDown(1000); // появление (элемент выезжает вниз)
+</code>
+</pre>
+
+<h4>slideToggle();</h4>
+Поочередно разворачивает/сворачивает элементы на странице, как это делают .slideUp() и .slideDown()
+<pre>
+<code>
+$('#box').slideToggle();
+</code>
+</pre>
+
+<h4>fadeIn(); fadeOut();</h4>
+Скрывает/показывает элементы на странице за счет плавного изменения прозрачности
+<pre>
+<code>
+$('#box').fadeIn(1000);  // плавное появление элемента
+$('#box').fadeOut(1000); // плавное исчезновение элемента
+// 1 - время исчезновения
+// 2 - функция, которая будет выполнена после исчезновения
+</code>
+</pre>
+
+<h4>fadeTo();</h4>
+Плавно изменяет прозрачность элементов
+<pre>
+<code>
+$('#box').fadeTo(1000,0.4);
+// 1 - время исчезновения
+// 2 - прозрачность от 0 до 1
+// 3 - функция, которая будет выполнена после исчезновения
+</code>
+</pre>
+
+<h4>fadeToggle();</h4>
+Поочередно скрывает/показывает элементы на странице, как это делают .fadeIn() и .fadeOut()
+<pre>
+<code>
+$('#box').fadeToggle();
+</code>
+</pre>
+
+<!------------------------------------------------------>
+<h3>Подключение файлов</h3>
+<!------------------------------------------------------>
+<pre><code>
+// загружаем html код из файла в блок
+$.get("include/header.html", {}, function(data) { 
+	$('header').html(data);  
+});
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b52"><span>02</span> jQuery UI</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b52" class="container-code">
+<pre><code class="html">
+<a href="https://jqueryui.com/" target="_blank">jQuery UI</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b41"><span>03</span> Vue.js</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b41" class="container-code">
+<pre><code class="html">
+<a href="http://anton-sergeenkov.ru/www/webnotes/vue_js.html" target="_blank">Vue.js</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b22"><span>04</span> Gulp и NPM для сборки проектов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b22" class="container-code">
+<pre>
+<code>
+<a href="http://anton-sergeenkov.ru/www/webnotes/gulp.html" target="_blank">Gulp</a>
+</code>
+</pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b38"><span>05</span> Подключение сторонних скриптов (слайдер)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b38" class="container-code">
+
+<h3>Slider</h3>
+<pre>
+<code class="html">
+<a href="http://kenwheeler.github.io/slick/" target="_blank">Slick Slider</a>
+<a href="https://codepen.io/Sergeenkov/pen/vVBPdv" target="_blank">Slick Slider (CodePen)</a>
+<a href="https://owlcarousel2.github.io/OwlCarousel2/" target="_blank">Owl Carousel 2</a>
+</code>
+</pre>
+
+<h3>Animate Scroll Action</h3>
+<pre>
+<code class="html">
+<a href="https://codepen.io/Sergeenkov/pen/ERMpmg" target="_blank">Animate.css Wow.js</a>
+<a href="https://codepen.io/Sergeenkov/pen/LJwOga" target="_blank">Scroll Action (CodePen)</a>
+</code>
+</pre>
+
+<h3>Animate Scroll Top</h3>
+<pre>
+<code class="html">
+<a href="https://github.com/markgoodyear/scrollup" target="_blank">markgoodyear/scrollup</a>
+<a href="https://codepen.io/Sergeenkov/pen/Edxwqy" target="_blank">Animate Scroll Top (CodePen)</a>
+</code>
+</pre>
+
+<h3>Gamma Gallery</h3>
+<pre>
+<code class="html">
+<a href="https://tympanus.net/codrops/2012/11/06/gamma-gallery-a-responsive-image-gallery-experiment/" target="_blank">Gamma Gallery</a>
+</code>
+</pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b21"><span>06</span> Отладка в браузере Chrome</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b21" class="container-code">
+<img src="img/dev/chrome-sources.png" height="400px">
+</div>
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="text-header">PHP и MySQL</div>
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b23"><span>01</span> Отправка сообщения на почту</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b23" class="container-code">
+
+<img src="img/dev/client-server.jpg" height="500px" class="img-center ">
+
+<h3>Обращение к php скрипту через Ajax</h3>
+<pre><code>
+<a href="http://anton-sergeenkov.ru/www/webnotes/js_ajax.html" target="_blank">Ajax</a>
+<a href="https://yadi.sk/d/XoMo5o8ZZHQ1eQ" target="_blank">Denwer</a>	
+</code></pre>
+
+<h3>Отправка сообщения на почту</h3>
+<pre><code>
+$.get("php/mail.php", {message:'Сообщение'}, function(data) {
+    alert(data);
+});
+</code>	</pre>
+<pre><code>
+&lt;?php
+	$to      = 'user@example.com, anotheruser@example.com'; // получатель / получатели
+	$subject = 'Письмо с сайта';                            // тема письма
+	$message = $_GET[message];                              // сообщение
+
+	$email = mail($to, $subject, $message);
+	if ($email) {
+	    echo 'Письмо успешно отправлено!';
+	} else {
+	    echo 'Письмо не отправлено!';
+	}
+?&gt;
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b25"><span>02</span> MySQL</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b25" class="container-code">
+
+<h4>Создание базы данных и таблиц MySQL</h4>
+<pre><code>
+<a href="http://anton-sergeenkov.ru/www/webnotes/mysql.html" target="_blank">mysql</a>
+<a href="http://localhost/Tools/phpmyadmin/" target="_blank">phpmyadmin</a>
+</code></pre>
+
+<h4>Основные выборки MySQL: SELECT, INSERT, UPDATE, DELETE</h4>
+<h4>Записи в таблице</h4>
+<pre><code>
+<b>SELECT * FROM products WHERE ID=2</b>                                  - выбор 1 записи
+<b>SELECT * FROM products</b>                                             - выбор всех записей
+<b>INSERT INTO products(NAME, DESCRIPTION) VALUES ('Имя', 'Описание')</b> - добавление новой записи
+<b>UPDATE products SET NAME='Имя', DESCRIPTION='Описание' WHERE ID=2</b>  - редактирование записи
+<b>DELETE FROM products WHERE ID=2</b>                                    - удаление записи
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b27"><span>03</span> Работа с MySQL</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b27" class="container-code">
+
+<pre><code>
+- подключение (dbConnect.php)
+- выборка данных (dbSelect.php)
+- вставка, обновление, удаление данных (dbModify.php)
+</code></pre>
+
+<pre><code>
+<a href="http://anton-sergeenkov.ru/www/webnotes/php_db.html" target="_blank">php database</a>
+</code></pre>
+
+<h4>dbConnect.php</h4>
+<pre><code>
+&lt;?php
+	$host = 'localhost';
+	$user = 'root';
+	$pass = '';
+	$db = 'sample';
+
+    $link = mysqli_connect($host, $user, $pass, $db); 
+    mysqli_set_charset($link, 'utf8');           
+    if(!$link) {
+        exit(mysqli_error($link));
+    } 
+?&gt;
+</code></pre>
+
+<h4>dbModify.php</h4>
+<pre><code>
+&lt;?php
+	include('dbConnect.php');
+
+	$sql = $_GET[sql];
+	$query = mysqli_query($link, $sql);
+	$insert_id = mysqli_insert_id($link);
+
+	$arr = array($query, $insert_id);
+	echo json_encode($arr);
+?&gt;
+</code></pre>
+
+<h4>dbSelect.php</h4>
+<pre><code>
+&lt;?php
+	include('dbConnect.php');
+	
+	$sql = $_GET[sql];
+	$query = mysqli_query($link, $sql);
+	$num_rows = mysqli_num_rows($query);
+	$arr = array();
+
+	if ($num_rows != 0) {
+		while($row = mysqli_fetch_array($query)) {
+			array_push($arr, $row);
+		}
+	}
+
+	echo json_encode($arr);
+?&gt;
+</code></pre>
+
+<h4>main.js</h4>
+<pre><code>
+dbInsert();
+function dbInsert() {
+	var name = 'Добавлено имя из JS';
+	var price = 12;
+	var description = 'Добавлено описание из JS';
+	var sql = `INSERT INTO products(NAME, PRICE, DESCRIPTION) VALUES ('${name}', ${price}, '${description}')`;
+	$.get('php/dbModify.php', {sql:sql}, function(data){
+		var arr = eval(data);
+		alert(arr[]);
+	});
+}
+</code></pre>
+<pre><code>
+dbUpdate();
+function dbUpdate() {
+	var id = 5;
+	var name = 'Обновлено имя из JS';
+	var price = 44;
+	var description = 'Обновлено описание из JS';
+	var sql = `UPDATE products SET NAME='${name}', PRICE=${price}, DESCRIPTION='${description}' WHERE ID=${id}`;
+	$.get('php/dbModify.php', {sql:sql}, function(data){
+		var arr = eval(data);
+		alert(arr[]);
+	});
+}
+</code></pre>
+<pre><code>
+dbDelete();
+function dbDelete() {
+	var id = 5;
+	var sql = `DELETE FROM products WHERE ID=${id}`;
+	$.get('php/dbModify.php', {sql:sql}, function(data){
+        var arr = eval(data);
+        alert(arr[0]);
+	});
+}
+</code></pre>
+<pre><code>
+dbSelect();
+function dbSelect() {
+	var sql = `SELECT * FROM products`;
+	$.get('php/dbSelect.php', {sql:sql}, function(data){
+		var arr = eval(data); 
+		if (arr.length != 0) {
+			for (var i=0; i<=arr.length-1; i++) {
+				var id          = arr[i]['ID'];
+				var name        = arr[i]['NAME'];
+				var price       = arr[i]['PRICE'];
+				var description = arr[i]['DESCRIPTION'];
+				$('body').append(`&lt;p&gt;${id} ${name} ${price} ${description}&lt;/p&gt;`);
+			}
+		}	
+	});
+}
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b29"><span>04</span> Сохранение изображения на сервере (jpg, png)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b29" class="container-code">
+
+<h4>index.html</h4>
+<pre>
+<code>
+&lt;label class="input-image" id="img1"&gt;
+	&lt;input type="file" accept="image/*" onchange="imageLoad('img1', this);" class="input-file"&gt;
+&lt;/label&gt;
+
+&lt;button onclick="imageSave('img1');"&gt;Сохранить изображение&lt;/button&gt;
+</code>
+</pre>
+
+<h4>css/main.css</h4>
+<pre>
+<code>
+.input-image {
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+.input-file {
+    display: none;
+}
+</code>
+</pre>
+
+<h4>js/main.js</h4>
+<pre><code>
+// Загрузка изображения из input file в блок
+// 1 - input - изображение из input
+// 2 - id    - блок для устанавки изображения на background-image
+function imageLoad(id, input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            $('#'+id).css('background-image', 'url('+reader.result+')');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</code></pre>
+<pre><code>
+// Сохранение изображения на сервер
+// 1 - id - id изображения
+function imageSave(id) {
+    var picture = $('#'+id).css('background-image');
+    var file = '../uploads/'+id;
+    var extension = imageExtension(picture);
+    picture = imageParse(picture); 
+    $.post("php/saveImage.php", {picture:picture, file:file, extension:extension});
+}
+</code></pre>
+<pre><code>
+// Определение расширения
+// 1 - picture - изображение в base64
+function imageExtension(picture) {
+    if (picture.indexOf('data:image/png') == -1) {
+        return '.jpg';
+    } else {
+        return '.png';
+    }
+}
+</code></pre>
+<pre><code>
+// Разбор изображения в base64 и вырезка только части, описывающей само изображение
+// изображение в формате base64:
+// - "url("data:image/png;base64,"
+// - само изображение "..."
+// - ")
+// формат может быть png, jpeg и т.д., поэтому мы ищем совпадение по фразе "base64", 
+// чтобы оставить только данные самого изображения
+// ищем позицию элемента
+// прибавляем 7 - это символы base64,
+// вычитаем 2 - это символы ")
+function imageParse(picture) {
+    var position = picture.search(/base64/) + 7; 
+    var result = picture.slice(position, picture.length-2); 
+    return result;
+}
+</code></pre>
+
+<h4>php/saveImage.php</h4>
+<pre><code>
+&lt;?php
+	$picture   = $_POST[picture];   // изображение в base64
+	$file      = $_POST[file];      // путь без расширения
+	$extension = $_POST[extension]; // расширение
+	$path      = $file.$extension;
+
+	// конвертирование base64 в изображение
+	$picture = base64_decode($picture);
+	$picture = imagecreatefromstring($picture);
+
+	// проверка расширения
+	if ($extension == '.png') {
+		imagealphablending($picture, false); // выключение альфа сопряжения
+		imagesavealpha($picture, true);      // установка альфа флага
+		header('Content-Type: image/png');   // header
+		imagepng($picture, $path);           // сохранение изображения
+	} else {
+		imagejpeg($picture, $path, 100);
+	}
+
+	// освобождение памяти
+	imagedestroy($picture);
+?&gt;
+</code></pre>
+
+</div>
+
+
+
+
+
+</div>
+<div id="container-show">
+	<h1>Web Courses. Module 2 (JavaScript, jQuery, PHP)</h1>
+	<div id="container-show-content"></div>
+</div>
+</div>
+
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+	<script src="module/scroll_up/scrollUp.js"></script>
+	<script src="module/scroll_up/script.js"></script>
+</body>
+</html>

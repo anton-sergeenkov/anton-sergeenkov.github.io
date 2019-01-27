@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="preloader"></div>
+<div class="menu-theme-wrapper">
+	<div class="menu-theme">
+		<a href="#menu">Starter</a>
+		<a href="#link">Ссылки</a>
+		<a href="#figure">Фигуры</a>
+		<a href="#filter">Фильтры</a>
+		<a href="#gradient">Градиенты</a>
+		<a href="#libraries">Библиотеки</a>
+	</div>
+</div>
+<div id="content">
+<div id="menu"></div>
+<div id="container">
+
+
+
+<h1>SVG</h1>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="link">Ссылки</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="css">
+<a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank">w3schools.com</a>
+<a href="http://css.yoksel.ru/tags/#svg" target="_blank">yoksel.ru</a>
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="figure">Фигуры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Стилизация на CSS</h3>
+<pre>
+<code class="css">
+svg {
+	fill: yellowgreen; 
+	fill-opacity: 0.9;
+	stroke: black;
+	stroke-width: 2; 
+	stroke-opacity: 0.7;
+}
+svg path { 
+	d: path('M0,100 L 20,0 80,90 100,0 100,100 Z'); 
+}
+</code>
+</pre>
+
+<h3>Прямоугольник (rectangle)</h3>
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;rect width="50px" height="50px" x="25" y="25" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/rect1.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;rect width="50px" height="50px" x="25" y="25" rx="10" ry="50" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/rect2.png" class="svg">
+</div>
+
+<h3>Окружность (circle, ellipse)</h3>
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;circle cx="50" cy="50" r="25" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/circle1.png" class="svg">
+</div>
+
+<b>&lt;g&gt;</b>Объединение объектов для задания общих свойств<b>&lt;/g&gt;</b>
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;g stroke="black" stroke-width="3" fill="black"&gt;
+		&lt;circle cx="50" cy="50" r="5" /&gt;
+		&lt;circle cx="100" cy="100" r="5" /&gt;
+	&lt;/g&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/circle2.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;ellipse cx="50" cy="50" rx="35" ry="25" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/ellipse1.png" class="svg">
+</div>
+
+<h3>Линия (line, polyline)</h3>
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;line x1="0" y1="0" x2="50" y2="50" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/line1.png" class="svg">
+</div>
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;polyline points="0,0 50,50 25,75" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/polyline1.png" class="svg">
+</div>
+
+<h3>Полигон (polygon)</h3>
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;polygon points="0,0 50,50 25,75" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/polygon1.png" class="svg">
+</div>
+
+<h3>Путь (path)</h3>
+
+Доступные команды:
+<pre>
+<code class="js">
+<b>M</b> = moveto
+<b>L</b> = lineto
+<b>H</b> = horizontal lineto
+<b>V</b> = vertical lineto
+<b>C</b> = curveto
+<b>S</b> = smooth curveto
+<b>Q</b> = quadratic Bézier curve
+<b>T</b> = smooth quadratic Bézier curveto
+<b>A</b> = elliptical Arc
+<b>Z</b> = closepath
+</code>
+</pre>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;path d="M0,100 L50,50 100,100 Z" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/path1.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100" &gt;
+	&lt;path d="M0,100 Q 50,50 100,100"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/path2.png" class="svg">
+</div>
+
+<p>Атрибут <b>preserveAspectRatio="none"</b> позволяет поместить фигуру целиком в viewBox</p>
+<p>При изменении размера блока svg размер фигуры будет меняться</p>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100" preserveAspectRatio="none"&gt;
+	&lt;path d="M0,100 L 20,0 80,90 100,0 100,100 Z"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/path4.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg viewBox="0 0 100 100" preserveAspectRatio="none"&gt;
+	&lt;path d="M0,50 Q 25,0 50,50, 75,100, 100,50 L100,100 0,100 0,50"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/path3.png" class="svg">
+</div>
+
+<h3>Текст (text)</h3>
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;text x="25" y="30"&gt;I love SVG!&lt;/text&gt;
+	&lt;text x="45" y="100" transform="rotate(30 20,40)"&gt;I love SVG&lt;/text&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/text1.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;text x="10" y="30"&gt;Several lines:
+		&lt;tspan x="10" y="60"&gt;First line.&lt;/tspan&gt;
+		&lt;tspan x="10" y="90"&gt;Second line.&lt;/tspan&gt;
+	&lt;/text&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/text2.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+  &lt;a xlink:href="https://www.yandex.ru/" target="_blank"&gt;
+    &lt;text x="10" y="30"&gt;Link&lt;/text&gt;
+  &lt;/a&gt;
+&lt;/svg&gt;
+
+</code>
+</pre>
+</div>
+<img src="img/svg/text3.png" class="svg">
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="filter">Фильтры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f1" x="0" y="0"&gt;
+			&lt;feGaussianBlur in="SourceGraphic" stdDeviation="15" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f1)" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/filter1.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f2" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="offOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f2)" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/filter2.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f3" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f3)" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/filter3.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f4" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceAlpha" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f4)" /&gt;
+&lt;/svg&gt;
+
+</code>
+</pre>
+</div>
+<img src="img/svg/filter4.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f5" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feColorMatrix result="matrixOut" in="offOut" type="matrix"
+				values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f5)" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/filter5.png" class="svg">
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="gradient">Градиенты</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Linear Gradient</h3>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%"&gt;
+			&lt;stop offset="0%"   style="stop-color:rgb(255,255,0);stop-opacity:1" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/linearGradient&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad1)" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/gradient1.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%"&gt;
+			&lt;stop offset="0%"   style="stop-color:rgb(255,255,0);stop-opacity:1" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/linearGradient&gt;
+	&lt;/defs&gt;
+  &lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad2)" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/gradient2.png" class="svg">
+</div>
+
+<h3>Radial Gradient</h3>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;radialGradient id="grad3" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"&gt;
+			&lt;stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/radialGradient&gt;
+	&lt;/defs&gt;
+  &lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad3)" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/gradient3.png" class="svg">
+</div>
+
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="html">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;radialGradient id="grad4" cx="20%" cy="30%" r="30%" fx="50%" fy="50%"&gt;
+			&lt;stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/radialGradient&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad4)" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+</div>
+<img src="img/svg/gradient4.png" class="svg">
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="libraries">Библиотеки</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="html">
+- Raphaël
+- SVG.js
+</code>
+</pre>
+
+
+</div>
+</div>
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="module/scroll_up/scrollUp.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+	<script src="module/scroll_up/script.js"></script>
+</body>
+</html>

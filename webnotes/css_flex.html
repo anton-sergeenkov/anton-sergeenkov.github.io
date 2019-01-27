@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="preloader"></div>
+<div class="menu-theme-wrapper">
+	<div class="menu-theme">
+		<a href="#menu">Starter</a>
+
+		<div class="theme">Flex Container</div>
+		<a href="#display">display</a>
+		<a href="#justify-content">justify-content</a>
+		<a href="#align-items">align-items</a>
+		<a href="#align-content">align-content</a>
+		<a href="#flex-flow">flex-flow</a>
+		<a href="#flex-direction">flex-direction</a>
+		<a href="#flex-wrap">flex-wrap</a>
+
+		<div class="theme">Flex Element</div>
+		<a href="#order">order</a>
+		<a href="#align-self">align-self</a>
+		<a href="#flex">flex</a>
+		<a href="#flex-grow">flex-grow</a>
+		<a href="#flex-shrink">flex-shrink</a>
+		<a href="#flex-basis">flex-basis</a>
+
+		<div class="theme">Other</div>
+		<a href="#margin">margin</a>
+		<a href="#samples">Примеры</a>
+	</div>
+</div>
+<div id="content">
+<div id="menu"></div>
+<div id="container">
+
+
+
+<h1>CSS Flexible Box Layout Module</h1>
+
+<img src="img/css-flexbox/flex-axis.jpg" height="400">
+
+<pre>
+<code class="js">
+Main Axis - главная ось (по горизонтали)
+Cross Axis - второстепенная ось (по вертикали)
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Flex Container</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="display"><span class="h3-bg">display</span></h3>
+<pre>
+<code class="css">
+<b>display</b>: flex;   - задание flex
+</code>
+</pre>
+
+<h3 id="justify-content"><span class="h3-bg">justify-content</span> : flex-start</h3>
+управляет размещением элемента вдоль главной оси (по горизонтали)
+<img src="img/css-flexbox/justify-content.jpg" height="135">
+<pre>
+<code class="css">
+<b>flex-start</b>       - флексы прижаты к началу строки
+<b>flex-end</b>         - флексы прижаты к концу строки
+<b>center</b>           - флексы выравниваются по центру строки
+<b>space-between</b>    - флексы равномерно располагаются с одинаковыми расстояниями между ними (первый и последний элемент прижимаются к краям контейнера)
+<b>space-around</b>     - флексы равномерно располагаются с одинаковыми расстояниями вокруг них (первый и последний элемент не прижимаются к краям контейнера)
+</code>
+</pre>
+
+<h3 id="align-items"><span class="h3-bg">align-items</span> : stretch</h3>
+управляет размещением элемента вдоль второстепенной оси (по вертикали)
+<img src="img/css-flexbox/align-items.jpg" height="135">
+<pre>
+<code class="css">
+<b>flex-start</b>       - флексы выравниваются в начале поперечной оси контейнера
+<b>flex-end</b>         - флексы выравниваются в конце поперечной оси контейнера
+<b>center</b>           - флексы выравниваются по линии поперечной оси
+<b>stretch</b>          - флексы растягиваются таким образом, чтобы занять всё доступное пространство контейнера
+<b>baseline</b>         - флексы выравниваются по их базовой линии (по нижней части параграфа)
+</code>
+</pre>
+
+<h3 id="align-content"><span class="h3-bg">align-content</span> : stretch</h3>
+выравнивание многострочных элементов по вертикали (указывает, как несколько рядов должны отделяться друг от друга)
+<img src="img/css-flexbox/align-content.jpg" height="135">
+<pre>
+<code class="css">
+<b>flex-start</b>       - флексы располагаются в начале поперечной оси. Каждая следующая строка идёт вровень с предыдущей
+<b>flex-end</b>         - флексы располагаются начиная с конца поперечной оси. Каждая предыдущая строка идёт вровень со следующей
+<b>center</b>           - флексы располагаются по центру контейнер
+<b>space-between</b>    - флексы равномерно располагаются с одинаковыми расстояниями между ними (первый и последний элемент прижимаются к краям контейнера)
+<b>space-around</b>     - флексы равномерно располагаются с одинаковыми расстояниями вокруг них (первый и последний элемент не прижимаются к краям контейнера)
+<b>stretch</b>          - флексы растягиваются, заполняя контейнер равномерно (по умолчанию)
+</code>
+</pre>
+align-content отвечает за расстояние между рядами, в то время как align-items отвечает за то, как элементы в целом будут выровнены в контейнере. Когда только один ряд, align-content ни на что не влияет
+
+<h3 id="flex-flow"><span class="h3-bg">flex-flow</span> : row nowrap</h3>
+рекомендуется использовать flex-flow, a не отдельные свойства (работает быстрее)
+
+<div class="container-margin">
+<h3 id="flex-direction"><span class="h3-bg">flex-direction</span> : row</h3>
+задаёт направление основных осей в контейнере
+<img src="img/css-flexbox/flex-direction.jpg" height="135">
+<pre>
+<code class="css">
+<b>row</b>              - расположение блоков по горизонтали (по умолчанию)
+<b>row-reverse</b>      - расположение блоков по горизонтали (реверсионно)
+<b>column</b>           - расположение блоков по вертикали
+<b>column-reverse</b>   - расположение блоков по вертикали (реверсионно)
+</code>
+</pre>
+
+<h3 id="flex-wrap"><span class="h3-bg">flex-wrap</span> : nowrap</h3>
+задает перенос флексов
+<img src="img/css-flexbox/flex-wrap.jpg" height="135">
+<pre>
+<code class="css">
+<b>nowrap</b>           - флексы выстраиваются в одну линию
+<b>wrap</b>             - флексы выстраиваются в несколько строк
+<b>wrap-reverse</b>     - флексы выстраиваются в несколько строк реверсивно
+</code>
+</pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Flex-element</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3 id="order"><span class="h3-bg">order</span> : 0</h3>
+определяет порядок вывода флексов
+<pre>
+<code class="css">
+<b>order</b>: 0;          - по умолчанию у всех элементов
+<b>order</b>: 3;          - элемент выводится третьим по порядку
+<b>order</b>: -1;         - элемент выводится первым по порядку
+</code>
+</pre>
+
+<h3 id="align-self"><span class="h3-bg">align-self</span> : auto</h3>
+переопределяет значение свойства align-items (позволяет вручную управлять выравниванием конкретного элемента)
+<pre>
+<code class="css">
+<b>auto</b>             - выравнивать как указано у контейнера (по умолчанию)
+<b>flex-start</b>       - флексы выравниваются в начале поперечной оси контейнера
+<b>flex-end</b>         - флексы выравниваются в конце поперечной оси контейнера
+<b>center</b>           - флексы выравниваются по линии поперечной оси
+<b>stretch</b>          - флексы растягиваются таким образом, чтобы занять всё доступное пространство контейнера
+<b>baseline</b>         - флексы выравниваются по их базовой линии (по нижней части параграфа)
+</code>
+</pre>
+
+
+<h3 id="flex"><span class="h3-bg">flex</span> : 0 1 auto</h3>
+
+<pre>
+<code class="css">
+Блоки растягиваются на всю ширину контейнера (flex = flex-grow)
+<b>flex: auto;</b>
+<b>flex: 1;</b>         
+<b>flex-grow: 1;</b>    
+</code>
+</pre>
+
+<pre>
+<code class="css">
+<b>flex: 1 1 auto;</b>  - занимают равное место, пока влезают
+<b>flex: 1 1 250px;</b> - указали фиксированную минимальную ширину
+</code>
+</pre>
+
+<div class="container-margin">
+<h3 id="flex-grow"><span class="h3-bg">flex-grow</span> : 0</h3>
+определяет для flex элемента возможность растягиваться по ширине
+<pre>
+<code class="css">
+<b>flex-grow</b>: 2; - если для всех flex-item, то это равные 2 части от container-flex (заполнят всю ширину блока)
+</code>
+</pre>
+
+<h3 id="flex-shrink"><span class="h3-bg">flex-shrink</span> : 1</h3>
+определяет возможность блока ужиматься при необходимости<br>
+необходимо задать ширину элемента
+<pre>
+<code class="css">
+<b>flex-shrink</b>: 2;
+</code>
+</pre>
+
+<h3 id="flex-basis"><span class="h3-bg">flex-basis</span> : auto</h3>
+базовый размер отдельно взятого блока (аналогично min-width) 
+<pre>
+<code class="css">
+<b>flex-basis</b>: 20%;   - вместо width
+<b>flex-basis</b>: auto;  - принимает значение ширины элемента
+</code>
+</pre>
+</div>
+
+
+<h3 id="margin"><span class="h3-bg">margin</span></h3>
+центрирование элемента
+<pre>
+<code class="css">
+<b>margin</b>: auto;      - центрирует 1 блок по горизонтали и вертикали
+<b>margin-left</b>: auto; - выравнивает блок по правому краю, а остальные блоки по левому
+<b>margin-top</b>: auto;
+<b>margin-right</b>: auto;
+<b>margin-bottom</b>: auto;
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="samples">Примеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Выравнивание дочерних блоков (текста внутри блока) по горизонтали и вертикали</h3>
+<pre>
+<code class="css">
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+</code>
+</pre>
+
+<h3>Выравнивание дочерних блоков по горизонтали и вертикали</h3>
+<pre>
+<code class="css">
+.container {
+	display: flex;
+	height: 100vh;
+}
+.item {
+	margin: auto;
+}
+</code>
+</pre>
+
+<h3>2 обтекающих блока, занимающих 100% ширины container</h3>
+<pre>
+<code class="css">
+.container { display: flex; }
+.box-left  { flex-basis: 250px; }
+.box-right { flex-grow: 1; }
+</code>
+</pre>
+
+<h3>Блоки с правой и левой стороны</h3>
+<pre>
+<code class="css">
+.item:first-child {
+	margin-right: auto;
+}
+.item:last-child {
+	margin-left: auto;
+}
+</code>
+</pre>
+
+
+
+
+</div>
+</div>
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="module/scroll_up/scrollUp.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+	<script src="module/scroll_up/script.js"></script>
+</body>
+</html>
