@@ -11,10 +11,19 @@
 @font-face { font-family: Roboto-Regular;    src: url(../fonts/Roboto/Roboto-Regular.ttf); }
 @font-face { font-family: Roboto-Bold;    src: url(../fonts/Roboto/Roboto-Bold.ttf); }
 
-
 ::-webkit-scrollbar       { width: 7px; height: 7px;}
 ::-webkit-scrollbar-thumb { height: 50px; background-color: rgba(255,255,255,0.2); border-radius: 2px;}
 ::-webkit-scrollbar-track { background-color: rgba(255,255,255,0.1); }
+
+:root {
+	--color-green:   rgba(74, 175, 45, 0.2);
+	--color-blue:    rgba(11, 168, 160, 0.2);
+	--color-crimson: rgba(191, 122, 190, 0.2);
+	--color-sand:    rgba(179, 183, 104, 0.2);
+	--color-violet:  rgba(71, 7, 183, 0.2);
+}
+
+
 
 
 
@@ -198,3 +207,6 @@ tr:nth-child(odd) {
 	padding: 2px;
 }
 
+code.link-accent {
+	background: var(--color-crimson);
+}

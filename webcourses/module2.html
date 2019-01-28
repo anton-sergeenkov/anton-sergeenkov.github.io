@@ -46,14 +46,13 @@ ECMAScript является стандартом, а JavaScript — это са�
 <pre><code class="html">
 <a href="https://learn.javascript.ru/" target="_blank">Учебник по JavaScript</a>
 <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript" target="_blank">JavaScript MDN</a>
+</code></pre>
+
+<pre><code class="html link-accent">
 <a href="https://karmazzin.gitbooks.io/eloquentjavascript_ru/content/" target="_blank">Выразительный Javascript</a>
-<a href="https://github.com/anton-sergeenkov/-training" target="_blank">Репозиторий по ссылкам</a>
 </code></pre>
 
 </div>
-
-
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="b2"><span>02</span> Подключение файлов JavaScript</h2>
@@ -75,6 +74,10 @@ ECMAScript является стандартом, а JavaScript — это са�
 &lt;script src="js/main.js"&gt;&lt;/script&gt;
 </code>
 </pre>
+
+<pre><code class="html link-accent">
+<a href="https://learn.javascript.ru/external-script" target="_blank">Внешние скрипты, порядок исполнения</a>
+</code></pre>
 
 </div>
 
@@ -178,46 +181,36 @@ console.error('Ошибка');
 <div id="code-b4" class="container-code">
 
 <h4>Виды кавычек</h4>
-<pre>
-<code>
+<pre><code>
 var str = 'одинарные кавычки';
 var str = "двойные кавычки";
 var str = `обратные кавычки`;
-</code>
-</pre>
+</code></pre>
 
 <h4>Шаблонные строки</h4>
-<pre>
-<code>
+<pre><code>
 var a = `
 	первая строка
 	вторая строка
 `;
-</code>
-</pre>
+</code></pre>
 
 Интерполяция
-<pre>
-<code>
+<pre><code>
 var a = 'text'; 
 var b = `строка текста ${a} строка текста`;
-</code>
-</pre>
+</code></pre>
 
 <h4>Комментарии</h4>
-<pre>
-<code>
+<pre><code>
 // однострочный комментарий
 /* многострочный комментарий */
-</code>
-</pre>
+</code></pre>
 
 <h4>Экранирование кавычек</h4>
-<pre>
-<code>
+<pre><code>
 var a = "call me \"ziggy\" now";
-</code>
-</pre>
+</code></pre>
 
 </div>
 
@@ -283,19 +276,14 @@ if( (weather == 'хорошая') && (mood) ) {
 </code>
 </pre>
 
-<h3>Тернарный оператор</h3>
-<pre><code class="html">
-<a href="../webnotes/js.html#case" target="_blank">Тернарный оператор</a>
-</code></pre>
-
 <h3>Условный оператор switch</h3>
 <pre><code class="html">
 <a href="../webnotes/js.html#case" target="_blank">Условный оператор switch</a>
 </code></pre>
 
-<h3>Сравнение и логические значения</h3>
-<pre><code class="html">
-<a href="../webnotes/js.html#comparison" target="_blank">Сравнение и логические значения</a>
+<pre><code class="html link-accent">
+<a href="https://learn.javascript.ru/ifelse#operator-voprositelnyy-znak" target="_blank">Тернарный оператор</a>
+<a href="https://learn.javascript.ru/comparison" target="_blank">Операторы сравнения и логические значения</a>
 </code></pre>
 
 </div>
@@ -328,9 +316,14 @@ if( (weather == 'хорошая') && (mood) ) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b9" class="container-code">
 
-<h4>Выборка элементов страницы, выбор родственных элементов</h4>
-<pre><code class="html">
-<a href="../webnotes/js.html#select" target="_blank">Выборка элементов страницы</a>
+<h4>Выборка элементов страницы</h4>
+<pre><code class="js">
+var a = document.getElementById('item');               // по id
+var a = document.getElementsByClassName('item')[0];    // по названию класса (первый элемент)
+var a = document.getElementsByName('item');            // по атрибуту name
+var a = document.getElementsByTagName('img');          // по названию тега (все элементы)
+var a = document.querySelector('.nav.bar');            // возвращает первый элемент внутри документа
+var a = document.querySelectorAll('.nav');             // возвращает список элементов в пределах документа
 </code></pre>
 
 <h4>Выборка элементов формы</h4>
@@ -537,11 +530,11 @@ element.removeAttribute('id');       // удалить атрибут
 </code></pre>
 
 <pre><code class="html">
-<a href="../webnotes/js.html#this" target="_blank">this</a>
+<a href="https://codepen.io/Sergeenkov/pen/xzEwVp" target="_blank">Адаптивное меню (пример)</a>
 </code></pre>
 
-<pre><code class="html">
-<a href="https://codepen.io/Sergeenkov/pen/xzEwVp" target="_blank">Адаптивное меню (пример)</a>
+<pre><code class="html link-accent">
+<a href="https://getinstance.info/articles/javascript/call-apply-and-bind-functions/" target="_blank">Функции call(), apply() и bind()</a>
 </code></pre>
 
 </div>
@@ -574,7 +567,6 @@ element.removeAttribute('id');       // удалить атрибут
 <div id="code-b49" class="container-code">
 <pre><code class="html">
 <a href="../webnotes/js.html#local-storage" target="_blank">Local Storage</a>
-<a href="../webnotes/js.html#json" target="_blank">JSON</a>
 </code></pre>
 </div>
 
@@ -585,7 +577,6 @@ element.removeAttribute('id');       // удалить атрибут
 <div id="code-b34" class="container-code">
 <pre><code class="html">
 <a href="../webnotes/js.html#bom" target="_blank">Объектная модель браузера</a>
-<a href="../webnotes/js.html#document-open" target="_blank">Открытие окна</a>
 <a href="../webnotes/js.html#document-width" target="_blank">Ширина и высота экрана / документа</a>
 </code></pre>
 </div>
@@ -599,6 +590,10 @@ element.removeAttribute('id');       // удалить атрибут
 <a href="../webnotes/js.html#cycle-array" target="_blank">Циклы Array</a>
 <a href="../webnotes/js.html#cycle-obj" target="_blank">Циклы Object</a>
 </code></pre>
+
+<pre><code class="html link-accent">
+<a href="https://learn.javascript.ru/array-iteration" target="_blank">Массив: перебирающие методы</a>
+</code></pre>
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -608,11 +603,23 @@ element.removeAttribute('id');       // удалить атрибут
 <pre><code class="html">
 <a href="../webnotes/js_functions.html#announcement" target="_blank">Объявление</a>
 <a href="../webnotes/js_functions.html#parameters" target="_blank">Параметры функции (ES6)</a>
-<a href="../webnotes/js_functions.html#arrow" target="_blank">Стрелочные функции (ES6)</a>
-<a href="../webnotes/js_functions.html#closures-theory" target="_blank">Замыкания (теория)</a>
-<a href="../webnotes/js_functions.html#closures" target="_blank">Замыкания</a>
-<a href="../webnotes/js_functions.html#collback" target="_blank">Collback Function (функции обратного вызова)</a>
-<a href="../webnotes/js_functions.html#recursion" target="_blank">Рекурсия</a>
+</code></pre>
+
+<pre><code class="html link-accent">
+<a href="http://jsraccoon.ru/es6-arrow-functions" target="_blank">Стрелочные функции (ES6)</a>
+<a href="https://learn.javascript.ru/closures" target="_blank">Замыкания</a>
+<a href="https://learn.javascript.ru/recursion" target="_blank">Рекурсия, стек</a>
+</code></pre>
+
+<pre><code class="html link-accent">
+<a href="https://www.youtube.com/playlist?list=PLqHlAwsJRxAOpWPtj2T6HhSzX-lKmKV2q" target="_blank">Основы ES6</a>
+</code></pre>
+
+<pre><code class="html link-accent">
+<a href="https://habr.com/ru/company/ruvds/blog/337662/" target="_blank">JavaScript: методы асинхронного программирования</a>
+<a href="https://ru.hexlet.io/blog/posts/javascript-what-the-heck-is-a-callback" target="_blank">Функции обратного вызова (Collback Function)</a>
+<a href="https://learn.javascript.ru/promise" target="_blank">Promise</a>
+<a href="https://www.youtube.com/watch?v=5kAPExqSZ1I" target="_blank">Асинхронные функции</a>
 </code></pre>
 </div>
 
@@ -623,32 +630,12 @@ element.removeAttribute('id');       // удалить атрибут
 <div id="code-b45" class="container-code">
 <pre><code class="html">
 <a href="../webnotes/js.html#dom-element" target="_blank">Создание элементов</a>
-</code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b44"><span>26</span> Деструтивное присваивание</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b44" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#destructive-array" target="_blank">Деструтивное присваивание массивов (ES6)</a>
-<a href="../webnotes/js.html#destructive-obj" target="_blank">Деструтивное присваивание объектов (ES6)</a>
+<a href="../webnotes/js.html#select" target="_blank">Выбор родственных элементов</a>
 </code></pre>
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b48"><span>27</span> Оператор разворота (ES6)</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b48" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#spread" target="_blank">Оператор разворота (ES6)</a>
-</code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b46"><span>28</span> Обработка исключений</h2>
+<h2 id="b46"><span>26</span> Обработка исключений</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b46" class="container-code">
 <pre><code class="html">
@@ -658,7 +645,7 @@ element.removeAttribute('id');       // удалить атрибут
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b35"><span>29</span> Таймеры</h2>
+<h2 id="b35"><span>27</span> Таймеры</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b35" class="container-code">
 <pre><code class="html">
@@ -667,16 +654,17 @@ element.removeAttribute('id');       // удалить атрибут
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b50"><span>30</span> AJAX</h2>
+<h2 id="b50"><span>28</span> AJAX</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b50" class="container-code">
 <pre><code class="html">
 <a href="../webnotes/js.html#ajax" target="_blank">AJAX</a>
+<a href="../webnotes/js.html#json" target="_blank">JSON</a>
 </code></pre>
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b39"><span>31</span> HTML5 рисование на Canvas</h2>
+<h2 id="b39"><span>29</span> HTML5 рисование на Canvas</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b39" class="container-code">
 <pre>
@@ -1265,7 +1253,7 @@ function imageParse(picture) {
 
 </div>
 <div id="container-show">
-	<h1>Web Courses. Module 2 (JavaScript, jQuery, PHP)</h1>
+	<h1>Web Courses. Module 2 (JavaScript)</h1>
 	<div id="container-show-content"></div>
 </div>
 </div>
