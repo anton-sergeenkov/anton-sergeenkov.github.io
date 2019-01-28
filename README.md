@@ -152,6 +152,7 @@ https://habr.com/post/256109/
 - Coda 2
 - xCode
 - Atom
+- IDE WebStorm
 
 **15. Управление**
 - Agile-разработка
