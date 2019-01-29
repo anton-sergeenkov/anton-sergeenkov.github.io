@@ -85,8 +85,8 @@ app.messText = 'New Text'; // переопределение свойства
 <pre>
 <code class="html">
 &lt;p&gt;{{ messText }}&lt;/p&gt;      - интерполяция, текстовое содержимое
-&lt;p <span class="code-bg">v-text</span>="messText"&gt;&lt;/p&gt;  - текстовое содержимое
-&lt;p <span class="code-bg">v-html</span>="messHTML"&gt;&lt;/p&gt;  - html содержимое
+&lt;p <span class="hc">v-text</span>="messText"&gt;&lt;/p&gt;  - текстовое содержимое
+&lt;p <span class="hc">v-html</span>="messHTML"&gt;&lt;/p&gt;  - html содержимое
 </code>
 </pre>
 
@@ -94,9 +94,9 @@ app.messText = 'New Text'; // переопределение свойства
 <h2 id="dir-if">v-show, v-if, v-else, v-else-if</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="html">
-&lt;p <span class="code-bg">v-show</span>="view"&gt;text&lt;/p&gt;  - устанавливается display: none/block
-&lt;p <span class="code-bg">v-if</span>="view"&gt;text&lt;/p&gt;    - условие if. удаляется/добавляется в DOM дерево
-&lt;p <span class="code-bg">v-else</span>&gt;text&lt;/p&gt;         - условие else при невыполнении if
+&lt;p <span class="hc">v-show</span>="view"&gt;text&lt;/p&gt;  - устанавливается display: none/block
+&lt;p <span class="hc">v-if</span>="view"&gt;text&lt;/p&gt;    - условие if. удаляется/добавляется в DOM дерево
+&lt;p <span class="hc">v-else</span>&gt;text&lt;/p&gt;         - условие else при невыполнении if
 </code></pre>
 
 <h3>v-else-if</h3>
@@ -161,16 +161,16 @@ var app = new Vue({
 <h3>Обработчики событий</h3>
 <pre>
 <code class="html">
-&lt;button <span class="code-bg">v-on:click</span>="countUp"&gt;{{count}}&lt;/button&gt; - полная запись
-&lt;button <span class="code-bg">@click</span>="countUp"&gt;{{count}}&lt;/button&gt;     - сокращенная запись
+&lt;button <span class="hc">v-on:click</span>="countUp"&gt;{{count}}&lt;/button&gt; - полная запись
+&lt;button <span class="hc">@click</span>="countUp"&gt;{{count}}&lt;/button&gt;     - сокращенная запись
 </code>
 </pre>
 
 <h3>Отмена обычного поведения</h3>
 <pre>
 <code class="html">
-&lt;button <span class="code-bg">@click</span>="submit1"&gt;&lt;/button&gt;
-&lt;button <span class="code-bg">@click.prevent</span>="submit2"&gt;&lt;/button&gt;
+&lt;button <span class="hc">@click</span>="submit1"&gt;&lt;/button&gt;
+&lt;button <span class="hc">@click.prevent</span>="submit2"&gt;&lt;/button&gt;
 </code>
 <code class="js">
 var app = new Vue({
@@ -270,14 +270,14 @@ var app = new Vue({
 
 <pre>
 <code class="html">
-&lt;a <span class="code-bg">v-bind:href</span>="url"&gt;{{ cleanUrl }}&lt;/a&gt; - полная запись
-&lt;p <span class="code-bg">v-bind:class</span>="nameClass"&gt;&lt;/p&gt;        - полная запись
-&lt;p <span class="code-bg">:class</span>="nameClass"&gt;&lt;/p&gt;              - сокращенная запись
+&lt;a <span class="hc">v-bind:href</span>="url"&gt;{{ cleanUrl }}&lt;/a&gt; - полная запись
+&lt;p <span class="hc">v-bind:class</span>="nameClass"&gt;&lt;/p&gt;        - полная запись
+&lt;p <span class="hc">:class</span>="nameClass"&gt;&lt;/p&gt;              - сокращенная запись
 </code>
 <code>
-&lt;p <span class="code-bg">:class</span>="{ 'strike':true }"&gt;&lt;/p&gt;  - Явно указано название класса и присвоено true (отобразится)
-&lt;p <span class="code-bg">:class</span>="{ 'strike':false }"&gt;&lt;/p&gt; - Явно указано название класса и присвоено false (не отобразится)
-&lt;p <span class="code-bg">:class</span>="{ 'strike':view }"&gt;&lt;/p&gt;  - Явно указано название класса и присвоено свойство view (true/false)
+&lt;p <span class="hc">:class</span>="{ 'strike':true }"&gt;&lt;/p&gt;  - Явно указано название класса и присвоено true (отобразится)
+&lt;p <span class="hc">:class</span>="{ 'strike':false }"&gt;&lt;/p&gt; - Явно указано название класса и присвоено false (не отобразится)
+&lt;p <span class="hc">:class</span>="{ 'strike':view }"&gt;&lt;/p&gt;  - Явно указано название класса и присвоено свойство view (true/false)
 </code>
 </pre>
 
@@ -287,16 +287,16 @@ var app = new Vue({
 <h3>Двунаправленное связывание данных с элементами</h3> (н-р input и textarea)
 
 <pre><code class="html">
-&lt;input type="text" <span class="code-bg">v-model</span>="messText"&gt;
+&lt;input type="text" <span class="hc">v-model</span>="messText"&gt;
 &lt;p&gt;{{ messText }}&lt;/p&gt;
 
-&lt;input type="checkbox" <span class="code-bg">v-model</span>="view"&gt;
+&lt;input type="checkbox" <span class="hc">v-model</span>="view"&gt;
 &lt;label&gt;{{ view }}&lt;/label&gt;
 </code></pre>
 
 Аналогично
 <pre><code class="html">
-&lt;input type="text" <span class="code-bg">@input="messText = $event.target.value"</span>&gt;
+&lt;input type="text" <span class="hc">@input="messText = $event.target.value"</span>&gt;
 &lt;p&gt;{{ messText }}&lt;/p&gt;
 </code></pre>
 
@@ -305,7 +305,7 @@ var app = new Vue({
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пропуск компиляции у элемента и его потомков</h3>
 <pre><code class="html">
-&lt;p <span class="code-bg">v-pre</span>&gt;{{ Lorem ipsum dolor sit ameto }}&lt;/p&gt;
+&lt;p <span class="hc">v-pre</span>&gt;{{ Lorem ipsum dolor sit ameto }}&lt;/p&gt;
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -385,7 +385,7 @@ var app = new Vue({
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list">
-	<li><span class="list-span-select">Computed Properties</span> - вычисляемые (обработанные) свойства применяются когда есть зависимость переменных от других переменных</li>
+	<li><span class="hl">Computed Properties</span> - вычисляемые (обработанные) свойства применяются когда есть зависимость переменных от других переменных</li>
 </ul>
 
 <pre><code class="html">
@@ -420,7 +420,7 @@ var app = new Vue({
 	&lt;form action=""&gt;
 		&lt;span&gt;{{ count }} / 10&lt;/span&gt;
 		&lt;textarea v-model="text"&gt;&lt;/textarea&gt;
-		&lt;button <span class="code-bg">v-if="count &lt;= 10"</span>&gt;Отправить&lt;/button&gt;
+		&lt;button <span class="hc">v-if="count &lt;= 10"</span>&gt;Отправить&lt;/button&gt;
 	&lt;/form&gt;
 &lt;/div&gt;
 </code>
@@ -611,7 +611,7 @@ var app = new Vue({
 		&lt;a href="#" @click="changeView('orange')"&gt;orange&lt;/a&gt;
 		&lt;a href="#" @click="changeView('blue')"&gt;blue&lt;/a&gt;
 	&lt;/nav&gt;
-	<span class="code-bg">&lt;component :is="currentView"&gt;&lt;/component&gt;</span>
+	<span class="hc">&lt;component :is="currentView"&gt;&lt;/component&gt;</span>
 &lt;/div&gt;
 
 &lt;template id="orange-template"&gt;

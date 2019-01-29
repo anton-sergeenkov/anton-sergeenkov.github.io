@@ -1,6 +1,10 @@
 
-@import "../libraries/highlight/styles/atom-one-dark_.css" screen;
-/*@import "../libraries/highlight/styles/androidstudio.css" screen;*/
+/*@import "../libraries/highlight/styles/atom-one-dark_.css" screen;*/
+/*@import "../libraries/highlight/styles/atom-one-light.css" screen;*/
+/*@import "../libraries/highlight/styles/github.css" screen;*/
+
+@import "../libraries/highlight/styles/_github.css" screen;
+
 @import "../module/preloader/preloader.css" screen;
 @import "../module/scroll_up/style.css" screen;
 
@@ -64,9 +68,9 @@ code {
     border-radius: 5px;
 }
 code a {
-	color: silver;
 	text-decoration: none;
 	border-bottom: 1px solid silver;
+	color: #690;
 }
 
 /*...................................................
@@ -99,7 +103,7 @@ menu
 #menu .menu-js    { color: #0ba8a0; background: rgba(11, 168, 160, 0.2);  }
 #menu .menu-php   { color: #bf7abe; background: rgba(191, 122, 190, 0.2); }
 #menu .menu-other { color: #b3b768; background: rgba(179, 183, 104, 0.2); }
-#menu .menu-jsfw  { color: #8a6ac4; background: rgba(71, 7, 183, 0.2); }
+#menu .menu-jsfw  { color: #8a6ac4; background: rgba(71, 7, 183, 0.2);    }
 
 
 
@@ -117,8 +121,8 @@ h2 {
 	text-align: center;
 	margin-top: 20px;
 	color: #4aaf2d;
-	background: rgba(74, 175, 45, 0.2);
-	border-left: 5px solid rgba(74, 175, 45, 0.5);
+	/*background: rgba(74, 175, 45, 0.2);*/
+	border: 2px solid rgba(74, 175, 45, 0.5);
 	font-size: 20px;
 }
 h3 {
@@ -179,7 +183,7 @@ custom
 	padding: 10px;
 }
 .red {
-	background: #0b1d3a !important;
+	background: #efd7e2 !important;
 }
 .green {
 	background: #b5dfe2 !important;
@@ -189,22 +193,13 @@ custom
 	margin: auto;
 }
 em {
-	color: #24c1f4;
-	font-weight: bold;
+	color: #690;
 	font-style: normal;
 }
 blockquote {
 	margin: 5px 0px 0px 0px;
 	line-height: 1.5;
 }
-
-.code-bg {
-	background: black;
-	padding: 2px;
-	opacity: 0.9;
-}
-
-
 
 .menu-theme {
 	border-right: 1px solid rgba(0, 0, 0, 0.35);
@@ -252,22 +247,23 @@ blockquote {
 }
 .list, .list-point {
 	line-height: 2;
-	background: rgba(11, 168, 160, 0.1);
 	border-radius: 3px;
 	margin-top: 5px;
 	font-size: 14px;
 }
-.list-span-select {
+
+
+/*выделение элемента списка*/
+.hl {
 	padding: 5px 10px;
 	background: rgba(0,0,0,0.1);
 	border-radius: 3px;
 	font-weight: bold;
 }
 
-
 /*выделение кода*/
 .hc {
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(179, 183, 104, 0.4);
 	padding: 2px;
 }
 
@@ -278,3 +274,4 @@ blockquote {
 	border-radius: 4px;
 	color: black !important;
 }
+

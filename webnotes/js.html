@@ -124,9 +124,9 @@ add(...numbers);
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list">
 	<b>Стандартная модель событий</b>
-	<li><span class="list-span-select">Event.CAPTURING_PHASE=1</span> (захват) - идет от родительского до целевого (html -> body -> button)</li>
-	<li><span class="list-span-select">Event.AT_TARGET=2</span> (целевой элемент захвата)</li>
-	<li><span class="list-span-select">Event.BUBBLING_PAGE=3</span> (всплытие)</li>
+	<li><span class="hl">Event.CAPTURING_PHASE=1</span> (захват) - идет от родительского до целевого (html -> body -> button)</li>
+	<li><span class="hl">Event.AT_TARGET=2</span> (целевой элемент захвата)</li>
+	<li><span class="hl">Event.BUBBLING_PAGE=3</span> (всплытие)</li>
 </ul>
 
 <h3>1. Использование атрибута HTML</h3>
@@ -191,7 +191,7 @@ element.removeEventListener('click', action);
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list">
-	<li><span class="list-span-select">Event</span> - объект созданный перед запуском события</li>
+	<li><span class="hl">Event</span> - объект созданный перед запуском события</li>
 </ul>
 
 <pre><code class="js">
@@ -219,48 +219,48 @@ function getButton(e) {
 
 <h3>События мыши</h3>
 <ul class="list">
-	<li><span class="list-span-select">click</span> - одиночный клик левой кнопки мыши</li>
-	<li><span class="list-span-select">contextmenu</span> - одиночный клик правой кнопкой мыши</li>
-	<li><span class="list-span-select">mouseover</span> - наведение мыши</li>
-	<li><span class="list-span-select">mousedown</span> - нажатие кнопки мыши</li>
-	<li><span class="list-span-select">mouseup</span> - отпускание кнопки мыши</li>
-	<li><span class="list-span-select">mousemove</span> - передвижение мыши</li>
+	<li><span class="hl">click</span> - одиночный клик левой кнопки мыши</li>
+	<li><span class="hl">contextmenu</span> - одиночный клик правой кнопкой мыши</li>
+	<li><span class="hl">mouseover</span> - наведение мыши</li>
+	<li><span class="hl">mousedown</span> - нажатие кнопки мыши</li>
+	<li><span class="hl">mouseup</span> - отпускание кнопки мыши</li>
+	<li><span class="hl">mousemove</span> - передвижение мыши</li>
 
-	<li><span class="list-span-select">mouseout</span> - увод мыши</li>
-	<li><span class="list-span-select">dblclick</span> - двойной щелчек левой кнопки мыши</li>
+	<li><span class="hl">mouseout</span> - увод мыши</li>
+	<li><span class="hl">dblclick</span> - двойной щелчек левой кнопки мыши</li>
 </ul>
 
 <h3>События на элементах управления</h3>
 <ul class="list">
-	<li><span class="list-span-select">submit</span> - момент отправки формы обработчику (если кнопка типа "submit")</li>
-	<li><span class="list-span-select">focus</span> - момент получения фокуса объектом (работает и для ссылок)</li>
+	<li><span class="hl">submit</span> - момент отправки формы обработчику (если кнопка типа "submit")</li>
+	<li><span class="hl">focus</span> - момент получения фокуса объектом (работает и для ссылок)</li>
 
-	<li><span class="list-span-select">blur</span> - момент потери фокуса объектом (работает и для ссылок)</li>
-	<li><span class="list-span-select">change</span> - изменение объекта формы (поле, радиобаттон и т.д.)</li>
-	<li><span class="list-span-select">reset</span> - сброс формы (специальной кнопкой)</li>
+	<li><span class="hl">blur</span> - момент потери фокуса объектом (работает и для ссылок)</li>
+	<li><span class="hl">change</span> - изменение объекта формы (поле, радиобаттон и т.д.)</li>
+	<li><span class="hl">reset</span> - сброс формы (специальной кнопкой)</li>
 </ul>
 
 <h3>Клавиатурные события</h3>
 <ul class="list">
-	<li><span class="list-span-select">keydown</span> - момент нажатия клавиши, до момента отпускания</li>
-	<li><span class="list-span-select">keyup</span> - момент отпускания клавиши</li>
+	<li><span class="hl">keydown</span> - момент нажатия клавиши, до момента отпускания</li>
+	<li><span class="hl">keyup</span> - момент отпускания клавиши</li>
 
-	<li><span class="list-span-select">keypress</span> - нажатие клавиши на клавиатуре</li>
+	<li><span class="hl">keypress</span> - нажатие клавиши на клавиатуре</li>
 </ul>
 
 <h3>События документа</h3>
 <ul class="list">
-	<li><span class="list-span-select">DOMContentLoaded</span> - возникает после окончательной загрузки и парсинга HTML-документа, не дожидаясь загрузки стилей, картинок и фреймов</li>
+	<li><span class="hl">DOMContentLoaded</span> - возникает после окончательной загрузки и парсинга HTML-документа, не дожидаясь загрузки стилей, картинок и фреймов</li>
 
-	<li><span class="list-span-select">load</span> - возникает после полного окончания загрузки ресурса (всех картинок, стиле и прочего)</li>
-	<li><span class="list-span-select">resize</span> - изменение размеров окна браузера</li>
-	<li><span class="list-span-select">scroll</span> - прокрутка страницы</li>
-	<li><span class="list-span-select">unload</span> - уход со страницы</li>
+	<li><span class="hl">load</span> - возникает после полного окончания загрузки ресурса (всех картинок, стиле и прочего)</li>
+	<li><span class="hl">resize</span> - изменение размеров окна браузера</li>
+	<li><span class="hl">scroll</span> - прокрутка страницы</li>
+	<li><span class="hl">unload</span> - уход со страницы</li>
 </ul>
 
 <h3>События CSS</h3>
 <ul class="list">
-	<li><span class="list-span-select">transitionend</span> - когда CSS-анимация завершена</li>
+	<li><span class="hl">transitionend</span> - когда CSS-анимация завершена</li>
 </ul>
 
 
@@ -554,8 +554,8 @@ var {firstname, lastname} = getUser();
 <h2 id="symbol">Symbol (ES6)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list">
-	<li><span class="list-span-select">Символ</span> - уникальные и неизменные значения, позволябщие разработчикам языка добавлять новые идентификаторы или свойства объектов, не резервируя строковые названия для этих свойств</li>
-	<li>Нельзя использовать ключевое слово <span class="list-span-select">new</span></li>
+	<li><span class="hl">Символ</span> - уникальные и неизменные значения, позволябщие разработчикам языка добавлять новые идентификаторы или свойства объектов, не резервируя строковые названия для этих свойств</li>
+	<li>Нельзя использовать ключевое слово <span class="hl">new</span></li>
 </ul>
 
 <pre><code class="js">
@@ -723,12 +723,12 @@ function upperName(literals, value) {
 <h2 id="dictionary">Словарь</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list">
-	<li><span class="list-span-select">Statements (инструкции)</span> - var statement</li>
-	<li><span class="list-span-select">Expressions (выражения)</span> - stetement = 2+7</li>
-	<li><span class="list-span-select">Operators (операторы)</span> - арифметические, сравнения, условные, логические, побитовые</li>
-	<li><span class="list-span-select">Литерал</span> - любое значение указанное явным образом в коде. В качестве литералов в js могут выступать числа, строки (текстовые значения), логические значения</li>
-	<li><span class="list-span-select">let, const</span> - блочная область видимости</li>
-	<li><span class="list-span-select">var</span> - функциональная область видимости</li>
+	<li><span class="hl">Statements (инструкции)</span> - var statement</li>
+	<li><span class="hl">Expressions (выражения)</span> - stetement = 2+7</li>
+	<li><span class="hl">Operators (операторы)</span> - арифметические, сравнения, условные, логические, побитовые</li>
+	<li><span class="hl">Литерал</span> - любое значение указанное явным образом в коде. В качестве литералов в js могут выступать числа, строки (текстовые значения), логические значения</li>
+	<li><span class="hl">let, const</span> - блочная область видимости</li>
+	<li><span class="hl">var</span> - функциональная область видимости</li>
 </ul>
 
 
@@ -745,7 +745,7 @@ function upperName(literals, value) {
 7. <em>Symbol</em>    - символ (примитивный) ES6
 </code></pre>
 
-<p>Специальные числовые значения <span class="list-span-select">Infinity</span> и <span class="list-span-select">NaN</span></p>
+<p>Специальные числовые значения <span class="hl">Infinity</span> и <span class="hl">NaN</span></p>
 
 <!------------------------------------------------------>
 <h3>typeof - возвращает тип аргумента</h3>
@@ -944,11 +944,11 @@ for (let browser of browsers) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list">
-	<li><span class="list-span-select">forEach</span> - для перебора массива</li>
-	<li><span class="list-span-select">filter</span> - для фильтрации массива</li>
-	<li><span class="list-span-select">map</span> - для трансформации массива в массив</li>
-	<li><span class="list-span-select">every/some</span> - для проверки массива</li>
-	<li><span class="list-span-select">reduce/reduceRight</span> - для прохода по массиву с вычислением значения</li>
+	<li><span class="hl">forEach</span> - для перебора массива</li>
+	<li><span class="hl">filter</span> - для фильтрации массива</li>
+	<li><span class="hl">map</span> - для трансформации массива в массив</li>
+	<li><span class="hl">every/some</span> - для проверки массива</li>
+	<li><span class="hl">reduce/reduceRight</span> - для прохода по массиву с вычислением значения</li>
 </ul>
 
 <!------------------------------------------------------>
@@ -1023,16 +1023,16 @@ alert( arr.some(isPositive) );  // true, есть хоть одно положи
 
 <ul class="list-point">
 	<b>callback(previousValue, currentItem, index, arr)</b>
-	<li><span class="list-span-select">previousValue</span> - последний результат вызова функции, «промежуточный результат»</li>
-	<li><span class="list-span-select">currentItem</span> - текущий элемент массива, элементы перебираются по очереди слева-направо</li>
-	<li><span class="list-span-select">index</span> - номер текущего элемента</li>
-	<li><span class="list-span-select">arr</span> - обрабатываемый массив</li>
+	<li><span class="hl">previousValue</span> - последний результат вызова функции, «промежуточный результат»</li>
+	<li><span class="hl">currentItem</span> - текущий элемент массива, элементы перебираются по очереди слева-направо</li>
+	<li><span class="hl">index</span> - номер текущего элемента</li>
+	<li><span class="hl">arr</span> - обрабатываемый массив</li>
 </ul>
 
 <ul class="list-point">
 	<b>initialValue - начальное значение</b>
-	<li>Если есть <span class="list-span-select">initialValue</span>, то на первом вызове значение <span class="list-span-select">previousValue</span> будет равно <span class="list-span-select">initialValue</span></li>
-	<li>Если нет <span class="list-span-select">initialValue</span>, то оно равно первому элементу массива, а перебор начинается со второго</li>
+	<li>Если есть <span class="hl">initialValue</span>, то на первом вызове значение <span class="hl">previousValue</span> будет равно <span class="hl">initialValue</span></li>
+	<li>Если нет <span class="hl">initialValue</span>, то оно равно первому элементу массива, а перебор начинается со второго</li>
 </ul>
 
 <pre><code class="js">
@@ -1277,8 +1277,8 @@ alert(6 % 3); // 0, остаток от деления 6 на 3
 
 <h4>Инкремент/декремент</h4>
 <ul class="list-point">
-	<li><span class="list-span-select">i++</span> постфиксная форм</li>
-	<li><span class="list-span-select">++i</span> префиксная форма</li>
+	<li><span class="hl">i++</span> постфиксная форм</li>
+	<li><span class="hl">++i</span> префиксная форма</li>
 </ul>
 
 <pre><code class="js">
@@ -1453,8 +1453,8 @@ try {
 <!------------------------------------------------------>
 <ul class="list">
 	<b>setTimeout(code, time);</b>
-	<li><span class="list-span-select">code</span> - код или функция</li>
-	<li><span class="list-span-select">time</span> - время в миллисекундах, которое должно пройти до выполнения кода (1000 миллисекунд = 1 секунда)</li>
+	<li><span class="hl">code</span> - код или функция</li>
+	<li><span class="hl">time</span> - время в миллисекундах, которое должно пройти до выполнения кода (1000 миллисекунд = 1 секунда)</li>
 </ul>
 
 <pre><code class="js">
@@ -1523,19 +1523,19 @@ console.error('Ошибка');
 <h4>Синтаксис метода fetch</h4>
 <ul class="list">
 	<b>let promise = fetch(url[, options])</b>
-	<li><span class="list-span-select">url</span> - URL, на который сделать запрос</li>
-	<li><span class="list-span-select">options</span> - необязательный объект с настройками запроса</li>
+	<li><span class="hl">url</span> - URL, на который сделать запрос</li>
+	<li><span class="hl">options</span> - необязательный объект с настройками запроса</li>
 </ul>
 
 <ul class="list">
 	<b>Свойства options</b>
-	<li><span class="list-span-select">method</span> - метод запроса</li>
-	<li><span class="list-span-select">headers</span> - headers </li>
-	<li><span class="list-span-select">body</span> -  тело запроса: FormData, Blob, строка и т.д.</li>
-	<li><span class="list-span-select">mode</span> - одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос</li>
-	<li><span class="list-span-select">credentials</span> - одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом</li>
-	<li><span class="list-span-select">cache</span> - одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кешировать запрос</li>
-	<li><span class="list-span-select">redirect</span> - можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки</li>
+	<li><span class="hl">method</span> - метод запроса</li>
+	<li><span class="hl">headers</span> - headers </li>
+	<li><span class="hl">body</span> -  тело запроса: FormData, Blob, строка и т.д.</li>
+	<li><span class="hl">mode</span> - одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос</li>
+	<li><span class="hl">credentials</span> - одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом</li>
+	<li><span class="hl">cache</span> - одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кешировать запрос</li>
+	<li><span class="hl">redirect</span> - можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки</li>
 </ul>
 
 <h4>Объект response (ответ)</h4>
@@ -1651,8 +1651,8 @@ function pow(x, n) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
-	<li>Если браузер видит тег <span class="list-span-select">script</span>, то он обязан сначала выполнить его, а потом показать оставшуюся часть страницы</li>
-	<li>Специальные атрибуты <span class="list-span-select">async</span> и <span class="list-span-select">defer</span> используются для того, чтобы пока грузится внешний скрипт - браузер показал остальную (следующую за ним) часть страницы</li>
+	<li>Если браузер видит тег <span class="hl">script</span>, то он обязан сначала выполнить его, а потом показать оставшуюся часть страницы</li>
+	<li>Специальные атрибуты <span class="hl">async</span> и <span class="hl">defer</span> используются для того, чтобы пока грузится внешний скрипт - браузер показал остальную (следующую за ним) часть страницы</li>
 	<li>При одновременном указании async и defer в современных браузерах будет использован только async</li>
 	<li>Атрибуты async/defer работают только в том случае, если назначены на внешние скрипты, т.е. имеющие src</li>
 	
@@ -1762,15 +1762,15 @@ element.removeAttribute('id');       // удалить атрибут
 <h2 id="document-dict">Определения</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list">
-	<li><span class="list-span-select">document</span> - документ, который загружается в браузер</li>
-	<li><span class="list-span-select">window</span> - окно браузера</li>
+	<li><span class="hl">document</span> - документ, который загружается в браузер</li>
+	<li><span class="hl">window</span> - окно браузера</li>
 </ul>
 
 <ul class="list">
 	<b>Window</b> - глобальный объект, состоит из
-	<li><span class="list-span-select">1. DOM</span> - объектная модель документа</li>
-	<li><span class="list-span-select">2. BOM</span> - объектная модель браузера</li>
-	<li><span class="list-span-select">3. Глобальные переменные, объекты, функции</span>  и т.д.</li>
+	<li><span class="hl">1. DOM</span> - объектная модель документа</li>
+	<li><span class="hl">2. BOM</span> - объектная модель браузера</li>
+	<li><span class="hl">3. Глобальные переменные, объекты, функции</span>  и т.д.</li>
 </ul>
 
 
@@ -1846,17 +1846,17 @@ function changes(screen) {
 <h2 id="dom-element">DOM элементы</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><span class="list-span-select">Document Object Model (DOM) </span> - объектная модель представления документа. Независящий от платформы и языка программирования способ представления документа, позволяющий программам и скриптам получить доступ к содержимому HTML, XHTML и XML документов, а также изменять содержимое, структуру и оформление таких документов</li>
-	<li><span class="list-span-select">DOM</span> - представление документа в виде дерева тегов, доступное для изменения через JS</li>
+	<li><span class="hl">Document Object Model (DOM) </span> - объектная модель представления документа. Независящий от платформы и языка программирования способ представления документа, позволяющий программам и скриптам получить доступ к содержимому HTML, XHTML и XML документов, а также изменять содержимое, структуру и оформление таких документов</li>
+	<li><span class="hl">DOM</span> - представление документа в виде дерева тегов, доступное для изменения через JS</li>
 	<li>Всё содержимое документа представлено в виде иерархии объектов</li>
 	<li>Структура этой иерархии стандартизирована, чтобы обеспечить независимость от платформы</li>
 </ul>
 
 <ul class="list-point">
 	<b>Узлы (nodes)</b>
-	<li><span class="list-span-select">Тип "element"</span> - каждый HTML тег создает узел (node) дерева</li>
-	<li><span class="list-span-select">Тип "element" дочерние узлы</span> - вложенные в него элементы</li>
-	<li><span class="list-span-select">Тип "text"</span> - для представления текста</li>
+	<li><span class="hl">Тип "element"</span> - каждый HTML тег создает узел (node) дерева</li>
+	<li><span class="hl">Тип "element" дочерние узлы</span> - вложенные в него элементы</li>
+	<li><span class="hl">Тип "text"</span> - для представления текста</li>
 </ul>
 
 <pre><code class="js">
@@ -2094,19 +2094,19 @@ var a = document.cookie;       // прочитать cookie
 <h3>this</h3>
 <!------------------------------------------------------>
 <ul class="list-point">
-	<li>У каждого вызова функции есть свой «контекст выполнения» <span class="list-span-select">execution context</span> и он всегда разный в зависимости от того как функция была вызвана</li>
-	<li><span class="list-span-select">Контекст выполнения</span> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор</li>
-	<li><span class="list-span-select">Контекст вызова функции</span> - тот объект который ее вызывает</li>
-	<li><span class="list-span-select">this</span> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие)</li>
+	<li>У каждого вызова функции есть свой «контекст выполнения» <span class="hl">execution context</span> и он всегда разный в зависимости от того как функция была вызвана</li>
+	<li><span class="hl">Контекст выполнения</span> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор</li>
+	<li><span class="hl">Контекст вызова функции</span> - тот объект который ее вызывает</li>
+	<li><span class="hl">this</span> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие)</li>
 </ul>
 
 <!------------------------------------------------------>
 <h3>bind(), call(), apply()</h3>
 <!------------------------------------------------------>
 <ul class="list">
-	<li><span class="list-span-select">call()</span> - явное указание контекст вызова</li>
-	<li><span class="list-span-select">apply()</span> - аналогичен call(), только аргументы передаются массивом вторым аргументом</li>
-	<li><span class="list-span-select">bind()</span> - не вызывает функцию, а связывает с объектом. не изменяет исходную функцию, а возвращает новую</li>
+	<li><span class="hl">call()</span> - явное указание контекст вызова</li>
+	<li><span class="hl">apply()</span> - аналогичен call(), только аргументы передаются массивом вторым аргументом</li>
+	<li><span class="hl">bind()</span> - не вызывает функцию, а связывает с объектом. не изменяет исходную функцию, а возвращает новую</li>
 </ul>
 
 <pre><code class="js">
@@ -2148,9 +2148,9 @@ var str2 = str1
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list">
-	<li><span class="list-span-select">JSON</span> - JavaScript Object Notation</li>
-	<li><span class="list-span-select">Сериализация объектов</span> - преобразование объектов в строки</li>
-	<li><span class="list-span-select">В JSON можно хранить</span> - объекты, массивы, строки, числа true, false, null. Другие значения при сериализации превращаются в null</li>
+	<li><span class="hl">JSON</span> - JavaScript Object Notation</li>
+	<li><span class="hl">Сериализация объектов</span> - преобразование объектов в строки</li>
+	<li><span class="hl">В JSON можно хранить</span> - объекты, массивы, строки, числа true, false, null. Другие значения при сериализации превращаются в null</li>
 </ul>
 
 <pre><code class="js">
@@ -2395,11 +2395,11 @@ var a = greeting(function(name) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
-	<li><span class="list-span-select">Итерируемый, перебираемый объект (Iterable)</span> - объект содержание которого можно перебрать по одному элементу. Пример: массив, строка, коллекция dom-элементов</li>
-	<li><span class="list-span-select">Итератор</span> - паттерн проектирования, согласно которому источник элементов прячется от клиента. Клиенту достается специальный объект с помощью которого он может получить элементы по одному. Клиенту не нужно беспокоиться о том как итерировать объект, при этом внутри самого объекта автор может использовать любую структуру для хранения элементов и любой алгоритм для их перебор. Клиент не получает саму структуру и автору не нужно беспокоиться что клиент может ее изменить</li>
-	<li><span class="list-span-select">Объект является итератором</span>, если он умеет обращаться к элементам коллекции по одному за раз, при этом отслеживая свое текущее положение внутри этой последовательности</li>
-	<li><span class="list-span-select">Конструкция for..of</span> в начале своего выполнения автоматически вызывает Symbol.iterator(), получает итератор и далее вызывает метод next() до получения done: true. Такова внутренняя механика. Внешний код при переборе через for..of видит только значения</li>
-	<li><span class="list-span-select">Интераторы</span> используются для реализации генераторов</li>
+	<li><span class="hl">Итерируемый, перебираемый объект (Iterable)</span> - объект содержание которого можно перебрать по одному элементу. Пример: массив, строка, коллекция dom-элементов</li>
+	<li><span class="hl">Итератор</span> - паттерн проектирования, согласно которому источник элементов прячется от клиента. Клиенту достается специальный объект с помощью которого он может получить элементы по одному. Клиенту не нужно беспокоиться о том как итерировать объект, при этом внутри самого объекта автор может использовать любую структуру для хранения элементов и любой алгоритм для их перебор. Клиент не получает саму структуру и автору не нужно беспокоиться что клиент может ее изменить</li>
+	<li><span class="hl">Объект является итератором</span>, если он умеет обращаться к элементам коллекции по одному за раз, при этом отслеживая свое текущее положение внутри этой последовательности</li>
+	<li><span class="hl">Конструкция for..of</span> в начале своего выполнения автоматически вызывает Symbol.iterator(), получает итератор и далее вызывает метод next() до получения done: true. Такова внутренняя механика. Внешний код при переборе через for..of видит только значения</li>
+	<li><span class="hl">Интераторы</span> используются для реализации генераторов</li>
 </ul>
 
 <ul class="list-point">
@@ -2471,13 +2471,13 @@ console.log(num.next().value);
 <h2 id="promise">Promise (ES6)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list">
-	<li><span class="list-span-select">callback function</span> - функция обратного вызова button.onclick = function() {}</li>
+	<li><span class="hl">callback function</span> - функция обратного вызова button.onclick = function() {}</li>
 </ul>
 
 <ul class="list">
-	<li><span class="list-span-select">Promise Pending</span> - обещение выполняется</li>
-	<li><span class="list-span-select">Promise Resolved</span> - обещание сдержано</li>
-	<li><span class="list-span-select">Promise Rejected</span> - обещение не сдержано</li>
+	<li><span class="hl">Promise Pending</span> - обещение выполняется</li>
+	<li><span class="hl">Promise Resolved</span> - обещание сдержано</li>
+	<li><span class="hl">Promise Rejected</span> - обещение не сдержано</li>
 </ul>
 
 <pre><code class="js">
@@ -2587,10 +2587,10 @@ class SomeClass {
 
 <ul class="list-point">
 	<li>При вызове Генератора возвращается объект Итератор, позволяющий приостанавливать и возобновлять процесс выполнения функции</li>
-	<li><span class="list-span-select">yield</span> - позволяет поставить выполнение функции на паузу и возобновить в произвольный момент</li>
-	<li><span class="list-span-select">yield</span> - производит и отдает информацию - объек со свойствами value и done,
+	<li><span class="hl">yield</span> - позволяет поставить выполнение функции на паузу и возобновить в произвольный момент</li>
+	<li><span class="hl">yield</span> - производит и отдает информацию - объек со свойствами value и done,
 но при этом также отдаем контроль за функцией</li>
-	<li><span class="list-span-select">yield 1</span> - возвращает промежуточный результат (value: 1)</li>
+	<li><span class="hl">yield 1</span> - возвращает промежуточный результат (value: 1)</li>
 </ul>
 
 <h4>Использование с Fetch</h4>
