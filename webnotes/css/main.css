@@ -3,7 +3,7 @@
 /*@import "../libraries/highlight/styles/atom-one-light.css" screen;*/
 /*@import "../libraries/highlight/styles/github.css" screen;*/
 
-@import "../libraries/highlight/styles/_github.css" screen;
+@import "../libraries/highlight/sawyer.css" screen;
 
 @import "../module/preloader/preloader.css" screen;
 @import "../module/scroll_up/style.css" screen;
