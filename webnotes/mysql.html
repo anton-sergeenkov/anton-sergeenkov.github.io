@@ -25,58 +25,48 @@
 <h2 id="sql">SQL-запросы</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Записи в таблице</h3>
-<pre>
-<code class="js">
-<b>SELECT * FROM products WHERE ID=2</b>                                   - выбор 1 записи
-<b>SELECT * FROM products ORDER BY ID</b>                                  - выбор всех записей
-<b>SELECT * FROM products WHERE NAME LIKE '%название%'</b>                 - выборка по неполному названию, регистр не учитывается
-<b>SELECT MAX(ID) AS ID FROM products</b>                                  - получение последнего id
-<b>INSERT INTO products(NAME, DESCRIPTION) VALUES ('Имя', 'Описание')</b>  - добавление новой записи
-<b>UPDATE products SET NAME='Имя', DESCRIPTION='Описание' WHERE ID=2</b>   - редактирование записи
-<b>DELETE FROM products WHERE ID=2</b>                                     - удаление записи
-</code>
-</pre>
+<pre><code class="sql">
+SELECT * FROM products WHERE ID=2                                   /* выбор 1 записи */
+SELECT * FROM products ORDER BY ID                                  /* выбор всех записей */
+SELECT * FROM products WHERE NAME LIKE '%название%'                 /* выборка по неполному названию, регистр не учитывается */
+SELECT MAX(ID) AS ID FROM products                                  /* получение последнего id */
+INSERT INTO products(NAME, DESCRIPTION) VALUES ('Имя', 'Описание')  /* добавление новой записи */
+UPDATE products SET NAME='Имя', DESCRIPTION='Описание' WHERE ID=2   /* редактирование записи */
+DELETE FROM products WHERE ID=2                                     /* удаление записи */
+</code></pre>
 
-<pre>
-<code class="js">
-<b>ORDER BY id DESC</b> - упорядочивание в обратном порядке
-<b>ORDER BY id ASC</b>  - упорядочивание в алфавитном порядке
-<b>ORDER BY RAND()</b>  - рандомный порядок
-<b>LIMIT 10</b>         - последние 10 записей
-<b>LIMIT 5, 10</b>      - с 6 по 15 записи (5 начальное значение, 10 кол-во элементов)
-</code>
-</pre>
+<pre><code class="sql">
+ORDER BY id DESC /* сортировка в обратном порядке */
+ORDER BY id ASC  /* сортировка в алфавитном порядке */
+ORDER BY RAND()  /* рандомный порядок */
+LIMIT 10         /* последние 10 записей */
+LIMIT 5, 10      /* с 6 по 15 записи (5 начальное значение, 10 кол-во элементов) */
+</code></pre>
 
 <h4>Пример #1. Выборка товара с максимальной ценой</h4>
-<pre>
-<code class="js">
+<pre><code class="sql">
 SELECT *
 FROM products
 WHERE PRICE=(SELECT MAX(PRICE) AS PRICE FROM products)
-</code>
-</pre>
+</code></pre>
 
 <h3>Таблицы в БД</h3>
-<pre>
-<code class="js">
-<b>DROP TABLE users</b>             - удаление таблицы
-<b>RENAME TABLE DOORS TO DOOR</b>   - изменение имени таблицы
-</code>
-</pre>
+<pre><code class="sql">
+DROP TABLE users             /* удаление таблицы */
+RENAME TABLE DOORS TO DOOR   /* изменение имени таблицы */
+</code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="database">Создание базы данных</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<pre><code class="js">
 1. Кодировка: utf_general_ci / utf_unicode_ci
 2. Первичный ключ: UNSIGNED – диапазон значений только положительные числа 
 (у INT в диапазон по умолчанию включены еще и отрицательные числа)
 3. Типы данных: 
 	VARCHAR - малая длина записи (нужно указывать число, н-р: 500)
 	LONGTEXT - максимальная длина записи
-</code>
-</pre>
+</code></pre>
 
 
 </div>

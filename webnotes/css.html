@@ -141,12 +141,12 @@ div {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre>
 <code class="js">
-<b>px</b>   - абсолютная единица измерения
-<b>%</b>    - относительная, рассчитывается относительно родителя
-<b>vw</b>   - viewport width, относительная, рассчитывается относительно viewport
-<b>vh</b>   - viewport height, относительная, рассчитывается относительно viewport
-<b>em</b>   - относительная, рассчитывается относительно родителя (берет значение font-size)
-<b>rem</b>  - root em, относительная, рассчитывается относительно html (берет значение font-size)
+<em>px</em>   - абсолютная единица измерения
+<em>%</em>    - относительная, рассчитывается относительно родителя
+<em>vw</em>   - viewport width, относительная, рассчитывается относительно viewport
+<em>vh</em>   - viewport height, относительная, рассчитывается относительно viewport
+<em>em</em>   - относительная, рассчитывается относительно родителя (берет значение font-size)
+<em>rem</em>  - root em, относительная, рассчитывается относительно html (берет значение font-size)
 </code>
 </pre>
 
@@ -187,14 +187,14 @@ div {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre>
 <code class="plantext">
-<b>block</b>        - блок
-<b>inline</b>       - строка
-<b>inline-block</b> - блок-строка
-<b>table</b>        - блочная таблица
-<b>table-cell</b>   - ячейка таблицы
-<b>none</b>         - нет
-<b>flex</b>         - flexbox
-<b>grid</b>         - grid
+<em>block</em>        - блок
+<em>inline</em>       - строка
+<em>inline-block</em> - блок-строка
+<em>table</em>        - блочная таблица
+<em>table-cell</em>   - ячейка таблицы
+<em>none</em>         - нет
+<em>flex</em>         - flexbox
+<em>grid</em>         - grid
 </code>
 </pre>
 
@@ -205,11 +205,11 @@ div {
 <pre>
 <code class="css">
 div {
-	<b>position: static;</b>    - статичное (стандартное позиционирование)
-	<b>position: relative;</b>  - относительное (положение устанавливается относительно его исходного места)
-	<b>position: absolute;</b>  - абсолютное (отсчёт координат ведётся от края окна браузера, если у родителя не установлено position: relative)
-	<b>position: fixed;</b>     - фиксированное (привязывается к указанной свойствами left, top, right и bottom точке на экране)
-	<b>position: sticky;</b>    - сочетание относительного и фиксированного позиционирования
+	<em>position: static;</em>    - статичное (стандартное позиционирование)
+	<em>position: relative;</em>  - относительное (положение устанавливается относительно его исходного места)
+	<em>position: absolute;</em>  - абсолютное (отсчёт координат ведётся от края окна браузера, если у родителя не установлено position: relative)
+	<em>position: fixed;</em>     - фиксированное (привязывается к указанной свойствами left, top, right и bottom точке на экране)
+	<em>position: sticky;</em>    - сочетание относительного и фиксированного позиционирования
 }
 </code>
 </pre>
@@ -218,37 +218,33 @@ div {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="background">Background</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="css">
+<pre><code class="css">
 div {
-	<b>background-image</b>: url(img.png);                - путь к изображению
-	<b>background-repeat</b>: no-repeat;                  - повторение изображения
-	<b>background-position</b>: center center;            - позиционирование изображения (задние в px и %)
-	<b>background-size</b>: contain;                      - изображение полностью помещается в блок
-	<b>background-size</b></b>: cover;                        - изображение заполняет весь блок
-	<b>background-size</b>: 50%;                          - задание в %
-	<b>background-color</b>: #3b3b3b;                     - цвет фона
-	<b>background-attachment</b>: fixed;                  - будет ли прокручиваться фоновое изображение
+	background-image: url(img.png);                - путь к изображению
+	background-repeat: no-repeat;                  - повторение изображения
+	background-position: center center;            - позиционирование изображения (задние в px и %)
+	background-size: contain;                      - изображение полностью помещается в блок
+	background-size: cover;                        - изображение заполняет весь блок
+	background-size: 50%;                          - задание в %
+	background-color: #3b3b3b;                     - цвет фона
+	background-attachment: fixed;                  - будет ли прокручиваться фоновое изображение
 }
-</code>
-</pre>
+</code></pre>
 
 Сокращенная запись
-<pre>
-<code class="css">
+<pre><code class="css">
 div {
-	<b>background</b>: color url no-repeat center center / cover;
-	<b>background</b>: url(img.png) no-repeat center 50%;
-	<b>background</b>: url no-repeat center;	
+	background: color url no-repeat center center / cover;
+	background: url(img.png) no-repeat center 50%;
+	background: url no-repeat center;	
 }
-</code>
-</pre>
+</code></pre>
 
 Задание нескольких фонов
 <pre>
 <code class="css">
 div {
-	<b>background</b>: url(img.png) no-repeat,
+	background: url(img.png) no-repeat,
 		#fff url(img.png) no-repeat 100% 0; 
 }
 </code>
@@ -296,56 +292,55 @@ span {
 <pre>
 <code class="css">
 div {
-	<b>filter: blur(5px);</b>          - размытие (напрямую к body применить нельзя)
-	<b>filter: brightness(150%);</b>   - яркость, 100% по умолчанию
-	<b>filter: contrast(150%);</b>     - контрастность, 100% по умолчанию
-	<b>filter: grayscale(70%);</b>     - черно-белое, 0% по умолчанию
-	<b>filter: hue-rotate(90deg);</b>  - поворот оттенка, определяет угол, 0deg по умолчанию
-	<b>filter: invert(100%);</b>       - инвертирование
-	<b>filter: opacity(50%);</b>       - прозрачность
-	<b>filter: saturate(150%);</b>     - изменение насыщенности
-	<b>filter: sepia(100%);</b>        - сепия
-	<b>filter: drop-shadow(10px 10px 3px rgba(100,0,0,0.5));</b>  - добавляет тень к изображениям, учитывая прозрачные участки
+	filter: blur(5px);          - размытие (напрямую к body применить нельзя)
+	filter: brightness(150%);   - яркость, 100% по умолчанию
+	filter: contrast(150%);     - контрастность, 100% по умолчанию
+	filter: grayscale(70%);     - черно-белое, 0% по умолчанию
+	filter: hue-rotate(90deg);  - поворот оттенка, определяет угол, 0deg по умолчанию
+	filter: invert(100%);       - инвертирование
+	filter: opacity(50%);       - прозрачность
+	filter: saturate(150%);     - изменение насыщенности
+	filter: sepia(100%);        - сепия
+	filter: drop-shadow(10px 10px 3px rgba(100,0,0,0.5));  - добавляет тень к изображениям, учитывая прозрачные участки
 }
 </code>
 </pre>
 
-<pre>
-<code class="plantext">
-можно применять несколько фильтров
-первый фильтр применяется к исходному изображению, а остальные к предыдущему
-</code>
-<code class="css">
+<ul class="list-point">
+	<li>Можно применять несколько фильтров</li>
+	<li>Первый фильтр применяется к исходному изображению, а остальные к предыдущему</li>
+</ul>
+
+<pre><code class="css">
 div {
 	filter: contrast(150%) sepia(100%);
 }
-</code>
-</pre>
+</code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="backdrop-filter">Backdrop-filter (draft)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="plantext">
-1. Аналогичен filter, но работает только с фоном, не трогая сам элемент
-2. Значения такие же как у filter
-</code>
-</pre>
+<ul class="list-point">
+	<li>Аналогичен filter, но работает только с фоном, не трогая сам элемент</li>
+	<li>Значения такие же как у filter</li>
+</ul>
 
-<pre>
-<code class="plantext">
-backdrop-filter: blur(10px);
-//аналогично 
-filter: blur(10px);
-</code>
-</pre>
+<div class="container-flex"><div class="container-half"><pre><code class="css">
+div {
+	backdrop-filter: blur(10px);
+}
+</code></pre></div><div class="container-half"><pre><code class="css">
+div {
+	filter: blur(10px);
+}
+</code></pre></div></div>
 
-<pre>
-<code class="plantext">
-//функция filter
-background: filter (url(), blur(10px));
-</code>
-</pre>
+<h4>Функция filter</h4>
+<pre><code class="css">
+div {
+	background: filter (url(), blur(10px));
+}
+</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -353,24 +348,21 @@ background: filter (url(), blur(10px));
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <h3>transition (анимированный переход)</h3>
-<pre>
-<code class="css">
+<pre><code class="css">
 transition: all 0s ease 0s;
-1. <b>transition-property</b>        - какие свойства анимируются
-2. <b>transition-duration</b>        - длина анимации
-3. <b>transition-timing-function</b> - как вычисляются промежуточные состояния
-4. <b>transition-delay</b>           - время ожидания перед запуском эффекта 
-</code>
-</pre>
+1. transition-property        - какие свойства анимируются
+2. transition-duration        - длина анимации
+3. transition-timing-function - как вычисляются промежуточные состояния
+4. transition-delay           - время ожидания перед запуском эффекта 
+</code></pre>
 
-<pre>
-<code class="css">
-<b>transition</b>: all 0.7s ease-in 0s;
-</code>
-</pre>
+<pre><code class="css">
+div {
+	transition: all 0.7s ease-in 0s;
+}
+</code></pre>
 
-<pre>
-<code class="css">
+<pre><code class="css">
 div {
 	background: orange;
 	transition: all 0.7s ease-in 0s;
@@ -378,8 +370,7 @@ div {
 div:hover {
 	background: blue;
 }
-</code>
-</pre>
+</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -388,10 +379,10 @@ div:hover {
 <pre>
 <code class="css">
 1. СДВИГ
-	<b>translate(50px, 50px);</b>    - сдвигает элемент на заданное значение по горизонтали и вертикали (положительное значение сдвигает вправо, отрицательное влево)
-	<b>translateX(50px);</b>         - сдвигает элемент по горизонтали на указанное значение
-	<b>translateY(50px);</b>         - сдвигает элемент по вертикали на указанное значение
-	<b>translateZ(50px);</b>         - сдвигает элемент по оси Z на указанное значение
+	translate(50px, 50px);    - сдвигает элемент на заданное значение по горизонтали и вертикали (положительное значение сдвигает вправо, отрицательное влево)
+	translateX(50px);         - сдвигает элемент по горизонтали на указанное значение
+	translateY(50px);         - сдвигает элемент по вертикали на указанное значение
+	translateZ(50px);         - сдвигает элемент по оси Z на указанное значение
 
 - один параметр translate(): перемещает элемент вдоль оси х
 - два параметра translate(): первое значение для оси х, второе для оси у
@@ -401,20 +392,20 @@ div:hover {
 <pre>
 <code class="css">
 2. ПОВОРОТ
-	<b>rotate(15deg);</b>     - поворот
-	<b>rotateX(15deg);</b>    - поворот по оси X
-	<b>rotateY(15deg);</b>    - поворот по оси Y
-	<b>rotateZ(15deg);</b>    - поворот по оси Z
+	rotate(15deg);     - поворот
+	rotateX(15deg);    - поворот по оси X
+	rotateY(15deg);    - поворот по оси Y
+	rotateZ(15deg);    - поворот по оси Z
 </code>
 </pre>
 
 <pre>
 <code class="css">
 3. МАСШТАБИРОВАНИЕ
-	<b>scale(1.2);</b>       - масштабирует элемент по горизонтали и вертикали
-	<b>scaleX(1.2);</b>      - масштабирует элемент по горизонтали
-	<b>scaleY(1.2);</b>      - масштабирует элемент по вертикали
-	<b>scaleZ(1.2);</b>      - масштабирует элемент по оси Z
+	scale(1.2);       - масштабирует элемент по горизонтали и вертикали
+	scaleX(1.2);      - масштабирует элемент по горизонтали
+	scaleY(1.2);      - масштабирует элемент по вертикали
+	scaleZ(1.2);      - масштабирует элемент по оси Z
 
 - один параметр scale(): изменение размеров элемента одинаково по высоте и ширине
 - два параметра scale(): первое значение изменяет размер элемента по горизонтали, второе по вертикали
@@ -424,9 +415,9 @@ div:hover {
 <pre>
 <code class="css">
 4. НАКЛОН (ИСКАЖЕНИЕ)
-	<b>skew(15deg);</b>
-	<b>skewX(15deg);</b>     - наклоняет элемент на заданный угол по вертикали
-	<b>skewY(15deg);</b>     - наклоняет элемент на заданный угол по горизонтали
+	skew(15deg);
+	skewX(15deg);     - наклоняет элемент на заданный угол по вертикали
+	skewY(15deg);     - наклоняет элемент на заданный угол по горизонтали
 
 - один параметр: элемент искажается по горизонтали;
 - два параметра: первое значение искажает элемент по горизонтали, второе по вертикали.
@@ -435,21 +426,21 @@ div:hover {
 
 <pre>
 <code class="css">
-<b>matrix</b>        - задаёт двумерную матрицу преобразований
-<b>matrix3d</b>      - задаёт трёхмерную матрицу преобразований
-<b>rotate3d</b>      - поворачивает элемент в трёхмерном пространстве
-<b>scale3d</b>       - масштабирует элемент в трёхмерном пространстве
-<b>translate3d</b>   - сдвигает элемент на заданное значение в трёхмерном пространстве
-<b>perspective</b>   - задаёт перспективу
+matrix        - задаёт двумерную матрицу преобразований
+matrix3d      - задаёт трёхмерную матрицу преобразований
+rotate3d      - поворачивает элемент в трёхмерном пространстве
+scale3d       - масштабирует элемент в трёхмерном пространстве
+translate3d   - сдвигает элемент на заданное значение в трёхмерном пространстве
+perspective   - задаёт перспективу
 </code>
 </pre>
 
 <pre>
 <code class="css">
 Свойства трансформации
-<b>transform</b>          - определяет, какая функция будет применяться (translate, rotate, scale, skew)
-<b>transform-origin</b>   - позволяет изменять точку начала преобразования (работает как background-position)
-<b>transform-style</b>    - для настройки 3D
+transform          - определяет, какая функция будет применяться (translate, rotate, scale, skew)
+transform-origin   - позволяет изменять точку начала преобразования (работает как background-position)
+transform-style    - для настройки 3D
 </code>
 </pre>
 
@@ -477,14 +468,14 @@ div {
 <pre>
 <code class="css">
 animation: none 0s ease 0s 1 normal none running;
-1. <b>animation-name</b>             - название анимации
-2. <b>animation-duration</b>         - как долго длится анимация
-3. <b>animation-timing-function</b>  - как вычисляются промежуточные состояния
-4. <b>animation-delay</b>            - анимация начинается спустя некоторое время
-5. <b>animation-iteration-count</b>  - сколько раз должна выполняться анимация
-6. <b>animation-direction</b>        - должно движение идти в обратную сторону или нет
-7. <b>animation-fill-mode</b>        - какие стили применяются до начала анимации и после её завершения
-8. <b>animation-play-state</b>       - проигрывать анимацию или поставить её на паузу
+1. animation-name             - название анимации
+2. animation-duration         - как долго длится анимация
+3. animation-timing-function  - как вычисляются промежуточные состояния
+4. animation-delay            - анимация начинается спустя некоторое время
+5. animation-iteration-count  - сколько раз должна выполняться анимация
+6. animation-direction        - должно движение идти в обратную сторону или нет
+7. animation-fill-mode        - какие стили применяются до начала анимации и после её завершения
+8. animation-play-state       - проигрывать анимацию или поставить её на паузу
 </code>
 </pre>
 
@@ -574,12 +565,12 @@ div {
 <h3>Шрифты</h3>
 <pre>
 <code class="html">
-- <b>Sans-serif</b> (без засечек)
-- <b>Serif</b> (с засечками)
-- <b>Accident</b> (декоративные)
-- <b>Handwriting</b> (рукописные)
-- <b>Monospaced</b> (моноширинные) 
-- <b>Symbol</b> (символьные: fontawesome, stroke, icomoon)
+- <em>Sans-serif</em> (без засечек)
+- <em>Serif</em> (с засечками)
+- <em>Accident</em> (декоративные)
+- <em>Handwriting</em> (рукописные)
+- <em>Monospaced</em> (моноширинные) 
+- <em>Symbol</em> (символьные: fontawesome, stroke, icomoon)
 </code>
 </pre>
 
@@ -673,10 +664,10 @@ div {
 <pre>
 <code class="css">
 ul {
-	<b>list-style</b>:          list-style-type list-style-image list-style-position; 
-	<b>list-style-type</b>:     none | circle ...          - изменяет вид маркера 
-	<b>list-style-image</b>:    none | url('путь к файлу') - устанавливает изображение
-	<b>list-style-position</b>: inside | outside           - размешение относительно текста   
+	list-style:          list-style-type list-style-image list-style-position; 
+	list-style-type:     none | circle ...          - изменяет вид маркера 
+	list-style-image:    none | url('путь к файлу') - устанавливает изображение
+	list-style-position: inside | outside           - размешение относительно текста   
 }       
 </code>
 </pre>
@@ -1072,20 +1063,20 @@ div {
 <h3>Стандартные разрешения экрана</h3>
 <pre>
 <code class="html">
-<b>1200px</b> - Large Devices, Wide Screens
-<b>1024px</b> - Medium Devices, Desktops
-<b>992px</b>  - Medium Devices, Desktops
-<b>768px</b>  - Small Devices, Tablets
-<b>640px</b>  - Small Devices, Tablets
-<b>480px</b>  - Extra Small Devices, Phones
-<b>320px</b>  - Custom, iPhone Retina
+<em>1200px</em> - Large Devices, Wide Screens
+<em>1024px</em> - Medium Devices, Desktops
+<em>992px</em>  - Medium Devices, Desktops
+<em>768px</em>  - Small Devices, Tablets
+<em>640px</em>  - Small Devices, Tablets
+<em>480px</em>  - Extra Small Devices, Phones
+<em>320px</em>  - Custom, iPhone Retina
 </code>
 </pre>
 
 <pre>
 <code class="html">
-<b>1920px</b> - ширина фонового изображения (Full HD)
-<b>1280px</b> - ширина изображения для галереи
+<em>1920px</em> - ширина фонового изображения (Full HD)
+<em>1280px</em> - ширина изображения для галереи
 </code>
 </pre>
 
