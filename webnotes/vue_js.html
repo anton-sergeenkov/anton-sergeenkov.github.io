@@ -779,31 +779,92 @@ const app = new Vue({
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 class="select" id="cli">Vue CLI и .vue файлы</h2>
+<h2 class="select" id="cli">Vue CLI</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="html">
-<a href="https://github.com/vuejs/vue-cli" target="_blank">vue-cli (github)</a>
-</code>
-<code class="html">
-npm i vue-cli -g
-vue init webpack-simple www
-cd www
-npm install
-npm run dev
-</code>
-<code class="html">
-http://localhost:8080/
-</code>
-</pre>
 
-<pre>
-<code>
+<!------------------------------------------------------>
+<h3>Bash</h3>
+<!------------------------------------------------------>
+<pre><code class="bash">
+npm install -g @vue/cli                 # CLI
+npm install -g @vue/cli-service-global  # сервис CLI
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Vue</h3>
+<!------------------------------------------------------>
+
+<h4>vue serve</h4>
+<pre><code class="bash">
+Использование: serve [options] [entry]
+Запустить .js или .vue файл в режиме разработки без конфигурации
+Опции:
+	-o, --open  Открыть в браузере
+	-c, --copy  Скопировать локальный URL в буфер обмена
+	-h, --help  Вывести информацию об использовании команды
+</code></pre>
+
+<pre><code class="bash">
+vue serve                  # aвтоматически выбирает стартовый файл в текущем каталоге — этот файл может быть одним из main.js, index.js, App.vue или app.vue
+vue serve MyComponent.vue  # явное указание стартового файла
+</code></pre>
+
+<h4>vue build </h4>
+<pre><code class="bash">
+Использование: build [options] [entry]
+Собрать .js или .vue файл в режиме production без конфигурации
+Опции:
+	-t, --target &lt;target&gt;  Цели сборки (app | lib | wc | wc-async, по умолчанию: app)
+	-n, --name &lt;name&gt;      Имя для библиотеки или веб-компонента (по умолчанию: имя файла входной точки)
+	-d, --dest &lt;dir&gt;       Каталог расположения готовой сборки (по умолчанию: dist)
+	-h, --help             Вывести информацию об использовании команды
+</code></pre>
+
+<pre><code class="bash">
+vue build MyComponent.vue  # собрать целевой файл в режиме production для публикации
+</code></pre>
+
+<h4>vue create</h4>
+
+
+
+
+
+
+<!------------------------------------------------------>
+<h3>Компоненты системы</h3>
+<!------------------------------------------------------>
+<ul class="list">
+	<li><span class="hl">1. CLI (@vue/cli)</span> - npm-пакет, устанавливаемый глобально и предоставляющий команду <span class="hc">vue</span> в терминале. Он позволяет быстро создать новый проект командой <span class="hc">vue create</span>, или мгновенно прототипировать ваши новые идеи через <span class="hc">vue serve</span>. Также можно управлять проектами в графическом интерфейсе через <span class="hc">vue ui</span></li>
+	<li><span class="hl">2. Сервис CLI (@vue/cli-service)</span> - зависимость для разработки. Это npm-пакет, устанавливаемый локально в каждый проект, создаваемый с помощью <span class="hc">@vue/cli</span>. Сервис CLI построен на основе <span class="hc">webpack</span> и <span class="hc">webpack-dev-server</span></li>
+	<li><span class="hl">3. Плагины для CLI</span> - npm-пакеты, которые предоставляют дополнительные возможности для ваших проектов, создаваемых через Vue CLI
+</li>
+</ul>
+
+
+
+
+
+
+<h3>Compilation</h3>
+
+<pre><code class="js">
+<a href="https://github.com/vuejs/vue-cli" target="_blank">https://github.com/vuejs/vue-cli</a>
+</code></pre>
+
+
+<pre><code class="bash">
+http://localhost:8080/  - url
+node --version          - версия nodejs
+vue --version           - версия Vue CLI
+Vetur                   - плагин для Visual Studio Code
+</code></pre>
+
+<pre><code>
 App.vue
 &lt;style scoped&gt;&lt;/style&gt; - применение стилей только к .vue файлу 
 &lt;template&gt;&lt;/template&gt;  - должен содержать только 1 родительский элемент
-</code>
-</pre>
+</code></pre>
 
 
 
