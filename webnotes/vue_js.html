@@ -23,11 +23,20 @@
 		<a href="#dir-cloak"><span class="hm">v-cloak</span></a>
 		<a href="#dir-once"><span class="hm">v-once</span></a>
 
+		<div class="theme">Компоненты</div>
+		<a href="#component-simple">Простой компонент</a>
+		<a href="#component-local-global">Локальные и глобальные компоненты</a>
+		<a href="#component-transfer-content">Передача контента из HTML</a>
+		<a href="#component-template">Тег template</a>
+		<a href="#component-dynamic">Динамические компоненты</a>
+	
+		<div class="theme">.VUE файлы</div>
+		<a href="#vue-file-structure">.VUE файлы (структура)</a>
+
 		<div class="theme">Прочее</div>
 		<a href="#css">CSS</a>
 		<a href="#computed">Computed Properties</a>
 		<a href="#filter">Фильтры</a>
-		<a href="#component">Компоненты</a>
 		<a href="#animation">Анимация</a>
 
 		<div class="theme">Vue Router</div>
@@ -483,11 +492,20 @@ var app = new Vue({
 </pre>
 
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- КОМПОНЕНТЫ -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="component">Компоненты</h2>
+<h2 id="component-simple">Простой компонент</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<h3>Простой компонент</h3>
+<pre><code class="plaintext">
+<a href="https://vuejsdevelopers.com/2017/03/24/vue-js-component-templates/" target="_blank">7 Ways To Define A Component Template in Vue.js</a>
+</code></pre>
+
 <pre>
 <code class="html">
 &lt;div id="app"&gt;
@@ -496,14 +514,68 @@ var app = new Vue({
 </code>
 <code class="js">
 Vue.component('task', {
-	template: '&lt;p&gt;this is a new component&lt;/p&gt;'
+    template: '&lt;p&gt;Hello {{name}} {{age}}&lt;/p&gt;',
+    data() {
+        return {
+            name: 'Tony',
+            age: 21
+        }
+    }
 })
 var app = new Vue({
 	el: '#app'
 })
 </code>
+<code class="js">
+// Hello Tony 21
+</code>
 </pre>
 
+<p>Из template должен возвращаться только 1 родительский объект</p>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+// не сработает, выведет только первый span
+template: 
+	`&lt;span&gt;1&lt;/span&gt;
+	&lt;span&gt;2&lt;/span&gt;`
+<br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+// сработает
+template: 
+	`&lt;div&gt;
+		&lt;span&gt;1&lt;/span&gt;
+		&lt;span&gt;2&lt;/span&gt;
+	&lt;/div&gt;`
+</code></pre></div></div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="component-local-global">Локальные и глобальные компоненты</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h4>Глобальный компонент, работает для всех Vue объектов</h4>
+<pre><code class="js">
+Vue.component('task', {
+	data: function() {
+		return {}
+	},
+	template: ''
+});
+</code></pre>
+
+<h4>Локальный компонент</h4>
+<pre><code class="js">
+var app = new Vue({
+	el: '#app',
+	components: {
+		data: function() {
+			return {}
+		},
+		template: ''
+	}
+});
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="component-transfer-content">Передача контента из HTML</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Передача контента из HTML (тег slot)</h3>
 <pre>
 <code class="html">
@@ -533,6 +605,9 @@ var app = new Vue({
 Vue.component('task', {
 	template: '&lt;p&gt;{{ message }}&lt;/p&gt;',
 	props: ['message']
+	// props: {
+    //     message: String
+    // }
 })
 var app = new Vue({
 	el: '#app'
@@ -540,31 +615,9 @@ var app = new Vue({
 </code>
 </pre>
 
-<h3>Локальные и глобальные компоненты</h3>
-<pre>
-<code>
-// глобальный компонент, работает для всех Vue объектов
-Vue.component('task', {
-	data: function() {
-		return {}
-	},
-	template: ''
-});
-
-var app = new Vue({
-	el: '#app',
-	// локальный компонент
-	components: {
-		data: function() {
-			return {}
-		},
-		template: ''
-	}
-});
-</code>
-</pre>
-
-<h3>Тег template</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="component-template">Тег template</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre>
 <code class="html">
 &lt;div id="app"&gt;
@@ -600,7 +653,9 @@ var app = new Vue({
 </code>
 </pre>
 
-<h3>Динамические компоненты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="component-dynamic">Динамические компоненты</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre>
 <code class="html">
 &lt;!-- если нужна анимация, component обернуть в transition --&gt;
@@ -639,42 +694,6 @@ var app = new Vue({
 		}
 	}
 })
-</code>
-</pre>
-
-
-
-<h3>Пример #1</h3>
-<pre>
-<code class="html">
-&lt;div id="app"&gt;
-	&lt;app-car&gt;&lt;/app-car&gt;
-&lt;/div&gt;
-</code>
-<code class="js">
-Vue.component('app-car', {
-	data: function() {
-		return {
-			cars: [
-				{model:'Bmv'},
-				{model:'Audi'}
-			]
-		}
-	},
-	template: 
-		`&lt;div&gt;
-			&lt;div v-for="car in cars"&gt;
-				&lt;p&gt;{{ car.model }}&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;`
-		// `&lt;ul&gt;
-		// 	&lt;li v-for="car in cars"&gt;{{ car.model }}&lt;/li&gt;
-		// &lt;/ul&gt;`
-});
-
-var app = new Vue({
-	el: '#app'
-});
 </code>
 </pre>
 
@@ -775,7 +794,6 @@ const app = new Vue({
 </pre>
 
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 class="select" id="cli">Vue CLI</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -867,13 +885,6 @@ vue add vuex
 </code></pre>
 
 
-
-
-
-
-
-
-
 <h3>Compilation</h3>
 
 <pre><code class="js">
@@ -892,11 +903,111 @@ Vetur                   - плагин для Visual Studio Code
 Пресет - это связка плагинов и конфигураций
 </code></pre>
 
-<pre><code>
-App.vue
-&lt;style scoped&gt;&lt;/style&gt; - применение стилей только к .vue файлу 
-&lt;template&gt;&lt;/template&gt;  - должен содержать только 1 родительский элемент
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vue-file-structure">.VUE файлы (структура)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list">
+	<li><span class="hl">scoped</span> - применение css стилей только для текущего компонента</li>
+	<li><span class="hl">template</span> - должен содержать только 1 родительский элемент</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>main.js</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+import Vue from 'vue'
+import App from './App.vue'
+
+new Vue({
+    el: '#app',
+    render: function(h) { 
+        return h(App) 
+    }
+})
 </code></pre>
+
+<!------------------------------------------------------>
+<h3>App.vue</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;img src="./assets/logo.png"&gt;
+        &lt;h1&gt;Text App&lt;/h1&gt;
+        &lt;h2&gt;{{text}}&lt;/h2&gt;
+        &lt;app-header message="Text Header"&gt;&lt;/app-header&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js">
+&lt;script&gt;
+import Header from './components/Header.vue'
+
+export default {
+    components: {
+        'app-header': Header
+    },
+    data() {
+        return {
+            text: 'Text in Vue'
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
+
+<pre><code class="css">
+&lt;style scoped&gt;
+h1 {
+    color: blue;
+}
+&lt;/style&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Header.vue</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;h1&gt;{{message}}&lt;/h1&gt;
+        &lt;h2&gt;{{text}}&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js">
+&lt;script&gt;
+export default {
+    data() {
+        return {
+            text: 'Text in Header'
+        }
+    },
+    props: {
+        message: String
+    }
+}
+&lt;/script&gt;
+</code></pre>
+
+<pre><code class="css">
+&lt;style scoped&gt;
+h1 {
+    color: orange;
+}
+&lt;/style&gt;
+</code></pre>
+
+
+
+
+
+
+
 
 
 
