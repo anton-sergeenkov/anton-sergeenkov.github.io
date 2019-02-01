@@ -1,6 +1,5 @@
 # anton-sergeenkov.github.io
 
-
 - [Инструменты](#instruments)
 - [YouTube Channels](#channels)
 - [Technologies](#technologies)
@@ -41,7 +40,8 @@ https://slides.com/                                     - Создание сл�
 [Glo Academy](https://www.youtube.com/channel/UCVswRUcKC-M35RzgPRv8qUg)  
 [WebForMySelf](https://www.youtube.com/channel/UCGuhp4lpQvK94ZC5kuOZbjA)
 [Loftblog](https://www.youtube.com/channel/UCIIt69f5D44s2cdb9vXQNzA)  
-[.getInstance](https://www.youtube.com/channel/UCEBHlT_L1ME6e9ixaRPp0wg)
+[.getInstance](https://www.youtube.com/channel/UCEBHlT_L1ME6e9ixaRPp0wg)  
+[Learn Programming Together](https://www.youtube.com/channel/UCr_ImhIijOhCX7mUzBMFlaA)
 
 [WebDesign Master](https://www.youtube.com/channel/UC7enHM_oJRYJOnyJrcRzwbg)  
 [Web Developer Blog](https://www.youtube.com/channel/UCe_H8hzx9WV7Ca7Ps5gt72Q)  
