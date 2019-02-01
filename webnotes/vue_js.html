@@ -26,7 +26,7 @@
 		<div class="theme">Компоненты</div>
 		<a href="#component-simple">Простой компонент</a>
 		<a href="#component-local-global">Локальные и глобальные компоненты</a>
-		<a href="#component-transfer-content">Передача контента из HTML</a>
+		<a href="#component-transfer-content">Обмен данными между компонентами</a>
 		<a href="#component-template">Тег template</a>
 		<a href="#component-dynamic">Динамические компоненты</a>
 	
@@ -504,6 +504,7 @@ var app = new Vue({
 
 <pre><code class="plaintext">
 <a href="https://vuejsdevelopers.com/2017/03/24/vue-js-component-templates/" target="_blank">7 Ways To Define A Component Template in Vue.js</a>
+Для маленьких проектов можно через X-Templates
 </code></pre>
 
 <pre>
@@ -574,9 +575,35 @@ var app = new Vue({
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="component-transfer-content">Передача контента из HTML</h2>
+<h2 id="component-transfer-content">Обмен данными между компонентами</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Передача контента из HTML (тег slot)</h3>
+
+<!------------------------------------------------------>
+<h3>Передача переменной в дочерний компонент (props)</h3>
+<!------------------------------------------------------>
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;task message="Hello" name="Tony"&gt;&lt;/task&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+Vue.component('task', {
+	template: '&lt;p&gt;{{ message }}&lt;/p&gt;',
+	props: ['message', 'name']
+	// props: {
+    //     message: String
+    // }
+})
+var app = new Vue({
+	el: '#app'
+})
+</code>
+</pre>
+
+<!------------------------------------------------------>
+<h3>Передача переменной в дочерний компонент (тег slot)</h3>
+<!------------------------------------------------------>
 <pre>
 <code class="html">
 &lt;div id="app"&gt;
@@ -587,27 +614,6 @@ var app = new Vue({
 <code class="js">
 Vue.component('task', {
 	template: '&lt;p&gt;this is a &lt;slot&gt;&lt;/slot&gt; new component&lt;/p&gt;'
-})
-var app = new Vue({
-	el: '#app'
-})
-</code>
-</pre>
-
-<h3>Передача контента из HTML (props)</h3>
-<pre>
-<code class="html">
-&lt;div id="app"&gt;
-	&lt;task message="Hello"&gt;&lt;/task&gt;
-&lt;/div&gt;
-</code>
-<code class="js">
-Vue.component('task', {
-	template: '&lt;p&gt;{{ message }}&lt;/p&gt;',
-	props: ['message']
-	// props: {
-    //     message: String
-    // }
 })
 var app = new Vue({
 	el: '#app'
@@ -953,6 +959,11 @@ export default {
     data() {
         return {
             text: 'Text in Vue'
+        }
+    },
+    methods: {
+        testMethod() {
+            //
         }
     }
 }
