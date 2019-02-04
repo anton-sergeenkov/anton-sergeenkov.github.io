@@ -67,7 +67,7 @@ code {
     font-size: 16px;
     border-radius: 5px;
 }
-code a {
+code a, ul a {
 	text-decoration: none;
 	border-bottom: 1px solid silver;
 	color: #690 !important;

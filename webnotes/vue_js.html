@@ -30,9 +30,17 @@
 		<a href="#component-template">Тег template</a>
 		<a href="#component-dynamic">Динамические компоненты</a>
 	
-		<div class="theme">.VUE файлы</div>
-		<a href="#vue-file-structure">.VUE файлы (структура)</a>
+		<div class="theme">Vue CLI</div>
+		<a href="#vue-cli-components">Компоненты системы</a>
+		<a href="#vue-cli-bash">Bash Command</a>
+		<a href="#vue-cli-vue">Vue Command</a>
 
+		<div class="theme">.VUE файлы</div>
+		<a href="#vue-file-structure">Структура</a>
+		<a href="#vue-cli-vscode">Настройка Visual Studio Code</a>
+
+		<div class="theme">Axios</div>
+		
 		<div class="theme">Прочее</div>
 		<a href="#css">CSS</a>
 		<a href="#computed">Computed Properties</a>
@@ -41,9 +49,6 @@
 
 		<div class="theme">Vue Router</div>
 		<a href="#router">Vue Router</a>
-
-		<div class="theme">Vue CLI</div>
-		<a href="#cli">Vue CLI</a>
 	</div>
 </div>
 <div id="content">
@@ -60,13 +65,6 @@
 <a href="https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html" target="_blank"><em>Axios</em></a>        - доступ к API
 </code>
 </pre>
-
-<h3>Доступ к API</h3>
-<pre><code>
-- Vue Resource (до версии 2)
-- Axios
-- Fetch API (нативный)
-</code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="create-obj">Создание объекта</h2>
@@ -801,29 +799,33 @@ const app = new Vue({
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 class="select" id="cli">Vue CLI</h2>
+<h2 class="select">Vue CLI</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
-<h3>Компоненты системы</h3>
+<h3 id="vue-cli-components">Компоненты системы</h3>
 <!------------------------------------------------------>
 <ul class="list">
 	<li><span class="hl">1. CLI (@vue/cli)</span> - npm-пакет, устанавливаемый глобально и предоставляющий команду <span class="hc">vue</span> в терминале. Он позволяет быстро создать новый проект командой <span class="hc">vue create</span>, или мгновенно прототипировать ваши новые идеи через <span class="hc">vue serve</span>. Также можно управлять проектами в графическом интерфейсе через <span class="hc">vue ui</span></li>
 	<li><span class="hl">2. Сервис CLI (@vue/cli-service)</span> - зависимость для разработки. Это npm-пакет, устанавливаемый локально в каждый проект, создаваемый с помощью <span class="hc">@vue/cli</span>. Сервис CLI построен на основе <span class="hc">webpack</span> и <span class="hc">webpack-dev-server</span></li>
-	<li><span class="hl">3. Плагины для CLI</span> - npm-пакеты, которые предоставляют дополнительные возможности для ваших проектов, создаваемых через Vue CLI
-</li>
+	<li><span class="hl">3. Плагины для CLI</span> - npm-пакеты, которые предоставляют дополнительные возможности для ваших проектов, создаваемых через Vue CLI</li>
+</ul>
+<ul class="list">
+	<li><span class="hl">Пресет</span> - это связка плагинов и конфигураций</li>
 </ul>
 
 <!------------------------------------------------------>
-<h3>Bash</h3>
+<h3 id="vue-cli-bash">Bash Command</h3>
 <!------------------------------------------------------>
 <pre><code class="bash">
 npm install -g @vue/cli                 # cli
 npm install -g @vue/cli-service-global  # быстрый прототип приложения не создавая инфраструктуры, все зависимости берутся из глобальных
+node --version                          # версия nodejs
+vue --version                           # версия Vue CLI
 </code></pre>
 
 <!------------------------------------------------------>
-<h3>Vue</h3>
+<h3 id="vue-cli-vue">Vue Command</h3>
 <!------------------------------------------------------>
 
 <h4><span class="hh">vue serve</span></h4>
@@ -891,27 +893,8 @@ vue add vuex
 </code></pre>
 
 
-<h3>Compilation</h3>
-
-<pre><code class="js">
-<a href="https://github.com/vuejs/vue-cli" target="_blank">https://github.com/vuejs/vue-cli</a>
-</code></pre>
-
-
-<pre><code class="bash">
-http://localhost:8080/  - url
-node --version          - версия nodejs
-vue --version           - версия Vue CLI
-Vetur                   - плагин для Visual Studio Code
-</code></pre>
-
-<pre><code class="bash">
-Пресет - это связка плагинов и конфигураций
-</code></pre>
-
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="vue-file-structure">.VUE файлы (структура)</h2>
+<h2>.VUE файлы (структура)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list">
@@ -920,8 +903,10 @@ Vetur                   - плагин для Visual Studio Code
 </ul>
 
 <!------------------------------------------------------>
-<h3>main.js</h3>
+<h3 id="vue-file-structure">Структура</h3>
 <!------------------------------------------------------>
+
+<h4>main.js</h4>
 <pre><code class="js">
 import Vue from 'vue'
 import App from './App.vue'
@@ -934,9 +919,7 @@ new Vue({
 })
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>App.vue</h3>
-<!------------------------------------------------------>
+<h4>App.vue</h4>
 <pre><code class="html">
 &lt;template&gt;
     &lt;div id="app"&gt;
@@ -978,9 +961,7 @@ h1 {
 &lt;/style&gt;
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>Header.vue</h3>
-<!------------------------------------------------------>
+<h4>Header.vue</h4>
 <pre><code class="html">
 &lt;template&gt;
     &lt;div&gt;
@@ -1013,9 +994,48 @@ h1 {
 &lt;/style&gt;
 </code></pre>
 
+<!------------------------------------------------------>
+<h3 id="vue-cli-vscode">Настройка Visual Studio Code</h3>
+<!------------------------------------------------------>
+<pre><code class="bash">
+Vetur    # плагин для подстветки синтаксиса
+</code></pre>
+
+<p>Settings -> Extensions -> Emmet -> Edit in settings.json</p>
+<pre><code class="json">
+"emmet.showAbbreviationSuggestions": true,
+"emmet.showExpandedAbbreviation": "always",
+"emmet.includeLanguages": {
+		"vue-html": "html",
+		"vue": "html"
+}
+</code></pre>
 
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Axios</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<h3>Доступ к API</h3>
+<pre><code>
+- Vue Resource (до версии 2)
+- Axios
+- Fetch API (нативный)
+</code></pre>
+
+<pre><code class="html">
+<a href="https://www.npmjs.com/package/vue-axios#how-to-install" target="_blank">Npm Install</a>
+<a href="https://github.com/axios/axios">GitHub Axios</a>
+</code></pre>
+
+<h4>get</h4>
+<pre><code class="js">
+axios.get('url')
+.then(response => {
+	console.log(response.data);
+})
+.catch(error => console.log(error));
+</code></pre>
 
 
 
