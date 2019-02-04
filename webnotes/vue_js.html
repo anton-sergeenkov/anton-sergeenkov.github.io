@@ -40,6 +40,9 @@
 		<a href="#vue-cli-vscode">Настройка Visual Studio Code</a>
 
 		<div class="theme">Axios</div>
+		<a href="#ajax-variants">Ajax запросы</a>
+		<a href="#axios-get">GET</a>
+		<a href="#axios-post">POST</a>
 		
 		<div class="theme">Прочее</div>
 		<a href="#css">CSS</a>
@@ -1006,8 +1009,8 @@ Vetur    # плагин для подстветки синтаксиса
 "emmet.showAbbreviationSuggestions": true,
 "emmet.showExpandedAbbreviation": "always",
 "emmet.includeLanguages": {
-		"vue-html": "html",
-		"vue": "html"
+	"vue-html": "html",
+	"vue": "html"
 }
 </code></pre>
 
@@ -1016,25 +1019,44 @@ Vetur    # плагин для подстветки синтаксиса
 <h2>Axios</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<h3>Доступ к API</h3>
-<pre><code>
-- Vue Resource (до версии 2)
-- Axios
-- Fetch API (нативный)
-</code></pre>
-
 <pre><code class="html">
 <a href="https://www.npmjs.com/package/vue-axios#how-to-install" target="_blank">Npm Install</a>
 <a href="https://github.com/axios/axios">GitHub Axios</a>
 </code></pre>
 
-<h4>get</h4>
+<h3 id="ajax-variants">Ajax запросы</h3>
+<pre><code>
+- XMLHttpRequest (не используют в явном виде, создание оберток)
+- Fetch (нативный, полифил для IE)
+- Vue Resource (до версии Vue 2)
+- Axios
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="axios-get">GET</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 axios.get('url')
 .then(response => {
 	console.log(response.data);
 })
 .catch(error => console.log(error));
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="axios-post">POST</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+axios.post('url', {
+		firstName: 'Fred',
+		lastName: 'Flintstone'
+	})
+	.then(function (response) {
+		console.log(response);
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
 </code></pre>
 
 
