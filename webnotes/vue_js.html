@@ -36,8 +36,13 @@
 		<a href="#vue-cli-vue">Vue Command</a>
 
 		<div class="theme">.VUE файлы</div>
+		<a href="#vue-cli-import">Импорт файлов</a>
+		<a href="#vue-file-render">Функция render()</a>
 		<a href="#vue-file-structure">Структура</a>
 		<a href="#vue-cli-vscode">Настройка Visual Studio Code</a>
+
+		<div class="theme">Vue Router</div>
+		<a href="#vue-router-simple">Простой роутинг</a>
 
 		<div class="theme">Axios</div>
 		<a href="#ajax-variants">Ajax запросы</a>
@@ -50,8 +55,6 @@
 		<a href="#filter">Фильтры</a>
 		<a href="#animation">Анимация</a>
 
-		<div class="theme">Vue Router</div>
-		<a href="#router">Vue Router</a>
 	</div>
 </div>
 <div id="content">
@@ -765,14 +768,17 @@ p {
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 class="select" id="router">Vue Router (Маршрутизация)</h2>
+<h2 class="select">Vue Router (Маршрутизация)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code>
-&lt;script src="https://unpkg.com/vue-router/dist/vue-router.js"&gt;&lt;/script&gt;
-</code>
-</pre>
+<pre><code class="bash">
+npm i vue-router
+</code></pre>
 
+<pre><code class="js">
+const router = require('vue-router');
+</code></pre>
+
+<h3 id="vue-router-simple">Простой роутинг</h3>
 <pre>
 <code class="html">
 &lt;div id="app"&gt;
@@ -823,6 +829,14 @@ const app = new Vue({
 <pre><code class="bash">
 npm install -g @vue/cli                 # cli
 npm install -g @vue/cli-service-global  # быстрый прототип приложения не создавая инфраструктуры, все зависимости берутся из глобальных
+</code></pre>
+
+<pre><code class="bash">
+npm run serve                           # запускает сервер с hot-reload
+npm run build                           # создает папку dist с готовым js
+</code></pre>
+
+<pre><code class="bash">
 node --version                          # версия nodejs
 vue --version                           # версия Vue CLI
 </code></pre>
@@ -841,7 +855,6 @@ vue --version                           # версия Vue CLI
 </code></pre>
 
 <pre><code class="bash">
-npm run serve              # npm
 vue serve                  # aвтоматически выбирает стартовый файл в текущем каталоге — этот файл может быть одним из main.js, index.js, App.vue или app.vue
 vue serve MyComponent.vue  # явное указание стартового файла
 </code></pre>
@@ -857,7 +870,6 @@ vue serve MyComponent.vue  # явное указание стартового ф
 </code></pre>
 
 <pre><code class="bash">
-npm run build              # npm
 vue build MyComponent.vue  # собрать целевой файл в режиме production для публикации
 </code></pre>
 
@@ -906,6 +918,50 @@ vue add vuex
 </ul>
 
 <!------------------------------------------------------>
+<h3 id="vue-cli-import">Импорт файлов</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+import Header from './components/Header.vue'          // vue
+import catalogJSON from '../assets/json/catalog.json' // json
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="vue-file-render">Функция render()</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+render: function(h) { 
+    return h(App) 
+}
+</code></pre>
+
+<pre><code class="js">
+render: h => h (App)
+</code></pre>
+<ul class="list-point">
+	<li><span class="hl">h</span> является сокращением от hyperscript</li>
+	<li><span class="hl">hyperscript</span> - скрипт, который генерирует HTML-структуру</li>
+	<li>Про сокращение h можно думать как о более краткой форме функции createElement</li>
+</ul>
+
+<pre><code class="js">
+// vue-версия функции render() принимает три аргумента
+render(h) {
+	return h('div', {}, [...])
+}
+// 1 - тип элемента
+// 2 - объект данных (свойства, атрибуты, классы, стили)
+// 3 - массив дочерних Node-узлов (можно размещать вложенные вызовы функции createElement и вернуть обратно дерево виртуальных DOM-узлов)
+</code></pre>
+
+
+
+
+
+
+
+
+
+<!------------------------------------------------------>
 <h3 id="vue-file-structure">Структура</h3>
 <!------------------------------------------------------>
 
@@ -919,6 +975,7 @@ new Vue({
     render: function(h) { 
         return h(App) 
     }
+	// render: h => h (App)
 })
 </code></pre>
 
@@ -1016,17 +1073,24 @@ Vetur    # плагин для подстветки синтаксиса
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2>Axios</h2>
+<h2 class="select">Axios</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <pre><code class="html">
-<a href="https://www.npmjs.com/package/vue-axios#how-to-install" target="_blank">Npm Install</a>
-<a href="https://github.com/axios/axios">GitHub Axios</a>
+<a href="https://github.com/axios/axios" target="_blank">GitHub Axios</a>
+</code></pre>
+
+<pre><code class="bash">
+npm i axios --save
+</code></pre>
+
+<pre><code class="js">
+const axios = require('axios');
 </code></pre>
 
 <h3 id="ajax-variants">Ajax запросы</h3>
 <pre><code>
-- XMLHttpRequest (не используют в явном виде, создание оберток)
+- XMLHttpRequest (не используют в явном виде, создаются обертки)
 - Fetch (нативный, полифил для IE)
 - Vue Resource (до версии Vue 2)
 - Axios
