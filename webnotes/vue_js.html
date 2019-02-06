@@ -42,7 +42,8 @@
 		<a href="#vue-cli-vscode">Настройка Visual Studio Code</a>
 
 		<div class="theme">Vue Router</div>
-		<a href="#vue-router-simple">Простой роутинг</a>
+		<a href="#vue-router-script">Подключение через &lt;script&gt;</a>
+		<a href="#vue-router-npm">Подключение через NPM</a>
 
 		<div class="theme">Axios</div>
 		<a href="#ajax-variants">Ajax запросы</a>
@@ -770,24 +771,32 @@ p {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 class="select">Vue Router (Маршрутизация)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="bash">
-npm i vue-router
+
+<ul class="list">
+	<li><span class="hl">&lt;router-link&gt;</span> - компонент для включения навигации пользователя в приложении с поддержкой роутинга</li>
+	<li><span class="hl">&lt;router-view&gt;</span> - функциональный компонент, который отрисовывает согласованный компонент для данного пути</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3 id="vue-router-script">Подключение через &lt;script&gt;</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+&lt;script src="https://unpkg.com/vue/dist/vue.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/vue-router/dist/vue-router.js"&gt;&lt;/script&gt;
 </code></pre>
 
-<pre><code class="js">
-const router = require('vue-router');
-</code></pre>
-
-<h3 id="vue-router-simple">Простой роутинг</h3>
-<pre>
-<code class="html">
+<h4>index.html</h4>
+<pre><code class="html">
 &lt;div id="app"&gt;
 	&lt;router-link to="/home"&gt;Home&lt;/router-link&gt;
 	&lt;router-link to="/about"&gt;About&lt;/router-link&gt;
 	&lt;router-view&gt;&lt;/router-view&gt;
 &lt;/div&gt;
-</code>
-<code class="js">
+&lt;script src="index.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<h4>index.js</h4>
+<pre><code class="js">
 const Home = { template: '&lt;div&gt;Home&lt;/div&gt;' }
 const About = { template: '&lt;div&gt;About&lt;/div&gt;' }
 
@@ -803,8 +812,70 @@ const router = new VueRouter({
 const app = new Vue({
 	router
 }).$mount('#app')
-</code>
-</pre>
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="vue-router-npm">Подключение через NPM</h3>
+<!------------------------------------------------------>
+<pre><code class="bash">
+npm i --save-dev vue-router 
+</code></pre>
+
+<pre><code class="bash"><em>
+&hellip; public
+	&#8226; index.html
+&hellip; src
+	&#8226; App.vue
+	&#8226; main.js
+&#8226; package.json
+&#8226; vue.config.js
+</em></code></pre>
+
+<h4>vue.config.js</h4>
+<pre><code class="js">
+module.exports = {
+    runtimeCompiler: true
+};
+</code></pre>
+
+<h4>main.js</h4>
+<pre><code class="js">
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import App from './App.vue'
+
+Vue.use(VueRouter)
+
+const Foo = { template: '&lt;div&gt;foo1&lt;/div&gt;' }
+const Bar = { template: '&lt;div&gt;bar2&lt;/div&gt;' }
+
+const routes = [
+    { path: '/foo', component: Foo },
+    { path: '/bar', component: Bar }
+]
+
+const router = new VueRouter({
+    mode: 'history',
+    routes 
+})
+
+new Vue({
+    el: '#app',
+    render: h => h(App),
+    router
+})
+</code></pre>
+
+<h4>App.vue</h4>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;router-link to="/foo"&gt;Перейти к Foo&lt;/router-link&gt;
+        &lt;router-link to="/bar"&gt;Перейти к Bar&lt;/router-link&gt;
+        &lt;router-view&gt;&lt;/router-view&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -832,13 +903,15 @@ npm install -g @vue/cli-service-global  # быстрый прототип при
 </code></pre>
 
 <pre><code class="bash">
-npm run serve                           # запускает сервер с hot-reload
-npm run build                           # создает папку dist с готовым js
+npm install     # install dependencies
+npm run dev     # serve with hot reload at localhost:8080
+npm run serve   # serve with hot-reload
+npm run build   # build for production with minification (создает папку dist с готовым js)
 </code></pre>
 
 <pre><code class="bash">
-node --version                          # версия nodejs
-vue --version                           # версия Vue CLI
+node --version  # версия nodejs
+vue --version   # версия Vue CLI
 </code></pre>
 
 <!------------------------------------------------------>
@@ -912,9 +985,10 @@ vue add vuex
 <h2>.VUE файлы (структура)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<ul class="list">
+<ul class="list-point">
 	<li><span class="hl">scoped</span> - применение css стилей только для текущего компонента</li>
 	<li><span class="hl">template</span> - должен содержать только 1 родительский элемент</li>
+	<li>Файл index.html содержит простую разметку HTML с единственным элементом "app" в body. Он будет заменён на DOM, сгенерированный vue. По этой причине тэг body не рекомендуется использовать в качестве корневого элемента</li>
 </ul>
 
 <!------------------------------------------------------>
