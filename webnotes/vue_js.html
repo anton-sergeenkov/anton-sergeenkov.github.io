@@ -41,13 +41,14 @@
 		<a href="#vue-cli-vscode">Настройка Visual Studio Code</a>
 
 		<div class="theme">Vue Router</div>
-		<a href="#vue-router-desc">Описание</a>
 		<a href="#vue-router-script">Подключение через &lt;script&gt;</a>
 		<a href="#vue-router-npm">Подключение через NPM</a>
+		<a href="#vue-router-params">Параметры</a>
 
 		<div class="theme">Axios</div>
 		<a href="#axios-desc">Описание</a>
-		<a href="#ajax-variants">Ajax запросы</a>
+		<a href="#ajax-request">Технологии ajax запросов</a>
+		<a href="#axios-settings">Конфигурование сервера</a>
 		<a href="#axios-get">GET</a>
 		<a href="#axios-post">POST</a>
 		
@@ -774,15 +775,6 @@ p {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
-<h3 id="vue-router-desc">Описание</h3>
-<!------------------------------------------------------>
-<ul class="list-point">
-	<li><span class="hl">&lt;router-link&gt;</span> - компонент для включения навигации пользователя в приложении с поддержкой роутинга</li>
-	<li><span class="hl">&lt;router-view&gt;</span> - функциональный компонент, который отрисовывает согласованный компонент для данного пути</li>
-	<li><span class="hl">&lt;router-link&gt;</span> автоматически получает класс <span class="hl">.router-link-active</span> при совпадении маршрута</li>
-</ul>
-
-<!------------------------------------------------------>
 <h3 id="vue-router-script">Подключение через &lt;script&gt;</h3>
 <!------------------------------------------------------>
 <pre><code class="html">
@@ -881,6 +873,82 @@ new Vue({
     &lt;/div&gt;
 &lt;/template&gt;
 </code></pre>
+
+<!------------------------------------------------------>
+<h3 id="vue-router-params">Параметры</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li><span class="hl">&lt;router-link&gt;</span> - компонент для включения навигации пользователя в приложении с поддержкой роутинга</li>
+	<li><span class="hl">&lt;router-view&gt;</span> - функциональный компонент, который отрисовывает согласованный компонент для данного пути</li>
+	<li>Иногда один и тот же URL может совпасть с несколькими маршрутами. В таких случаях приоритет определяется порядком определения маршрутов: чем раньше определён маршрут, тем выше у него приоритет</li>
+</ul>
+
+<h4>Стилизация активной ссылки</h4>
+<pre><code class="css">
+.router-link-active {
+	/* при совпадении маршрута &lt;router-link&gt; автоматически получает класс */
+	/* &lt;router-link&gt; представляет собой ссылку &lt;a&gt; */
+}
+</code></pre>
+
+<h4>Статический путь (ссылка)</h4>
+<pre><code class="html">
+&lt;router-link to="/contact"&gt;Контакты&lt;/router-link&gt;
+</code></pre>
+<pre><code class="js">
+const routes = [
+    { path: '/contact', component: Contact }
+]
+</code></pre>
+
+<h4>Статический путь (именованный маршрут)</h4>
+<pre><code class="html">
+&lt;router-link :to="{name: 'contact'}"&gt;Контакты&lt;/router-link&gt;
+</code></pre>
+<pre><code class="js">
+const routes = [
+    { path: '/contact', component: Contact, name: 'contact' }
+]
+</code></pre>
+
+<h4>Динамический путь</h4>
+<pre><code class="html">
+&lt;router-link :to="'/catalog/'+i"&gt;Подробнее&lt;/router-link&gt;                      &lt;!-- неименованный путь --&gt;
+&lt;router-link :to="{name: 'product', params: {id: i}}"&gt;Подробнее&lt;/router-link&gt; &lt;!-- именованный путь --&gt;
+</code></pre>
+<pre><code class="js">
+const routes = [
+    { path: '/catalog/:id', component: Product }                  // неименованный путь
+    { path: '/catalog/:id', component: Product, name: 'product' } // именованный путь
+]
+</code></pre>
+
+<pre><code class="html">
+&lt;template&gt;
+	&lt;span&gt;{{ $route.params.id }}&lt;/span&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js">
+export default {
+    created() {
+        console.log(this.$route.params.id);
+    }
+}
+</code></pre>
+
+<h4>Сопоставление путей</h4>
+<pre><code class="js">
+path: '/contact'     // contact page
+path: '/'            // index page
+path: '*'            // сопоставляется со всем
+path: '/user-*'      // сопоставляется со всем, начинающимся с '/user-'
+path: '/catalog/:id' // динамический путь
+</code></pre>
+
+
+
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1180,13 +1248,35 @@ npm i axios --save
 const axios = require('axios');
 </code></pre>
 
-<h3 id="ajax-variants">Ajax запросы</h3>
+<!------------------------------------------------------>
+<h3 id="ajax-request">Технологии ajax запросов</h3>
+<!------------------------------------------------------>
 <pre><code>
 - XMLHttpRequest (не используют в явном виде, создаются обертки)
 - Fetch (нативный, полифил для IE)
 - Vue Resource (до версии Vue 2)
 - Axios
 </code></pre>
+
+<!------------------------------------------------------>
+<h3 id="axios-settings">Конфигурование сервера</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<a href="https://router.vuejs.org/ru/guide/essentials/history-mode.html#примеры-конфигурирования-серверов" target="_blank">Примеры конфигурирования серверов</a>
+</code></pre>
+
+<h4>.htaccess</h4>
+<pre><code class="bash">
+&lt;IfModule mod_rewrite.c&gt;
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^index\.html$ - [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . /index.html [L]
+&lt;/IfModule&gt;
+</code></pre>
+
 
 <!------------------------------------------------------>
 <h3 id="axios-get">GET</h3>
