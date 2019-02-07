@@ -10,7 +10,12 @@
 <div class="menu-theme-wrapper">
 	<div class="menu-theme">
 		<a href="#menu">Starter</a>
-		<a href="#instruments">Основные инструменты</a>
+
+		<div class="theme">NPM</div>
+		<a href="#npm-instruments">Инструменты</a>
+		<a href="#npm-command">Команды</a>
+
+		<div class="theme">Gulp</div>
 		<a href="#package">Основные пакеты Gulp</a>
 		<a href="#install">Установка Gulp</a>
 		<a href="#package-install">Установка основных пакетов</a>
@@ -25,59 +30,88 @@
 <div id="container">
 
 
+<h1>NPM</h1>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="npm-instruments">Инструменты</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash">
+<em>Node.js</em> # программная платформа для JavaScript
+<em>Npm</em>     # Node.js Package Manager. менеджер пакетов, входящий в состав Node.js
+<em>Gulp</em>    # сборщик проектов
+<em>Sass</em>    # препроцессор, расширяющий язык CSS
+<em>Git</em>     # репозиторий (установка для Package manager Bower)
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="npm-command">Команды</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="bash">
+npm <span class="hc">init</span>                 # инициализация проекта (создание package.json)
+npm <span class="hc">i</span>                    # установить все пакеты из package.json
+npm <span class="hc">i</span> package            # установить package
+npm <span class="hc">i</span> package <span class="hc">--save</span>     # установить package и добавить запись в секцию dependencies package.json 
+npm <span class="hc">i</span> package <span class="hc">--save-dev</span> # установить package и добавить запись в секцию devDependencies package.json
+npm <span class="hc">i</span> package <span class="hc">--g</span>        # установить package глобально
+npm <span class="hc">r</span> package            # удалить package
+npm <span class="hc">up</span> package           # обновить package
+</code></pre>
+
+<ul class="list-point">
+	<li><em>devDependencies</em> - пакеты, которые нужны для разработки</li>
+	<li><em>dependencies</em> - пакеты, от которых проект зависит непосредственно (библиотеки)</li>
+	<li><em>devDependencies</em> и <em>dependencies</em> - устанавливаются в node_modules</li>
+	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
+	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
+</ul>
+
+<div class="container-flex"><div class="container-half"><pre><code class="bash">
+npm install package
+npm uninstall package
+npm update package
+npm install package --save
+npm install package --save-dev
+</code></pre></div><div class="container-half"><pre><code class="bash">
+npm i package
+npm r package
+npm up package
+npm i package S
+npm i package D
+</code></pre></div></div>
+
+<pre><code class="bash">
+c   # config
+ls  # list
+</code></pre>
+
+
+
+
+
+
 <h1>Gulp</h1>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="instruments">Основные инструменты</h2>
+<h2 id="package-install">Основные пакеты Gulp</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
-<em>Node.js</em> - программная платформа для JavaScript
-<em>Npm</em>     - Node.js Package Manager. менеджер пакетов, входящий в состав Node.js
-<em>Gulp</em>    - сборщик проектов
-<em>Sass</em>    - препроцессор, расширяющий язык CSS
-<em>Git</em>     - репозиторий (для Package manager Bower)
-</code>
-</pre>
+<pre><code class="bash">
+npm i <em>gulp</em> -g                       # установить gulp глобально
+</code></pre>
+
+<pre><code class="bash">
+npm i --save-dev <em>gulp</em>                # gulp
+npm i --save-dev <em>gulp-sass</em>           # sass
+npm i --save-dev <em>gulp-autoprefixer</em>   # autoprefixer
+npm i --save-dev <em>browser-sync</em>        # browsersync (livereload)
+npm i --save-dev <em>del</em>                 # очистка директорий
+npm i --save-dev <em>gulp-cssnano</em>        # минификация CSS
+</code></pre>
 
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="package">Основные пакеты Gulp</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
-1. Sass
-2. Autoprefixer 
-3. Livereload
-4. Оптимизация и изображений
-6. Минификация файлов css и js
-</code>
-</pre>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="install">Установка Gulp и инициализация проекта</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
-npm i gulp -g                       - установить gulp глобально
-npm init                            - инициализация проета (создание package.json)
-npm install                         - установка пакетов из package.json
-</code>
-</pre>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="package-install">Установка основных пакетов</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
-npm i --save-dev <em>gulp</em>                - gulp
-npm i --save-dev <em>gulp-sass</em>           - sass
-npm i --save-dev <em>gulp-autoprefixer</em>   - autoprefixer
-npm i --save-dev <em>browser-sync</em>        - browsersync (livereload)
-npm i --save-dev <em>del</em>                 - очистка директорий
-npm i --save-dev <em>gulp-cssnano</em>        - минификация CSS
-</code>
-</pre>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="other-package-install">Установка дополнительных пакетов</h2>

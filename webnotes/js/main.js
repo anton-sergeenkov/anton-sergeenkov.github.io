@@ -19,7 +19,7 @@ var menu = `
     <a href="css_grid.html"      class="menu menu-html">css grid</a>
 
     <a href="sass.html"          class="menu menu-other">sass</a>
-    <a href="gulp.html"          class="menu menu-other">gulp</a>
+    <a href="npm.html"           class="menu menu-other">npm</a>
     <a href="git.html"           class="menu menu-other">git</a>
     <a href="other.html"         class="menu menu-other">other</a>
 
