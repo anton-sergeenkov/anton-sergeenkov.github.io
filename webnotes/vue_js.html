@@ -29,7 +29,13 @@
 		<a href="#component-transfer-content">Обмен данными между компонентами</a>
 		<a href="#component-template">Тег template</a>
 		<a href="#component-dynamic">Динамические компоненты</a>
-	
+		
+		<div class="theme">Vuex</div>
+		<a href="#vuex-desc">Описание</a>
+		<a href="#vuex-src">Подключение</a>
+		<a href="#vuex-store">Vuex.Store</a>
+		<a href="#vuex-get-state">Работа с состоянием</a>
+
 		<div class="theme">Vue CLI</div>
 		<a href="#vue-cli-components">Компоненты системы</a>
 		<a href="#vue-cli-bash">Bash Command</a>
@@ -43,7 +49,11 @@
 		<div class="theme">Vue Router</div>
 		<a href="#vue-router-script">Подключение через &lt;script&gt;</a>
 		<a href="#vue-router-npm">Подключение через NPM</a>
-		<a href="#vue-router-params">Параметры</a>
+		<a href="#vue-router-desc">Описание</a>
+		<a href="#vue-router-active-link">Стилизация активной ссылки</a>
+		<a href="#vue-router-static-path">Статический путь</a>
+		<a href="#vue-router-dynamic-path">Динамический путь</a>
+		<a href="#vue-comparison-path">Сопоставление путей</a>
 
 		<div class="theme">Axios</div>
 		<a href="#axios-desc">Описание</a>
@@ -522,11 +532,16 @@ var app = new Vue({
 </code>
 <code class="js">
 Vue.component('task', {
-    template: '&lt;p&gt;Hello {{name}} {{age}}&lt;/p&gt;',
     data() {
         return {
             name: 'Tony',
             age: 21
+        }
+    },
+    template: '&lt;p&gt;Hello {{name}} {{age}}&lt;/p&gt;',
+    methods: {
+        increment() {
+            this.age++;
         }
     }
 })
@@ -538,6 +553,13 @@ var app = new Vue({
 // Hello Tony 21
 </code>
 </pre>
+
+<ul class="list-point">
+	<li><span class="hl">data()</span> - Состояние. Управление приложением</li>
+	<li><span class="hl">template</span> - Представление. Отображение состояния заданное декларативно</li>
+	<li><span class="hl">methods</span> - Действия. Возможные пути изменения состояния приложения в ответ на взаимодействие пользователя с представлением</li>
+</ul>
+
 
 <p>Из template должен возвращаться только 1 родительский объект</p>
 <div class="container-flex"><div class="container-half"><pre><code class="js">
@@ -875,7 +897,7 @@ new Vue({
 </code></pre>
 
 <!------------------------------------------------------>
-<h3 id="vue-router-params">Параметры</h3>
+<h3 id="vue-router-desc">Описание</h3>
 <!------------------------------------------------------>
 <ul class="list-point">
 	<li><span class="hl">&lt;router-link&gt;</span> - компонент для включения навигации пользователя в приложении с поддержкой роутинга</li>
@@ -883,7 +905,9 @@ new Vue({
 	<li>Иногда один и тот же URL может совпасть с несколькими маршрутами. В таких случаях приоритет определяется порядком определения маршрутов: чем раньше определён маршрут, тем выше у него приоритет</li>
 </ul>
 
-<h4>Стилизация активной ссылки</h4>
+<!------------------------------------------------------>
+<h3 id="vue-router-active-link">Стилизация активной ссылки</h3>
+<!------------------------------------------------------>
 <pre><code class="css">
 .router-link-active {
 	/* при совпадении маршрута &lt;router-link&gt; автоматически получает класс */
@@ -891,7 +915,10 @@ new Vue({
 }
 </code></pre>
 
-<h4>Статический путь (ссылка)</h4>
+<!------------------------------------------------------>
+<h3 id="vue-router-static-path">Статический путь</h3>
+<!------------------------------------------------------>
+<h4>Ссылка</h4>
 <pre><code class="html">
 &lt;router-link to="/contact"&gt;Контакты&lt;/router-link&gt;
 </code></pre>
@@ -901,7 +928,7 @@ const routes = [
 ]
 </code></pre>
 
-<h4>Статический путь (именованный маршрут)</h4>
+<h4>Именованный маршрут</h4>
 <pre><code class="html">
 &lt;router-link :to="{name: 'contact'}"&gt;Контакты&lt;/router-link&gt;
 </code></pre>
@@ -911,7 +938,9 @@ const routes = [
 ]
 </code></pre>
 
-<h4>Динамический путь</h4>
+<!------------------------------------------------------>
+<h3 id="vue-router-dynamic-path">Динамический путь</h3>
+<!------------------------------------------------------>
 <pre><code class="html">
 &lt;router-link :to="'/catalog/'+i"&gt;Подробнее&lt;/router-link&gt;                      &lt;!-- неименованный путь --&gt;
 &lt;router-link :to="{name: 'product', params: {id: i}}"&gt;Подробнее&lt;/router-link&gt; &lt;!-- именованный путь --&gt;
@@ -937,7 +966,9 @@ export default {
 }
 </code></pre>
 
-<h4>Сопоставление путей</h4>
+<!------------------------------------------------------>
+<h3 id="vue-comparison-path">Сопоставление путей</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 path: '/contact'     // contact page
 path: '/'            // index page
@@ -948,12 +979,11 @@ path: '/catalog/:id' // динамический путь
 
 
 
-
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <h2 class="select">Vue CLI</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!------------------------------------------------------>
 <h3 id="vue-cli-components">Компоненты системы</h3>
@@ -1110,18 +1140,9 @@ render(h) {
 // 3 - массив дочерних Node-узлов (можно размещать вложенные вызовы функции createElement и вернуть обратно дерево виртуальных DOM-узлов)
 </code></pre>
 
-
-
-
-
-
-
-
-
 <!------------------------------------------------------>
 <h3 id="vue-file-structure">Структура</h3>
 <!------------------------------------------------------>
-
 <h4>main.js</h4>
 <pre><code class="js">
 import Vue from 'vue'
@@ -1229,9 +1250,11 @@ Vetur    # плагин для подстветки синтаксиса
 </code></pre>
 
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <h2 class="select">Axios</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!------------------------------------------------------>
 <h3 id="axios-desc">Описание</h3>
@@ -1277,7 +1300,6 @@ const axios = require('axios');
 &lt;/IfModule&gt;
 </code></pre>
 
-
 <!------------------------------------------------------>
 <h3 id="axios-get">GET</h3>
 <!------------------------------------------------------>
@@ -1304,6 +1326,83 @@ axios.post('url', {
 		console.log(error);
 	});
 </code></pre>
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<h2 class="select">Vuex</h2>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!------------------------------------------------------>
+<h3 id="vuex-desc">Описание</h3>
+<!------------------------------------------------------>
+<ul>
+	<li class="list-point"><span class="hl">Vuex</span> - паттерн управления состоянием + библиотека для приложений на Vue.js. Он служит централизованным хранилищем данных для всех компонентов приложения с правилами, гарантирующими, что состояние может быть изменено только предсказуемым образом</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3 id="vuex-src">Подключение</h3>
+<!------------------------------------------------------>
+<h4>Подключение через &lt;script&gt;</h4>
+<pre><code class="html">
+&lt;script src="https://unpkg.com/vue/dist/vue.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/vue-router/dist/vue-router.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<h4>Подключение через NPM</h4>
+<pre><code class="js">
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="vuex-store">Vuex.Store</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+const store = new Vuex.Store({
+    state: {
+        count: 0,
+        name: null
+    },
+    mutations: {
+        changeStore(state, payload) {
+            state.count = payload.count;
+            state.name = payload.name;
+        }
+    }
+})
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="vuex-get-state">Работа с состоянием</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+store.commit('changeStore', {count:77, name:'Tony'}); // изменение состояния
+console.log(store.state.count);                       // получение доступа к объекту состояния
+</code></pre>
+
+<h4>Работа с состоянием из компонента</h4>
+<pre><code class="js">
+var app = new Vue({
+	el: '#header',
+	// указываем хранилище в опции «store», что обеспечит
+	// доступ к нему также и во всех дочерних компонентах
+	store,
+	methods: {
+		change() {
+			store.commit('changeStore', {count:77, name:'Tony'});
+		}
+	},
+	computed: {
+		count() { return store.state.count; },
+		name()  { return store.state.name; }
+	}
+});
+</code></pre>
+
+
 
 
 
