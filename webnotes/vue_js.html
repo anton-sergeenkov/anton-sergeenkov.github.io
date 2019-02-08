@@ -33,8 +33,8 @@
 		<div class="theme">Vuex</div>
 		<a href="#vuex-desc">Описание</a>
 		<a href="#vuex-src">Подключение</a>
-		<a href="#vuex-store">Vuex.Store</a>
-		<a href="#vuex-get-state">Работа с состоянием</a>
+		<a href="#vuex-state">1. Состояние</a>
+		<a href="#vuex-getters">2. Геттеры</a>
 
 		<div class="theme">Vue CLI</div>
 		<a href="#vue-cli-components">Компоненты системы</a>
@@ -1346,16 +1346,16 @@ axios.post('url', {
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-<!------------------------------------------------------>
-<h3 id="vuex-desc">Описание</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vuex-desc">Описание</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul>
 	<li class="list-point"><span class="hl">Vuex</span> - паттерн управления состоянием + библиотека для приложений на Vue.js. Он служит централизованным хранилищем данных для всех компонентов приложения с правилами, гарантирующими, что состояние может быть изменено только предсказуемым образом</li>
 </ul>
 
-<!------------------------------------------------------>
-<h3 id="vuex-src">Подключение</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vuex-src">Подключение</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h4>Подключение через &lt;script&gt;</h4>
 <pre><code class="html">
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js"&gt;&lt;/script&gt;
@@ -1369,8 +1369,12 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vuex-state">Состояние</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <!------------------------------------------------------>
-<h3 id="vuex-store">Vuex.Store</h3>
+<h3>Vuex.Store</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
 const store = <span class="hc">new Vuex.Store</span>({
@@ -1388,7 +1392,7 @@ const store = <span class="hc">new Vuex.Store</span>({
 </code></pre>
 
 <!------------------------------------------------------>
-<h3 id="vuex-get-state">Работа с состоянием</h3>
+<h3>HTML</h3>
 <!------------------------------------------------------>
 <pre><code class="html">
 &lt;div id="app"&gt;
@@ -1398,21 +1402,27 @@ const store = <span class="hc">new Vuex.Store</span>({
 &lt;/div&gt;
 </code></pre>
 
+<!------------------------------------------------------>
+<h3>Дочерний компонент</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 const ComponentChild = {
     template: `&lt;div&gt;{{ count }}&lt;/div&gt;`,
     computed: {
         count() {
-            return <span class="hc">this.$store.state.count</span>;
+            return <span class="hc">this.$store.state.count</span>; // получение доступа к объекту состояния из дочернего элемента
         }
     }
 }
 </code></pre>
 
+<!------------------------------------------------------>
+<h3>Родительский компонент</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 var app = new Vue({
 	el: '#app',
-    // указание хранилища в опции «store» обеспечит
+    // указание хранилища в опции «store» обеспечивает
     // доступ к нему также и во всех дочерних компонентах через this.$store
 	<span class="hc">store</span>,
 	components: { 
@@ -1430,11 +1440,75 @@ var app = new Vue({
 });
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vuex-getters">Геттеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<h4>Установка геттера в Vuex.Store</h4>
+<pre><code class="js">
+const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    <span class="hc">getters</span>: {
+        storeCount(state) {
+            return state.count
+        }
+    }
+})
+</code></pre>
 
+<h4>Чтение геттера</h4>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;div class="container"&gt;Корзина покупок {{ <span class="hc">count</span> }}&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
 
+<pre><code class="js">
+&lt;script&gt;
+export default {
+    computed: {
+        <span class="hc">count()</span> {
+            return <span class="hc">this.$store.getters.storeCount</span>
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
 
+<h4>Чтение геттера (mapGetters)</h4>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;div class="container"&gt;Корзина покупок {{ <span class="hc">storeCount</span> }}&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
 
+<pre><code class="js">
+&lt;script&gt;
+import { <span class="hc">mapGetters</span> } from 'vuex'
+
+export default {
+    computed: {
+    	// смешиваем результат mapGetters с внешним объектом computed
+        <span class="hc">...mapGetters</span>([
+            <span class="hc">'storeCount'</span>
+        ])
+    }
+}
+&lt;/script&gt;
+</code></pre>
+
+<pre><code class="js">
+// указание другого имени
+export default {
+    computed: {
+        ...mapGetters({
+            count: 'storeCount'
+        })
+    }
+}
+</code></pre>
 
 
 </div>
