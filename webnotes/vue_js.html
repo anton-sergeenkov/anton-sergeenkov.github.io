@@ -580,28 +580,40 @@ template:
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="component-local-global">Локальные и глобальные компоненты</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h4>Глобальный компонент, работает для всех Vue объектов</h4>
+<h4>Глобальная регистрация, работает для всех Vue объектов</h4>
 <pre><code class="js">
-Vue.component('task', {
-	data: function() {
-		return {}
-	},
-	template: ''
+Vue.component('component-a', {
+	template: 'content'
 });
 </code></pre>
 
-<h4>Локальный компонент</h4>
+<h4>Локальная регистрация</h4>
 <pre><code class="js">
 var app = new Vue({
 	el: '#app',
-	components: {
-		data: function() {
-			return {}
-		},
-		template: ''
-	}
+	components: { 
+        'component-a': {
+            template: 'content'
+        } 
+    }
 });
 </code></pre>
+
+<h4>Локальная регистрация из объекта</h4>
+<pre><code class="js">
+var ComponentA = {
+	template: 'content'
+}
+
+new Vue({
+	el: '#app',
+	components: {
+		'component-a': ComponentA
+	}
+})
+</code></pre>
+
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="component-transfer-content">Обмен данными между компонентами</h2>
@@ -1346,8 +1358,8 @@ axios.post('url', {
 <!------------------------------------------------------>
 <h4>Подключение через &lt;script&gt;</h4>
 <pre><code class="html">
-&lt;script src="https://unpkg.com/vue/dist/vue.js"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/vue-router/dist/vue-router.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.0/vuex.min.js"&gt;&lt;/script&gt;
 </code></pre>
 
 <h4>Подключение через NPM</h4>
@@ -1361,7 +1373,7 @@ Vue.use(Vuex)
 <h3 id="vuex-store">Vuex.Store</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-const store = new Vuex.Store({
+const store = <span class="hc">new Vuex.Store</span>({
     state: {
         count: 0,
         name: null
@@ -1378,26 +1390,42 @@ const store = new Vuex.Store({
 <!------------------------------------------------------>
 <h3 id="vuex-get-state">Работа с состоянием</h3>
 <!------------------------------------------------------>
-<pre><code class="js">
-store.commit('changeStore', {count:77, name:'Tony'}); // изменение состояния
-console.log(store.state.count);                       // получение доступа к объекту состояния
+<pre><code class="html">
+&lt;div id="app"&gt;
+	{{count}} {{name}}
+	&lt;button @click="change"&gt;Изменить состояние&lt;/button&gt;
+	&lt;component-child&gt;&lt;/component-child&gt;
+&lt;/div&gt;
 </code></pre>
 
-<h4>Работа с состоянием из компонента</h4>
+<pre><code class="js">
+const ComponentChild = {
+    template: `&lt;div&gt;{{ count }}&lt;/div&gt;`,
+    computed: {
+        count() {
+            return <span class="hc">this.$store.state.count</span>;
+        }
+    }
+}
+</code></pre>
+
 <pre><code class="js">
 var app = new Vue({
-	el: '#header',
-	// указываем хранилище в опции «store», что обеспечит
-	// доступ к нему также и во всех дочерних компонентах
-	store,
+	el: '#app',
+    // указание хранилища в опции «store» обеспечит
+    // доступ к нему также и во всех дочерних компонентах через this.$store
+	<span class="hc">store</span>,
+	components: { 
+        'component-child': ComponentChild 
+    },
 	methods: {
 		change() {
-			store.commit('changeStore', {count:77, name:'Tony'});
+			<span class="hc">store.commit</span>('changeStore', {count:77, name:'Tony'}); // изменение состояния
 		}
 	},
 	computed: {
-		count() { return store.state.count; },
-		name()  { return store.state.name; }
+		count() { return <span class="hc">store.state.count</span>; }, // получение доступа к объекту состояния
+		name()  { return <span class="hc">store.state.name</span>; }   // получение доступа к объекту состояния
 	}
 });
 </code></pre>
