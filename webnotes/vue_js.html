@@ -35,6 +35,8 @@
 		<a href="#vuex-src">Подключение</a>
 		<a href="#vuex-state">1. Состояние</a>
 		<a href="#vuex-getters">2. Геттеры</a>
+		<a href="#vuex-mutations">3. Мутации</a>
+		<a href="#vuex-actions">4. Действия</a>
 
 		<div class="theme">Vue CLI</div>
 		<a href="#vue-cli-components">Компоненты системы</a>
@@ -1509,6 +1511,86 @@ export default {
     }
 }
 </code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vuex-mutations">Мутации</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li><span class="hl">Мутации</span> являются единственным способом изменения состояния хранилища во Vuex</li>
+	<li>Обработчики мутаций обязаны быть синхронными. Во Vuex мутации — это синхронные транзакции</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Простые мутации</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+const store = new Vuex.Store({
+	state: {
+		count: 1
+	},
+	<span class="hc">mutations</span>: {
+		changeStore(state) {
+			state.count++;
+		}
+	}
+});
+</code></pre>
+
+<pre><code class="js">
+var app = new Vue({
+	el: '#app',
+	methods: {
+		change() {
+			<span class="hc">store.commit</span>('changeStore');
+		}
+	}
+});
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Мутации с нагрузкой</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+<span class="hc">mutations</span>: {
+    changeStore(state, <span class="hc">payload</span>) {
+        state.count = payload.count;
+        state.name = payload.name;
+    }
+}
+
+methods: {
+	change() {
+		<span class="hc">store.commit</span>('changeStore', {count:77, name:'Tony'}); // изменение состояния
+	}
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Объектный синтаксис</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+<span class="hc">store.commit</span>({
+	type: 'changeStore',
+	count: 77
+});
+</code></pre>
+
+<pre><code class="js">
+<span class="hc">mutations</span>: {
+	changeStore(state, payload) {
+		state.count = payload.count;
+	}
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vuex-actions">Действия</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Вместо того, чтобы напрямую менять состояние, действия инициируют мутации</li>
+	<li>Действия могут использоваться для асинхронных операций</li>
+</ul>
 
 
 </div>
