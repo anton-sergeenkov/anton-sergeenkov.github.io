@@ -12,7 +12,7 @@
 <div id="container-menu">
 
 <!-- 
-53
+55
 <pre><code class="html">
 <a href="" target="_blank"></a>
 </code></pre>
@@ -26,7 +26,7 @@
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b1"><span>01</span> Введение в JavaScript. Стандарт ECMAScript</h2>
+<h2 id="b1"><span>01</span> Стандарт ECMAScript</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b1" class="container-code">
 
@@ -156,22 +156,23 @@ count--;   // уменьшает на 1 после выполнения дейс
 </pre>
 
 <h3>typeof - возвращает тип аргумента</h3>
-<pre><code class="js">
-typeof 0            // "number"
-typeof true         // "boolean"
-typeof 'foo'        // "string"
+<pre><code class="js link-accent">
+typeof 0;     // "number"
+typeof true;  // "boolean"
+typeof 'foo'; // "string"
 </code></pre>
 
 <h3>Вывод сообщения в консоль</h3>
-<pre>
-<code>
+<pre><code>
 console.log('Сообщение');
 console.info('Информация');
 console.warn('Предупреждение');
 console.error('Ошибка');
-</code>
-</pre>
+</code></pre>
 
+<pre><code class="html link-accent">
+<a href="https://learn.javascript.ru/let-const" target="_blank">Переменные: let и const</a>
+</code></pre>
 </div>
 
 
@@ -236,8 +237,7 @@ var answer = confirm('Вы согласны?');     // модальное окн
 
 <h3>Условный оператор if</h3>
 
-<pre>
-<code>
+<pre><code class="js">
 =   // присвоить
 ==  // равно
 !   // отрицание
@@ -248,8 +248,7 @@ var answer = confirm('Вы согласны?');     // модальное окн
 <=  // меньше или равно
 &&  // логическое «И» 
 ||  // логическое «ИЛИ»
-</code>
-</pre>
+</code></pre>
 
 <span>Одно условие</span>
 <pre>
@@ -277,8 +276,15 @@ if( (weather == 'хорошая') && (mood) ) {
 </pre>
 
 <h3>Условный оператор switch</h3>
-<pre><code class="html">
-<a href="../webnotes/js.html#case" target="_blank">Условный оператор switch</a>
+<pre><code class="js">
+var id = 3;
+
+switch(Number(id)) {
+	case 1: console.log(id); break;
+	case 2: console.log(id); break;
+	case 3: console.log(id); break;
+	default: console.log("default");
+}
 </code></pre>
 
 <pre><code class="html link-accent">
@@ -290,13 +296,14 @@ if( (weather == 'хорошая') && (mood) ) {
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b8"><span>07</span> Объектная модель представления документа (DOM)</h2>
+<h2 id="b9"><span>07</span> Выборка элементов страницы</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b8" class="container-code">
-<h4>Document Object Model (DOM)</h4>
+<div id="code-b9" class="container-code">
+
+<h3>Объектная модель представления документа</h3>
 <pre>
 <code>
-Объектная модель представления документа
+Объектная модель представления документа. (DOM) Document Object Model
 Независящий от платформы и языка программирования способ представления документа,
 позволяющий программам и скриптам получить доступ к содержимому HTML, XHTML и XML документов,
 а также изменять содержимое, структуру и оформление таких документов
@@ -308,58 +315,43 @@ if( (weather == 'хорошая') && (mood) ) {
 <h4>Структура DOM документа</h4>
 <img src="img/dev/dom.jpg" height="350">
 
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b9"><span>08</span> Выборка и изменение элементов страницы</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b9" class="container-code">
-
-<h4>Выборка элементов страницы</h4>
+<h3>Выборка элементов страницы</h3>
 <pre><code class="js">
-var a = document.getElementById('item');               // по id
-var a = document.getElementsByClassName('item')[0];    // по названию класса (первый элемент)
-var a = document.getElementsByName('item');            // по атрибуту name
-var a = document.getElementsByTagName('img');          // по названию тега (все элементы)
 var a = document.querySelector('.nav.bar');            // возвращает первый элемент внутри документа
 var a = document.querySelectorAll('.nav');             // возвращает список элементов в пределах документа
 </code></pre>
 
-<h4>Выборка элементов формы</h4>
+<pre><code class="js link-accent">
+var a = document.getElementById('item');               // по id
+var a = document.getElementsByClassName('item')[0];    // по названию класса (первый элемент)
+var a = document.getElementsByName('item');            // по атрибуту name
+var a = document.getElementsByTagName('img');          // по названию тега (все элементы)
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b54"><span>08</span> Методы innerText и innerHTML</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b54" class="container-code">
+
 <pre><code class="html">
-<a href="../webnotes/js.html#form" target="_blank">Выборка элементов формы</a>
-</code></pre>
-
-<h4>Действия над выбранными элементами</h4>
-<pre><code class="js">
-element.textContent = 'new text';           // текст
-element.innerHTML   = '&lt;h2&gt;new text&lt;/h2&gt;';  // html
-</code></pre>
-
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b10"><span>09</span> Обращение к CSS свойствам и классам</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b10" class="container-code">
-
-<pre><code class="js">
-element.style.fontSize = '20px';          // css
+&lt;div id="element"&gt;Element&lt;/div&gt;
 </code></pre>
 
 <pre><code class="js">
-element.classList;                        // массив классов элемента
-element.classList.add('active');          // добавление класса
-element.classList.remove('active');       // удаление класса
-element.classList.toggle('active');       // добавление / удаление класса
-</code></pre>
+var element = document.querySelector('#element');
 
+element.innerText  = 'New Text';                // изменить текст
+element.innerHTML  = '&lt;h2&gt;New HTML Code&lt;/h2&gt;';  // изменить html
+
+var text = element.innerText; // получить текст
+var html = element.innerHTML; // получить html
+</code></pre>
 </div>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b11"><span>10</span> Функции. Области видимости переменных</h2>
+<h2 id="b11"><span>09</span> Функции</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b11" class="container-code">
 
@@ -369,7 +361,7 @@ element.classList.toggle('active');       // добавление / удален
 sum(34, 12);
 function sum(a, b) {
     var result = a + b;
-    alert(result);
+    console.log(result);
 }
 </code>
 </pre>
@@ -399,7 +391,7 @@ function test() {
 <h4>Определить площадь поверхности планет</h4>
 <h5>Решение 1</h5>
 <pre>
-<code>
+<code class="link-accent">
 // Площадь поверхности сферы
 // A = 4*pi*r*r
 var mars    = 3390; // km
@@ -412,7 +404,7 @@ var surfaceMercury = 4 * pi * mercury * mercury;
 
 <h5>Решение 2 (через функции)</h5>
 <pre>
-<code>
+<code class="link-accent">
 var mars    = 3390; // km
 var mercury = 2440; // km
 const pi    = 3.14;
@@ -428,17 +420,94 @@ var surfaceMercury = surface(mercury);
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b12"><span>11</span> События и обработчики событий</h2>
+<h2 id="b12"><span>10</span> События и обработчики событий</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b12" class="container-code">
 
+<h3>Список событий</h3>
+
+<h4>События мыши</h4>
+<ul class="list">
+	<li><span class="hl">click</span> - одиночный клик левой кнопки мыши</li>
+	<li><span class="hl">contextmenu</span> - одиночный клик правой кнопкой мыши</li>
+	<li><span class="hl">mouseover</span> - наведение мыши</li>
+	<li><span class="hl">mousedown</span> - нажатие кнопки мыши</li>
+	<li><span class="hl">mouseup</span> - отпускание кнопки мыши</li>
+	<li><span class="hl">mousemove</span> - передвижение мыши</li>
+
+	<li><span class="hl">mouseout</span> - увод мыши</li>
+	<li><span class="hl">dblclick</span> - двойной щелчек левой кнопки мыши</li>
+</ul>
+
+<h4>События на элементах управления</h4>
+<ul class="list">
+	<li><span class="hl">submit</span> - момент отправки формы обработчику (если кнопка типа "submit")</li>
+	<li><span class="hl">focus</span> - момент получения фокуса объектом (работает и для ссылок)</li>
+
+	<li><span class="hl">blur</span> - момент потери фокуса объектом (работает и для ссылок)</li>
+	<li><span class="hl">change</span> - изменение объекта формы (поле, радиобаттон и т.д.)</li>
+	<li><span class="hl">reset</span> - сброс формы (специальной кнопкой)</li>
+</ul>
+
+<h4>Клавиатурные события</h4>
+<ul class="list">
+	<li><span class="hl">keydown</span> - момент нажатия клавиши, до момента отпускания</li>
+	<li><span class="hl">keyup</span> - момент отпускания клавиши</li>
+
+	<li><span class="hl">keypress</span> - нажатие клавиши на клавиатуре</li>
+</ul>
+
+<h4>События документа</h4>
+<ul class="list">
+	<li><span class="hl">DOMContentLoaded</span> - возникает после окончательной загрузки и парсинга HTML-документа, не дожидаясь загрузки стилей, картинок и фреймов</li>
+
+	<li><span class="hl">load</span> - возникает после полного окончания загрузки ресурса (всех картинок, стиле и прочего)</li>
+	<li><span class="hl">resize</span> - изменение размеров окна браузера</li>
+	<li><span class="hl">scroll</span> - прокрутка страницы</li>
+	<li><span class="hl">unload</span> - уход со страницы</li>
+</ul>
+
+<h3>Назначение обработчиков событий</h3>
+
+<h4>1. Использование атрибута HTML</h4>
 <pre><code class="html">
-<a href="../webnotes/js.html#actions" target="_blank">Назначение обработчиков событий</a>
-<a href="../webnotes/js.html#actions-list" target="_blank">Список событий</a>
-<a href="../webnotes/js.html#actions-params" target="_blank">Передаваемый параметр (Event)</a>
+&lt;button onclick="action()"&gt;Action&lt;/button&gt;
 </code></pre>
 
+<pre><code class="js">
+function action() {
+	alert('hi');
+}
+</code></pre>
+
+<h4>2. Использование свойства DOM-объекта</h4>
 <pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+</code></pre>
+
+<pre><code class="js">
+var element = document.querySelector('#element');
+
+element.onclick = function() {
+	alert(1);
+}
+</code></pre>
+
+<h4>3. addEventListener</h4>
+<pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+</code></pre>
+
+<pre><code class="js">
+var element = document.querySelector('#element');
+
+element.addEventListener('click', function() {
+	alert(1);
+});
+</code></pre>
+
+<pre><code class="html link-accent">
+<a href="../webnotes/js.html#actions-params" target="_blank">Передаваемый параметр (Event)</a>
 <a href="https://codepen.io/Sergeenkov/pen/vzxgVg" target="_blank">Keydown Move Cube (пример)</a>
 </code></pre>
 
@@ -446,14 +515,108 @@ var surfaceMercury = surface(mercury);
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b13"><span>12</span> Циклы for, while</h2>
+<h2 id="b10"><span>11</span> Обращение к CSS свойствам и классам</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b13" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#cycle" target="_blank">Циклы for, while</a>
+<div id="code-b10" class="container-code">
+
+<pre><code class="js">
+element.style.fontSize = '20px';          // css
 </code></pre>
 
+<pre><code class="js">
+element.classList;                        // массив классов элемента
+element.classList.add('active');          // добавление класса
+element.classList.remove('active');       // удаление класса
+element.classList.toggle('active');       // добавление / удаление класса
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b55"><span>12</span> Выборка элементов формы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b55" class="container-code">
+
+<h4>input type="text"</h4>
+<pre><code class="js">
+var a = element.value;
+element.value = 'new value';
+</code></pre>
+
+<h4>input type="checkbox"</h4>
+<pre><code class="js">
+var a = element.checked; 
+element.checked = true;
+</code></pre>
+
+<h4>input type="radio"</h4>
 <pre><code class="html">
+&lt;input type="radio" name="radio" value="r1"&gt;
+&lt;input type="radio" name="radio" value="r2"&gt;
+&lt;input type="radio" name="radio" value="r3"&gt;
+</code></pre>
+
+<pre><code class="js">
+var radio = document.querySelectorAll('input[type="radio"]');
+for(var i=0; i<=radio.length-1; i++) {
+	if(radio[i].checked) {
+		var value = radio[i].getAttribute('value');
+		console.log(value);
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+radio.disabled = true;   
+</code></pre>
+
+<h4>select</h4>
+
+<pre><code class="js">
+var select = document.querySelector('select');
+var a = select.value;
+var a = select.options[select.selectedIndex].value;
+var a = select.options[select.selectedIndex].text;
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b13"><span>13</span> Циклы for, while</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b13" class="container-code">
+
+<h4>Цикл for</h4>
+<pre><code class="js">
+for (var i = 1; i < 10; i++) {  
+    console.log(i); 
+}
+</code></pre>
+
+<h4>Цикл while</h4>
+<pre><code class="js">
+var i = 0;  
+while (i < 10) {  
+    console.log(i); 
+    i++;  
+}
+</code></pre>
+
+<h4>Цикл do while</h4>
+<pre><code class="js">
+var i = 0;  
+do {  
+    console.log(i); 
+    i++;  
+} while (i < 10);
+</code></pre>
+
+<pre><code class="js">
+break - выход из цикла
+continue - прекращает выполнение текущей итерации цикла и переходит на следующую
+</code></pre>
+
+<pre><code class="html link-accent">
 <a href="https://codepen.io/Sergeenkov/pen/VdxQOj" target="_blank">Gallery (пример)</a>
 </code></pre>
 
