@@ -10,7 +10,7 @@
 <div class="menu-theme-wrapper">
 	<div class="menu-theme">
 		<a href="#menu">Starter</a>
-		<a href="#create-obj">Создание объекта</a>	
+		<a href="#create-obj">Экземпляр Vue</a>
 
 		<div class="theme">Директивы</div>
 		<a href="#dir-text"><span class="hm">v-text</span> <span class="hm">v-html</span></a>
@@ -22,6 +22,12 @@
 		<a href="#dir-pre"><span class="hm">v-pre</span></a>
 		<a href="#dir-cloak"><span class="hm">v-cloak</span></a>
 		<a href="#dir-once"><span class="hm">v-once</span></a>
+
+		<div class="theme">Опции</div>
+		<a href="#computed"><span class="hm">computed</span></a>
+		<a href="#watch"><span class="hm">watch</span></a>
+		<a href="#filters"><span class="hm">filters</span></a>
+		<a href="#created"><span class="hm">created</span></a>
 
 		<div class="theme">Компоненты</div>
 		<a href="#component-simple">Простой компонент</a>
@@ -66,10 +72,7 @@
 		
 		<div class="theme">Прочее</div>
 		<a href="#css">CSS</a>
-		<a href="#computed">Computed Properties</a>
-		<a href="#filter">Фильтры</a>
-		<a href="#animation">Анимация</a>
-
+		<a href="#transition">Анимация</a>
 	</div>
 </div>
 <div id="content">
@@ -88,22 +91,41 @@
 </pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="create-obj">Создание объекта</h2>
+<h2 id="create-obj">Экземпляр Vue</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<pre><code class="js">
 var app = new Vue({
 	el: '#app',
 	data: {
 		messText: 'Hello',
 		messHTML: '&lt;h1&gt;Hello&lt;/h1&gt;',
 		view: false,
-		nameClass: 'testClass'
+		nameClass: 'testClass',
+		value: 1
+	},
+	methods: {
+		nameMethod() {
+			this.view = true;
+		}
+	},
+	computed: {
+		doubleValue() {
+			return this.value * 2
+		}
+	},
+	created() {
+		console.log(this.a); // this указывает на экземпляр vm
+	},
+	watch: {
+		messText() {
+			console.log('messText changed');
+		}
 	}
 })
+</code></pre>
+<pre><code class="js">
 app.messText = 'New Text'; // переопределение свойства
-</code>
-</pre>
+</code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="dir-text">v-text, v-html</h2>
@@ -464,9 +486,31 @@ var app = new Vue({
 })
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="watch">Методы-наблюдатели (watch)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p>Наблюдение за одним свойством</p>
+<pre><code class="html">
+&lt;input type="text" v-model="messText"&gt;
+</code></pre>
+
+<pre><code class="js">
+// при изменении свойства messText, вызывается messText()
+var app = new Vue({
+    el: '#app',
+    data: {
+        messText: null
+    },
+    watch: {
+        messText() {
+            console.log(this.messText);
+        }
+    }
+})
+</code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="filter">Фильтры</h2>
+<h2 id="filters">Фильтры</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre>
 <code class="html">
@@ -509,6 +553,27 @@ var app = new Vue({
 &lt;pre&gt;{{ $data | json }}&lt;/pre&gt;
 </code>
 </pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="created">Хук created</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><span class="hl">created</span> можно использовать для выполнения кода после создания экземпляра</li>
+	<li>Нельзя использовать стрелочные функции в свойствах экземпляра и в коллбэках</li>
+</ul>
+
+<pre><code class="js">
+new Vue({
+	data: {
+		a: 1
+	},
+	created() {
+		console.log(this.a); // this указывает на экземпляр vm
+	}
+})
+// => "Значение a: 1"
+</code></pre>
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -624,25 +689,41 @@ new Vue({
 <!------------------------------------------------------>
 <h3>Передача переменной в дочерний компонент (props)</h3>
 <!------------------------------------------------------>
-<pre>
-<code class="html">
+
+<h4></h4>
+
+<pre><code class="html">
 &lt;div id="app"&gt;
-	&lt;task message="Hello" name="Tony"&gt;&lt;/task&gt;
+	&lt;task message="Hello" :name="userName"&gt;&lt;/task&gt;
 &lt;/div&gt;
-</code>
-<code class="js">
+</code></pre>
+
+<pre><code class="bash">
+message="Hello"   # передача текста из html
+:name="userName"  # передача переменной из app
+</code></pre>
+
+<pre><code class="js">
 Vue.component('task', {
-	template: '&lt;p&gt;{{ message }}&lt;/p&gt;',
+	template: '&lt;p&gt;{{ message + name }}&lt;/p&gt;',
 	props: ['message', 'name']
 	// props: {
     //     message: String
     // }
 })
 var app = new Vue({
-	el: '#app'
+	el: '#app',
+    data: {
+        userName: 'Tony'
+    }
 })
-</code>
-</pre>
+</code></pre>
+
+
+
+
+
+
 
 <!------------------------------------------------------>
 <h3>Передача переменной в дочерний компонент (тег slot)</h3>
@@ -748,7 +829,7 @@ var app = new Vue({
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="animation">Анимация</h2>
+<h2 id="transition">Анимация</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <img src="img/vue/animation1.png">
 <pre>
