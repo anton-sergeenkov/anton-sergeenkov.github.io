@@ -624,36 +624,89 @@ continue - прекращает выполнение текущей итерац
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b33"><span>13</span> Объекты</h2>
+<h2 id="b33"><span>14</span> Объекты</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b33" class="container-code">
 <img src="img/dev/object.png">
-<pre>
-<code>
-<a href="../webnotes/js_objects.html#obj-create" target="_blank">Объекты</a>
-</code>
-</pre>
-</div>
 
+<pre><code class="js">
+var user = {
+	name: 'Tony',
+	email: 'tony@mail.com',
+	age: 25,
+	address: {
+		street: '555 Some st',
+		city: 'Boston'
+	},
+	getData() {
+		return this.name + ' ' + this.email;
+	}
+}
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b47"><span>14</span> Объекты-обертки</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b47" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#type" target="_blank">Объекты-обертки</a>
+console.log(user.name);
+console.log(user.address.street);
+console.log(user.getData());
 </code></pre>
-</div>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="b14"><span>15</span> Массивы. Методы работы с массивами</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b14" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#array" target="_blank">Массивы</a>
-<a href="../webnotes/js.html#array_obj" target="_blank">Массивы обьектов</a>
+
+<h4>Объявление</h4>
+<pre><code class="js">
+var arr = [];               // объявление пустого массива
+var arr = ['Tony', 'Anne']; // объявление массива из заполненных элементов
 </code></pre>
+
+<h4>Перебор массива</h4>
+<pre><code class="js">
+for (var i=0; i<=arr.length-1; i++) {
+	console.log(arr[i]);
+}
+</code></pre>
+
+<h4>Методы</h4>
+<pre><code class="js">
+var a = arr.length;                  // длина массива (индекс последнего элемента)
+var arr2 = arr1.slice(1, 7);         // вырезать с 1 до 7 не включая, если не указан второй аргумент, то до конца
+
+var a = colors.indexOf('white');     // возвращает первый индекс, по которому элемент может быть найден в массиве или -1, если индекса нет
+var a = colors.lastIndexOf('white'); // возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет
+
+var a = arr.join('.');               // преобразование массива в строку с заданным разделителем
+var arr = str.split(';');            // преобразование строки с заданным разделителем в массив 
+
+arr.push('Jack');                    // добавление нового элемента в конец массива
+arr.unshift('Jack');                 // добавление нового элемента в начало массива
+arr.pop();                           // удаление элемента из конца массива
+arr.shift();                         // удаление элемента из начала массива
+
+arr.reverse();                       // реверс (переворот массива)
+arr.sort();                          // сортировка по алфавиту
+var arr = arr1.concat(arr2, arr3);   // объединение массивов
+</code></pre>
+
+<h4>Метод splice</h4>
+<pre><code class="js">
+arr.splice(3, 2);                     // удалить с 3 индекса 2 элемента
+arr.splice(2, 0, 'Алина', 'Марина');  // добавление элементов
+arr.splice(1, 2, 'Алексей", "Билл');  // замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
+</code></pre>
+
+<h4>Массивы обьектов</h4>
+<pre><code class="js">
+var a = new Array(
+	{"name":"Андрей", "email":"andry@mail.ru"},
+	{"name":"Анна",   "email":"anna@mail.ru"}
+);
+
+console.log(a[0].name);  // "Андрей"
+console.log(a[1].email); // "anna@mail.ru"
+</code></pre>
+
 </div>
 
 
@@ -661,8 +714,27 @@ continue - прекращает выполнение текущей итерац
 <h2 id="b15"><span>16</span> Строки. Методы работы со строками</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b15" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#str" target="_blank">Строки</a>
+
+<h4>Перебор строки</h4>
+<pre><code class="js">
+for (var i=0; i <= str.length-1; i++) {
+	console.log(str[i]);
+}
+</code></pre>
+
+<h4>Методы</h4>
+<pre><code class="js">
+var a = str.length;            // длина строки 
+77.toString();                 // преобразование в строку
+
+var name = name.toUpperCase(); // верхний регистр
+var name = name.toLowerCase(); // нижний регистр
+
+// поиск в строке совпадений с образцом 
+var pos = str.indexOf('name');     // с начала (-1 не найдено)
+var pos = str.lastIndexOf('name'); // с конца (-1 не найдено)
+
+var root = str.slice(0, 7); // вырезать с 0 до 7 не включая
 </code></pre>
 </div>
 
@@ -671,16 +743,38 @@ continue - прекращает выполнение текущей итерац
 <h2 id="b16"><span>17</span> Числа. Метода работы с числами</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b16" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#number" target="_blank">Числа</a>
-<a href="../webnotes/js.html#math" target="_blank">Math</a>
-<a href="../webnotes/js.html#operators" target="_blank">Остаток от деления</a>
+
+<pre><code class="js">
+isNaN(num);      // если в переменной не число, вернет истину
+Number(num);     // преобразование любого объекта в число
+parseInt(num);   // преобразование в целое число
+parseFloat(num); // преобразование в целое/дробное число
+</code></pre>
+
+<h4>Остаток от деления</h4>
+<pre><code class="js">
+alert(5 % 2); // 1, остаток от деления 5 на 2
+alert(8 % 3); // 2, остаток от деления 8 на 3
+alert(6 % 3); // 0, остаток от деления 6 на 3
+</code></pre>
+
+<h3>Math</h3>
+<pre><code class="js">
+Math.round(num); // округляет число к ближайшему целому
+Math.ceil(num);  // округляет число в большую сторону
+Math.floor(num); // округляет число в меньшую сторону
+
+var rand = Math.random(); // метод генерации случайного числа в диапазоне от 0 до 1
+var rand = Math.round(Math.random() * 100); // от 0 до 100
+
+var a = Math.pow(4,2);        // степень 4 в 2
+var a = Math.sqrt(400);       // квадратный корень числа
 </code></pre>
 </div>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b19"><span>18</span> Работа с атрибутами. Объект this</h2>
+<h2 id="b19"><span>18</span> Атрибуты</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b19" class="container-code">
 
@@ -692,11 +786,8 @@ element.setAttribute('id', 'new');   // установить атрибут
 element.removeAttribute('id');       // удалить атрибут
 </code></pre>
 
-<pre><code class="html">
-<a href="https://codepen.io/Sergeenkov/pen/xzEwVp" target="_blank">Адаптивное меню (пример)</a>
-</code></pre>
-
 <pre><code class="html link-accent">
+<a href="https://codepen.io/Sergeenkov/pen/xzEwVp" target="_blank">Адаптивное меню (пример)</a>
 <a href="https://getinstance.info/articles/javascript/call-apply-and-bind-functions/" target="_blank">Функции call(), apply() и bind()</a>
 </code></pre>
 
@@ -707,25 +798,32 @@ element.removeAttribute('id');       // удалить атрибут
 <h2 id="b32"><span>19</span> Дата и время</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b32" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#date" target="_blank">Дата и время</a>
+<pre><code class="js">
+var nowDate = new Date();                 // текущее дата и время на компьютере пользователя
+var yearFull = nowDate.getFullYear();     // год
+var year     = nowDate.getYear();         // год (последние 2 цифры) 
+var month    = nowDate.getMonth();        // месяц (нумерация с 0)
+var day      = nowDate.getDate();         // число
+var dayWeek  = nowDate.getDay();          // день недели, выводит численные значения, нумерация с "0"
+var hour     = nowDate.getHours();        // час
+var minutes  = nowDate.getMinutes();      // минуты
+var seconds  = nowDate.getSeconds();      // секунды
+var mseconds = nowDate.getMilliseconds(); // миллисекунды
+</code></pre>
+
+<pre><code class="js">
+var weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+var month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+var nowDate = new Date();
+var nowDay   = weekday[nowDate.getDay()];
+var nowDate  = nowDate.getDate();
+var nowMonth = month[nowDate.getMonth()];
 </code></pre>
 </div>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b40"><span>20</span> Классы. Прототипы объектов</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b40" class="container-code">
-<pre>
-<code>
-<a href="../webnotes/js_objects.html#class-create" target="_blank">Классы</a>
-</code>
-</pre>
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b49"><span>21</span> Local Storage</h2>
+<h2 id="b49"><span>20</span> Local Storage</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b49" class="container-code">
 <pre><code class="html">
@@ -735,7 +833,7 @@ element.removeAttribute('id');       // удалить атрибут
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b34"><span>22</span> BOM - объектная модель браузера</h2>
+<h2 id="b34"><span>21</span> BOM - объектная модель браузера</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b34" class="container-code">
 <pre><code class="html">
@@ -746,7 +844,7 @@ element.removeAttribute('id');       // удалить атрибут
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b42"><span>23</span> Циклы (дополнительно)</h2>
+<h2 id="b42"><span>22</span> Циклы (дополнительно)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b42" class="container-code">
 <pre><code class="html">
@@ -760,7 +858,7 @@ element.removeAttribute('id');       // удалить атрибут
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b43"><span>24</span> Функции (дополнительно)</h2>
+<h2 id="b43"><span>23</span> Функции (дополнительно)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b43" class="container-code">
 <pre><code class="html">
@@ -788,7 +886,7 @@ element.removeAttribute('id');       // удалить атрибут
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b45"><span>25</span> Создание элементов</h2>
+<h2 id="b45"><span>24</span> Создание элементов</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b45" class="container-code">
 <pre><code class="html">
@@ -798,7 +896,7 @@ element.removeAttribute('id');       // удалить атрибут
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b46"><span>26</span> Обработка исключений</h2>
+<h2 id="b46"><span>25</span> Обработка исключений</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b46" class="container-code">
 <pre><code class="html">
@@ -808,7 +906,7 @@ element.removeAttribute('id');       // удалить атрибут
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b35"><span>27</span> Таймеры</h2>
+<h2 id="b35"><span>26</span> Таймеры</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b35" class="container-code">
 <pre><code class="html">
@@ -817,7 +915,7 @@ element.removeAttribute('id');       // удалить атрибут
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b50"><span>28</span> AJAX</h2>
+<h2 id="b50"><span>27</span> AJAX</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b50" class="container-code">
 <pre><code class="html">
@@ -827,7 +925,7 @@ element.removeAttribute('id');       // удалить атрибут
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b39"><span>29</span> HTML5 рисование на Canvas</h2>
+<h2 id="b39"><span>28</span> HTML5 рисование на Canvas</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b39" class="container-code">
 <pre>
@@ -837,6 +935,16 @@ element.removeAttribute('id');       // удалить атрибут
 </pre>
 </div>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b40"><span>29</span> Классы. Прототипы объектов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b40" class="container-code">
+<pre>
+<code>
+<a href="../webnotes/js_objects.html#class-create" target="_blank">Классы</a>
+</code>
+</pre>
+</div>
 
 
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -1044,7 +1152,7 @@ $.get("include/header.html", {}, function(data) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b22" class="container-code">
 <pre><code class="html">
-<a href="../webnotes/gulp.html" target="_blank">Gulp</a>
+<a href="../webnotes/npm.html" target="_blank">Gulp</a>
 </code></pre>
 </div>
 
