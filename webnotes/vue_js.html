@@ -25,10 +25,10 @@
 
 		<div class="theme">Опции</div>
 		<a href="#computed"><span class="hm">computed</span></a>
+		<a href="#created"><span class="hm">created</span></a>
 		<a href="#watch"><span class="hm">watch</span></a>
 		<a href="#filters"><span class="hm">filters</span></a>
-		<a href="#created"><span class="hm">created</span></a>
-
+		
 		<div class="theme">Компоненты</div>
 		<a href="#component-simple">Простой компонент</a>
 		<a href="#component-local-global">Локальные и глобальные компоненты</a>
@@ -71,7 +71,6 @@
 		<a href="#axios-post">POST</a>
 		
 		<div class="theme">Прочее</div>
-		<a href="#css">CSS</a>
 		<a href="#transition">Анимация</a>
 	</div>
 </div>
@@ -311,23 +310,95 @@ var app = new Vue({
 <h2 id="dir-bind">v-bind:</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Связывание атрибутов элементов</h3>
-<blockquote>
-	Директива связывает входной атрибут тега или входной параметр компонента с выражением<br>
-	Значение атрибута берется из переменной
-</blockquote>
 
-<pre>
-<code class="html">
-&lt;a <span class="hc">v-bind:href</span>="url"&gt;{{ cleanUrl }}&lt;/a&gt; - полная запись
-&lt;p <span class="hc">v-bind:class</span>="nameClass"&gt;&lt;/p&gt;        - полная запись
-&lt;p <span class="hc">:class</span>="nameClass"&gt;&lt;/p&gt;              - сокращенная запись
-</code>
-<code>
-&lt;p <span class="hc">:class</span>="{ 'strike':true }"&gt;&lt;/p&gt;  - Явно указано название класса и присвоено true (отобразится)
-&lt;p <span class="hc">:class</span>="{ 'strike':false }"&gt;&lt;/p&gt; - Явно указано название класса и присвоено false (не отобразится)
-&lt;p <span class="hc">:class</span>="{ 'strike':view }"&gt;&lt;/p&gt;  - Явно указано название класса и присвоено свойство view (true/false)
-</code>
-</pre>
+<ul class="list-point">
+	<li>Директива связывает входной атрибут тега или входной параметр компонента с выражением</li>
+	<li>Значение атрибута берется из переменной</li>
+	<li>:class можно использовать с обычным атрибутом class</li>
+</ul>
+
+<pre><code class="js">
+new Vue({
+    el: '#app',
+    data: {
+        url: 'https://yandex.ru/',
+        link: 'Yandex',
+        isActive: true,
+        activeClass: 'class-active',
+        errorClass: 'class-error'
+    }
+})
+</code></pre>
+
+<pre><code class="html">
+&lt;a <span class="hc">v-bind:href</span>="url"&gt;{{ link }}&lt;/a&gt;     - полная запись
+&lt;p <span class="hc">v-bind:class</span>="activeClass"&gt;&lt;/p&gt;      - полная запись
+&lt;p <span class="hc">:class</span>="activeClass"&gt;&lt;/p&gt;            - сокращенная запись
+</code></pre>
+
+<h4>Указание дополнительных значений</h4>
+<pre><code class="html">
+&lt;div class="img" :style="{ backgroundImage: 'url('+item.img+')' }"&gt;&lt;/div&gt;
+&lt;a :href="'courses/'+i"&gt;&lt;/a&gt;
+</code></pre>
+
+<h4>CSS Class</h4>
+<pre><code class="html">
+&lt;div :class="[activeClass, errorClass]"&gt;&lt;/div&gt; - использование массивов
+</code></pre>
+
+<pre><code class="html">
+&lt;!-- active - название класса --&gt;
+&lt;p <span class="hc">:class</span>="{ active:true }"&gt;&lt;/p&gt;        - true (отобразится)
+&lt;p <span class="hc">:class</span>="{ active:false }"&gt;&lt;/p&gt;       - false (не отобразится)
+&lt;p <span class="hc">:class</span>="{ active:isActive }"&gt;&lt;/p&gt;    - свойство isActive (true/false)
+</code></pre>
+
+<h4>CSS Style</h4>
+
+<h5>1 вариант (объектная запись в html)</h5>
+<pre><code class="html">
+&lt;div :style="{ color: activeColor, fontSize: fontSize+'px' }"&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js">
+new Vue({
+    el: '#app',
+    data: {
+        activeColor: 'blue',
+        fontSize: 30
+    }
+})
+</code></pre>
+
+<h5>2 вариант (объектная запись в js)</h5>
+<pre><code class="html">
+&lt;div id="app"&gt;
+	&lt;div :style="styleBlock"&gt;block&lt;/div&gt;
+	&lt;button @click="changeStyle"&gt;changeStyle&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js">
+// styleBlock может содержать массивы или объекты
+var app = new Vue({
+	el: '#app',
+	data: {
+		styleBlock: {
+			width: '100px',
+			height: '100px',
+			background: 'blue'
+		}
+	},
+	methods: {
+		changeStyle() {
+			this.styleBlock.background = 'orange';
+			this.styleBlock['border-radius'] = '10px';
+		}
+	}
+})
+</code></pre>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="dir-model">v-model</h2>
@@ -380,52 +451,6 @@ var app = new Vue({
 &lt;span v-once&gt;Это никогда не изменится: {{ message }}&lt;/span&gt;
 </code></pre>
 
-
-
-
-
-
-
-
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="css">CSS</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="html">
-&lt;div id="app"&gt;
-	&lt;div :style="styleBlock"&gt;block&lt;/div&gt;
-	&lt;button @click="changeStyle"&gt;changeStyle&lt;/button&gt;
-&lt;/div&gt;
-</code>
-<code class="js">
-// styleBlock может содержать массивы или объекты
-var app = new Vue({
-	el: '#app',
-	data: {
-		styleBlock: {
-			width: '100px',
-			height: '100px',
-			background: 'blue'
-		}
-	},
-	methods: {
-		changeStyle() {
-			this.styleBlock.background = 'orange';
-			this.styleBlock['border-radius'] = '10px';
-		}
-	}
-})
-</code>
-</pre>
-
-<h4>Указание background-image</h4>
-<pre><code class="html">
-&lt;div class="img" :style="{ backgroundImage: 'url('+item.img+')' }"&gt;
-	&lt;a :href="'courses/'+i"&gt;&lt;/a&gt;
-&lt;/div&gt;
-</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -887,9 +912,11 @@ p {
 </pre>
 
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <h2 class="select">Vue Router</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!------------------------------------------------------>
 <h3 id="vue-router-script">Подключение через &lt;script&gt;</h3>
@@ -1074,11 +1101,11 @@ path: '/catalog/:id' // динамический путь
 
 
 
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <h2 class="select">Vue CLI</h2>
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!------------------------------------------------------>
 <h3 id="vue-cli-components">Компоненты системы</h3>
@@ -1345,11 +1372,11 @@ Vetur    # плагин для подстветки синтаксиса
 </code></pre>
 
 
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <h2 class="select">Axios</h2>
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!------------------------------------------------------>
 <h3 id="axios-desc">Описание</h3>
@@ -1423,11 +1450,11 @@ axios.post('url', {
 </code></pre>
 
 
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <h2 class="select">Vuex</h2>
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="vuex-desc">Описание</h2>
