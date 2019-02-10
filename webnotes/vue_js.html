@@ -140,6 +140,13 @@ app.messText = 'New Text'; // переопределение свойства
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="dir-if">v-show, v-if, v-else, v-else-if</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Можно применить v-if к псевдоэлементу &lt;template&gt;</li>
+	<li>v-show не работает на элементе &lt;template&gt; и не работает с v-else</li>
+	<li>Для v-if выше затраты на переключения, а у v-show больше затрат на первичную отрисовку. Если вы предполагаете, что переключения будут частыми, используйте v-show, если же редкими или маловероятными - v-if</li>
+</ul>
+
 <pre><code class="html">
 &lt;p <span class="hc">v-show</span>="view"&gt;text&lt;/p&gt;  - устанавливается display: none/block
 &lt;p <span class="hc">v-if</span>="view"&gt;text&lt;/p&gt;    - условие if. удаляется/добавляется в DOM дерево
@@ -157,21 +164,45 @@ app.messText = 'New Text'; // переопределение свойства
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="dir-for">v-for</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Списки (массивы) и циклы</h3>
-<pre>
-<code class="html">
+<h3>Отображение массива элементов</h3>
+
+<pre><code class="html">
+&lt;li <span class="hc">v-for</span>="car <span class="hc">in</span> cars"&gt;{{ car.model }}&lt;/li&gt;
+&lt;li <span class="hc">v-for</span>="car <span class="hc">of</span> cars"&gt;{{ car.model }}&lt;/li&gt;
+&lt;li <span class="hc">v-for</span>="(car, i) <span class="hc">in</span> cars"&gt;{{i}}, {{ car.model }}&lt;/li&gt;
+</code></pre>
+
+<pre><code class="html">
 &lt;div id="app"&gt;
-	&lt;!-- без индексов --&gt;
 	&lt;ul&gt;
+		&lt;!-- Без индексов --&gt;
 		&lt;li v-for="car in cars"&gt;{{ car.model }}, {{ car.speed }}&lt;/li&gt;
 	&lt;/ul&gt;
-	&lt;!-- с индексами --&gt;
 	&lt;ul&gt;
+		&lt;!-- С индексами --&gt;
 		&lt;li v-for="(car, i) in cars"&gt;{{i}}, {{ car.model }}, {{ car.speed }}&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/div&gt;
-</code>
-<code class="js">
+</code></pre>
+
+<pre><code class="html">
+&lt;div id="app"&gt;
+    &lt;ul&gt;
+    	&lt;!-- Итерирование свойств объекта --&gt;
+        &lt;li v-for="value in user"&gt;{{ value }}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+    	&lt;!-- Использование второго аргумента для получения ключей объекта --&gt;
+        &lt;li v-for="(value, key) in user"&gt;{{ key }}: {{ value }}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+    	&lt;!-- Использование третьего аргумента для получения индексов объекта --&gt;
+        &lt;li v-for="(value, key, index) in user"&gt;{{ index }}. {{ key }}: {{ value }}&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js">
 var app = new Vue({
 	el: '#app', 
 	data: {
@@ -181,11 +212,18 @@ var app = new Vue({
 			{model: 'Audi',   speed: 350},
 			{model: 'Nissan', speed: 270},
 			{model: 'Ford',   speed: 150}
-		]
+		],
+		user: {
+            name: 'Tony',
+            age: 25
+        }
 	}
 });
-</code>
-</pre>
+</code></pre>
+	
+
+
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="dir-on">v-on:</h2>
