@@ -2190,7 +2190,7 @@ var a = localStorage["Ключ"];      // получение значения
 delete localStorage["Ключ"];       // удаление значения
 </code></pre>
 
-<h4>Объекты</h4>
+<h4>Объекты и массивы</h4>
 <pre><code class="js">
 var obj = {
 	item1: 1,
@@ -2198,9 +2198,8 @@ var obj = {
 	item3: "hello"
 };
 
-var serialObj = JSON.stringify(obj);                       // сериализация объекта
-localStorage.setItem("myKey", serialObj);                  // запись в хранилище по ключу "myKey"
-var returnObj = JSON.parse(localStorage.getItem("myKey")); // из json в объект
+localStorage.setItem("key", JSON.stringify(obj));        // сериализация объекта и запись в хранилище по ключу "key"
+var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объект
 </code></pre>
 
 <h4>Проверка QUOTA_EXCEEDED_ERR</h4>
