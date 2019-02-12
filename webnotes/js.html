@@ -2190,6 +2190,11 @@ var a = localStorage["Ключ"];      // получение значения
 delete localStorage["Ключ"];       // удаление значения
 </code></pre>
 
+<h4>Провека наличия ключа</h4>
+<pre><code class="js">
+if (localStorage.getItem('key') !== null) {...}
+</code></pre>
+
 <h4>Объекты и массивы</h4>
 <pre><code class="js">
 var obj = {
