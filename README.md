@@ -166,10 +166,11 @@ https://habr.com/post/256109/
 - Nicholas C. Zakas, "Maintainable JavaScript"
 - Фримен Робсон, "Изучаем программирование на JavaScript
 - Дэвид Фланнаган, "JavaScript подробное руководство"
-- Kyle Simpson - серия "You don't know JS" из 6 книг
+- Kyle Simpson, "You don't know JS" серия из 6 книг
 - Николас Закасс, "High Performance JavaScript"
 - Макфарланд, "Новая большая книга CSS" (2016)
-- Robin Wieruch "The Road to learn React"
+- Роберт Мартин, "Чистый код. Создание, анализ и рефакторинг"
+- Robin Wieruch, "The Road to learn React"
 
 ## <a name="work"></a> Работа
 **1. Фриланс биржи**
