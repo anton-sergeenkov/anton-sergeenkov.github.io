@@ -37,3 +37,18 @@ $('.menu-theme a').on('click', function() {
 });
 
 $('.menu-theme a[href="#menu"]').addClass('active');
+
+$('#show-menu').on('click', function() {
+
+    if ($('.menu-container').is(':visible')) {
+        $('.menu-theme-wrapper').css('width', '65px');
+        $('.menu-theme').css('width', '65px');
+        $('a[href="#menu"]').css('display', 'none');
+        $('.menu-container').css('display', 'none');
+    } else {
+        $('.menu-theme-wrapper').css('width', '300px');
+        $('.menu-theme').css('width', '300px');
+        $('a[href="#menu"]').css('display', 'block');
+        $('.menu-container').css('display', 'block'); 
+    }
+})
