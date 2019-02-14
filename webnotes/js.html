@@ -1903,14 +1903,16 @@ document.body.<span class="hc">removeChild</span>(element);      // удален
 <h2 id="css">CSS</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
-element.style.fontSize = '20px';          // css
+element.<span class="hc">style</span>.fontSize = '20px';              // css
 </code></pre>
 
 <pre><code class="js">
-element.classList;                        // массив классов элемента
-element.classList.add('active');          // добавление класса
-element.classList.remove('active');       // удаление класса
-element.classList.toggle('active');       // добавление / удаление класса
+element.classList;                            // массив классов элемента
+element.classList.<span class="hc">add</span>('active');              // добавление класса
+element.classList.<span class="hc">remove</span>('active');           // удаление класса
+element.classList.<span class="hc">toggle</span>('active');           // добавление / удаление класса
+var a = element.classList.<span class="hc">contains</span>('active'); // проверяет наличие класса (true/false)
+var a = element.classList.<span class="hc">item</span>(0);            // вернет название класса по индексу 
 </code></pre>
 
 
