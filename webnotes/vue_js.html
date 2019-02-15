@@ -17,6 +17,7 @@
 
 		<div class="menu-container">
 			<a href="#create-obj">Экземпляр Vue</a>
+			<a href="#structure">Структура проекта</a>
 
 			<div class="theme">Директивы</div>
 			<a href="#dir-text"><span class="hm">v-text</span> <span class="hm">v-html</span></a>
@@ -135,6 +136,27 @@ var app = new Vue({
 <pre><code class="js">
 app.messText = 'New Text'; // переопределение свойства
 </code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="structure">Структура проекта</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash"><em>
+&#10006; public
+	&#8226; index.html
+	&#8226; favicon.ico
+&#10006; src
+	&#10006; assets
+		&#10006; img
+	&#10006; components
+		&#10006; pages
+		&#10006; compoments
+	&#8226; App.vue
+	&#8226; main.js
+	&#8226; package-lock.json
+	&#8226; vuex.js
+&#8226; package.json
+&#8226; vue.config.js
+</em></code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="dir-text">v-text, v-html</h2>
@@ -1103,9 +1125,9 @@ npm i --save-dev vue-router
 </code></pre>
 
 <pre><code class="bash"><em>
-&hellip; public
+&#10006; public
 	&#8226; index.html
-&hellip; src
+&#10006; src
 	&#8226; App.vue
 	&#8226; main.js
 &#8226; package.json
