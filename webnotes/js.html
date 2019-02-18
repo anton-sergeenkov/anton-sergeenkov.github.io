@@ -80,7 +80,8 @@
 			<a href="#external-script">Асинхронные скрипты: defer/async</a>
 			<a href="#comparison">Сравнение и логические значения</a>
 			<a href="#console">Console</a>
-			<a href="method-chaining">Цепные вызовы методов</a>
+			<a href="#method-chaining">Цепные вызовы методов</a>
+			<a href="#singleton">Singleton</a>
 
 			<div class="theme">Theory</div>
 			<a href="#ecmascript">ECMAScript</a>
@@ -2833,6 +2834,74 @@ set.forEach((item, item2, set) => console.log(item, item2, set));
 // button button Set(2) {"button", "active"}
 // active active Set(2) {"button", "active"}
 </code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="singleton">Singleton</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Использование конструктора плохая практика, особенно если у класса есть зависимости var user = new User();</li>
+	<li>Паттерн «Синглтон» или «Одиночка» (Singleton) представляет собой объект, который может существовать лишь в единственном экземпляре. В рамках применения этого паттерна новый экземпляр некоего класса создаётся в том случае, если он пока не создан. Если же экземпляр класса уже существует, то, при попытке обращения к конструктору, возвращается ссылка на соответствующий объект. Последующие вызовы конструктора всегда будут возвращать тот же самый объект</li>
+	<li>Синглтон гарантирует, что класс имеет только один экземпляр и предоставляет глобальную точку доступа к нему в однопоточном приложении</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Представление класса в виде объектного литерала</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Всякий раз, когда мы обращаемся к переменной user, мы получаем ссылку на один и тот же объект</li>
+</ul>
+<pre><code class="js">
+const user = {
+	name: 'Tony',
+	greet: function() {
+		console.log('Hello!');
+	}
+};
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Представление класса в виде синглтона</h3>
+<!------------------------------------------------------>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+var instance = null;
+
+class Singleton {
+	constructor() {
+		if(!instance){
+			instance = this;
+		}
+		// this.name = null;
+		return instance;
+	}
+	testMethod() {
+		return 'Hello'
+	}
+}
+
+var a = new Singleton();
+var b = new Singleton();
+<span class="hc">console.log(a === b); // true</span>
+console.log(a.testMethod());
+</code></pre></div><div class="container-half"><pre><code class="js">
+class usualClass {
+	constructor() {
+		// this.name = null;
+	}
+	testMethod() {
+		return 'Hello'
+	}
+}
+
+var a = new usualClass();
+var b = new usualClass();
+<span class="hc">console.log(a === b); // false</span>
+console.log(a.testMethod());
+<br><br><br><br><br>
+</code></pre></div></div>
+
+
+
 
 
 
