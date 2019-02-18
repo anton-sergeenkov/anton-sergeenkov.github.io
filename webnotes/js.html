@@ -2370,6 +2370,10 @@ str = str.replace(/<\/?[^>]+>/g, ''); // удалить html теги из те�
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="collback">Collback Function (функции обратного вызова)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list">
+	<li><span class="hl">callback function</span> - функция обратного вызова button.onclick = function() {}</li>
+</ul>
+
 <pre><code class="js">
 fade(this, 1000, function() {
 	this.style.display = 'none';
@@ -2474,26 +2478,58 @@ console.log(num.next().value);
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="promise">Promise (ES6)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list">
-	<li><span class="hl">callback function</span> - функция обратного вызова button.onclick = function() {}</li>
+
+<ul class="list-point">
+	<li>Функции <span class="hc">resolve/reject</span> принимают ровно один аргумент - результат/ошибку. Именно он передаётся обработчикам в <span class="hc">.then/.catch</span></li>
+	<li><span class="hc">Promise</span> после <span class="hc">reject/resolve</span> - неизменны</li>
 </ul>
 
-<ul class="list">
+<!------------------------------------------------------>
+<h3>Состояния Promise</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
 	<li><span class="hl">Promise Pending</span> - обещение выполняется</li>
 	<li><span class="hl">Promise Resolved</span> - обещание сдержано</li>
 	<li><span class="hl">Promise Rejected</span> - обещение не сдержано</li>
 </ul>
 
+<!------------------------------------------------------>
+<h3>Создание Promise</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
-var promise = functionAsync();
-promise.then(resolve, reject);
-// resolve - функция, которая сработает если обещание выполняется
-// reject  - функция, которая сработает если обещание не будет выполнена
+var promise = new <span class="hc">Promise</span>(function(resolve, reject) {
+	// любые асинхронные операции
+	// resolve(результат) при успешном выполнении
+	// reject(ошибка) при ошибке
+	const isSuccess = (Math.random() * 100) <= 70;
+    if (isSuccess) {
+        <span class="hc">resolve</span>('ok');
+    } else {
+        <span class="hc">reject</span>(new Error('api error')); // аналогично
+        throw new Error('api error');   // аналогично
+    }
+});
 </code></pre>
 
 <pre><code class="js">
+promise()
+	// resolve
+    <span class="hc">.then</span>(result => {
+        console.log(result);
+    })
+    // reject
+    <span class="hc">.catch</span>(error => console.error(error));
+    // .catch(error => console.error(error.message));
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Обработка Promise в асинхронных операциях</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
 functionAsync()
 	.then(resolve, reject);
+	// resolve - функция, которая сработает если обещание выполняется
+	// reject  - функция, которая сработает если обещание не будет выполнена
 </code></pre>
 
 <pre><code class="js">
@@ -2503,7 +2539,11 @@ functionAsync()
 	.catch(functionError);
 </code></pre>
 
-<h3>Пример #1</h3>
+<!------------------------------------------------------>
+<h3>Примеры</h3>
+<!------------------------------------------------------>
+
+<h4>Пример #1</h4>
 <pre><code class="js">
 function applyForVisa(document) {
 	console.log('Обработка заявления...');
@@ -2538,7 +2578,7 @@ applyForVisa({})
 	.then(() => console.log('Выведется в любом случае'));
 </code></pre>
 
-<h3>Пример #2. Несколько Promise</h3>
+<h4>Пример #2. Несколько Promise</h4>
 <pre><code class="js">
 function go(num) {
 	return new Promise(function(resolve, reject) {
