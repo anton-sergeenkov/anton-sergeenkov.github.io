@@ -65,18 +65,12 @@
 			<div class="theme">Vue Router</div>
 			<a href="#vue-router-script">Подключение через &lt;script&gt;</a>
 			<a href="#vue-router-npm">Подключение через NPM</a>
+			<a href="#vue-router-settings">Конфигурование сервера</a>
 			<a href="#vue-router-desc">Описание</a>
 			<a href="#vue-router-active-link">Стилизация активной ссылки</a>
 			<a href="#vue-router-static-path">Статический путь</a>
 			<a href="#vue-router-dynamic-path">Динамический путь</a>
 			<a href="#vue-comparison-path">Сопоставление путей</a>
-
-			<div class="theme">Axios</div>
-			<a href="#axios-desc">Описание</a>
-			<a href="#ajax-request">Технологии ajax запросов</a>
-			<a href="#axios-settings">Конфигурование сервера</a>
-			<a href="#axios-get">GET</a>
-			<a href="#axios-post">POST</a>
 			
 			<div class="theme">Прочее</div>
 			<a href="#transition">Анимация</a>
@@ -1187,6 +1181,25 @@ new Vue({
 </code></pre>
 
 <!------------------------------------------------------>
+<h3 id="vue-router-settings">Конфигурование сервера</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<a href="https://router.vuejs.org/ru/guide/essentials/history-mode.html#примеры-конфигурирования-серверов" target="_blank">Примеры конфигурирования серверов</a>
+</code></pre>
+
+<h4>Apache (.htaccess)</h4>
+<pre><code class="bash">
+&lt;IfModule mod_rewrite.c&gt;
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^index\.html$ - [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . /index.html [L]
+&lt;/IfModule&gt;
+</code></pre>
+
+<!------------------------------------------------------>
 <h3 id="vue-router-desc">Описание</h3>
 <!------------------------------------------------------>
 <ul class="list-point">
@@ -1275,9 +1288,9 @@ path: '/catalog/:id' // динамический путь
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-<!------------------------------------------------------>
-<h3 id="vue-cli-components">Компоненты системы</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vue-cli-components">Компоненты системы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list">
 	<li><span class="hl">1. CLI (@vue/cli)</span> - npm-пакет, устанавливаемый глобально и предоставляющий команду <span class="hc">vue</span> в терминале. Он позволяет быстро создать новый проект командой <span class="hc">vue create</span>, или мгновенно прототипировать ваши новые идеи через <span class="hc">vue serve</span>. Также можно управлять проектами в графическом интерфейсе через <span class="hc">vue ui</span></li>
 	<li><span class="hl">2. Сервис CLI (@vue/cli-service)</span> - зависимость для разработки. Это npm-пакет, устанавливаемый локально в каждый проект, создаваемый с помощью <span class="hc">@vue/cli</span>. Сервис CLI построен на основе <span class="hc">webpack</span> и <span class="hc">webpack-dev-server</span></li>
@@ -1287,9 +1300,9 @@ path: '/catalog/:id' // динамический путь
 	<li><span class="hl">Пресет</span> - это связка плагинов и конфигураций</li>
 </ul>
 
-<!------------------------------------------------------>
-<h3 id="vue-cli-bash">Bash Command</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vue-cli-bash">Bash Command</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="bash">
 npm install -g @vue/cli                 # cli
 npm install -g @vue/cli-service-global  # быстрый прототип приложения не создавая инфраструктуры, все зависимости берутся из глобальных
@@ -1307,9 +1320,9 @@ node --version  # версия nodejs
 vue --version   # версия Vue CLI
 </code></pre>
 
-<!------------------------------------------------------>
-<h3 id="vue-cli-vue">Vue Command</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vue-cli-vue">Vue Command</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <h4><span class="hh">vue serve</span></h4>
 <p>Запустить .js или .vue файл в режиме разработки без конфигурации</p>
@@ -1373,22 +1386,29 @@ vue ui
 vue add vuex
 </code></pre>
 
-<!------------------------------------------------------>
-<h3 id="vue-cli-desc">Описание</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vue-cli-desc">Описание</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li><span class="hl">scoped</span> - применение css стилей только для текущего компонента</li>
 	<li><span class="hl">template</span> - должен содержать только 1 родительский элемент</li>
 	<li>Файл index.html содержит простую разметку HTML с единственным элементом "app" в body. Он будет заменён на DOM, сгенерированный vue. По этой причине тэг body не рекомендуется использовать в качестве корневого элемента</li>
 </ul>
 
-<!------------------------------------------------------>
-<h3 id="vue-cli-import">Импорт и экспорт</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vue-cli-import">Импорт и экспорт</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h4>Переменная</h4>
 <pre><code class="js">
 export var a = 10                                  // App.vue
 import {a} from './App.vue'                        // main.js
+</code></pre>
+
+<h4>Функция</h4>
+<pre><code class="js">
+export function greet() {
+	console.log('Hello');
+}
 </code></pre>
 
 <h4>Компонент</h4>
@@ -1402,9 +1422,18 @@ import Header from './components/Header.vue'       // App.vue
 import listJSON from '../assets/json/catalog.json' // json
 </code></pre>
 
-<!------------------------------------------------------>
-<h3 id="vue-file-render">Функция render()</h3>
-<!------------------------------------------------------>
+<h4>Варианты</h4>
+<pre><code class="js">
+export {multiply, divide};                         // экспорт нескольких элементов
+import { sum, multiply } from './utils.js'         // импорт нескольких избранных элементов
+import * as utils from './utils.js'                // импорт всего, что экспортирует модуль
+export {sum as add, multiply}                      // псевдоними для экспортируемых сущностей
+import { add, multiply as mult } from './utils.js' // псевдоними для импортируемых сущностей
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vue-file-render">Функция render()</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 render: function(h) { 
     return h(App) 
@@ -1430,9 +1459,9 @@ render(h) {
 // 3 - массив дочерних Node-узлов (можно размещать вложенные вызовы функции createElement и вернуть обратно дерево виртуальных DOM-узлов)
 </code></pre>
 
-<!------------------------------------------------------>
-<h3 id="vue-file-structure">Структура</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vue-file-structure">Структура</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h4>main.js</h4>
 <pre><code class="js">
 import Vue from 'vue'
@@ -1522,9 +1551,9 @@ h1 {
 &lt;/style&gt;
 </code></pre>
 
-<!------------------------------------------------------>
-<h3 id="vue-cli-vscode">Настройка Visual Studio Code</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vue-cli-vscode">Настройка Visual Studio Code</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="bash">
 Vetur    # плагин для подстветки синтаксиса
 </code></pre>
@@ -1538,85 +1567,6 @@ Vetur    # плагин для подстветки синтаксиса
 	"vue": "html"
 }
 </code></pre>
-
-
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<h2 class="select">Axios</h2>
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
-<!------------------------------------------------------>
-<h3 id="axios-desc">Описание</h3>
-<!------------------------------------------------------>
-<pre><code class="html">
-<a href="https://github.com/axios/axios" target="_blank">GitHub Axios</a>
-</code></pre>
-
-<pre><code class="bash">
-npm i axios --save
-</code></pre>
-
-<pre><code class="js">
-const axios = require('axios');
-</code></pre>
-
-<!------------------------------------------------------>
-<h3 id="ajax-request">Технологии ajax запросов</h3>
-<!------------------------------------------------------>
-<pre><code>
-- XMLHttpRequest (не используют в явном виде, создаются обертки)
-- Fetch (нативный, полифил для IE)
-- Vue Resource (до версии Vue 2)
-- Axios
-</code></pre>
-
-<!------------------------------------------------------>
-<h3 id="axios-settings">Конфигурование сервера</h3>
-<!------------------------------------------------------>
-<pre><code class="html">
-<a href="https://router.vuejs.org/ru/guide/essentials/history-mode.html#примеры-конфигурирования-серверов" target="_blank">Примеры конфигурирования серверов</a>
-</code></pre>
-
-<h4>.htaccess</h4>
-<pre><code class="bash">
-&lt;IfModule mod_rewrite.c&gt;
-	RewriteEngine On
-	RewriteBase /
-	RewriteRule ^index\.html$ - [L]
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule . /index.html [L]
-&lt;/IfModule&gt;
-</code></pre>
-
-<!------------------------------------------------------>
-<h3 id="axios-get">GET</h3>
-<!------------------------------------------------------>
-<pre><code class="js">
-axios.get('url')
-.then(response => {
-	console.log(response.data);
-})
-.catch(error => console.log(error));
-</code></pre>
-
-<!------------------------------------------------------>
-<h3 id="axios-post">POST</h3>
-<!------------------------------------------------------>
-<pre><code class="js">
-axios.post('url', {
-		firstName: 'Fred',
-		lastName: 'Flintstone'
-	})
-	.then(function (response) {
-		console.log(response);
-	})
-	.catch(function (error) {
-		console.log(error);
-	});
-</code></pre>
-
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
