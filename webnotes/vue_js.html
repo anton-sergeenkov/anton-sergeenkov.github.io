@@ -39,8 +39,9 @@
 			<div class="theme">Компоненты</div>
 			<a href="#component-simple">Простой компонент</a>
 			<a href="#component-local-global">Локальные и глобальные компоненты</a>
-			<a href="#component-transfer-content">Обмен данными между компонентами</a>
-			<a href="#component-template">Тег template</a>
+			<a href="#component-transfer-content"><span class="hm">&lt;slot&gt;</span> <span class="hm">props</span></a>
+			<a href="#component-transfer-actions"><span class="hm">$emit</span></a>
+			<a href="#component-template"><span class="hm">template</span></a>
 			<a href="#component-dynamic">Динамические компоненты</a>
 			
 			<div class="theme">Vuex</div>
@@ -387,7 +388,7 @@ var app = new Vue({
 <pre>
 <code>
 <a href="https://vuejs.org/v2/guide/events.html#Key-Modifiers" target="_blank">Список псевдонимов клавиш в Vue</a>
-<a href="https://css-tricks.com/snippets/javascript/javascript-keycodes/#article-header-id-1" target="_blank">Таблица с кодами клавшим</a>
+<a href="https://css-tricks.com/snippets/javascript/javascript-keycodes/#article-header-id-1" target="_blank">Таблица с кодами клавиш</a>
 </code>
 </pre>
 
@@ -831,17 +832,13 @@ new Vue({
 </code></pre>
 
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="component-transfer-content">Обмен данными между компонентами</h2>
+<h2 id="component-transfer-content">Передача данных между компонентами</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
 <h3>Передача переменной в дочерний компонент (props)</h3>
 <!------------------------------------------------------>
-
-<h4></h4>
-
 <pre><code class="html">
 &lt;div id="app"&gt;
 	&lt;task message="Hello" :name="userName"&gt;&lt;/task&gt;
@@ -869,12 +866,6 @@ var app = new Vue({
 })
 </code></pre>
 
-
-
-
-
-
-
 <!------------------------------------------------------>
 <h3>Передача переменной в дочерний компонент (тег slot)</h3>
 <!------------------------------------------------------>
@@ -894,6 +885,22 @@ var app = new Vue({
 })
 </code>
 </pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="component-transfer-actions">Передача событий между компонентами</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Прослушиване событий</h3>
+<pre><code class="html">
+&lt;app-child @close="modal = false"&gt;&lt;/app-child&gt;   &lt;!-- родительский компонент --&gt;
+&lt;button @click="$emit('close')"&gt;&lt;/button&gt;        &lt;!-- дочерний компонент --&gt;
+</code></pre>
+
+<pre><code class="html">
+&lt;app-child @close="modal = $event"&gt;&lt;/app-child&gt;  &lt;!-- родительский компонент --&gt;
+&lt;button @click="$emit('close', true)"&gt;&lt;/button&gt;  &lt;!-- дочерний компонент --&gt;
+</code></pre>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="component-template">Тег template</h2>

@@ -2381,29 +2381,32 @@ console.log(num.next().value);
 <h3>Создание Promise</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-var promise = new <span class="hc">Promise</span>(function(resolve, reject) {
-	// любые асинхронные операции
-	// resolve(результат) при успешном выполнении
-	// reject(ошибка) при ошибке
-	const isSuccess = (Math.random() * 100) <= 70;
-    if (isSuccess) {
-        <span class="hc">resolve</span>('ok');
-    } else {
-        <span class="hc">reject</span>(new Error('api error')); // аналогично
-        throw new Error('api error');   // аналогично
-    }
-});
+functin functionAsync() {
+	var promise = new <span class="hc">Promise</span>(function(resolve, reject) {
+		// любые асинхронные операции
+		// resolve(результат) при успешном выполнении
+		// reject(ошибка) при ошибке
+		const isSuccess = (Math.random() * 100) <= 70;
+	    if (isSuccess) {
+	        <span class="hc">resolve</span>('ok');
+	    } else {
+	        <span class="hc">reject</span>(new Error('Api error')); // аналогично
+	        throw new Error('Api error');   // аналогично
+	    }
+	});
+	return promise;
+}
 </code></pre>
 
 <pre><code class="js">
-promise()
+functionAsync()
 	// resolve
     <span class="hc">.then</span>(result => {
         console.log(result);
     })
     // reject
-    <span class="hc">.catch</span>(error => console.error(error));
-    // .catch(error => console.error(error.message));
+    <span class="hc">.catch</span>(error => console.error(error)); // Error: Api error
+    // .catch(error => console.error(error.message)); // Api error
 </code></pre>
 
 <!------------------------------------------------------>
