@@ -30,11 +30,14 @@
 			<a href="#dir-cloak"><bg-menu>v-cloak</bg-menu></a>
 			<a href="#dir-once"><bg-menu>v-once</bg-menu></a>
 
-			<div class="theme">Опции</div>
+			<div class="theme">Опции и прочее</div>
 			<a href="#computed"><bg-menu>computed</bg-menu></a>
 			<a href="#created"><bg-menu>created</bg-menu></a>
 			<a href="#watch"><bg-menu>watch</bg-menu></a>
 			<a href="#filters"><bg-menu>filters</bg-menu></a>
+			<a href="#refs"><bg-menu>$refs</bg-menu></a>
+			<a href="#transition"><bg-menu>&lt;transition&gt;</bg-menu></a>
+			<a href="#add-react-element"><bg-menu>set</bg-menu></a>
 			
 			<div class="theme">Компоненты</div>
 			<a href="#component-simple">Простой компонент</a>
@@ -72,11 +75,6 @@
 			<a href="#vue-router-static-path">Статический путь</a>
 			<a href="#vue-router-dynamic-path">Динамический путь</a>
 			<a href="#vue-comparison-path">Сопоставление путей</a>
-			
-			<div class="theme">Прочее</div>
-			<a href="#transition"><bg-menu>&lt;transition&gt;</bg-menu></a>
-			<a href="#add-react-element">Добаление реактивных элементов</a>
-
 		</div>
 	</div>
 </div>
@@ -2005,6 +2003,37 @@ export default {
 &lt;/script&gt;
 </code></pre>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="refs">$refs</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Цель атрибута ref сделать элемент DOM доступным</li>
+	<li>ref="header" устанавливает ссылку на элемент DOM</li>
+	<li>$refs глобальный массив</li>
+	<li>Объект $refs не является реактивным</li>
+	<li>$refs заполняются только после того, как компонент был отрисован</li>
+</ul>
+
+<h4>Управление html-элементами</h4>
+<pre><code class="html">
+&lt;div id="app"&gt;
+    &lt;h2 ref="header"&gt;Hello world!&lt;/h2&gt;
+    &lt;button v-on:click="change"&gt;Change&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="js">
+new Vue({
+    el: "#app",
+    methods:{
+        change: function(){
+            this.$refs.header.innerText = "Welcome to Vue.js";
+            // this.$refs.header.focus();
+        }
+    }
+});
+</code></pre>
 
 
 
