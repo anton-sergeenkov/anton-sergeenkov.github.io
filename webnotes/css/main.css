@@ -1,10 +1,4 @@
-
-/*@import "../libraries/highlight/styles/atom-one-dark_.css" screen;*/
-/*@import "../libraries/highlight/styles/atom-one-light.css" screen;*/
-/*@import "../libraries/highlight/styles/github.css" screen;*/
-
 @import "../libraries/highlight/sawyer.css" screen;
-
 @import "../module/preloader/preloader.css" screen;
 @import "../module/scroll_up/style.css" screen;
 
@@ -12,6 +6,10 @@
 @font-face { font-family: FiraSans-Regular; src: url(../fonts/FiraSans-Regular.ttf); }
 @font-face { font-family: FiraSans-Medium;  src: url(../fonts/FiraSans-Medium.ttf); }
 @font-face { font-family: FiraSans-Bold;    src: url(../fonts/FiraSans-Bold.ttf); }
+
+::-webkit-scrollbar       { width: 8px; height: 8px;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: rgba(0, 0, 0, 0.2); border-radius: 2px;}
+::-webkit-scrollbar-track { background-color: rgba(0,0,0,0.1); }
 
 body{
 	margin: 0;
@@ -45,9 +43,7 @@ img.center {
 	flex-shrink: 0;
 }
 
-::-webkit-scrollbar       { width: 8px; height: 8px;}
-::-webkit-scrollbar-thumb { height: 50px; background-color: rgba(0, 0, 0, 0.2); border-radius: 2px;}
-::-webkit-scrollbar-track { background-color: rgba(0,0,0,0.1); }
+
 
 
 pre {
@@ -251,6 +247,17 @@ blockquote {
 	margin-top: 5px;
 	font-size: 14px;
 }
+.list-inline {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0; 
+	padding: 0;
+	list-style-type: none;
+}
+.list-inline li {
+	margin: 10px;
+}
+
 
 /*выделение заголовка*/
 .hh {
@@ -313,4 +320,34 @@ a[href="#menu"] {
 	border-bottom: none;
 	background:	none !important;
 	flex-grow: 1;
+}
+
+
+
+bg-code, bg-header, bg-list, bg-menu {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	border: 0;	
+}
+bg-code {
+	background: rgba(179, 183, 104, 0.4);
+	padding: 2px;
+}
+bg-header {
+	padding: 5px 10px;
+	border-radius: 3px;
+	background: #24c1f4;
+}
+bg-list {
+	padding: 5px 10px;
+	background: rgba(0,0,0,0.1);
+	border-radius: 3px;
+	font-weight: bold;
+}
+bg-menu {
+	padding: 5px;
+	background: rgba(179, 183, 104, 0.4);
+	border-radius: 4px;
+	color: black !important;
 }
