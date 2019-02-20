@@ -83,15 +83,26 @@
 <div id="container">
 
 <h1>Vue.js</h1>
-<pre>
-<code class="html">
-<a href="https://ru.vuejs.org/v2/guide/" target="_blank"><em>Vue.js</em></a>       - фреймворк
-<a href="https://router.vuejs.org/ru/" target="_blank"><em>Vue Router</em></a>   - маршрутизация
-<a href="https://vuex.vuejs.org/ru/guide/" target="_blank"><em>Vuex</em></a>         - паттерн управления состоянием
-<a href="https://cli.vuejs.org/ru/guide/" target="_blank"><em>Vue CLI 3</em></a>    - система сборки
-<a href="https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html" target="_blank"><em>Axios</em></a>        - доступ к API
-</code>
-</pre>
+<pre><code class="html">
+<a href="https://ru.vuejs.org/v2/guide/" target="_blank"><em>Vue.js</em></a>           - фреймворк
+<a href="https://cli.vuejs.org/ru/guide/" target="_blank"><em>Vue CLI 3</em></a>        - система сборки
+<a href="https://router.vuejs.org/ru/" target="_blank"><em>Vue Router</em></a>       - маршрутизация
+<a href="https://vuex.vuejs.org/ru/guide/" target="_blank"><em>Vuex</em></a>             - паттерн управления состоянием
+<a href="https://vuetifyjs.com/ru/getting-started/quick-start" target="_blank"><em>Vuetify.js</em></a>       - Vue.js Material Component Framework
+<a href="https://ssr.vuejs.org/ru/" target="_blank"><em>Vue SSR</em></a>          - серверный рендеринг
+<a href="https://nativescript-vue.org/ru/docs/introduction/" target="_blank"><em>NativeScript-Vue</em></a> - нативные мобильные приложения
+</code></pre>
+
+<pre><code class="html">
+<a href="https://github.com/vuejs/vue-devtools" target="_blank"><em>Vue-DevTools</em></a>     - browser devtools extension for debugging Vue.js applications
+<a href="https://curated.vuejs.org/" target="_blank"><em>Vue Curated</em></a>      - packages for Vue app
+<a href="https://github.com/vuejs/awesome-vue" target="_blank"><em>Awesome Vue.js</em></a>   - curated list of awesome things related to Vue.js
+</code></pre>
+
+
+
+
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="create-obj">Экземпляр Vue</h2>
@@ -331,6 +342,10 @@ var app = new Vue({
 		}
 	}
 })
+</code></pre>
+
+<pre><code class="js">
+event.target; // выбранный элемент
 </code></pre>
 
 <pre><code class="js">
@@ -2009,10 +2024,10 @@ export default {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
-	<li>Цель атрибута ref сделать элемент DOM доступным</li>
-	<li>ref="header" устанавливает ссылку на элемент DOM</li>
+	<li>$refs создает ссылку на DOM элемент или на экземпляр компонента и делает его доступным</li>
+	<li>Удобно использовать когда нужно написать компонент с API или нужна работа с DOM</li>
 	<li>$refs глобальный массив</li>
-	<li>Объект $refs не является реактивным</li>
+	<li>$refs не является реактивным</li>
 	<li>$refs заполняются только после того, как компонент был отрисован</li>
 </ul>
 
