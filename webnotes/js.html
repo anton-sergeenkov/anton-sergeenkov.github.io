@@ -2371,8 +2371,9 @@ console.log(num.next().value);
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
-	<li>Функции <span class="hc">resolve/reject</span> принимают ровно один аргумент - результат/ошибку. Именно он передаётся обработчикам в <span class="hc">.then/.catch</span></li>
-	<li><span class="hc">Promise</span> после <span class="hc">reject/resolve</span> - неизменны</li>
+	<li>Функции <bg-code>resolve/reject</bg-code> принимают ровно один аргумент - результат/ошибку. Именно он передаётся обработчикам в <bg-code>.then/.catch</bg-code></li>
+	<li><bg-code>Promise</bg-code> после <bg-code>reject/resolve</bg-code> - неизменны</li>
+	<li>Если говорить о взаимодействии с API, то <bg-code>catch</bg-code> используется для обработки http статусов <bg-code>4xx 5xx</bg-code>, <bg-code>then</bg-code> это статусы <bg-code>2xx</bg-code></li>
 </ul>
 
 <!------------------------------------------------------>
