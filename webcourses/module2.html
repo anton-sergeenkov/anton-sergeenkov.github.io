@@ -774,7 +774,29 @@ var a = Math.sqrt(400);       // квадратный корень числа
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b19"><span>18</span> Атрибуты</h2>
+<h2 id="b40"><span>18</span> Классы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b40" class="container-code">
+<pre><code class="js">
+// создание класса
+class User {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+	authorizate() {
+		console.log('Hello' + this.name);
+	}
+}
+
+// создание экземпляра класса (объекта)
+var user = new User('Tony', 25); 
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b19"><span>19</span> Атрибуты</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b19" class="container-code">
 
@@ -788,14 +810,146 @@ element.removeAttribute('id');       // удалить атрибут
 
 <pre><code class="html link-accent">
 <a href="https://codepen.io/Sergeenkov/pen/xzEwVp" target="_blank">Адаптивное меню (пример)</a>
-<a href="https://getinstance.info/articles/javascript/call-apply-and-bind-functions/" target="_blank">Функции call(), apply() и bind()</a>
 </code></pre>
 
 </div>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b32"><span>19</span> Дата и время</h2>
+<h2 id="b49"><span>20</span> Local Storage</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b49" class="container-code">
+<p>Google Chrome -> F12 -> Application -> Local Storage</p>
+<p>localStorage это свойство глобального объекта браузера (window)</p>
+
+<pre><code class="js">
+localStorage.setItem('id', '77');   // добавляет в localStorage новый ключ со значением (а если такой ключ уже существует, то перезаписывает новым значением)
+var a = localStorage.getItem('id'); // получить значение
+localStorage.removeItem('id');      // удаление ключа
+localStorage.clear();               // очистка всего хранилища
+</code></pre>
+
+<h4>Объекты и массивы</h4>
+<pre><code class="js">
+var obj = {
+	item1: 1,
+	item2: [123, "two", 3.0],
+	item3: "hello"
+};
+
+localStorage.setItem("key", JSON.stringify(obj));        // сериализация объекта и запись в хранилище по ключу "key"
+var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объект
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b34"><span>++</span> BOM - объектная модель браузера</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b34" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js.html#bom" target="_blank">Объектная модель браузера</a>
+<a href="../webnotes/js.html#document-width" target="_blank">Ширина и высота экрана / документа</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b42"><span>++</span> Циклы (дополнительно)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b42" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js.html#cycle-array" target="_blank">Циклы Array</a>
+<a href="../webnotes/js.html#cycle-obj" target="_blank">Циклы Object</a>
+</code></pre>
+
+<pre><code class="html link-accent">
+<a href="https://learn.javascript.ru/array-iteration" target="_blank">Массив: перебирающие методы</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b43"><span>++</span> Функции (дополнительно)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b43" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js_functions.html#announcement" target="_blank">Объявление</a>
+<a href="../webnotes/js_functions.html#parameters" target="_blank">Параметры функции (ES6)</a>
+</code></pre>
+
+<pre><code class="html link-accent">
+<a href="http://jsraccoon.ru/es6-arrow-functions" target="_blank">Стрелочные функции (ES6)</a>
+<a href="https://learn.javascript.ru/closures" target="_blank">Замыкания</a>
+<a href="https://learn.javascript.ru/recursion" target="_blank">Рекурсия, стек</a>
+</code></pre>
+
+<pre><code class="html link-accent">
+<a href="https://www.youtube.com/playlist?list=PLqHlAwsJRxAOpWPtj2T6HhSzX-lKmKV2q" target="_blank">Основы ES6</a>
+<a href="https://getinstance.info/articles/javascript/call-apply-and-bind-functions/" target="_blank">Функции call(), apply() и bind()</a>
+</code></pre>
+
+<pre><code class="html link-accent">
+<a href="https://habr.com/ru/company/ruvds/blog/337662/" target="_blank">JavaScript: методы асинхронного программирования</a>
+<a href="https://ru.hexlet.io/blog/posts/javascript-what-the-heck-is-a-callback" target="_blank">Функции обратного вызова (Collback Function)</a>
+<a href="https://learn.javascript.ru/promise" target="_blank">Promise</a>
+<a href="https://www.youtube.com/watch?v=5kAPExqSZ1I" target="_blank">Асинхронные функции</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b45"><span>++</span> Создание элементов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b45" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js.html#dom-element" target="_blank">Создание элементов</a>
+<a href="../webnotes/js.html#select" target="_blank">Выбор родственных элементов</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b46"><span>++</span> Обработка исключений</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b46" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js.html#catch" target="_blank">Обработка исключений</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b35"><span>++</span> Таймеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b35" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js.html#timeout" target="_blank">Таймеры</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b50"><span>++</span> AJAX</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b50" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js.html#ajax" target="_blank">AJAX</a>
+<a href="../webnotes/js.html#json" target="_blank">JSON</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b39"><span>++</span> HTML5 рисование на Canvas</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b39" class="container-code">
+<pre>
+<code class="html">
+<a href="../webnotes/canvas.html" target="_blank">Canvas</a>
+</code>
+</pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b32"><span>++</span> Дата и время</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b32" class="container-code">
 <pre><code class="js">
@@ -822,129 +976,8 @@ var nowMonth = month[nowDate.getMonth()];
 </div>
 
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b49"><span>20</span> Local Storage</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b49" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#local-storage" target="_blank">Local Storage</a>
-</code></pre>
-</div>
 
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b34"><span>21</span> BOM - объектная модель браузера</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b34" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#bom" target="_blank">Объектная модель браузера</a>
-<a href="../webnotes/js.html#document-width" target="_blank">Ширина и высота экрана / документа</a>
-</code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b42"><span>22</span> Циклы (дополнительно)</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b42" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#cycle-array" target="_blank">Циклы Array</a>
-<a href="../webnotes/js.html#cycle-obj" target="_blank">Циклы Object</a>
-</code></pre>
-
-<pre><code class="html link-accent">
-<a href="https://learn.javascript.ru/array-iteration" target="_blank">Массив: перебирающие методы</a>
-</code></pre>
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b43"><span>23</span> Функции (дополнительно)</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b43" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js_functions.html#announcement" target="_blank">Объявление</a>
-<a href="../webnotes/js_functions.html#parameters" target="_blank">Параметры функции (ES6)</a>
-</code></pre>
-
-<pre><code class="html link-accent">
-<a href="http://jsraccoon.ru/es6-arrow-functions" target="_blank">Стрелочные функции (ES6)</a>
-<a href="https://learn.javascript.ru/closures" target="_blank">Замыкания</a>
-<a href="https://learn.javascript.ru/recursion" target="_blank">Рекурсия, стек</a>
-</code></pre>
-
-<pre><code class="html link-accent">
-<a href="https://www.youtube.com/playlist?list=PLqHlAwsJRxAOpWPtj2T6HhSzX-lKmKV2q" target="_blank">Основы ES6</a>
-</code></pre>
-
-<pre><code class="html link-accent">
-<a href="https://habr.com/ru/company/ruvds/blog/337662/" target="_blank">JavaScript: методы асинхронного программирования</a>
-<a href="https://ru.hexlet.io/blog/posts/javascript-what-the-heck-is-a-callback" target="_blank">Функции обратного вызова (Collback Function)</a>
-<a href="https://learn.javascript.ru/promise" target="_blank">Promise</a>
-<a href="https://www.youtube.com/watch?v=5kAPExqSZ1I" target="_blank">Асинхронные функции</a>
-</code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b45"><span>24</span> Создание элементов</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b45" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#dom-element" target="_blank">Создание элементов</a>
-<a href="../webnotes/js.html#select" target="_blank">Выбор родственных элементов</a>
-</code></pre>
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b46"><span>25</span> Обработка исключений</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b46" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#catch" target="_blank">Обработка исключений</a>
-</code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b35"><span>26</span> Таймеры</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b35" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#timeout" target="_blank">Таймеры</a>
-</code></pre>
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b50"><span>27</span> AJAX</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b50" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#ajax" target="_blank">AJAX</a>
-<a href="../webnotes/js.html#json" target="_blank">JSON</a>
-</code></pre>
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b39"><span>28</span> HTML5 рисование на Canvas</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b39" class="container-code">
-<pre>
-<code class="html">
-<a href="../webnotes/canvas.html" target="_blank">Canvas</a>
-</code>
-</pre>
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b40"><span>29</span> Классы. Прототипы объектов</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b40" class="container-code">
-<pre>
-<code>
-<a href="../webnotes/js_objects.html#class-create" target="_blank">Классы</a>
-</code>
-</pre>
-</div>
 
 
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
