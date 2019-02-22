@@ -910,13 +910,17 @@ var app = new Vue({
 <pre>
 <code class="html">
 &lt;div id="app"&gt;
-	&lt;task&gt;first&lt;/task&gt;
-	&lt;task&gt;second&lt;/task&gt;
+    &lt;task&gt;
+        &lt;slot slot="header"&gt;Custom Header&lt;/slot&gt;
+    &lt;/task&gt;
 &lt;/div&gt;
 </code>
 <code class="js">
 Vue.component('task', {
-	template: '&lt;p&gt;this is a &lt;slot&gt;&lt;/slot&gt; new component&lt;/p&gt;'
+	template: 
+        `&lt;div&gt;
+            &lt;slot name="header"&gt;Default Header&lt;/slot&gt;
+        &lt;/div&gt;`;
 })
 var app = new Vue({
 	el: '#app'

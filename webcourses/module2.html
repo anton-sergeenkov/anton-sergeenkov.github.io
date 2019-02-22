@@ -774,23 +774,29 @@ var a = Math.sqrt(400);       // квадратный корень числа
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b40"><span>18</span> Классы</h2>
+<h2 id="b32"><span>18</span> Дата и время</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b40" class="container-code">
+<div id="code-b32" class="container-code">
 <pre><code class="js">
-// создание класса
-class User {
-	constructor(name, age) {
-		this.name = name;
-		this.age = age;
-	}
-	authorizate() {
-		console.log('Hello' + this.name);
-	}
-}
+var nowDate = new Date();                 // текущее дата и время на компьютере пользователя
+var yearFull = nowDate.getFullYear();     // год
+var year     = nowDate.getYear();         // год (последние 2 цифры) 
+var month    = nowDate.getMonth();        // месяц (нумерация с 0)
+var day      = nowDate.getDate();         // число
+var dayWeek  = nowDate.getDay();          // день недели, выводит численные значения, нумерация с "0"
+var hour     = nowDate.getHours();        // час
+var minutes  = nowDate.getMinutes();      // минуты
+var seconds  = nowDate.getSeconds();      // секунды
+var mseconds = nowDate.getMilliseconds(); // миллисекунды
+</code></pre>
 
-// создание экземпляра класса (объекта)
-var user = new User('Tony', 25); 
+<pre><code class="js">
+var weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+var month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+var nowDate = new Date();
+var nowDay   = weekday[nowDate.getDay()];
+var nowDate  = nowDate.getDate();
+var nowMonth = month[nowDate.getMonth()];
 </code></pre>
 </div>
 
@@ -816,7 +822,29 @@ element.removeAttribute('id');       // удалить атрибут
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b49"><span>20</span> Local Storage</h2>
+<h2 id="b40"><span>20</span> Классы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b40" class="container-code">
+<pre><code class="js">
+// создание класса
+class User {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+	authorizate() {
+		console.log('Hello' + this.name);
+	}
+}
+
+// создание экземпляра класса (объекта)
+var user = new User('Tony', 25); 
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b49"><span>21</span> Local Storage</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b49" class="container-code">
 <p>Google Chrome -> F12 -> Application -> Local Storage</p>
@@ -844,23 +872,31 @@ var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объ�
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b34"><span>++</span> BOM - объектная модель браузера</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b34" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#bom" target="_blank">Объектная модель браузера</a>
-<a href="../webnotes/js.html#document-width" target="_blank">Ширина и высота экрана / документа</a>
-</code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b42"><span>++</span> Циклы (дополнительно)</h2>
+<h2 id="b42"><span>22</span> Циклы (дополнительно)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b42" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#cycle-array" target="_blank">Циклы Array</a>
-<a href="../webnotes/js.html#cycle-obj" target="_blank">Циклы Object</a>
+
+<h3 id="cycle-obj">Циклы для массивов и объектов</h3>
+
+<h4>Цикл for in</h4>
+<b>Перебирает ключи</b>
+<pre><code class="js">
+// обходит все свойства, в том числе наследованные от прототипа
+var browsers = ['Chrome', 'Firefox', 'Safari'];
+for (let browser in browsers) {
+	console.log(browser);
+}
+// result: 0, 1, 2
+</code></pre>
+
+<h4>Цикл for of</h4>
+<b>Перебирает значения</b>
+<pre><code class="js">
+var browsers = ['Chrome', 'Firefox', 'Safari'];
+for (let browser of browsers) {
+	console.log(browser);
+}
+// result: 'Chrome', 'Firefox', 'Safari'
 </code></pre>
 
 <pre><code class="html link-accent">
@@ -868,16 +904,67 @@ var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объ�
 </code></pre>
 </div>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b43"><span>++</span> Функции (дополнительно)</h2>
+<h2 id="b43"><span>23</span> Функции (дополнительно)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b43" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js_functions.html#announcement" target="_blank">Объявление</a>
-<a href="../webnotes/js_functions.html#parameters" target="_blank">Параметры функции (ES6)</a>
+
+<ul class="list-point">
+	<li><span class="hl">Function Declaration</span> - функция, объявленная в основном потоке кода, создаются интерпретатором до выполнения кода</li>
+	<li><span class="hl">Function Expression</span> - объявление функции в контексте какого-либо выражения, например присваивания. Создаются в процессе выполнения выражения, в котором созданы, в данном случае при операции присваивания</li>
+</ul>
+
+
+<!------------------------------------------------------>
+<h3>1. Function Declaration</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+function func(num) {
+	console.log(num);
+}
+func(1);
+</code></pre>
+
+<pre><code class="js">
+// присвоили ссылку на функцию
+var a = func;
+function func(){
+	//
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>2. Function Expression (выражения функции)</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var func = function(num) {
+	console.log(num);
+}
+func(2);
+</code></pre>
+
+<h4>Функцию можно скопировать в другую переменную</h4>
+<pre><code class="js">
+function sayHi() {   // создать функцию и поместить её в переменную sayHi
+	alert( "Привет" );
+}
+
+var func = sayHi;    // копирование функции в новую переменную
+func(); // Привет    // функцию можно вызывать и как sayHi() и как func()
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>3. Анонинимное с немедленным вызовом (самовызывающаяся)</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+(function(num) {
+	console.log(num);
+})(3);
 </code></pre>
 
 <pre><code class="html link-accent">
+<a href="http://jsraccoon.ru/es6-defaults" target="_blank">Параметры по умолчанию (ES6)</a>
 <a href="http://jsraccoon.ru/es6-arrow-functions" target="_blank">Стрелочные функции (ES6)</a>
 <a href="https://learn.javascript.ru/closures" target="_blank">Замыкания</a>
 <a href="https://learn.javascript.ru/recursion" target="_blank">Рекурсия, стек</a>
@@ -886,6 +973,47 @@ var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объ�
 <pre><code class="html link-accent">
 <a href="https://www.youtube.com/playlist?list=PLqHlAwsJRxAOpWPtj2T6HhSzX-lKmKV2q" target="_blank">Основы ES6</a>
 <a href="https://getinstance.info/articles/javascript/call-apply-and-bind-functions/" target="_blank">Функции call(), apply() и bind()</a>
+</code></pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b35"><span></span> Таймеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b35" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js.html#timeout" target="_blank">Таймеры</a>
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b46"><span></span> Обработка исключений</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b46" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js.html#catch" target="_blank">Обработка исключений</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b45"><span></span> Создание элементов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b45" class="container-code">
+<pre><code class="html">
+<a href="../webnotes/js.html#dom-element" target="_blank">Создание элементов</a>
+<a href="../webnotes/js.html#select" target="_blank">Выбор родственных элементов</a>
+</code></pre>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b50"><span></span> AJAX</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b50" class="container-code">
+
+<pre><code class="html">
+<a href="../webnotes/js.html#ajax" target="_blank">AJAX</a>
+<a href="../webnotes/js.html#json" target="_blank">JSON</a>
 </code></pre>
 
 <pre><code class="html link-accent">
@@ -898,43 +1026,15 @@ var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объ�
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b45"><span>++</span> Создание элементов</h2>
+<h2 id="b34"><span></span> BOM - объектная модель браузера</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b45" class="container-code">
+<div id="code-b34" class="container-code">
 <pre><code class="html">
-<a href="../webnotes/js.html#dom-element" target="_blank">Создание элементов</a>
-<a href="../webnotes/js.html#select" target="_blank">Выбор родственных элементов</a>
+<a href="../webnotes/js.html#bom" target="_blank">Объектная модель браузера</a>
+<a href="../webnotes/js.html#document-width" target="_blank">Ширина и высота экрана / документа</a>
 </code></pre>
 </div>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b46"><span>++</span> Обработка исключений</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b46" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#catch" target="_blank">Обработка исключений</a>
-</code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b35"><span>++</span> Таймеры</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b35" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#timeout" target="_blank">Таймеры</a>
-</code></pre>
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b50"><span>++</span> AJAX</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b50" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#ajax" target="_blank">AJAX</a>
-<a href="../webnotes/js.html#json" target="_blank">JSON</a>
-</code></pre>
-</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="b39"><span>++</span> HTML5 рисование на Canvas</h2>
@@ -948,32 +1048,6 @@ var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объ�
 </div>
 
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b32"><span>++</span> Дата и время</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b32" class="container-code">
-<pre><code class="js">
-var nowDate = new Date();                 // текущее дата и время на компьютере пользователя
-var yearFull = nowDate.getFullYear();     // год
-var year     = nowDate.getYear();         // год (последние 2 цифры) 
-var month    = nowDate.getMonth();        // месяц (нумерация с 0)
-var day      = nowDate.getDate();         // число
-var dayWeek  = nowDate.getDay();          // день недели, выводит численные значения, нумерация с "0"
-var hour     = nowDate.getHours();        // час
-var minutes  = nowDate.getMinutes();      // минуты
-var seconds  = nowDate.getSeconds();      // секунды
-var mseconds = nowDate.getMilliseconds(); // миллисекунды
-</code></pre>
-
-<pre><code class="js">
-var weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-var month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
-var nowDate = new Date();
-var nowDay   = weekday[nowDate.getDay()];
-var nowDate  = nowDate.getDate();
-var nowMonth = month[nowDate.getMonth()];
-</code></pre>
-</div>
 
 
 
