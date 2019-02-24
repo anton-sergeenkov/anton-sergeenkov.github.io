@@ -6,24 +6,27 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<div id="preloader"></div>
-<div class="menu-theme-wrapper">
-	<div class="menu-theme">
-		<a href="#menu">Starter</a>
-		<a href="#link">Ссылки</a>
-		<a href="#figure">Фигуры</a>
-		<a href="#filter">Фильтры</a>
-		<a href="#gradient">Градиенты</a>
-		<a href="#libraries">Библиотеки</a>
-	</div>
-</div>
-<div id="content">
-<div id="menu"></div>
 <div id="container">
+<div id="menu-top"></div>
+<div id="menu-left">
+	<div id="menu-left-starter">
+		<div id="menu-left-show"></div>
+		<a href="#top">Starter</a>
+	</div>
+
+	<a href="#link">Ссылки</a>
+	<a href="#figure">Фигуры</a>
+	<a href="#filter">Фильтры</a>
+	<a href="#gradient">Градиенты</a>
+	<a href="#libraries">Библиотеки</a>
+</div>
+<div id="content-wrapper">
+<div id="content">
 
 
 
-<h1>SVG</h1>
+
+<h1 id="top">SVG</h1>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="link">Ссылки</h2>
@@ -490,11 +493,11 @@ svg path {
 
 </div>
 </div>
+</div>
+	<div id="preloader"></div>
     <script src="libraries/jquery.js"></script>
 	<script src="libraries/highlight/highlight.pack.js"></script>
-	<script src="module/scroll_up/scrollUp.js"></script>
 	<script src="js/main.js"></script>
 	<script src="module/preloader/preloader.js"></script>
-	<script src="module/scroll_up/script.js"></script>
 </body>
 </html>

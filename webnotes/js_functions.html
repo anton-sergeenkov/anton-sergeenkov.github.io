@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -6,27 +7,29 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<div id="preloader"></div>
-<div class="menu-theme-wrapper">
-	<div class="menu-theme">
-		<a href="#menu">Starter</a>
-		<a href="#special">Особенности</a>
-		<a href="#announcement">Объявление</a>
-		<a href="#parameters">Параметры функции (ES6)</a>
-		<a href="#arrow">Стрелочные функции (ES6)</a>
-		<a href="#closures-theory">Замыкания (теория)</a>
-		<a href="#closures">Замыкания</a>
-		<a href="#recursion">Рекурсия</a>
-		<a href="#named">Named Function Expression</a>
-	</div>
-</div>
-<div id="content">
-<div id="menu"></div>
 <div id="container">
+<div id="menu-top"></div>
+<div id="menu-left">
+	<div id="menu-left-starter">
+		<div id="menu-left-show"></div>
+		<a href="#top">Starter</a>
+	</div>
+
+	<a href="#special">Особенности</a>
+	<a href="#announcement">Объявление</a>
+	<a href="#parameters">Параметры функции (ES6)</a>
+	<a href="#arrow">Стрелочные функции (ES6)</a>
+	<a href="#closures-theory">Замыкания (теория)</a>
+	<a href="#closures">Замыкания</a>
+	<a href="#recursion">Рекурсия</a>
+	<a href="#named">Named Function Expression</a>
+</div>
+<div id="content-wrapper">
+<div id="content">
 
 
 
-<h1>JavaScript Functions</h1>
+<h1 id="top">JavaScript Functions</h1>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="special">Особенности</h2>
@@ -565,11 +568,11 @@ alert( pow(2, 3) ); // 8
 
 </div>
 </div>
+</div>
+	<div id="preloader"></div>
     <script src="libraries/jquery.js"></script>
 	<script src="libraries/highlight/highlight.pack.js"></script>
-	<script src="module/scroll_up/scrollUp.js"></script>
 	<script src="js/main.js"></script>
 	<script src="module/preloader/preloader.js"></script>
-	<script src="module/scroll_up/script.js"></script>
 </body>
 </html>

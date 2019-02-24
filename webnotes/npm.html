@@ -6,31 +6,34 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<div id="preloader"></div>
-<div class="menu-theme-wrapper">
-	<div class="menu-theme">
-		<a href="#menu">Starter</a>
-
-		<div class="theme">NPM</div>
-		<a href="#npm-instruments">Инструменты</a>
-		<a href="#npm-command">Команды</a>
-
-		<div class="theme">Gulp</div>
-		<a href="#package">Основные пакеты Gulp</a>
-		<a href="#install">Установка Gulp</a>
-		<a href="#package-install">Установка основных пакетов</a>
-		<a href="#other-package-install">Установка дополнительных пакетов</a>
-		<a href="#structure-project">Структура проекта</a>
-		<a href="#gulpfile">Gulpfile.js</a>
-		<a href="#notes">Примечания</a>
-	</div>
-</div>
-<div id="content">
-<div id="menu"></div>
 <div id="container">
+<div id="menu-top"></div>
+<div id="menu-left">
+	<div id="menu-left-starter">
+		<div id="menu-left-show"></div>
+		<a href="#top">Starter</a>
+	</div>
+
+	<div class="theme">NPM</div>
+	<a href="#npm-instruments">Инструменты</a>
+	<a href="#npm-command">Команды</a>
+
+	<div class="theme">Gulp</div>
+	<a href="#package">Основные пакеты Gulp</a>
+	<a href="#install">Установка Gulp</a>
+	<a href="#package-install">Установка основных пакетов</a>
+	<a href="#other-package-install">Установка дополнительных пакетов</a>
+	<a href="#structure-project">Структура проекта</a>
+	<a href="#gulpfile">Gulpfile.js</a>
+	<a href="#notes">Примечания</a>
+</div>
+<div id="content-wrapper">
+<div id="content">
 
 
-<h1>NPM</h1>
+
+
+<h1 id="top">NPM</h1>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="npm-instruments">Инструменты</h2>
@@ -284,11 +287,11 @@ CTRL+SHIFT+P (Package Control) -> Install Package -> SCSS
 
 </div>
 </div>
+</div>
+	<div id="preloader"></div>
     <script src="libraries/jquery.js"></script>
 	<script src="libraries/highlight/highlight.pack.js"></script>
-	<script src="module/scroll_up/scrollUp.js"></script>
 	<script src="js/main.js"></script>
 	<script src="module/preloader/preloader.js"></script>
-	<script src="module/scroll_up/script.js"></script>
 </body>
 </html>

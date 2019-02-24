@@ -2,7 +2,6 @@
 hljs.initHighlightingOnLoad();
 
 var menu = `
-
     <a href="js.html"            class="menu menu-js">js</a>
     <a href="js_functions.html"  class="menu menu-js">functions</a>
     <a href="js_objects.html"    class="menu menu-js">objects</a>
@@ -28,18 +27,21 @@ var menu = `
     <a href="python.html"        class="menu menu-php">python</a>
     <a href="mysql.html"         class="menu menu-php">mysql</a>
 `;
+$('#menu-top').html(menu);
 
-$('#menu').html(menu);
-
-$('.menu-theme a').on('click', function() {
-    $('.menu-theme a').removeClass('active');
+$('#menu-left > a').on('click', function() {
+    $('#menu-left a').removeClass('active');
     $(this).addClass('active');
 });
 
-$('.menu-theme a[href="#menu"]').addClass('active');
+
+
+
+
+
+
 
 $('#show-menu').on('click', function() {
-
     if ($('.menu-container').is(':visible')) {
         $('.menu-theme-wrapper').css('width', '65px');
         $('.menu-theme').css('width', '65px');

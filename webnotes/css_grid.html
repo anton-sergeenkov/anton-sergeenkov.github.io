@@ -6,24 +6,26 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<div id="preloader"></div>
-<div class="menu-theme-wrapper">
-	<div class="menu-theme">
-		<a href="#menu">Starter</a>
-		<a href="#tech">Технологии разметки</a>
-		<a href="#definitions">Определения</a>
-		<a href="#grid">Сетка (родитель)</a>
-		<a href="#union_elements">Объединение ячеек</a>
-		<a href="#align_elements">Выравнивание элементов</a>
-	</div>
-</div>
-<div id="content">
-<div id="menu"></div>
 <div id="container">
+<div id="menu-top"></div>
+<div id="menu-left">
+	<div id="menu-left-starter">
+		<div id="menu-left-show"></div>
+		<a href="#top">Starter</a>
+	</div>
+
+	<a href="#tech">Технологии разметки</a>
+	<a href="#definitions">Определения</a>
+	<a href="#grid">Сетка (родитель)</a>
+	<a href="#union_elements">Объединение ячеек</a>
+	<a href="#align_elements">Выравнивание элементов</a>
+</div>
+<div id="content-wrapper">
+<div id="content">
 
 
 
-<h1>CSS Grid Layout</h1>
+<h1 id="top">CSS Grid Layout</h1>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="tech">Технологии разметки</h2>
@@ -50,7 +52,7 @@
 </code>
 </pre>
 
-<img src="img/css-grid/grid-scheme.jpg" height="450">
+<img src="img/css-grid/grid-scheme.jpg" height="450" class="center">
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -353,11 +355,11 @@ div {
 
 </div>
 </div>
+</div>
+	<div id="preloader"></div>
     <script src="libraries/jquery.js"></script>
 	<script src="libraries/highlight/highlight.pack.js"></script>
-	<script src="module/scroll_up/scrollUp.js"></script>
 	<script src="js/main.js"></script>
 	<script src="module/preloader/preloader.js"></script>
-	<script src="module/scroll_up/script.js"></script>
 </body>
 </html>
