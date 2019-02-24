@@ -17,6 +17,7 @@
 		<a href="#descriptor">Дескрипторы свойств</a>
 		<a href="#extends-obj">Расширяемость объектов</a>
 		<a href="#obj-delete">Удаление свойств</a>
+		<a href="#obj-samples">Примеры</a>
 
 		<div class="theme">Классы ES6</div>
 		<a href="#class-create">Создание класса</a>
@@ -371,8 +372,6 @@ Object.<span class="hc">freeze</span>(person);               // аналогич
 var a = Object.<span class="hc">isFrozen</span>(person);     // проверяет применение freeze
 </code></pre>
 
-
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="obj-delete">Удаление свойств</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -390,6 +389,23 @@ Megahuman.head = 2; // 2
 delete Megahuman.head;
 Megahuman.head;     // 1
 </code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-samples">Примеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h4>Обращение как к объекту и как к функции</h4>
+<pre><code class="js">
+let test = function() {
+	console.log('hi from object!');
+}
+test.method = function () {
+	console.log('hi from method!');
+}
+test.method()
+test()
+</code></pre>
+
 
 
 <!-------------------------------------------------------------------------------->
