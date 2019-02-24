@@ -42,11 +42,12 @@
 			<div class="theme">Компоненты</div>
 			<a href="#component-simple">Простой компонент</a>
 			<a href="#component-local-global">Локальные и глобальные компоненты</a>
-			<a href="#component-transfer-content"><bg-menu>&lt;slot&gt;</bg-menu> <bg-menu>props</bg-menu></a>
+			<a href="#component-props"><bg-menu>props</bg-menu></a>
+			<a href="#component-slot"><bg-menu>&lt;slot&gt;</bg-menu></a>
 			<a href="#component-transfer-actions"><bg-menu>$emit</bg-menu></a>
 			<a href="#component-template"><bg-menu>template</bg-menu></a>
 			<a href="#component-dynamic">Динамические компоненты</a>
-			
+
 			<div class="theme">Vuex</div>
 			<a href="#vuex-desc">Описание</a>
 			<a href="#vuex-src">Подключение</a>
@@ -226,14 +227,16 @@ products: []   // для массивов
 
 <ul class="list-point">
 	<li>Когда присутствуют вместе на одном элементе, <bg-list>v-for</bg-list> имеет больший приоритет, чем <bg-list>v-if</bg-list>. Поэтому <bg-list>v-if</bg-list> будет выполняться для каждой итерации цикла</li>
+	<li><bg-list>key</bg-list> с <bg-list>v-for</bg-list> всегда обязателен для компонентов</li>
 </ul>
 
 <h4>Отображение массива элементов</h4>
 
 <pre><code class="html">
-&lt;li <span class="hc">v-for</span>="car <span class="hc">in</span> cars"&gt;{{ car.model }}&lt;/li&gt;
-&lt;li <span class="hc">v-for</span>="car <span class="hc">of</span> cars"&gt;{{ car.model }}&lt;/li&gt;
-&lt;li <span class="hc">v-for</span>="(car, i) <span class="hc">in</span> cars"&gt;{{i}}, {{ car.model }}&lt;/li&gt;
+&lt;li <bg-code>v-for</bg-code>="car <bg-code>in</bg-code> cars"&gt;{{ car.model }}&lt;/li&gt;
+&lt;li <bg-code>v-for</bg-code>="car <bg-code>of</bg-code> cars"&gt;{{ car.model }}&lt;/li&gt;
+&lt;li <bg-code>v-for</bg-code>="(car, i) <bg-code>in</bg-code> cars"&gt;{{i}}, {{ car.model }}&lt;/li&gt;
+&lt;li <bg-code>v-for</bg-code>="car <bg-code>in</bg-code> cars" <bg-code>:key</bg-code>="car.id"&gt;{{ car.model }}&lt;/li&gt;
 </code></pre>
 
 <pre><code class="html">
@@ -567,7 +570,7 @@ var app = new Vue({
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="dir-model">v-model</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Двунаправленное связывание данных с элементами</h3> (н-р input и textarea)
+<h4>Двунаправленное связывание данных с элементами</h4> (н-р input и textarea)
 
 <pre><code class="html">
 &lt;input type="text" <span class="hc">v-model</span>="messText"&gt;
@@ -582,6 +585,16 @@ var app = new Vue({
 &lt;input type="text" <span class="hc">@input="messText = $event.target.value"</span>&gt;
 &lt;p&gt;{{ messText }}&lt;/p&gt;
 </code></pre>
+
+<h4>Модификаторы</h4>
+<pre><code class="html">
+&lt;!-- Удаление пробелов --&gt;
+&lt;input type="text" <span class="hc">v-model.trim</span>="messText"&gt;
+</code></pre>
+
+
+
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="dir-pre">v-pre</h2>
@@ -871,7 +884,7 @@ new Vue({
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="component-transfer-content">Передача данных между компонентами</h2>
+<h2 id="component-props">Передача переменных между компонентами (props)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
@@ -904,29 +917,96 @@ var app = new Vue({
 })
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="component-slot">Передача данных между компонентами (slot)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Слот имеет доступ к тем же свойствам экземпляра app.vue (т.е. к той же «области видимости»), что и остальная часть шаблона</li>
+	<li>Слот не имеет доступа к области видимости &lt;app-task&gt;</li>
+	<li>Всё в родительском шаблоне компилируется в области видимости родительского компонента; всё в дочернем шаблоне компилируется в области видимости дочернего компонента</li>
+</ul>
+
+<pre><code class="js">
+<bg-code>v-slot:user</bg-code>  // полная запись
+<bg-code>#user</bg-code>        // сокращенная запись
+</code></pre>
+
+<h4>app.vue</h4>
+<pre><code class="html">
+&lt;app-task&gt;
+	&lt;template v-slot:user&gt;User Admin&lt;/template&gt;
+&lt;/app-task&gt;
+</code></pre>
+
+<h4>app-task.vue</h4>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;slot name="user"&gt;User Default&lt;/slot&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
 <!------------------------------------------------------>
-<h3>Передача переменной в дочерний компонент (тег slot)</h3>
+<h3>Слоты с ограниченной областью видимости</h3>
 <!------------------------------------------------------>
-<pre>
-<code class="html">
-&lt;div id="app"&gt;
-    &lt;task&gt;
-        &lt;slot slot="header"&gt;Custom Header&lt;/slot&gt;
-    &lt;/task&gt;
-&lt;/div&gt;
-</code>
-<code class="js">
-Vue.component('task', {
-	template: 
-        `&lt;div&gt;
-            &lt;slot name="header"&gt;Default Header&lt;/slot&gt;
-        &lt;/div&gt;`;
-})
-var app = new Vue({
-	el: '#app'
-})
-</code>
-</pre>
+<ul>
+	<li>Атрибуты, привязанные к элементу &lt;slot&gt;, называются входными параметрами слота</li>
+</ul>
+<h4>app.vue</h4>
+<pre><code class="html">
+{{userGeneral}}
+&lt;app-task&gt;
+    &lt;template v-slot:user="slotProps"&gt;
+    	&lt;!-- slotProps виден только внутри template --&gt;
+    	{{userGeneral = slotProps.user}}
+    &lt;/template&gt;
+&lt;/app-task&gt;
+
+&lt;script&gt;
+export default {
+    data() {
+        return {
+            userGeneral: null
+        };
+    }
+&lt;/script&gt;
+</code></pre>
+
+<h4>app-task.vue</h4>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;slot name="user" :user="userChild"&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    data() {
+        return {
+            userChild: 'Tony'
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="component-transfer-actions">Передача событий между компонентами</h2>
