@@ -1,5 +1,5 @@
 
-@font-face { font-family: Consolas; src: url(../../../fonts/Consolas.ttf); }
+@font-face { font-family: Consolas; src: url(../../fonts/Consolas.ttf); }
 
 :root {
 	--bg: #f5f1f0;
@@ -59,17 +59,14 @@ test
 	background: #fdd;
 	background: blue;
 }
-
 .hljs-addition {
 	background: #dfd;
 	background: blue;
 }
-
 .hljs-emphasis {
 	font-style: italic;
 	background: blue;
 }
-
 .hljs-strong {
 	font-weight: bold;
 	background: blue;
