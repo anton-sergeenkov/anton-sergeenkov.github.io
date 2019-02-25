@@ -1241,6 +1241,14 @@ alert('привет \n мир');  // вывод переноса строки
 "call me \"ziggy\" now"; // экранирование кавычек
 </code></pre>
 
+<pre><code class="js">
+// проверка на заполненное поле
+var login = '';
+var password = '';
+isFormValid() {
+	return login.length > 0 && password.length > 0;
+}
+</code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="number">Числа</h2>

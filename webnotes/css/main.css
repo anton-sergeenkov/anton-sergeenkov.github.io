@@ -99,7 +99,8 @@ MENU-LEFT
 }
 #menu-left .theme {
 	font-weight: bold;
-	color: #0ba8a0; background: rgba(11, 168, 160, 0.2);
+	color: #0ba8a0; 
+	background: rgba(11, 168, 160, 0.2);
 	cursor: default;
 	text-transform: uppercase;
 }
@@ -131,6 +132,26 @@ MENU-LEFT
 	padding-left: 10px;
 	color: black;
 	text-decoration: none;
+}
+
+/***************************************************
+MENU-LEFT-HIDE
+/***************************************************/
+#menu-left.hide {
+	width: 70px;
+}
+#menu-left.hide > .theme, #menu-left.hide > a {
+	display: none;
+}
+#menu-left.hide #menu-left-starter {
+	flex-direction: column;
+	align-items: center;
+}
+#menu-left.hide #menu-left-starter a {
+	padding: 10px 20px;
+}
+#menu-left.hide #menu-left-starter {
+	box-shadow: none;
 }
 
 /***************************************************
