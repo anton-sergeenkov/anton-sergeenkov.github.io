@@ -1,7 +1,6 @@
 
 @import "../libraries/highlight/sawyer.css" screen;
 @import "../module/preloader/preloader.css" screen;
-@import "../module/scroll_up/style.css" screen;
 
 @font-face { font-family: FiraSans-Ligth;   src: url(../fonts/FiraSans-Ligth.ttf); }
 @font-face { font-family: FiraSans-Regular; src: url(../fonts/FiraSans-Regular.ttf); }
@@ -26,24 +25,21 @@ body{
 STRUCTURE
 /***************************************************/
 #container {
-	display: grid;
+	display: flex;
 	height: 100vh;
-	grid-template-rows: auto 1fr;
-	grid-template-columns: 300px 1fr;
-	grid-template-areas: 
-		"menuLeft menuTop"
-		"menuLeft contentWrapper";
 }
 #menu-left {
-	grid-area: menuLeft;
+	width: 300px;
+	flex-shrink: 0;
 	overflow: auto;
 }
 #menu-top {
-	grid-area: menuTop;
+	max-width: 1100px;
+	margin: auto;
 }
 #content-wrapper {
-	grid-area: contentWrapper;
-	padding: 25px;
+	flex-grow: 1;
+	padding: 0px 25px;
 	overflow: auto;
 }
 #content {
@@ -51,7 +47,6 @@ STRUCTURE
 	margin-left: 25px;
 	margin: auto;
 }
-
 
 /***************************************************
 MENU-TOP
@@ -108,7 +103,6 @@ MENU-LEFT
 	cursor: default;
 	text-transform: uppercase;
 }
-
 #menu-left-show {
 	width: 35px;
 	height: 35px;
@@ -139,7 +133,6 @@ MENU-LEFT
 	text-decoration: none;
 }
 
-
 /***************************************************
 ELEMENTS
 /***************************************************/
@@ -168,7 +161,6 @@ img {
 	display: block;
 }
 img.center {
-	display: block;
 	margin: auto;
 }
 h2.select {
