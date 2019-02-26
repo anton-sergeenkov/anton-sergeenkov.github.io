@@ -160,6 +160,9 @@ products: []   // для массивов
 	&#10006; components
 		&#10006; pages
 		&#10006; compoments
+		&#10006; ui
+			&#8226; index.js
+			&#8226; Button.vue
 	&#10006; services
 	&#8226; App.vue
 	&#8226; main.js
@@ -884,7 +887,7 @@ new Vue({
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
-<h3>Передача переменной в дочерний компонент (props)</h3>
+<h3>Родительский компонент</h3>
 <!------------------------------------------------------>
 <pre><code class="html">
 &lt;div id="app"&gt;
@@ -897,13 +900,13 @@ message="Hello"   # передача текста из html
 :name="userName"  # передача переменной из app
 </code></pre>
 
+<!------------------------------------------------------>
+<h3>Дочерний компонент</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 Vue.component('task', {
 	template: '&lt;p&gt;{{ message + name }}&lt;/p&gt;',
 	props: ['message', 'name']
-	// props: {
-    //     message: String
-    // }
 })
 var app = new Vue({
 	el: '#app',
@@ -912,6 +915,35 @@ var app = new Vue({
     }
 })
 </code></pre>
+
+<!------------------------------------------------------>
+<h3>Варианты props</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+props: ['message', 'name']
+props: {
+	message: String
+}
+props: {
+    count: {
+        type: Number,    // задание типа
+        default: 77,     // значение по умолчанию
+        required: true   // обязательное значение
+    }
+}
+</code></pre>
+
+<p>Значением type может быть один из следующих нативных конструкторов:
+	<bg-code>String</bg-code>
+	<bg-code>Number</bg-code>
+	<bg-code>Boolean</bg-code>
+	<bg-code>Array</bg-code>
+	<bg-code>Object</bg-code>
+	<bg-code>Date</bg-code>
+	<bg-code>Function</bg-code>
+	<bg-code>Symbol</bg-code>
+</p>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="component-slot">Передача данных между компонентами (slot)</h2>
@@ -989,21 +1021,6 @@ export default {
 &lt;/script&gt;
 </code></pre>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="component-transfer-actions">Передача событий между компонентами</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1011,12 +1028,12 @@ export default {
 <h3>Прослушиване событий</h3>
 <pre><code class="html">
 &lt;app-child @close="modal = false"&gt;&lt;/app-child&gt;   &lt;!-- родительский компонент --&gt;
-&lt;button @click="$emit('close')"&gt;&lt;/button&gt;        &lt;!-- дочерний компонент --&gt;
+&lt;button @click="<bg-code>$emit</bg-code>('close')"&gt;&lt;/button&gt;        &lt;!-- дочерний компонент --&gt;
 </code></pre>
 
 <pre><code class="html">
 &lt;app-child @close="modal = $event"&gt;&lt;/app-child&gt;  &lt;!-- родительский компонент --&gt;
-&lt;button @click="$emit('close', true)"&gt;&lt;/button&gt;  &lt;!-- дочерний компонент --&gt;
+&lt;button @click="<bg-code>$emit</bg-code>('close', true)"&gt;&lt;/button&gt;  &lt;!-- дочерний компонент --&gt;
 </code></pre>
 
 
@@ -1061,6 +1078,24 @@ var app = new Vue({
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="component-dynamic">Динамические компоненты</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="html">
+&lt;component <bg-code>:is</bg-code>="currentView"&gt;&lt;/component&gt;
+</code></pre>
+
+<pre><code class="html">
+&lt;!-- Кэширование компонента (сохранение состояния) --&gt;
+<bg-code>&lt;keep-alive&gt;</bg-code>
+	&lt;component <bg-code>:is</bg-code>="currentView"&gt;&lt;/component&gt;
+<bg-code>&lt;/keep-alive&gt;</bg-code>
+</code></pre>
+
+
+
+
+
+
+
 <pre>
 <code class="html">
 &lt;!-- если нужна анимация, component обернуть в transition --&gt;
@@ -1069,7 +1104,7 @@ var app = new Vue({
 		&lt;a href="#" @click="changeView('orange')"&gt;orange&lt;/a&gt;
 		&lt;a href="#" @click="changeView('blue')"&gt;blue&lt;/a&gt;
 	&lt;/nav&gt;
-	<span class="hc">&lt;component :is="currentView"&gt;&lt;/component&gt;</span>
+	<bg-code>&lt;component :is="currentView"&gt;&lt;/component&gt;</bg-code>
 &lt;/div&gt;
 
 &lt;template id="orange-template"&gt;
@@ -1554,6 +1589,7 @@ import { sum, multiply } from './utils.js'         // импорт нескол�
 import * as utils from './utils.js'                // импорт всего, что экспортирует модуль
 export {sum as add, multiply}                      // псевдоними для экспортируемых сущностей
 import { add, multiply as mult } from './utils.js' // псевдоними для импортируемых сущностей
+import './ui'                                      // если не указывать файл, то import index.js из "ui"
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
