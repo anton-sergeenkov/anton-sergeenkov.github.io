@@ -774,7 +774,29 @@ var a = Math.sqrt(400);       // квадратный корень числа
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b32"><span>18</span> Дата и время</h2>
+<h2 id="b40"><span>18</span> Классы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b40" class="container-code">
+<pre><code class="js">
+// создание класса
+class User {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+	authorizate() {
+		console.log('Hello' + this.name);
+	}
+}
+
+// создание экземпляра класса (объекта)
+var user = new User('Tony', 25); 
+</code></pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b32"><span>19</span> Дата и время</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b32" class="container-code">
 <pre><code class="js">
@@ -802,49 +824,7 @@ var nowMonth = month[nowDate.getMonth()];
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b19"><span>19</span> Атрибуты</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b19" class="container-code">
-
-<pre><code class="js">
-var a1 = element.attributes;         // массив атрибутов
-var a2 = element.hasAttribute('id'); // проверить наличие атрибута
-var a3 = element.getAttribute('id'); // получить значение атрибута
-element.setAttribute('id', 'new');   // установить атрибут
-element.removeAttribute('id');       // удалить атрибут
-</code></pre>
-
-<pre><code class="html link-accent">
-<a href="https://codepen.io/Sergeenkov/pen/xzEwVp" target="_blank">Адаптивное меню (пример)</a>
-</code></pre>
-
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b40"><span>20</span> Классы</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b40" class="container-code">
-<pre><code class="js">
-// создание класса
-class User {
-	constructor(name, age) {
-		this.name = name;
-		this.age = age;
-	}
-	authorizate() {
-		console.log('Hello' + this.name);
-	}
-}
-
-// создание экземпляра класса (объекта)
-var user = new User('Tony', 25); 
-</code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b49"><span>21</span> Local Storage</h2>
+<h2 id="b49"><span>20</span> Local Storage</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b49" class="container-code">
 <p>Google Chrome -> F12 -> Application -> Local Storage</p>
@@ -870,9 +850,63 @@ var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объ�
 </code></pre>
 </div>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b19"><span>21</span> Атрибуты</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b19" class="container-code">
+
+<pre><code class="js">
+var a1 = element.attributes;         // массив атрибутов
+var a2 = element.hasAttribute('id'); // проверить наличие атрибута
+var a3 = element.getAttribute('id'); // получить значение атрибута
+element.setAttribute('id', 'new');   // установить атрибут
+element.removeAttribute('id');       // удалить атрибут
+</code></pre>
+
+<pre><code class="html link-accent">
+<a href="https://codepen.io/Sergeenkov/pen/xzEwVp" target="_blank">Адаптивное меню (пример)</a>
+</code></pre>
+
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b42"><span>22</span> Циклы (дополнительно)</h2>
+<h2 id="b45"><span>22</span> Создание элементов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b45" class="container-code">
+
+<h4>Создание</h4>
+<pre><code class="js">
+var element = document.<bg-code>createElement</bg-code>('div');
+element.innerHTML = 'Go to google';
+element.className = 'class-google';
+</code></pre>
+
+<h4>Добавление на страницу</h4>
+<pre><code class="js">
+var wrapper = document.querySelector('#wrapper');
+
+wrapper.<bg-code>appendChild</bg-code>(element);                      // внутри элемента после контента
+wrapper.<bg-code>insertBefore</bg-code>(element, wrapper.lastChild);  // внутри элемента перед контентом
+wrapper.parentNode.<bg-code>insertBefore</bg-code>(element, wrapper); // после элемента
+wrapper.parentNode.<bg-code>appendChild</bg-code>(element);           // до элемента
+wrapper.parentNode.<bg-code>replaceChild</bg-code>(element, wrapper); // заменить элемент другим элементом
+
+// insertBefore (1 - элемент который вставляем, 2 - элемент перед которым вставляем)
+// insertBefore (1 - чем заменяем, 2 - что заменяем)
+</code></pre>
+
+<h4>Удаление</h4>
+<pre><code class="js">
+wrapper.parentNode.<bg-code>removeChild</bg-code>(element); // удаление нового элемента
+wrapper.parentNode.<bg-code>removeChild</bg-code>(wrapper); // удаление элемента обертки
+document.body.<bg-code>removeChild</bg-code>(element);      // удаление нового элемента (если родитель body)
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b42"><span>23</span> Циклы (дополнительно)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b42" class="container-code">
 
@@ -906,7 +940,7 @@ for (let browser of browsers) {
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b43"><span>23</span> Функции (дополнительно)</h2>
+<h2 id="b43"><span>24</span> Функции (дополнительно)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b43" class="container-code">
 
@@ -977,43 +1011,109 @@ func(); // Привет    // функцию можно вызывать и ка
 
 </div>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b35"><span></span> Таймеры</h2>
+<h2 id="b35"><span>25</span> Таймеры</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b35" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#timeout" target="_blank">Таймеры</a>
+<h4>setTimeout - однократное выполнение кода</h4>
+
+<pre><code class="js">
+var timer = setTimeout(function() { 
+	console.log('go'); 
+}, 1000);
+
+clearTimeout(timer);
 </code></pre>
+
+<h4>setInterval - многократное выполнение кода</h4>
+<pre><code class="js">
+var timer = setInterval(function() { 
+	console.log('go'); 
+}, 1000);
+
+clearInterval(timer);
+</code></pre>
+
 </div>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b46"><span></span> Обработка исключений</h2>
+<h2 id="b46"><span>26</span> Обработка исключений</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b46" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#catch" target="_blank">Обработка исключений</a>
+
+<pre><code class="js">
+try {
+	// инструкции, которые могут бросить исключение
+} catch (идентификатор) {
+	// инструкции будут выполняться если в try произошло исключение
+	// передается выражение (идентификатор), которое было в throw
+} finally {
+	// инструкции будут выполняться независимо от исключения
+}
+// catch или finally может отсутствовать
+// если ошибка необработана, скрипт не будет выполняться
+// если ошибка обработана в catch, скрипт продолжит выполнение
 </code></pre>
+
+<pre><code class="js">
+try {
+	throw new Error('Panic!');
+} catch (e) {
+	console.log(e.message);
+} finally {
+	console.log('Код, который нужно выполнить');
+}
+</code></pre>
+
 </div>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b45"><span></span> Создание элементов</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b45" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#dom-element" target="_blank">Создание элементов</a>
-<a href="../webnotes/js.html#select" target="_blank">Выбор родственных элементов</a>
-</code></pre>
-</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b50"><span></span> AJAX</h2>
+<h2 id="b39"><span>27</span> HTML5 рисование на Canvas</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b39" class="container-code">
+<pre>
+<code class="html">
+<a href="../webnotes/canvas.html" target="_blank">Canvas</a>
+</code>
+</pre>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b50"><span>28</span> AJAX</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b50" class="container-code">
 
 <pre><code class="html">
-<a href="../webnotes/js.html#ajax" target="_blank">AJAX</a>
-<a href="../webnotes/js.html#json" target="_blank">JSON</a>
+1. XMLHttpRequest (не используют в явном виде, создаются обертки)
+2. Fetch (нативный, полифил для IE)
+3. Axios
+</code></pre>
+
+<h4>Axios (GET)</h4>
+<pre><code class="js">
+axios.get('url')
+.then(response => {
+	console.log(response.data);
+})
+.catch(error => console.log(error));
+</code></pre>
+
+<h4>Axios (POST)</h4>
+<pre><code class="js">
+axios.post('url', {
+		firstName: 'Fred',
+		lastName: 'Flintstone'
+	})
+	.then(function (response) {
+		console.log(response);
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
 </code></pre>
 
 <pre><code class="html link-accent">
@@ -1022,29 +1122,6 @@ func(); // Привет    // функцию можно вызывать и ка
 <a href="https://learn.javascript.ru/promise" target="_blank">Promise</a>
 <a href="https://www.youtube.com/watch?v=5kAPExqSZ1I" target="_blank">Асинхронные функции</a>
 </code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b34"><span></span> BOM - объектная модель браузера</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b34" class="container-code">
-<pre><code class="html">
-<a href="../webnotes/js.html#bom" target="_blank">Объектная модель браузера</a>
-<a href="../webnotes/js.html#document-width" target="_blank">Ширина и высота экрана / документа</a>
-</code></pre>
-</div>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="b39"><span>++</span> HTML5 рисование на Canvas</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div id="code-b39" class="container-code">
-<pre>
-<code class="html">
-<a href="../webnotes/canvas.html" target="_blank">Canvas</a>
-</code>
-</pre>
 </div>
 
 
