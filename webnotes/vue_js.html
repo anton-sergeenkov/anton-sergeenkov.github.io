@@ -38,7 +38,7 @@
 		<div class="theme">Компоненты</div>
 		<a href="#component-simple">Простой компонент</a>
 		<a href="#component-local-global">Локальные и глобальные компоненты</a>
-		<a href="#component-global">Глобальная регистрация компонента</a>
+		<a href="#component-global">Глобальный компонент</a>
 		<a href="#component-props"><bg-menu>props</bg-menu></a>
 		<a href="#component-slot"><bg-menu>&lt;slot&gt;</bg-menu></a>
 		<a href="#component-transfer-actions"><bg-menu>$emit</bg-menu></a>
@@ -77,6 +77,9 @@
 		<div class="theme">Vuetify</div>
 		<a href="#vuetify-src">Подключение</a>
 		<a href="#vuetify-alert">Компонет "Alert"</a>
+
+		<div class="theme">Примеры</div>
+		<a href="#sample-cart">Добавить / удалить из корзины</a>
 </div>
 <div id="content-wrapper">
 <div id="menu-top"></div>
@@ -884,7 +887,7 @@ new Vue({
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="component-global">Глобальная регистрация компонента</h2>
+<h2 id="component-global">Глобальный компонент</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <h4>./main.js</h4>
@@ -2305,6 +2308,31 @@ Vue.use(Vuetify)
     margin: 15px 0px;
 }
 </code></pre>
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<h2 class="select">Samples</h2>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="sample-cart">Добавить / удалить из корзины</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+&lt;button :class="{active:checkProduct(id)}"&gt;
+	&lt;slot v-if="checkProduct(id)"&gt;Удалить из корзины&lt;/slot&gt;
+	&lt;slot v-else&gt;Добавить в корзину&lt;/slot&gt;
+&lt;/button&gt;
+</code></pre>
+
+<ul class="list-point">
+	<li>отображение кнопки "Добавить в корзину" без класса "active"</li>
+	<li>отображение кнопки "Удалить из корзины" с классом "active"</li>
+	<li>checkProduct(id) вернет true/false</li>
+</ul>
+
 
 
 
