@@ -38,6 +38,7 @@
 		<div class="theme">Компоненты</div>
 		<a href="#component-simple">Простой компонент</a>
 		<a href="#component-local-global">Локальные и глобальные компоненты</a>
+		<a href="#component-global">Глобальная регистрация компонента</a>
 		<a href="#component-props"><bg-menu>props</bg-menu></a>
 		<a href="#component-slot"><bg-menu>&lt;slot&gt;</bg-menu></a>
 		<a href="#component-transfer-actions"><bg-menu>$emit</bg-menu></a>
@@ -880,6 +881,80 @@ new Vue({
 	}
 })
 </code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="component-global">Глобальная регистрация компонента</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h4>./main.js</h4>
+<pre><code class="js">
+import './components/ui'
+</code></pre>
+
+<h4>./components/ui/index.js</h4>
+<pre><code class="js">
+import Vue from 'vue'
+import Button from './Button.vue'
+Vue.component('ui-button', Button)
+</code></pre>
+
+<h4>./components/ui/Button.vue</h4>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;button :class="classes" class="ui-btn"&gt;
+        &lt;slot&gt;&lt;/slot&gt;
+    &lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<pre><code class="js">
+&lt;script&gt;
+export default {
+    props: {
+        color: { type: String, default: 'primary' },
+        block: { type: Boolean }
+    },
+    computed: {
+        classes() {
+            return {
+                ['ui-btn--'+this.color]: true,
+                'ui-btn--block': this.block
+            };
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
+<pre><code class="css">
+&lt;style scoped&gt;
+.ui-btn {
+    display: block;
+}
+.ui-btn--primary {
+    background: yellowgreen;
+}
+&lt;/style&gt;
+</code></pre>
+
+
+<h4>Any Component</h4>
+<pre><code class="html">
+&lt;ui-button @click.<bg-code>native</bg-code>="getFunc" color="primary" block&gt;This is a button&lt;/ui-button&gt;
+</code></pre>
+
+<ul class="list-point">
+	<li><bg-list>.native</bg-list> - подписка на нативные события браузера на корневом элементе компонента</li>
+	<li>через <bg-list>.native</bg-list> вешаются события на компоненты</li>
+	<li>а т.к. button рутовый элемент компонента то клик вешается на кнопку</li>
+	<li>есть еще <bg-list>.left</bg-list> если нужно навешать обработчик на обычный блок div или еще что-то</li>
+</ul>
+
+
+
+
+
+
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
