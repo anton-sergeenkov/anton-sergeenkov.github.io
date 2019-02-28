@@ -21,13 +21,13 @@
 
 	<div class="theme">Циклы и массивы</div>
 	<a href="#cycle">Циклы</a>
-	<a href="#cycle-array">Циклы Array</a>
-	<a href="#cycle-obj">Циклы Object</a>
+	<a href="#cycle-for-in"><bg-menu>for..in</bg-menu> <bg-menu>for..of</bg-menu></a>
+	<a href="#cycle-array">Перебор массива</a>
+	<a href="#map"><bg-menu>map</bg-menu> (ES6)</a>
 	<a href="#array">Массивы</a>
 	<a href="#array_obj">Массивы обьектов</a>
 
 	<div class="theme">ES6</div>
-	<a href="#map"><bg-menu>map</bg-menu></a>
 	<a href="#set"><bg-menu>Set</bg-menu></a>
 	<a href="#spread">Оператор разворота</a>
 	<a href="#pattern">Шаблонные строки</a>
@@ -911,7 +911,7 @@ res = (apple == orange) ? "Равно" : "Не равно";
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="cycle-obj">Циклы Object</h2>
+<h2 id="cycle-for-in">Цикл for..in и for..of</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
@@ -919,7 +919,6 @@ res = (apple == orange) ? "Равно" : "Не равно";
 <!------------------------------------------------------>
 <b>Перебирает ключи</b>
 <pre><code class="js">
-// обходит все свойства, в том числе наследованные от прототипа
 var browsers = ['Chrome', 'Firefox', 'Safari'];
 for (let browser in browsers) {
 	console.log(browser);
@@ -939,13 +938,9 @@ for (let browser of browsers) {
 // result: 'Chrome', 'Firefox', 'Safari'
 </code></pre>
 
-<pre><code class="js">
-// for of позволяет итерировать новый объекты ES6 set и map
-</code></pre>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="cycle-array">Циклы Array</h2>
+<h2 id="cycle-array">Перебор массива</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list">

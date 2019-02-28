@@ -14,11 +14,14 @@
 	</div>
 
 	<div class="theme">Объекты ES6</div>
-	<a href="#obj-create">Создание объекта</a>
+	<a href="#obj-create">Литеральная нотация</a>
+	<a href="#obj-for">Перебор объекта</a>
+	<a href="#obj-methods">Методы</a>
+	<a href="#obj-constructor">Конструктор создания объекта</a>
 	<a href="#obj-prototype">Создание прототипа</a>
+	<a href="#obj-delete">Удаление свойств</a>
 	<a href="#descriptor">Дескрипторы свойств</a>
 	<a href="#extends-obj">Расширяемость объектов</a>
-	<a href="#obj-delete">Удаление свойств</a>
 	<a href="#obj-samples">Примеры</a>
 
 	<div class="theme">Классы ES6</div>
@@ -50,7 +53,7 @@
 <!-------------------------------------------------------------------------------->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="obj-create">Создание объекта</h2>
+<h2 id="obj-create">Литеральная нотация</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
@@ -72,86 +75,85 @@ var person = {
 	getName() {
 		return this.firstName;
 	}, 
-	get fullName() {
+	<bg-code>get</bg-code> fullName() {
 		return this.firstName + ' ' + this.lastName;
 	}, 
-	set fullName(value) {
+	<bg-code>set</bg-code> fullName(value) {
 		this.firstName = value;
 	}
 }
+</code></pre>
 
-var a = person.firstName;      // обращение к свойству
-var a = person['firstName'];   // обращение к свойству
-
-var a = person.children[0];    // обращение к свойству
-var a = person.address.street; // обращение к свойству
+<h4>Обращение к свойствам и методам</h4>
+<pre><code class="js">
+var a = person.firstName;      // обращение к свойству (строка)
+var a = person['firstName'];   // обращение к свойству через []
+var a = person.children[0];    // обращение к свойству (массив)
+var a = person.address.street; // обращение к свойству (объект)
 var a = person.getName();      // обращение к методу
+</code></pre>
 
-person.firstName = 'Tony';     // обновление
+<h4>Обновление и удаление свойства</h4>
+<pre><code class="js">
+person.firstName = 'Tony';     // обновление свойства
 person.height = 190;           // задание нового свойства
-
 delete person.firstName;       // удаление свойства (можно удалить только ненаследованные свойства объекта, наследованные свойства удаляются у прототипа)
+</code></pre>
 
-var a = 'firstName' in person; // проверка наличия свойсва в объекте (различает отсутствующие свойства и те что были установлен в undefined)
+<h4>Проверка наличия свойства</h4>
+<ul class="list-point">
+	<li>Можно обратиться к любому свойству объекта, даже если его нет. Если свойство не существует, вернется undefined</li>
+</ul>
+
+<pre><code class="js">
+var a = 'firstName' <bg-code>in</bg-code> person; // проверка наличия свойсва в объекте (различает отсутствующие свойства и те что были установлен в undefined)
 var a = person.firstName;      // проверка наличия свойсва в объекте (не различает отсутствующие свойства и те что были установлен в undefined)
+</code></pre>
 
+<h4>Геттеры и сеттеры</h4>
+<pre><code class="js">
 person.fullName = 'Steve';     // сеттер
 var a = person.fullName;       // геттер (result = Steve Stark)
 </code></pre>
 
-<pre><code class="js">
-const text = 'Some text';
-function getId() {
-	return 7;
-}
-let obj = {
-	text,
-	['prop_' + getId()]: 'some prop'
-}
-console.log(obj); // Object {text: 'Some text', prop_7: 'Some prop'}
-</code></pre>
 
-
-<!------------------------------------------------------>
-<h3>Перебор объекта</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-for">Перебор объекта for..in</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
-for(var value in person) {
-	console.log(person[value]);
+var person = {
+	name: 'Tony',
+	age: 25
 }
 </code></pre>
 
+<h4>for..in перебирает ключи</h4>
 <pre><code class="js">
-// проверка на личное свойство объекта (не берет наследованные свойства)
-for(var value in person) {
-	if(person.hasOwnProperty(value)) {
-		console.log(person[value]);
-	}
-}
+for(let key <bg-code>in</bg-code> person) {
+	console.log(key);         // ключи 
+	console.log(person[key]); // значения
+} 
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>Методы</h3>
-<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Порядок перебора соответствует порядку объявления для нечисловых ключей, а числовые или числовые строки сортируются</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-methods">Методы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
-var a = Object.keys(person);                // возвращает массив из собственных перечисляемых свойств переданного объекта
-var a = Object.getOwnPropertyNames(person); // возвращает массив со всеми свойствами (независимо от того, перечисляемые они или нет)
-var a = person.hasOwnProperty(prop);        // указывает, содержит ли объект свойство (не берет наследованные свойства)
+var a = Object.<bg-code>keys</bg-code>(person);                // возвращает массив из собственных перечисляемых свойств переданного объекта
+var a = Object.<bg-code>keys</bg-code>(person).<bg-code>length</bg-code>;         // количество свойств
+var a = Object.<bg-code>getOwnPropertyNames</bg-code>(person); // возвращает массив со всеми свойствами (независимо от того, перечисляемые они или нет)
+var a = person.<bg-code>hasOwnProperty</bg-code>(prop);        // указывает, содержит ли объект свойство (не берет наследованные свойства)
 </code></pre>
 
-<pre><code class="js">
-function createCar(property, value) {
-	return {
-		[property]: value,
-		['_' + property]: value,
-		[property.toUpperCase()]: value,
-		['get' + property]() {
-			return this[property];
-		}
-	};
-}
-var a = createCar('vin', 1);
-</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-constructor">Конструктор создания объекта</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
 <h3>Конструктор создания объекта</h3>
@@ -192,24 +194,6 @@ var Car = function(x,y) {
 
 var tesla = new Car(10,20);
 tesla; // Object { x: 10, y: 20 }
-</code></pre>
-
-<!------------------------------------------------------>
-<h3>Метод для разных объектов</h3>
-<!------------------------------------------------------>
-<pre><code class="js">
-var speak = function() {
-	console.log(this.sound, this.name);
-}
-</code></pre>
-<pre><code class="js">
-var animal = {
-	sound: 'Mrr',
-	name: 'Cat',
-	speak: speak
-}
-
-animal.speak(); // Mrr, Cat
 </code></pre>
 
 
@@ -297,6 +281,25 @@ console.log(developer.name);
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-delete">Удаление свойств</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// объект
+var Human = {
+	type: "Human",
+	head: 1,
+	legs: 2
+};
+
+// прототип
+var Megahuman = Object.create(Human);
+Megahuman.head = 2; // 2
+delete Megahuman.head;
+Megahuman.head;     // 1
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="descriptor">Дескрипторы свойств</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -376,28 +379,40 @@ Object.<span class="hc">freeze</span>(person);               // аналогич
 var a = Object.<span class="hc">isFrozen</span>(person);     // проверяет применение freeze
 </code></pre>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="obj-delete">Удаление свойств</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
-// объект
-var Human = {
-	type: "Human",
-	head: 1,
-	legs: 2
-};
-
-// прототип
-var Megahuman = Object.create(Human);
-Megahuman.head = 2; // 2
-delete Megahuman.head;
-Megahuman.head;     // 1
-</code></pre>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="obj-samples">Примеры</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h4>Задание свойств объекта</h4>
+<pre><code class="js">
+const text = 'Some text';
+function getId() {
+	return 7;
+}
+let obj = {
+	text,
+	['prop_' + getId()]: 'some prop'
+}
+console.log(obj); // Object {text: 'Some text', prop_7: 'Some prop'}
+</code></pre>
+
+<h4>Метод для разных объектов</h4>
+<pre><code class="js">
+var speak = function() {
+	console.log(this.sound, this.name);
+}
+</code></pre>
+<pre><code class="js">
+var animal = {
+	sound: 'Mrr',
+	name: 'Cat',
+	speak: speak
+}
+
+animal.speak(); // Mrr, Cat
+</code></pre>
+
 <h4>Обращение как к объекту и как к функции</h4>
 <pre><code class="js">
 let test = function() {
@@ -410,7 +425,22 @@ test.method()
 test()
 </code></pre>
 
+<h4>Функиця, возвращающая объект</h4>
+<pre><code class="js">
+function createCar(property, value) {
+	return {
+		[property]: value,
+		['_' + property]: value,
+		[property.toUpperCase()]: value,
+		['get' + property]() {
+			return this[property];
+		}
+	};
+}
+var a = createCar('vin', 1);
+</code></pre>
 
+ё
 
 <!-------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------->
