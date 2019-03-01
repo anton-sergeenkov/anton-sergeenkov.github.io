@@ -47,6 +47,7 @@
 	<a href="#xmlhttprequest">1. XMLHttpRequest</a>
 	<a href="#fetch">2. Fetch</a>
 	<a href="#axios">3. Axios</a>
+	<a href="#ajax-variants">Варианты запросов</a>
 
 	<div class="theme">Basic I</div>
 	<a href="#type">Типы данных</a>
@@ -3104,6 +3105,54 @@ axios.post('url', {
 	.catch(function (error) {
 		console.log(error);
 	});
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="ajax-variants">Варианты запросов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Обработка формы</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+&lt;form class="form"&gt;
+	&lt;input type="text" name="name" required=""&gt;
+	&lt;input type="text" name="message" required=""&gt;
+	&lt;input type="submit" value="Отправить"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<pre><code class="js">
+var form = document.querySelector('.form');
+
+form.addEventListener('submit', function(e) {
+	e.preventDefault();
+	var name = this['name'];
+	var message = this['message'];
+	console.log(name.value, message.value);
+});
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Отправка формы из HTML</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+&lt;form action="script.php" method="get"&gt;
+    &lt;input type="text" name="name" required=""&gt;
+    &lt;textarea name="message"&gt;&lt;/textarea&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<pre><code class="html">
+http://test1.ru/script.php?name=myname&message=my+message
+</code></pre>
+
+<pre><code class="php">
+&lt;?php
+	$name    = $_GET[name]; 
+	$message = $_GET[message]; 
+?&gt;
 </code></pre>
 
 

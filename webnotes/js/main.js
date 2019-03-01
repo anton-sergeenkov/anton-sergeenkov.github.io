@@ -9,8 +9,7 @@ var menu = `
 
     <a href="vue_js.html"        class="menu menu-jsfw">vue.js</a>
     <a href="jquery.html"        class="menu menu-jsfw">jquery</a>
-    <a href="js_ajax.html"       class="menu menu-jsfw">ajax</a>
-
+    
     <a href="html.html"          class="menu menu-html">html</a>
     <a href="css.html"           class="menu menu-html">css</a>
     <a href="svg.html"           class="menu menu-html">svg</a>
