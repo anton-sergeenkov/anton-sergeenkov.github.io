@@ -20,6 +20,9 @@ body{
 * {
     box-sizing: border-box;
 }
+*::selection {
+	background: rgba(71, 7, 183, 0.2);
+}
 
 /***************************************************
 STRUCTURE
