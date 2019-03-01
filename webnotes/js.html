@@ -21,7 +21,6 @@
 
 	<div class="theme">Циклы и массивы</div>
 	<a href="#cycle">Циклы</a>
-	<a href="#cycle-for-in"><bg-menu>for..in</bg-menu> <bg-menu>for..of</bg-menu></a>
 	<a href="#cycle-array">Перебор массива</a>
 	<a href="#map"><bg-menu>map</bg-menu> (ES6)</a>
 	<a href="#array">Массивы</a>
@@ -912,35 +911,6 @@ res = (apple == orange) ? "Равно" : "Не равно";
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="cycle-for-in">Цикл for..in и for..of</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------>
-<h3>Цикл for in</h3>
-<!------------------------------------------------------>
-<b>Перебирает ключи</b>
-<pre><code class="js">
-var browsers = ['Chrome', 'Firefox', 'Safari'];
-for (let browser in browsers) {
-	console.log(browser);
-}
-// result: 0, 1, 2
-</code></pre>
-
-<!------------------------------------------------------>
-<h3>Цикл for of</h3>
-<!------------------------------------------------------>
-<b>Перебирает значения</b>
-<pre><code class="js">
-var browsers = ['Chrome', 'Firefox', 'Safari'];
-for (let browser of browsers) {
-	console.log(browser);
-}
-// result: 'Chrome', 'Firefox', 'Safari'
-</code></pre>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="cycle-array">Перебор массива</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -1085,8 +1055,8 @@ do {
 </code></pre>
 
 <pre><code class="js">
-break - выход из цикла
-continue - прекращает выполнение текущей итерации цикла и переходит на следующую
+break    // выход из цикла
+continue // прекращает выполнение текущей итерации цикла и переходит на следующую
 </code></pre>
 
 
@@ -1094,7 +1064,15 @@ continue - прекращает выполнение текущей итерац
 <h2 id="array">Массивы</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<ul class="list-point">
+	<li>Массив - это объект, где в качестве ключей выбраны цифры, с дополнительными методами и свойством length</li>
+	<li>Так как это объект, то в функцию он передаётся по ссылке</li>
+	<li>Нет причин использовать массив как обычный объект, хотя технически это и возможно</li>
+</ul>
+
+<!------------------------------------------------------>
 <h3>Объявление</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 var arr = [];                        // объявление пустого массива
 var arr = ['Tony', 'Anne'];          // объявление массива из заполненных элементов
@@ -1103,34 +1081,46 @@ var arr = new Array(5);              // объявление массива из
 var arr = new Array('Tony', 'Anne'); // объявление массива (конструктор)
 </code></pre>
 
+<!------------------------------------------------------>
 <h3>Методы</h3>
+<!------------------------------------------------------>
+<bg-list>push</bg-list> <bg-list>pop</bg-list> <bg-list>unshift</bg-list> <bg-list>shift</bg-list>
+<pre><code class="js">
+arr.<span class="hc">push</span>('Jack', 'Tony');            // добавляет элементы в конец
+arr.<span class="hc">unshift</span>('Jack', 'Tony');         // добавляет элементы в начало
+arr.<span class="hc">pop</span>();                           // удаляет и возвращает последний элемент
+arr.<span class="hc">shift</span>();                         // удаляет и возвращает первый элемент
+</code></pre>
+
+<bg-list>indexOf</bg-list> <bg-list>lastIndexOf</bg-list>
+<pre><code class="js">
+var a = colors.<span class="hc">indexOf</span>('white');     // возвращает первый индекс, по которому элемент может быть найден в массиве или -1, если индекса нет
+var a = colors.<span class="hc">lastIndexOf</span>('white'); // возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет
+</code></pre>
+
+<bg-list>join</bg-list> <bg-list>split</bg-list>
+<pre><code class="js">
+var a = arr.<span class="hc">join</span>('.');               // преобразование массива в строку с заданным разделителем
+var arr = str.<span class="hc">split</span>(';');            // преобразование строки с заданным разделителем в массив 
+</code></pre>
+
+<bg-list>length</bg-list> <bg-list>slice</bg-list> <bg-list>reverse</bg-list> <bg-list>sort</bg-list> <bg-list>concat</bg-list>
 <pre><code class="js">
 var a = arr.<span class="hc">length</span>;                  // длина массива (индекс последнего элемента)
 var arr2 = arr1.<span class="hc">slice</span>(1, 7);         // вырезать с 1 до 7 не включая, если не указан второй аргумент, то до конца
-
-var a = colors.<span class="hc">indexOf</span>('white');     // возвращает первый индекс, по которому элемент может быть найден в массиве или -1, если индекса нет
-var a = colors.<span class="hc">lastIndexOf</span>('white'); // возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет
-
-var a = arr.<span class="hc">join</span>('.');               // преобразование массива в строку с заданным разделителем
-var arr = str.<span class="hc">split</span>(';');            // преобразование строки с заданным разделителем в массив 
-
-arr.<span class="hc">push</span>('Jack');                    // добавление нового элемента в конец массива
-arr.<span class="hc">unshift</span>('Jack');                 // добавление нового элемента в начало массива
-arr.<span class="hc">pop</span>();                           // удаление элемента из конца массива
-arr.<span class="hc">shift</span>();                         // удаление элемента из начала массива
-
 arr.<span class="hc">reverse</span>();                       // реверс (переворот массива)
 arr.<span class="hc">sort</span>();                          // сортировка по алфавиту
 var arr = arr1.<span class="hc">concat</span>(arr2, arr3);   // объединение массивов
 </code></pre>
 
-<h3>Метод splice</h3>
+<bg-list>splice</bg-list>
 <pre><code class="js">                
 arr.<span class="hc">splice</span>(3, 2);                     // удалить с 3 индекса 2 элемента
 arr.<span class="hc">splice</span>(2, 0, 'Алина', 'Марина');  // добавление элементов
 arr.<span class="hc">splice</span>(1, 2, 'Алексей", "Билл');  // замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
 </code></pre>
 
+<h3>Примеры</h3>
 <pre><code class="js">
 arr['someIndex'] = 'someValue';       // использование строки в виде индекса
 arr.length = 10;                      // все элементы больше 10 индекса будут удалены
