@@ -171,12 +171,14 @@ h2 {
 	text-align: center;
 	margin-top: 20px;
 	color: #4aaf2d;
-	border: 2px solid rgba(74, 175, 45, 0.5);
-	font-size: 20px;
+	font-size: 22px;
 }
 h3 {
-	color: #316970; 
+	color: rgba(49, 105, 112, 1); 
 	margin: 15px 0px 15px 0px;
+	border-radius: 2px;
+	padding: 10px;
+	background-image: linear-gradient(to right, #cdcdcd, #d6d6d6, #dfdfdf, #e9e9e9, #f2f2f2, #f6f6f6, #fbfbfb, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
 }
 h4 {
 	margin: 15px 0px 15px 0px;
@@ -234,7 +236,7 @@ bg-list {
 	padding: 5px 10px;
 	background: rgba(0,0,0,0.1);
 	border-radius: 3px;
-	font-weight: bold;
+	/*font-weight: bold;*/
 	font-size: 15px;
 }
 bg-menu {

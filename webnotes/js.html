@@ -1117,12 +1117,26 @@ arr.<bg-code>splice</bg-code>(1, 2, 'Алексей", "Билл');  // заме�
 arr.<bg-code>splice</bg-code>(-1, 1);                    // удалить с последнего индекса-1 1 элемент (отрицательная позиция отсчитывается с конца)
 </code></pre>
 
-<bg-list>length</bg-list> <bg-list>reverse</bg-list> <bg-list>sort</bg-list> <bg-list>concat</bg-list>
+<bg-list>length</bg-list> <bg-list>reverse</bg-list> <bg-list>concat</bg-list>
 <pre><code class="js">
 var a = arr.<bg-code>length</bg-code>;                  // длина массива (индекс последнего элемента)
-arr.<bg-code>reverse</bg-code>();                       // реверс (переворот массива)
-arr.<bg-code>sort</bg-code>();                          // сортировка по алфавиту
-var arr = arr1.<bg-code>concat</bg-code>(arr2, arr3);   // объединение массивов
+arr.<bg-code>reverse</bg-code>();                       // меняет порядок элементов в массиве на обратный
+var arr = arr1.<bg-code>concat</bg-code>(arr2, arr3);   // создаёт новый массив, в который копируются элементы из массивов
+</code></pre>
+
+<bg-list>sort</bg-list>
+<pre><code class="js">
+arr.<bg-code>sort</bg-code>();                          // сортировка по алфавиту, преобразуя элементы к строке
+</code></pre>
+
+<pre><code class="js">
+// свой порядок сортировки (сортировка чисел)
+var arr = [1, 12, 2];
+arr.sort(function(a, b) {
+  if (a > b) return 1;
+  if (a < b) return -1;	
+});
+console.log(arr);  // 1, 2, 15
 </code></pre>
 
 <h3>Примеры</h3>
