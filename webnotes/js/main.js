@@ -50,3 +50,27 @@ $('#menu-left-show').on('click', function() {
     var isHide = $('#menu-left').hasClass('hide');
     localStorage.setItem('menu', isHide);
 });
+
+
+
+$(window).on('resize', function() {
+    setLineScroll();
+});
+
+(function($) {
+    $.fn.hasScrollBar = function() {
+        return this.get(0).scrollHeight > this.height();
+    }
+})(jQuery);
+
+setLineScroll();
+function setLineScroll() {
+    var lineScroll = $('#menu-left').hasScrollBar()
+    if (!lineScroll) {
+        $('#menu-left').css('border-right', '8px solid rgba(0,0,0,0.1)');
+    } else {
+        $('#menu-left').css('border-right', 'none');
+    }
+}
+
+
