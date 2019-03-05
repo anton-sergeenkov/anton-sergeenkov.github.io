@@ -16,7 +16,7 @@
 	<a href="#pattern">Шаблон</a>
 	<a href="#custom-elements">Custom Elements</a>
 	<a href="#html5">Теги HTML5 Layout</a>
-	<a href="#input">Input</a>
+	<a href="#input">Web Forms</a>
 	<a href="#link">Ссылки</a>
 	<a href="#media">Видео и аудио</a>
 	<a href="#yandex-map">Яндекс Карты</a>
@@ -326,24 +326,28 @@ https://www.youtube.com/embed/w4C-qfaEt7Y?autoplay=1
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="input">Input</h2>
+<h2 id="input">Web Forms</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<h3>Текстовое поле (input=text)</h3>
+<!------------------------------------------------------>
+<h3>Web Forms HTML4</h3>
+<!------------------------------------------------------>
+
+<h4>Текстовое поле (input=text)</h4>
 <pre>
 <code>
 &lt;input type="text" name="text"&gt;
 </code>
 </pre>
 
-<h3>Многострочной текстовое поле(textarea)</h3>
+<h4>Многострочной текстовое поле(textarea)</h4>
 <pre>
 <code>
 &lt;textarea&gt;Текст&lt;/textarea&gt;
 </code>
 </pre>
 
-<h3>Выпадающий список (select)</h3>
+<h4>Выпадающий список (select)</h4>
 <pre>
 <code>
 &lt;select&gt;
@@ -354,7 +358,7 @@ https://www.youtube.com/embed/w4C-qfaEt7Y?autoplay=1
 </code>
 </pre>	
 
-<h3>Связанные переключатели (radio)</h3>
+<h4>Связанные переключатели (radio)</h4>
 <pre>
 <code>
 &lt;input type="radio" name="radio"&gt;
@@ -363,71 +367,97 @@ https://www.youtube.com/embed/w4C-qfaEt7Y?autoplay=1
 </code>
 </pre>	
 
-<h3>Галочка (checkbox)</h3>
+<h4>Галочка (checkbox)</h4>
 <pre>
 <code>
 &lt;input type="checkbox" name="checkbox"&gt;
 </code>
 </pre>	
 
-<h3>Lable для checkbox</h3>
+<h4>Lable для checkbox</h4>
 <pre>
 <code class="html">
 &lt;input type="checkbox" id="checkbox"&gt;
 &lt;label for="checkbox"&gt;Нажми и выберется checkbox&lt;/label&gt;
 </code>
 </pre>
-
-<pre>
-<code class="html">
+<pre><code class="html">
 &lt;label class="checkbox"&gt;
 	&lt;input type="checkbox"&gt;
 &lt;/label&gt;
-</code>
-</pre>	
+</code></pre>	
 
-<h3>input</h3>
+
+
+<!------------------------------------------------------>
+<h3>Web Forms</h3>
+<!------------------------------------------------------>
+<h4>The &lt;input&gt; element in HTML4</h4>
 <pre><code class="html">
-<em>radio</em>          - переключатель
-<em>checkbox</em>       - флажок
-<em>text</em>           - текстовое поле
-<em>number</em>         - поле с номером (можно использовать '.', ',')
+<em>text</em>           - поле с текстом
 <em>password</em>       - поле с паролем
-<em>email</em>          - email
-<em>url</em>            - url 
-<em>tel</em>            - телефон
-<em>search</em>         - поиск
-<em>range</em>          - ползунок
-<em>pattern</em>        - регулярные выражения
+<em>checkbox</em>       - флажок
+<em>radio</em>          - переключатель
+<em>select</em>         - выпадающий список
 <em>hidden</em>         - скрытое поле
-<em>color</em>          - выбор цвета
-<em>month</em>          - месяц
-<em>week</em>           - неделя 
-<em>date</em>           - дата 
-<em>time</em>           - время 
-<em>datetime</em>       - дата и время
-<em>datetime-local</em> - дата и время 
-</code></pre>
-
-<pre><code class="html">
-<em>button</em>         - кнопка
+<em>textarea</em>       - текстовое поле
 <em>submit</em>         - кнопка для отправки формы
-<em>reset</em>          - кнопка для очистки формы
 <em>file</em>           - поле для отправки файла
 <em>image</em>          - кнопка с изображением
+<em>button</em>         - кнопка
 </code></pre>
 
-<h3>input attr</h3>
+<h4>The &lt;input&gt; element in HTML5 (Web Forms 2.0)</h4>
 <pre><code class="html">
-<em>min</em>
-<em>max</em>
-<em>readonly</em>
+<em>number</em>         - поле с номером (можно использовать '.', ',')
+<em>email</em>          - email
+<em>url</em>            - url 
+<em>range</em>          - ползунок
+<em>datetime</em>       - дата и время
+<em>datetime-local</em> - дата и время 
+<em>date</em>           - дата 
+<em>month</em>          - месяц
+<em>week</em>           - неделя 
+<em>time</em>           - время
+</code></pre>
+
+<h4>The &lt;input&gt; element in HTML5 (Web Forms ...)</h4>
+<pre><code class="html">
+<em>tel</em>            - телефон
+<em>search</em>         - поиск
+<em>pattern</em>        - регулярные выражения
+<em>color</em>          - выбор цвета
+<em>reset</em>          - кнопка для очистки формы
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Web Forms Attributes</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<em>min</em>         (number, ...)
+<em>max</em>         (number, ...)
+<em>readonly</em>    (text, ...)
 <em>checked</em>     (radio, checkbox)
 <em>selected</em>    (option)
 <em>placeholder</em> (text)
-<em>disabled</em>
+<em>disabled</em>    (all)
 <em>autofocus</em>   (text)
 </code></pre>	
+
+<!------------------------------------------------------>
+<h3>The &lt;output&gt; element</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li><bg-list>&lt;output&gt;</bg-list> определяет область, в которую выводится информация, преимущественно с помощью скриптов</li>
+</ul>
+
+<pre><code class="html">
+&lt;form oninput="result.value=cm.value"&gt;
+	&lt;input type="text" name="cm" autofocus&gt;
+	<bg-code>&lt;output name="result"&gt;0&lt;/output&gt;</bg-code>
+&lt;/form&gt;
+</code></pre>
+
 
 
 

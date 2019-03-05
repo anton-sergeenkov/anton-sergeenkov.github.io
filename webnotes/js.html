@@ -47,16 +47,21 @@
 	<a href="#fetch">2. Fetch</a>
 	<a href="#axios">3. Axios</a>
 	<a href="#ajax-variants">Варианты запросов</a>
+	<a href="#ajax-http-methods">HTTP-методы</a>
 
+	<div class="theme">Client Data</div>
+	<a href="#data-storage"><bg-menu>localStorage</bg-menu> <bg-menu>sessionStorage</bg-menu></a>
+	<a href="#data-db"><bg-menu>IndexedDB</bg-menu></a>
+	<a href="#data-cookie"><bg-menu>cookie</bg-menu></a>
+	
 	<div class="theme">Basic I</div>
 	<a href="#type">Типы данных</a>
 	<a href="#select">Выборка элементов</a>
 	<a href="#methods">Методы элементов страницы</a>
 	<a href="#css"><bg-menu>classList</bg-menu> <bg-menu>style</bg-menu></a>
-	<a href="#attribute">Атрибуты</a>
-	<a href="#local-storage"><bg-menu>localStorage</bg-menu></a>
-	<a href="#cookie"><bg-menu>cookie</bg-menu></a>
-	<a href="#form">Form</a>
+	<a href="#attribute"><bg-menu>attributes</bg-menu></a>
+	
+	<a href="#form">Web Forms</a>
 	<a href="#methods-this"><bg-menu>this</bg-menu> <bg-menu>bind</bg-menu> <bg-menu>call</bg-menu> <bg-menu>apply</bg-menu></a>
 	<a href="#dom-element">DOM</a>
 	<a href="#str">Строки</a>
@@ -1449,45 +1454,146 @@ function mtRand(min, max) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="date">Дата и время</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="html">
+<a href="http://momentjs.com/" target="_blank">Moment.js</a>
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Создание</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+new <bg-code>Date</bg-code>(year, month, date, hours, minutes, seconds, ms)
+</code></pre>
+
 <pre><code class="js">
 var selectDate = new Date(2012,0,1,0,0,0); // объявление для заданной даты
-// 1 - год (2012)
-// 2 - месяц (0) январь
-// 3 - число (1)
-// 4 - часы (0)
-// 5 - минуты (0)
-// 6 - секунды (0)
-selectDate.setMinutes(25);
+var nowDate = new Date();                  // текущее дата и время на компьютере пользователя
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Установка значений</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var selectDate = new Date(2012,0,1,0,0,0);
+</code></pre>
+<pre><code class="js">
+selectDate.<bg-code>setMinutes</bg-code>(25);                 // установка минут
+setSeconds.<bg-code>setSeconds</bg-code>(25);                 // установка секунд
+...
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Получение значений</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var nowDate = new Date();
+</code></pre>
+<pre><code class="js">
+var yearFull = nowDate.<bg-code>getFullYear()</bg-code>;      // год (4 цифры)
+var month    = nowDate.<bg-code>getMonth()</bg-code>;         // месяц (от 0 до 1)
+var day      = nowDate.<bg-code>getDate()</bg-code>;          // число месяца (от 1 до 31)
+var dayWeek  = nowDate.<bg-code>getDay()</bg-code>;           // день недели (от 0-воскресенье до 6-суббота)
+var hour     = nowDate.<bg-code>getHours()</bg-code>;         // час
+var minutes  = nowDate.<bg-code>getMinutes()</bg-code>;       // минуты
+var seconds  = nowDate.<bg-code>getSeconds()</bg-code>;       // секунды
+var mseconds = nowDate.<bg-code>getMilliseconds()</bg-code>;  // миллисекунды
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Date.parse</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<b>Формат представления даты</b> <bg-code>YYYY-MM-DDTHH:mm:ss.sss</bg-code>
+	<li><bg-code>YYYY-MM-DD</bg-code> - дата в формате год-месяц-день</li>
+	<li>Обычный символ <bg-code>T</bg-code> используется как разделитель</li>
+	<li><bg-code>HH:mm:ss.sss</bg-code> – время: часы-минуты-секунды-миллисекунды</li>
+	<li>Часть <bg-code>'Z'</bg-code> обозначает временную зону – в формате <bg-code>+-hh:mm</bg-code>, либо символ <bg-code>Z</bg-code>, обозначающий UTC</li>
+</ul>
+
+<ul class="list-point">
+	<b>Date.parse(str)</b>
+	<li>Метод <bg-code>Date.parse(str)</bg-code> разбирает строку str в таком формате и возвращает соответствующее ей количество миллисекунд. Если это невозможно, <bg-code>Date.parse</bg-code> возвращает NaN</li>
+</ul>
+
+<pre><code class="js">
+var msUTC = Date.parse('2012-01-26T13:51:50.417Z'); // зона UTC
+alert( msUTC ); // 1327571510417 (число миллисекунд)
+
+var ms = Date.parse('2012-01-26T13:51:50.417-07:00'); // С таймзоной -07:00 GMT
+alert( ms ); // 1327611110417 (число миллисекунд)
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>toLocaleString</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var date = new Date(2014, 11, 31, 12, 30, 0);
+
+var options = {
+	era: 'long',
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+	weekday: 'long',
+	timezone: 'UTC',
+	hour: 'numeric',
+	minute: 'numeric',
+	second: 'numeric'
+};
+
+alert( date.<bg-code>toLocaleString</bg-code>("ru", options) );    // среда, 31 декабря 2014 г. н.э. 12:30:00
+alert( date.<bg-code>toLocaleString</bg-code>("en-US", options) ); // Wednesday, December 31, 2014 Anno Domini 12:30:00 PM
 </code></pre>
 
 <pre><code class="js">
-var nowDate = new Date();                 // текущее дата и время на компьютере пользователя
-var yearFull = nowDate.getFullYear();     // год
-var year     = nowDate.getYear();         // год (последние 2 цифры) 
-var month    = nowDate.getMonth();        // месяц (нумерация с 0)
-var day      = nowDate.getDate();         // число
-var dayWeek  = nowDate.getDay();          // день недели, выводит численные значения, нумерация с "0"
-var hour     = nowDate.getHours();        // час
-var minutes  = nowDate.getMinutes();      // минуты
-var seconds  = nowDate.getSeconds();      // секунды
-var mseconds = nowDate.getMilliseconds(); // миллисекунды
+var a = nowDate.<bg-code>toLocaleTimeString()</bg-code>; // время с учетом локализации
+var a = nowDate.<bg-code>toLocaleDateString()</bg-code>; // дата с учетом локализации
 </code></pre>
 
 <pre><code class="js">
-var a = nowDate.getHours();    // время по гринвичу (GMT)
-var a = nowDate.getUTCHours(); // время в формате UTC
+// вывод зависит от браузера
+var d = new Date();
+var a = d.<bg-code>toString()</bg-code>;     // возвращает дату целиком 'Wed Jan 26 2011 16:40:50 GMT+0300'
+var a = d.<bg-code>toDateString()</bg-code>; // возвращает только дату
+var a = d.<bg-code>toTimeString()</bg-code>; // возвращает только время
+</code></pre>
+
+
+<!------------------------------------------------------>
+<h3>GMT и UTC</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Все методы, указанные выше, возвращают результат для местной временной зоны</li>
+	<li>Существуют также UTC-варианты этих методов, возвращающие день, месяц, год и т.п. для зоны GMT+0 (UTC): getUTCFullYear(), getUTCMonth(), getUTCDay() и т.д.</li>
+</ul>
+<pre><code class="js">
+var a = nowDate.getHours();          // время по гринвичу (GMT)
+var a = nowDate.<bg-code>getUTCHours()</bg-code>;       // время в формате UTC
+var a = nowDate.<bg-code>getTimezoneOffset()</bg-code>; // возвращает разницу между местным и UTC-временем, в минутах.
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Другие методы</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var a = nowDate.<bg-code>toTimeString()</bg-code>; // вывод времени в виде строки
+var a = nowDate.<bg-code>toDateString()</bg-code>; // вывод даты в виде строки
 </code></pre>
 
 <pre><code class="js">
-var a = nowDate.toTimeString(); // вывод времени в виде строки
-var a = nowDate.toDateString(); // вывод даты в виде строки
+var selectDate = new Date(2012,0,1,0,0,0);
+var a = selectDate.<bg-code>getTime()</bg-code>;  // возвращает число миллисекунд, прошедших с 1 января 1970 года GMT+0
 </code></pre>
 
 <pre><code class="js">
-var a = nowDate.toLocaleTimeString(); // время с учетом локализации
-var a = nowDate.toLocaleDateString(); // дата с учетом локализации
+var timeInMs = <bg-code>Date.now</bg-code>();     // возвращает количество миллисекунд, прошедших с 1 января 1970 года 00:00:00 по UTC.
 </code></pre>
 
+<!------------------------------------------------------>
+<h3>Примеры</h3>
+<!------------------------------------------------------>
+<h4>Вывод текщей даты</h4>
 <pre><code class="js">
 var weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 var month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
@@ -1495,6 +1601,19 @@ var nowDate = new Date();
 var nowDay   = weekday[nowDate.getDay()];
 var nowDate  = nowDate.getDate();
 var nowMonth = month[nowDate.getMonth()];
+</code></pre>
+
+<h4>Разность дат</h4>
+<pre><code class="js">
+var start = new Date; // засекли время
+
+// что-то сделать
+for (var i = 0; i < 100000; i++) {
+  var doSomething = i * i * i;
+}
+
+var end = new Date; // конец измерения
+console.log( "Цикл занял " + (end - start) + " ms" );
 </code></pre>
 
 
@@ -1548,10 +1667,10 @@ try {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
-<h3>setTimeout - однократное выполнение кода через некоторое время</h3>
+<h3>setTimeout</h3>
 <!------------------------------------------------------>
 <ul class="list">
-	<b>setTimeout(code, time);</b>
+	<b>setTimeout(code, time);</b> - однократное выполнение кода через некоторое время
 	<li><bg-list>code</bg-list> - код или функция</li>
 	<li><bg-list>time</bg-list> - время в миллисекундах, которое должно пройти до выполнения кода (1000 миллисекунд = 1 секунда)</li>
 </ul>
@@ -2004,7 +2123,7 @@ var answer = confirm('Вы согласны?');     // модальное окн
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="form">Form</h2>
+<h2 id="form">Web Forms</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
@@ -2057,13 +2176,123 @@ var a = select.<bg-code>options</bg-code>[select.selectedIndex].text;
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="cookie">Cookie</h2>
+<h2 id="data-storage">Web Storage: Local Storage и Session Storage</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<b>Web Storage</b> - интернет-хранилище или DOM-хранилище<br>
+	<b>Два основных типа веб-хранилища</b>
+	<li>1. <bg-list>Локальное хранилище (localStorage)</bg-list> - аналогичен постоянным кукам. Доступно для всех скриптов из домена, который первоначально добавил данные и сохраняется после закрытия браузера. Не имеют определенного времени жизни</li>
+	<li>2. <bg-list>Сессионное хранилище (sessionStorage)</bg-list> - аналогичен сессионным кукам. Сессия сохраняется по принципу одна страница-одно окно и ограничивается жизнью данного окна, то есть для каждого открытого окна создаётся новая сессия, которая прекращает своё существование при закрытии окна и не зависит от домена открывшего её. Сессия страницы остается активной все время пока окно браузера открыто и сохраняется между перезагрузками страниц. Открытие той же страницы в новом окне браузера или новой вкладке приводит к созданию новой сессии страницы, что отличается от поведения session cookies.</li>
+</ul>
+
+<ul class="list-point">
+	<b>Особенности</b>
+	<li>Не отправляются на сервер в отличие от Cookie</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Local Storage</h3>
+<!------------------------------------------------------>
+<p>Google Chrome -> F12 -> Application -> Local Storage</p>
+<p>localStorage это свойство глобального объекта браузера (window)</p>
 <pre><code class="js">
-// удаляются при закрытии браузера
-document.cookie = 'info=123';  // установить cookie
-var a = document.cookie;       // прочитать cookie
+localStorage.<bg-code>setItem</bg-code>('id', '77');   // добавляет в localStorage новый ключ со значением (а если такой ключ уже существует, то перезаписывает новым значением)
+var a = localStorage.<bg-code>getItem</bg-code>('id'); // получить значение
+localStorage.<bg-code>removeItem</bg-code>('id');      // удаление ключа
+localStorage.<bg-code>clear</bg-code>();               // очистка всего хранилища
 </code></pre>
+
+<pre><code class="js">
+localStorage["Ключ"] = "Значение"; // установка значения
+var a = localStorage["Ключ"];      // получение значения
+delete localStorage["Ключ"];       // удаление значения
+</code></pre>
+
+<h4>Провека наличия ключа</h4>
+<pre><code class="js">
+if (localStorage.getItem('key') !== null) {...}
+</code></pre>
+
+<h4>Объекты и массивы</h4>
+<pre><code class="js">
+var obj = {
+	item1: 1,
+	item2: [123, "two", 3.0],
+	item3: "hello"
+};
+
+localStorage.setItem("key", JSON.stringify(obj));        // сериализация объекта и запись в хранилище по ключу "key"
+var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объект
+</code></pre>
+
+<h4>Проверка QUOTA_EXCEEDED_ERR</h4>
+<pre><code class="js">
+// браузеры выделяют 5MB под localStorage
+// при привышении исключение QUOTA_EXCEEDED_ERR
+try {
+	localStorage.setItem('ключ', 'значение');
+} catch(e) {
+	if (e == QUOTA_EXCEEDED_ERR) {
+		console.log('Превышен лимит');
+	}
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Session Storage</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+sessionStorage.<bg-code>setItem</bg-code>('key', 'value');   // сохранение данных в sessionStorage
+var data = sessionStorage.<bg-code>getItem</bg-code>('key'); // получение данных из sessionStorage
+sessionStorage.<bg-code>removeItem</bg-code>('key');         // удаление ключа
+sessionStorage.<bg-code>clear</bg-code>();                   // очистка всего хранилища
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="data-db">IndexedDB</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li><bg-list>IndexedDB</bg-list> - это способ постоянного хранения данных внутри клиентского браузера, другими словами это NOSQL хранилище на стороне клиента</li>
+</ul>
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="data-cookie">Cookie</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<b>Типы куки</b>
+	<li><bg-list>Сессионные куки</bg-list> временные куки, существуют только во временной памяти, пока пользователь находится на странице веб-сайта. Браузеры обычно удаляют сессионные куки после того, как пользователь закрывает окно браузера. В отличие от других типов куки, сессионные куки не имеют истечения срока действия</li>
+	<li><bg-list>Постоянные куки</bg-list> постоянные куки-файлы удаляются в определённую дату или через определённый промежуток времени. Это означает, что информация о куки будет передаваться на сервер каждый раз, когда пользователь посещает веб-сайт, которому эти куки принадлежат</li>
+	<li><bg-list>Защищенные куки</bg-list> могут быть переданы только через шифрованное соединение (то есть HTTPS). Они не могут передаваться по незащищенным соединениям. Чтобы защитить куки, необходимо добавить флаг Secure в файл куки</li>
+	<li><bg-list>HttpOnly-куки</bg-list> нельзя обращаться с помощью API на стороне клиента, таких как JS</li>
+</ul>
+
+<ul class="list-point">
+	<b>Особенности</b>
+	<li>Данные отправляются обратно на сервер для каждого HTTP-запроса</li>
+	<li>Куки могут устанавливать дату их удаления, в этом случае они будут автоматически удалены браузером в указанный срок. Если дата удаления не указана, куки удаляются сразу, как только пользователь закроет браузер. Таким образом, указание даты истечения позволяет сохранить куки более чем на один сеанс и такие куки называются постоянными</li>
+	<li>Работают только на веб-сервере</li>
+</ul>
+
+<pre><code class="js">
+<bg-code>document.cookie</bg-code> = 'info=123';                                        // установить cookie (удаляются при закрытии браузера)
+<bg-code>document.cookie</bg-code> = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT'; // установить cookie (удалятся 31.12.2018)
+var a = <bg-code>document.cookie</bg-code>;                                             // прочитать cookie
+</code></pre>
+
+<h4>Атрибуты куки</h4>
+<pre><code class="js">
+document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; domain=.example.org';
+</code></pre>
+
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -2163,55 +2392,6 @@ var userData = JSON.stringify(user); // объект в JSON ("{"name":"Tony"}")
 <p>Может быть прописано в начале файла или в начале функции</p>
 <pre><code class="js">
 'use strict';
-</code></pre>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="local-storage">Local Storage</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<p>Google Chrome -> F12 -> Application -> Local Storage</p>
-<p>localStorage это свойство глобального объекта браузера (window)</p>
-<pre><code class="js">
-localStorage.<bg-code>setItem</bg-code>('id', '77');   // добавляет в localStorage новый ключ со значением (а если такой ключ уже существует, то перезаписывает новым значением)
-var a = localStorage.<bg-code>getItem</bg-code>('id'); // получить значение
-localStorage.<bg-code>removeItem</bg-code>('id');      // удаление ключа
-localStorage.<bg-code>clear</bg-code>();               // очистка всего хранилища
-</code></pre>
-
-<pre><code class="js">
-localStorage["Ключ"] = "Значение"; // установка значения
-var a = localStorage["Ключ"];      // получение значения
-delete localStorage["Ключ"];       // удаление значения
-</code></pre>
-
-<h4>Провека наличия ключа</h4>
-<pre><code class="js">
-if (localStorage.getItem('key') !== null) {...}
-</code></pre>
-
-<h4>Объекты и массивы</h4>
-<pre><code class="js">
-var obj = {
-	item1: 1,
-	item2: [123, "two", 3.0],
-	item3: "hello"
-};
-
-localStorage.setItem("key", JSON.stringify(obj));        // сериализация объекта и запись в хранилище по ключу "key"
-var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объект
-</code></pre>
-
-<h4>Проверка QUOTA_EXCEEDED_ERR</h4>
-<pre><code class="js">
-// браузеры выделяют 5MB под localStorage
-// при привышении исключение QUOTA_EXCEEDED_ERR
-try {
-	localStorage.setItem('ключ', 'значение');
-} catch(e) {
-	if (e == QUOTA_EXCEEDED_ERR) {
-		console.log('Превышен лимит');
-	}
-}
 </code></pre>
 
 
@@ -3156,6 +3336,32 @@ http://test1.ru/script.php?name=myname&message=my+message
 	$message = $_GET[message]; 
 ?&gt;
 </code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="ajax-http-methods">HTTP-методы GET/POST/PUT/DELETE</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li><bg-list>HTTP</bg-list> протокол описывает взаимодействие между двумя компьютерами (клиентом и сервером), построенное на базе сообщений, называемых запрос (<bg-list>Request</bg-list>) и ответ (<bg-list>Response</bg-list>). Каждое сообщение состоит из трех частей: стартовая строка, заголовки и тело. При этом обязательной является только стартовая строка</li>
+	<li><bg-list>Uniform Resource Identifier (URI)</bg-list> - единообразный идентификатор ресурса.
+	Ресурс как правило, файл на сервере ('/styles.css'), или абстрактный объект ('/blogs/webdev/')</li>
+	<li><bg-list>REST (REpresentational State Transfer)</bg-list> описывает принципы взаимодействия клиента и сервера, основанные на понятиях «ресурса» и «глагола». В случае HTTP ресурс определяется своим URI, а глагол — это HTTP-метод</li>
+</ul>
+
+<pre><code class="html">
+<em>GET</em>     - получение ресурса
+<em>POST</em>    - создание ресурса 
+<em>PUT</em>     - обновление ресурса
+<em>DELETE</em>  - удаление ресурса
+<em>HEAD</em>    - аналогичен GET, получение информации о ресурсе, не получая самого ресурса
+
+<em>OPTIONS</em> - определение возможностей веб-сервера или параметров соединения для конкретного ресурса
+<em>PATCH</em>   - аналогичен PUT, но применяется только к фрагменту ресурса
+<em>TRACE</em>   - возвращает полученный запрос так, что клиент может увидеть, какую информацию промежуточные серверы добавляют или изменяют в запросе
+<em>CONNECT</em> - преобразует соединение запроса в прозрачный TCP/IP-туннель, обычно чтобы содействовать установлению защищённого SSL-соединения через нешифрованный прокси
+</code></pre>
+
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

@@ -213,6 +213,12 @@ code a, ul a {
 	border-bottom: 1px solid #690;
 	color: #690 !important;
 }
+u {
+	text-decoration: none;
+	border-bottom: 1px dashed #8a6ac4;
+	color: #8a6ac4;
+	font-weight: bold;
+}
 
 /***************************************************
 SELECTED
