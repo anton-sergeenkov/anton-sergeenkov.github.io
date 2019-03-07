@@ -254,7 +254,7 @@ bg-mass {
 	display: inline-block;
 	padding: 0px 10px;
 	margin: 2px;
-	border: 1px solid rgba(179, 183, 104, 0.45); 
+	/*border: 1px solid rgba(179, 183, 104, 0.45); */
 	background: rgba(179, 183, 104, 0.2);
 	border-radius: 4px;
 	color: black !important;
