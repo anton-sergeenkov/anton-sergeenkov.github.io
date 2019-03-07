@@ -54,26 +54,23 @@
 	<a href="#data-storage"><bg-menu>localStorage</bg-menu> <bg-menu>sessionStorage</bg-menu></a>
 	<a href="#data-db"><bg-menu>IndexedDB</bg-menu></a>
 	<a href="#data-cookie"><bg-menu>cookie</bg-menu></a>
-	
-	<div class="theme">Advanced</div>
-	<a href="#patterns">Паттерны проектирования</a>
-	<a href="#garbage-collection">Сборщик мусора</a>
 
 	<div class="theme">Basic I</div>
+	<a href="#methods-this"><bg-menu>this</bg-menu> <bg-menu>call</bg-menu> <bg-menu>apply</bg-menu> <bg-menu>bind</bg-menu></a>
+	<a href="#json">JSON</a>
 	<a href="#type">Типы данных</a>
 	<a href="#select">Выборка элементов</a>
 	<a href="#methods">Методы элементов страницы</a>
 	<a href="#css"><bg-menu>classList</bg-menu> <bg-menu>style</bg-menu></a>
 	<a href="#attribute"><bg-menu>attributes</bg-menu></a>
 	<a href="#form">Web Forms</a>
-	<a href="#methods-this"><bg-menu>this</bg-menu> <bg-menu>bind</bg-menu> <bg-menu>call</bg-menu> <bg-menu>apply</bg-menu></a>
 	<a href="#dom-element">DOM</a>
 	<a href="#str">Строки</a>
 	<a href="#number">Числа</a>
-	<a href="#math">Math</a>
-	<a href="#operators">Операторы</a>
-	<a href="#catch">Исключения</a>
-	<a href="#json">JSON</a>
+
+	<div class="theme">Advanced</div>
+	<a href="#patterns">Паттерны проектирования</a>
+	<a href="#garbage-collection">Сборщик мусора</a>
 	<a href="#regexr">Регулярные выражения</a>
 
 	<div class="theme">Window</div>
@@ -83,6 +80,9 @@
 	<a href="#document-media">Media queries</a>
 
 	<div class="theme">Basic II</div>
+	<a href="#math">Math</a>
+	<a href="#operators">Операторы</a>
+	<a href="#catch">Исключения</a>
 	<a href="#date">Дата и время</a>
 	<a href="#case">Условные операторы</a>
 	<a href="#timeout">Таймеры</a>
@@ -2313,8 +2313,6 @@ document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; doma
 </code></pre>
 
 
-
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="methods-this">Context (this, call, apply, bind)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -2329,8 +2327,6 @@ document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; doma
 	<li><bg-list>this</bg-list> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие) и определяется в момент вызова функции</li>
 </ul>
 
-
-
 <!------------------------------------------------------>
 <h3>bind(), call(), apply()</h3>
 <!------------------------------------------------------>
@@ -2342,7 +2338,7 @@ document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; doma
 
 <pre><code class="js">
 var greet = function(greeting) {
-	return greeting + ' User '+this.name;
+	return greeting + this.name;
 }
 var person = {
 	name: 'Brad',
@@ -2372,7 +2368,7 @@ var str2 = str1
     .concat(' add')
     .toUpperCase();
 </code></pre>
-	
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="json">JSON</h2>
