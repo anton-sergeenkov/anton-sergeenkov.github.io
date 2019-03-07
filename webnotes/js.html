@@ -15,6 +15,7 @@
 	
 	<div class="theme">События</div>
 	<a href="#actions">Назначение обработчиков событий</a>
+	<a href="#actions-target">Делегирование событий</a>
 	<a href="#actions-params">Передаваемый параметр (Event)</a>
 	<a href="#actions-list">Список событий</a>
 	<a href="#actions-samples">Примеры</a>
@@ -54,13 +55,16 @@
 	<a href="#data-db"><bg-menu>IndexedDB</bg-menu></a>
 	<a href="#data-cookie"><bg-menu>cookie</bg-menu></a>
 	
+	<div class="theme">Advanced</div>
+	<a href="#patterns">Паттерны проектирования</a>
+	<a href="#garbage-collection">Сборщик мусора</a>
+
 	<div class="theme">Basic I</div>
 	<a href="#type">Типы данных</a>
 	<a href="#select">Выборка элементов</a>
 	<a href="#methods">Методы элементов страницы</a>
 	<a href="#css"><bg-menu>classList</bg-menu> <bg-menu>style</bg-menu></a>
 	<a href="#attribute"><bg-menu>attributes</bg-menu></a>
-	
 	<a href="#form">Web Forms</a>
 	<a href="#methods-this"><bg-menu>this</bg-menu> <bg-menu>bind</bg-menu> <bg-menu>call</bg-menu> <bg-menu>apply</bg-menu></a>
 	<a href="#dom-element">DOM</a>
@@ -87,7 +91,6 @@
 	<a href="#comparison">Сравнение и логические значения</a>
 	<a href="#console">Console</a>
 	<a href="#method-chaining">Цепные вызовы методов</a>
-	<a href="#patterns">Паттерны проектирования</a>
 	<a href="#chrome-dev-tools">Chrome DevTools</a>
 
 	<div class="theme">Theory</div>
@@ -134,11 +137,12 @@ add(...numbers);
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="actions">Назначение обработчиков событий</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="img/js/event.jpg" width="450px" class="center">
 <ul class="list">
-	<b>Стандартная модель событий</b>
-	<li><bg-list>Event.CAPTURING_PHASE=1</bg-list> (захват) - идет от родительского до целевого (html -> body -> button)</li>
+	<b>Стандартная модель событий (Распространение событий)</b>
+	<li><bg-list>Event.CAPTURING_PHASE=1</bg-list> (перехват) - идет от родительского до целевого (html -> body -> button). Выполняется сразу после того, как происходит событие. Событие начинается на самом верхнем уровне, которым является либо объект <u>document</u>, либо объект <u>window</u> в зависимости от события. Отсюда оно опускается, проходя через тег <u>html</u> и через то, что находится в этом теге, до тех пор, пока не достигнет элемента, в пределах которого оно возникло</li>
 	<li><bg-list>Event.AT_TARGET=2</bg-list> (целевой элемент захвата)</li>
-	<li><bg-list>Event.BUBBLING_PAGE=3</bg-list> (всплытие)</li>
+	<li><bg-list>Event.BUBBLING_PAGE=3</bg-list> (всплытие). В её ходе повторяется тот же процесс, но наоборот. Всё начинается с элемента, который вызвал событие, оно «всплывает» до корневого элемента <u>html</u></li>
 </ul>
 
 <h3>1. Использование атрибута HTML</h3>
@@ -188,6 +192,22 @@ element.removeEventListener('click', action);
 </code></pre>
 
 <p>Метод addEventListener позволяет добавлять несколько обработчиков на одно событие одного элемента</p>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="actions-target">Делегирование событий</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-list>Делегирование событий</bg-list> - техника, которая использует механизм всплытия событий. Добавляя прослушиватель к родительскому элементу, разработчик может наладить обработку событий для его потомков</li>
+	<li>Внутри функции обратного вызова прослушивателя события целевой элемент события будет представлен параметром <u>target</u>, который можно использовать для принятия решения о дальнейших действиях. Например, атрибут этого параметра data может хранить идентификатор для доступа к свойствам объекта</li>
+</ul>
+<pre><code class="js">
+parentEl.addEventListener('click', function(e) {
+	if(e.target && e.target.nodeName == 'BUTTON') {
+		// щелчок по кнопке
+	} 
+});
+</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3043,24 +3063,52 @@ set.forEach((item, item2, set) => console.log(item, item2, set));
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="patterns">Паттерны проектирования</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+<a href="https://refactoring.guru/ru/design-patterns/catalog" target="_blank">Каталог паттернов проектирования</a>
+<a href="https://habr.com/ru/company/ruvds/blog/427293/" target="_blank">Паттерны проектирования в JavaScript</a>
+</code></pre>
+
 <ul class="list-point">
 	<li><bg-list>Паттерн проектирования</bg-list> (design pattern) - это повторяемая архитектурная конструкция, представляющая собой решение проблемы проектирования в рамках некоторого часто возникающего контекста</li>
 </ul>
 
-<pre><code class="html">
-<a href="https://habr.com/ru/company/ruvds/blog/427293/" target="_blank">Паттерны проектирования в JavaScript</a>
-</code></pre>
-
-<!------------------------------------------------------>
-<h3>Паттерн «Модуль»</h3>
-<!------------------------------------------------------>
+<h4>Основные</h4>
 <ul class="list-point">
-	<li>Модуль при помощи замыканий – это оборачивание пакета функционала в единую внешнюю функцию, которая тут же выполняется</li>
-	<li>Все функции модуля будут иметь доступ к другим переменным и внутренним функциям этого же модуля через замыкание. Но снаружи программист, использующий модуль, может обращаться напрямую только к тем переменным и функциям, которые экспортированы. Благодаря этому будут скрыты внутренние аспекты реализации, которые нужны только разработчику модуля</li>
+	<bg-mass><a href="#pattern-singleton">Синглтон (Singleton)</a></bg-mass>
+	<bg-mass><a href="#pattern-module">Модуль (Module)</a></bg-mass>
+	<bg-mass><a href="#pattern-revealing-module">Открытый модуль (Revealing Module)</a></bg-mass>
+	<bg-mass><a href="#pattern-decorator">Декоратор (Decorator)</a></bg-mass>
+</ul>
+<ul class="list-point">
+	<bg-mass><a href="#pattern-factory">Фабрика (Factory)</a></bg-mass>
+	<bg-mass>Фабричный метод (Factory Method)</bg-mass>
+	<bg-mass>Абстрактная фабрика (Abstract Factory)</bg-mass>
+	<bg-mass>Адаптер (Adapter)</bg-mass>
+	<bg-mass>Наблюдатель (Observer)</bg-mass>
+	<bg-mass>Издатель-подписчик (Publisher-Subscriber, Pub/Sub)</bg-mass>
+</ul>
+<h4>Дополнительные</h4>
+<ul class="list-point">
+	<bg-mass>Хранитель (Memento)</bg-mass>
+	<bg-mass>Цепочка обязанностей (Chain of Responsibility)</bg-mass>
+	<bg-mass>Команда (Command)</bg-mass>
+	<bg-mass>Состояние (State)</bg-mass>
+	<bg-mass>Стратегия (Strategy)</bg-mass>
+	<bg-mass>Итератор (Iterator)</bg-mass>
+	<bg-mass>Шаблонный метод (Template Method)</bg-mass>
+	<bg-mass>Посредник (Mediator)</bg-mass>
+	<bg-mass>Посетитель (Visitor)</bg-mass>
+	<bg-mass>Прокси (Proxy)</bg-mass>
+	<bg-mass>Мост (Bridge)</bg-mass>
+	<bg-mass>Компоновщик (Composite)</bg-mass>
+	<bg-mass>Строитель (Builder)</bg-mass>
+	<bg-mass>Фасад (Facade)</bg-mass>
+	<bg-mass>Прототип (Prototype)</bg-mass>
+	<bg-mass>Приспособленец (Flyweight)</bg-mass>
 </ul>
 
 <!------------------------------------------------------>
-<h3>Паттерн «Синглтон»</h3>
+<h3 id="pattern-singleton">Паттерн «Синглтон»</h3>
 <!------------------------------------------------------>
 <ul class="list-point">
 	<li>Использование конструктора плохая практика, особенно если у класса есть зависимости var user = new User();</li>
@@ -3119,6 +3167,111 @@ console.log(a.testMethod());
 <br><br><br><br><br>
 </code></pre></div></div>
 
+<!------------------------------------------------------>
+<h3 id="pattern-module">Паттерн «Модуль»</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li><bg-list>Модуль</bg-list> - самостоятельный фрагмент кода, который можно изменять, не затрагивая другой код проекта. Модули, кроме того, позволяют избегать такого явления, как загрязнение областей видимости, благодаря тому, что они создают отдельные области видимости для объявляемых в них переменных.</li>
+	<li>Модуль использует <u>IIFE</u>, <u>замыкания</u> и <u>области видимости функций</u> для имитации этой концепции <u>инкапсуляции</u></li>
+	<li><bg-list>Модуль при помощи замыканий</bg-list> – это оборачивание пакета функционала в единую внешнюю функцию, которая тут же выполняется</li>
+	<li>Все функции модуля будут иметь доступ к другим переменным и внутренним функциям этого же модуля через замыкание. Но снаружи программист, использующий модуль, может обращаться напрямую только к тем переменным и функциям, которые экспортированы. Благодаря этому будут скрыты внутренние аспекты реализации, которые нужны только разработчику модуля</li>
+	<li><bg-list>Недостаток</bg-list> приходится создавать публичные функции только для того, чтобы обращаться к приватным функциям и переменным</li>
+</ul>
+
+<pre><code class="js">
+const myModule = (function() {
+	const privateVariable = 'Hello World';
+	function privateMethod() {
+		console.log(privateVariable);
+	}
+	return {
+		publicMethod: function() {
+			privateMethod();
+		}
+	}
+})();
+</code></pre>
+
+<pre><code class="js">
+myModule.publicMethod(); // Выводит 'Hello World'
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="pattern-revealing-module">Паттерн «Открытый модуль»</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li><bg-list>Открытый модуль</bg-list> - в паттерне назначаем свойствам возвращаемого объекта приватные функции, которые хотим сделать общедоступными</li>
+</ul>
+
+<ul class="list-point">
+	<b>Преимущества паттерна «Открытый модуль» перед паттерном «Модуль»</b>
+	<li>«Открытый модуль» позволяет делать общедоступными скрытые сущности модуля (и снова скрывать их, если нужно), модифицируя, для каждой из них, лишь одну строку в объекте, возвращаемом после выполнения IIFE</li>
+	<li>Возвращаемый объект не содержит определения функций. Всё, что находится справа от имён его свойств, определено в IIFE. Это способствует чистоте кода и упрощает его чтение</li>
+</ul>
+
+<pre><code class="js">
+const myRevealingModule = (function() {
+	let privateVar = 'Peter';
+	const publicVar  = 'Hello World';
+	function privateFunction() {
+		console.log('Name: '+ privateVar);
+	}
+	function publicSetName(name) {
+		privateVar = name;
+	}
+	function publicGetName() {
+		privateFunction();
+	}
+	return {
+		setName: publicSetName,
+		greeting: publicVar,
+		getName: publicGetName
+	};
+})();
+</code></pre>
+
+<pre><code class="js">
+myRevealingModule.setName('Mark');
+myRevealingModule.getName(); // Выводит Name: Mark
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="pattern-decorator">Паттерн «Декоратор»</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Паттерн используется для расширения функционала объектов без модификации существующих классов или функций-конструкторов. Паттерн можно использовать для добавления к объектам неких возможностей без модификации кода, который ответственен за их создание</li>
+</ul>
+
+<pre><code class="js">
+function Car(name) {
+	this.name = name;
+	this.color = 'White';
+}
+
+// создание нового объекта, который планируется декорировать
+const tesla= new Car('Tesla Model 3');
+
+// декорирование объекта - добавление нового функционала
+tesla.setColor = function(color) {
+	this.color = color;
+}
+tesla.setPrice = function(price) {
+	this.price = price;
+}
+
+tesla.setColor('black');
+tesla.setPrice(49000);
+console.log(tesla.color); // выводит black
+</code></pre>
+
+
+<!------------------------------------------------------>
+<h3 id="pattern-factory">Паттерн «Фабрика»</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Паттерн использует для создания объектов так называемые <u>«фабричные методы»</u>. При этом не требуется указывать классы или функции-конструкторы, которые применяются для создания объектов</li>
+	<li>Паттерн используется для создания объектов в случаях, когда не нужно делать общедоступной логику их создания. Паттерн может быть использован в том случае, если нужно создавать различные объекты в зависимости от специфических условий</li>
+</ul>
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -3373,8 +3526,6 @@ http://test1.ru/script.php?name=myname&message=my+message
 </code></pre>
 
 
-
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="chrome-dev-tools">Chrome DevTools</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3394,6 +3545,39 @@ function pow(x, n) {
 	...
 }
 </code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="garbage-collection">Сборщик мусора</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-list>Сборщик мусора (Garbage collection, GC)</bg-list> - очистка памяти от недостижимых значений в браузере. GC встроенн в интерпретатор, он наблюдает за объектами и время от времени удаляет недостижимые</li>
+	<li><bg-list>Примитивы</bg-list> - при присвоении они копируются целиком, ссылок на них не создаётся. Если в переменной была одна строка, а её заменили на другую, то предыдущая удаляется</li>
+	<li><bg-list>Объекты</bg-list> требуют специального <u>«сборщика мусора»</u>, который наблюдает за ссылками, т.к. на один объект может быть много ссылок из разных переменных и, при перезаписи одной из них, объект может быть всё ещё доступен из другой</li>
+	<li>
+		<bg-list>Упрощение для работы с памятью</bg-list>: «значение остаётся в памяти, пока на него есть хотя бы одна ссылка»
+		<ul class="list-point">
+			<li>Верно - в том плане, что если ссылок на значение нет, то память из-под него очищается</li>
+			<li>Неверно - в другую сторону: наличие ссылки не гарантирует, что значение останется в памяти</li>
+		</ul>
+	</li>
+	<li><bg-list>Сборщик мусора</bg-list> идёт от корня по ссылкам и запоминает все найденные объекты. По окончанию - он смотрит, какие объекты в нём отсутствуют и удаляет их</li>
+	<li><bg-list>Применение оптимизации интерпретаторами</bg-list> - деление объектов на два вида «старые» и «новые». Для каждого типа выделяется своя область памяти. Каждый объект создаётся в «новой» области и, если прожил достаточно долго, мигрирует в старую. «Новая» область обычно небольшая. Она очищается часто. «Старая» – редко</li>
+	<li><bg-list>Замыкания</bg-list> <u>LexicalEnvironment</u> внешней функции существует в памяти до тех пор, пока существует хоть одна внутренняя функция, ссылающаяся на него через свойство <u>[[Scope]]</u></li>
+	<li><bg-list>Оптимизация в V8</bg-list>JS-движки делают оптимизации <u>замыканий</u> по памяти. Они анализируют использование переменных и в случае, когда переменная из замыкания абсолютно точно не используется, удаляют её</li>
+</ul>
+
+<h4>Очистка памяти</h4>
+<pre><code class="js">
+var user = {
+	name: 'Tony'
+}
+user = null;
+</code></pre>
+
+
+
+
 
 
 

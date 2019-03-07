@@ -18,7 +18,8 @@
 	<a href="#obj-for">Перебор объекта</a>
 	<a href="#obj-methods">Методы</a>
 	<a href="#obj-constructor">Конструктор создания объекта</a>
-	<a href="#obj-prototype">Создание прототипа</a>
+	<a href="#obj-prototype">Прототип</a>
+	<a href="#obj-prototype-create">Создание прототипа</a>
 	<a href="#obj-delete">Удаление свойств</a>
 	<a href="#descriptor">Дескрипторы свойств</a>
 	<a href="#extends-obj">Расширяемость объектов</a>
@@ -39,7 +40,7 @@
 
 
 
-<img src="img/js/proto.jpg" height="450px" class="center">
+<img src="img/js/proto.jpg" height="400px" class="center">
 
 <ul class="list-point">
 	<li><u>Примитивные типы данных</u> - хранение и копирование <bg-list>«по значению»</bg-list>. В результате копирования получатся две полностью независимые переменные</li>
@@ -201,8 +202,22 @@ tesla; // Object { x: 10, y: 20 }
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="obj-prototype">Создание прототипа</h2>
+<h2 id="obj-prototype">Прототип</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>У каждого <u>объекта</u> есть <u>прототип</u>, от которого он наследует <u>свойства</u> и <u>методы</u>. Если объект не включает в себя запрошенное свойство, JavaScript выполнит поиск этого свойства в прототипе объекта. При этом поиск будет выполняться по <u>цепочке прототипов</u> до тех пор, пока не будет найдено то, что нужно. Если же поиск успехом не увенчается, будет возвращена ошибка</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-prototype-create">Создание прототипа</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="js">
+<bg-code>Object.create()</bg-code>         // добавление прототипа при создании объекта
+<bg-code>Object.setPrototypeOf()</bg-code> // добавление прототипа после создания объекта
+</code></pre>
+
 <pre><code class="js">
 // объект
 var Human = {
@@ -211,7 +226,7 @@ var Human = {
 	legs: 2
 };
 // прототип
-var Megahuman = <span class="hc">Object.create</span>(Human);
+var Megahuman = <bg-code>Object.create</bg-code>(Human);
 </code></pre>
 
 <div class="container-flex"><div class="container-half"><pre><code class="js">
@@ -239,7 +254,7 @@ Human.face;                 // okay
 </code></pre></div></div>
 
 <pre><code class="js">
-Human.<span class="hc">isPrototypeOf</span>(Megahuman); // является ли объект Human прототипом для объекта Megahuman
+Human.<bg-code>isPrototypeOf</bg-code>(Megahuman); // является ли объект Human прототипом для объекта Megahuman
 </code></pre>
 
 <!------------------------------------------------------>
@@ -318,9 +333,9 @@ Megahuman.head;     // 1
 </ul>
 
 <ul class="list">
-	<li><span class="hl">writable</span> - доступность для записи</li>
-	<li><span class="hl">enumerable</span> - будет ли выводиться при переборе в цикле for...in и т.д.</li>
-	<li><span class="hl">configurable</span> - определение возможности изменения атрибутов свойства, а также удаления свойства</li>
+	<li><bg-list>writable</bg-list> - доступность для записи</li>
+	<li><bg-list>enumerable</bg-list> - будет ли выводиться при переборе в цикле for...in и т.д.</li>
+	<li><bg-list>configurable</bg-list> - определение возможности изменения атрибутов свойства, а также удаления свойства</li>
 </ul>
 
 <pre><code class="js">
@@ -330,13 +345,13 @@ var person = {
 }
 
 // получение дескриптора свойств
-var a = Object.<span class="hc">getOwnPropertyDescriptor</span>(person, 'name'); // {value: "Tony", writable: true, enumerable: true, configurable: true}
+var a = Object.<bg-code>getOwnPropertyDescriptor</bg-code>(person, 'name'); // {value: "Tony", writable: true, enumerable: true, configurable: true}
 </code></pre>
 
 <pre><code class="js">
 // переопределение дескриптора свойств через defineProperty
 // 1-объект, 2-свойство, 3-дескриптор
-Object.<span class="hc">defineProperty</span>(person, 'name', {
+Object.<bg-code>defineProperty</bg-code>(person, 'name', {
 	value: 'Jack',
 	writable: false,    // доступность для записи
 	enumerable: false,  // будет ли выводиться при переборе в цикле for...in и т.д.
@@ -347,7 +362,7 @@ Object.<span class="hc">defineProperty</span>(person, 'name', {
 <pre><code class="js">
 // переопределение дескриптора свойств через defineProperties
 // 1-объект, 2-объект с парами свойсво:дескриптор
-Object.<span class="hc">defineProperties</span>(person, {
+Object.<bg-code>defineProperties</bg-code>(person, {
 	name: {
 		value: 'Jack',
 		writable: false
@@ -372,14 +387,14 @@ var person = {
 	age: 20
 }
 
-Object.<span class="hc">preventExtensions</span>(person);    // задает объект нерасширяемым (применяется только к самому объекту)
-var a = Object.<span class="hc">isExtensible</span>(person); // проверяет применение preventExtensions
+Object.<bg-code>preventExtensions</bg-code>(person);    // задает объект нерасширяемым (применяется только к самому объекту)
+var a = Object.<bg-code>isExtensible</bg-code>(person); // проверяет применение preventExtensions
 
-Object.<span class="hc">seal</span>(person);                 // аналогичен preventExtensions, дополнительно задает атрибут configurable=false для всех свойств
-var a = Object.<span class="hc">isSealed</span>(person);     // проверяет применение seal
+Object.<bg-code>seal</bg-code>(person);                 // аналогичен preventExtensions, дополнительно задает атрибут configurable=false для всех свойств
+var a = Object.<bg-code>isSealed</bg-code>(person);     // проверяет применение seal
 
-Object.<span class="hc">freeze</span>(person);               // аналогичен seal, дополнительно делает все свойства доступные только для чтения
-var a = Object.<span class="hc">isFrozen</span>(person);     // проверяет применение freeze
+Object.<bg-code>freeze</bg-code>(person);               // аналогичен seal, дополнительно делает все свойства доступные только для чтения
+var a = Object.<bg-code>isFrozen</bg-code>(person);     // проверяет применение freeze
 </code></pre>
 
 
@@ -508,13 +523,13 @@ Task.prototype.toString = function() {
 </code></pre>
 
 <ul class="list">
-	<li><span class="hl">Классы</span> - это функции, которые создают объекты</li>
-	<li><span class="hl">Объект</span> - это экземпляр, представитель класса, т.е. объект, созданный по шаблону со свойствами и методами, указанными в классе</li>
-	<li><span class="hl">Конструктор</span> - метод, который вызывается в момент создания объекта т.е. когда используется ключевое слово new он создает свойства и инициализирует, т.е. подготавливает объект к использованию. В классе может быть только 1 конструктор. Если не указать конструктор, то JS создаст пустой конструктор. Свойства указываются только в конструкторе</li>
-	<li><span class="hl">Статические свойства и методы</span> принадлежат самому классу, а не объектам, созданным на его основе</li>
-	<li><span class="hl">Статические свойства</span> - используются для хранения вспомогательной информации</li>
-	<li><span class="hl">Статические методы</span> - используются для создания вспомогательных функций. task.getDefaultColor(); нельзя вызывать напрямую</li>
-	<li><span class="hl">Геттеры и Сеттеры</span> - аксессоры. Внутри класса выглядят и ведут себя как методы, а снаружи выглядят и ведут себя как свойства. Эти свойства-методы позволяют получить доступ и присвоить значения "настоящим" свойствам объекта, т.е. выступают в роли фильтра. Названия свойств get и set не должны совпадать с названиями основных свойств объекта</li>
+	<li><bg-list>Классы</bg-list> - это функции, которые создают объекты</li>
+	<li><bg-list>Объект</bg-list> - это экземпляр, представитель класса, т.е. объект, созданный по шаблону со свойствами и методами, указанными в классе</li>
+	<li><bg-list>Конструктор</bg-list> - метод, который вызывается в момент создания объекта т.е. когда используется ключевое слово new он создает свойства и инициализирует, т.е. подготавливает объект к использованию. В классе может быть только 1 конструктор. Если не указать конструктор, то JS создаст пустой конструктор. Свойства указываются только в конструкторе</li>
+	<li><bg-list>Статические свойства и методы</bg-list> принадлежат самому классу, а не объектам, созданным на его основе</li>
+	<li><bg-list>Статические свойства</bg-list> - используются для хранения вспомогательной информации</li>
+	<li><bg-list>Статические методы</bg-list> - используются для создания вспомогательных функций. task.getDefaultColor(); нельзя вызывать напрямую</li>
+	<li><bg-list>Геттеры и Сеттеры</bg-list> - аксессоры. Внутри класса выглядят и ведут себя как методы, а снаружи выглядят и ведут себя как свойства. Эти свойства-методы позволяют получить доступ и присвоить значения "настоящим" свойствам объекта, т.е. выступают в роли фильтра. Названия свойств get и set не должны совпадать с названиями основных свойств объекта</li>
 	<li>Класс должен отвечать за что-то одно (SOLID. Single Responsibility)</li>
 </ul>
 

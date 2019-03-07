@@ -223,7 +223,7 @@ u {
 /***************************************************
 SELECTED
 /***************************************************/
-bg-code, bg-header, bg-list, bg-menu {
+bg-code, bg-header, bg-list, bg-menu, bg-mass {
 	display: inline;
 	margin: 0;
 	padding: 0;
@@ -242,12 +242,20 @@ bg-list {
 	padding: 5px 10px;
 	background: rgba(0,0,0,0.1);
 	border-radius: 3px;
-	/*font-weight: bold;*/
 	font-size: 15px;
 }
 bg-menu {
 	padding: 5px;
 	background: rgba(179, 183, 104, 0.4);
+	border-radius: 4px;
+	color: black !important;
+}
+bg-mass {
+	display: inline-block;
+	padding: 0px 10px;
+	margin: 2px;
+	border: 1px solid rgba(179, 183, 104, 0.45); 
+	background: rgba(179, 183, 104, 0.2);
 	border-radius: 4px;
 	color: black !important;
 }

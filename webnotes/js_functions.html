@@ -100,8 +100,11 @@ sayHi();             // ошибка
 </code></pre>
 
 <!------------------------------------------------------>
-<h3>3. Анонинимное с немедленным вызовом (самовызывающаяся)</h3>
+<h3>3. Анонинимное с немедленным вызовом IIFE (самовызывающаяся)</h3>
 <!------------------------------------------------------>
+<ul class="list">
+	<li><span class="hl">Immediately-Invoked Functional Expression (IIFE)</span> немедленно вызываемое функциональное выражение</li>
+</ul>
 
 <ul class="list-point">
 	<li>Если браузер видит <u>function</u> в основном потоке кода – он считает, что это <u>Function Declaration</u></li>
@@ -431,10 +434,6 @@ var getPerson = function() {
 <!------------------------------------------------------>
 <h3>Самовызывающаяся функция (IIFE)</h3>
 <!------------------------------------------------------>
-<ul class="list">
-	<li><span class="hl">Immediately-Invoked Functional Expression</span> немедленно вызываемое функциональное выражение</li>
-</ul>
-
 <div class="container-flex"><div class="container-half"><pre><code class="js">
 (() => console.log('IIFE'))();
 <br>
