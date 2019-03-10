@@ -23,6 +23,7 @@
 	<a href="#obj-delete">Удаление свойств</a>
 	<a href="#descriptor">Дескрипторы свойств</a>
 	<a href="#extends-obj">Расширяемость объектов</a>
+	<a href="#object-conversion"><bg-menu>toString</bg-menu> <bg-menu>valueOf</bg-menu></a>
 	<a href="#obj-samples">Примеры</a>
 
 	<div class="theme">Классы ES6</div>
@@ -327,47 +328,26 @@ Megahuman.head;     // 1
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="descriptor">Дескрипторы свойств</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p><bg-list>Свойства объекта</bg-list> имеют: <u>имя</u>, <u>значение</u> (атрибут value), <u>атрибуты</u> (writable, enumerable, configurable)</p>
 
-<ul class="list-point">
-	<b>Свойства объекта имеют:</b>
-	<li>Имя</li>
-	<li>Значение (атрибут value)</li>
-	<li>Атрибуты (writable, enumerable, configurable)</li>
-</ul>
-
-<ul class="list-point">
-	<li>value, writable, enumerable, configurable можно получить и изменять с помощью объекта Дескриптора свойства</li>
-</ul>
-
-<ul class="list">
-	<li><bg-list>writable</bg-list> - доступность для записи</li>
-	<li><bg-list>enumerable</bg-list> - будет ли выводиться при переборе в цикле for...in и т.д.</li>
-	<li><bg-list>configurable</bg-list> - определение возможности изменения атрибутов свойства, а также удаления свойства</li>
-</ul>
-
+<h4>Переопределение дескриптора свойств</h4>
 <pre><code class="js">
-var person = {
-	name: 'Tony',
-	age: 20
-}
-
-// получение дескриптора свойств
-var a = Object.<bg-code>getOwnPropertyDescriptor</bg-code>(person, 'name'); // {value: "Tony", writable: true, enumerable: true, configurable: true}
+Object.<bg-code>defineProperty</bg-code>(obj, prop, descriptor)
+	obj        // объект, в котором объявляется свойство
+	prop       // имя свойства, которое нужно объявить или модифицировать
+	descriptor // дескриптор - объект, который описывает поведение свойства
 </code></pre>
 
 <pre><code class="js">
-// переопределение дескриптора свойств через defineProperty
 // 1-объект, 2-свойство, 3-дескриптор
 Object.<bg-code>defineProperty</bg-code>(person, 'name', {
-	value: 'Jack',
-	writable: false,    // доступность для записи
-	enumerable: false,  // будет ли выводиться при переборе в цикле for...in и т.д.
-	configurable: false // определение возможности изменения атрибутов свойства, а также удаления свойства
+	value: 'Jack',       // значение свойства (по умолчанию undefined)
+	writable: false,     // значение свойства можно менять (по умолчанию false)
+	configurable: false, // возможность удаление свойства и изменения атрибутов свойства при помощи новых вызовов defineProperty (по умолчанию false)
+	enumerable: false    // свойство просматривается в цикле for..in и методе Object.keys() (по умолчанию false)
 });
 </code></pre>
-
 <pre><code class="js">
-// переопределение дескриптора свойств через defineProperties
 // 1-объект, 2-объект с парами свойсво:дескриптор
 Object.<bg-code>defineProperties</bg-code>(person, {
 	name: {
@@ -380,6 +360,26 @@ Object.<bg-code>defineProperties</bg-code>(person, {
 	}
 });
 </code></pre>
+
+<h4>Получение дескриптора свойств</h4>
+<pre><code class="js">
+var person = {
+	name: 'Tony',
+	age: 20
+}
+var a = Object.<bg-code>getOwnPropertyDescriptor</bg-code>(person, 'name');
+// {value: "Tony", writable: true, enumerable: true, configurable: true } 
+</code></pre>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -467,6 +467,68 @@ var a = createCar('vin', 1);
 
 
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="object-conversion">Преобразование объектов: toString и valueOf</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>В <bg-list>логическом</bg-list> контексте объект - всегда <u>true</u></li>
+	<li>При <bg-list>строковом</bg-list> преобразовании объекта используется его метод <u>toString</u>. Он должен возвращать примитивное значение, причём не обязательно именно строку</li>
+	<li>Для <bg-list>численного</bg-list> преобразования используется метод <u>valueOf</u>, который также может возвратить любое примитивное значение. У большинства объектов valueOf не работает (возвращает сам объект и потому игнорируется), при этом для численного преобразования используется toString</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Логическое преобразование</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+// любой объект в логическом контексте – true, даже если это пустой массив [] или объект {}.
+if ({} && []) {
+	alert( "Все объекты - true!" ); // alert сработает
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Строковое преобразование</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var user = {
+	name: 'Tony'
+};
+
+alert( user ); // [object Object]
+</code></pre>
+
+<pre><code class="js">
+// eсли в объекте присутствует метод toString, который возвращает примитив, то он используется для преобразования
+var obj = {
+	name: 'Tony',
+	<bg-code>toString</bg-code>() {
+		return this.name;
+	}
+};
+
+alert( obj ); // Tony
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Численное преобразование</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+// для численного преобразования объекта используется метод valueOf, а если его нет – то toString
+var room = {
+	number: 777,
+	<bg-code>valueOf</bg-code>() { return this.number; },
+	<bg-code>toString</bg-code>() { return this.number; }
+};
+
+alert( +room );      // 777, вызвался valueOf
+delete room.valueOf; // valueOf удалён
+alert( +room );      // 777, вызвался toString
+</code></pre>
+
+
+
 <!-------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------->
 <h1>Классы</h1>
@@ -476,6 +538,7 @@ var a = createCar('vin', 1);
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="class-create">Создание класса</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <pre><code class="js">
 // создание класса
 class Task {
@@ -642,9 +705,22 @@ var subtask = new SubTask();
 <h1>ES5</h1>
 <!-------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------->
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="class-es5">Классы</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Функция-конструктор</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<b>Функция, запущенная через new, делает следующее:</b>
+	<li>1. Создаётся новый пустой объект</li>
+	<li>2. Ключевое слово <u>this</u> получает ссылку на этот объект</li>
+	<li>3. Функция выполняется. Как правило, она модифицирует <u>this</u> (т.е. этот новый объект), добавляет методы, свойства</li>
+	<li>4. Возвращается <u>this</u></li>
+</ul>
+
 <pre><code class="js">
 function User(name, id) {
 	this.name = name;
@@ -680,6 +756,33 @@ Admin.prototype.changeMyId = function() {
 
 var admin = new Admin('Admin', 2);
 </code></pre>
+
+<!------------------------------------------------------>
+<h3>Правила обработки return</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>При вызове <u>return</u> с объектом, будет возвращён он, а не <u>this</u></li>
+	<li>При вызове <u>return</u> с примитивным значением, оно будет отброшено и возвращен <u>this</u></li>
+</ul>
+
+<pre><code class="js">
+function BigAnimal() {
+	this.name = "Мышь";
+	return { name: "Годзилла" };  // <-- возвратим объект
+}
+alert( new BigAnimal().name );  // Годзилла, получили объект вместо this
+</code></pre>
+
+<pre><code class="js">
+function BigAnimal() {
+	this.name = "Мышь";
+	return "Годзилла"; // <-- возвратим примитив
+}
+alert( new BigAnimal().name ); // Мышь, получили this (а Годзилла пропал)
+</code></pre>
+
+
+
 
 
 

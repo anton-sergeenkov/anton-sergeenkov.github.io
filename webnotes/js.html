@@ -13,13 +13,6 @@
 		<a href="#menu-top">Starter</a>
 	</div>
 	
-	<div class="theme">События</div>
-	<a href="#actions">Назначение обработчиков событий</a>
-	<a href="#actions-target">Делегирование событий</a>
-	<a href="#actions-params">Передаваемый параметр (Event)</a>
-	<a href="#actions-list">Список событий</a>
-	<a href="#actions-samples">Примеры</a>
-
 	<div class="theme">Циклы и массивы</div>
 	<a href="#cycle">Циклы</a>
 	<a href="#cycle-array">Перебор массива</a>
@@ -50,23 +43,31 @@
 	<a href="#ajax-variants">Варианты запросов</a>
 	<a href="#ajax-http-methods">HTTP-методы</a>
 
+	<div class="theme">События</div>
+	<a href="#actions">Назначение обработчиков событий</a>
+	<a href="#actions-target">Делегирование событий</a>
+	<a href="#actions-params">Передаваемый параметр (Event)</a>
+	<a href="#actions-list">Список событий</a>
+	<a href="#prevent">Отмена обычного поведения</a>
+	<a href="#actions-samples">Примеры</a>
+
+	<div class="theme">Basic I</div>
+	<a href="#methods-this"><bg-menu>this</bg-menu> <bg-menu>call</bg-menu> <bg-menu>apply</bg-menu> <bg-menu>bind</bg-menu></a>
+	<a href="#css"><bg-menu>classList</bg-menu> <bg-menu>style</bg-menu></a>
+	<a href="#attribute"><bg-menu>attributes</bg-menu></a>
+	<a href="#json">JSON</a>
+	<a href="#form">Web Forms</a>
+	<a href="#dom-element">DOM элементы</a>
+	<a href="#select">Выборка элементов</a>
+	<a href="#methods">Методы элементов страницы</a>
+	<a href="#type">Типы данных</a>
+	<a href="#str">Строки</a>
+	<a href="#number">Числа</a>
+
 	<div class="theme">Client Data</div>
 	<a href="#data-storage"><bg-menu>localStorage</bg-menu> <bg-menu>sessionStorage</bg-menu></a>
 	<a href="#data-db"><bg-menu>IndexedDB</bg-menu></a>
 	<a href="#data-cookie"><bg-menu>cookie</bg-menu></a>
-
-	<div class="theme">Basic I</div>
-	<a href="#methods-this"><bg-menu>this</bg-menu> <bg-menu>call</bg-menu> <bg-menu>apply</bg-menu> <bg-menu>bind</bg-menu></a>
-	<a href="#json">JSON</a>
-	<a href="#type">Типы данных</a>
-	<a href="#select">Выборка элементов</a>
-	<a href="#methods">Методы элементов страницы</a>
-	<a href="#css"><bg-menu>classList</bg-menu> <bg-menu>style</bg-menu></a>
-	<a href="#attribute"><bg-menu>attributes</bg-menu></a>
-	<a href="#form">Web Forms</a>
-	<a href="#dom-element">DOM</a>
-	<a href="#str">Строки</a>
-	<a href="#number">Числа</a>
 
 	<div class="theme">Advanced</div>
 	<a href="#patterns">Паттерны проектирования</a>
@@ -75,8 +76,8 @@
 
 	<div class="theme">Window</div>
 	<a href="#web-api">Web API</a>
-	<a href="#document-open">Open / Location</a>
-	<a href="#document-width">Width / Height</a>
+	<a href="#document-open"><bg-menu>open</bg-menu> <bg-menu>location</bg-menu></a>
+	<a href="#document-width"><bg-menu>innerWidth/Height</bg-menu> <bg-menu>clientWidth/Height</bg-menu></a>
 	<a href="#document-media">Media queries</a>
 
 	<div class="theme">Basic II</div>
@@ -86,7 +87,6 @@
 	<a href="#date">Дата и время</a>
 	<a href="#case">Условные операторы</a>
 	<a href="#timeout">Таймеры</a>
-	<a href="#prevent">Отмена обычного поведения</a>
 	<a href="#external-script">Асинхронные скрипты: defer/async</a>
 	<a href="#comparison">Сравнение и логические значения</a>
 	<a href="#console">Console</a>
@@ -1544,6 +1544,12 @@ var ms = Date.parse('2012-01-26T13:51:50.417-07:00'); // С таймзоной -
 alert( ms ); // 1327611110417 (число миллисекунд)
 </code></pre>
 
+<h4>Строковое и численное преобразование</h4>
+<pre><code class="js">
+alert( new Date() );  // toString: Дата в виде читаемой строки
+alert( +new Date() ); // valueOf: кол-во миллисекунд, прошедших с 01.01.1970
+</code></pre>
+
 <!------------------------------------------------------>
 <h3>toLocaleString</h3>
 <!------------------------------------------------------>
@@ -2325,6 +2331,7 @@ document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; doma
 	<li><bg-list>Контекст выполнения</bg-list> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор</li>
 	<li><bg-list>Контекст вызова функции</bg-list> - тот объект который ее вызывает</li>
 	<li><bg-list>this</bg-list> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие) и определяется в момент вызова функции</li>
+	<li>Любая функция может иметь в себе <u>this</u>. Если функция использует <u>this</u> - это подразумевает работу с объектом</li>
 </ul>
 
 <!------------------------------------------------------>
