@@ -2332,7 +2332,33 @@ document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; doma
 	<li><bg-list>Контекст вызова функции</bg-list> - тот объект который ее вызывает</li>
 	<li><bg-list>this</bg-list> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие) и определяется в момент вызова функции</li>
 	<li>Любая функция может иметь в себе <u>this</u>. Если функция использует <u>this</u> - это подразумевает работу с объектом</li>
+	<li><bg-list>this</bg-list> - это текущий объект при вызове «через точку» и новый объект при конструировании через <u>new</u></li>
+	<li><u>Функции</u> не привязаны к своему контексту <u>this</u></li>
 </ul>
+
+<h4>Значение this устанавливается в зависимости от того, как вызвана функция</h4>
+<p>1. При вызове функции как метода</p>
+<pre><code class="js">
+obj.func(...)    // this = obj
+obj["func"](...)
+</code></pre>
+
+<p>2. При обычном вызове</p>
+<pre><code class="js">
+func(...) // this = window (ES3) /undefined (ES5)
+</code></pre>
+
+<p>3. В new</p>
+<pre><code class="js">
+new func() // this = {} (новый объект)
+</code></pre>
+
+<p>4. Явное указание</p>
+<pre><code class="js">
+func.apply(context, args) // this = context (явная передача)
+func.call(context, arg1, arg2, ...)
+</code></pre>
+
 
 <!------------------------------------------------------>
 <h3>bind(), call(), apply()</h3>
@@ -2343,9 +2369,14 @@ document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; doma
 	<li><bg-list>bind()</bg-list> - не вызывает функцию, а связывает с объектом. не изменяет исходную функцию, а возвращает новую</li>
 </ul>
 
+<ul class="list-point">
+	<li><u>all/apply</u> вызывают функцию с заданным контекстом и аргументами</li>
+	<li><u>bind</u> не вызывает функцию, а только возвращает «обёртку», которая передаст вызов в исходную функцию, с привязанным контекстом</li>
+</ul>
+
 <pre><code class="js">
-var greet = function(greeting) {
-	return greeting + this.name;
+var greet = function(greet1, greet2) {
+	return greet1 + greet2 + this.name;
 }
 var person = {
 	name: 'Brad',
@@ -2358,10 +2389,82 @@ var anotherPerson = {
 </code></pre>
 
 <pre><code class="js">
-var a = anotherPerson.greet.<bg-code>call</bg-code>(person, 'Hello');    // this указывает на person
-var a = anotherPerson.greet.<bg-code>apply</bg-code>(person, ['Hello']); // this указывает на person
-var b = greet.<bg-code>bind</bg-code>(person);                           // this указывает на person
-var a = b('Hello');
+// this указывает на person
+var a = anotherPerson.greet.<bg-code>call</bg-code>(person, 'Hello', 'World');    // => "Hello World Brad"
+var a = anotherPerson.greet.<bg-code>apply</bg-code>(person, ['Hello', 'World']); // => "Hello World Brad"
+
+var b = greet.<bg-code>bind</bg-code>(person);
+var a = b('Hello', 'World'); // => "Hello World Brad"
+
+var b = greet.<bg-code>bind</bg-code>(person, 'Hello', 'World'); 
+var a = b(); // => "Hello World Brad"
+</code></pre>
+
+<pre><code class="js">
+// call/apply передают this «как есть»
+function f() {
+	alert( this ); // null
+}
+f.call(null);
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Карринг</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li><bg-list>Карринг (currying) или каррирование</bg-list> - (термин функционального программирования) создание новой функции путём фиксирования аргументов существующей</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Примеры</h3>
+<!------------------------------------------------------>
+<h4>Потеря контекста</h4>
+<pre><code class="js">
+var user = {
+	userName: 'Tony',
+	userGreet() {
+		console.log('Hi ' + this.userName);
+	}
+};
+var newUser = user.userGreet; 
+newUser(); // => "Hi undefined"
+</code></pre>
+<pre><code class="js">
+newUser.call(user); // => "Hi Tony"
+</code></pre>
+<pre><code class="js">
+var func = newUser.bind(user);
+func(); // => "Hi Tony" 
+</code></pre>
+
+<h4>Привязать всё</h4>
+<pre><code class="js">
+for (var prop in user) {
+	if (typeof user[prop] == 'function') {
+		user[prop] = user[prop].bind(user);
+	}
+}
+</code></pre>
+
+<h4>Вызов функции</h4>
+<pre><code class="js">
+function showFullName() {
+	alert( this.firstName + " " + this.lastName );
+}
+var user = {
+	firstName: "Василий",
+	lastName: "Петров"
+};
+showFullName.call(user) // => "Василий Петров" (функция вызовется с this=user)
+</code></pre>
+
+<h4>Максимальный элемент массива</h4>
+<pre><code class="js">
+var arr = [1, 2, 3, 77, 4];
+var max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
+var max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
+// в данном случае в качестве контекста можно передавать что угодно, 
+// поскольку в своей внутренней реализации метод Math.max не использует this
 </code></pre>
 
 
