@@ -71,6 +71,7 @@
 
 	<div class="theme">Advanced</div>
 	<a href="#patterns">Паттерны проектирования</a>
+	<a href="#function-pro">Функциональное программирование</a>
 	<a href="#garbage-collection">Сборщик мусора</a>
 	<a href="#regexr">Регулярные выражения</a>
 
@@ -2398,6 +2399,8 @@ var a = b('Hello', 'World'); // => "Hello World Brad"
 
 var b = greet.<bg-code>bind</bg-code>(person, 'Hello', 'World'); 
 var a = b(); // => "Hello World Brad"
+
+// если в bind указаны аргументы - они будут прибавлены к каждому вызову новой функции, причем встанут перед теми, которые указаны при вызове
 </code></pre>
 
 <pre><code class="js">
@@ -3687,6 +3690,14 @@ user = null;
 </code></pre>
 
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="function-pro">Функциональное программирование</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Специфические возможности по работе с функциями:  передача функций другим функциям в качестве аргументов и о возврате функций из других функций</li>
+	<li>Концепции: <bg-list>чистые функции</bg-list>, <bg-list>каррирование функций</bg-list>, <bg-list>функции высшего порядка</bg-list></li>
+	<li><bg-list>Чистые функции</bg-list> - выходные данные чистых функций зависят только от входных, они, при выполнении, не влияют на состояние программы</li>
+</ul>
 
 
 
