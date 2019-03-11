@@ -14,17 +14,16 @@
 	</div>
 
 	<div class="theme">Объекты ES6</div>
-	<a href="#obj-create">Литеральная нотация</a>
-	<a href="#obj-for">Перебор объекта</a>
+	<a href="#obj-create">Объявление</a>
 	<a href="#obj-methods">Методы</a>
-	<a href="#obj-constructor">Конструктор создания объекта</a>
-	<a href="#obj-prototype">Прототип</a>
-	<a href="#obj-prototype-create">Создание прототипа</a>
-	<a href="#obj-delete">Удаление свойств</a>
+	<a href="#obj-prototype-create">Прототип</a>
+
 	<a href="#descriptor">Дескрипторы свойств</a>
 	<a href="#extends-obj">Расширяемость объектов</a>
 	<a href="#object-conversion"><bg-menu>toString</bg-menu> <bg-menu>valueOf</bg-menu></a>
+
 	<a href="#obj-samples">Примеры</a>
+	<a href="#obj-constructor">Конструктор создания объекта</a>
 
 	<div class="theme">Классы ES6</div>
 	<a href="#class-create">Создание класса</a>
@@ -40,10 +39,10 @@
 
 
 
-
 <img src="img/js/proto.jpg" height="400px" class="center">
 
 <ul class="list-point">
+	<b>ХРАНЕНИЕ И КОПИРОВАНИЕ</b>
 	<li><u>Примитивные типы данных</u> - хранение и копирование <bg-list>«по значению»</bg-list>. В результате копирования получатся две полностью независимые переменные</li>
 	<li><u>Объекты</u> - хранение и копирование <bg-list>«по ссылке»</bg-list>. В переменной, которой присвоен объект, хранится не сам объект, а «адрес его места в памяти», иными словами – «ссылка» на него. При копировании переменной с объектом – копируется эта ссылка, а объект по-прежнему остается в единственном экземпляре. Получили две переменные, в которых находятся ссылки на один и тот же объект</li>
 </ul>
@@ -109,16 +108,6 @@ person.greet = function() {
 }
 </code></pre>
 
-<h4>Проверка наличия свойства</h4>
-<ul class="list-point">
-	<li>Можно обратиться к любому свойству объекта, даже если его нет. Если свойство не существует, вернется undefined</li>
-</ul>
-
-<pre><code class="js">
-var a = 'firstName' <bg-code>in</bg-code> person; // проверка наличия свойсва в объекте (различает отсутствующие свойства и те что были установлен в undefined)
-var a = person.firstName;      // проверка наличия свойсва в объекте (не различает отсутствующие свойства и те что были установлен в undefined)
-</code></pre>
-
 <h4>Геттеры и сеттеры</h4>
 <pre><code class="js">
 person.fullName = 'Steve';     // сеттер
@@ -127,40 +116,44 @@ var a = person.fullName;       // геттер (result = Steve Stark)
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="obj-for">Перебор объекта</h2>
+<h2 id="obj-methods">Методы</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------>
+<h3>Свойства</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Можно обратиться к любому свойству объекта, даже если его нет. Если свойство не существует, вернется undefined</li>
+</ul>
+
+<bg-list>keys</bg-list> <bg-list>getOwnPropertyNames</bg-list>
 <pre><code class="js">
-var person = {
-	name: 'Tony',
-	age: 25
-}
+var a = Object.<bg-code>keys</bg-code>(obj);                // возвращает массив из собственных перечисляемых (enumerable) свойств переданного объекта
+var a = Object.<bg-code>keys</bg-code>(obj).<bg-code>length</bg-code>;         // количество свойств
+var a = Object.<bg-code>getOwnPropertyNames</bg-code>(obj); // возвращает массив со всеми свойствами (независимо от того, перечисляемые они или нет)
+</code></pre>
+
+<bg-list>in</bg-list> <bg-list>hasOwnProperty</bg-list>
+<pre><code class="js">
+var a = obj.name;                        // проверка наличия свойсва 'name' в объекте (не различает отсутствующие свойства и те что были установлен в undefined)
+var a = 'name' <bg-code>in</bg-code> obj;                   // проверка наличия свойсва 'name' в объекте (различает отсутствующие свойства и те что были установлен в undefined)
+var a = obj.<bg-code>hasOwnProperty</bg-code>('name');      // проверка наличия свойства 'name' в объекте (не берет наследованные свойства)
 </code></pre>
 
 <!------------------------------------------------------>
-<h3>for..in перебор ключей</h3>
+<h3>Перебор объекта</h3>
 <!------------------------------------------------------>
-<pre><code class="js">
-for(let key <bg-code>in</bg-code> person) {
-	console.log(key);         // ключи 
-	console.log(person[key]); // значения
-} 
-</code></pre>
-
+<bg-list>for..in</bg-list>
 <ul class="list-point">
 	<li>Порядок перебора соответствует порядку объявления для нечисловых ключей, а числовые или числовые строки сортируются</li>
 </ul>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="obj-methods">Методы</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
-var a = Object.<bg-code>keys</bg-code>(person);                // возвращает массив из собственных перечисляемых свойств переданного объекта
-var a = Object.<bg-code>keys</bg-code>(person).<bg-code>length</bg-code>;         // количество свойств
-var a = Object.<bg-code>getOwnPropertyNames</bg-code>(person); // возвращает массив со всеми свойствами (независимо от того, перечисляемые они или нет)
-var a = person.<bg-code>hasOwnProperty</bg-code>(prop);        // указывает, содержит ли объект свойство (не берет наследованные свойства)
+for(let key <bg-code>in</bg-code> obj) {
+	console.log(key);      // ключи 
+	console.log(obj[key]); // значения
+} 
 </code></pre>
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -209,17 +202,17 @@ tesla; // Object { x: 10, y: 20 }
 </code></pre>
 
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="obj-prototype">Прототип</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>У каждого <u>объекта</u> есть <u>прототип</u>, от которого он наследует <u>свойства</u> и <u>методы</u>. Если объект не включает в себя запрошенное свойство, JavaScript выполнит поиск этого свойства в прототипе объекта. При этом поиск будет выполняться по <u>цепочке прототипов</u> до тех пор, пока не будет найдено то, что нужно. Если же поиск успехом не увенчается, будет возвращена ошибка</li>
-</ul>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="obj-prototype-create">Создание прототипа</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<b>ПРОТОТИП</b>
+	<li>У каждого <u>объекта</u> есть <u>прототип</u>, от которого он наследует <u>свойства</u> и <u>методы</u>. Если объект не включает в себя запрошенное свойство, JavaScript выполнит поиск этого свойства в прототипе объекта. При этом поиск будет выполняться по <u>цепочке прототипов</u> до тех пор, пока не будет найдено то, что нужно. Если же поиск успехом не увенчается, будет возвращена ошибка</li>
+	<br>
+</ul>
+
 
 <pre><code class="js">
 <bg-code>Object.create()</bg-code>         // добавление прототипа при создании объекта
@@ -266,6 +259,24 @@ Human.<bg-code>isPrototypeOf</bg-code>(Megahuman); // является ли об
 </code></pre>
 
 <!------------------------------------------------------>
+<h3>Удаление свойств</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+// объект
+var Human = {
+	type: "Human",
+	head: 1,
+	legs: 2
+};
+
+// прототип
+var Megahuman = Object.create(Human);
+Megahuman.head = 2; // 2
+delete Megahuman.head;
+Megahuman.head;     // 1
+</code></pre>
+
+<!------------------------------------------------------>
 <h3>Конструктор прототипа</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
@@ -307,30 +318,34 @@ console.log(developer.name);
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="obj-delete">Удаление свойств</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
-// объект
-var Human = {
-	type: "Human",
-	head: 1,
-	legs: 2
-};
-
-// прототип
-var Megahuman = Object.create(Human);
-Megahuman.head = 2; // 2
-delete Megahuman.head;
-Megahuman.head;     // 1
-</code></pre>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="descriptor">Дескрипторы свойств</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<p><bg-list>Свойства объекта</bg-list> имеют: <u>имя</u>, <u>значение</u> (атрибут value), <u>атрибуты</u> (writable, enumerable, configurable)</p>
 
-<h4>Переопределение дескриптора свойств</h4>
+<ul class="list-point">
+	<li><bg-list>Свойства объекта</bg-list> имеют: <u>имя</u>, <u>значение</u> (атрибут value), <u>атрибуты</u> (writable, enumerable, configurable)</li>
+</ul>
+
+<pre><code class="js">
+Object.<bg-code>getOwnPropertyDescriptor</bg-code>(obj, 'name');  // получение дескриптора свойств
+Object.<bg-code>defineProperty</bg-code>(obj, prop, descriptor);  // переопределение дескриптора свойств
+Object.<bg-code>defineProperties</bg-code>(obj, descriptors);     // позволяет объявить сразу несколько свойств
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Получение дескриптора свойств</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var person = {
+	name: 'Tony',
+	age: 20
+}
+var a = Object.<bg-code>getOwnPropertyDescriptor</bg-code>(person, 'name');
+// {value: "Tony", writable: true, enumerable: true, configurable: true } 
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Переопределение дескриптора свойств</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 Object.<bg-code>defineProperty</bg-code>(obj, prop, descriptor)
 	obj        // объект, в котором объявляется свойство
@@ -341,12 +356,16 @@ Object.<bg-code>defineProperty</bg-code>(obj, prop, descriptor)
 <pre><code class="js">
 // 1-объект, 2-свойство, 3-дескриптор
 Object.<bg-code>defineProperty</bg-code>(person, 'name', {
-	value: 'Jack',       // значение свойства (по умолчанию undefined)
-	writable: false,     // значение свойства можно менять (по умолчанию false)
-	configurable: false, // возможность удаление свойства и изменения атрибутов свойства при помощи новых вызовов defineProperty (по умолчанию false)
-	enumerable: false    // свойство просматривается в цикле for..in и методе Object.keys() (по умолчанию false)
+	<bg-light>value</bg-light>: 'Jack',       // значение свойства (по умолчанию undefined)
+	<bg-light>writable</bg-light>: false,     // значение свойства можно менять (по умолчанию false)
+	<bg-light>configurable</bg-light>: false, // возможность удаление свойства и изменения атрибутов свойства при помощи новых вызовов defineProperty (по умолчанию false)
+	<bg-light>enumerable</bg-light>: false,   // свойство просматривается в цикле for..in и методе Object.keys() (по умолчанию false)
+	<bg-light>get()</bg-light> {}             // функция, которая возвращает значение свойства (по умолчанию undefined)
+	<bg-light>set()</bg-light> {}             // функция, которая записывает значение свойства (по умолчанию undefined)
 });
 </code></pre>
+
+<h4>Объект с парами свойсво:дескриптор</h4>
 <pre><code class="js">
 // 1-объект, 2-объект с парами свойсво:дескриптор
 Object.<bg-code>defineProperties</bg-code>(person, {
@@ -361,25 +380,39 @@ Object.<bg-code>defineProperties</bg-code>(person, {
 });
 </code></pre>
 
-<h4>Получение дескриптора свойств</h4>
+<h4>Обычное свойство</h4>
 <pre><code class="js">
-var person = {
-	name: 'Tony',
-	age: 20
-}
-var a = Object.<bg-code>getOwnPropertyDescriptor</bg-code>(person, 'name');
-// {value: "Tony", writable: true, enumerable: true, configurable: true } 
+// оба вызова добавляют в объект user обычное (удаляемое, изменяемое, перечисляемое) свойство
+var user = {};
+user.name = 'Tony';
+Object.defineProperty(user, 'name', { value:'Tony', configurable:true, writable:true, enumerable:true });
 </code></pre>
 
+<!------------------------------------------------------>
+<h3>Геттеры и сеттеры</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var user = {
+	firstName: "Вася",
+	surname: "Петров"
+}
 
+Object.defineProperty(user, "fullName", {
+	get() {
+		return this.firstName + ' ' + this.surname;
+	},
+	set(value) {
+		var split = value.split(' ');
+		this.firstName = split[0];
+		this.surname = split[1];
+	}
+});
 
-
-
-
-
-
-
-
+user.fullName = "Петя Иванов";
+alert(user.fullName);   // Вася Петров
+alert(user.firstName ); // Петя
+alert(user.surname );   // Иванов
+</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -394,13 +427,13 @@ var person = {
 	age: 20
 }
 
-Object.<bg-code>preventExtensions</bg-code>(person);    // задает объект нерасширяемым (применяется только к самому объекту)
+Object.<bg-code>preventExtensions</bg-code>(person);    // запрещает добавление свойств в объект (применяется только к самому объекту)
 var a = Object.<bg-code>isExtensible</bg-code>(person); // проверяет применение preventExtensions
 
-Object.<bg-code>seal</bg-code>(person);                 // аналогичен preventExtensions, дополнительно задает атрибут configurable=false для всех свойств
+Object.<bg-code>seal</bg-code>(person);                 // аналогичен preventExtensions, дополнительно задает атрибут configurable:false для всех свойств
 var a = Object.<bg-code>isSealed</bg-code>(person);     // проверяет применение seal
 
-Object.<bg-code>freeze</bg-code>(person);               // аналогичен seal, дополнительно делает все свойства доступные только для чтения
+Object.<bg-code>freeze</bg-code>(person);               // аналогичен seal, дополнительно делает все свойства доступные только для чтения (configurable:false, writable:false)
 var a = Object.<bg-code>isFrozen</bg-code>(person);     // проверяет применение freeze
 </code></pre>
 
