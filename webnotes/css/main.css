@@ -213,6 +213,17 @@ code a, ul a {
 	border-bottom: 1px solid #690;
 	color: #690 !important;
 }
+code.light {
+	background: none !important;
+}
+pre.inline {
+	display: inline-block;
+}
+pre.inline > code {
+	margin: 0 !important;
+	padding: 0 10px !important;
+	line-height: inherit;
+}
 u {
 	text-decoration: none;
 	border-bottom: 1px dashed #8a6ac4;
@@ -290,6 +301,7 @@ LIST
 .list-inline li {
 	margin: 10px;
 }
+
 
 /***************************************************
 CONTAINERS

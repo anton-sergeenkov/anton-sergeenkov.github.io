@@ -55,15 +55,17 @@
 	<a href="#methods-this"><bg-menu>this</bg-menu> <bg-menu>call</bg-menu> <bg-menu>apply</bg-menu> <bg-menu>bind</bg-menu></a>
 	<a href="#css"><bg-menu>classList</bg-menu> <bg-menu>style</bg-menu></a>
 	<a href="#attribute"><bg-menu>attributes</bg-menu></a>
-	<a href="#json">JSON</a>
-	<a href="#form">Web Forms</a>
-	<a href="#dom-element">DOM элементы</a>
-	<a href="#select">Выборка элементов</a>
-	<a href="#methods">Методы элементов страницы</a>
-	<a href="#type">Типы данных</a>
+	<a href="#typeof"><bg-menu>typeof</bg-menu></a>
+	<a href="#timeout"><bg-menu>setTimeout</bg-menu> <bg-menu>setInterval</bg-menu></a>
+	<a href="#json"><bg-menu>JSON</bg-menu></a>
 	<a href="#str">Строки</a>
 	<a href="#number">Числа</a>
-
+	<a href="#type">Типы данных</a>
+	<a href="#select">Выборка элементов</a>
+	<a href="#methods">Методы элементов страницы</a>
+	<a href="#dom-element">DOM элементы</a>
+	<a href="#form">Web Forms</a>
+	
 	<div class="theme">Client Data</div>
 	<a href="#data-storage"><bg-menu>localStorage</bg-menu> <bg-menu>sessionStorage</bg-menu></a>
 	<a href="#data-db"><bg-menu>IndexedDB</bg-menu></a>
@@ -71,9 +73,15 @@
 
 	<div class="theme">Advanced</div>
 	<a href="#patterns">Паттерны проектирования</a>
+	<a href="#wrappers">Object Wrappers</a>
+	<a href="#decorator">Декораторы</a>
+	<a href="#architecture">Архитектура среды выполнения JS</a>
+	<a href="#oop">ООП</a>
 	<a href="#function-pro">Функциональное программирование</a>
 	<a href="#garbage-collection">Сборщик мусора</a>
 	<a href="#regexr">Регулярные выражения</a>
+	<a href="#let-const"><bg-menu>var</bg-menu> <bg-menu>let</bg-menu> <bg-menu>const</bg-menu></a>
+	<a href="#eval"><bg-menu>eval</bg-menu></a>
 
 	<div class="theme">Window</div>
 	<a href="#web-api">Web API</a>
@@ -87,7 +95,6 @@
 	<a href="#catch">Исключения</a>
 	<a href="#date">Дата и время</a>
 	<a href="#case">Условные операторы</a>
-	<a href="#timeout">Таймеры</a>
 	<a href="#external-script">Асинхронные скрипты: defer/async</a>
 	<a href="#comparison">Сравнение и логические значения</a>
 	<a href="#console">Console</a>
@@ -777,24 +784,6 @@ function upperName(literals, value) {
 <p>Специальные числовые значения <bg-list>Infinity</bg-list> и <bg-list>NaN</bg-list></p>
 
 <!------------------------------------------------------>
-<h3>typeof - возвращает тип аргумента</h3>
-<!------------------------------------------------------>
-<pre><code class="js">
-typeof undefined    // "undefined"
-typeof 0            // "number"
-typeof true         // "boolean"
-typeof 'foo'        // "string"
-typeof {}           // "object"
-typeof null         // "object" (*)
-typeof function(){} // "function" (*)
-</code></pre>
-
-<pre><code class="js">
-// проверка поддержки свойств
-typeof addEventListener !== 'undefined'
-</code></pre>
-
-<!------------------------------------------------------>
 <h3>Преобразование типов</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
@@ -830,9 +819,11 @@ var a = new Number(77);
 var a = new Boolean(true);
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>Object Wrappers</h3>
-<!------------------------------------------------------>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="wrappers">Object Wrappers</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 typeof 'string';             // "string"
 typeof new String('string'); // "object"
@@ -856,6 +847,28 @@ console.log(str.valueOf());
 	<li>Переменная совершают поднятие hoisting, но значение будет undefined</li>
 </ul>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="typeof">typeof</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h4>typeof - возвращает тип аргумента</h4>
+<pre><code class="js">
+typeof 0            // "number"
+typeof 'foo'        // "string"
+typeof true         // "boolean"
+typeof undefined    // "undefined"
+typeof null         // "object" (*)
+typeof {}           // "object"
+typeof []           // "object"
+typeof new Date     // "object"
+typeof function(){} // "function" (*)
+</code></pre>
+
+<pre><code class="js">
+// проверка поддержки свойств
+typeof addEventListener !== 'undefined'
+</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1163,6 +1176,13 @@ arr.sort(function(a, b) {
   if (a < b) return -1;	
 });
 console.log(arr);  // 1, 2, 15
+</code></pre>
+
+<bg-list>Array.isArray()</bg-list>
+<pre><code class="js">
+// проверка на массив
+var a = Array.<bg-code>isArray</bg-code>([1,2,3]); // true
+var b = Array.<bg-code>isArray</bg-code>("not array"); // false
 </code></pre>
 
 <h3>Примеры</h3>
@@ -1693,36 +1713,67 @@ try {
 <h2 id="timeout">Таймеры</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<ul class="list-point">
+	<li>Минимальная задержка таймера от 0 до 4мс</li>
+</ul>
+
 <!------------------------------------------------------>
 <h3>setTimeout</h3>
 <!------------------------------------------------------>
-<ul class="list">
-	<b>setTimeout(code, time);</b> - однократное выполнение кода через некоторое время
-	<li><bg-list>code</bg-list> - код или функция</li>
-	<li><bg-list>time</bg-list> - время в миллисекундах, которое должно пройти до выполнения кода (1000 миллисекунд = 1 секунда)</li>
-</ul>
+<pre><code class="js light">
+<bg-list>setTimeout(func/code, delay, [arg1, arg2...])</bg-list> // однократное выполнение кода через некоторое время
+	<em>&#8226; func/code</em>   // функция или строка кода для исполнения
+	<em>&#8226; delay</em>       // задержка в миллисекундах, 1000 миллисекунд равны 1 секунде
+	<em>&#8226; arg1, arg2…</em> // aргументы, которые нужно передать функции
+<bg-list>clearTimeout</bg-list>(timerId); // останавливает исполнение setTimeout (timerId - числовой идентификатор таймера)
+</code></pre>
 
 <pre><code class="js">
-var timer = setTimeout("console.log('go');", 1000);
-var timer = setTimeout(function() { console.log('go'); }, 1000);
-var timer = setTimeout(func, 1000);
+// если первый аргумент является строкой, то интерпретатор создаёт анонимную функцию из этой строки
+var timer = <bg-code>setTimeout</bg-code>("console.log('go');", 1000);
+// анонимная функция
+var timer = <bg-code>setTimeout</bg-code>(function() { console.log('go'); }, 1000);
+// функция
+var timer = <bg-code>setTimeout</bg-code>(func, 1000);
 
-function func () {
+function func() {
     console.log('go');
 }
 
-clearTimeout(timer); // отменяет выполнение setTimeout
+<bg-code>clearTimeout</bg-code>(timer);
 </code></pre>
+
+<h4>Передача аргументов</h4>
+<pre><code class="js">
+setTimeout(func, 1000, 'Привет', 'Tony'); // Привет Tony
+function func(phrase, who) {
+	console.log(phrase + ' ' + who);
+}
+</code></pre>
+
+<h4>Рекурсивный setTimeout (альтернатива setInterval)</h4>
+<pre><code class="js">
+var timerId = setTimeout(function tick() {
+	console.log( "тик" );
+	timerId = setTimeout(tick, 2000);
+}, 2000);
+</code></pre>
+
 
 <!------------------------------------------------------>
 <h3>setInterval</h3>
 <!------------------------------------------------------>
-<pre><code class="js">
-setInterval();   // повторение выполнения кода через определенное время
-clearInterval(); // отменяет выполнение setInterval()
+<pre><code class="js light">
+<bg-list>setInterval(func/code, delay, [arg1, arg2...])</bg-list> // повторение выполнения кода через определенное время
+	<em>&#8226; func/code</em>   // функция или строка кода для исполнения
+	<em>&#8226; delay</em>       // задержка в миллисекундах, 1000 миллисекунд равны 1 секунде
+	<em>&#8226; arg1, arg2…</em> // aргументы, которые нужно передать функции
+<bg-list>clearInterval(timerId)</bg-list> // останавливает исполнение setInterval (timerId - числовой идентификатор таймера)
+</code></pre>
 
-var timer = setInterval("console.log('go');", 1000);
-clearInterval(timer); // остановка setInterval
+<pre><code class="js">
+var timer = <bg-code>setInterval</bg-code>("console.log('go');", 1000);
+<bg-code>clearInterval</bg-code>(timer);
 </code></pre>
 
 
@@ -2335,6 +2386,8 @@ document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; doma
 	<li>Любая функция может иметь в себе <u>this</u>. Если функция использует <u>this</u> - это подразумевает работу с объектом</li>
 	<li><bg-list>this</bg-list> - это текущий объект при вызове «через точку» и новый объект при конструировании через <u>new</u></li>
 	<li><u>Функции</u> не привязаны к своему контексту <u>this</u></li>
+	<li>В глобальном контексте this указывает на глобальный объект, в функциональном контексте this указывает на контекст, откуда функция вызвана</li>
+	<li>В функции, обрабатывающей событие <u>DOM</u>, <u>this</u> указывает на <u>DOM</u> элемент, который вызвал событие</li>
 </ul>
 
 <h4>Значение this устанавливается в зависимости от того, как вызвана функция</h4>
@@ -2373,6 +2426,7 @@ func.call(context, arg1, arg2, ...)
 <ul class="list-point">
 	<li><u>all/apply</u> вызывают функцию с заданным контекстом и аргументами</li>
 	<li><u>bind</u> не вызывает функцию, а только возвращает «обёртку», которая передаст вызов в исходную функцию, с привязанным контекстом</li>
+	<li><u>Function.prototype.bind</u> возвращает копию функции, заменяя при этом упоминающиеся в ней <u>this</u> на объект, указанный в аргументе. На функции, возвращенной методом bind, нельзя использовать bind еще раз</li>
 </ul>
 
 <pre><code class="js">
@@ -2489,11 +2543,21 @@ var str2 = str1
 <h2 id="json">JSON</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<ul class="list">
+<ul class="list-point">
 	<li><bg-list>JSON</bg-list> - JavaScript Object Notation</li>
 	<li><bg-list>Сериализация объектов</bg-list> - преобразование объектов в строки</li>
 	<li><bg-list>В JSON можно хранить</bg-list> - объекты, массивы, строки, числа true, false, null. Другие значения при сериализации превращаются в null</li>
 </ul>
+
+<pre><code class="js light">
+<bg-list>JSON.parse(str, reviver)</bg-list> // преобразует строку с данными в формате JSON в JavaScript-объект/массив/значение
+	<em>&#8226; str</em>     // строка с данными в формате JSON
+	<em>&#8226; reviver</em> // задание правила, функция function(key, value)
+<bg-list>JSON.stringify(value, replacer, space)</bg-list> // преобразует («сериализует») значение в JSON-строку
+	<em>&#8226; value</em>    // значение
+	<em>&#8226; replacer</em> // массив свойств, которые подлежат сериализации
+	<em>&#8226; space</em>    // форматирование. если число, то уровни вложенности в JSON оформляются указанным количеством пробелов, если строка, то вставляется эта строка
+</code></pre>
 
 <pre><code class="js">
 var user = {
@@ -2503,9 +2567,11 @@ var user = {
 var userData = <bg-code>JSON.stringify</bg-code>(user); // объект в JSON ("{"name":"Tony","id":25}")
 var userObj = <bg-code>JSON.parse</bg-code>(userData);  // JSON в строку
 </code></pre>
-	
+
+<h4>Метод toJSON</h4>
 <pre><code class="js">
 // если в объекте есть метод toJSON при преобразовани stringify данные будут браться из него
+// если такого метода нет - перечисляются его свойства, кроме функций
 var user = {
     name: 'Tony',
     id: 25,
@@ -2517,7 +2583,67 @@ var user = {
 }
 var userData = JSON.stringify(user); // объект в JSON ("{"name":"Tony"}")
 </code></pre>
-	
+
+<h4>JSON.parse(str, reviver). Умный разбор</h4>
+<ul class="list-point">
+	<li>Для интеллектуального восстановления из строки у JSON.parse(str, reviver) есть второй параметр reviver, который является функцией <e>function(key, value)</e></li>
+	<li>Если она указана, то в процессе чтения объекта из строки JSON.parse передаёт ей по очереди все создаваемые пары ключ-значение и может возвратить либо преобразованное значение, либо undefined, если его нужно пропустить</li>
+</ul>
+<pre><code class="js">
+var str = '{"title":"Конференция","date":"2014-11-30T12:00:00.000Z"}';
+var event = JSON.parse(str, function(key, value) {
+	if (key == 'date') return new Date(value);
+	return value;
+});
+alert( event.date.getDate() );
+</code></pre>
+
+<h4>JSON.stringify. Исключение свойств</h4>
+<pre><code class="js">
+var user = {
+	name: "Вася",
+	age: 25,
+	window: window
+};
+alert( JSON.stringify(user, ["name", "age"]) ); // {"name":"Вася","age":25}
+</code></pre>
+
+<h4>JSON.stringify. Исключение свойств (передача функции)</h4>
+<ul class="list-point">
+	<li>Вторым параметром можно передать функцию <u>function(key, value)</u>, которая возвращает сериализованное <u>value</u> либо <u>undefined</u>, если его не нужно включать в результат</li>
+	<li>Функция replacer работает рекурсивно. Если объект содержит вложенные объекты, массивы и т.п., то все они пройдут через replacer</li>
+</ul>
+<pre><code class="js">
+var user = {
+	name: "Вася",
+	age: 25,
+	window: window
+};
+var str = JSON.stringify(user, function(key, value) {
+	if (key == 'window') return undefined;
+	return value;
+});
+alert( str ); // {"name":"Вася","age":25}
+// функция пропустит свойство с названием window
+// для остальных она возвращает значение, передавая его стандартному алгоритму
+</code></pre>
+
+<h4>JSON.stringify. Форматирование</h4>
+<pre><code class="js">
+var user = {
+	name: "Вася",
+	age: 25,
+	roles: {
+		isAdmin: false,
+		isEditor: true
+	}
+};
+
+var str = JSON.stringify(user, "", 4); // => отформатированный текст
+</code></pre>
+
+
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="strict-mode">Strict Mode</h2>
@@ -3363,7 +3489,7 @@ function Car(name) {
 }
 
 // создание нового объекта, который планируется декорировать
-const tesla= new Car('Tesla Model 3');
+const tesla = new Car('Tesla Model 3');
 
 // декорирование объекта - добавление нового функционала
 tesla.setColor = function(color) {
@@ -3678,7 +3804,8 @@ function pow(x, n) {
 	<li><bg-list>Сборщик мусора</bg-list> идёт от корня по ссылкам и запоминает все найденные объекты. По окончанию - он смотрит, какие объекты в нём отсутствуют и удаляет их</li>
 	<li><bg-list>Применение оптимизации интерпретаторами</bg-list> - деление объектов на два вида «старые» и «новые». Для каждого типа выделяется своя область памяти. Каждый объект создаётся в «новой» области и, если прожил достаточно долго, мигрирует в старую. «Новая» область обычно небольшая. Она очищается часто. «Старая» – редко</li>
 	<li><bg-list>Замыкания</bg-list> <u>LexicalEnvironment</u> внешней функции существует в памяти до тех пор, пока существует хоть одна внутренняя функция, ссылающаяся на него через свойство <u>[[Scope]]</u></li>
-	<li><bg-list>Оптимизация в V8</bg-list>JS-движки делают оптимизации <u>замыканий</u> по памяти. Они анализируют использование переменных и в случае, когда переменная из замыкания абсолютно точно не используется, удаляют её</li>
+	<li><bg-list>Оптимизация в V8</bg-list> JS-движки делают оптимизации <u>замыканий</u> по памяти. Они анализируют использование переменных и в случае, когда переменная из замыкания абсолютно точно не используется, удаляют её</li>
+	<li><bg-list>clearTimeout / setInterval</bg-list> Сборщик мусора не чистит функции, назначенные в таймерах, пока таймеры актуальны</li>
 </ul>
 
 <h4>Очистка памяти</h4>
@@ -3700,6 +3827,166 @@ user = null;
 </ul>
 
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="let-const">var let const</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>var</h3>
+<!------------------------------------------------------>
+<p><bg-list>1</bg-list> Переменная видна до объявления</p>
+<ul class="list-point">
+	<li><u>Инициализируются</u> значением <u>undefined</u> прямо когда создается связывание в начале <u>scope</u></li>
+</ul>
+<pre><code class="js">
+alert(a); // undefined
+var a = 77;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>let и const</h3>
+<!------------------------------------------------------>
+<p><bg-list>1</bg-list> Блочная область видимости</p>
+
+<p><bg-list>2</bg-list> Переменная видна только после объявления</p>
+<ul class="list-point">
+	<li><u>Остаются неинициализированными</u>. <u>Инициализируются</u> только в момент выполнения выражений let/const/class, все перед этим (выше) называется временная мертвая зона (<u>temporal dead zone</u>) - время между созданием переменной scope и инициализацией</li>
+</ul>
+<pre><code class="js">
+alert(a); // ReferenceError: a is not defined
+let a = 77;
+</code></pre>
+
+<p><bg-list>3</bg-list> Нельзя повторно объявлять</p>
+<pre><code class="js">
+let x;
+let x; // SyntaxError: Identifier 'x' has already been declared
+</code></pre>
+
+<p><bg-list>4</bg-list> При использовании в цикле, для каждой итерации создаётся своя переменная</p>
+
+<!------------------------------------------------------>
+<h3>const</h3>
+<!------------------------------------------------------>
+<p><bg-list>1</bg-list> Могут быть присвоены только в части инициализатора определения</p>
+<pre><code class="js">
+const one = 1;
+</code></pre>
+
+<p><bg-list>2</bg-list> Изменение элементов объектов и массивов</p>
+<pre><code class="js">
+const user = {
+	name: 'Tony'
+};
+user.name = 'Jack'; // допустимо
+user = 5;           // ошибка
+</code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="architecture">Архитектура среды выполнения JS</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Архитектура среды выполнения JS на примере движка V8, который используется в Chrome и Node</li>
+	<li><bg-list>Heap</bg-list> - <u>область памяти</u>, содержит объекты, на которые ссылаются переменные программы</li>
+	<li><bg-list>Call Stack</bg-list> - <u>стек вызовов</u> это LIFO структура (последний вошедший выходит первым). В данный стек помещаются и удаляются функции по мере выполнения программы. Синхронные функции помещаются в стек вызова сразу. Асинхронные откладываются в специальную таблицу - Event Table, где ожидают дальнейшей обработки, чтобы не блокировать процесс выполнения программы</li>
+	<li><bg-list>Event Table</bg-list> - <u>таблица</u> в которой находится информация о том, по какому событию необходимо поместить функцию в Event Queue (очередь событий)</li>
+	<li><bg-list>Event Queue</bg-list> - <u>очередь событий</u> - это FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
+	<li><bg-list>Event Loop</bg-list> - <u>цикл событий</u> - это цикл, который непрерывно проверяет есть ли функции в очереди событий и помещает их в стек вызова. Срабатывает когда стек вызовов пуст</li>
+	<li>Event Table и Event Queue являются частью Web Api, который реализуют браузеры для того, чтобы использовать такие возможности, как асинхронные запросы, таймеры, обрабатывать DOM события и другое асинхронное поведение. Это не является стандартным функционалом JavaScript и в различных средах данное API может быть реализовано по разному</li>
+</ul>
+
+<p>Event Loop (порядок выполнения кода, сначала синхронный потом асинхронный)</p>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="decorator">Декораторы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Декоратор - приём программирования, который позволяет взять существующую функцию и изменить/расширить ее поведение</li>
+	<li>Декоратор получает функцию и возвращает обертку, которая делает что-то своё «вокруг» вызова основной функции</li>
+</ul>
+
+<h4>Пример #1. Декоратор проверки доступа</h4>
+<pre><code class="js">
+function checkPermissionDecorator(f) {
+	return function() {
+		if (isAdmin()) {
+			return f.apply(this, arguments);
+		}
+			alert( 'Недостаточно прав' );
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+function save() { ... }
+
+save = checkPermissionDecorator(save);
+// Теперь вызов функции save() проверяет права
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="oop">ООП</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<b>Механизмы</b>
+	<li><bg-list>Инкапсуляция</bg-list> - механизм языка, позволяющий ограничить доступ одних компонентов программы к другим</li>
+	<li><bg-list>Наследование</bg-list> - класс может наследовать данные и функциональность некоторого существующего типа, способствуя повторному использованию компонентов</li>
+	<li><bg-list>Полиморфизм</bg-list> - возможность объектов с одинаковой спецификацией иметь различную реализацию. «Один интерфейс, множество реализаций»</li>
+	<li><bg-list>Абстракция</bg-list> - придание объекту характеристик, которые чётко определяют его концептуальные границы, отличая от всех других объектов. Основная идея состоит в том, чтобы отделить способ использования составных объектов данных от деталей их реализации в виде более простых объектов</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="eval">eval</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-list>eval(code)</bg-list> выполняет код, переданный ей в виде строки и возвращает последнее вычисленное выражение</li>
+	<li>Код будет выполнен в <u>текущей области видимости</u></li>
+</ul>
+
+<h4>Выполнение кода</h4>
+<pre><code class="js">
+var a = 1;
+(function() {
+	var a = 2;
+	eval('alert(a)'); // 2
+})()
+</code></pre>
+
+<h4>Вызов eval возвращает последнее вычисленное выражение</h4>
+<pre><code class="js">
+var a = eval('1+1'); // 2
+</code></pre>
+
+<h4>При вызове eval имеет полный доступ к локальным переменным (<u>не рекомендуется</u>)</h4>
+<pre><code class="js">
+var x = 5;
+eval("alert(x); x = 10"); // 5, доступ к старому значению
+alert(x);                 // 10, значение изменено внутри eval
+</code></pre>
+
+<h4>В строгом режиме eval имеет свою область видимости</h4>
+<pre><code class="js">
+"use strict";
+eval("var a = 5; function f() { }");
+alert(a); // ошибка, переменная не определена
+// функция f тоже не видна снаружи
+// eval имеет свою область видимости, а к внешним переменным обращается через замыкание, аналогично тому, как работают обычные функции
+</code></pre>
+
+<h4>Запуск скрипта в глобальной области</h4>
+<pre><code class="js">
+var a = 1;
+(function() {
+	var a = 2;
+	<bg-code>window.eval</bg-code>(' alert(a) '); // 1, выполнено глобально везде
+})();
+</code></pre>
 
 
 
