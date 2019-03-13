@@ -991,11 +991,62 @@ var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
 <!------------------------------------------------------>
 <h3>Свойство constructor</h3>
 <!------------------------------------------------------>
-<ul class="list-point">
-	<li>У каждой функции по умолчанию есть свойство <u>prototype</u>, содержащее объект: <bg-list>MyFunc.prototype = { constructor: MyFunc };</bg-list></li>
-</ul>
+<h4>Свойство constructor по умолчанию</h4>
+<pre><code class="js">
+// у каждой функции по умолчанию есть свойство prototype, содержащее объект
+function MyFunc() {}
+MyFunc.prototype = { 
+	<bg-code>constructor</bg-code>: MyFunc 
+};
+var a = new MyFunc(); // => MyFunc {} __proto__: constructor: ƒ MyFunc()
+</code></pre>
 
+<h4>Перезапись свойства constructor</h4>
+<pre><code class="js">
+function MyFunc() {}
+MyFunc.prototype = { 
+	jumps: true 
+};
+var a = new MyFunc(); // => MyFunc {} __proto__: jumps: true 
+</code></pre>
 
+<h4>Создание объекта с тем же конструктором, что и данный</h4>
+<pre><code class="js">
+function User(name) {
+    this.name = name;
+    console.log(name);
+}
+var user1 = new User('Tony');
+var user2 = new user1.<bg-code>constructor</bg-code>('Jack');
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Полифил Object.create</h3>
+<!------------------------------------------------------>
+<h4>Исходный Object.create()</h4>
+<pre><code class="js">
+var objFirst = {
+    name: 'Tony'
+};
+var objSecond = Object.create(objFirst); // => {} __proto__: name: "Tony"
+</code></pre>
+
+<h4>Полифил</h4>
+<pre><code class="js">
+var objFirst = {
+    name: 'Tony'
+};
+
+//if (!Object.create) Object.create = inherit; // проверка поддержки Object.create
+var objSecond = inherit(objFirst); // => {} __proto__: name: "Tony"
+
+function inherit(proto) {
+    function F() {}       // Создана новая функция F. Она ничего не делает с this, так что если вызвать new F, то получим пустой объект
+    F.prototype = proto;  // Свойство F.prototype устанавливается в будущий прототип proto
+    var object = new F(); // Результатом вызова new F будет пустой объект с __proto__ равным значению F.prototype
+    return object;        // Получили пустой объект с заданным прототипом. Возвратим его
+}
+</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
