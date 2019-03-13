@@ -26,12 +26,23 @@
 	<a href="#obj-constructor">Конструктор создания объекта</a>
 
 	<div class="theme">Классы ES6</div>
-	<a href="#class-create">Создание класса</a>
+	<a href="#class-theory">Теория</a>
+	<a href="#class-create">Объявление</a>
 	<a href="#class-inherit">Наследование</a>
 	<a href="#class-expression">Выражения классов</a>
 
-	<div class="theme">ES5</div>
-	<a href="#class-es5">Классы</a>
+	<div class="theme">ES5 «Функциональный стиль»</div>
+	<a href="#class-es5-theory">Теория</a>
+	<a href="#class-es5-func">Объявление</a>
+	<a href="#class-es5-private">Приватный метод</a>
+	<a href="#class-es5-getters">Геттеры и сеттеры</a>
+	<a href="#class-es5-inherit">Наследование</a>
+	<a href="#class-es5-return">Правила обработки return</a>
+
+	<div class="theme">ES5 «Прототипный стиль»</div>
+	<a href="#class-es5-proto-main">Основное</a>
+	<a href="#class-es5-proto">Объявление</a>
+
 </div>
 <div id="content-wrapper">
 <div id="menu-top"></div>
@@ -569,6 +580,28 @@ alert( +room );      // 777, вызвался toString
 <!-------------------------------------------------------------------------------->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-theory">Теория</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<b>Основное</b>
+	<li><bg-list>Класс</bg-list> - функция/шаблон, предназначенный для создания объектов и методов</li>
+	<li><bg-list>Объект</bg-list> - это экземпляр, представитель класса, т.е. объект, созданный по шаблону со свойствами и методами, указанными в классе</li>
+	<li><bg-list>Конструктор</bg-list> - метод, который вызывается в момент создания объекта т.е. когда используется ключевое слово new он создает свойства и инициализирует, т.е. подготавливает объект к использованию. В классе может быть только 1 конструктор. Если не указать конструктор, то JS создаст пустой конструктор. Свойства указываются только в конструкторе</li>
+	<li><bg-list>Принципы</bg-list> - класс должен отвечать за что-то одно (SOLID. Single Responsibility)</li>
+
+	<b class="margin-top">Статические свойства и методы</b>
+	<li><bg-list>Статические свойства и методы</bg-list> принадлежат самому классу, а не объектам, созданным на его основе</li>
+	<li><bg-list>Статические свойства</bg-list> - используются для хранения вспомогательной информации</li>
+	<li><bg-list>Статические методы</bg-list> - используются для создания вспомогательных функций. task.getDefaultColor(); нельзя вызывать напрямую</li>
+
+	<b class="margin-top">Геттеры и Сеттеры</b>
+	<li><bg-list>Геттеры и Сеттеры</bg-list> - аксессоры. Внутри класса выглядят и ведут себя как методы, а снаружи выглядят и ведут себя как свойства. Эти свойства-методы позволяют получить доступ и присвоить значения "настоящим" свойствам объекта, т.е. выступают в роли фильтра. Названия свойств get и set не должны совпадать с названиями основных свойств объекта</li>
+	
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="class-create">Создание класса</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -624,17 +657,6 @@ Task.prototype.toString = function() {
 	return this.name;
 }
 </code></pre>
-
-<ul class="list">
-	<li><bg-list>Классы</bg-list> - это функции, которые создают объекты</li>
-	<li><bg-list>Объект</bg-list> - это экземпляр, представитель класса, т.е. объект, созданный по шаблону со свойствами и методами, указанными в классе</li>
-	<li><bg-list>Конструктор</bg-list> - метод, который вызывается в момент создания объекта т.е. когда используется ключевое слово new он создает свойства и инициализирует, т.е. подготавливает объект к использованию. В классе может быть только 1 конструктор. Если не указать конструктор, то JS создаст пустой конструктор. Свойства указываются только в конструкторе</li>
-	<li><bg-list>Статические свойства и методы</bg-list> принадлежат самому классу, а не объектам, созданным на его основе</li>
-	<li><bg-list>Статические свойства</bg-list> - используются для хранения вспомогательной информации</li>
-	<li><bg-list>Статические методы</bg-list> - используются для создания вспомогательных функций. task.getDefaultColor(); нельзя вызывать напрямую</li>
-	<li><bg-list>Геттеры и Сеттеры</bg-list> - аксессоры. Внутри класса выглядят и ведут себя как методы, а снаружи выглядят и ведут себя как свойства. Эти свойства-методы позволяют получить доступ и присвоить значения "настоящим" свойствам объекта, т.е. выступают в роли фильтра. Названия свойств get и set не должны совпадать с названиями основных свойств объекта</li>
-	<li>Класс должен отвечать за что-то одно (SOLID. Single Responsibility)</li>
-</ul>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -735,64 +757,165 @@ var subtask = new SubTask();
 
 <!-------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------->
-<h1>ES5</h1>
+<h1>ES5. Функциональный паттерн наследования</h1>
 <!-------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="class-es5">Классы</h2>
+<h2 id="class-es5-theory">Теория</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------>
-<h3>Функция-конструктор</h3>
-<!------------------------------------------------------>
 <ul class="list-point">
-	<b>Функция, запущенная через new, делает следующее:</b>
+	<b class="margin-top">Функция, запущенная через new, делает следующее:</b>
 	<li>1. Создаётся новый пустой объект</li>
 	<li>2. Ключевое слово <u>this</u> получает ссылку на этот объект</li>
 	<li>3. Функция выполняется. Как правило, она модифицирует <u>this</u> (т.е. этот новый объект), добавляет методы, свойства</li>
 	<li>4. Возвращается <u>this</u></li>
+
+	<b class="margin-top">Свойства</b>
+	<li><bg-list>Приватные (private)</bg-list> - <u>let prop</u> локальные переменные/методы, включая параметры конструктора. доступн только внутри класса</li>
+	<li><bg-list>Публичные (public)</bg-list> - <u>this.prop</u> свойства/методы, записанные в this класса</li>
+	<li><bg-list>Защищённые (protected)</bg-list> - <u>this._prop</u> начинаются с подчеркивания. доступны внутри класса и для его потомков</li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5-func">Функциональный подход</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
-function User(name, id) {
+function User(name) {
 	this.name = name;
-	this.id = id;
 	this.avatar = 'Photo';
-
-	// функциональный подход
-	this.deleteAvatar = function() {
+	<bg-code>this.deleteAvatar</bg-code> = function() {
 		this.avatar = null;
 	}
 }
-
-// прототипный подход
-User.prototype.deleteAvatar = function() {
-	this.avatar = null;
-}
-
-var user = new User('Jack', 25);
+var user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", deleteAvatar: ƒ}
+user.deleteAvatar();
+console.log(user);           // => User {name: "Jack", avatar: null, deleteAvatar: ƒ}
 </code></pre>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5-private">Приватный метод</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h4>Простой приватный метод и свойство</h4>
 <pre><code class="js">
-function Admin(name, id) {
-	this.name = name;
-	this.id = id;
-	this.avatar = 'Photo';
+function User() {
+    var privateProperty = 77;
+	this.publicMethod = function() {
+        <bg-code>privateMethod</bg-code>();
+    }
+    var <bg-code>privateMethod</bg-code> = function() {
+        console.log('private method call' + privateProperty);
+    }
 }
-
-Admin.prototype = Object.create(User.prototype);
-
-Admin.prototype.changeMyId = function() {
-	this.id = 1;
-}
-
-var admin = new Admin('Admin', 2);
+var user = new User();
+user.publicMethod(); // => 'private method call77
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>Правила обработки return</h3>
-<!------------------------------------------------------>
+<h4>Сохранение this в замыкании</h4>
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+    <bg-code>var self = this;</bg-code>
+	this.publicMethod = function() {
+        privateMethod();
+    }
+    var privateMethod = function() {
+        console.log(<bg-code>self.name</bg-code>);
+    }
+}
+var user = new User();
+user.publicMethod(); // => 'Tony'
+</code></pre>
+
+<h4>Стрелочная функция</h4>
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+	this.publicMethod = function() {
+        privateMethod();
+    }
+    var privateMethod = () => {
+        console.log(this.name);
+    }
+}
+var user = new User();
+user.publicMethod(); 
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5-getters">Геттеры и сеттеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function User() {
+    var count = 0;
+	this.counter = function(i) {
+        // вызов без параметра, значит режим геттера, возвращаем свойство
+        if (!arguments.length) return count;
+        count = i;
+    }
+}
+var user = new User();
+user.counter(77); 
+user.counter(); // => 77
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5-inherit">Наследование</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h4>Без аргументов</h4>
+<pre><code class="js">
+// Admin вызывает функцию User, передавая ей в качестве контекста this текущий объект
+// User, в процессе выполнения, записывает в this свойства и методы, в данном случае this.name
+function User() {
+    this.name = 'Tony';
+}
+function Admin() {
+    <bg-code>User.call(this);</bg-code>
+    this.id = 77;
+}
+var admin = new Admin(); // => Admin {name: "Tony", id: 77}
+</code></pre>
+
+<h4>Передача аргументов</h4>
+<pre><code class="js">
+function User(id, name) {
+	this.id = id;
+	this.name = name;
+}
+function Admin() {
+	<bg-code>User.apply(this, arguments);</bg-code>
+}
+var admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
+</code></pre>
+
+<h4>Переопределение наследованных методов</h4>
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+    this.getName = function() {
+        console.log(this.name);
+    }
+}
+function Admin() {
+    User.call(this);
+    <bg-code>var parentFunc = this.getName;</bg-code>
+    this.getName = function() {
+        <bg-code>parentFunc.call(this);</bg-code> // то что было в this.getName
+        console.log('Jack');   // добавлено в метод getName
+    }
+}
+var admin = new Admin();
+admin.getName(); // => 'Tony', 'Jack'
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5-return">Правила обработки return</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>При вызове <u>return</u> с объектом, будет возвращён он, а не <u>this</u></li>
 	<li>При вызове <u>return</u> с примитивным значением, оно будет отброшено и возвращен <u>this</u></li>
@@ -811,7 +934,102 @@ function BigAnimal() {
 	this.name = "Мышь";
 	return "Годзилла"; // <-- возвратим примитив
 }
-alert( new BigAnimal().name ); // Мышь, получили this (а Годзилла пропал)
+alert( new BigAnimal().name ); // Мышь, получили this (а Годзилла пропала)
+</code></pre>
+
+
+
+<!-------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+<h1>ES5 (прототипный стиль)</h1>
+<!-------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5-proto-main">Основное</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<b>Прототип __proto__ [[Prototype]]</b>
+	<li>Если один объект имеет специальную ссылку <u>__proto__</u> на другой объект, то при чтении свойства из него, если свойство отсутствует в самом объекте, оно ищется в объекте <u>__proto__</u></li>
+	<li>Объект, на который указывает ссылка <u>__proto__</u>, называется <u>«прототипом»</u></li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Методы для работы с __proto__</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+Object.<bg-code>getPrototypeOf</bg-code>(obj);        // возвращает obj.__proto__
+Object.<bg-code>setPrototypeOf</bg-code>(obj, proto); // устанавливает obj.__proto__ = proto
+Object.<bg-code>create</bg-code>(proto, descriptors); // создаёт пустой объект с __proto__, равным первому аргументу, второй содержит дескрипторы свойств
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Свойство prototype</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<b class="margin-top">Свойство prototype</b>
+	<li>При создании объекта через <u>new</u>, в его прототип <u>__proto__</u> записывается ссылка из <u>prototype</u> функции-конструктора</li>
+	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <u>new</u></li>
+	<li>Назначение: указывать <u>__proto__</u> для новых объектов</li>
+	<li>Значением prototype может быть только объект</li>
+	<li>У каждой функции по умолчанию есть свойство <u>prototype</u></li>
+</ul>
+
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+}
+function Admin() {
+    this.id = 77;
+}
+Admin.<bg-code>prototype</bg-code> = new User();
+// Admin.__proto__ = new User();
+var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Свойство constructor</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>У каждой функции по умолчанию есть свойство <u>prototype</u>, содержащее объект: <bg-list>MyFunc.prototype = { constructor: MyFunc };</bg-list></li>
+</ul>
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5-proto">Объявление</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function User(name) {
+	this.name = name;
+	this.avatar = 'Photo';
+}
+<bg-code>User.prototype.deleteAvatar</bg-code> = function() {
+	this.avatar = null;
+}
+var user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", __proto__: deleteAvatar: ƒ () }
+user.deleteAvatar();
+console.log(user);           // => User {name: "Jack", avatar: null, __proto__: deleteAvatar: ƒ ()}
+</code></pre>
+
+
+<h4>Наследование</h4>
+<pre><code class="js red">
+function Admin(name, id) {
+	this.name = name;
+	this.id = id;
+	this.avatar = 'Photo';
+}
+
+Admin.prototype = Object.create(User.prototype);
+
+Admin.prototype.changeMyId = function() {
+	this.id = 1;
+}
+
+var admin = new Admin('Admin', 2);
 </code></pre>
 
 

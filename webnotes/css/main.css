@@ -163,9 +163,10 @@ ELEMENTS
 h1 {
 	text-align: center;
 	margin-top: 20px;
+	font-size: 25px;
 }
 h2 {
-	margin: 5px 0px 20px 0px;
+	margin: 5px 0px 15px 0px;
 	padding: 20px;
 	border-radius: 5px;
 	text-align: center;
@@ -301,7 +302,10 @@ LIST
 .list-inline li {
 	margin: 10px;
 }
-
+.margin-top {
+	display: block;
+	margin-top: 10px;
+}
 
 /***************************************************
 CONTAINERS
@@ -329,17 +333,14 @@ CONTAINERS
 }
 
 
-
-
+/***************************************************
+DELETE
+/***************************************************/
 .code-select {
 	background: rgba(74, 175, 45, 0.2);
 }
 
 
-
-/***************************************************
-DELETE
-/***************************************************/
 .container-flex img.svg {
 	width: 200px;
 	height: 200px;
