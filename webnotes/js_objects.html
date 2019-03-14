@@ -13,17 +13,21 @@
 		<a href="#menu-top">Starter</a>
 	</div>
 
-	<div class="theme">Объекты ES6</div>
-	<a href="#obj-create">Объявление</a>
-	<a href="#obj-methods">Методы</a>
-	<a href="#obj-prototype-create">Прототип</a>
+	<div class="theme">Основное</div>
+	<a href="#obj-main-theory">Теория</a>
+	<a href="#obj-main-methods">Методы</a>
 
+	<div class="theme">Объекты ES6</div>
+	<a href="#obj-create">Литеральная нотация</a>
+	<a href="#obj-for">Перебор объекта</a>
+	<a href="#obj-constructor">Конструктор создания объекта</a>
+	<a href="#obj-prototype-create">Прототип</a>
 	<a href="#descriptor">Дескрипторы свойств</a>
 	<a href="#extends-obj">Расширяемость объектов</a>
 	<a href="#object-conversion"><bg-menu>toString</bg-menu> <bg-menu>valueOf</bg-menu></a>
 
 	<a href="#obj-samples">Примеры</a>
-	<a href="#obj-constructor">Конструктор создания объекта</a>
+	
 
 	<div class="theme">Классы ES6</div>
 	<a href="#class-theory">Теория</a>
@@ -41,8 +45,9 @@
 
 	<div class="theme">ES5 «Прототипный стиль»</div>
 	<a href="#class-es5-proto-main">Основное</a>
-	<a href="#class-es5-proto">Объявление</a>
-
+	<a href="#class-es5-proto-prototype">Свойство prototype</a>
+	<a href="#class-es5-proto-methods">Добавление методов</a>
+	<a href="#class-es5-proto-inherit">Наследование классов</a>
 </div>
 <div id="content-wrapper">
 <div id="menu-top"></div>
@@ -50,13 +55,68 @@
 
 
 
-<img src="img/js/proto.jpg" height="400px" class="center">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-main-theory">Теория</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="img/js/proto.png" height="450px" class="center">
 
 <ul class="list-point">
 	<b>ХРАНЕНИЕ И КОПИРОВАНИЕ</b>
 	<li><u>Примитивные типы данных</u> - хранение и копирование <bg-list>«по значению»</bg-list>. В результате копирования получатся две полностью независимые переменные</li>
 	<li><u>Объекты</u> - хранение и копирование <bg-list>«по ссылке»</bg-list>. В переменной, которой присвоен объект, хранится не сам объект, а «адрес его места в памяти», иными словами – «ссылка» на него. При копировании переменной с объектом – копируется эта ссылка, а объект по-прежнему остается в единственном экземпляре. Получили две переменные, в которых находятся ссылки на один и тот же объект</li>
 </ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="obj-main-methods">Методы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h4>Методы для работы с __proto__</h4>
+<pre><code class="js">
+Object.<bg-code>create</bg-code>(proto, descriptors); // добавление прототипа при создании объекта (создаёт пустой объект с __proto__, равным первому аргументу, второй содержит дескрипторы свойств)
+Object.<bg-code>setPrototypeOf</bg-code>(obj, proto); // добавление прототипа после создания объекта (устанавливает obj.__proto__ = proto)
+Object.<bg-code>getPrototypeOf</bg-code>(obj);        // возвращает obj.__proto__
+</code></pre>
+
+<pre><code class="js">
+ObjChild.<bg-code>isPrototypeOf</bg-code>(ObjParent); // является ли объект ObjParent прототипом для объекта ObjChild
+</code></pre>
+
+<h4>Массив свойств</h4>
+<pre><code class="js">
+var a = Object.<bg-code>keys</bg-code>(obj);                // возвращает массив из собственных перечисляемых (enumerable) свойств переданного объекта
+var a = Object.<bg-code>keys</bg-code>(obj).<bg-code>length</bg-code>;         // количество свойств
+var a = Object.<bg-code>getOwnPropertyNames</bg-code>(obj); // возвращает массив со всеми свойствами (независимо от того, перечисляемые они или нет)
+</code></pre>
+
+<h4>Проверка наличия свойства</h4>
+<ul class="list-point">
+	<li>Можно обратиться к любому свойству объекта, даже если его нет. Если свойство не существует, вернется undefined</li>
+</ul>
+<pre><code class="js">
+var a = obj.name;                        // проверка наличия свойсва 'name' в объекте (не различает отсутствующие свойства и те что были установлен в undefined)
+var a = 'name' <bg-code>in</bg-code> obj;                   // проверка наличия свойсва 'name' в объекте (различает отсутствующие свойства и те что были установлен в undefined)
+var a = obj.<bg-code>hasOwnProperty</bg-code>('name');      // проверка наличия свойства 'name' в объекте (не берет наследованные свойства)
+</code></pre>
+
+<h4>Прототипное наследование</h4>
+<pre><code class="js">
+ClassChild.<bg-code>prototype</bg-code>.parentFunc = function() {}         // запись метода в прототип
+ClassChild.<bg-code>prototype</bg-code>.parentProp = function() {}         // запись свойства в прототип
+ClassChild.<bg-code>prototype</bg-code> = <bg-code>Object.create</bg-code>(ClassParent.prototype); // наследования методов и свойств из ClassParent.prototype
+</code></pre>
+
+<h4>Дескрипторы свойств</h4>
+<pre><code class="js">
+Object.getOwnPropertyDescriptor(obj, 'name');  // получение дескриптора свойств
+Object.defineProperty(obj, prop, descriptor);  // переопределение дескриптора свойств
+Object.defineProperties(obj, descriptors);     // позволяет объявить сразу несколько свойств
+</code></pre>
+
+
+
+
 
 <!-------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------->
@@ -127,33 +187,8 @@ var a = person.fullName;       // геттер (result = Steve Stark)
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="obj-methods">Методы</h2>
+<h2 id="obj-for">Перебор объекта</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------>
-<h3>Свойства</h3>
-<!------------------------------------------------------>
-<ul class="list-point">
-	<li>Можно обратиться к любому свойству объекта, даже если его нет. Если свойство не существует, вернется undefined</li>
-</ul>
-
-<bg-list>keys</bg-list> <bg-list>getOwnPropertyNames</bg-list>
-<pre><code class="js">
-var a = Object.<bg-code>keys</bg-code>(obj);                // возвращает массив из собственных перечисляемых (enumerable) свойств переданного объекта
-var a = Object.<bg-code>keys</bg-code>(obj).<bg-code>length</bg-code>;         // количество свойств
-var a = Object.<bg-code>getOwnPropertyNames</bg-code>(obj); // возвращает массив со всеми свойствами (независимо от того, перечисляемые они или нет)
-</code></pre>
-
-<bg-list>in</bg-list> <bg-list>hasOwnProperty</bg-list>
-<pre><code class="js">
-var a = obj.name;                        // проверка наличия свойсва 'name' в объекте (не различает отсутствующие свойства и те что были установлен в undefined)
-var a = 'name' <bg-code>in</bg-code> obj;                   // проверка наличия свойсва 'name' в объекте (различает отсутствующие свойства и те что были установлен в undefined)
-var a = obj.<bg-code>hasOwnProperty</bg-code>('name');      // проверка наличия свойства 'name' в объекте (не берет наследованные свойства)
-</code></pre>
-
-<!------------------------------------------------------>
-<h3>Перебор объекта</h3>
-<!------------------------------------------------------>
 <bg-list>for..in</bg-list>
 <ul class="list-point">
 	<li>Порядок перебора соответствует порядку объявления для нечисловых ключей, а числовые или числовые строки сортируются</li>
@@ -166,14 +201,9 @@ for(let key <bg-code>in</bg-code> obj) {
 </code></pre>
 
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="obj-constructor">Конструктор создания объекта</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------>
-<h3>Конструктор создания объекта</h3>
-<!------------------------------------------------------>
 <pre><code class="js">
 var apple = new Object();
 apple.color = 'green';
@@ -184,32 +214,6 @@ apple.describe = function() {
 
 var a = apple.color;
 var a = apple.describe();
-</code></pre>
-
-<!------------------------------------------------------>
-<h3>Конструктор создания объекта и задание параметров</h3>
-<!------------------------------------------------------>
-<pre><code class="js">
-function fruit(color, shape) {
-	this.color = color;
-	this.shape = shape;
-}
-
-var melon = new fruit('yellow', 'round');
-var a = melon.color;
-</code></pre>
-
-<!------------------------------------------------------>
-<h3>Установление свойств объекту через конструктор</h3>
-<!------------------------------------------------------>
-<pre><code class="js">
-var Car = function(x,y) {
-	this.x = x;
-	this.y = y;
-}
-
-var tesla = new Car(10,20);
-tesla; // Object { x: 10, y: 20 }
 </code></pre>
 
 
@@ -223,12 +227,6 @@ tesla; // Object { x: 10, y: 20 }
 	<li>У каждого <u>объекта</u> есть <u>прототип</u>, от которого он наследует <u>свойства</u> и <u>методы</u>. Если объект не включает в себя запрошенное свойство, JavaScript выполнит поиск этого свойства в прототипе объекта. При этом поиск будет выполняться по <u>цепочке прототипов</u> до тех пор, пока не будет найдено то, что нужно. Если же поиск успехом не увенчается, будет возвращена ошибка</li>
 	<br>
 </ul>
-
-
-<pre><code class="js">
-<bg-code>Object.create()</bg-code>         // добавление прототипа при создании объекта
-<bg-code>Object.setPrototypeOf()</bg-code> // добавление прототипа после создания объекта
-</code></pre>
 
 <pre><code class="js">
 // объект
@@ -290,7 +288,7 @@ Megahuman.head;     // 1
 <!------------------------------------------------------>
 <h3>Конструктор прототипа</h3>
 <!------------------------------------------------------>
-<pre><code class="js">
+<pre><code class="js red">
 var Person = {
     constructor(name, age) {
         this.name = name;
@@ -309,7 +307,7 @@ person.greet();
 </code></pre>
 
 <h4>Изменение конструктора</h4>
-<pre><code class="js">
+<pre><code class="js red">
 var WebDeveloper = Object.create(Person);
 
 WebDeveloper.constructor = function(name, age, skills) {
@@ -437,16 +435,24 @@ var person = {
 	name: 'Tony',
 	age: 20
 }
+</code></pre>
 
+<pre><code class="js">
 Object.<bg-code>preventExtensions</bg-code>(person);    // запрещает добавление свойств в объект (применяется только к самому объекту)
 var a = Object.<bg-code>isExtensible</bg-code>(person); // проверяет применение preventExtensions
+</code></pre>
 
+<pre><code class="js">
 Object.<bg-code>seal</bg-code>(person);                 // аналогичен preventExtensions, дополнительно задает атрибут configurable:false для всех свойств
 var a = Object.<bg-code>isSealed</bg-code>(person);     // проверяет применение seal
+</code></pre>
 
+<pre><code class="js">
 Object.<bg-code>freeze</bg-code>(person);               // аналогичен seal, дополнительно делает все свойства доступные только для чтения (configurable:false, writable:false)
 var a = Object.<bg-code>isFrozen</bg-code>(person);     // проверяет применение freeze
 </code></pre>
+
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -757,7 +763,7 @@ var subtask = new SubTask();
 
 <!-------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------->
-<h1>ES5. Функциональный паттерн наследования</h1>
+<h1>ES5 (функциональный стиль)</h1>
 <!-------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------->
 
@@ -950,43 +956,16 @@ alert( new BigAnimal().name ); // Мышь, получили this (а Годзи
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
-	<b>Прототип __proto__ [[Prototype]]</b>
+	<b>Основное</b>
+	<li><bg-list>Класс</bg-list> - <u>функция-конструктор</u> вместе с её <u>prototype</u>. Такой способ объявления классов называют <u>«прототипным стилем»</u>. При наследовании часть методов переопределяется, например, у массива Array есть свой toString</li>
+	<li><u>Функциональный стиль</u> записывает в каждый объект и свойства и методы, а <u>прототипный</u> – только свойства</li>
+	<li>При создании методов через прототип, мы теряем возможность использовать локальные переменные как приватные свойства, у них больше нет общей области видимости с конструктором</li>
+
+	<b class="margin-top">Прототип __proto__ [[Prototype]]</b>
 	<li>Если один объект имеет специальную ссылку <u>__proto__</u> на другой объект, то при чтении свойства из него, если свойство отсутствует в самом объекте, оно ищется в объекте <u>__proto__</u></li>
 	<li>Объект, на который указывает ссылка <u>__proto__</u>, называется <u>«прототипом»</u></li>
 </ul>
 
-<!------------------------------------------------------>
-<h3>Методы для работы с __proto__</h3>
-<!------------------------------------------------------>
-<pre><code class="js">
-Object.<bg-code>getPrototypeOf</bg-code>(obj);        // возвращает obj.__proto__
-Object.<bg-code>setPrototypeOf</bg-code>(obj, proto); // устанавливает obj.__proto__ = proto
-Object.<bg-code>create</bg-code>(proto, descriptors); // создаёт пустой объект с __proto__, равным первому аргументу, второй содержит дескрипторы свойств
-</code></pre>
-
-<!------------------------------------------------------>
-<h3>Свойство prototype</h3>
-<!------------------------------------------------------>
-<ul class="list-point">
-	<b class="margin-top">Свойство prototype</b>
-	<li>При создании объекта через <u>new</u>, в его прототип <u>__proto__</u> записывается ссылка из <u>prototype</u> функции-конструктора</li>
-	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <u>new</u></li>
-	<li>Назначение: указывать <u>__proto__</u> для новых объектов</li>
-	<li>Значением prototype может быть только объект</li>
-	<li>У каждой функции по умолчанию есть свойство <u>prototype</u></li>
-</ul>
-
-<pre><code class="js">
-function User() {
-    this.name = 'Tony';
-}
-function Admin() {
-    this.id = 77;
-}
-Admin.<bg-code>prototype</bg-code> = new User();
-// Admin.__proto__ = new User();
-var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
-</code></pre>
 
 <!------------------------------------------------------>
 <h3>Свойство constructor</h3>
@@ -1048,10 +1027,48 @@ function inherit(proto) {
 }
 </code></pre>
 
+<h4>Короткая запись</h4>
+<pre><code class="js">
+if (!Object.create) {
+	Object.create = function(proto) {
+		function F() {}
+		F.prototype = proto;
+		return new F;
+	};
+}
+</code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="class-es5-proto">Объявление</h2>
+<h2 id="class-es5-proto-prototype">Свойство prototype</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b class="margin-top">Свойство prototype</b>
+	<li>При создании объекта через <u>new</u>, в его прототип <u>__proto__</u> записывается ссылка из <u>prototype</u> функции-конструктора</li>
+	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <u>new</u></li>
+	<li>Назначение: указывать <u>__proto__</u> для новых объектов</li>
+	<li>Значением prototype может быть только объект</li>
+	<li>У каждой функции по умолчанию есть свойство <u>prototype</u></li>
+</ul>
+
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+}
+function Admin() {
+    this.id = 77;
+}
+Admin.<bg-code>prototype</bg-code> = new User();
+// Admin.__proto__ = new User();
+var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5-proto-methods">Добавление методов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!--__________________________________________________-->
+<h4>Добавление метода в прототип класса</h4>
 <pre><code class="js">
 function User(name) {
 	this.name = name;
@@ -1065,24 +1082,93 @@ user.deleteAvatar();
 console.log(user);           // => User {name: "Jack", avatar: null, __proto__: deleteAvatar: ƒ ()}
 </code></pre>
 
-
-<h4>Наследование</h4>
-<pre><code class="js red">
-function Admin(name, id) {
-	this.name = name;
-	this.id = id;
-	this.avatar = 'Photo';
+<!--__________________________________________________-->
+<h4>Изменение встроенных прототипов</h4>
+<pre><code class="js">
+<bg-code>Object.prototype.myFunc</bg-code> = function() {
+    alert('myFunc');
 }
-
-Admin.prototype = Object.create(User.prototype);
-
-Admin.prototype.changeMyId = function() {
-	this.id = 1;
-}
-
-var admin = new Admin('Admin', 2);
+let obj = {}
+obj.myFunc(); // => 'myFunc'
 </code></pre>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-es5-proto-inherit">Наследование классов</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Пример наследования</h3>
+<!------------------------------------------------------>
+<h4>1. Задание классов и прототипов</h4>
+<pre><code class="js">
+function User() {
+	this.userName = 'userName';
+}
+User.prototype.userFunc = function() {
+	alert('userFunc');
+}
+User.prototype.userProp = 'userProp';
+</code></pre>
+<pre><code class="js">
+function Admin() {
+	this.adminName = 'adminName';
+}
+</code></pre>
+
+<h4>2. Наследование. В прототип Admin добавлили всё из прототипа User</h4>
+<pre><code class="js">
+<bg-code>Admin.prototype = Object.create(User.prototype);</bg-code>
+var admin = new Admin();
+</code></pre>
+
+<h4>2. Наследование. Без добавления в прототип Admin (результат аналогичен)</h4>
+<pre><code class="js red">
+var admin = Object.setPrototypeOf(new Admin(), User.prototype);
+</code></pre>
+
+<h4>3. Добавление методов к Admin.prototype (при необходимости)</h4>
+<pre><code class="js">
+// добавлять после <bg-code>Admin.prototype = Object.create(User.prototype)</bg-code> чтобы не перетерло
+Admin.prototype.adminFunc = function() {
+	alert('adminFunc');
+}
+</code></pre>
+
+<h4>4. Переопределение метода родителя (при необходимости)</h4>
+<pre><code class="js">
+Admin.prototype.userFunc = function() {
+	alert('not userFunc');
+}
+</code></pre>
+
+<h4>5. Вызов метода родителя внутри своего (при необходимости)</h4>
+<pre><code class="js">
+Admin.prototype.adminUserFunc = function() {
+	// вызвать метод родителя передав ему текущие аргументы
+	// если вызвать просто Animal.prototype.run(), то в качестве this функция run получит Animal.prototype, а это неверно, нужен текущий объект
+	User.prototype.userFunc.apply(this, arguments);
+}
+</code></pre>
+
+<h4>6. Обращение к методам и свойствам</h4>
+<pre><code class="js">
+admin.userFunc(); // => alert('userFunc')
+admin.userProp;   // => 'userProp'
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Вызов конструктора родителя</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+function Animal(name) {
+    this.name = name;
+    this.speed = 0;
+}
+function Rabbit(name) {
+    Animal.apply(this, arguments);
+}
+</code></pre>
 
 
 

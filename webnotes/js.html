@@ -842,10 +842,19 @@ console.log(str.valueOf());
 </code></pre>
 
 <ul class="list-point">
-	<li>Глобальная переменная относится к глобальному объект window</li>
-	<li>Переменная без var попадает в глобальную область видимости</li>
-	<li>Переменная совершают поднятие hoisting, но значение будет undefined</li>
+	<li>Если обратиться к свойству числа, строки или логического значения, то будет создан объект соответствующего типа, например new String для строки, new Number для чисел, new Boolean – для логических выражений</li>
+	<li>Далее будет произведена операция со свойством или вызов метода по обычным правилам, с поиском в прототипе, а затем этот объект будет уничтожен</li>
+	<li>Для значений null и undefined нет соответствующих классов, в них нельзя записать свойство (будет ошибка)</li>
 </ul>
+
+<pre><code class="js">
+var user = 'Tony';          // создали строку (примитив)
+var a = user.toUpperCase(); // TONY
+// был создан временный объект new String
+// вызван метод
+// new String уничтожен, результат возвращён
+</code></pre>
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3830,6 +3839,12 @@ user = null;
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="let-const">var let const</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Глобальная переменная относится к глобальному объект window</li>
+	<li>Переменная без var попадает в глобальную область видимости</li>
+	<li>Переменная совершают поднятие hoisting, но значение будет undefined</li>
+</ul>
 
 <!------------------------------------------------------>
 <h3>var</h3>
