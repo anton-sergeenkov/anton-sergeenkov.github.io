@@ -25,10 +25,9 @@
 	<a href="#descriptor">Дескрипторы свойств</a>
 	<a href="#extends-obj">Расширяемость объектов</a>
 	<a href="#object-conversion"><bg-menu>toString</bg-menu> <bg-menu>valueOf</bg-menu></a>
-
+	<a href="#class-instanceof"><bg-menu>instanceof</bg-menu></a>
 	<a href="#obj-samples">Примеры</a>
 	
-
 	<div class="theme">Классы ES6</div>
 	<a href="#class-theory">Теория</a>
 	<a href="#class-create">Объявление</a>
@@ -48,6 +47,7 @@
 	<a href="#class-es5-proto-prototype">Свойство prototype</a>
 	<a href="#class-es5-proto-methods">Добавление методов</a>
 	<a href="#class-es5-proto-inherit">Наследование классов</a>
+	<a href="#class-mixins">Примеси</a>
 </div>
 <div id="content-wrapper">
 <div id="menu-top"></div>
@@ -71,6 +71,12 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="obj-main-methods">Методы</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h4>Методы</h4>
+<pre><code class="js">
+var a = parent <bg-code>instanceof</bg-code> ClassParent; // проверка, какому классу принадлежит объект, с учетом прототипного наследования
+var obj = Object.<bg-code>assign</bg-code>({name:'Tony'}, {age:25}, {test:'test'}); // используется для копирования значений всех собственных перечисляемых свойств из одного или более исходных объектов в целевой объект. После копирования он возвращает целевой объект
+</code></pre>
 
 <h4>Методы для работы с __proto__</h4>
 <pre><code class="js">
@@ -109,13 +115,10 @@ ClassChild.<bg-code>prototype</bg-code> = <bg-code>Object.create</bg-code>(Class
 
 <h4>Дескрипторы свойств</h4>
 <pre><code class="js">
-Object.getOwnPropertyDescriptor(obj, 'name');  // получение дескриптора свойств
-Object.defineProperty(obj, prop, descriptor);  // переопределение дескриптора свойств
-Object.defineProperties(obj, descriptors);     // позволяет объявить сразу несколько свойств
+Object.<bg-code>getOwnPropertyDescriptor</bg-code>(obj, 'name');  // получение дескриптора свойств
+Object.<bg-code>defineProperty</bg-code>(obj, prop, descriptor);  // переопределение дескриптора свойств
+Object.<bg-code>defineProperties</bg-code>(obj, descriptors);     // позволяет объявить сразу несколько свойств
 </code></pre>
-
-
-
 
 
 <!-------------------------------------------------------------------------------->
@@ -158,8 +161,8 @@ var person = {
 
 <h4>Обращение к свойствам и методам</h4>
 <pre><code class="js">
-var a = person.firstName;      // обращение к свойству (строка)
-var a = person['firstName'];   // обращение к свойству через []
+var a = person.firstName;      // точечная нотация (Dot notation)
+var a = person['firstName'];   // скобочная нотация (Bracket notation)
 var a = person.children[0];    // обращение к свойству (массив)
 var a = person.address.street; // обращение к свойству (объект)
 var a = person.getName();      // обращение к методу
@@ -964,6 +967,7 @@ alert( new BigAnimal().name ); // Мышь, получили this (а Годзи
 	<b class="margin-top">Прототип __proto__ [[Prototype]]</b>
 	<li>Если один объект имеет специальную ссылку <u>__proto__</u> на другой объект, то при чтении свойства из него, если свойство отсутствует в самом объекте, оно ищется в объекте <u>__proto__</u></li>
 	<li>Объект, на который указывает ссылка <u>__proto__</u>, называется <u>«прототипом»</u></li>
+	<li>__proto__ - наследование на уровне объектов</li>
 </ul>
 
 
@@ -1170,6 +1174,75 @@ function Rabbit(name) {
 }
 </code></pre>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-instanceof">Проверка класса: "instanceof"</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li><bg-list>instanceof</bg-list> позволяет проверить, какому классу принадлежит объект, с учетом прототипного наследования</li>
+	<li>Оператор obj instanceof Func проверяет что obj является результатом вызова new Func. Он учитывает цепочку <u>__proto__</u>, поэтому наследование поддерживается</li>
+	<li>Оператор <u>instanceof</u> не сможет проверить тип значения, если объект создан в одном окне/фрейме, а проверяется в другом, т.к. в каждом окне своя иерархия объектов. Для точной проверки типов встроенных объектов можно использовать свойство <u>[[Class]]</u></li>
+	<li>Оператор <u>instanceof</u> особенно востребован в случаях, когда мы работаем с иерархиями классов. Это наилучший способ проверить принадлежность тому или иному классу с учётом наследования</li>
+
+	<b class="margin-top">Алгоритм проверки obj instanceof Constructor</b>
+	<li>1. Получить obj.__proto__</li>
+	<li>2. Сравнить obj.__proto__ с Constructor.prototype</li>
+	<li>3. Если не совпадает, тогда заменить obj на obj.__proto__ и повторить проверку на шаге 2 до тех пор, пока либо не найдется совпадение (результат true), либо цепочка прототипов не закончится (результат false)</li>
+</ul>
+
+<pre><code class="js">
+function ClassParent() {}
+var parent = new ClassParent();
+var a = parent instanceof ClassParent; // true
+// parent.__proto__ == ClassParent.prototype;
+</code></pre>
+
+<pre><code class="js">
+// массив arr принадлежит классу Array
+// но также и является объектом Object
+var arr = [];
+var a = arr instanceof Array; // true
+var a = arr instanceof Object; // true
+// arr.__proto__.__proto__ == Object.prototype
+</code></pre>
+
+<pre><code class="js">
+// сама функция-конструктор не участвует в процессе проверки, важна только цепочка прототипов для проверяемого объекта
+// это может приводить к ошибкам в проверке при изменении prototype
+function Rabbit() {}
+var rabbit = new Rabbit();
+Rabbit.prototype = {}; // изменили prototype...
+var a = rabbit instanceof Rabbit; // false
+</code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="class-mixins">Примеси (mixins)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Невозможно унаследовать от двух и более объектов, т.к. ссылка <u>__proto__</u> только одна</li>
+	<li><bg-list>Примесь (mixin)</bg-list> – класс или объект, содержащий методы и свойства для реализации конкретного функционала. Используется для уточнения поведения других классов, не предназначен для самостоятельного использования</li>
+	<li>Методы примеси активно используют <u>this</u> и предназначены именно для запуска в контексте «объекта-носителя примеси»</li>
+	<li>Если какие-то из методов примеси не нужны – их можно перезаписать своими после копирования</li>
+	<li>Для добавления примеси в класс – её просто «подмешивают» в прототип. «Подмешать» можно сколько угодно примесей, но если имена методов в разных примесях совпадают, то возможны конфликты.</li>
+</ul>
+
+<pre><code class="js">
+var mixinGreeting = {
+    greet() {
+        console.log(this.name);
+    }
+};
+function User(name) {
+    this.name = name;
+}
+for(var key in mixinGreeting) {
+    <bg-code>User.prototype[key] = mixinGreeting[key];</bg-code>
+}
+new User('Tony').greet(); // => Tony
+</code></pre>
 
 
 

@@ -909,27 +909,12 @@ document.body.<bg-code>removeChild</bg-code>(element);      // удаление 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="code-b42" class="container-code">
 
-<h3 id="cycle-obj">Циклы для массивов и объектов</h3>
-
-<h4>Цикл for in</h4>
-<b>Перебирает ключи</b>
+<h4 id="cycle-obj">Цикл for..in перебора ключей объекта</h4>
 <pre><code class="js">
-// обходит все свойства, в том числе наследованные от прототипа
-var browsers = ['Chrome', 'Firefox', 'Safari'];
-for (let browser in browsers) {
-	console.log(browser);
-}
-// result: 0, 1, 2
-</code></pre>
-
-<h4>Цикл for of</h4>
-<b>Перебирает значения</b>
-<pre><code class="js">
-var browsers = ['Chrome', 'Firefox', 'Safari'];
-for (let browser of browsers) {
-	console.log(browser);
-}
-// result: 'Chrome', 'Firefox', 'Safari'
+for(var key in obj) {
+	console.log(key);      // ключи 
+	console.log(obj[key]); // значения
+} 
 </code></pre>
 
 <pre><code class="html link-accent">
@@ -993,7 +978,7 @@ func(); // Привет    // функцию можно вызывать и ка
 <pre><code class="js">
 (function(num) {
 	console.log(num);
-})(3);
+}(3));
 </code></pre>
 
 <pre><code class="html link-accent">
