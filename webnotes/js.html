@@ -3749,6 +3749,34 @@ http://test1.ru/script.php?name=myname&message=my+message
 ?&gt;
 </code></pre>
 
+<!------------------------------------------------------>
+<h3>Передача нескольких значений из php</h3>
+<!------------------------------------------------------>
+<pre><code class="php">
+&lt;?php
+    $arr = array("Tony", 25);
+    $json = json_encode($arr);
+    echo $json
+?&gt;
+</code></pre>
+<pre><code class="js">
+response.data; // ['Tony', 25]
+</code></pre>
+
+<pre><code class="php">
+&lt;?php
+    $arr = array("name" => "Tony", "age" => 25);
+    $json = json_encode($arr);
+    echo $json
+?&gt;
+</code></pre>
+
+<pre><code class="js">
+response.data; // {name: "Tony", age: "25"}
+</code></pre>
+
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="ajax-http-methods">HTTP-методы GET/POST/PUT/DELETE</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

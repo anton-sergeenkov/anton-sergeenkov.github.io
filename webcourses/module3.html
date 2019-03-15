@@ -11,6 +11,317 @@
 <div id="container-body">
 <div id="container-menu">
 
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="text-header">PHP и MySQL</div>
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b23"><span>01</span> Отправка сообщения на почту</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b23" class="container-code">
+
+<img src="img/dev/client-server.jpg" height="500px" class="img-center ">
+
+<h3>Обращение к php скрипту через Ajax</h3>
+<pre><code class="html">
+<a href="../webnotes/js_ajax.html" target="_blank">Ajax</a>
+<a href="https://yadi.sk/d/XoMo5o8ZZHQ1eQ" target="_blank">Denwer</a>
+<a href="https://ospanel.io/" target="_blank">Open Server</a>
+</code></pre>
+
+<h3>Отправка сообщения на почту</h3>
+<pre><code>
+$.get("php/mail.php", {message:'Сообщение'}, function(data) {
+    alert(data);
+});
+</code>	</pre>
+<pre><code>
+&lt;?php
+	$to      = 'user@example.com, anotheruser@example.com'; // получатель / получатели
+	$subject = 'Письмо с сайта';                            // тема письма
+	$message = $_GET[message];                              // сообщение
+
+	$email = mail($to, $subject, $message);
+	if ($email) {
+	    echo 'Письмо успешно отправлено!';
+	} else {
+	    echo 'Письмо не отправлено!';
+	}
+?&gt;
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b25"><span>02</span> MySQL</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b25" class="container-code">
+
+<h4>Создание базы данных и таблиц MySQL</h4>
+<pre><code class="html">
+<a href="../webnotes/mysql.html" target="_blank">mysql</a>
+<a href="http://localhost/Tools/phpmyadmin/" target="_blank">phpmyadmin</a>
+</code></pre>
+
+<h4>Основные выборки MySQL: SELECT, INSERT, UPDATE, DELETE</h4>
+<h4>Записи в таблице</h4>
+<pre><code>
+<b>SELECT * FROM products WHERE ID=2</b>                                  - выбор 1 записи
+<b>SELECT * FROM products</b>                                             - выбор всех записей
+<b>INSERT INTO products(NAME, DESCRIPTION) VALUES ('Имя', 'Описание')</b> - добавление новой записи
+<b>UPDATE products SET NAME='Имя', DESCRIPTION='Описание' WHERE ID=2</b>  - редактирование записи
+<b>DELETE FROM products WHERE ID=2</b>                                    - удаление записи
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b27"><span>03</span> Работа с MySQL</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b27" class="container-code">
+
+<pre><code>
+- подключение (dbConnect.php)
+- выборка данных (dbSelect.php)
+- вставка, обновление, удаление данных (dbModify.php)
+</code></pre>
+
+<pre><code class="html">
+<a href="../webnotes/php_db.html" target="_blank">php database</a>
+</code></pre>
+
+<h4>dbConnect.php</h4>
+<pre><code>
+&lt;?php
+	$host = 'localhost';
+	$user = 'root';
+	$pass = '';
+	$db = 'sample';
+
+    $link = mysqli_connect($host, $user, $pass, $db); 
+    mysqli_set_charset($link, 'utf8');           
+    if(!$link) {
+        exit(mysqli_error($link));
+    } 
+?&gt;
+</code></pre>
+
+<h4>dbModify.php</h4>
+<pre><code>
+&lt;?php
+	include('dbConnect.php');
+
+	$sql = $_GET[sql];
+	$query = mysqli_query($link, $sql);
+	$insert_id = mysqli_insert_id($link);
+
+	$arr = array($query, $insert_id);
+	echo json_encode($arr);
+?&gt;
+</code></pre>
+
+<h4>dbSelect.php</h4>
+<pre><code>
+&lt;?php
+	include('dbConnect.php');
+	
+	$sql = $_GET[sql];
+	$query = mysqli_query($link, $sql);
+	$num_rows = mysqli_num_rows($query);
+	$arr = array();
+
+	if ($num_rows != 0) {
+		while($row = mysqli_fetch_array($query)) {
+			array_push($arr, $row);
+		}
+	}
+
+	echo json_encode($arr);
+?&gt;
+</code></pre>
+
+<h4>main.js</h4>
+<pre><code>
+dbInsert();
+function dbInsert() {
+	var name = 'Добавлено имя из JS';
+	var price = 12;
+	var description = 'Добавлено описание из JS';
+	var sql = `INSERT INTO products(NAME, PRICE, DESCRIPTION) VALUES ('${name}', ${price}, '${description}')`;
+	$.get('php/dbModify.php', {sql:sql}, function(data){
+		var arr = eval(data);
+		alert(arr[]);
+	});
+}
+</code></pre>
+<pre><code>
+dbUpdate();
+function dbUpdate() {
+	var id = 5;
+	var name = 'Обновлено имя из JS';
+	var price = 44;
+	var description = 'Обновлено описание из JS';
+	var sql = `UPDATE products SET NAME='${name}', PRICE=${price}, DESCRIPTION='${description}' WHERE ID=${id}`;
+	$.get('php/dbModify.php', {sql:sql}, function(data){
+		var arr = eval(data);
+		alert(arr[]);
+	});
+}
+</code></pre>
+<pre><code>
+dbDelete();
+function dbDelete() {
+	var id = 5;
+	var sql = `DELETE FROM products WHERE ID=${id}`;
+	$.get('php/dbModify.php', {sql:sql}, function(data){
+        var arr = eval(data);
+        alert(arr[0]);
+	});
+}
+</code></pre>
+<pre><code>
+dbSelect();
+function dbSelect() {
+	var sql = `SELECT * FROM products`;
+	$.get('php/dbSelect.php', {sql:sql}, function(data){
+		var arr = eval(data); 
+		if (arr.length != 0) {
+			for (var i=0; i<=arr.length-1; i++) {
+				var id          = arr[i]['ID'];
+				var name        = arr[i]['NAME'];
+				var price       = arr[i]['PRICE'];
+				var description = arr[i]['DESCRIPTION'];
+				$('body').append(`&lt;p&gt;${id} ${name} ${price} ${description}&lt;/p&gt;`);
+			}
+		}	
+	});
+}
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="b29"><span>04</span> Сохранение изображения на сервере (jpg, png)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="code-b29" class="container-code">
+
+<h4>index.html</h4>
+<pre>
+<code>
+&lt;label class="input-image" id="img1"&gt;
+	&lt;input type="file" accept="image/*" onchange="imageLoad('img1', this);" class="input-file"&gt;
+&lt;/label&gt;
+
+&lt;button onclick="imageSave('img1');"&gt;Сохранить изображение&lt;/button&gt;
+</code>
+</pre>
+
+<h4>css/main.css</h4>
+<pre>
+<code>
+.input-image {
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+.input-file {
+    display: none;
+}
+</code>
+</pre>
+
+<h4>js/main.js</h4>
+<pre><code>
+// Загрузка изображения из input file в блок
+// 1 - input - изображение из input
+// 2 - id    - блок для устанавки изображения на background-image
+function imageLoad(id, input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            $('#'+id).css('background-image', 'url('+reader.result+')');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</code></pre>
+<pre><code>
+// Сохранение изображения на сервер
+// 1 - id - id изображения
+function imageSave(id) {
+    var picture = $('#'+id).css('background-image');
+    var file = '../uploads/'+id;
+    var extension = imageExtension(picture);
+    picture = imageParse(picture); 
+    $.post("php/saveImage.php", {picture:picture, file:file, extension:extension});
+}
+</code></pre>
+<pre><code>
+// Определение расширения
+// 1 - picture - изображение в base64
+function imageExtension(picture) {
+    if (picture.indexOf('data:image/png') == -1) {
+        return '.jpg';
+    } else {
+        return '.png';
+    }
+}
+</code></pre>
+<pre><code>
+// Разбор изображения в base64 и вырезка только части, описывающей само изображение
+// изображение в формате base64:
+// - "url("data:image/png;base64,"
+// - само изображение "..."
+// - ")
+// формат может быть png, jpeg и т.д., поэтому мы ищем совпадение по фразе "base64", 
+// чтобы оставить только данные самого изображения
+// ищем позицию элемента
+// прибавляем 7 - это символы base64,
+// вычитаем 2 - это символы ")
+function imageParse(picture) {
+    var position = picture.search(/base64/) + 7; 
+    var result = picture.slice(position, picture.length-2); 
+    return result;
+}
+</code></pre>
+
+<h4>php/saveImage.php</h4>
+<pre><code>
+&lt;?php
+	$picture   = $_POST[picture];   // изображение в base64
+	$file      = $_POST[file];      // путь без расширения
+	$extension = $_POST[extension]; // расширение
+	$path      = $file.$extension;
+
+	// конвертирование base64 в изображение
+	$picture = base64_decode($picture);
+	$picture = imagecreatefromstring($picture);
+
+	// проверка расширения
+	if ($extension == '.png') {
+		imagealphablending($picture, false); // выключение альфа сопряжения
+		imagesavealpha($picture, true);      // установка альфа флага
+		header('Content-Type: image/png');   // header
+		imagepng($picture, $path);           // сохранение изображения
+	} else {
+		imagejpeg($picture, $path, 100);
+	}
+
+	// освобождение памяти
+	imagedestroy($picture);
+?&gt;
+</code></pre>
+
+</div>
+
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <div class="text-header">PHP</div>
