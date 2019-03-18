@@ -89,11 +89,12 @@ Object.<bg-code>getPrototypeOf</bg-code>(obj);        // возвращает ob
 ObjChild.<bg-code>isPrototypeOf</bg-code>(ObjParent); // является ли объект ObjParent прототипом для объекта ObjChild
 </code></pre>
 
-<h4>Массив свойств</h4>
+<h4>Перечисление всех свойств объекта</h4>
 <pre><code class="js">
-var a = Object.<bg-code>keys</bg-code>(obj);                // возвращает массив из собственных перечисляемых (enumerable) свойств переданного объекта
+for(let key <bg-code>in</bg-code> obj) { obj[key] }         // перебирает все перечисляемые свойства объекта и его цепочку прототипов
+var a = Object.<bg-code>keys</bg-code>(obj);                // возвращает массив со всеми собственными (те, что в цепочке прототипов, не войдут в массив) именами перечисляемых свойств объекта
 var a = Object.<bg-code>keys</bg-code>(obj).<bg-code>length</bg-code>;         // количество свойств
-var a = Object.<bg-code>getOwnPropertyNames</bg-code>(obj); // возвращает массив со всеми свойствами (независимо от того, перечисляемые они или нет)
+var a = Object.<bg-code>getOwnPropertyNames</bg-code>(obj); // возвращает массив содержащий все имена своих свойств (перечисляемых и неперечисляемых) объекта
 </code></pre>
 
 <h4>Проверка наличия свойства</h4>
