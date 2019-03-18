@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="container">
+<div id="menu-left">
+	<div id="menu-left-starter">
+		<div id="menu-left-show"></div>
+		<a href="#menu-top">Starter</a>
+	</div>
+
+	<div class="theme">Замыкания</div>
+	<a href="#2">Сумма произвольного кол-ва скобок</a>
+
+	<div class="theme">Объекты</div>
+	<a href="#1">Обращение к функции как к объекту</a>
+	<a href="#4">Singleton ES5</a>
+	<a href="#3">Singleton Class ES6</a>
+	<a href="#5">Polyfill Object.create</a>
+	<a href="#7">Polyfill Object.create (JSR)</a>
+	<a href="#6">Prototype</a>
+
+<!-- 7 -->
+</div>
+<div id="content-wrapper">
+<div id="menu-top"></div>
+<div id="content">
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<h2>Замыкания</h2>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="2">Сумма произвольного количества скобок</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function sum() {
+    let total = 0;
+    let f = function (val) {
+        if (typeof val === "undefined") {
+            return total;
+        }
+        total += val;
+        return f
+    }
+    return f.apply(null, arguments)
+}
+
+console.assert(sum() === 0);
+console.assert(sum(1)(2)(3)() === 6);
+console.assert(sum(10)(5)(5)(80)() === 100);
+console.assert(typeof sum(100) === "function");
+</code></pre>
+
+<h4>Learn.Javascript.Ru</h4>
+<pre><code class="js">
+function sum(a) {
+	var currentSum = a;
+	function f(b) {
+		currentSum += b;
+		return f;
+	}
+	f.toString = function() {
+		return currentSum;
+	};
+	return f;
+}
+
+console.log(sum(1)(2));             // 3
+console.log(sum(5)(-1)(2));         // 6
+console.log(sum(6)(-1)(-2)(-3));    // 0
+console.log(sum(0)(1)(2)(3)(4)(5)); // 15
+</code></pre>
+
+<pre><code class="js">
+function sum(id) {
+	var sum = 0;
+	if (id != undefined) {
+        sum += id;
+    }
+    return function(id) {
+        if (id != undefined) {
+            sum += id;
+        }
+        return function(id) {
+            if (id != undefined) {
+                sum += id;
+            }
+            return function(id) {
+                if (id != undefined) {
+                    sum += id;
+                }
+                console.log(sum);
+            }
+        }
+    }	
+}
+sum(1)(2)(3)(); // 6
+</code></pre>
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<h2>Объекты</h2>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="1">Обращение к функции как к объекту</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+let test = function() {
+	console.log('hi from object!');
+}
+test.method = function () {
+	console.log('hi from method!');
+}
+test.method()
+test()
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="4">Singleton ES5</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+const Universe = (function(){
+    let instance = null;
+    
+    function func() {
+        if (!instance) {
+            instance = this;
+            this.size = 100;
+        }
+        
+        return instance;
+    }
+
+    func.prototype.getSize = function() {
+       return this.size;
+    }
+
+    func.prototype.setSize = function(size) {
+       this.size = size;
+    }
+   
+    return func;
+
+})();
+
+var a = new Universe();
+var b = new Universe();
+
+console.log(a === b); // должны получить true
+console.log(a.getSize(), b.getSize()); // 100, 100
+a.setSize(200);
+console.log(a.getSize(), b.getSize()); // 200, 200
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="3">Singleton Class ES6</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var instance = null;
+
+class Singleton {
+	constructor() {
+		if(!instance){
+			instance = this;
+		}
+		return instance;
+	}
+}
+var a = new Singleton();
+var b = new Singleton();
+console.log(a === b); // true
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="5">Polyfill Object.create</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+const myObj1= {
+    a: 1
+};
+const myObj2= {
+    p: {value: 20},
+    k: {value: 30}
+};
+
+function objectCreateobj(myObj1, myObj2) {
+    function getPrototype() {}
+    getPrototype.prototype = myObj1;
+    
+    let myProto = new getPrototype();
+    
+    for (key in myObj2) {
+        myProto[key] = myObj2[key].value;
+    }
+    return myProto;
+}
+
+objectCreateobj(myObj1, myObj2);
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="7">Polyfill Object.create (JSR)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h4>Learn.Javascript.Ru</h4>
+
+<h4>Исходный Object.create()</h4>
+<pre><code class="js">
+var objFirst = {
+    name: 'Tony'
+};
+var objSecond = Object.create(objFirst); // => {} __proto__: name: "Tony"
+</code></pre>
+
+<h4>Полифил</h4>
+<pre><code class="js">
+var objFirst = {
+    name: 'Tony'
+};
+
+//if (!Object.create) Object.create = inherit; // проверка поддержки Object.create
+var objSecond = inherit(objFirst); // => {} __proto__: name: "Tony"
+
+function inherit(proto) {
+    function F() {}       // Создана новая функция F. Она ничего не делает с this, так что если вызвать new F, то получим пустой объект
+    F.prototype = proto;  // Свойство F.prototype устанавливается в будущий прототип proto
+    var object = new F(); // Результатом вызова new F будет пустой объект с __proto__ равным значению F.prototype
+    return object;        // Получили пустой объект с заданным прототипом. Возвратим его
+}
+</code></pre>
+
+<h4>Короткая запись</h4>
+<pre><code class="js">
+if (!Object.create) {
+	Object.create = function(proto) {
+		function F() {}
+		F.prototype = proto;
+		return new F;
+	};
+}
+</code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="6">Prototype</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function F () {
+    this.a = 10;
+}
+
+F.prototype.foo = function () {
+    return this.a;
+}
+
+const a = myNew(F);
+console.log(a); // { a: 10, __proto__: { foo, constructor } }
+console.log(a.foo()); // 10
+
+function myNew(F) {
+	let obj = Object.create(F.prototype);
+	F.call(obj);
+	return obj;
+}
+</code></pre>
+
+
+
+</div>
+</div>
+</div>
+	<div id="preloader"></div>
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+</body>
+</html>
