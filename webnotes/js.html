@@ -44,6 +44,7 @@
 	<a href="#ajax-http-methods">HTTP-методы</a>
 
 	<div class="theme">События</div>
+	<a href="#actions-modal">Модель распространения событий</a>
 	<a href="#actions">Назначение обработчиков событий</a>
 	<a href="#actions-target">Делегирование событий</a>
 	<a href="#actions-params">Передаваемый параметр (Event)</a>
@@ -72,6 +73,7 @@
 	<a href="#data-cookie"><bg-menu>cookie</bg-menu></a>
 
 	<div class="theme">Advanced</div>
+	<a href="#web-workers">Web Workers</a>
 	<a href="#patterns">Паттерны проектирования</a>
 	<a href="#wrappers">Object Wrappers</a>
 	<a href="#decorator">Декораторы</a>
@@ -113,7 +115,6 @@
 <div id="content">
 
 
-
 <h1>JavaScript</h1>
 
 <pre><code class="js">
@@ -144,7 +145,7 @@ add(...numbers);
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="actions">Назначение обработчиков событий</h2>
+<h2 id="actions-modal">Модель распространения событий</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <img src="img/js/event.jpg" width="450px" class="center">
 <ul class="list">
@@ -154,15 +155,29 @@ add(...numbers);
 	<li><bg-list>Event.BUBBLING_PAGE=3</bg-list> (всплытие). В её ходе повторяется тот же процесс, но наоборот. Всё начинается с элемента, который вызвал событие, оно «всплывает» до корневого элемента <u>html</u></li>
 </ul>
 
-<h3>1. Использование атрибута HTML</h3>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="actions">Назначение обработчиков событий</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>1. Использование атрибута HTML</h3>
+<!------------------------------------------------------>
 <pre><code class="html">
 &lt;button onclick="alert('action')"&gt;Action&lt;/button&gt;
+&lt;button onclick="alert(&amp;quot;action&amp;quot;)"&gt;Использование двойных кавычек&lt;/button&gt;
 &lt;button onclick="alert(this.innerHTML)"&gt;Вывести содержимое&lt;/button&gt;
 &lt;button onclick="action()"&gt;Action&lt;/button&gt;
 </code></pre>
 
+<!------------------------------------------------------>
 <h3>2. Использование свойства DOM-объекта</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Если обработчик задан через атрибут, то браузер читает HTML-разметку, создаёт новую функцию из содержимого атрибута и записывает в свойство <u>onclick</u></li>
+	<li>Обработчик хранится именно в <u>DOM-свойстве</u>, а атрибут – лишь один из способов его инициализации</li>
+	<li>Так как <u>DOM-свойство</u> <u>onclick</u>, в итоге, одно, то назначить более одного обработчика так нельзя</li>
+</ul>
 <pre><code class="html">
 &lt;button id="element"&gt;Action&lt;/button&gt;
 element.onclick = function() {
@@ -178,13 +193,26 @@ function action() {
 }
 </code></pre>
 
+<pre><code class="js">
+// удаление обработчика
+element.element = null;
+</code></pre>
+
+<!------------------------------------------------------>
 <h3>3. addEventListener и removeEventListener</h3>
-<pre class="js"><code>
-element.<em>addEventListener</em>(event, handler[, phase]);
-element.<em>removeEventListener</em>(event, handler[, phase]);
-<em>event</em>   - имя события, например click
-<em>handler</em> - ссылка на функцию, которую нужно поставить обработчиком
-<em>phase</em>   - необязательный аргумент, «фаза», на которой обработчик должен сработать
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Метод addEventListener позволяет добавлять несколько обработчиков на одно событие одного элемента</li>
+	<li>Если функцию не сохранить где-либо, а просто передать в addEventListener, то потом получить её обратно, чтобы снять обработчик, будет невозможно</li>
+	<li>Нет метода, который позволяет считать обработчики событий, назначенные через addEventListener</li>
+</ul>
+
+<pre><code class="js light">
+<bg-list>element.<em>addEventListener</em>(event, handler[, phase])
+ element.<em>removeEventListener</em>(event, handler[, phase])</bg-list> 
+	<em>&#8226; event</em>   // имя события, например click
+	<em>&#8226; handler</em> // ссылка на функцию, которую нужно поставить обработчиком
+	<em>&#8226; phase</em>   // необязательный аргумент, «фаза», на которой обработчик должен сработать
 </code></pre>
 
 <pre><code class="html">
@@ -196,11 +224,17 @@ function action() {
 	alert(1);
 }
 var element = document.querySelector('#element');
-element.addEventListener('click', action);
-element.removeEventListener('click', action);
+element.<bg-code>addEventListener</bg-code>('click', action);
+element.<bg-code>removeEventListener</bg-code>('click', action);
 </code></pre>
 
-<p>Метод addEventListener позволяет добавлять несколько обработчиков на одно событие одного элемента</p>
+<pre><code class="js">
+// для удаления нужно передать именно ту функцию-обработчик которая была назначена
+// так removeEventListener не сработает
+// в removeEventListener передана не та же функция, а другая, с одинаковым кодом
+element.addEventListener('click' ,   function() {alert('ok')});
+element.removeEventListener('click', function() {alert('ok')});
+</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -249,7 +283,7 @@ function getButton(e) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="actions-list">Список событий</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>События мыши</h3>
+<h4>События мыши</h4>
 <ul class="list">
 	<li><bg-list>click</bg-list> - одиночный клик левой кнопки мыши</li>
 	<li><bg-list>contextmenu</bg-list> - одиночный клик правой кнопкой мыши</li>
@@ -262,7 +296,7 @@ function getButton(e) {
 	<li><bg-list>dblclick</bg-list> - двойной щелчек левой кнопки мыши</li>
 </ul>
 
-<h3>События на элементах управления</h3>
+<h4>События на элементах управления</h4>
 <ul class="list">
 	<li><bg-list>submit</bg-list> - момент отправки формы обработчику (если кнопка типа "submit")</li>
 	<li><bg-list>focus</bg-list> - момент получения фокуса объектом (работает и для ссылок)</li>
@@ -272,7 +306,7 @@ function getButton(e) {
 	<li><bg-list>reset</bg-list> - сброс формы (специальной кнопкой)</li>
 </ul>
 
-<h3>Клавиатурные события</h3>
+<h4>Клавиатурные события</h4>
 <ul class="list">
 	<li><bg-list>keydown</bg-list> - момент нажатия клавиши, до момента отпускания</li>
 	<li><bg-list>keyup</bg-list> - момент отпускания клавиши</li>
@@ -280,7 +314,7 @@ function getButton(e) {
 	<li><bg-list>keypress</bg-list> - нажатие клавиши на клавиатуре</li>
 </ul>
 
-<h3>События документа</h3>
+<h4>События документа</h4>
 <ul class="list">
 	<li><bg-list>DOMContentLoaded</bg-list> - возникает после окончательной загрузки и парсинга HTML-документа, не дожидаясь загрузки стилей, картинок и фреймов</li>
 
@@ -290,7 +324,7 @@ function getButton(e) {
 	<li><bg-list>unload</bg-list> - уход со страницы</li>
 </ul>
 
-<h3>События CSS</h3>
+<h4>События CSS</h4>
 <ul class="list">
 	<li><bg-list>transitionend</bg-list> - когда CSS-анимация завершена</li>
 </ul>
@@ -3931,27 +3965,43 @@ user = 5;           // ошибка
 <h2 id="architecture">Архитектура среды выполнения JS</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<pre><code class="html">
+<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" target="_blank">MDN</a>
+</code></pre>
+
 <h4>Определения</h4>
 <ul class="list-point">
 	<li>JS - однопоточная среда выполнения (<u>runtime</u>). <u>Call Stack</u> один и он может делать одну вещь в единицу времени. Одна инструкция за раз</li>
 	<li>Суть блокирования - когда какие то функции занимают <u>Call Stack</u></li>
 	<li>Каждая веб-страница представляет из себя основной поток (<u>Main Thread</u>)</li>
+	<li>Движок браузера выполняет JavaScript в одном потоке. Он не может поставить обработку события на паузу, переключиться на другое событие, а после возобновить выполнение первого. Все события обрабатываются последовательно и каждое до конца</li>
+	<li>В каждом окне выполняется только один главный поток, который занимается выполнением JavaScript, отрисовкой и работой с DOM. Он выполняет команды последовательно, может делать только одно дело одновременно и блокируется при выводе модальных окон, таких как alert
+	<li>В браузерах события добавляются в очередь в любое время, если событие произошло, а так же если у него есть обработчик. В случае, если обработчика нет – событие потеряно. Так, клик по элементу, имеющему обработчик события по событию click , добавит событие в очередь, а если обработчика нет – то и событие в очередь не попадет</li>
+</li>
 </ul>
 
 <h4>Архитектура среды выполнения JS на примере движка <u>V8</u> (Chrome, Node.js)</h4>
 <ul class="list-point">
-	<li><bg-list>1. Heap (куча)</bg-list> - <u>область памяти</u> (динамически распределяемая память), содержит объекты, на которые ссылаются переменные программы. (memory allocation)</li>
+	<li><bg-list>1. Heap (куча)</bg-list> - <u>область памяти</u> (динамически распределяемая память), содержит объекты, на которые ссылаются переменные программы. (memory allocation) Куча - ссылка на определённую неструктурированную область памяти</li>
 
-	<li><bg-list>2. Call Stack</bg-list> - <u>стек вызовов</u> это LIFO структура (последний вошедший выходит первым). В данный стек помещаются и удаляются функции по мере выполнения программы. Синхронные функции помещаются в стек вызова сразу. Асинхронные откладываются в специальную таблицу - <u>Event Table</u>, где ожидают дальнейшей обработки, чтобы не блокировать процесс выполнения программы. Видно какая функция какую вызвала (<u>execution context</u>). Максимальный размер стека 16 000</li>
+	<li><bg-list>2. Call Stack</bg-list> - <u>стек вызовов</u> LIFO структура (последний вошедший выходит первым). В данный стек помещаются и удаляются аргументы, локальные переменные функций по мере выполнения программы. Синхронные функции помещаются в стек вызова сразу. Асинхронные откладываются в специальную таблицу - <u>Event Table</u>, где ожидают дальнейшей обработки, чтобы не блокировать процесс выполнения программы. Видно какая функция какую вызвала (<u>execution context</u>). Максимальный размер стека 16 000</li>
 
 	<li><bg-list>3. Web API</bg-list> - <u>расширения браузера</u> Event Table и Event Queue являются частью Web API, который реализуют браузеры для того, чтобы использовать такие возможности, как асинхронные запросы, таймеры, обрабатывать DOM события и другое асинхронное поведение. Это не является стандартным функционалом JavaScript и в различных средах данное API может быть реализовано по разному</li>
 
 	<li><bg-list>3.1 Event Table</bg-list> - <u>таблица</u> в которой находится информация о том, по какому событию необходимо поместить функцию в <u>Event Queue</u> (очередь событий)</li>
 
-	<li><bg-list>3.2 Task (Event) Queue</bg-list> - <u>очередь событий</u> - это FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
+	<li><bg-list>3.2 Task (Event) Queue</bg-list> - <u>очередь событий</u> - FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
 
-	<li><bg-list>4. Event Loop</bg-list> - <u>цикл/петля событий</u> - это цикл, который непрерывно проверяет есть ли функции в очереди событий и помещает их в стек вызова. Срабатывает когда стек вызовов пуст. Если стек пуст, то берет первую задачу в очереди и помещает в стек, что заставляет код выполниться. Позволяет запланировать выполнение асинхронного кода сразу после выполнения синхронного кода</li>
+	<li><bg-list>4. Event Loop</bg-list> - <u>цикл/петля событий</u> - цикл, который непрерывно проверяет есть ли функции в очереди событий и помещает их в стек вызова. Срабатывает когда стек вызовов пуст. Если стек пуст, то берет первую задачу в очереди и помещает в стек, что заставляет код выполниться. Позволяет запланировать выполнение асинхронного кода сразу после выполнения синхронного кода</li>
 </ul>
+
+<h4>Event Loop</h4>
+<pre><code class="js">
+// queue.waitForMessage ожидает события если очередь пуста
+while(queue.waitForMessage()){ 
+	queue.processNextMessage(); 
+}
+</code></pre>
 
 <img src="img/js/event-loop.png" height="450px" class="center">
 
@@ -4054,8 +4104,7 @@ var a = 1;
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="notifications-api">Notifications API</h2>
-<!-- xxxx)xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Notifications API позволяют web-страницам контролировать отображение системных уведомлений для конечного пользователя — они находятся вне контекста окна браузера верхнего уровня, поэтому могут отображаться даже если пользователь сменил вкладку или перешел к другому приложению</li>
 </ul>
@@ -4063,6 +4112,49 @@ var a = 1;
 <pre><code class="js">
 var promise = Notification.requestPermission();
 </code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="web-workers">Web Workers</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Спецификация Web Workers позволяет запускать дополнительные JavaScript-процессы (workers). Они могут обмениваться сообщениями с главным процессом, но у них свои переменные, и работают они также сами по себе</li>
+	<li>Worker - это объект, созданный при помощи конструктора , который запускает JavaScript файл с кодом, который будет выполнен в потоке Worker’а</li>
+	<li>Такие дополнительные процессы не имеют доступа к DOM, поэтому они полезны, преимущественно, при вычислениях, чтобы загрузить несколько ядер/процессоров одновременно</li>
+	<li>Современные браузеры позволяют порождать подпроцессы Web Workers, они выполняются параллельно и могут отправлять/принимать сообщения, но не имеют доступа к DOM</li>
+</ul>
+
+<h4>1. Создание</h4>
+<pre><code class="js">
+var myWorker = new Worker("worker.js");
+</code></pre>
+
+<h4>2.Отправка данных в веб-воркер</h4>
+У каждого веб воркера, как и у главного потока, имеется свой stack, heap и event loop. Послать сообщения в веб воркер (например, передать данные для расчетов) можно с помощью метода postMessage(). 
+<pre><code class="js">
+myWorker.postMessage(imageData);
+</code></pre>
+
+<h4>3. Событие типа message</h4>
+Это создаст событие типа message в очередь событий web worker’а, которое будет обработано в следующей итерации event loop воркера.
+<pre><code class="js">
+onmessage = function(e) {
+	console.log('Message received from main script');
+	var workerResult = 'Result: ' + (e.data[0] * e.data[1]);
+	console.log('Posting message back to main script');
+	postMessage(workerResult);
+}
+</code></pre>
+
+<h4>4. Отправка данных в главный поток</h4>
+Аналогично, результаты вычислений и прочие данные воркер может отправить в главный поток с помощью метода postMessage(). И это опять же добавит событие типа message в очередь события главного потока.
+<pre><code class="js">
+myWorker.onmessage = function(e) {
+	result.textContent = e.data;
+	console.log('Message received from worker');
+}
+</code></pre>
+
 
 
 
