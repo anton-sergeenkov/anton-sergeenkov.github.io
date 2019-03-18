@@ -1153,25 +1153,20 @@ var app = new Vue({
 <h2 id="component-dynamic">Динамические компоненты</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<h4>Создание компонента</h4>
 <pre><code class="html">
 &lt;component <bg-code>:is</bg-code>="currentView"&gt;&lt;/component&gt;
 </code></pre>
 
+<h4>Кэширование компонента (сохранение состояния)</h4>
 <pre><code class="html">
-&lt;!-- Кэширование компонента (сохранение состояния) --&gt;
 <bg-code>&lt;keep-alive&gt;</bg-code>
 	&lt;component <bg-code>:is</bg-code>="currentView"&gt;&lt;/component&gt;
 <bg-code>&lt;/keep-alive&gt;</bg-code>
 </code></pre>
 
-
-
-
-
-
-
-<pre>
-<code class="html">
+<h4>Пример</h4>
+<pre><code class="html">
 &lt;!-- если нужна анимация, component обернуть в transition --&gt;
 &lt;div id="app"&gt;
 	&lt;nav&gt;
@@ -1188,7 +1183,9 @@ var app = new Vue({
 	&lt;div class="blue-block"&gt;&lt;/div&gt;
 &lt;/template&gt;
 </code>
-<code class="js">
+</code></pre>
+
+<pre><code class="js">
 var app = new Vue({
 	el: '#app',
 	data: {
@@ -1208,8 +1205,39 @@ var app = new Vue({
 		}
 	}
 })
-</code>
-</pre>
+</code></pre>
+
+<h4>require code 1</h4>
+<pre><code class="js">
+components: {
+	'app-icon': require('./icons/icon-shopping-cart.vue').default
+	'app-icon': () => import('./icons/icon-shopping-cart.vue')
+},
+beforeCreate() {
+	this.$options.components.TreeFolderContents = require('./icons/icon-shopping-cart.vue').default
+}
+</code></pre>
+
+<h4>require code 2</h4>
+<pre><code class="html">
+&lt;template&gt;
+	&lt;component :is="$options.components[name]"&gt;&lt;/component&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js">
+&lt;script&gt;
+export default {
+	props: {
+		name: { type: String }
+	},
+	created() {
+		this.$options.components[this.name] = require('./icons/icon-'+this.name+'.vue').default;
+	}
+}
+&lt;/script&gt;
+</code></pre>
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

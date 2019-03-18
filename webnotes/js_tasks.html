@@ -24,7 +24,12 @@
 	<a href="#7">Polyfill Object.create (JSR)</a>
 	<a href="#6">Prototype</a>
 
-<!-- 7 -->
+    <div class="theme">Прочее</div>
+    <a href="#8">Значение массива</a>
+    <a href="#9">Всплытие 1</a>
+    <a href="#10">map</a>
+
+<!-- 10 -->
 </div>
 <div id="content-wrapper">
 <div id="menu-top"></div>
@@ -273,6 +278,66 @@ function myNew(F) {
 	return obj;
 }
 </code></pre>
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<h2>Прочее</h2>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="8">Значение массива</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var a = [];
+function clear(arr) {
+    arr.push(2);
+    arr = null; 
+}
+clear(a);
+console.log(a); // [2]
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="9">Всплытие 1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+(function () {
+    f(); // 2
+    f = function () {
+    console.log(1);
+    };
+})();
+
+f(); // 1
+var f = 10;
+f(); // f is not a function
+function f () {
+    console.log(2);
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="10">map</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+const tweeps = [
+    { name: 'Peter', age: 20 },
+    { name: 'Mary', age: 32 }
+];
+
+// написать функцию prop
+const str = 'Mentioned by ' + tweeps.map(prop('name')).join(', '); // 'Mentioned by Peter, Mary'
+const agesStr = `They are ${tweeps.map(prop('age')).join(',')}` // 'They are 20, 32'
+
+function prop(propName) {
+    return function(obj) {
+         return obj[propName]; 
+    }
+}
+</code></pre>
+
 
 
 

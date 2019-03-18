@@ -248,7 +248,7 @@ bg-code {
 bg-header {
 	padding: 5px 10px;
 	border-radius: 3px;
-	background: #24c1f4;
+	background: rgba(36, 193, 244, 0.55)
 }
 bg-list {
 	padding: 5px 10px;

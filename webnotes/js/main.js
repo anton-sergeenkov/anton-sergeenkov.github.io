@@ -5,7 +5,7 @@ var menu = `
     <a href="js.html"            class="menu menu-js">js</a>
     <a href="js_functions.html"  class="menu menu-js">functions</a>
     <a href="js_objects.html"    class="menu menu-js">objects</a>
-    <a href="tasks.html"        class="menu menu-js">tasks</a>
+    <a href="js_tasks.html"      class="menu menu-js">tasks</a>
     <a href="canvas.html"        class="menu menu-js">canvas</a>
 
     <a href="vue_js.html"        class="menu menu-jsfw">vue.js</a>
