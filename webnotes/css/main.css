@@ -167,19 +167,17 @@ h1 {
 }
 h2 {
 	margin: 5px 0px 15px 0px;
-	padding: 20px;
-	border-radius: 5px;
-	text-align: center;
+	padding: 15px;
 	margin-top: 20px;
-	color: #4aaf2d;
 	font-size: 22px;
+	color: #4aaf2d; 
+	background-image: linear-gradient(to right, #dceed8, #d9f3e8, #def6f5, #e9f8fd, #f5faff, #f9fbff, #fdfdff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
 }
 h3 {
-	color: rgba(49, 105, 112, 1); 
 	margin: 15px 0px 15px 0px;
-	border-radius: 2px;
 	padding: 10px;
-	background-image: linear-gradient(to right, #cdcdcd, #d6d6d6, #dfdfdf, #e9e9e9, #f2f2f2, #f6f6f6, #fbfbfb, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
+	color: #8f9190;
+	background-image: linear-gradient(to right, #f0f0e2, #f9f1e7, #fef3ef, #fff6f7, #fefafc, #fefcfe, #fefdff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
 }
 h4 {
 	margin: 15px 0px 15px 0px;
