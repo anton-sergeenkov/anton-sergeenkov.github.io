@@ -4007,7 +4007,7 @@ user = 5;           // ошибка
 
 	<li><bg-header>3.1 Event Table</bg-header> - <u>таблица</u> в которой находится информация о том, по какому событию необходимо поместить функцию в <u>Event Queue</u> (очередь событий)</li>
 
-	<li><bg-header>3.2 Event/Callback/Task Queue</bg-header> - <u>очередь событий</u> - FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
+	<li><bg-header>3.2 Event/Callback/Task Queue</bg-header> - <u>очередь задач/событий</u> - FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
 
 	<li><bg-header>4. Event Loop</bg-header> - <u>цикл/петля событий</u> - наблюдает за стеком вызовов и очередью коллбэков (callback queue). Если стек вызовов пуст, цикл берёт первое событие из очереди и помещает его в стек, что приводит к запуску этого события на выполнение. Подобная итерация называется тиком (tick) цикла событий. Каждое событие — это просто коллбэк</li>
 	<ul class="list-point">
@@ -4024,15 +4024,23 @@ while(queue.waitForMessage()){
 }
 </code></pre>
 
+<h4>Event Loop (tasks, microtasks)</h4>
 <ul class="list-point">
-	<b>Event Loop</b>
-	<li><bg-list>tasks (macrotask)</bg-list>Примеры: setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, рендеринг пользовательского интерфейса </li>
-	<li><bg-list>microtasks (задания "jobs")</bg-list>Примеры: microtasks: process.nextTick, Promises, Object.observe, MutationObserver</li>
+	<li><bg-header>tasks (macrotask)</bg-header></li>
+	<ul class="list-point">
+		<li>Примеры: setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, рендеринг пользовательского интерфейса</li>
+		<li>Задачи исполняются по порядку и браузер может рендерить в промежутках между ними</li>
+	</ul>
+
+	<li><bg-header>microtasks</bg-header></li>
+	<ul class="list-point">
+		<li>Примеры: process.nextTick, Promises, Object.observe, MutationObserver</li>
+		<li>Микрозадачи исполняются по порядку и исполняются: &#8226; после каждого колбека, если только это не часть выполнения какого-то другого сценария &#8226; в конце каждой задачи</li>
+		<li>Задания "jobs"</li>
+	</ul>
+
+	<li>Сначала выполняется "microtasks", затем "tasks"</li>
 </ul>
-
-Сначала "microtasks", затем "tasks"
-
-
 
 <div class="container-flex"><div class="container-half"><pre><code class="js">
 console.log('Hi');
