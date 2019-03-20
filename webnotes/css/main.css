@@ -8,8 +8,16 @@
 @font-face { font-family: FiraSans-Bold;    src: url(../fonts/FiraSans-Bold.ttf); }
 
 ::-webkit-scrollbar       { width: 8px; height: 8px;}
-::-webkit-scrollbar-thumb { height: 50px; background-color: rgba(0, 0, 0, 0.2); border-radius: 2px;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: rgba(0,0,0,0.2); border-radius: 2px;}
 ::-webkit-scrollbar-track { background-color: rgba(0,0,0,0.1); }
+
+:root {
+	--color-html:  74, 175, 45;   /*green*/
+	--color-js:    11, 168, 160;  /*blue*/
+	--color-php:   191, 122, 190; /*crimson*/
+	--color-other: 179, 183, 104; /*brown*/
+	--color-fw:    71, 7, 183;    /*violet*/
+}
 
 body{
 	margin: 0;
@@ -23,6 +31,7 @@ body{
 *::selection {
 	background: rgba(11, 168, 160, 0.4);
 }
+
 
 /***************************************************
 STRUCTURE
@@ -233,7 +242,7 @@ u {
 /***************************************************
 SELECTED
 /***************************************************/
-bg-code, bg-header, bg-list, bg-menu, bg-mass {
+bg-code, bg-header, bg-list, bg-menu, bg-mass, bg-methods {
 	display: inline;
 	margin: 0;
 	padding: 0;
@@ -253,6 +262,7 @@ bg-list {
 	background: rgba(0,0,0,0.1);
 	border-radius: 3px;
 	font-size: 15px;
+	border: 1px solid rgba(0,0,0,0.1);
 }
 bg-menu {
 	padding: 5px;
@@ -271,6 +281,18 @@ bg-mass {
 bg-light {
 	background: rgba(0,0,0,0.1);
 	padding: 2px;
+}
+bg-methods {
+	padding: 5px;
+	border: 1px solid rgba(var(--color-fw), 0.25);
+	background: rgba(var(--color-fw), 0.2);
+	border-radius: 3px 0px 0px 3px;
+}
+bg-arguments {
+	padding: 5px;
+	border: 1px solid rgba(var(--color-other), 0.3);
+	background: rgba(var(--color-other), 0.3);
+	border-radius: 0px 3px 3px 0px;
 }
 
 /***************************************************

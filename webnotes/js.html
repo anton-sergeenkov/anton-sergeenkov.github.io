@@ -36,11 +36,12 @@
 	<a href="#async-func">4. Async Function (ES2017)</a>
 
 	<div class="theme">AJAX</div>
-	<a href="#ajax-request">Технологии</a>
+	<a href="#ajax-request">Описание</a>
 	<a href="#xmlhttprequest">1. XMLHttpRequest</a>
 	<a href="#fetch">2. Fetch</a>
 	<a href="#axios">3. Axios</a>
-	<a href="#ajax-variants">Варианты запросов</a>
+	<a href="#ajax-request-js">Request JS</a>
+	<a href="#ajax-response-php">Response PHP</a>
 	<a href="#ajax-http-methods">HTTP-методы</a>
 
 	<div class="theme">События</div>
@@ -85,6 +86,7 @@
 	<a href="#let-const"><bg-menu>var</bg-menu> <bg-menu>let</bg-menu> <bg-menu>const</bg-menu></a>
 	<a href="#eval"><bg-menu>eval</bg-menu></a>
 	<a href="#notifications-api">Notifications API</a>
+	<a href="#custom-properties-js">Custom Properties JS</a>
 
 	<div class="theme">Window</div>
 	<a href="#web-api">Web API</a>
@@ -208,8 +210,8 @@ element.element = null;
 </ul>
 
 <pre><code class="js light">
-<bg-list>element.<em>addEventListener</em>(event, handler[, phase])
- element.<em>removeEventListener</em>(event, handler[, phase])</bg-list> 
+<bg-methods>element.<em>addEventListener</em>(event, handler[, phase])
+ element.<em>removeEventListener</em>(event, handler[, phase])</bg-methods> 
 	<em>&#8226; event</em>   // имя события, например click
 	<em>&#8226; handler</em> // ссылка на функцию, которую нужно поставить обработчиком
 	<em>&#8226; phase</em>   // необязательный аргумент, «фаза», на которой обработчик должен сработать
@@ -681,14 +683,14 @@ var obj = {
 ECMAScript является стандартом, а JavaScript — это самая популярная реализация этого стандарта
 <pre>
 <code class="js">
-<b>ES1</b> (1997)
-<b>ES2</b> (1998)
-<b>ES3</b> (1999)
-<b>ES4</b> (не была принята)
-<b>ES5</b> (2009)
-<b>ES6</b> (ES2015)
-<b>ES7</b> (ES2016)
-<b>ES8</b> (ES2017)
+<em>ES1</em> (1997)
+<em>ES2</em> (1998)
+<em>ES3</em> (1999)
+<em>ES4</em> (не была принята)
+<em>ES5</em> (2009)
+<em>ES6</em> (ES2015)
+<em>ES7</em> (ES2016)
+<em>ES8</em> (ES2017)
 </code>
 </pre>
 
@@ -1003,7 +1005,7 @@ res = (apple == orange) ? "Равно" : "Не равно";
 <!------------------------------------------------------>
 <h3>forEach</h3>
 <!------------------------------------------------------>
-<ul>
+<ul class="list-point">
 	<li>Ничего не возвращает, используется только для перебора</li>
 </ul>
 <pre><code class="js">
@@ -1019,7 +1021,7 @@ arr.forEach(function(element, index, arr) {
 <!------------------------------------------------------>
 <h3>filter</h3>
 <!------------------------------------------------------>
-<ul>
+<ul class="list-point">
 	<li>Используется для фильтрации массива через функцию</li>
 	<li>Создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true</li>
 </ul>
@@ -1042,7 +1044,7 @@ alert(positiveArr); // 1,2,3
 <!------------------------------------------------------>
 <h3>every/some</h3>
 <!------------------------------------------------------>
-<ul>
+<ul class="list-point">
 	<li>Используется для проверки массива</li>
 	<li>Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr</li>
 	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
@@ -1060,7 +1062,7 @@ alert( arr.some(isPositive) );  // true, есть хоть одно положи
 <!------------------------------------------------------>
 <h3>reduce/reduceRight</h3>
 <!------------------------------------------------------>
-<ul>
+<ul class="list-point">
 	<li>Используется для последовательной обработки каждого элемента массива с сохранением промежуточного результата</li>
 	<li><b>arr.reduce</b> идёт по массиву слева-направо</li>
 	<li><b>arr.reduceRight</b> идёт по массиву справа-налево</li>
@@ -1763,11 +1765,11 @@ try {
 <h3>setTimeout</h3>
 <!------------------------------------------------------>
 <pre><code class="js light">
-<bg-list>setTimeout(func/code, delay, [arg1, arg2...])</bg-list> // однократное выполнение кода через некоторое время
+<bg-methods>setTimeout(func/code, delay, [arg1, arg2...])</bg-methods> // однократное выполнение кода через некоторое время
 	<em>&#8226; func/code</em>   // функция или строка кода для исполнения
 	<em>&#8226; delay</em>       // задержка в миллисекундах, 1000 миллисекунд равны 1 секунде
 	<em>&#8226; arg1, arg2…</em> // aргументы, которые нужно передать функции
-<bg-list>clearTimeout</bg-list>(timerId); // останавливает исполнение setTimeout (timerId - числовой идентификатор таймера)
+<bg-methods>clearTimeout</bg-methods>(timerId); // останавливает исполнение setTimeout (timerId - числовой идентификатор таймера)
 </code></pre>
 
 <pre><code class="js">
@@ -1806,11 +1808,11 @@ var timerId = setTimeout(function tick() {
 <h3>setInterval</h3>
 <!------------------------------------------------------>
 <pre><code class="js light">
-<bg-list>setInterval(func/code, delay, [arg1, arg2...])</bg-list> // повторение выполнения кода через определенное время
+<bg-methods>setInterval(func/code, delay, [arg1, arg2...])</bg-methods> // повторение выполнения кода через определенное время
 	<em>&#8226; func/code</em>   // функция или строка кода для исполнения
 	<em>&#8226; delay</em>       // задержка в миллисекундах, 1000 миллисекунд равны 1 секунде
 	<em>&#8226; arg1, arg2…</em> // aргументы, которые нужно передать функции
-<bg-list>clearInterval(timerId)</bg-list> // останавливает исполнение setInterval (timerId - числовой идентификатор таймера)
+<bg-methods>clearInterval(timerId)</bg-methods> // останавливает исполнение setInterval (timerId - числовой идентификатор таймера)
 </code></pre>
 
 <pre><code class="js">
@@ -2592,10 +2594,10 @@ var str2 = str1
 </ul>
 
 <pre><code class="js light">
-<bg-list>JSON.parse(str, reviver)</bg-list> // преобразует строку с данными в формате JSON в JavaScript-объект/массив/значение
+<bg-methods>JSON.parse(str, reviver)</bg-methods> // преобразует строку с данными в формате JSON в JavaScript-объект/массив/значение
 	<em>&#8226; str</em>     // строка с данными в формате JSON
 	<em>&#8226; reviver</em> // задание правила, функция function(key, value)
-<bg-list>JSON.stringify(value, replacer, space)</bg-list> // преобразует («сериализует») значение в JSON-строку
+<bg-methods>JSON.stringify(value, replacer, space)</bg-methods> // преобразует («сериализует») значение в JSON-строку
 	<em>&#8226; value</em>    // значение
 	<em>&#8226; replacer</em> // массив свойств, которые подлежат сериализации
 	<em>&#8226; space</em>    // форматирование. если число, то уровни вложенности в JSON оформляются указанным количеством пробелов, если строка, то вставляется эта строка
@@ -2941,17 +2943,19 @@ console.log(num.next().value);
 
 <ul class="list-point">
 	<li>Функции <bg-code>resolve/reject</bg-code> принимают ровно один аргумент - результат/ошибку. Именно он передаётся обработчикам в <bg-code>.then/.catch</bg-code></li>
-	<li><bg-code>Promise</bg-code> после <bg-code>reject/resolve</bg-code> - неизменны</li>
+	<li><bg-code>Promise</bg-code> после <bg-code>reject/resolve</bg-code> - неизменны. Когда промис переходит в состояние «выполнен» – с результатом (resolve) или ошибкой (reject) – это навсегда</li>
 	<li>Если говорить о взаимодействии с API, то <bg-code>catch</bg-code> используется для обработки http статусов <bg-code>4xx 5xx</bg-code>, <bg-code>then</bg-code> это статусы <bg-code>2xx</bg-code></li>
+	<li><bg-list>Промисификация</bg-list> - когда берут асинхронный функционал и делают для него обёртку, возвращающую промис</li>
+	<li><bg-list>«Чейнинг» (chaining)</bg-list> - цепочки промисов</li>
 </ul>
 
 <!------------------------------------------------------>
 <h3>Состояния Promise</h3>
 <!------------------------------------------------------>
 <ul class="list-point">
-	<li><bg-list>Promise Pending</bg-list> - обещение выполняется</li>
-	<li><bg-list>Promise Resolved</bg-list> - обещание сдержано</li>
-	<li><bg-list>Promise Rejected</bg-list> - обещение не сдержано</li>
+	<li><bg-list>Promise Pending</bg-list> - выполняется</li>
+	<li><bg-list>Promise Resolved</bg-list> - успешно</li>
+	<li><bg-list>Promise Rejected</bg-list> - отклонено</li>
 </ul>
 
 <!------------------------------------------------------>
@@ -3002,6 +3006,7 @@ functionAsync()
 	.then(functionSuccess1)
 	.catch(functionError);
 </code></pre>
+
 
 <!------------------------------------------------------>
 <h3>Примеры</h3>
@@ -3563,71 +3568,183 @@ console.log(tesla.color); // выводит black
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="ajax-request">Технологии</h2>
+<h2 id="ajax-request">Описание</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code>
-1. XMLHttpRequest (не используют в явном виде, создаются обертки)
-2. Fetch (нативный, полифил для IE)
-3. Axios
-</code></pre>
 
-<pre><code class="bash">
-# Vue Resource (до версии Vue.js 2)
-</code></pre>
+<!------------------------------------------------------>
+<h3>Определения</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li><bg-list>AJAX (Asynchronous Javascript And Xml)</bg-list> - технология обращения к серверу без перезагрузки страницы</li>
+	<li><bg-list>JSON</bg-list> - для отправки и получения структурированных данных, объектов</li>
+	<li><bg-list>COMET</bg-list> - общий термин, описывающий различные техники получения данных по инициативе сервера</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Технологии</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li><bg-list>1. XMLHttpRequest</bg-list> - (не используют в явном виде, создаются обертки)</li>
+	<li><bg-list>2. Fetch</bg-list> - (на Promise, нативный, полифил для IE)</li>
+	<li><bg-list>3. Axios</bg-list> - (на XMLHttpRequest)</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="xmlhttprequest">XMLHttpRequest</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h4>Асинхронный</h4>
-<pre><code class="js">
-var xmlhttp = new XMLHttpRequest();
-// установка обработчика событий
-xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-		dosomething(xmlhttp.responseText);
-    }
-};
-xmlhttp.open('GET', url, true); // true - скачиваем асинхронно
-xmlhttp.send(null); // отправляем запрос, результат придёт в обработчик onreadystatechange
+
+<ul class="list-point">
+	<li>XMLHttpRequest («XHR») дает возможность из JavaScript делать HTTP-запросы к серверу без перезагрузки страницы</li>
+	<li>Ответы на запросы XMLHttpRequest кешируются, как и обычные страницы</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Методы</h3>
+<!------------------------------------------------------>
+<pre><code class="js light">
+<bg-methods>xhr.open</bg-methods><bg-arguments>(method, URL, async, user, password)</bg-arguments> // вызов open не открывает соединение. Он лишь настраивает запрос, а коммуникация инициируется методом send
+	<em>&#8226; method</em>      // HTTP-метод. GET / POST / TRACE / DELETE / PUT и т.д.
+	<em>&#8226; URL</em>         // адрес запроса. Можно использовать не только http/https, но и другие протоколы, например ftp:// и file://. При этом есть ограничения безопасности, называемые «Same Origin Policy»: запрос со страницы можно отправлять только на тот же протокол://домен:порт
+	<em>&#8226; async</em>       // если установлено в false, то запрос производится синхронно, если true – асинхронно
+	<em>&#8226; user</em>        // логин для HTTP-авторизации, если нужны
+	<em>&#8226; password</em>    // пароль для HTTP-авторизации, если нужны
+<bg-methods>xhr.send</bg-methods><bg-arguments>([body])</bg-arguments> // метод открывает соединение и отправляет запрос на сервер
+	<em>&#8226; body</em>        // тело запроса
+<bg-methods>xhr.abort</bg-methods><bg-arguments>()</bg-arguments>     // прерывает выполнение запроса
+
+<bg-methods>setRequestHeader</bg-methods><bg-arguments>(name, value)</bg-arguments> // устанавливает заголовок name запроса со значением value. Отменить setRequestHeader невозможно
+	<em>&#8226; name</em>  // 'Content-Type'
+	<em>&#8226; value</em> // 'application/json'
+<bg-methods>getResponseHeader</bg-methods><bg-arguments>(name)</bg-arguments> // возвращает значение заголовка ответа name, кроме Set-Cookie и Set-Cookie2
+	<em>&#8226; name</em>  // 'Content-Type'
+<bg-methods>getAllResponseHeaders</bg-methods><bg-arguments>()</bg-arguments> // возвращает все заголовки ответа, кроме Set-Cookie и Set-Cookie2. Заголовки возвращаются в виде единой строки. Между заголовками стоит перевод строки в два символа "\r\n" (не зависит от ОС), значение заголовка отделено двоеточием с пробелом ": "
+	// Cache-Control: max-age=31536000
+	// Content-Length: 4260
+	// Content-Type: image/png
+	// Date: Sat, 08 Sep 2012 16:53:16 GMT
 </code></pre>
 
-<h4>Синхронный</h4>
-<pre><code class="js">
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.open('GET', url, false); // false - скачиваем синхронно
-// отправляем запрос, тут же ждём результат
-xmlhttp.send(null);
-// результат получен
-if(xmlhttp.status == 200)
-    dosomething(xmlhttp.responseText);
+<!------------------------------------------------------>
+<h3>Свойства XMLHttpRequest</h3>
+<!------------------------------------------------------>
+<pre><code class="js light">
+<em>&#8226; xhr.status</em>       // HTTP-код ответа: 200, 404, 403 и так далее. Может быть также равен 0, если сервер не ответил или при запросе на другой домен
+<em>&#8226; xhr.statusText</em>   // Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.
+<em>&#8226; xhr.responseText</em> // Текст ответа сервера. Для json JSON.parse(xhr.responseText)
+<em>&#8226; xhr.responseXML</em>  // Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие
+<em>&#8226; xhr.timeout</em>          // Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout
 </code></pre>
+
+<pre><code class="js">
+xhr.timeout = 30000; // 30 секунд (в миллисекундах)
+xhr.ontimeout = function() {
+	alert( 'Извините, запрос превысил максимальное время' );
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>События</h3>
+<!------------------------------------------------------>
+<pre><code class="js light">
+<em>&#8226; onreadystatechange</em> // можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState
+<em>&#8226; onloadstart</em>        // запрос начат
+<em>&#8226; onprogress</em>         // браузер получил очередной пакет данных, можно прочитать текущие полученные данные в responseText
+<em>&#8226; onabort</em>            // запрос был отменён вызовом xhr.abort()
+<em>&#8226; onerror</em>            // произошла ошибка
+<em>&#8226; onload</em>             // запрос был успешно (без ошибок) завершён
+<em>&#8226; ontimeout</em>          // запрос был прекращён по таймауту
+<em>&#8226; onloadend</em>          // запрос был завершён (успешно или неуспешно)
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Свойство xhr.readyState для текущего состояния запроса</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Событие readystatechange происходит несколько раз в процессе отсылки и получения ответа. При этом можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState</li>
+	<li>Запрос проходит их в порядке 0 → 1 → 2 → 3 → … → 3 → 4, состояние 3 повторяется при каждом получении очередного пакета данных по сети</li>
+</ul>
+
+<pre><code class="js light">
+const unsigned short UNSENT           = 0; // начальное состояние
+const unsigned short OPENED           = 1; // вызван open
+const unsigned short HEADERS_RECEIVED = 2; // получены заголовки
+const unsigned short LOADING          = 3; // загружается тело (получен очередной пакет данных)
+const unsigned short DONE             = 4; // запрос завершён
+</code></pre>
+<!------------------------------------------------------>
+<h3>Асинхронный</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'script.php', true);
+xhr.send(); // отправляем запрос, результат придёт в обработчик onreadystatechange
+
+// установка обработчика событий
+xhr.onreadystatechange = function() {
+    // if (xhr.readyState==4 && xhr.status==200) {
+    // 	console.log(xhr.responseText);
+    // }
+
+    if (xhr.readyState != 4) return;
+
+    if (xhr.status != 200) {
+        // обработать ошибку
+        console.log(xhr.status + ':' + xhr.statusText);
+        return;
+    } 
+    
+    // получить результат из this.responseText или this.responseXML
+    console.log(xhr.responseText);
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Синхронный</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Возможность делать запросы на другой домен и указывать таймаут, в синхронном режиме не работают</li>
+</ul>
+<pre><code class="js">
+var xhr = new XMLHttpRequest();       // создаём новый объект XMLHttpRequest
+xhr.open('GET', 'script.php', false); // конфигурируем его: GET-запрос на URL 'script.php'
+xhr.send();                           // отсылаем запрос
+
+// если код ответа сервера не 200, то это ошибка
+if (xhr.status != 200) {
+	// обработать ошибку (пример вывода: 404: Not Found)
+    console.log(xhr.status + ':' + xhr.statusText);
+} else {
+	// вывести результат (responseText -- текст ответа)
+    console.log(xhr.responseText);
+} 
+</code></pre>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="fetch">Fetch</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <pre><code class="html">
-<a href="https://github.com/github/fetch" target="_blank">https://github.com/github/fetch - полифил и описание методов</a>
+<a href="https://github.com/github/fetch" target="_blank">Полифил и описание методов</a>
 <a href="https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">MDN</a>
 </code></pre>
 
-<h4>Синтаксис метода fetch</h4>
-<ul class="list">
-	<b>let promise = fetch(url[, options])</b>
-	<li><bg-list>url</bg-list> - URL, на который сделать запрос</li>
-	<li><bg-list>options</bg-list> - необязательный объект с настройками запроса</li>
-</ul>
+<pre><code class="js light">
+<bg-methods>let promise = fetch(url[, options])</bg-methods>
+	<em>&#8226; url</em>     // URL, на который сделать запрос
+	<em>&#8226; options</em> // необязательный объект с настройками запроса
+</code></pre>
 
-<ul class="list">
-	<b>Свойства options</b>
-	<li><bg-list>method</bg-list> - метод запроса</li>
-	<li><bg-list>headers</bg-list> - headers </li>
-	<li><bg-list>body</bg-list> -  тело запроса: FormData, Blob, строка и т.д.</li>
-	<li><bg-list>mode</bg-list> - одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос</li>
-	<li><bg-list>credentials</bg-list> - одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом</li>
-	<li><bg-list>cache</bg-list> - одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кешировать запрос</li>
-	<li><bg-list>redirect</bg-list> - можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки</li>
-</ul>
+<pre><code class="js light">
+Свойства <bg-methods>options</bg-methods>
+	<em>&#8226; method</em>      // метод запроса
+	<em>&#8226; headers</em>     // headers
+	<em>&#8226; body</em>        // тело запроса: FormData, Blob, строка и т.д.
+	<em>&#8226; mode</em>        // одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос
+	<em>&#8226; credentials</em> // одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом
+	<em>&#8226; cache</em>       // одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кешировать запрос
+	<em>&#8226; redirect</em>    // можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки 
+</code></pre>
 
 <h4>Объект response (ответ)</h4>
 <pre><code class="js">
@@ -3640,6 +3757,12 @@ var a = response.formData();
 var a = response.json();
 var a = response.text();
 </code></pre>
+
+<ul class="list-point">
+	<li>При вызове <u>fetch</u> возвращает <u>промис</u>, который, когда получен ответ, выполняет <u>коллбэки</u> с объектом <u>Response</u> или с ошибкой, если запрос не удался</li>
+	<li>В примере мы можем <u>в первом .then</u> проанализировать ответ и, если он нас устроит – вернуть промис с нужным форматом</li>
+	<li><u>Следующий .then</u> уже будет содержать полный ответ сервера</li>
+</ul>
 
 <h4>Пример #1. Без передачи значений</h4>
 <pre><code class="js">
@@ -3735,8 +3858,9 @@ axios.post('url', {
 	});
 </code></pre>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="ajax-variants">Варианты запросов</h2>
+<h2 id="ajax-request-js">Request JS</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------>
@@ -3783,31 +3907,47 @@ http://test1.ru/script.php?name=myname&message=my+message
 ?&gt;
 </code></pre>
 
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="ajax-response-php">Response PHP</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h3>Чтение данных в php</h3>
+<!------------------------------------------------------>
+<pre><code class="php">
+&lt;?php
+	$content = file_get_contents("php://input"); // чтение данных
+	$decoded = json_decode($content, true);      // если передан json
+	echo $decoded[name];                         // вывод значения "name"
+?&gt;
+</code></pre>
+
 <!------------------------------------------------------>
 <h3>Передача нескольких значений из php</h3>
 <!------------------------------------------------------>
-<pre><code class="php">
+<div class="container-flex"><div class="container-half"><pre><code class="php">
 &lt;?php
     $arr = array("Tony", 25);
     $json = json_encode($arr);
     echo $json
 ?&gt;
-</code></pre>
-<pre><code class="js">
+</code></pre></div><div class="container-half"><pre><code class="js">
 response.data; // ['Tony', 25]
-</code></pre>
+<br><br><br>
+</code></pre></div></div>
 
-<pre><code class="php">
+<div class="container-flex"><div class="container-half"><pre><code class="php">
 &lt;?php
     $arr = array("name" => "Tony", "age" => 25);
     $json = json_encode($arr);
     echo $json
 ?&gt;
-</code></pre>
-
-<pre><code class="js">
+</code></pre></div><div class="container-half"><pre><code class="js">
 response.data; // {name: "Tony", age: "25"}
-</code></pre>
+<br><br><br>
+</code></pre></div></div>
 
 
 
@@ -4207,6 +4347,18 @@ myWorker.onmessage = function(e) {
 </code></pre>
 
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="custom-properties-js">Custom Properties JS</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var root = document.querySelector(':root');
+var rootStyles = <bg-code>getComputedStyle</bg-code>(root);
+var mainColor = rootStyles.<bg-code>getPropertyValue</bg-code>('--main-color');
+console.log(mainColor); // '#ffeead'
+
+root.style.<bg-code>setProperty</bg-code>('--main-color', '#88d8b0');
+</code></pre>
 
 
 
