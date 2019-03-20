@@ -54,6 +54,13 @@ FROM products
 WHERE PRICE=(SELECT MAX(PRICE) AS PRICE FROM products)
 </code></pre>
 
+<h4>Пример #2. Диапазон in</h4>
+<pre><code class="js">
+SELECT * 
+FROM products 
+WHERE NAME in ("Name1", "Name2")
+</code></pre>
+
 <h3>Таблицы в БД</h3>
 <pre><code class="sql">
 DROP TABLE users             /* удаление таблицы */

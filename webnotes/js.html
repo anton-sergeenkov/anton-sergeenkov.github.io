@@ -2944,10 +2944,24 @@ console.log(num.next().value);
 <ul class="list-point">
 	<li>Функции <bg-code>resolve/reject</bg-code> принимают ровно один аргумент - результат/ошибку. Именно он передаётся обработчикам в <bg-code>.then/.catch</bg-code></li>
 	<li><bg-code>Promise</bg-code> после <bg-code>reject/resolve</bg-code> - неизменны. Когда промис переходит в состояние «выполнен» – с результатом (resolve) или ошибкой (reject) – это навсегда</li>
-	<li>Если говорить о взаимодействии с API, то <bg-code>catch</bg-code> используется для обработки http статусов <bg-code>4xx 5xx</bg-code>, <bg-code>then</bg-code> это статусы <bg-code>2xx</bg-code></li>
-	<li><bg-list>Промисификация</bg-list> - когда берут асинхронный функционал и делают для него обёртку, возвращающую промис</li>
-	<li><bg-list>«Чейнинг» (chaining)</bg-list> - цепочки промисов</li>
+	<li>Если говорить о взаимодействии с API, то <bg-code>catch</bg-code> используется для обработки http статусов <u>4xx 5xx</u>, <bg-code>then</bg-code> это статусы <u>2xx</u></li>
+	<li><u>Промисификация</u> - когда берут асинхронный функционал и делают для него обёртку, возвращающую промис</li>
+	<li><u>«Чейнинг» (chaining)</u> - цепочки промисов</li>
 </ul>
+
+<pre><code class="js light">
+<bg-methods>new Promise</bg-methods><bg-arguments>(function(resolve, reject) {}</bg-arguments>
+	<em>&#8226; resolve</em> // resolve('ok');
+	<em>&#8226; reject</em>  // reject(new Error('Api error'));
+<bg-methods>Promise.then</bg-methods><bg-arguments>(result)</bg-arguments>
+	<em>&#8226; result</em> // 
+<bg-methods>Promise.catch</bg-methods><bg-arguments>(error)</bg-arguments>
+	<em>&#8226; error</em> // 
+<bg-methods>Promise.all</bg-methods><bg-arguments>([p1, p2, p3])</bg-arguments> // выполняет все обещания даже если ошибка в первом, но закончится всё равно ошибкой
+	<em>&#8226; [p1, p2, p3]</em> // промисы
+<bg-methods>Promise.race</bg-methods><bg-arguments>([p1, p2, p3])</bg-arguments> // получить результат от первого
+	<em>&#8226; [p1, p2, p3]</em> // промисы
+</code></pre>
 
 <!------------------------------------------------------>
 <h3>Состояния Promise</h3>
@@ -3611,7 +3625,6 @@ console.log(tesla.color); // выводит black
 <bg-methods>xhr.send</bg-methods><bg-arguments>([body])</bg-arguments> // метод открывает соединение и отправляет запрос на сервер
 	<em>&#8226; body</em>        // тело запроса
 <bg-methods>xhr.abort</bg-methods><bg-arguments>()</bg-arguments>     // прерывает выполнение запроса
-
 <bg-methods>setRequestHeader</bg-methods><bg-arguments>(name, value)</bg-arguments> // устанавливает заголовок name запроса со значением value. Отменить setRequestHeader невозможно
 	<em>&#8226; name</em>  // 'Content-Type'
 	<em>&#8226; value</em> // 'application/json'
@@ -3730,7 +3743,7 @@ if (xhr.status != 200) {
 </code></pre>
 
 <pre><code class="js light">
-<bg-methods>let promise = fetch(url[, options])</bg-methods>
+<bg-methods>fetch</bg-methods><bg-arguments>(url[, options])</bg-arguments>
 	<em>&#8226; url</em>     // URL, на который сделать запрос
 	<em>&#8226; options</em> // необязательный объект с настройками запроса
 </code></pre>

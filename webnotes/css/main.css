@@ -222,7 +222,9 @@ code a, ul a {
 	color: #690 !important;
 }
 code.light {
-	background: none !important;
+	line-height: 2em;
+	background: rgba(var(--color-other), 0.045);
+	border: 2px dashed rgba(var(--color-other), 0.2);
 }
 pre.inline {
 	display: inline-block;
@@ -284,8 +286,8 @@ bg-light {
 }
 bg-methods {
 	padding: 5px;
-	border: 1px solid rgba(var(--color-fw), 0.25);
-	background: rgba(var(--color-fw), 0.2);
+	border: 1px solid rgba(var(--color-html), 0.25);
+	background: rgba(var(--color-html), 0.2);
 	border-radius: 3px 0px 0px 3px;
 }
 bg-arguments {
