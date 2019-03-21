@@ -223,7 +223,7 @@ code a, ul a {
 }
 code.light {
 	line-height: 2em;
-	background: rgba(var(--color-other), 0.045);
+	background: rgba(var(--color-other), 0.1);
 	border: 2px dashed rgba(var(--color-other), 0.2);
 }
 pre.inline {
@@ -240,11 +240,15 @@ u {
 	color: #8a6ac4;
 	font-weight: bold;
 }
+table, tr, td {
+	margin: 0;
+	padding: 0;
+}
 
 /***************************************************
 SELECTED
 /***************************************************/
-bg-code, bg-header, bg-list, bg-menu, bg-mass, bg-methods {
+bg-code, bg-header, bg-list, bg-menu, bg-mass, bg-methods, bg-define {
 	display: inline;
 	margin: 0;
 	padding: 0;
@@ -295,6 +299,12 @@ bg-arguments {
 	border: 1px solid rgba(var(--color-other), 0.3);
 	background: rgba(var(--color-other), 0.3);
 	border-radius: 0px 3px 3px 0px;
+}
+bg-define {
+	padding: 4px;
+	background: rgba(var(--color-js), 0.66);
+	border-radius: 3px;
+	color: white;
 }
 
 /***************************************************
