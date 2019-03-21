@@ -43,6 +43,7 @@
 	<a href="#ajax-request-js">Request JS</a>
 	<a href="#ajax-response-php">Response PHP</a>
 	<a href="#ajax-http-methods">HTTP-методы</a>
+	<a href="#jsonp">JSONP</a>
 
 	<div class="theme">События</div>
 	<a href="#actions-modal">Модель распространения событий</a>
@@ -2959,6 +2960,7 @@ console.log(num.next().value);
 </ul>
 
 <ul class="list-point">
+	<li>При создании new Promise((resolve, reject) => ...) автоматически запускается функция-аргумент, которая должна вызвать resolve(result) при успешном выполнении и reject(error) – при ошибке</li>
 	<li><bg-code>Promise</bg-code> после <bg-code>reject/resolve</bg-code> - неизменны. Когда промис переходит в состояние «выполнен» – с результатом (resolve) или ошибкой (reject) – это навсегда</li>
 	<li>Если говорить о взаимодействии с API, то <bg-code>catch</bg-code> используется для обработки http статусов <u>4xx 5xx</u>, <bg-code>then</bg-code> это статусы <u>2xx</u></li>
 	<li>Отсутствии внешнего .catch не останавливает выполнение скрипта. Когда обработчик в промисах делает <bg-code>throw</bg-code> – в данном случае, при ошибке запроса, то такая ошибка не останавливает выполнение скрипта и не выводится в консоли. Она просто будет передана в ближайший следующий обработчик onRejected</li>
@@ -4509,7 +4511,6 @@ myWorker.onmessage = function(e) {
 </code></pre>
 
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="custom-properties-js">Custom Properties JS</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -4521,6 +4522,39 @@ console.log(mainColor); // '#ffeead'
 
 root.style.<bg-code>setProperty</bg-code>('--main-color', '#88d8b0');
 </code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="jsonp">JSONP</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-list>JSONP («JSON with Padding»)</bg-list></li>
+</ul>
+
+<pre><code class="js">
+function addScript(src) {
+    var elem = document.createElement("script");
+    elem.src = src;
+    document.head.appendChild(elem);
+}
+
+addScript('user?id=123&callback=onUserData');
+
+// ответ сервера
+onUserData({
+    name: "Вася",
+    age: 25
+});
+
+// функция onUserData должна быть глобальной, ведь &lt;script src&gt; выполняется в глобальной области видимости
+// для этого создают один глобальный объект «реестр», который мы назовём CallbackRegistry. Далее для каждого запроса в нём генерируется временная функция
+addScript('user?id=123&callback=CallbackRegistry.func12345'); // сервер обернёт ответ в функцию CallbackRegistry.func12345, она вызывает нужный обработчик и очищает память, удаляя себя
+</code></pre>
+
+
+
+
+
 
 
 
