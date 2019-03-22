@@ -42,10 +42,11 @@
 	<a href="#axios">3. Axios</a>
 	<a href="#ajax-request-js">Request JS</a>
 	<a href="#ajax-response-php">Response PHP</a>
-	<a href="#ajax-http-methods">HTTP-методы</a>
+	<a href="#client-server">Client-Server Architecture</a>
 	<a href="#jsonp">JSONP</a>
 	<a href="#cors">CORS</a>
 	<a href="#websocket">WebSocket</a>
+	<a href="#comet">Comet</a>
 
 	<div class="theme">События</div>
 	<a href="#actions-modal">Модель распространения событий</a>
@@ -810,7 +811,7 @@ function upperName(literals, value) {
 <h2 id="type">Типы данных</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="html">
-1. <em>Number</em>    - число (примитивный) 
+1. <em>Number</em>    - число 64-битный float (примитивный) 
 2. <em>String</em>    - cтрока (примитивный)
 3. <em>Boolean</em>   - булевый, логический (примитивный)
 4. <em>null</em>      - специальное пустое или неизвестное значение (присваивается самостоятельно)
@@ -858,9 +859,8 @@ var a = new Boolean(true);
 </code></pre>
 
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="wrappers">Object Wrappers</h2>
+<h2 id="wrappers">Object Wrappers (Autoboxing)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 typeof 'string';             // "string"
@@ -868,6 +868,7 @@ typeof new String('string'); // "object"
 </code></pre>
 
 <ul class="list-point">
+	<li>Автоупаковка - вызов свойства или метода для примитивных типов (string, number, boolean), при котором JavaScript преобразует его во временный объект-оболочку и получает доступ к его свойству или методу, не затрагивая сам оригинал</li>
 	<li>Объект-обертка вокруг примитивного типа данных создается вызовом конструктора new</li>
 	<li>Или при использовании методов для строк и чисел</li>
 	<li>Иначе это является примитивным типом данных (string, number, boolean)</li>
@@ -4098,18 +4099,30 @@ response.data; // {name: "Tony", age: "25"}
 </code></pre></div></div>
 
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="ajax-http-methods">HTTP-методы GET/POST/PUT/DELETE</h2>
+<h2 id="client-server">Client-Server Architecture</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
-	<li><bg-list>HTTP</bg-list> протокол описывает взаимодействие между двумя компьютерами (клиентом и сервером), построенное на базе сообщений, называемых запрос (<bg-list>Request</bg-list>) и ответ (<bg-list>Response</bg-list>). Каждое сообщение состоит из трех частей: стартовая строка, заголовки и тело. При этом обязательной является только стартовая строка</li>
-	<li><bg-list>Uniform Resource Identifier (URI)</bg-list> - единообразный идентификатор ресурса.
-	Ресурс как правило, файл на сервере ('/styles.css'), или абстрактный объект ('/blogs/webdev/')</li>
-	<li><bg-list>REST (REpresentational State Transfer)</bg-list> описывает принципы взаимодействия клиента и сервера, основанные на понятиях «ресурса» и «глагола». В случае HTTP ресурс определяется своим URI, а глагол — это HTTP-метод</li>
+	<li><bg-define>Клиент-серверная архитектура</bg-define> </li>
+	<ul class="list-point">
+		<li><u>Клиент</u> - инициирует соединение и посылает запрос</li>
+		<li><u>Сервер</u> - ожидает соединения для получения запроса, производит необходимые действия и возвращают обратно сообщение с результатом</li>
+	</ul>
+
+	<li><bg-define>HTTP (HyperText Transfer Protocol)</bg-define> («протокол передачи гипертекста») - протокол прикладного уровня передачи произвольных данных. Протокол описывает взаимодействие между двумя компьютерами (клиентом и сервером), построенное на базе сообщений, запрос (<u>Request</u>) и ответ (<u>Response</u>). Каждое сообщение состоит из трех частей: стартовая строка, заголовки и тело. При этом обязательной является только стартовая строка. Обмен сообщениями идёт по обыкновенной схеме «запрос-ответ». Для идентификации ресурсов HTTP использует глобальные URI в запросе клиента</li>
+
+	<li><bg-define>URI (Uniform Resource Identifier)</bg-define> - единообразный идентификатор ресурса. Ресурс как правило, файл на сервере ('/styles.css'), или абстрактный объект ('/blogs/webdev/')</li>
+	<li>Особенностью протокола HTTP является возможность указать в запросе и ответе способ представления одного и того же ресурса по различным параметрам: формату, кодировке, языку и т. д. в частности, для этого используется HTTP-заголовок (строки содержащие разделённую двоеточием пару имя-значение)</li>
+	<li>Не предусмотрена внутренняя поддержка состояния</li>
+	<li>Аналоги FTP и SMTP</li>
+
+	<li><bg-define>HTTPS (HyperText Transfer Protocol Secure)</bg-define> - расширение протокола HTTP для поддержки шифрования в целях повышения безопасности. Данные в протоколе HTTPS передаются поверх криптографических протоколов SSL или TLS. Это обычный HTTP, работающий через шифрованные транспортные механизмы SSL и TLS. Он обеспечивает защиту от атак, основанных на прослушивании сетевого соединения — от снифферских атак и атак типа man-in-the-middle, при условии, что будут использоваться шифрующие средства и сертификат сервера проверен и ему доверяют</li>
+
+	<li><bg-define>REST (REpresentational State Transfer)</bg-define> описывает принципы взаимодействия клиента и сервера, основанные на понятиях «ресурса» и «глагола». В случае HTTP ресурс определяется своим URI, а глагол — это HTTP-метод</li>
 </ul>
 
+<h4>HTTP-методы</h4>
 <pre><code class="html">
 <em>GET</em>     - получение ресурса
 <em>POST</em>    - создание ресурса 
@@ -4122,6 +4135,11 @@ response.data; // {name: "Tony", age: "25"}
 <em>TRACE</em>   - возвращает полученный запрос так, что клиент может увидеть, какую информацию промежуточные серверы добавляют или изменяют в запросе
 <em>CONNECT</em> - преобразует соединение запроса в прозрачный TCP/IP-туннель, обычно чтобы содействовать установлению защищённого SSL-соединения через нешифрованный прокси
 </code></pre>
+
+
+
+
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -4668,7 +4686,7 @@ socket.send(form.elements[0].file); // файл из формы
 </code></pre>
 
 
-<a href="#comet">Comet</a>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="comet">Comet</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -4677,16 +4695,19 @@ socket.send(form.elements[0].file); // файл из формы
 	<li>AJAX – это «отправил запрос – получил результат», а COMET – это «непрерывный канал, по которому приходят данные»</li>
 </ul>
 
-<img src="img/js/comet.png" class="center" width="200px">
+<img src="img/js/comet.png" class="center" width="500px">
 
 <ul class="list-point">
-	Взаимодействие с комет сервером построено следующим образом
+	<b>Взаимодействие с комет сервером построено следующим образом</b>
 	<li>1. Браузер открывает страницу сайта</li>
 	<li>2. После загрузки страницы JavaScript устанавливает постоянное соединение с comet сервером</li>
 	<li>3. Пока открыта страница ваш сервер может отправить произвольное сообщение клиенту. Для этого он обращается с помощью Api к комет серверу и передаёт ему сообщение</li>
 	<li>4. Комет сервер используя открытое соединение с браузером доставляет полученное сообщение в браузер</li>
 	<li>5. JavaScript Api полученное от сервера сообщение предаёт в ваш callback</li>
 </ul>
+
+
+
 
 
 
