@@ -45,6 +45,7 @@
 	<a href="#ajax-http-methods">HTTP-методы</a>
 	<a href="#jsonp">JSONP</a>
 	<a href="#cors">CORS</a>
+	<a href="#websocket">WebSocket</a>
 
 	<div class="theme">События</div>
 	<a href="#actions-modal">Модель распространения событий</a>
@@ -4563,18 +4564,25 @@ xhr.withCredentials = true;
 </code></pre>
 
 
-
-
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="jsonp">JSONP</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li><bg-define>JSONP</bg-define> (JSON with Padding) - дополнение к базовому формату JSON. Он предоставляет способ запросить данные с сервера, находящегося в другом домене - операцию, запрещённую в типичных веб-браузерах из-за политики ограничения домена</li>
+	<li>JSONP - способ загрузки script на лету и обработки script, который вводится на страницу. Это означает введение нового объекта javascript с сервера в клиентское приложение /script</li>
 	<li>Стандартное применение JSONP предоставляет междоменный доступ к существующему JSON API путём оборачивания содержимого JSON в вызов функции</li>
 	<li>Разрешить браузерным страницам обойти политику ограничения домена путём вставки элемента script</li>
 	<li><bg-define>JSONPP</bg-define> (Parameterized JSON with Padding — «параметризованный JSON с подкладкой») — развитие идеи JSONP</li>
 	<li>Позволяет только получение данных GET методом. Отправка данных через POST недоступна</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Алгоритм работы</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>1. Инъекция элемента script</li>
+	<li>2. Вызов скрипта с передачей парамером callback</li>
+	<li>3. Сервер реализует выполнение callback с переданным им обязательным объектом. Функция обратного вызова - это только функция, которую вы уже настроили на клиенте, который script загружает вызовы в точке загрузки script для обработки данных, переданных ей</li>
 </ul>
 
 <!------------------------------------------------------>
@@ -4610,12 +4618,75 @@ onUserData({
     name: "Вася",
     age: 25
 });
-
-// функция onUserData должна быть глобальной, т.к. &lt;script src&gt; выполняется в глобальной области видимости
-// для этого создают один глобальный объект «реестр», который мы назовём CallbackRegistry. Далее для каждого запроса в нём генерируется временная функция
-addScript('user?id=123&callback=CallbackRegistry.func12345'); // сервер обернёт ответ в функцию CallbackRegistry.func12345, она вызывает нужный обработчик и очищает память, удаляя себя
 </code></pre>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="websocket">WebSocket</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-define>Протокол WebSocket</bg-define> предназначен для решения снятия ограничений обмена данными между браузером и сервером. Кросс-доменный, универсальный, безопасный. Позволяет пересылать любые данные, на любой домен, безопасно и почти без лишнего сетевого трафика</li>
+	<li>Сервер должен поддерживать протокол WebSocket</li>
+	<li>Протокол WebSocket работает над TCP</li>
+	<li>Создать подобный XMLHttpRequest-запрос (подделать WebSocket) невозможно: указанные выше заголовки запрещены к установке методом setRequestHeader</li>
+	<li>Сервер может проанализировать эти заголовки и решить, разрешает ли он WebSocket с данного домена Origin</li>
+</ul>
+
+<h4>Открыть соединеиние</h4>
+<pre><code class="js">
+// создание объекта WebSocket с указанием протокола ws
+var socket = new WebSocket("<bg-code>ws</bg-code>://javascript.ru/ws");  // протокол "ws" над "http"
+var socket = new WebSocket("<bg-code>wss</bg-code>://javascript.ru/ws"); // протокол "wss" над "https"
+</code></pre>
+
+<h4>Коллбэки у socket</h4>
+<p>Один получение данных и три при изменениях в состоянии соединения</p>
+<pre><code class="js">
+<bg-code>socket.onopen</bg-code> = function() {
+	alert("Соединение установлено.");
+};
+<bg-code>socket.onclose</bg-code> = function(event) {
+	if (event.wasClean) {
+		alert('Соединение закрыто чисто');
+	} else {
+		alert('Обрыв соединения'); // например, "убит" процесс сервера
+	}
+	alert('Код: ' + event.code + ' причина: ' + event.reason);
+};
+<bg-code>socket.onmessage</bg-code> = function(event) {
+	alert("Получены данные " + event.data);
+};
+<bg-code>socket.onerror</bg-code> = function(error) {
+	alert("Ошибка " + error.message);
+};
+</code></pre>
+
+<h4>Посылка данных</h4>
+<pre><code class="js">
+socket.send("Привет");              // строка
+socket.send(form.elements[0].file); // файл из формы
+</code></pre>
+
+
+<a href="#comet">Comet</a>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="comet">Comet</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-define>Comet</bg-define> - любая модель работы веб-приложения, при которой постоянное HTTP-соединение позволяет веб-серверу отправлять (push) данные браузеру без дополнительного запроса со стороны браузера</li>
+	<li>AJAX – это «отправил запрос – получил результат», а COMET – это «непрерывный канал, по которому приходят данные»</li>
+</ul>
+
+<img src="img/js/comet.png" class="center" width="200px">
+
+<ul class="list-point">
+	Взаимодействие с комет сервером построено следующим образом
+	<li>1. Браузер открывает страницу сайта</li>
+	<li>2. После загрузки страницы JavaScript устанавливает постоянное соединение с comet сервером</li>
+	<li>3. Пока открыта страница ваш сервер может отправить произвольное сообщение клиенту. Для этого он обращается с помощью Api к комет серверу и передаёт ему сообщение</li>
+	<li>4. Комет сервер используя открытое соединение с браузером доставляет полученное сообщение в браузер</li>
+	<li>5. JavaScript Api полученное от сервера сообщение предаёт в ваш callback</li>
+</ul>
 
 
 
