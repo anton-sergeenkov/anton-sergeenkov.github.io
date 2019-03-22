@@ -3796,7 +3796,7 @@ console.log(tesla.color); // выводит black
 <em>&#8226; xhr.statusText</em>   // Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.
 <em>&#8226; xhr.responseText</em> // Текст ответа сервера. Для json JSON.parse(xhr.responseText)
 <em>&#8226; xhr.responseXML</em>  // Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие
-<em>&#8226; xhr.timeout</em>          // Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout
+<em>&#8226; xhr.timeout</em>      // Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout
 </code></pre>
 
 <pre><code class="js">
@@ -3882,6 +3882,55 @@ if (xhr.status != 200) {
     console.log(xhr.responseText);
 } 
 </code></pre>
+
+
+<!------------------------------------------------------>
+<h3>Кросс-доменные запросы</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Запрос обязательно должен быть асинхронным</li>
+</ul>
+
+<ul class="list-point">
+	<li>1. В кросс-доменный запрос браузер автоматически добавляет заголовок <u>Origin</u>, содержащий домен, с которого осуществлён запрос</li>
+	<li>2. Если сервер разрешает кросс-доменный запрос с этого домена он должен добавить к ответу заголовок <u>Access-Control-Allow-Origin</u>, содержащий домен запроса или звёздочку <u>*</u>. Только при наличии такого заголовка в ответе – браузер сочтёт запрос успешным, а иначе JavaScript получит ошибку</li>
+	<li>3. Чтобы JavaScript мог прочитать HTTP-заголовок ответа, сервер должен указать его имя в <u>Access-Control-Expose-Headers</u></li>
+</ul>
+
+<h4>Простой метод GET, POST, HEAD</h4>
+
+<p>Запрос с домена http://test1.ru</p>
+<pre><code class="js">
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://test2.ru/script.php', true);
+xhr.onload = function() {
+    console.log(this.responseText);
+}
+xhr.onerror = function() {
+    console.log(this.status);
+}
+xhr.send();
+</code></pre>
+
+<p>Сервер http://test2.ru</p>
+<pre><code class="js">
+&lt;?php
+    header('Access-Control-Allow-Origin: http://test1.ru'); // домен
+    header('Access-Control-Allow-Origin: *');               // или *
+?&gt;
+</code></pre>
+
+
+
+
+
+<pre><code class="js">
+// передавать куки и HTTP-авторизацию
+xhr.withCredentials = true;
+</code></pre>
+
+
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -4550,10 +4599,6 @@ onUserData({
 // для этого создают один глобальный объект «реестр», который мы назовём CallbackRegistry. Далее для каждого запроса в нём генерируется временная функция
 addScript('user?id=123&callback=CallbackRegistry.func12345'); // сервер обернёт ответ в функцию CallbackRegistry.func12345, она вызывает нужный обработчик и очищает память, удаляя себя
 </code></pre>
-
-
-
-
 
 
 
