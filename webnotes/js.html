@@ -3915,21 +3915,22 @@ xhr.send();
 <p>Сервер http://test2.ru</p>
 <pre><code class="js">
 &lt;?php
-    header('Access-Control-Allow-Origin: http://test1.ru'); // домен
+    header('<bg-code>Access-Control-Allow-Origin</bg-code>: http://test1.ru'); // домен
     header('Access-Control-Allow-Origin: *');               // или *
 ?&gt;
 </code></pre>
 
 
-
-
-
+<h4>Передавать куки и HTTP-авторизацию</h4>
 <pre><code class="js">
-// передавать куки и HTTP-авторизацию
 xhr.withCredentials = true;
 </code></pre>
-
-
+<pre><code class="js">
+&lt;?php
+	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
+	header('<bg-code>Access-Control-Allow-Credentials</bg-code>: true');
+?&gt;
+</code></pre>
 
 
 
@@ -4577,10 +4578,12 @@ root.style.<bg-code>setProperty</bg-code>('--main-color', '#88d8b0');
 <h2 id="jsonp">JSONP</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><bg-list>JSONP («JSON with Padding»)</bg-list></li>
+	<li><bg-define>JSONP («JSON with Padding»)</bg-define> - дополнение к базовому формату JSON. Он предоставляет способ запросить данные с сервера, находящегося в другом домене - операцию, запрещённую в типичных веб-браузерах из-за политики ограничения домена</li>
+	<li>Стандартное применение JSONP предоставляет междоменный доступ к существующему JSON API путём оборачивания содержимого JSON в вызов функции</li>
 </ul>
 
 <pre><code class="js">
+// 1. Инъекция элемента script
 function addScript(src) {
     var elem = document.createElement("script");
     elem.src = src;
