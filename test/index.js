@@ -1,6 +1,6 @@
 
 var xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://isawyer.ru/script.php', true);
+xhr.open('GET', 'json.json', true);
 
 xhr.onload = function() {
     console.log(this.responseText);

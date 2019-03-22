@@ -44,6 +44,7 @@
 	<a href="#ajax-response-php">Response PHP</a>
 	<a href="#ajax-http-methods">HTTP-методы</a>
 	<a href="#jsonp">JSONP</a>
+	<a href="#cors">CORS</a>
 
 	<div class="theme">События</div>
 	<a href="#actions-modal">Модель распространения событий</a>
@@ -1912,24 +1913,6 @@ function pow(x, n) {
 &lt;script src="async.js" async&gt;&lt;/script&gt;
 &lt;script src="defer.js" defer&gt;&lt;/script&gt;
 text text text
-</code></pre>
-
-<h3>Добавление скриптов через JS</h3>
-<ul class="list-point">
-	<li>Скрипты, добавленные через JS ведут себя как async</li>
-</ul>
-
-<pre><code class="js">
-function addScript(src){
-	var script = document.createElement('script');
-	script.src = src;
-	script.async = false; // чтобы гарантировать порядок
-	document.head.appendChild(script);
-}
-
-addScript('1.js'); // загружаться эти скрипты начнут сразу
-addScript('2.js'); // выполнятся, как только загрузятся
-addScript('3.js'); // но, гарантированно, в порядке 1 -> 2 -> 3
 </code></pre>
 
 
@@ -3884,56 +3867,6 @@ if (xhr.status != 200) {
 </code></pre>
 
 
-<!------------------------------------------------------>
-<h3>Кросс-доменные запросы</h3>
-<!------------------------------------------------------>
-<ul class="list-point">
-	<li>Запрос обязательно должен быть асинхронным</li>
-</ul>
-
-<ul class="list-point">
-	<li>1. В кросс-доменный запрос браузер автоматически добавляет заголовок <u>Origin</u>, содержащий домен, с которого осуществлён запрос</li>
-	<li>2. Если сервер разрешает кросс-доменный запрос с этого домена он должен добавить к ответу заголовок <u>Access-Control-Allow-Origin</u>, содержащий домен запроса или звёздочку <u>*</u>. Только при наличии такого заголовка в ответе – браузер сочтёт запрос успешным, а иначе JavaScript получит ошибку</li>
-	<li>3. Чтобы JavaScript мог прочитать HTTP-заголовок ответа, сервер должен указать его имя в <u>Access-Control-Expose-Headers</u></li>
-</ul>
-
-<h4>Простой метод GET, POST, HEAD</h4>
-
-<p>Запрос с домена http://test1.ru</p>
-<pre><code class="js">
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://test2.ru/script.php', true);
-xhr.onload = function() {
-    console.log(this.responseText);
-}
-xhr.onerror = function() {
-    console.log(this.status);
-}
-xhr.send();
-</code></pre>
-
-<p>Сервер http://test2.ru</p>
-<pre><code class="js">
-&lt;?php
-    header('<bg-code>Access-Control-Allow-Origin</bg-code>: http://test1.ru'); // домен
-    header('Access-Control-Allow-Origin: *');               // или *
-?&gt;
-</code></pre>
-
-
-<h4>Передавать куки и HTTP-авторизацию</h4>
-<pre><code class="js">
-xhr.withCredentials = true;
-</code></pre>
-<pre><code class="js">
-&lt;?php
-	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
-	header('<bg-code>Access-Control-Allow-Credentials</bg-code>: true');
-?&gt;
-</code></pre>
-
-
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="fetch">Fetch</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -4575,21 +4508,101 @@ root.style.<bg-code>setProperty</bg-code>('--main-color', '#88d8b0');
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="cors">CORS</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-define>Cross-origin resource sharing</bg-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Кросс-доменные запросы</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Запрос обязательно должен быть асинхронным</li>
+</ul>
+
+<ul class="list-point">
+	<li>1. В кросс-доменный запрос браузер автоматически добавляет заголовок <u>Origin</u>, содержащий домен, с которого осуществлён запрос</li>
+	<li>2. Если сервер разрешает кросс-доменный запрос с этого домена он должен добавить к ответу заголовок <u>Access-Control-Allow-Origin</u>, содержащий домен запроса или звёздочку <u>*</u>. Только при наличии такого заголовка в ответе – браузер сочтёт запрос успешным, а иначе JavaScript получит ошибку</li>
+	<li>3. Чтобы JavaScript мог прочитать HTTP-заголовок ответа, сервер должен указать его имя в <u>Access-Control-Expose-Headers</u></li>
+</ul>
+
+<h4>Простой метод GET, POST, HEAD</h4>
+
+<p>Запрос с домена http://test1.ru</p>
+<pre><code class="js">
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://test2.ru/script.php', true);
+xhr.onload = function() {
+    console.log(this.responseText);
+}
+xhr.onerror = function() {
+    console.log(this.status);
+}
+xhr.send();
+</code></pre>
+
+<p>Сервер http://test2.ru</p>
+<pre><code class="js">
+&lt;?php
+    header('<bg-code>Access-Control-Allow-Origin</bg-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
+    header('Access-Control-Allow-Origin: *');               // разрешить доступ любому домену
+?&gt;
+</code></pre>
+
+
+<h4>Передавать куки и HTTP-авторизацию</h4>
+<pre><code class="js">
+xhr.withCredentials = true;
+</code></pre>
+<pre><code class="js">
+&lt;?php
+	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
+	header('<bg-code>Access-Control-Allow-Credentials</bg-code>: true');
+?&gt;
+</code></pre>
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="jsonp">JSONP</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><bg-define>JSONP («JSON with Padding»)</bg-define> - дополнение к базовому формату JSON. Он предоставляет способ запросить данные с сервера, находящегося в другом домене - операцию, запрещённую в типичных веб-браузерах из-за политики ограничения домена</li>
+	<li><bg-define>JSONP</bg-define> (JSON with Padding) - дополнение к базовому формату JSON. Он предоставляет способ запросить данные с сервера, находящегося в другом домене - операцию, запрещённую в типичных веб-браузерах из-за политики ограничения домена</li>
 	<li>Стандартное применение JSONP предоставляет междоменный доступ к существующему JSON API путём оборачивания содержимого JSON в вызов функции</li>
+	<li>Разрешить браузерным страницам обойти политику ограничения домена путём вставки элемента script</li>
+	<li><bg-define>JSONPP</bg-define> (Parameterized JSON with Padding — «параметризованный JSON с подкладкой») — развитие идеи JSONP</li>
+	<li>Позволяет только получение данных GET методом. Отправка данных через POST недоступна</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Инъекция элемента script</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Скрипты, добавленные через JS ведут себя как async</li>
 </ul>
 
 <pre><code class="js">
-// 1. Инъекция элемента script
-function addScript(src) {
-    var elem = document.createElement("script");
-    elem.src = src;
-    document.head.appendChild(elem);
+function addScript(src){
+	var script = document.createElement('script');
+	script.src = src;
+	script.type = 'text/javascript';
+	script.async = false; // чтобы гарантировать порядок
+	document.head.appendChild(script);
 }
 
+// загружаться скрипты начнут сразу в порядке 1 -> 2 -> 3, выполнятся, как только загрузятся
+addScript('1.js');  
+addScript('2.js');  
+addScript('3.js'); 
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>JSONP</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
 addScript('user?id=123&callback=onUserData');
 
 // ответ сервера
@@ -4598,7 +4611,7 @@ onUserData({
     age: 25
 });
 
-// функция onUserData должна быть глобальной, ведь &lt;script src&gt; выполняется в глобальной области видимости
+// функция onUserData должна быть глобальной, т.к. &lt;script src&gt; выполняется в глобальной области видимости
 // для этого создают один глобальный объект «реестр», который мы назовём CallbackRegistry. Далее для каждого запроса в нём генерируется временная функция
 addScript('user?id=123&callback=CallbackRegistry.func12345'); // сервер обернёт ответ в функцию CallbackRegistry.func12345, она вызывает нужный обработчик и очищает память, удаляя себя
 </code></pre>
