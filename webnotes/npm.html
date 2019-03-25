@@ -16,6 +16,9 @@
 	<div class="theme">NPM</div>
 	<a href="#npm-instruments">Инструменты</a>
 	<a href="#npm-command">Команды</a>
+	<a href="#npm-shortcut">Сокращения</a>
+	<a href="#npm-structure">Структура проекта</a>
+	<a href="#npm-package-json">package.json</a>
 
 	<div class="theme">Gulp</div>
 	<a href="#package-install">Основные пакеты Gulp</a>
@@ -29,35 +32,32 @@
 <div id="content">
 
 
-
-
 <h1>NPM</h1>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="npm-instruments">Инструменты</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="bash">
-<em>Node.js</em> # программная платформа для JavaScript
-<em>Npm</em>     # Node.js Package Manager. менеджер пакетов, входящий в состав Node.js
-<em>Gulp</em>    # сборщик проектов
-<em>Sass</em>    # препроцессор, расширяющий язык CSS
-<em>Git</em>     # репозиторий (установка для Package manager Bower)
+<em>Node.js</em>        # программная платформа для JavaScript
+<em>Npm</em>            # Node.js Package Manager. менеджер пакетов, входящий в состав Node.js
+<em>Webpack / Gulp</em> # сборщики проектов
+<em>Git</em>            # репозиторий (установка для Package manager Bower)
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="npm-command">Команды</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <pre><code class="bash">
-npm <span class="hc">init</span>                 # инициализация проекта (создание package.json)
-npm <span class="hc">i</span>                    # установить все пакеты из package.json
-npm <span class="hc">up</span>                   # обновить все пакеты из package.json
-npm <span class="hc">i</span> package            # установить package (не должен добавляться в package.json)
-npm <span class="hc">i</span> package <span class="hc">--save</span>     # установить package и добавить запись в секцию dependencies package.json 
-npm <span class="hc">i</span> package <span class="hc">--save-dev</span> # установить package и добавить запись в секцию devDependencies package.json
-npm <span class="hc">i</span> package <span class="hc">--g</span>        # установить package глобально
-npm <span class="hc">r</span> package            # удалить package
-npm <span class="hc">up</span> package           # обновить package
+npm <bg-code>init</bg-code>                 # инициализация проекта (создание package.json)
+npm <bg-code>i</bg-code>                    # установить все пакеты из package.json
+npm <bg-code>up</bg-code>                   # обновить все пакеты из package.json
+npm <bg-code>i</bg-code> package            # установить package (не должен добавляться в package.json)
+npm <bg-code>i --save</bg-code> package     # установить package и добавить запись в секцию dependencies package.json 
+npm <bg-code>i --save-dev</bg-code> package # установить package и добавить запись в секцию devDependencies package.json
+npm <bg-code>i --g</bg-code> package        # установить package глобально
+npm <bg-code>r</bg-code> package            # удалить package
+npm <bg-code>up</bg-code> package           # обновить package
+npm <bg-code>run</bg-code> package          # запустить package
 </code></pre>
 
 <ul class="list-point">
@@ -67,6 +67,10 @@ npm <span class="hc">up</span> package           # обновить package
 	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
 	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="npm-shortcut">Сокращения</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <div class="container-flex"><div class="container-half"><pre><code class="bash">
 npm install package
@@ -87,9 +91,33 @@ c   # config
 ls  # list
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="npm-package-json">package.json</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="bash">
+npm init
+npm i --save-dev http-server
+npm run http-server
+</code></pre>
+
+<pre><code class="json">
+{
+	"scripts": {
+		"http-server": "./node_modules/http-server/bin/http-server",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	}
+}
+</code></pre>
 
 
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="npm-structure">Структура проекта</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash"><em>
+&#8226; package.json      # описание зависимостей и информации о проекте
+&#8226; package-lock.json # описание зависимостей со строго зафиксированной версией, чтобы окружение у разных разработчиков было одинаковое
+</em></code></pre>
 
 
 <h1>Gulp</h1>
