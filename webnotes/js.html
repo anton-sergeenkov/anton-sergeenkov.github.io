@@ -5044,15 +5044,43 @@ page.html
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<b>Стандарты</b>
-	<li><bg-list>1. CommonJS (CJS)</bg-list>. Реализация: <a href="https://nodejs.org/api/modules.html" target="_blank">Модульная система Node.js</a></li>
+	<li><bg-list>1. Паттерн "Модуль"</bg-list> (2003 год) - немедленно вызываемая функция, образующая приватную область видимости</li>
+
+	<li><bg-list>2. CommonJS (CJS)</bg-list> (2009 год) - module.exports -> require. Реализация: <a href="https://nodejs.org/api/modules.html" target="_blank">Модульная система Node.js</a></li>
 	<li>Предназначен для синхронной загрузки. Преимущественно используется на стороне сервера</li>
-	<li><bg-list>2. Asynchronous Module Definition (AMD)</bg-list> Реализация: <a href="https://requirejs.org/" target="_blank">RequireJS</a></li>
+
+	<li><bg-list>3. Asynchronous Module Definition (AMD)</bg-list> (2009 год). define -> require. Реализация: <a href="https://requirejs.org/" target="_blank">RequireJS</a></li>
 	<li>Предназначен для асинхронной загрузки. Преимущественно используется на стороне клиента.</li>
+	
+	<li><bg-list>4. Universal Module Definition (UMD)</bg-list> (2011 год). Объединение AMD и CommonJS. Суть подхода: проверить существование функции define и если она есть определить модуль в формате AMD, а если нет, в формате CommonJS</li>
+
+	<li><bg-list>5. Модули ES6</bg-list> (2015 год) - export -> import</li>
+
 </ul>
 
 <!------------------------------------------------------>
 <h3>Модули ES6</h3>
 <!------------------------------------------------------>
+
+<pre><code class="html">
+<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/import" target="_blank">import</a>
+<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/export" target="_blank">export</a>
+</code></pre>
+
+
+
+<!-- Чтобы использовать в браузере, добавить
+<script type="module"></script>
+- не блокируют парсинг html
+- выполняются отложенно
+- имею свою область видимости
+- код модуля всегда выполняется в строгом режиме
+
+Подключение модуля из внешнего файла
+<script type="module" import="main.js"></script> -->
+
+
+
 
 <h4></h4>
 <pre><code class="js">
