@@ -72,6 +72,10 @@
 	<a href="#dom-element">DOM элементы</a>
 	<a href="#form">Web Forms</a>
 	
+	<div class="theme">Модули</div>
+	<a href="#module-system">Модульная система</a>
+	<a href="#module-es6">Модули ES6</a>
+
 	<div class="theme">Веб-компоненты</div>
 	<a href="#web-components-theory">Теория</a>
 	<a href="#web-components-virtual-dom">Virtual DOM</a>
@@ -91,8 +95,6 @@
 	<a href="#wrappers">Object Wrappers</a>
 	<a href="#decorator">Декораторы</a>
 	<a href="#architecture">Архитектура среды выполнения JS</a>
-	<a href="#oop">ООП</a>
-	<a href="#function-pro">Функциональное программирование</a>
 	<a href="#garbage-collection">Сборщик мусора</a>
 	<a href="#regexr">Регулярные выражения</a>
 	<a href="#let-const"><bg-menu>var</bg-menu> <bg-menu>let</bg-menu> <bg-menu>const</bg-menu></a>
@@ -3041,6 +3043,14 @@ functionAsync()
 	<bg-code>.catch</bg-code>(functionReject);
 </code></pre>
 
+<h4>Третий вариант (вызванная функция)</h4>
+<pre><code class="js">
+functionAsync()
+	<bg-code>.then</bg-code>(functionResolve1()) // вызванная функция пропускается
+</code></pre>
+
+
+
 <!------------------------------------------------------>
 <h3>«Чейнинг» (цепочки промисов)</h3>
 <!------------------------------------------------------>
@@ -4202,16 +4212,6 @@ user = null;
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="function-pro">Функциональное программирование</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>Специфические возможности по работе с функциями:  передача функций другим функциям в качестве аргументов и о возврате функций из других функций</li>
-	<li>Концепции: <bg-list>чистые функции</bg-list>, <bg-list>каррирование функций</bg-list>, <bg-list>функции высшего порядка</bg-list></li>
-	<li><bg-list>Чистые функции</bg-list> - выходные данные чистых функций зависят только от входных, они, при выполнении, не влияют на состояние программы</li>
-</ul>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="let-const">var let const</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -4395,29 +4395,6 @@ function save() { ... }
 save = checkPermissionDecorator(save);
 // Теперь вызов функции save() проверяет права
 </code></pre>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="oop">ООП</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<ul class="list-point">
-	<b>Механизмы</b>
-
-	<li>
-		<p><bg-list>Инкапсуляция</bg-list> - механизм языка, позволяющий ограничить доступ одних компонентов программы к другим. Группировка свойств и методов в один класс</p>
-		<p>Инкапсуляция – отделение и защита внутреннего интерфейса от внешнего</p>
-		<p>Внутренний интерфейс – это свойства и методы, доступ к которым может быть осуществлен только из других методов объекта, их также называют «приватными»</p>
-		<p>Внешний интерфейс – это свойства и методы, доступные снаружи объекта, их называют «публичными»</p>
-	</li>
-
-	<li><bg-list>Наследование</bg-list> - класс может наследовать данные и функциональность некоторого существующего типа, способствуя повторному использованию компонентов</li>
-	
-	<li><bg-list>Полиморфизм</bg-list> - возможность объектов с одинаковой спецификацией иметь различную реализацию. «Один интерфейс, множество реализаций». Переопеределение методов у дочерних классов</li>
-	
-	<li><bg-list>Абстракция</bg-list> - придание объекту характеристик, которые чётко определяют его концептуальные границы, отличая от всех других объектов. Основная идея состоит в том, чтобы отделить способ использования составных объектов данных от деталей их реализации в виде более простых объектов</li>
-</ul>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="eval">eval</h2>
@@ -5038,9 +5015,8 @@ page.html
 
 
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="web-components-imports">Модульная система</h2>
+<h2 id="module-system">Модульная система</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<b>Стандарты</b>
@@ -5058,40 +5034,37 @@ page.html
 
 </ul>
 
-<!------------------------------------------------------>
-<h3>Модули ES6</h3>
-<!------------------------------------------------------>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="module-es6">Модули ES6</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <pre><code class="html">
 <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/import" target="_blank">import</a>
 <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/export" target="_blank">export</a>
 </code></pre>
 
+<ul class="list-point">
+	<b>Особенности</b>
+	<li>Не блокируют парсинг html</li>
+	<li>Выполняются отложенно</li>
+	<li>Имею свою область видимости</li>
+	<li>Код модуля всегда выполняется в строгом режиме</li>
+</ul>
 
-
-<!-- Чтобы использовать в браузере, добавить
-<script type="module"></script>
-- не блокируют парсинг html
-- выполняются отложенно
-- имею свою область видимости
-- код модуля всегда выполняется в строгом режиме
-
-Подключение модуля из внешнего файла
-<script type="module" import="main.js"></script> -->
-
-
-
-
-<h4></h4>
+<!------------------------------------------------------>
+<h3>Импорт</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 import { libFunction } from 'lib';           // импорт одного значения
 import { libFunction, libConst } from 'lib'; // импорт нескольких значений
 import { libConst as name } from 'lib';      // переименовать значения
 import 'lib' as obj;                         // использование модуля как объекта, значениями свойств которого будут экспортированные значения (obj.libConst)
-
 </code></pre>
 
-<h4>Экспорт</h4>
+<!------------------------------------------------------>
+<h3>Экспорт</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 export const libConst = 77;
 export function libFunction() {
@@ -5099,7 +5072,9 @@ export function libFunction() {
 }
 </code></pre>
 
-<h4>Экспорт по умолчанию</h4>
+<!------------------------------------------------------>
+<h3>Экспорт по умолчанию</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 // myapp/models/Customer.js
 export default class { // анонимный класс
@@ -5115,6 +5090,27 @@ export default class { // анонимный класс
 import Customer from 'models/Customer';
 let c = new Customer(0, 'Jane');
 </code></pre>
+
+<!------------------------------------------------------>
+<h3>Использование в браузере</h3>
+<!------------------------------------------------------>
+
+<pre><code class="html">
+<a href="https://codesandbox.io/s/oj2rwm9v35" target="_blank">CodeSandbox</a>
+</code></pre>
+
+<pre><code class="html">
+&lt;!-- Использование в браузере --&gt;
+&lt;script type="module"&gt;&lt;/script&gt;
+
+&lt;!-- Подключение модуля из внешнего файла --&gt;
+&lt;script type="module" import="main.js"&gt;&lt;/script&gt;
+</code></pre>
+
+
+
+
+
 
 
 

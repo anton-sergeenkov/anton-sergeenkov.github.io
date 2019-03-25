@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="container">
+<div id="menu-left">
+	<div id="menu-left-starter">
+		<div id="menu-left-show"></div>
+		<a href="#menu-top">Starter</a>
+	</div>
+
+	<div class="theme">Основное</div>
+	<a href="#oop">ООП</a>
+    <a href="#function-pro">Функциональное программирование</a>
+    <a href="#paradigms">Парадигмы программирования</a>
+
+    <div class="theme">Прочее</div>
+    <a href="#web-applications">Виды веб приложений</a>
+    <a href="#design">Эволюция веб-дизайна</a>
+    <a href="#framework">Фреймворки</a>
+    <a href="#pattern">Паттерны проектирования</a>
+</div>
+<div id="content-wrapper">
+<div id="menu-top"></div>
+<div id="content">
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="oop">ООП</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <b>Механизмы</b>
+
+    <li><bg-header>Инкапсуляция</bg-header> - механизм языка, позволяющий ограничить доступ одних компонентов программы к другим. Группировка свойств и методов в один класс</li>
+    <li>Инкапсуляция – отделение и защита внутреннего интерфейса от внешнего</li>
+    <li>Внутренний интерфейс – это свойства и методы, доступ к которым может быть осуществлен только из других методов объекта, их также называют «приватными»</li>
+    <li>Внешний интерфейс – это свойства и методы, доступные снаружи объекта, их называют «публичными»</li>
+
+
+    <li><bg-header>Наследование</bg-header> - класс может наследовать данные и функциональность некоторого существующего типа, способствуя повторному использованию компонентов</li>
+    
+    <li><bg-header>Полиморфизм</bg-header> - возможность объектов с одинаковой спецификацией иметь различную реализацию. «Один интерфейс, множество реализаций». Переопеределение методов у дочерних классов</li>
+    
+    <li><bg-header>Абстракция</bg-header> - придание объекту характеристик, которые чётко определяют его концептуальные границы, отличая от всех других объектов. Основная идея состоит в том, чтобы отделить способ использования составных объектов данных от деталей их реализации в виде более простых объектов</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="function-pro">Функциональное программирование</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Специфические возможности по работе с функциями:  передача функций другим функциям в качестве аргументов и о возврате функций из других функций</li>
+
+    <b class="margin-top">Концепции</b>
+    <li><bg-header>Чистые функции</bg-header> - выходные данные чистых функций зависят только от входных, они, при выполнении, не влияют на состояние программы</li>
+    <li><bg-header>Каррирование функций</bg-header></li>
+    <li><bg-header>Функции высшего порядка</bg-header></li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="paradigms">Парадигмы программирования</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="js">
+1. Императивное (машинный код: Assembler)
+2. Декларативное (HTML, SQL)
+3. Структурное (Pascal, C)
+4. Функциональное (F#, Lisp, Erlang, Scala комбинирование нескольких функций)
+5. Логическое
+6. Объектно-ориентированное (С#, Java)
+7. Аспектно-ориентированное
+</code>
+</pre>
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="web-applications">Виды веб приложений</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><bg-header>SSR</bg-header> - Server-Side Rendering (рендеринг на стороне сервера)</li>
+    <li><bg-header>SPA</bg-header> - Single-Page Application (одностраничное приложение)</li>
+    <li><bg-header>PWA</bg-header> - Progressive Web App (прогрессивное веб-приложение)</li>
+    <li>Стандартные HTML страницы</li>
+</ul>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="design">Эволюция веб-дизайна</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="js">
+1990-2000  Нет дизайна
+2000-2010  Скевоморфизм
+2010-2013  Flat Design  
+2014-2017  Material Design
+2018-....  Fluent Design
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="framework">Фреймворки (особенности)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+- структура приложения 
+- паттерны проектирования
+- строгая структура (модульность) приложения
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="pattern">Шаблоны проектирования (ММС...)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+- MVC (модель вид контроллер)
+- MVP (модель вид представитель)
+- MVVM (модель вид модель представления)
+</code></pre>
+
+<pre><code class="plaintext">
+<em>MVC</em>
+<em>model</em>      - бизнес-логика (просчитывание данных, операций)
+<em>view</em>       - видимая часть
+<em>controller</em> - берет данные из view и передает в model (запускает model)
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+	<div id="preloader"></div>
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+</body>
+</html>

@@ -23,13 +23,18 @@
 	<a href="#5">Polyfill Object.create</a>
 	<a href="#7">Polyfill Object.create (JSR)</a>
 	<a href="#6">Prototype</a>
+    
+    <div class="theme">Array</div>
+    <a href="#8">Значение массива</a>
+    <a href="#10">map</a>
+    <a href="#13">Duplicate</a>
 
     <div class="theme">Прочее</div>
-    <a href="#8">Значение массива</a>
     <a href="#9">Всплытие 1</a>
-    <a href="#10">map</a>
+    <a href="#11">Promise 1</a>
+    <a href="#12">Promise 2</a>
 
-<!-- 10 -->
+<!-- 13 -->
 </div>
 <div id="content-wrapper">
 <div id="menu-top"></div>
@@ -43,6 +48,8 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="2">Сумма произвольного количества скобок</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h4>Вариант #1</h4>
 <pre><code class="js">
 function sum() {
     let total = 0;
@@ -82,31 +89,60 @@ console.log(sum(6)(-1)(-2)(-3));    // 0
 console.log(sum(0)(1)(2)(3)(4)(5)); // 15
 </code></pre>
 
+<h4>Фиксированное окончание пустым значением</h4>
 <pre><code class="js">
-function sum(id) {
-	var sum = 0;
-	if (id != undefined) {
-        sum += id;
+console.log(sum(1)(2)(3)()); // 6
+function sum(arg) {
+    let result = arg;
+    let f = function(value) {
+        if(value === indefined) {
+            return result;
+        } 
+        result += value;
+        return f;
     }
-    return function(id) {
-        if (id != undefined) {
-            sum += id;
-        }
-        return function(id) {
-            if (id != undefined) {
-                sum += id;
-            }
-            return function(id) {
-                if (id != undefined) {
-                    sum += id;
-                }
-                console.log(sum);
-            }
-        }
-    }	
+    return f;
 }
-sum(1)(2)(3)(); // 6
 </code></pre>
+
+<h4>Добавление числа</h4>
+<pre><code class="js">
+console.log(sum(1)(2)(3) + 5); // 11
+
+function sum(arg) {
+    let result = arg;
+    let f = function(value) {
+    
+        if(value === indefined) {
+            return result;
+        } 
+        result += value;
+        return f;
+    }
+    
+    f.toString = function() {
+        return result;
+    }
+    return f;
+}
+</code></pre>
+
+<pre><code class="js">
+// разбор
+// let a = sum(1);
+// let a1 = a(2);
+// let a2 = a1(3);
+// let result = 6;
+// a2 = function(value) {
+//         if(value === indefined) {
+//             return result;
+//         } 
+//         result += value;
+//         return f;
+//     }
+// a2.valueOf() + 5
+</code></pre>
+
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -337,6 +373,61 @@ function prop(propName) {
     }
 }
 </code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="11">Promise 1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function delay(value) {
+    return new Promise(function(resolve, reject){
+       setTimeout(function(){
+            resolve(100);
+        }, value);
+    });
+}
+delay(1000).then(value => console.log(‘Done with ’ + value)); // Done with 100
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="12">Promise 2</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+doSomething().then(function () {
+    return doSomethingElse();
+}).then(value => console.log(value)); // result doSomethingElse
+
+doSomething().then(function () {
+  doSomethingElse();
+}).then(value => console.log(value)) // undefined
+
+doSomething()
+    .then(doSomethingElse()) // пропускается
+    .then(value => console.log(value)); // result DoSomething
+
+doSomething()
+    .then(doSomethingElse)
+    .then(value => console.log(value)); // result doSomethingElse 
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="13">Duplicate</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+console.log([1, 2, 3, 4].duplicate()) // [1, 2, 3, 4, 1, 2, 3, 4]
+Array.prototype.duplicate = function() {
+    return this.concat(this);
+}
+
+console.log([1, 2, 3, 4].duplicate()) // [1, 2, 3, 4, 1, 2, 3, 4]
+Array.prototype.duplicate = function() {
+    return [...this, ...this];
+}
+</code></pre>
+
+
 
 
 

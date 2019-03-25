@@ -21,6 +21,7 @@ var menu = `
     <a href="npm.html"           class="menu menu-other">npm</a>
     <a href="git.html"           class="menu menu-other">git</a>
     <a href="other.html"         class="menu menu-other">other</a>
+    <a href="theory.html"        class="menu menu-other">theory</a>
 
     <a href="nodejs.html"        class="menu menu-php">node.js</a>
     <a href="php.html"           class="menu menu-php">php</a>
