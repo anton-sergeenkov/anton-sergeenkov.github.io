@@ -72,6 +72,14 @@
 	<a href="#dom-element">DOM элементы</a>
 	<a href="#form">Web Forms</a>
 	
+	<div class="theme">Веб-компоненты</div>
+	<a href="#web-components-theory">Теория</a>
+	<a href="#web-components-virtual-dom">Virtual DOM</a>
+	<a href="#web-components-shadow-dom">1. Shadow DOM</a>
+	<a href="#web-components-template">2. HTML Templates</a>
+	<a href="#web-components-custom-elements">3. Custom Elements</a>
+	<a href="#web-components-imports">4. HTML Imports</a>
+
 	<div class="theme">Client Data</div>
 	<a href="#data-storage"><bg-menu>localStorage</bg-menu> <bg-menu>sessionStorage</bg-menu></a>
 	<a href="#data-db"><bg-menu>IndexedDB</bg-menu></a>
@@ -4708,6 +4716,377 @@ socket.send(form.elements[0].file); // файл из формы
 
 
 
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- Веб-компоненты -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="web-components-theory">Теория</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-header>Веб-компоненты</bg-header> - это семейство API, предназначенных для описания новых элементов DOM, подходящих для повторного использования. Функционал таких элементов отделён от остального кода, их можно применять в веб-приложениях собственной разработки</li>
+	<li>HTML-элементу с нестандартным названием (например <mytag>) соответствует класс <u>HTMLUnknownElement</u>, и у него нет каких-либо особых методов</li>
+</ul>
+
+<a href="https://www.polymer-project.org/" target="_blank">Polymer (полифилл на тему веб-компонент)</a>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="web-components-custom-elements">Custom Elements</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<alert-error>document.registerElement => window.customElements.define (устаревшая конструкция)</alert-error>
+
+<ul class="list-point">
+	<li>Стандарт Custom Elements позволяет описывать для новых элементов свои свойства, методы, объявлять свой DOM, подобие конструктора и многое другое</li>
+</ul>
+<ul class="list-point">
+	<li>Использовать новый элемент в HTML можно и до его объявления через <u>registerElement</u></li>
+	<li>Для этого в браузере предусмотрен специальный режим «обновления» существующих элементов</li>
+	<li>Если браузер видит элемент с неизвестным именем, в котором есть дефис - (такие элементы называются <u>«unresolved»</u>), то</li>
+	<ul class="list-point">
+		<li>Он ставит такому элементу специальный CSS-псевдокласс <u>:unresolved</u>, для того, чтобы через CSS можно было показать, что он ещё «не подгрузился»</li>
+		<li>При вызове <u>registerElement</u> такие элементы автоматически обновятся до нужного класса</li>
+	</ul>
+</ul>
+
+<pre><code class="js light">
+<table>
+	<tr><td><bg-methods>document.registerElement</bg-methods><bg-arguments>(имя, {prototype:прототип})</bg-arguments></td><td>  //</td></tr>
+	<tr><td><em>	&#8226; имя</em></td><td>  // имя нового тега, например "mega-select". Оно обязано содержать дефис "-". Спецификация требует дефис, чтобы избежать в будущем конфликтов со стандартными элементами HTML. Нельзя создать элемент timer или myTimer – будет ошибка</td></tr>
+	<tr><td><em>	&#8226; прототип</em></td><td>  // объект-прототип для нового элемента, он должен наследовать от HTMLElement, чтобы у элемента были стандартные свойства и методы</td></tr>
+</table></code></pre>
+
+<!------------------------------------------------------>
+<h3>Регистрация элемента</h3>
+<!------------------------------------------------------>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+var element = <bg-code>Object.create(HTMLElement.prototype)</bg-code>;
+element.action = function(content) {
+    this.innerHTML = content;
+};
+<bg-code>document.registerElement</bg-code>("my-element", {
+    prototype: element
+});
+document.querySelector('my-element').action('zzz');
+<br><br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+<bg-code>document.registerElement</bg-code>("my-element", {
+    prototype: {
+        __proto__: <bg-code>HTMLElement.prototype</bg-code>,
+        action: function(content) { 
+        	this.innerHTML = content; 
+        },
+        value: 77
+    }
+});
+document.querySelector('my-element').action('zzz');
+var a = document.querySelector('my-element').value;
+</code></pre></div></div>
+
+<pre><code class="html">
+&lt;my-element&gt;Hello&lt;/my-element&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Расширение встроенных элементов</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var element = <bg-code>Object.create(HTMLButtonElement.prototype)</bg-code>;
+element.action = function(content) {
+    this.innerHTML = content;
+};
+<bg-code>document.registerElement</bg-code>("my-element", {
+    prototype: element,
+    <bg-code>extends: 'button'</bg-code>
+});
+document.querySelector('button').action('zzz');
+</code></pre>
+<pre><code class="css">
+&lt;button <bg-code>is="my-element"</bg-code>&gt;&lt;/button&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Жизненный цикл</h3>
+<!------------------------------------------------------>
+<pre><code class="bash">
+<em>createdCallback</em>                                     # элемент создан
+<em>attachedCallback</em>                                    # элемент добавлен в документ
+<em>detachedCallback</em>                                    # элемент удалён из документа
+<em>attributeChangedCallback(name, prevValue, newValue)</em> # атрибут добавлен, изменён или удалён
+</code></pre>
+
+<pre><code class="js">
+element.createdCallback = function() {
+    //
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Примеры</h3>
+<!------------------------------------------------------>
+
+<!--__________________________________________________-->
+<h4>#1 - Элемент таймер</h4>
+<pre><code class="js">
+// прототип с методами для нового элемента
+var MyTimerProto = <bg-code>Object.create(HTMLElement.prototype)</bg-code>;
+MyTimerProto.tick = function() { // свой метод tick
+    this.innerHTML++;
+};
+
+// регистрируем новый элемент в браузере
+<bg-code>document.registerElement</bg-code>("my-timer", {
+    prototype: MyTimerProto
+});
+
+// вызовем метод tick() на элементе
+setInterval(function() {
+    timer.tick();
+}, 1000);
+</code></pre>
+<pre><code class="html">
+&lt;my-timer id="timer"&gt;0&lt;/my-timer&gt;
+</code></pre>
+
+<!--__________________________________________________-->
+<h4>#2 - Элемент hello-world с таймером</h4>
+<pre><code class="js">
+// регистрация произойдёт через 2 сек
+setTimeout(function() {
+    <bg-code>document.registerElement</bg-code>("hello-world", {
+        prototype: {
+            __proto__: HTMLElement.prototype,
+            sayHi: function() { alert('Привет!'); }
+        }
+    });
+    hello.sayHi();
+}, 2000);
+</code></pre>
+<pre><code class="css">
+/* стиль для :unresolved элемента (до регистрации) */
+hello-world<bg-code>:unresolved</bg-code> {
+    color: blue;
+}
+hello-world {
+    transition: color 3s;
+}
+</code></pre>
+<pre><code class="html">
+&lt;hello-world id="hello"&gt;Hello, world!&lt;/hello-world&gt;
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="web-components-shadow-dom">Shadow DOM</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<alert-error>Element.createShadowRoot => Element.attachShadowe (устаревшая конструкция)</alert-error>
+
+<ul class="list-point">
+	<li><bg-header>Shadow DOM</bg-header> - это средство для создания отдельного DOM-дерева внутри элемента, которое не видно снаружи без применения специальных методов. Shadow DOM - это внутренний DOM элемента, который существует отдельно от внешнего документа. В нём могут быть свои ID, свои стили и так далее. Причём снаружи его, без применения специальных техник, не видно, поэтому не возникает конфликтов</li>
+	<li>Shadow DOM - спецификация, описывающая метод объединения нескольких DOM-деревьев в одну иерархию и как эти деревья взаимодействуют друг с другом в пределах документа, что позволяет лучше скомпоновать DOM</li>
+	<li>Shadow DOM можно создать внутри любого элемента</li>
+	<li>С момента создания Shadow DOM обычное содержимое (дети) элемента не отображается, а показывается только Shadow DOM</li>
+	
+	<b class="margin-top">&lt;content&gt;</b>
+	<li>Тег <u>&lt;content&gt;</u> влияет только на отображение, он не перемещает узлы физически. Внутри <u>&lt;content&gt;</u> показывается не элемент целиком, а только его содержимое</li>
+	<li>Внутри Shadow DOM можно использовать &lt;content&gt; много раз с разными значениями select, указывая таким образом, где конкретно какие части исходного содержимого разместить. Но при этом дублирование узлов невозможно. Если узел показан в одном &lt;content&gt;, то в следующем он будет пропущен</li>
+	<li>Например, если сначала идёт &lt;content select="h3.title"&gt;, а затем &lt;content select="h3"&gt;, то в первом &lt;content&gt; будут показаны заголовки &lt;h3&gt; с классом title, а во втором – все остальные, кроме уже показанных</li>
+	<li>Если в теге &lt;content&gt;&lt;/content&gt; есть содержимое, оно будет показано только в том случае, если узлов для вставки нет</li>
+</ul>
+
+<pre><code class="js light">
+<table>
+	<tr><td><b>JavaScript</b></td></tr>
+	<tr><td><bg-methods>createShadowRoot</bg-methods><bg-arguments>()</bg-arguments></td><td>  // создание Shadow DOM</td></tr>
+	<tr><td><bg-methods>shadowRoot</bg-methods><bg-arguments>()</bg-arguments></td><td>  // корень</td></tr>
+	
+	<tr><td><b>HTML</b></td></tr>
+	<tr><td><bg-methods>&lt;content&gt;&lt;/content&gt;</bg-methods></td><td>  // замена содержимого</td></tr>
+
+	<tr><td><b>CSS</b></td></tr>
+	<tr><td><bg-methods>::shadow</bg-methods></td><td>  // выбирает корень Shadow DOM</td></tr>
+	<tr><td><bg-methods>>>></bg-methods></td><td>  // полностью игнорирует границы между DOM'ами</td></tr>
+</table></code></pre>
+
+<!------------------------------------------------------>
+<h3>Создание createShadowRoot</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var root = document.querySelector('#element').<bg-code>createShadowRoot()</bg-code>;
+</code></pre>
+<pre><code class="html">
+&lt;div id="element"&gt;Hi&lt;/div&gt;
+</code></pre
+
+<!------------------------------------------------------>
+<h3>Замена содержимого &lt;content&gt;&lt;/content&gt;</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+// =&gt; Shadow - заменяет содержимое в "element"
+root.innerHTML = '&lt;p&gt;Shadow&lt;/p&gt;'; 
+
+// =&gt; Hi All Shadow - выводит всё содержимое из "element"
+root.innerHTML = '&lt;h1&gt;<bg-code>&lt;content&gt;&lt;/content&gt;</bg-code>&lt;/h1&gt; &lt;p&gt;Shadow&lt;/p&gt;';
+
+// =&gt; Hi Shadow - вывести только &lt;h3&gt; из "element"
+root.innerHTML = '&lt;h1&gt;<bg-code>&lt;content select="h3"&gt;&lt;/content&gt;</bg-code>&lt;/h1&gt; &lt;p&gt;Shadow1&lt;/p&gt;';
+</code></pre>
+<pre><code class="html">
+&lt;div id="element"&gt;
+	&lt;h3&gt;Hi&lt;/h3&gt;
+	&lt;p&gt;All&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Корень shadowRoot</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var rootElement = document.querySelector('#element').<bg-code>shadowRoot</bg-code>;
+rootElement.querySelector('p').innerHTML = 'New Shadow';
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Стилизация</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>По умолчанию стили внутри Shadow DOM относятся только к его содержимому</li>
+</ul>
+
+<ul class="list-point">
+	<li><bg-methods>::shadow</bg-methods></td><td> - выбирает корень Shadow DOM</li>
+	<li>Выбранный элемент сам по себе не создаёт CSS box, но служит отправной точкой для дальнейшей выборки уже внутри дерева Shadow DOM. Например, <bg-code>#elem::shadow > div</bg-code> найдёт внутри Shadow DOM #elem элементы div первого уровня</li>
+	<li><bg-methods>>>></bg-methods></td><td> - особого вида CSS-селектор для всех элементов Shadow DOM, который полностью игнорирует границы между DOM'ами, включая вложенные подэлементы, у которых тоже может быть свой Shadow DOM</li>
+	<li>Например, <bg-code>#elem >>> span</bg-code> найдёт все span внутри Shadow DOM #elem, но кроме того, если в #elem есть подэлементы, у которых свой Shadow DOM, то оно продолжит поиск в них</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="web-components-virtual-dom">Virtual DOM</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Вместо того, чтобы взаимодействовать с DOM напрямую, мы работаем с его легковесной копией. Мы можем вносить изменения в копию, исходя из наших потребностей, а после этого применять изменения к реальному DOM</li>
+	<li>При этом происходит сравнение DOM-дерева с его виртуальной копией, определяется разница и запускается перерисовка того, что было изменено</li>
+	<li>Virtual DOM не является стандартом и в конечном итоге мы по-прежнему взаимодействуем с DOM, но делаем это как можно реже и более эффективно</li>
+</ul>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="web-components-template">Шаблоны &lt;template&gt;</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+<li>Элемент &lt;template&gt; предназначен для хранения «образца» разметки, невидимого и предназначенного для вставки куда-либо. Содержимое читается находящимся вообще «вне документа»</li>
+</ul>
+
+<pre><code class="js">
+element.appendChild(template.<bg-code>content.cloneNode(true)</bg-code>); // => Hi Template
+</code></pre>
+<pre><code class="html">
+&lt;div id="element"&gt;Hi&lt;/div&gt;
+&lt;template id="template"&gt;Template&lt;/template&gt;
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="web-components-imports">HTML Imports</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<alert-error>HTML Imports => ES modules (устаревшая конструкция)</alert-error>
+
+<ul class="list-point">
+	<li>Спецификация HTML Imports описывает, как вставить один документ в другой при помощи HTML-тега &lt;link rel="import"&gt;</li>
+	<li>HTML, загруженный через &lt;link rel="import"&gt; имеет отдельный DOM документа, но скрипты в нём выполняются в общем контексте страницы</li>
+	<li>Файл, загруженный через &lt;link rel="import"&gt;, обрабатывается, выполняются скрипты, строится DOM документа, но не показывается, а записывается в свойство link.import</li>
+</ul>
+
+<alert-info>Запускать на сервере</alert-info>
+
+<pre><code class="js light">
+<table>
+	<tr><td><bg-methods>link.import</bg-methods></td><td>  // доступ снаружи</td></tr>
+	<tr><td><bg-methods>document.currentScript.ownerDocument</bg-methods></td><td>  // доступ из внутреннего скрипта</td></tr>
+</table></code></pre>
+
+index.html
+<pre><code class="html">
+&lt;h1&gt;Main Document&lt;/h1&gt;
+
+&lt;script&gt;
+	function show() {
+		var element = page.<bg-code>import</bg-code>.querySelector('h1');
+		document.body.appendChild(element);
+	};
+&lt;/script&gt;
+
+&lt;link <bg-code>rel="import"</bg-code> href="page.html" id="page" onload="show()"&gt;
+</code></pre>
+
+page.html
+<pre><code class="html">
+&lt;h1&gt;Imported Document&lt;/h1&gt;
+
+&lt;script&gt;
+	// доступ к импортированному документу
+    var importedDocument = document.<bg-code>currentScript.ownerDocument</bg-code>; 
+    importedDocument.querySelector('h1').innerHTML = 'Changed Text';
+&lt;/script&gt;
+</code></pre>
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="web-components-imports">Модульная система</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>Стандарты</b>
+	<li><bg-list>1. CommonJS (CJS)</bg-list>. Реализация: <a href="https://nodejs.org/api/modules.html" target="_blank">Модульная система Node.js</a></li>
+	<li>Предназначен для синхронной загрузки. Преимущественно используется на стороне сервера</li>
+	<li><bg-list>2. Asynchronous Module Definition (AMD)</bg-list> Реализация: <a href="https://requirejs.org/" target="_blank">RequireJS</a></li>
+	<li>Предназначен для асинхронной загрузки. Преимущественно используется на стороне клиента.</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Модули ES6</h3>
+<!------------------------------------------------------>
+
+<h4></h4>
+<pre><code class="js">
+import { libFunction } from 'lib';           // импорт одного значения
+import { libFunction, libConst } from 'lib'; // импорт нескольких значений
+import { libConst as name } from 'lib';      // переименовать значения
+import 'lib' as obj;                         // использование модуля как объекта, значениями свойств которого будут экспортированные значения (obj.libConst)
+
+</code></pre>
+
+<h4>Экспорт</h4>
+<pre><code class="js">
+export const libConst = 77;
+export function libFunction() {
+    console.log(libFunction);
+}
+</code></pre>
+
+<h4>Экспорт по умолчанию</h4>
+<pre><code class="js">
+// myapp/models/Customer.js
+export default class { // анонимный класс
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+};
+</code></pre>
+
+<pre><code class="js">
+// myapp/myapp.js
+import Customer from 'models/Customer';
+let c = new Customer(0, 'Jane');
+</code></pre>
 
 
 

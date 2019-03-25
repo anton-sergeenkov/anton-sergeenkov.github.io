@@ -17,6 +17,7 @@
 	--color-php:   191, 122, 190; /*crimson*/
 	--color-other: 179, 183, 104; /*brown*/
 	--color-fw:    71, 7, 183;    /*violet*/
+	--color-error: 226, 131, 174; /*dark pink*/
 }
 
 body{
@@ -305,6 +306,30 @@ bg-define {
 	background: rgba(var(--color-js), 0.66);
 	border-radius: 3px;
 	color: white;
+}
+
+alert-ok, alert-info, alert-warn, alert-error  {
+	border: 0;
+	display: block;
+	padding: 15px 10px;
+	font-size: 15px;
+	margin: 10px 0px;
+}
+alert-info {
+	border-left: 4px solid rgba(var(--color-js), 0.5);
+	background: rgba(var(--color-js), 0.2);
+}
+alert-warn {
+	border-left: 5px solid rgba(var(--color-other), 0.6);
+	background: rgba(var(--color-other), 0.3);
+}
+alert-ok {
+	border-left: 5px solid rgba(var(--color-html), 0.6);
+	background: rgba(var(--color-html), 0.3);
+}
+alert-error {
+	border-left: 5px solid rgba(var(--color-error), 0.6);
+	background: rgba(var(--color-error), 0.3);
 }
 
 /***************************************************
