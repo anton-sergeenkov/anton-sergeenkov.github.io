@@ -24,11 +24,14 @@
 	<a href="#webpack-package-json">Скрипты (package.json)</a>
 
 	<div class="part">webpack.config.js</div>
-	<a href="#webpack-config-mode">Mode & SourceMap</a>
-	<a href="#webpack-config-entry">EntryPoint & OutputPoint</a>
-	<a href="#webpack-config-babel">babel-loader</a>
-	<a href="#webpack-config-sev-server">webpack-dev-server</a>
-	<a href="#webpack-config-html">html-webpack-plugin</a>
+	<a href="#webpack-config-babel"><bg-menu-accent>babel-loader</bg-menu-accent></a>
+	<a href="#webpack-config-sev-server"><bg-menu-accent>webpack-dev-server</bg-menu-accent></a>
+	<a href="#webpack-config-html"><bg-menu-accent>html-webpack-plugin</bg-menu-accent></a>
+
+	<a href="#webpack-config-mode"><bg-menu>mode</bg-menu> <bg-menu>devtool</bg-menu></a>
+	<a href="#webpack-config-entry"><bg-menu>entry</bg-menu> <bg-menu>output</bg-menu></a>
+	<a href="#webpack-config-library"><bg-menu>library</bg-menu></a>
+	<a href="#webpack-config-watch"><bg-menu>watch watchOptions</bg-menu></a>
 	
 	<div class="theme">Gulp</div>
 	<a href="#gulp-package">NPM</a>
@@ -256,6 +259,10 @@ module.exports = {
 <a href="https://webpack.js.org/loaders/babel-loader/" target="_blank">webpack.js.org (babel-loader)</a>
 </code></pre>
 
+<pre><code class="bash">
+npm i --save-dev <bg-methods>babel-loader @babel/core @babel/preset-env</bg-methods>
+</code></pre>
+
 <pre><code class="js">
 module.exports = {
 	module: {
@@ -276,10 +283,14 @@ module.exports = {
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="webpack-config-sev-server">Webpack Dev Server</h2>
+<h2 id="webpack-config-sev-server">Config: Webpack Dev Server</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 <a href="https://webpack.js.org/guides/development/#using-webpack-dev-server" target="_blank">webpack.js.org (webpack-dev-server)</a>
+</code></pre>
+
+<pre><code class="bash">
+npm i --save-dev <bg-methods>webpack-dev-server</bg-methods>
 </code></pre>
 
 <pre><code class="js">
@@ -291,10 +302,14 @@ module.exports = {
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="webpack-config-html">HTML Webpack Plugin</h2>
+<h2 id="webpack-config-html">Config: HTML Webpack Plugin</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 <a href="https://webpack.js.org/concepts/#plugins" target="_blank">webpack.js.org (html-webpack-plugin)</a>
+</code></pre>
+
+<pre><code class="bash">
+npm i --save-dev <bg-methods>html-webpack-plugin</bg-methods>
 </code></pre>
 
 <pre><code class="js">
@@ -307,7 +322,39 @@ module.exports = {
 </code></pre>
 
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="webpack-config-library">Config: library</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+module.exports = {
+	output: {
+		library: 'home'
+	}
+}
+</code></pre>
 
+<pre><code class="js">
+export const name = 'Tony'; // экспорт из js файла
+</code></pre>
+
+<pre><code class="js">
+home.name; // обращение из приложения
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="webpack-config-watch">Config: watch watchOptions</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="js">
+module.exports = {
+	// наблюдение за файлами
+	watch: true, 
+	// задание времени срабатывания
+	watchOptions: {
+		aggregateTimeout: 100
+	}
+}
+</code></pre>
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->

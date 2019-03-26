@@ -256,7 +256,7 @@ table, tr, td {
 /***************************************************
 SELECTED
 /***************************************************/
-bg-code, bg-header, bg-list, bg-menu, bg-mass, bg-methods, bg-define {
+bg-code, bg-header, bg-list, bg-menu, bg-menu-accent, bg-mass, bg-methods, bg-define {
 	display: inline;
 	margin: 0;
 	padding: 0;
@@ -278,11 +278,16 @@ bg-list {
 	font-size: 15px;
 	border: 1px solid rgba(0,0,0,0.1);
 }
-bg-menu {
+bg-menu, bg-menu-accent  {
 	padding: 5px;
-	background: rgba(179, 183, 104, 0.4);
 	border-radius: 4px;
 	color: black !important;
+}
+bg-menu {
+	background: rgba(179, 183, 104, 0.4);
+}
+bg-menu-accent {
+	background: rgba(var(--color-html), 0.35);
 }
 bg-mass {
 	display: inline-block;
