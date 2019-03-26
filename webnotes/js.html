@@ -5056,10 +5056,11 @@ page.html
 <h3>Импорт</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-import { libFunction } from 'lib';           // импорт одного значения
-import { libFunction, libConst } from 'lib'; // импорт нескольких значений
-import { libConst as name } from 'lib';      // переименовать значения
-import 'lib' as obj;                         // использование модуля как объекта, значениями свойств которого будут экспортированные значения (obj.libConst)
+import { libFunction } from './modules/lib';           // импорт одного значения
+import { libFunction, libConst } from './modules/lib'; // импорт нескольких значений
+import { libConst as name } from './modules/lib';      // переименовать значения
+import './modules/lib' as obj;                         // использование модуля как объекта, значениями свойств которого будут экспортированные значения (obj.libConst)
+import './modules/lib'                                 // импорт всех данных (в "./modules/lib" нет "export")
 </code></pre>
 
 <!------------------------------------------------------>
