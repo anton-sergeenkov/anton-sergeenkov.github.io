@@ -16,16 +16,16 @@
 	<div class="theme">Циклы и массивы</div>
 	<a href="#cycle">Циклы</a>
 	<a href="#cycle-array">Перебор массива</a>
-	<a href="#map"><bg-menu>map</bg-menu> (ES6)</a>
 	<a href="#array">Массивы</a>
 	<a href="#array_obj">Массивы обьектов</a>
 
 	<div class="theme">ES6</div>
-	<a href="#set"><bg-menu>Set</bg-menu></a>
+	<a href="#map">Коллекции <bg-menu>Map</bg-menu> <bg-menu>WeakMap</bg-menu> (ES6)</a>
+	<a href="#set">Коллекции <bg-menu>Set</bg-menu> <bg-menu>WeakSet</bg-menu> (ES6)</a>
 	<a href="#spread">Оператор разворота</a>
-	<a href="#pattern">Шаблонные строки</a>
 	<a href="#destructive-array">Деструктивное присваивание array</a>
 	<a href="#destructive-obj">Деструтивное присваивание object</a>
+	<a href="#pattern">Шаблонные строки</a>
 	<a href="#symbol">Symbol</a>
 	<a href="#iterators">Iterators</a>
 
@@ -396,17 +396,51 @@ for(var i=0; i<=items.length-1; i++) {
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="map">Map (ES6)</h2>
+<h2 id="map">Коллекции Map и WeakMap (ES6)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-define>Map и WeakMap</bg-define> - позволяют хранить пары "ключ:значение"</li>
+	<li>Отличие от объекта: ключ map может быть любого типа, а не только строки и символы как у объекта</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Коллекция Map</h3>
+<!------------------------------------------------------>
 <ul class="list-point">
 	<li>Используется для трансформации массива</li>
 	<li>Объект map, ассоциативный массив</li>
-	<li>Ключом может быть различные типы данных, не только строки и символы как у объекта</li>
-	<li>Можно перебрать в цикле for...of</li>
 	<li>Нет литеральной формы, поэтому используется конструктор new</li>
 	<li>Объект map в отличие от обычного объекта является перебираемым объектом, который можно пербирать в цикле for...of</li>
+	<li>Можно использовать деструктуризацию, spread-операторы, Array.from и т.д. присущие итерируемому объекту</li>
+	<li>Сохраняет первоначальный порядок элементов, в отличие от объекта</li>
+
+	<b class="margin-top">Map удобнее объекта</b>
+	<li>Если ключи являются динамическими, т.е. известны на этапе выполнения</li>
+	<li>Если ключи могут быть разных типов</li>
+	<li>Если пары "ключ:значение" часто добавляются/удаляются</li>
+	<li>Если пары "ключ:значение" нужно перебирать</li>
 </ul>
 
+<!------------------------------------------------------>
+<h3>Коллекция WeekMap</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<b>Отличия WeakMap от Map</b>
+	<li>Ключом может быть только объект</li>
+	<li>Нет метода clear(0</li>
+	<li>Нет свойства size</li>
+	<li>Не является итерируемым</li>
+	<li>Если удаляется объект-ключ, то данные с этим ключом также удаляются из памяти</li>
+
+	<b class="margin-top">Варианты использования WeakMap</b>
+	<li>Кеширование вычисляемых значений. Если нужно значение на основе полей объекта, сохраняем его в WeekMap, а ключем делаем сам объект и когла оно повторно понадобится - берем из кеша. Если значение удаляется, память освободится автоматически</li>
+	<li>Управление обоработчиками событий. Обработчики событий для объекта сохраняются в WeekMap, а ключем является сам объект. Если объект удаляется, то и обработчики для него удаляются автоматически</li>
+	<li>Хранение приватных данных. Приватные данные для объекта сохраняются в WeekMap, а ключем является объект</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Массив</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 var names = ['HTML', 'CSS', 'JavaScript'];
 var nameLengths = names.map(function(name) {
@@ -416,28 +450,35 @@ var nameLengths = names.map(function(name) {
 alert(nameLengths); // 4,3,10
 </code></pre>
 
+<!------------------------------------------------------>
 <h3>Задание значений при объявлении</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 const map = new Map([
 	['Hi', 'Привет'],
 	[42, 'Ответ на главнй вопрос'],
 	[true, false],
 	[{}, 'Объект'],
-	[function() {}, 'Функция']
+	[function() {}, 'Функция'],
+	[null, 1],
+	[undefined, 2],
+	[NaN, 3]
 ]);
 </code></pre>
 
-<h3>Основные методы</h3>
+<!------------------------------------------------------>
+<h3>Методы</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 const map = new Map();
 
 map.<bg-code>set</bg-code>(42, 'Ответ на главный вопрос'); // установить значение
-var a = map.<bg-code>get</bg-code>(42);                    // получить значение
+var a = map.<bg-code>get</bg-code>(42);                    // получить значение по ключу
 var a = map.<bg-code>size</bg-code>;                       // получить кол-во элементов
-var a = map.<bg-code>has</bg-code>(42);                    // проверка наличия значения
+var a = map.<bg-code>has</bg-code>(42);                    // проверка наличия значения по ключу
 
-map.<bg-code>delete</bg-code>(42);                         // удалить значение
-map.<bg-code>clear</bg-code>();                            // удалить все значения
+map.<bg-code>delete</bg-code>(42);                         // удалить значение по ключу
+map.<bg-code>clear</bg-code>();                            // очистка map
 
 var a = map.<bg-code>keys</bg-code>();                     // возвращает перебираемый объект с ключами
 var a = map.<bg-code>values</bg-code>();                   // возвращает перебираемый объект с значениями
@@ -446,7 +487,7 @@ var a = map.<bg-code>entries</bg-code>();                  // возвращае
 
 <h3>Перебор map</h3>
 <pre><code class="js">
-for(let [key, value] of map) {
+for(let [key, value] <bg-code>of</bg-code> map) {
 	console.log(key, value);
 }
 </code></pre>
@@ -455,7 +496,9 @@ for(let [key, value] of map) {
 map.forEach((value, key, map) => console.log(value, key));
 </code></pre>
 
+<!------------------------------------------------------>
 <h3>Примеры</h3>
+<!------------------------------------------------------>
 <pre><code class="js">
 const map = new Map();
 map.set('HTML', 'HyperText Markup Language')
@@ -498,6 +541,7 @@ const [[key, value], second, third] = map;
 console.log(key);   // HTML 
 console.log(value); // HyperText Markup Language
 </code></pre>
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3398,11 +3442,10 @@ const dataService = {
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="set">Set (ES6)</h2>
+<h2 id="set">Коллекции Set и WeakSet (ES6)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Set (ES6) - множество</li>
-	<li>Структура данных в которой хранятся уникальные значения</li>
+	<li><bg-define>Set</bg-define> (множество) - Структура данных в которой хранятся уникальные значения<</li>
 	<li>Нет литеральной формы, создается с помощью конструктора</li>
 	<li>Варианты использования: хранение css классов dom элементов</li>
 </ul>
@@ -4272,6 +4315,32 @@ const user = {
 user.name = 'Jack'; // допустимо
 user = 5;           // ошибка
 </code></pre>
+
+<!------------------------------------------------------>
+<h3>Пример на цикл и замыкание</h3>
+<!------------------------------------------------------>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+for(var i=0; i<5; i++) {
+	setTimeout(() => {
+		console.log(i);
+	}, 10)
+}
+// 5, 5, 5, 5, 5
+</code></pre></div><div class="container-half"><pre><code class="js">
+// каждый раз создается новая переменная
+for(let i=0; i<5; i++) {
+	setTimeout(() => {
+		console.log(i);
+	}, 10)
+}
+// 0, 1, 2, 3, 4
+</code></pre></div></div>
+
+
+
+
+
+
 
 
 
