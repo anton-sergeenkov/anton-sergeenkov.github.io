@@ -193,7 +193,7 @@ h2 {
 h3 {
 	margin: 15px 0px 15px 0px;
 	padding: 10px;
-	color: #8f9190;
+	color: rgba(75, 80, 89, 0.7);
 	background-image: linear-gradient(to right, #f0f0e2, #f9f1e7, #fef3ef, #fff6f7, #fefafc, #fefcfe, #fefdff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
 }
 h4 {
@@ -251,6 +251,18 @@ u {
 table, tr, td {
 	margin: 0;
 	padding: 0;
+}
+code a:before {
+	display: inline-block;
+	vertical-align: middle;
+	content: '';
+	width: 16px;
+	height: 16px;
+	margin: 0px 5px;
+	background-image: url(../img/app/link.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
 }
 
 /***************************************************

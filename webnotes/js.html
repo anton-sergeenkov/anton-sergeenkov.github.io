@@ -3445,16 +3445,25 @@ const dataService = {
 <h2 id="set">Коллекции Set и WeakSet (ES6)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><bg-define>Set</bg-define> (множество) - Структура данных в которой хранятся уникальные значения<</li>
+	<li><bg-define>Set</bg-define> - множество, набор значений. Структура данных в которой хранятся уникальные значения</li>
 	<li>Нет литеральной формы, создается с помощью конструктора</li>
 	<li>Варианты использования: хранение css классов dom элементов</li>
+	<li>Является итерируемой структурой данных, можно перебрать с помощью for..of</li>
+	<li>Сохраняет порядок элементов в котором они были добавлены</li>
+
+	<b class="margin-top">Отличия WeakSet от Set</b>
+	<li>Могут храниться только объекты</li>
+	<li>Нет свойство size</li>
+	<li>Нет метода clear()</li>
+	<li>Не является итерируемым</li>
+	<li>Если на объект, который хранится в WeakSet, нет ни одной внешней ссылки, то сборщик мусора удалит этот объект</li>
 </ul>
 
 <!------------------------------------------------------>
 <h3>Объявление</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-const set = new Set(); // Set(0) {}
+const set = <bg-code>new Set()</bg-code>; // Set(0) {}
 </code></pre>
 
 <pre><code class="js">
@@ -3483,9 +3492,9 @@ const set2 = new Set(set1);       // Set(1) {"button"}
 <!------------------------------------------------------>
 <pre><code class="js">
 const set = new Set();
-set.add('button');
-set.add('active');
-set.add('active');
+set.<bg-code>add</bg-code>('button');
+set.<bg-code>add</bg-code>('active');
+set.<bg-code>add</bg-code>('active');
 // Set(2) {"button", "active"}
 
 const set = new Set();
@@ -3499,10 +3508,10 @@ set
 <h3>Методы</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-var a = set.size;          // кол-во элементо в set
-var a = set.has('button'); // проверка наличия значения
-set.delete('active');      // удаление элемента 
-set.clear();               // очистка set
+var a = set.<bg-code>size</bg-code>;          // кол-во элементо в set
+var a = set.<bg-code>has</bg-code>('button'); // проверка наличия значения
+set.<bg-code>delete</bg-code>('active');      // удаление элемента 
+set.<bg-code>clear</bg-code>();               // очистка set
 </code></pre>
 
 <!------------------------------------------------------>
@@ -3528,8 +3537,8 @@ var a = set.has(buttonRef); // true
 // нет метода для получения доступа к конкретному элементу
 // нет понятия как индекс, поэтому keys возвращает values
 console.log(...set);           // button active
-console.log([...set]);         // (2) ["button", "active"]
-console.log(Array.from(set));  // (2) ["button", "active"]
+console.log([...set]);         // (2) ["button", "active"] // преобразование в массив
+console.log(Array.from(set));  // (2) ["button", "active"] // преобразование в массив
 
 console.log(set.values());     // SetIterator {"button", "active"}
 console.log(...set.values());  // button active
@@ -3537,11 +3546,15 @@ console.log(...set.keys());    // button active
 console.log(...set.entries()); // (2) ["button", "button"] (2) ["active", "active"]
 </code></pre>
 
+<h4>Деструктуризация</h4>
+<pre><code class="js">
+const [element1, element2] = set; // получить первый и второй элемент set
+</code></pre>
+
 <!------------------------------------------------------>
 <h3>Перебор set</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-// перебор set
 for (let item of set) {
     console.log(item);
 }
@@ -3555,6 +3568,54 @@ set.forEach((item, item2, set) => console.log(item, item2, set));
 // active active Set(2) {"button", "active"}
 </code></pre>
 
+<!------------------------------------------------------>
+<h3>Операции над множествами</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Нет встроенных методов</li>
+</ul>
+
+<pre><code class="js">
+const a = new Set([1, 2, 3]);
+const b = new Set([3, 4, 5]);
+</code></pre>
+
+<h4>Объединение</h4>
+<div class="container-flex"><div class="container-half">
+<img src="img/js/set1.png" height="100px" class="center">
+<ul class="list-point">
+	<li>Объединение множеств - множество, содержащее в себе все элементы исходных множеств</li>
+</ul>
+</div><div class="container-half"><pre><code class="js">
+// Set(5) {1, 2, 3, 4, 5}
+const union = new Set([...a, ...b]);
+</code></pre></div></div>
+
+<h4>Пересечение</h4>
+<div class="container-flex"><div class="container-half">
+<img src="img/js/set2.png" height="100px" class="center">
+<ul class="list-point">
+	<li>Пересечение множеств - множество, которому принадлежат элементы которые есть во всех исходных множествах</li>
+</ul>
+</div><div class="container-half"><pre><code class="js">
+// Set(1) {3}
+const interseption = new Set([...a].filter(
+    x => b.has(x)
+))
+</code></pre></div></div>
+
+<h4>Разность</h4>
+<div class="container-flex"><div class="container-half">
+<img src="img/js/set3.png" height="100px" class="center">
+<ul class="list-point">
+	<li>Разность множеств - множество в которое входят все элементы первого множества не входящие во второе множество</li>
+</ul>
+</div><div class="container-half"><pre><code class="js">
+// Set(2) {1, 2}
+const difference = new Set([...a].filter(
+    x => !b.has(x)
+))
+</code></pre></div></div>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -4673,7 +4734,8 @@ function addScript(src){
 	document.head.appendChild(script);
 }
 
-// загружаться скрипты начнут сразу в порядке 1 -> 2 -> 3, выполнятся, как только загрузятся
+// загружаться скрипты начнут сразу в порядке 1 -> 2 -> 3
+// выполнятся, как только загрузятся, если установлено script.async = false
 addScript('1.js');  
 addScript('2.js');  
 addScript('3.js'); 
@@ -4683,13 +4745,17 @@ addScript('3.js');
 <h3>JSONP</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-addScript('user?id=123&callback=onUserData');
+function addScript(src) {
+    let script = document.createElement('script');
+    script.src = src;
+    document.head.appendChild(script);
+}
 
-// ответ сервера
-onUserData({
-    name: "Вася",
-    age: 25
-});
+addScript('https://www.google.com/?id=123&callback=clientFunction');
+
+function clientFunction(arg) {
+    //
+}
 </code></pre>
 
 
@@ -5089,17 +5155,17 @@ page.html
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<b>Стандарты</b>
-	<li><bg-list>1. Паттерн "Модуль"</bg-list> (2003 год) - немедленно вызываемая функция, образующая приватную область видимости</li>
+	<li><bg-define>1. Паттерн "Модуль"</bg-define> (2003 год) - немедленно вызываемая функция, образующая приватную область видимости</li>
 
-	<li><bg-list>2. CommonJS (CJS)</bg-list> (2009 год) - module.exports -> require. Реализация: <a href="https://nodejs.org/api/modules.html" target="_blank">Модульная система Node.js</a></li>
+	<li><bg-define>2. CommonJS (CJS)</bg-define> (2009 год) <bg-code>module.exports -> require</bg-code> Реализация: <a href="https://nodejs.org/api/modules.html" target="_blank">Модульная система Node.js</a></li>
 	<li>Предназначен для синхронной загрузки. Преимущественно используется на стороне сервера</li>
 
-	<li><bg-list>3. Asynchronous Module Definition (AMD)</bg-list> (2009 год). define -> require. Реализация: <a href="https://requirejs.org/" target="_blank">RequireJS</a></li>
+	<li><bg-define>3. Asynchronous Module Definition (AMD)</bg-define> (2009 год) <bg-code>define -> require</bg-code> Реализация: <a href="https://requirejs.org/" target="_blank">RequireJS</a></li>
 	<li>Предназначен для асинхронной загрузки. Преимущественно используется на стороне клиента.</li>
 	
-	<li><bg-list>4. Universal Module Definition (UMD)</bg-list> (2011 год). Объединение AMD и CommonJS. Суть подхода: проверить существование функции define и если она есть определить модуль в формате AMD, а если нет, в формате CommonJS</li>
+	<li><bg-define>4. Universal Module Definition (UMD)</bg-define> (2011 год). Объединение AMD и CommonJS. Суть подхода: проверить существование функции define и если она есть определить модуль в формате AMD, а если нет, в формате CommonJS</li>
 
-	<li><bg-list>5. Модули ES6</bg-list> (2015 год) - export -> import</li>
+	<li><bg-define>5. Модули ES6</bg-define> (2015 год) <bg-code>export -> import</bg-code></li>
 
 </ul>
 
@@ -5122,19 +5188,24 @@ page.html
 </ul>
 
 <!------------------------------------------------------>
-<h3>Импорт</h3>
+<h3>import</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
 import { libFunction } from './modules/lib';           // импорт одного значения
 import { libFunction, libConst } from './modules/lib'; // импорт нескольких значений
 import { libConst as name } from './modules/lib';      // переименовать значения
-import './modules/lib' as obj;                         // использование модуля как объекта, значениями свойств которого будут экспортированные значения (obj.libConst)
+import './modules/lib' as obj;                         // импорт модуля как объекта, значениями свойств которого будут экспортированные значения (obj.libConst)
+import * as obj from './modules/lib';                  // импорт модуля как объекта
 import './modules/lib'                                 // импорт всех данных (в "./modules/lib" нет "export")
 </code></pre>
 
 <!------------------------------------------------------>
-<h3>Экспорт</h3>
+<h3>export</h3>
 <!------------------------------------------------------>
+<ul class="list-point">
+	<li>Для экспорта обязательно нужно имя</li>
+</ul>
+
 <pre><code class="js">
 export const libConst = 77;
 export function libFunction() {
@@ -5142,23 +5213,46 @@ export function libFunction() {
 }
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>Экспорт по умолчанию</h3>
-<!------------------------------------------------------>
 <pre><code class="js">
-// myapp/models/Customer.js
-export default class { // анонимный класс
-    constructor(id, name) {
-        this.id = id;
-        this.name = name;
-    }
+let one = 1;
+let two = 2;
+export {one, two}
+</code></pre>
+
+<pre><code class="js">
+export {one as once, two as twice}; // переименование
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>export default (экспорт по умолчанию)</h3>
+<!------------------------------------------------------>
+
+<h4>Именованный класс</h4>
+<pre><code class="js">
+export default class User {
+	constructor(name) {
+		this.name = name;
+	}
+};
+</code></pre>
+<pre><code class="js">
+import User from './modules/lib';
+let user = new User('Jane'); // => User {name: "Jane"}
+</code></pre>
+
+
+<h4>Анонимный класс</h4>
+<pre><code class="js">
+export default class { 
+	constructor(name) {
+		this.name = name;
+	}
 };
 </code></pre>
 
 <pre><code class="js">
-// myapp/myapp.js
-import Customer from 'models/Customer';
-let c = new Customer(0, 'Jane');
+import User from './modules/lib';
+let user = new User('Jane'); // => _default {name: "Jane"}
 </code></pre>
 
 <!------------------------------------------------------>
@@ -5169,7 +5263,7 @@ let c = new Customer(0, 'Jane');
 <a href="https://codesandbox.io/s/oj2rwm9v35" target="_blank">CodeSandbox</a>
 </code></pre>
 
-<pre><code class="html">
+<pre><code class="html red">
 &lt;!-- Использование в браузере --&gt;
 &lt;script type="module"&gt;&lt;/script&gt;
 
