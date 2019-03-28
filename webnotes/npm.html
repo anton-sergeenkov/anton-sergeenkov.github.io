@@ -27,11 +27,13 @@
 	<a href="#webpack-config-babel"><bg-menu-accent>babel-loader</bg-menu-accent></a>
 	<a href="#webpack-config-sev-server"><bg-menu-accent>webpack-dev-server</bg-menu-accent></a>
 	<a href="#webpack-config-html"><bg-menu-accent>html-webpack-plugin</bg-menu-accent></a>
+	<a href="#webpack-config-css-loader"><bg-menu-accent>style-loader</bg-menu-accent> <bg-menu-accent>css-loader</bg-menu-accent></a>
 
-	<a href="#webpack-config-mode"><bg-menu>mode</bg-menu> <bg-menu>devtool</bg-menu></a>
+	<a href="#webpack-config-mode"><bg-menu>mode</bg-menu></a>
+	<a href="#webpack-config-devtool"><bg-menu>devtool</bg-menu></a>
 	<a href="#webpack-config-entry"><bg-menu>entry</bg-menu> <bg-menu>output</bg-menu></a>
 	<a href="#webpack-config-library"><bg-menu>library</bg-menu></a>
-	<a href="#webpack-config-watch"><bg-menu>watch watchOptions</bg-menu></a>
+	<a href="#webpack-config-watch"><bg-menu>watch</bg-menu> <bg-menu>watchOptions</bg-menu></a>
 	
 	<div class="theme">Gulp</div>
 	<a href="#gulp-package">NPM</a>
@@ -186,10 +188,13 @@ npm run server
 <pre><code class="json">
 {
 	"scripts": {
-		"server": "webpack-dev-server",
-		"webpack": "webpack -w",
-		"dev": "webpack --mode development",
-		"dev": "webpack --mode production"
+		"server": "webpack-dev-server",         # server
+		"watch":  "webpack -w",                 # watcher
+		"dev":    "webpack -d",                 # development
+		"dev":    "webpack -d",                 # development
+		"prod":   "webpack -p",                 # production
+		"dev":    "webpack --mode development", # development
+		"prod":   "webpack --mode production"   # production
 	}
 }
 </code></pre>
@@ -203,17 +208,32 @@ npm run server
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="webpack-config-mode">Config: Mode & SourceMap</h2>
+<h2 id="webpack-config-mode">Config: Mode</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+module.exports = {
+    mode: 'development',  // отключает уведомления в консоли, не минифицирует код
+    mode: 'production',   // уведомления по умолчанию, минификация и т.д.
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="webpack-config-devtool">Config: SourceMap</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Позволяет показыать исходные файлы при отладке через браузер, а не скомпилированный код</li>
+	<li>В сборке дополнительно создается файл <bg-code>main.js.map</bg-code>, если файл сборки назывался <bg-code>main.js</bg-code> </li>
+</ul>
+
 <pre><code class="html">
 <a href="https://webpack.js.org/guides/development/#using-source-maps" target="_blank">webpack.js.org (source-maps)</a>
 </code></pre>
 
 <pre><code class="js">
 module.exports = {
-    mode: 'development',  // отключает уведомления в консоли, не минифицирует код
-    mode: 'production',   // уведомления по умолчанию, минификация и т.д.
-    devtool: 'source-map' // при отладке через браузер будут показаны исходные файлы
+    devtool: 'source-map',                    // для production. дополнительно создается файл "main.js.map"
+    devtool: 'cheap-inline-module-source-map' // файл "main.js.map" не создается, данные для отладки в файле "main.js"
 }
 </code></pre>
 
@@ -221,7 +241,7 @@ module.exports = {
 <h2 id="webpack-config-entry">Config: EntryPoint & OutputPoint</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<h4>Одна точка входа и вызодная директория</h4>
+<h4>Одна точка входа и выходная директория</h4>
 <pre><code class="js">
 // для построения пути
 const path = require('path');
@@ -260,7 +280,7 @@ module.exports = {
 </code></pre>
 
 <pre><code class="bash">
-npm i --save-dev <bg-methods>babel-loader @babel/core @babel/preset-env</bg-methods>
+npm i --save-dev <bg-methods>babel-loader</bg-methods> <bg-methods>@babel/core</bg-methods> <bg-methods>@babel/preset-env</bg-methods>
 </code></pre>
 
 <pre><code class="js">
@@ -304,6 +324,11 @@ module.exports = {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="webpack-config-html">Config: HTML Webpack Plugin</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Указание шаблона файла .html в который подключается основной скрипт .js</li>
+</ul>
+
 <pre><code class="js">
 <a href="https://webpack.js.org/concepts/#plugins" target="_blank">webpack.js.org (html-webpack-plugin)</a>
 </code></pre>
@@ -320,6 +345,39 @@ module.exports = {
 	]
 }
 </code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="webpack-config-css-loader">Config: style-loader и css-loader</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Если лоадера нет, то Webpack считает это js файлом, пытается его разобрать и видит ошибку</li>
+</ul>
+
+<h4>npm</h4>
+<pre><code class="bash">
+npm i --save-dev <bg-methods>style-loader</bg-methods> <bg-methods>css-loader</bg-methods>
+</code></pre>
+
+<h4>file.js</h4>
+<pre><code class="js">
+import './style.css';
+</code></pre>
+
+<h4>webpack.config.js</h4>
+<pre><code class="js">
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
+		],
+	},
+};
+</code></pre>
+
+
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
