@@ -160,7 +160,7 @@ MENU-LEFT-HIDE
 #menu-left.hide {
 	width: 70px;
 }
-#menu-left.hide > .theme, #menu-left.hide > a {
+#menu-left.hide > .theme, #menu-left.hide > .part, #menu-left.hide > a {
 	display: none;
 }
 #menu-left.hide #menu-left-starter {

@@ -27,12 +27,16 @@
 	<a href="#webpack-config-babel"><bg-menu-accent>babel-loader</bg-menu-accent></a>
 	<a href="#webpack-config-sev-server"><bg-menu-accent>webpack-dev-server</bg-menu-accent></a>
 	<a href="#webpack-config-html"><bg-menu-accent>html-webpack-plugin</bg-menu-accent></a>
-	<a href="#webpack-config-css-loader"><bg-menu-accent>style-loader</bg-menu-accent> <bg-menu-accent>css-loader</bg-menu-accent></a>
+	<a href="#webpack-config-css-loader"><bg-menu-accent>css-loader</bg-menu-accent> <bg-menu-accent>style-loader</bg-menu-accent> <bg-menu-accent>mini-css...</bg-menu-accent></a>
+	<a href="#webpack-config-clean"><bg-menu-accent>clean-webpack-plugin</bg-menu-accent></a>
+	<a href="#webpack-config-file-loader"><bg-menu-accent>file-loader</bg-menu-accent></a>
+	<a href="#webpack-config-image-loader"><bg-menu-accent>image-webpack-loader</bg-menu-accent></a>
 
 	<a href="#webpack-config-mode"><bg-menu>mode</bg-menu></a>
 	<a href="#webpack-config-devtool"><bg-menu>devtool</bg-menu></a>
 	<a href="#webpack-config-entry"><bg-menu>entry</bg-menu> <bg-menu>output</bg-menu></a>
 	<a href="#webpack-config-library"><bg-menu>library</bg-menu></a>
+
 	<a href="#webpack-config-watch"><bg-menu>watch</bg-menu> <bg-menu>watchOptions</bg-menu></a>
 	
 	<div class="theme">Gulp</div>
@@ -185,11 +189,21 @@ npm run server
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="webpack-package-json">Скрипты (package.json)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h4>Основное</h4>
 <pre><code class="json">
 {
 	"scripts": {
 		"server": "webpack-dev-server",         # server
 		"watch":  "webpack -w",                 # watcher
+	}
+}
+</code></pre>
+
+<h4>Дополнительно</h4>
+<pre><code class="json">
+{
+	"scripts": {
 		"dev":    "webpack -d",                 # development
 		"dev":    "webpack -d",                 # development
 		"prod":   "webpack -p",                 # production
@@ -198,7 +212,6 @@ npm run server
 	}
 }
 </code></pre>
-
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -251,8 +264,7 @@ module.exports = {
     // выходная директория: по умолчанию './dist/main.js'
     output: {
         filename: 'bundle.js',
-        path: path.join(__dirname, 'out')
-        //path: path.resolve(__dirname, 'out')
+        path: path.resolve(__dirname, 'out')
     }
 }
 </code></pre>
@@ -347,17 +359,22 @@ module.exports = {
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="webpack-config-css-loader">Config: style-loader и css-loader</h2>
+<h2 id="webpack-config-css-loader">Config: css-loaders</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Если лоадера нет, то Webpack считает это js файлом, пытается его разобрать и видит ошибку</li>
 </ul>
 
 <h4>npm</h4>
-<pre><code class="bash">
-npm i --save-dev <bg-methods>style-loader</bg-methods> <bg-methods>css-loader</bg-methods>
+<pre><code class="bash light">
+npm i --save-dev <bg-methods>css-loader</bg-methods>
+npm i --save-dev <bg-methods>style-loader</bg-methods>            # компилирует css в js файл
+npm i --save-dev <bg-methods>mini-css-extract-plugin</bg-methods> # создает отдельный файл css
 </code></pre>
 
+<!------------------------------------------------------>
+<h3>Компиляция css в js файл (css-loader + style-loader)</h3>
+<!------------------------------------------------------>
 <h4>file.js</h4>
 <pre><code class="js">
 import './style.css';
@@ -377,7 +394,31 @@ module.exports = {
 };
 </code></pre>
 
+<!------------------------------------------------------>
+<h3>Создание отдельного css файла</h3>
+<!------------------------------------------------------>
 
+<h4>webpack.config.js</h4>
+<pre><code class="js">
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+	module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
+            }
+        ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "[name].css"
+            //filename: 'styles.css'
+        })
+    ]
+};
+</code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -413,6 +454,67 @@ module.exports = {
 	}
 }
 </code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="webpack-config-clean">Config: clean</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="bash">
+npm i --save-dev <bg-methods>clean-webpack-plugin</bg-methods>
+</code></pre>
+
+<pre><code class="js">
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+module.exports = {
+    plugins: [
+		new CleanWebpackPlugin()
+    ]
+};
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="webpack-config-file-loader">Config: file-loader</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<alert-error>Module parse failed</alert-error>
+
+<pre><code class="bash">
+npm i --save-dev <bg-methods>file-loader</bg-methods>
+</code></pre>
+
+<pre><code class="js">
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.(png|jpg|svg|gif)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							//name: '[path][name].[ext]',
+							name:'[name].[ext]',
+							outputPath: './'
+						}
+					},
+				],
+			},
+		],
+	},
+};
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="webpack-config-image-loader">Config: image-webpack-loader</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash">
+npm i --save-dev <bg-methods>image-webpack-loader</bg-methods>
+</code></pre>
+
+
 
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
