@@ -176,9 +176,19 @@ npm i --save-dev http-server
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="bash">
 npm i --save-dev <em>webpack webpack-cli</em>                        # module bundler, передача параметров в консоли (webpack-cli)
-npm i --save-dev <em>babel-loader @babel/core @babel/preset-env</em> # transpiler
 npm i --save-dev <em>webpack-dev-server</em>                         # server, hot-reload, watching
+npm i --save-dev <em>babel-loader @babel/core @babel/preset-env</em> # transpiler
 npm i --save-dev <em>html-webpack-plugin</em>                        # template html
+npm i --save-dev <em>clean-webpack-plugin</em>                       # clean dist
+npm i --save-dev <em>file-loader</em>                                # 
+npm i --save-dev <em>css-loader</em>                                 # 
+npm i --save-dev <em>style-loader</em>                               # compile css in js
+</code></pre>
+
+<pre><code class="js">
+
+npm i --save-dev <em>mini-css-extract-plugin</em> # создает отдельный файл css
+npm i --save-dev <em>image-webpack-loader</em>
 </code></pre>
 
 <pre><code class="js">
@@ -195,7 +205,7 @@ npm run server
 {
 	"scripts": {
 		"server": "webpack-dev-server",         # server
-		"watch":  "webpack -w",                 # watcher
+		"dev":    "webpack -w",                 # watcher
 	}
 }
 </code></pre>
@@ -204,7 +214,6 @@ npm run server
 <pre><code class="json">
 {
 	"scripts": {
-		"dev":    "webpack -d",                 # development
 		"dev":    "webpack -d",                 # development
 		"prod":   "webpack -p",                 # production
 		"dev":    "webpack --mode development", # development
@@ -412,10 +421,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: "[name].css"
-            //filename: 'styles.css'
-        })
+        new MiniCssExtractPlugin({ filename: "[name].css" })
     ]
 };
 </code></pre>
@@ -460,6 +466,11 @@ module.exports = {
 <h2 id="webpack-config-clean">Config: clean</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<alert-info>
+Если webpack запущен в режиме watch, то при пересохранении удаляет все изображения из dist. Изображения создаются только при запуске webpack
+</alert-info>
+
+
 <pre><code class="bash">
 npm i --save-dev <bg-methods>clean-webpack-plugin</bg-methods>
 </code></pre>
@@ -479,8 +490,6 @@ module.exports = {
 <h2 id="webpack-config-file-loader">Config: file-loader</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<alert-error>Module parse failed</alert-error>
-
 <pre><code class="bash">
 npm i --save-dev <bg-methods>file-loader</bg-methods>
 </code></pre>
@@ -490,13 +499,12 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(png|jpg|svg|gif)$/,
+				test: /\.(jpe?g|png|svg|gif)$/i,
 				use: [
 					{
 						loader: 'file-loader',
 						options: {
-							//name: '[path][name].[ext]',
-							name:'[name].[ext]',
+							name: '[path][name].[ext]',
 							outputPath: './'
 						}
 					},
@@ -505,6 +513,8 @@ module.exports = {
 		],
 	},
 };
+// name: '[path][name].[ext]'
+// name: '[name].[ext]'
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
