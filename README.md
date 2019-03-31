@@ -1,12 +1,105 @@
 # anton-sergeenkov.github.io
 
-- [Инструменты](#instruments)
-- [YouTube Channels](#channels)
 - [Technologies](#technologies)
 - [Книги](#books)
+- [Инструменты](#instruments)
+- [YouTube Channels](#channels)
 - [Работа](#work)
 - [Сайты](#sites)
 - [YouTube Playlist](#playlist-favorites)
+
+
+
+## <a name="technologies"></a> Technologies
+**1. Верстка (Layout)**
+- CSS Flexible Box Layout Module
+- CSS Grid Layout
+- Bootstrap
+- Иконочные шрифты (Font Awesome)
+
+**2. Графика**
+- SVG
+- Canvas (pixi.js, D3.js)
+- WebGL
+- CSS Filters, CSS Backdrop-Filter
+- CSS Blend Modes
+- CSS Clipping (clip-path)
+- CSS Shapes
+- CSS Masking
+
+**3. Способы организации CSS-кода и структуры проекта**
+- БЭМ
+- OOCSS / SMACSS / Atomic CSS / MCSS / AMCSS / FUN
+https://habr.com/post/256109/
+
+**4. Системы сборки проекта**
+- Webpack
+- Npm Scripts
+- Gulp / Grunt / Brunch / Browserify / Broccoli
+
+**5. Препроцессоры HTML**
+- Haml
+- Pug
+
+**6. Препроцессоры и постпроцессоры CSS**
+- SASS / LESS / Stylus
+- PostCSS
+- Постпроцессоры
+
+**7. Препроцессоры JavaScript**
+- TypeScript
+
+**8. JavaScript фреймворки** 
+- ReactJS
+- VueJS
+- AngularJS
+- Meteor JS (front+back+db)
+- Ember JS
+
+**9. Back-end**
+- NodeJS
+
+**10. Мобильные приложения**
+- React Native (нативные приложение для ios и android)
+- Apache Cordova (React.js) -> сервис Phobe Gap
+- Ionic 2 (Angular)
+- NativeScript (Vue.js)
+
+**11. Приложения под Desktop**
+- Electron (приложения под desktop на js)
+
+**12. Системы контроля версий**
+- Системы контроля версий (Git)
+- Репозитории кода (GitHub, GitLab, Bitbucket)
+
+**13. CMS**
+- WordPress
+- Bitrix
+
+**14. Редакторы кода**
+- Visual Studio Code
+- Brackets
+- Coda 2
+- xCode
+- Atom
+- IDE WebStorm
+
+**15. Управление**
+- Agile-разработка
+- Scrum-разработка
+
+## <a name="books"></a> Книги
+- Douglas Crockford, "JavaScript: The Good Parts"
+- Marijn Haverbeke, "Eloquent JavaScript A Modern Introdunction to Programming"
+- Stoyan Stefanov, "JavaScript Patterns"
+- Nicholas C. Zakas, "Maintainable JavaScript"
+- Фримен Робсон, "Изучаем программирование на JavaScript
+- Дэвид Фланнаган, "JavaScript подробное руководство"
+- Kyle Simpson, "You don't know JS" серия из 6 книг
+- Николас Закасс, "High Performance JavaScript"
+- Макфарланд, "Новая большая книга CSS" (2016)
+- Роберт Мартин, "Чистый код. Создание, анализ и рефакторинг"
+- Robin Wieruch, "The Road to learn React"
 
 ## <a name="instruments"></a> Инструменты
 https://webref.ru/                                      - Справочник по HTML и CSS  
@@ -69,109 +162,6 @@ https://slides.com/                                     - Создание сл�
 [Технострим Mail.Ru](https://www.youtube.com/channel/UCmqEpAsQMcsYaeef4qgECvQ)  
 [GeekBrains](https://www.youtube.com/channel/UCN6geF_MsLDEp5ISxXKgAFQ)  
 
-## <a name="technologies"></a> Technologies
-**1. Верстка (Layout)**
-- CSS Flexible Box Layout Module
-- CSS Grid Layout
-- Bootstrap (фреймворк)
-- Иконочные шрифты (Font Awesome)
-
-**2. Графика**
-- SVG
-- Canvas (pixi.js, D3.js)
-- WebGL
-- CSS Filters, CSS Backdrop-Filter
-- CSS Blend Modes
-- CSS Clipping (clip-path)
-- CSS Shapes
-- CSS Masking
-
-**3. Способы организации CSS-кода и структуры проекта**
-- БЭМ
-- OOCSS
-- SMACSS
-- Atomic CSS
-- MCSS
-- AMCSS
-- FUN
-https://habr.com/post/256109/
-
-**4. Системы сборки проекта**
-- Gulp
-- Webpack 2
-- Npm Scripts
-- Grunt
-- Brunch 
-- Browserify
-- Broccoli
-
-**5. Препроцессоры HTML**
-- Haml
-- Pug
-
-**6. Препроцессоры CSS**
-- SASS
-- LESS
-- Stylus
-- PostCSS
-- Постпроцессоры
-
-**7. Препроцессоры JavaScript**
-- TypeScript
-
-**8. JavaScript фреймворки** 
-- ReactJS
-- VueJS
-- AngularJS
-- Meteor JS (front+back+db)
-- Ember JS
-
-**9. Back-end**
-- NodeJS
-- NPM
-
-**10. Мобильные приложения**
-- React Native (нативные приложение для ios и android)
-- Apache Cordova (React.js) -> сервис Phobe Gap
-- Ionic 2 (Angular)
-- NativeScript - мобильные приложения на js
-
-**11. Приложения под Desktop**
-- Electron (приложения под desktop на js)
-
-**12. Системы контроля версий**
-- Системы контроля версий (Git)
-- Репозитории кода (GitHub, GitLab)
-
-**13. CMS**
-- WordPress
-- Bitrix
-
-**14. Редакторы кода**
-- Visual Studio Code
-- Brackets
-- Coda 2
-- xCode
-- Atom
-- IDE WebStorm
-
-**15. Управление**
-- Agile-разработка
-- Scrum-разработка
-
-## <a name="books"></a> Книги
-- Douglas Crockford, "JavaScript: The Good Parts"
-- Marijn Haverbeke, "Eloquent JavaScript A Modern Introdunction to Programming"
-- Stoyan Stefanov, "JavaScript Patterns"
-- Nicholas C. Zakas, "Maintainable JavaScript"
-- Фримен Робсон, "Изучаем программирование на JavaScript
-- Дэвид Фланнаган, "JavaScript подробное руководство"
-- Kyle Simpson, "You don't know JS" серия из 6 книг
-- Николас Закасс, "High Performance JavaScript"
-- Макфарланд, "Новая большая книга CSS" (2016)
-- Роберт Мартин, "Чистый код. Создание, анализ и рефакторинг"
-- Robin Wieruch, "The Road to learn React"
-
 ## <a name="work"></a> Работа
 **1. Фриланс биржи**
 - https://www.fl.ru/
@@ -200,11 +190,6 @@ https://habr.com/
 [Web Developer Blog - Уроки JavaScript (Практика)](https://www.youtube.com/playlist?list=PLVfMKQXDAhGUaEtJ_fOUz0F7TJtidE7Qw)  
 [ITVDN - Видеокурс по JavaScript Шаблонам](https://www.youtube.com/playlist?list=PLvItDmb0sZw9GTaAsuPGRydAUG61MnCsy)  
 [Гоша Дударь - Изучение технологий Ajax](https://www.youtube.com/playlist?list=PL0lO_mIqDDFUgBqIpiaES9vhZLJbucdUa)  
-
-### Vue.js
-[Web Developer Blog - Уроки Vue js](https://www.youtube.com/playlist?list=PLVfMKQXDAhGWFP61AzOs_PowY7OAaFRHU)  
-[Гоша Дударь - Уроки Vue.js для начинающих](https://www.youtube.com/playlist?list=PL0lO_mIqDDFVVNsIt02JBIdBkjNVHIoum)  
-[WebForMySelf - Фреймворк VueJS](https://www.youtube.com/playlist?list=PLD-piGJ3Dtl0C2gVy-_vZoxYRFWRwUvWL)  
 
 ### React.js Redux
 [Code Dojo - Знакомство с React](https://www.youtube.com/playlist?list=PLqHlAwsJRxAONt5CnjMMeKdYGv1CDRUOl)  
@@ -238,13 +223,11 @@ https://habr.com/
 [loftblog - Основы jQuery](https://www.youtube.com/playlist?list=PLY4rE9dstrJxST3xftg5kSCQdUB8hvj4S)  
 [loftblog - jQuery plugins](https://www.youtube.com/playlist?list=PLY4rE9dstrJz77dyBHYiv8ZpVWbxPG-gS)  
 
-### Gulp Webpack
+### Gulp
 [JavaScript.ru - Скринкаст по Gulp](https://www.youtube.com/playlist?list=PLDyvV36pndZFLTE13V4qNWTZbeipNhCgQ)  
 [WebForMySelf - Курс по Gulp. Основы](https://www.youtube.com/playlist?list=PLD-piGJ3Dtl3PMFfs-OtVk2j3krd3W2H2)  
 [Web Developer Blog - Уроки Gulp.js](https://www.youtube.com/playlist?list=PLVfMKQXDAhGVAFt9M6srMj_xHZmqvscLv)  
 [loftblog - Gulp.js](https://www.youtube.com/playlist?list=PLY4rE9dstrJwXCz1utct9b6Vub9VWQoKo)  
-[WebForMySelf - Курс по Webpack. Основы](https://www.youtube.com/playlist?list=PLD-piGJ3Dtl22NWFJ7CykNaZVzf1ZroCP)  
-[JavaScript.ru - Скринкаст по Webpack](https://www.youtube.com/playlist?list=PLDyvV36pndZHfBThhg4Z0822EEG9VGenn)  
 
 ### Code Editor
 [Web Developer Blog - Sublime Text 2](https://www.youtube.com/playlist?list=PLVfMKQXDAhGXTtaRwrHzPLNQALkVhGWKj)  

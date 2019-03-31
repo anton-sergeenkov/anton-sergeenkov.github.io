@@ -157,6 +157,10 @@ npm i --save-dev http-server
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
+<pre><code class="html">
+<a href="https://www.youtube.com/watch?v=QyfzMzo9QGs" target="_blank">YouTube: Webpack - сборщик web приложений</a>
+</code></pre>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="webpack-structure">Структура проекта</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -183,12 +187,13 @@ npm i --save-dev <em>clean-webpack-plugin</em>                       # clean dis
 npm i --save-dev <em>file-loader</em>                                # 
 npm i --save-dev <em>css-loader</em>                                 # 
 npm i --save-dev <em>style-loader</em>                               # compile css in js
+npm i --save-dev <em>image-webpack-loader</em>                       # optimized images
 </code></pre>
 
 <pre><code class="js">
 
 npm i --save-dev <em>mini-css-extract-plugin</em> # создает отдельный файл css
-npm i --save-dev <em>image-webpack-loader</em>
+
 </code></pre>
 
 <pre><code class="js">
@@ -199,13 +204,12 @@ npm run server
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="webpack-package-json">Скрипты (package.json)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <h4>Основное</h4>
 <pre><code class="json">
 {
 	"scripts": {
 		"server": "webpack-dev-server",         # server
-		"dev":    "webpack -w",                 # watcher
+		"dev":    "webpack"                     # watcher
 	}
 }
 </code></pre>
@@ -214,6 +218,7 @@ npm run server
 <pre><code class="json">
 {
 	"scripts": {
+		"watch":  "webpack -w",                 # watcher
 		"dev":    "webpack -d",                 # development
 		"prod":   "webpack -p",                 # production
 		"dev":    "webpack --mode development", # development
@@ -466,10 +471,7 @@ module.exports = {
 <h2 id="webpack-config-clean">Config: clean</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<alert-info>
-Если webpack запущен в режиме watch, то при пересохранении удаляет все изображения из dist. Изображения создаются только при запуске webpack
-</alert-info>
-
+<alert-info>Если webpack запущен в режиме watch, то при пересохранении удаляет все изображения из dist. Изображения создаются только при запуске webpack</alert-info>
 
 <pre><code class="bash">
 npm i --save-dev <bg-methods>clean-webpack-plugin</bg-methods>
@@ -489,7 +491,6 @@ module.exports = {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="webpack-config-file-loader">Config: file-loader</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <pre><code class="bash">
 npm i --save-dev <bg-methods>file-loader</bg-methods>
 </code></pre>
@@ -499,7 +500,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.(jpe?g|png|svg|gif)$/i,
+				test: /\.(jpe?g|png|svg|gif|ico)$/i,
 				use: [
 					{
 						loader: 'file-loader',
@@ -520,8 +521,54 @@ module.exports = {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="webpack-config-image-loader">Config: image-webpack-loader</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<alert-info>Оптимизированные изображения в dist подгружаются на страницу, но не открываются в просмотре изображений Windows. Если не указывать "options", то изображения открываются в просмотре изображений Windows</alert-info>
+
+<ul class="list-point">
+	<li>Оптимизация изображений</li>
+</ul>
+
+<pre><code class="html">
+<a href="https://github.com/tcoopman/image-webpack-loader" target="_blank">image-webpack-loader</a>
+</code></pre>
+
 <pre><code class="bash">
 npm i --save-dev <bg-methods>image-webpack-loader</bg-methods>
+</code></pre>
+
+<pre><code class="js">
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.(jpe?g|png|svg|gif)$/i,
+                use: [
+                    <bg-code>{</bg-code>
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 70
+                            },
+                            optipng: {
+                                enabled: false,
+                            },
+                            pngquant: {
+                                quality: '65-90',
+                                speed: 4
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            webp: {
+                                quality: 75
+                            }
+                        }
+                    <bg-code>}</bg-code>
+                ],
+            }
+        ]
+    }
+}
 </code></pre>
 
 
