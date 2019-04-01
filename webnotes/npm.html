@@ -24,13 +24,13 @@
 	<a href="#webpack-package-json">Скрипты (package.json)</a>
 
 	<div class="part">webpack.config.js</div>
-	<a href="#webpack-config-babel"><bg-menu-accent>babel-loader</bg-menu-accent></a>
 	<a href="#webpack-config-sev-server"><bg-menu-accent>webpack-dev-server</bg-menu-accent></a>
-	<a href="#webpack-config-html"><bg-menu-accent>html-webpack-plugin</bg-menu-accent></a>
+	<a href="#webpack-config-babel"><bg-menu-accent>babel-loader</bg-menu-accent></a>
 	<a href="#webpack-config-css-loader"><bg-menu-accent>css-loader</bg-menu-accent> <bg-menu-accent>style-loader</bg-menu-accent> <bg-menu-accent>mini-css...</bg-menu-accent></a>
-	<a href="#webpack-config-clean"><bg-menu-accent>clean-webpack-plugin</bg-menu-accent></a>
 	<a href="#webpack-config-file-loader"><bg-menu-accent>file-loader</bg-menu-accent></a>
 	<a href="#webpack-config-image-loader"><bg-menu-accent>image-webpack-loader</bg-menu-accent></a>
+	<a href="#webpack-config-html"><bg-menu-accent>html-webpack-plugin</bg-menu-accent></a>
+	<a href="#webpack-config-clean"><bg-menu-accent>clean-webpack-plugin</bg-menu-accent></a>
 
 	<a href="#webpack-config-mode"><bg-menu>mode</bg-menu></a>
 	<a href="#webpack-config-devtool"><bg-menu>devtool</bg-menu></a>
@@ -181,24 +181,35 @@ npm i --save-dev http-server
 <pre><code class="bash">
 npm i --save-dev <em>webpack webpack-cli</em>                        # module bundler, передача параметров в консоли (webpack-cli)
 npm i --save-dev <em>webpack-dev-server</em>                         # server, hot-reload, watching
+</code></pre>
+
+<pre><code class="bash">
 npm i --save-dev <em>babel-loader @babel/core @babel/preset-env</em> # transpiler
 npm i --save-dev <em>html-webpack-plugin</em>                        # template html
 npm i --save-dev <em>clean-webpack-plugin</em>                       # clean dist
+</code></pre>
+
+<pre><code class="bash">
 npm i --save-dev <em>file-loader</em>                                # 
 npm i --save-dev <em>css-loader</em>                                 # 
+npm i --save-dev <em>mini-css-extract-plugin</em>                    # create new css
 npm i --save-dev <em>style-loader</em>                               # compile css in js
 npm i --save-dev <em>image-webpack-loader</em>                       # optimized images
 </code></pre>
 
+
+
+
+
+
+
+
+
+
+
 <pre><code class="js">
-
-npm i --save-dev <em>mini-css-extract-plugin</em> # создает отдельный файл css
-
-</code></pre>
-
-<pre><code class="js">
-npm run webpack
 npm run server
+npm run build
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -209,7 +220,7 @@ npm run server
 {
 	"scripts": {
 		"server": "webpack-dev-server",         # server
-		"dev":    "webpack"                     # watcher
+		"build":  "webpack"                     # watcher
 	}
 }
 </code></pre>
@@ -409,7 +420,7 @@ module.exports = {
 </code></pre>
 
 <!------------------------------------------------------>
-<h3>Создание отдельного css файла</h3>
+<h3>Создание отдельного css файла (css-loader + mini-css-extract-plugin)</h3>
 <!------------------------------------------------------>
 
 <h4>webpack.config.js</h4>

@@ -2416,13 +2416,51 @@ sessionStorage.<bg-code>clear</bg-code>();                   // очистка �
 <h2 id="data-db">IndexedDB</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<alert-error>Недотестировано</alert-error>
+
 <ul class="list-point">
-	<li><bg-list>IndexedDB</bg-list> - это способ постоянного хранения данных внутри клиентского браузера, другими словами это NOSQL хранилище на стороне клиента</li>
+	<li><bg-define>IndexedDB</bg-define> - это способ постоянного хранения данных внутри клиентского браузера. NOSQL хранилище на стороне клиента</li>
 </ul>
 
+<pre><code class="js">
+var db = null;
 
+//------------------------------------------------
+// Создание БД и обработчки событий
+//------------------------------------------------
+function dbCreate() {
+	// Создание базы данных
+	const request = <bg-code>window.indexedDB.open</bg-code>('dbName', 77); //create DB: name,version 
 
+    // Обработчик create
+	request.<bg-code>onupgradeneeded</bg-code> = function(event) {
+	    db = event.target.result;     // => IDBDatabase {name: "dbTest", version: 1 ...}
+	    const name = db.name;         // => 'dbTest'
+	    const version = db.version;   // => '1'
+	    const objectStore = <bg-code>db.createObjectStore</bg-code>('notes', { keyPath: 'title' });
+	};
+	request.<bg-code>onsuccess</bg-code> = function(event) {
+	    db = event.target.result; 
+	};
+	request.<bg-code>onerror</bg-code> = function(event) {
+	    console.error(event.target.error);
+	    console.error(event.target.errorCode);
+	};
+}
 
+//------------------------------------------------
+// Добавление записи
+//------------------------------------------------
+function dbInsert() {
+    const note = {
+        title: 'note1',
+        text: 'This is my note'
+    }
+    const tx = db.transaction('notes', 'readwrite');
+    const pNotes = tx.objectStore('notes');
+    pNotes.add(note);
+}
+</code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="data-cookie">Cookie</h2>
