@@ -7,10 +7,6 @@
 @font-face { font-family: FiraSans-Medium;  src: url(../fonts/FiraSans-Medium.ttf); }
 @font-face { font-family: FiraSans-Bold;    src: url(../fonts/FiraSans-Bold.ttf); }
 
-::-webkit-scrollbar       { width: 8px; height: 8px;}
-::-webkit-scrollbar-thumb { height: 50px; background-color: rgba(0,0,0,0.2); border-radius: 2px;}
-::-webkit-scrollbar-track { background-color: rgba(0,0,0,0.1); }
-
 :root {
 	--color-html:  74, 175, 45;   /*green*/
 	--color-js:    11, 168, 160;  /*blue*/
@@ -18,7 +14,12 @@
 	--color-other: 179, 183, 104; /*brown*/
 	--color-fw:    71, 7, 183;    /*violet*/
 	--color-error: 226, 131, 174; /*dark pink*/
+	--color-black: 0, 0, 0;       /*black*/
 }
+
+::-webkit-scrollbar       { width: 8px; height: 8px;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: rgba(var(--color-black), 0.2); border-radius: 2px;}
+::-webkit-scrollbar-track { background-color: rgba(var(--color-black), 0.1); }
 
 body{
 	margin: 0;
@@ -30,7 +31,7 @@ body{
     box-sizing: border-box;
 }
 *::selection {
-	background: rgba(11, 168, 160, 0.4);
+	background: rgba(var(--color-js), 0.4);
 }
 
 
@@ -85,11 +86,11 @@ MENU-TOP
 #menu-top .menu:hover {
 	opacity: 0.7;
 }
-#menu-top .menu-html  { color: #4aaf2d; background: rgba(74, 175, 45, 0.2);   }
-#menu-top .menu-js    { color: #0ba8a0; background: rgba(11, 168, 160, 0.2);  }
-#menu-top .menu-php   { color: #bf7abe; background: rgba(191, 122, 190, 0.2); }
-#menu-top .menu-other { color: #b3b768; background: rgba(179, 183, 104, 0.2); }
-#menu-top .menu-jsfw  { color: #8a6ac4; background: rgba(71, 7, 183, 0.2);    }
+#menu-top .menu-html  { color: rgba(var(--color-html),  1);   background: rgba(var(--color-html),  0.2); }
+#menu-top .menu-js    { color: rgba(var(--color-js),    1);   background: rgba(var(--color-js),    0.2); }
+#menu-top .menu-php   { color: rgba(var(--color-php),   1);   background: rgba(var(--color-php),   0.2); }
+#menu-top .menu-other { color: rgba(var(--color-other), 1);   background: rgba(var(--color-other), 0.2); }
+#menu-top .menu-jsfw  { color: rgba(var(--color-fw),    0.7); background: rgba(var(--color-fw),    0.2); }
 
 /***************************************************
 MENU-LEFT
@@ -101,12 +102,12 @@ MENU-LEFT
 	cursor: pointer;
     font-size: 14px;
     user-select: none;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(var(--color-black), 0.2);
     padding: 5px 15px;
     line-height: 1.7;
 }
 #menu-left a.active {
-	background: rgba(74, 175, 45, 0.2);
+	background: rgba(var(--color-html), 0.2);
 	color: #4aaf2d; 
 	font-weight: bold;
 }
@@ -143,7 +144,7 @@ MENU-LEFT
     top: 0;
     left: 0;
     background: white;
-    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 5px 0px rgba(var(--color-black), 0.2);
 }
 #menu-left-starter a {
 	display: flex;
@@ -268,15 +269,19 @@ code a:before {
 /***************************************************
 SELECTED
 /***************************************************/
-bg-code, bg-header, bg-list, bg-menu, bg-menu-accent, bg-mass, bg-methods, bg-define {
+bg-code, bg-code-accent, bg-header, bg-list, bg-menu, bg-menu-accent, bg-mass, bg-methods, bg-define {
 	display: inline;
 	margin: 0;
 	padding: 0;
 	border: 0;	
 }
 bg-code {
-	background: rgba(179, 183, 104, 0.4);
+	background: rgba(var(--color-other), 0.4);
 	padding: 2px;
+}
+bg-code-accent {
+	background: rgba(var(--color-php), 0.4);
+	padding: 2px;	
 }
 bg-header {
 	padding: 5px 10px;
@@ -285,10 +290,10 @@ bg-header {
 }
 bg-list {
 	padding: 5px 10px;
-	background: rgba(0,0,0,0.1);
+	background: rgba(var(--color-black), 0.1);
 	border-radius: 3px;
 	font-size: 15px;
-	border: 1px solid rgba(0,0,0,0.1);
+	border: 1px solid rgba(var(--color-black), 0.1);
 }
 bg-menu, bg-menu-accent  {
 	padding: 5px;
@@ -296,7 +301,7 @@ bg-menu, bg-menu-accent  {
 	color: black !important;
 }
 bg-menu {
-	background: rgba(179, 183, 104, 0.4);
+	background: rgba(var(--color-other), 0.4);
 }
 bg-menu-accent {
 	background: rgba(var(--color-html), 0.35);
@@ -305,12 +310,12 @@ bg-mass {
 	display: inline-block;
 	padding: 0px 10px;
 	margin: 2px;
-	background: rgba(179, 183, 104, 0.2);
+	background: rgba(var(--color-other), 0.2);
 	border-radius: 4px;
 	color: black !important;
 }
 bg-light {
-	background: rgba(0,0,0,0.1);
+	background: rgba(var(--color-black), 0.1);
 	padding: 2px;
 }
 bg-methods {
@@ -418,7 +423,7 @@ CONTAINERS
 DELETE
 /***************************************************/
 .code-select {
-	background: rgba(74, 175, 45, 0.2);
+	background: rgba(var(--color-html), 0.2);
 }
 
 
@@ -429,7 +434,7 @@ DELETE
 }
 .h3-bg {
 	color: #4aaf2d;
-	background: rgba(74, 175, 45, 0.2);
+	background: rgba(var(--color-html), 0.2);
 	padding: 10px;
 }
 .red {
@@ -457,17 +462,17 @@ blockquote {
 }
 .hl {
 	padding: 5px 10px;
-	background: rgba(0,0,0,0.1);
+	background: rgba(var(--color-black), 0.1);
 	border-radius: 3px;
 	font-weight: bold;
 }
 .hc {
-	background: rgba(179, 183, 104, 0.4);
+	background: rgba(var(--color-other), 0.4);
 	padding: 2px;
 }
 .hm {
 	padding: 5px;
-	background: rgba(179, 183, 104, 0.4);
+	background: rgba(var(--color-other), 0.4);
 	border-radius: 4px;
 	color: black !important;
 }
