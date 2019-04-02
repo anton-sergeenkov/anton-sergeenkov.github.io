@@ -65,12 +65,12 @@ a {
 <a href="js_tasks.html" target="_blank">Примеры</a>
 
 
+<div id="content"></div>
+
 
 <script src="libraries/jquery.js"></script>
 <script>
-$.get('theory.html#ct-paradigms', function(data) {
-	console.log(data);
-})
+$('#content').load('theory.html#ct-paradigms');
 </script>
 </body>
 </html>
