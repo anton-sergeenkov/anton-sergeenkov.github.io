@@ -88,7 +88,7 @@ for(let i=0; i<element.length; i++) {
 	item.setAttribute('id', page+theme);
 	document.querySelector('#content').appendChild(item);
 
-	document.querySelector('#'+page+theme).load(`${page}.html #ct-${theme} > *`);
+	$('#'+page+theme).load(`${page}.html #ct-${theme} > *`);
 }
 
 
