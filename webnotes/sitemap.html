@@ -27,7 +27,7 @@ h2 {
 	background: none;
 	color: black;
 }
-.element {
+.element-menu {
 	display: inline-block;
 	padding: 10px;
 	background: rgba(var(--color-js), 0.3);
@@ -35,6 +35,9 @@ h2 {
 	border-radius: 3px;
 	font-size: 14px;
 	font-weight: bold;
+}
+.element-content {
+	border: 1px solid #000;
 }
 </style>
 <body>
@@ -52,10 +55,10 @@ h2 {
 <a href="js.html#set" target="_blank">Коллекции Set и WeakSet</a> -->
 
 <h2>Client-Server Architecture</h2>
-<div class="element" data-page="js" data-theme="client-server-desc">Клиент-сервер</div>
-<div class="element" data-page="js" data-theme="client-server-http">HTTP</div>
-<div class="element" data-page="js" data-theme="client-server-https">HTTPS</div>
-<div class="element" data-page="js" data-theme="client-server-rest">REST API</div>
+<div class="element-menu" data-page="js" data-theme="client-server-desc">Клиент-сервер</div>
+<div class="element-menu" data-page="js" data-theme="client-server-http">HTTP</div>
+<div class="element-menu" data-page="js" data-theme="client-server-https">HTTPS</div>
+<div class="element-menu" data-page="js" data-theme="client-server-rest">REST API</div>
 
 <!-- <h2>Примеры</h2>
 <a href="js_tasks.html" target="_blank">Примеры</a>
@@ -64,8 +67,8 @@ h2 {
 <div id="content"></div>
 
 
-<div class="element" data-page="js" data-theme=""></div>
-<div id="ct-"></div>
+<!-- <div class="element-menu" data-page="js" data-theme=""></div> -->
+
 
 
 
@@ -73,17 +76,19 @@ h2 {
 <script src="libraries/jquery.js"></script>
 <script>
 
-let element = document.querySelectorAll('.element');
+let element = document.querySelectorAll('.element-menu');
 let arrThemes = [];
 
 for(let i=0; i<element.length; i++) {
 	let page = element[i].getAttribute('data-page');
 	let theme = element[i].getAttribute('data-theme');
 
-	$('#content').load(`${page}.html #ct-${theme} > *`, function(data) {
-		console.log(data);
-	});
-	// console.log(page, theme);
+	let item = document.createElement('div');
+	item.setAttribute('class', 'element-content');
+	item.setAttribute('id', page+theme);
+	document.querySelector('#content').appendChild(item);
+
+	document.querySelector('#'+page+theme).load(`${page}.html #ct-${theme} > *`);
 }
 
 
