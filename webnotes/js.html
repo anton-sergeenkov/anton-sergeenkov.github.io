@@ -5284,12 +5284,37 @@ rootElement.querySelector('p').innerHTML = 'New Shadow';
 <li>Элемент &lt;template&gt; предназначен для хранения «образца» разметки, невидимого и предназначенного для вставки куда-либо. Содержимое читается находящимся вообще «вне документа»</li>
 </ul>
 
+<h4>Пример 1</h4>
 <pre><code class="js">
 element.appendChild(template.<bg-code>content.cloneNode(true)</bg-code>); // => Hi Template
 </code></pre>
 <pre><code class="html">
 &lt;div id="element"&gt;Hi&lt;/div&gt;
 &lt;template id="template"&gt;Template&lt;/template&gt;
+</code></pre>
+
+<h4>Пример 2</h4>
+<pre><code class="html">
+&lt;div class="main"&gt;
+	&lt;div class="main-header"&gt;Main Header&lt;/div&gt;
+&lt;/div&gt;
+&lt;template id="template"&gt;
+	&lt;div class="template-header"&gt;Template Header&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js">
+const template = document.getElementById('template');
+const instance = document.<bg-code>importNode</bg-code>(<bg-code>template.content</bg-code>, true);
+
+const main = document.querySelector('.main');
+const header = main.querySelector('.main-header');
+if (header !== null) {
+	instance.querySelector('.template-header').innerHTML = header.innerHTML;
+}
+
+main.innerHTML = '';
+main.appendChild(instance);
 </code></pre>
 
 
