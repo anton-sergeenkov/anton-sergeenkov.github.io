@@ -56,10 +56,10 @@ h2 {
 <a href="js.html#set" target="_blank">Коллекции Set и WeakSet</a> -->
 
 <h2>Client-Server Architecture</h2>
-<div class="element-menu" data-page="js1" data-theme="client-server-desc">Клиент-сервер</div>
-<div class="element-menu" data-page="js2" data-theme="client-server-http">HTTP</div>
-<div class="element-menu" data-page="js3" data-theme="client-server-https">HTTPS</div>
-<div class="element-menu" data-page="js4" data-theme="client-server-rest">REST API</div>
+<div class="element-menu" data-page="js1" data-name="client1">Клиент-сервер</div>
+<div class="element-menu" data-page="js2" data-name="client2">HTTP</div>
+<div class="element-menu" data-page="js3" data-name="client3">HTTPS</div>
+<div class="element-menu" data-page="js4" data-name="client4">REST API</div>
 
 <!-- <h2>Примеры</h2>
 <a href="js_tasks.html" target="_blank">Примеры</a>
@@ -94,25 +94,15 @@ for(let i=0; i<element.length; i++) {
 
 	element[i].addEventListener('click', function() {
 		let page = this.getAttribute('data-page');
-		let theme = this.getAttribute('data-theme');
+		let theme = this.getAttribute('data-name');
 
-		$('#'+page+'#'+theme).css('display', 'block');
+		//$('#'+page+'#'+theme).css('display', 'block');
 		console.log(page);
 		console.log(name);
 		console.log(this);
 	});
 }
 
-
-$('.element-menu').on('click', function() {
-	let page = this['data-page'];
-	let theme = this['data-theme'];
-
-	$('#'+page+'#'+theme).css('display', 'block');
-	console.log(page);
-	console.log(name);
-	console.log(this);
-});
 
 
 
