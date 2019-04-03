@@ -87,22 +87,20 @@ for(let i=0; i<element.length; i++) {
 	let item = document.createElement('div');
 	item.setAttribute('class', 'element-content');
 	item.setAttribute('id', page+'#'+theme);
+
+	item.addEventListener('click', function() {
+		let page = this.getAttribute('data-page');
+		let theme = this.getAttribute('data-theme');
+		$('#'+page+'#'+theme).css('display', 'block');
+		console.log(page);
+		console.log(name);
+		console.log(this);
+	});
+
 	document.querySelector('#content').appendChild(item);
 
 	$('#'+page+'#'+theme).load(`${page}.html #ct-${theme} > *`);
 }
-
-$('.element-menu').on('click', function() {
-	let page = this['data-page'];
-	let theme = this['data-theme'];
-
-	$('#'+page+'#'+theme).css('display', 'block');
-	console.log(page);
-	console.log(name);
-	console.log(this);
-});
-
-
 
 </script>
 </body>
