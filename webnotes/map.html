@@ -14,18 +14,23 @@ body {
 	padding: 30px;
 }
 h1 {
-	font-size: 27px;
-	text-decoration: underline;
+	font-size: 20px;
 	border-left: 5px solid rgb(var(--color-js));
 	color: rgb(var(--color-js));
-	padding-left: 10px;
+	padding: 10px;
 	background: none;
 	text-align: left;
+	background: rgb(var(--color-js));
+	color: #fff;
+	border-radius: 3px;
+	margin-top: 20px;
 }
 h2 {
-	font-size: 20px;
+	font-size: 18px;
 	background: none;
 	color: black;
+	margin: 10px 0px;
+	padding: 0;
 }
 .element-menu {
 	display: inline-block;
@@ -59,6 +64,16 @@ h2 {
 	display: none;
 	z-index: 100;
 }
+.menu {
+	padding: 10px !important;
+	color: rgba(var(--color-other),1) !important;
+	background: rgba(var(--color-other),0.2) !important;
+	font-size: 16px !important;
+}
+#menu-top {
+	margin: 0;
+	padding: 0;
+}
 </style>
 <body>
 
@@ -91,10 +106,8 @@ h2 {
 
 <!-- <div class="element-menu" data-page="js" data-theme=""></div> -->
 
-
-
-
-	<div id="menu-top"></div>
+<h1>Menu</h1>
+<div id="menu-top"></div>
 
     <script src="libraries/jquery.js"></script>
 	<script src="libraries/highlight/highlight.pack.js"></script>
