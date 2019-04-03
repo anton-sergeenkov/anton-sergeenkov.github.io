@@ -88,23 +88,33 @@ for(let i=0; i<element.length; i++) {
 	item.setAttribute('class', 'element-content');
 	item.setAttribute('id', page+'#'+theme);
 
-	item.addEventListener('click', function() {
-		alert(1);
-	});
-
-	// item.addEventListener('click', function() {
-	// 	let page = this.getAttribute('data-page');
-	// 	let theme = this.getAttribute('data-theme');
-	// 	$('#'+page+'#'+theme).css('display', 'block');
-	// 	console.log(page);
-	// 	console.log(name);
-	// 	console.log(this);
-	// });
-
 	document.querySelector('#content').appendChild(item);
 
 	$('#'+page+'#'+theme).load(`${page}.html #ct-${theme} > *`);
+
+	element[i].addEventListener('click', function() {
+		let page = this['data-page'];
+		let theme = this['data-theme'];
+
+		$('#'+page+'#'+theme).css('display', 'block');
+		console.log(page);
+		console.log(name);
+		console.log(this);
+	});
 }
+
+
+$('.element-menu').on('click', function() {
+	let page = this['data-page'];
+	let theme = this['data-theme'];
+
+	$('#'+page+'#'+theme).css('display', 'block');
+	console.log(page);
+	console.log(name);
+	console.log(this);
+});
+
+
 
 </script>
 </body>
