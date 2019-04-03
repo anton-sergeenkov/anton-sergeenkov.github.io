@@ -50,6 +50,8 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="paradigms-imper">Императивное программирование</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-paradigms-imper">
+
 <ul class="list-point">
     <li><bg-define>Императивное программирование</bg-define> В исходном коде программы записываются инструкции (команды), которые выполняются последовательно</li>
 </ul>
@@ -79,10 +81,12 @@ function double (arr) {
 }
 </code></pre>
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="paradigms-decl">Декларативное программирование</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-paradigms-decl">
+
 <ul class="list-point">
     <li><bg-define>Декларативное программирование</bg-define></li>
 </ul>
@@ -106,10 +110,12 @@ function double (arr) {
 }
 </code></pre>
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="paradigms-func">Функциональное программирование</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-paradigms-func">
+
 <ul class="list-point">
     <li><bg-define>Функциональное программирование</bg-define> - последовательный вызов набора функций</li>
     <li>Процесс вычисления трактуется как вычисление значений функций в математическом понимании</li>
@@ -179,10 +185,11 @@ function add(x){
 }
 </code></pre>
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="paradigms-oop">Объектно-ориентированное программирование</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-paradigms-oop">
 
 <ul class="list-point">
     <li><bg-define>Объектно-ориентированное программирование</bg-define> - методология программирования, основанная на представлении программы в виде совокупности объектов, каждый из которых является экземпляром определённого класса, а классы образуют иерархию наследования</li>
@@ -202,10 +209,12 @@ function add(x){
     <li><bg-define>Абстракция</bg-define> - придание объекту характеристик, которые чётко определяют его концептуальные границы, отличая от всех других объектов. Основная идея состоит в том, чтобы отделить способ использования составных объектов данных от деталей их реализации в виде более простых объектов</li>
 </ol>
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="composition">Композиция</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-composition">
+
 <ul class="list-point">
     <li><bg-define>Композиция и Агрегация</bg-define> - методика создания нового класса из уже существующих классов путём их включения. Расширение функционала класса за счет "внедрения" других классов</li>
     <li>Об агрегировании также часто говорят как об «отношении принадлежности» по принципу «у машины есть корпус, колёса и двигатель»</li>
@@ -227,7 +236,6 @@ function add(x){
     <li><em>Композиция</em>: <bg-code>университет - факультеты</bg-code>, факультеты без университета уничтожаются</li>
 </ul>
 
-
 <h4>Dependency Injection</h4>
 <pre><code class="js">
 function makeCoffee(coffee) {}
@@ -240,7 +248,14 @@ function barista(makeCoffee, produceCoffee) {
 barista(makeCoffee, produceCoffee);
 </code></pre>
 
+</div>
 
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- OTHER -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="web-applications">Виды веб приложений</h2>
@@ -251,8 +266,6 @@ barista(makeCoffee, produceCoffee);
     <li><bg-define>PWA</bg-define> - Progressive Web App (прогрессивное веб-приложение)</li>
     <li>Стандартные HTML страницы</li>
 </ul>
-
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="design">Эволюция веб-дизайна</h2>
@@ -267,7 +280,6 @@ barista(makeCoffee, produceCoffee);
 </code>
 </pre>
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="framework">Фреймворки (особенности)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -276,7 +288,6 @@ barista(makeCoffee, produceCoffee);
 - паттерны проектирования
 - строгая структура (модульность) приложения
 </code></pre>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="pattern">Шаблоны проектирования (ММС...)</h2>
@@ -293,15 +304,6 @@ barista(makeCoffee, produceCoffee);
 <em>view</em>       - видимая часть
 <em>controller</em> - берет данные из view и передает в model (запускает model)
 </code></pre>
-
-
-
-
-
-
-
-
-
 
 
 
