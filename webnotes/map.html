@@ -89,13 +89,17 @@ for(let i=0; i<element.length; i++) {
 	item.setAttribute('id', page+'#'+theme);
 
 	item.addEventListener('click', function() {
-		let page = this.getAttribute('data-page');
-		let theme = this.getAttribute('data-theme');
-		$('#'+page+'#'+theme).css('display', 'block');
-		console.log(page);
-		console.log(name);
-		console.log(this);
+		alert(1);
 	});
+
+	// item.addEventListener('click', function() {
+	// 	let page = this.getAttribute('data-page');
+	// 	let theme = this.getAttribute('data-theme');
+	// 	$('#'+page+'#'+theme).css('display', 'block');
+	// 	console.log(page);
+	// 	console.log(name);
+	// 	console.log(this);
+	// });
 
 	document.querySelector('#content').appendChild(item);
 
