@@ -93,10 +93,12 @@ h2 {
 
 
 
-<div id="menu-top"></div>
 
-<script src="main.js"></script>
-<script src="libraries/jquery.js"></script>
+	<div id="menu-top"></div>
+
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="js/main.js"></script>
 <script>
 
 let element = document.querySelectorAll('.element-menu');
@@ -126,6 +128,14 @@ for(let i=0; i<element.length; i++) {
 document.querySelector('.content-close').addEventListener('click', function() {
 	$('.element-content').css('display', 'none');
 });
+
+window.onkeydown = function(event) {
+	console.log(event.keyCode);
+	//$('.element-content').css('display', 'none');
+	//$('.content-close').css('display', 'block');
+}
+
+
 </script>
 </body>
 </html>
