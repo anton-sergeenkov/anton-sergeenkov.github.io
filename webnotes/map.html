@@ -93,8 +93,8 @@ for(let i=0; i<element.length; i++) {
 }
 
 $('.element-menu').on('click', function() {
-	let page = this.getAttribute('data-page');
-	let theme = this.getAttribute('data-theme');
+	let page = this.attr('data-page');
+	let theme = this.attr('data-theme');
 
 	$('#'+page+'#'+theme).css('display', 'block');
 	console.log(page);
