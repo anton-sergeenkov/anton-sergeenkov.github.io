@@ -38,6 +38,7 @@ h2 {
 }
 .element-content {
 	border: 1px solid #000;
+	display: none;
 }
 </style>
 <body>
@@ -85,11 +86,18 @@ for(let i=0; i<element.length; i++) {
 
 	let item = document.createElement('div');
 	item.setAttribute('class', 'element-content');
-	item.setAttribute('id', page+theme);
+	item.setAttribute('id', page+'#'+theme);
 	document.querySelector('#content').appendChild(item);
 
-	$('#'+page+theme).load(`${page}.html #ct-${theme} > *`);
+	$('#'+page+'#'+theme).load(`${page}.html #ct-${theme} > *`);
 }
+
+$('.element-menu').on('click', function() {
+	let page = this.getAttribute('data-page');
+	let theme = this.getAttribute('data-theme');
+	alert(page);
+	alert(name);
+});
 
 
 
