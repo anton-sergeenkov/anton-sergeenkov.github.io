@@ -130,12 +130,11 @@ document.querySelector('.content-close').addEventListener('click', function() {
 });
 
 window.onkeydown = function(event) {
-	console.log(event.keyCode);
-	//$('.element-content').css('display', 'none');
-	//$('.content-close').css('display', 'block');
+	if (event.keyCode == 27) {
+		$('.element-content').css('display', 'none');
+		$('.content-close').css('display', 'block');	
+	}
 }
-
-
 </script>
 </body>
 </html>
