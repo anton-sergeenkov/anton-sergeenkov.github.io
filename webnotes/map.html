@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<link rel="icon" type="image/png" href="img/favicon.png">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
 </head>
 <style>
 body {
@@ -104,9 +106,10 @@ h2 {
 <!-- <div class="element-menu" data-page="js" data-theme=""></div> -->
 <!-- #ct-theme -->
 
-<h1>Menu</h1>
+
+
 <div id="menu-top"></div>
-<script src="libraries/jquery.js"></script>
+<script src="js/main.js"></script>
 <script>
 
 let element = document.querySelectorAll('.element-menu');
@@ -133,11 +136,6 @@ for(let i=0; i<element.length; i++) {
 	});
 }
 
-window.onload = function() {
-	addScript('libraries/highlight/highlight.pack.js');
-	addScript('js/main.js');
-}
-
 document.querySelector('.content-close').addEventListener('click', function() {
 	$('.element-content').css('display', 'none');
 	$('.content-close').css('display', 'none');	
@@ -149,13 +147,9 @@ window.onkeydown = function(event) {
 		$('.content-close').css('display', 'none');	
 	}
 }
-
-function addScript(src){
-	var script = document.createElement('script');
-	script.src = src;
-	script.async = false;
-	document.head.appendChild(script);
-}
 </script>
+
+
+
 </body>
 </html>
