@@ -84,7 +84,7 @@
 	<a href="#web-components-custom-elements">3. Custom Elements</a>
 	<a href="#web-components-imports">4. HTML Imports</a>
 
-	<div class="theme">Client Data</div>
+	<div class="theme">Client Storage</div>
 	<a href="#data-storage"><bg-menu>localStorage</bg-menu> <bg-menu>sessionStorage</bg-menu></a>
 	<a href="#data-db"><bg-menu>IndexedDB</bg-menu></a>
 	<a href="#data-cookie"><bg-menu>cookie</bg-menu></a>
@@ -2340,6 +2340,7 @@ var a = select.<bg-code>options</bg-code>[select.selectedIndex].text;
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="data-storage">Web Storage: Local Storage и Session Storage</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-data-storage">
 
 <ul class="list-point">
 	<b>Web Storage</b> - интернет-хранилище или DOM-хранилище<br>
@@ -2411,10 +2412,12 @@ sessionStorage.<bg-code>removeItem</bg-code>('key');         // удаление
 sessionStorage.<bg-code>clear</bg-code>();                   // очистка всего хранилища
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="data-db">IndexedDB</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-data-db">
 
 <pre><code class="html">
 <a href="https://developer.mozilla.org/ru/docs/IndexedDB/Using_IndexedDB" target="_blank">[MDN] Использование IndexedDB</a>
@@ -2487,10 +2490,11 @@ function dbSelect() {
 }
 </code></pre>
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="data-cookie">Cookie</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-data-cookie">
 
 <ul class="list-point">
 	<b>Типы куки</b>
@@ -2518,7 +2522,7 @@ var a = <bg-code>document.cookie</bg-code>;                                     
 document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; domain=.example.org';
 </code></pre>
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="methods-this">Context (this, call, apply, bind)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
