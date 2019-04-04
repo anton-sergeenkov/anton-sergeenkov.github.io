@@ -40,7 +40,7 @@ h2 {
 	font-size: 14px;
 	font-weight: bold;
 	cursor: pointer;
-	margin-bottom: 5px;
+	margin: 0px 2px 5px 2px;
 }
 .element-content {
 	display: none;
@@ -79,6 +79,7 @@ h2 {
 pre {
 	background: rgba(var(--color-other),0.2);
 }
+
 .test {
 	font-size: 25px;
 	background: rgba(var(--color-other),0.2);
@@ -88,36 +89,8 @@ pre {
 </style>
 <body>
 
+<div id="elements-menu"></div>
 
-<h1>JavaScript</h1>
-
-<h2>Клиент-сервер</h2>
-<div class="element-menu" data-page="js" data-theme="client-server-desc">Клиент-сервер</div>
-<div class="element-menu" data-page="js" data-theme="client-server-http">HTTP</div>
-<div class="element-menu" data-page="js" data-theme="client-server-https">HTTPS</div>
-<div class="element-menu" data-page="js" data-theme="client-server-rest">REST API</div>
-
-<h2>Client Storage</h2>
-<div class="element-menu" data-page="js" data-theme="data-storage">localStorage / sessionStorage</div>
-<div class="element-menu" data-page="js" data-theme="data-db">IndexedDB</div>
-<div class="element-menu" data-page="js" data-theme="data-cookie">Cookie</div>
-
-<h2>Парадигмы программирования</h2>
-<div class="element-menu" data-page="theory" data-theme="paradigms">Парадигмы программирования</div>
-<div class="element-menu" data-page="theory" data-theme="paradigms-imper">Императивное</div>
-<div class="element-menu" data-page="theory" data-theme="paradigms-decl">Декларативное</div>
-<div class="element-menu" data-page="theory" data-theme="paradigms-func">Функциональное</div>
-<div class="element-menu" data-page="theory" data-theme="paradigms-oop">Объектно-ориентированное</div>
-<br>
-<div class="element-menu" data-page="theory" data-theme="composition">Композиция</div>
-<div class="element-menu" data-page="theory" data-theme="currying">Каррирование / Частичное применение функций</div>
-
-<h2>Методологии разработки</h2>
-<div class="element-menu" data-page="theory" data-theme="method-dev">Методологии разработки</div>
-<div class="element-menu" data-page="theory" data-theme="method-waterfall">Waterfall</div>
-<div class="element-menu" data-page="theory" data-theme="method-agile">Agile</div>
-<div class="element-menu" data-page="theory" data-theme="method-scrum">Scrum</div>
-<div class="element-menu" data-page="theory" data-theme="method-kanban">Kanban</div>
 
 
 
@@ -144,6 +117,7 @@ pre {
 <script src="libraries/jquery.js"></script>
 <script src="libraries/highlight/highlight.pack.js"></script>
 <script src="js/main.js"></script>
+<script src="js/map.js"></script>
 <script>
 
 let element = document.querySelectorAll('.element-menu');
