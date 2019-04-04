@@ -76,3 +76,28 @@ function setLineScroll() {
 }
 
 
+
+function get_vMethodsTemplate() {
+
+// <v-methods>
+//     <v-name>method</v-name>
+//     <v-arg>arguments</v-arg>
+//     <v-desc></v-desc>
+//         <v-one-arg>arguments</v-one-arg><v-one-desc>description</v-one-desc>
+// </v-methods>
+
+    let vMethods = document.querySelector('v-methods');
+    let vName    = vMethods.querySelector('v-name').innerText;
+    let vArg     = vMethods.querySelector('v-arg').innerText;
+    let vDesc    = vMethods.querySelector('v-desc').innerText;
+    let vOneArg  = vMethods.querySelector('v-one-arg').innerText;
+    let vOneDesc = vMethods.querySelector('v-one-desc').innerText;
+
+    let vMethodsTemplate = `
+    <pre><code class="js light">
+    <table>
+        <tr><td><bg-methods>${vName}</bg-methods><bg-arguments>${vArg}</bg-arguments></td><td>  // ${vDesc}</td></tr>
+        <tr><td><em>    &#8226; ${vOneArg}</em></td><td>  // ${vOneDesc}</td></tr>
+    </table></code></pre>`;
+    document.querySelector('v-methods').innerHTML = vMethodsTemplate;   
+}

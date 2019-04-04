@@ -26,9 +26,10 @@
 	<a href="#destructive-array">Деструктивное присваивание array</a>
 	<a href="#destructive-obj">Деструтивное присваивание object</a>
 	<a href="#pattern">Шаблонные строки</a>
+	<a href="#proxy">Proxy</a>
 	<a href="#symbol">Symbol</a>
 	<a href="#iterators">Iterators</a>
-
+	
 	<div class="theme">Асинхронный код</div>
 	<a href="#collback">1. Collback Function</a>
 	<a href="#promise">2. Promise (ES6)</a>
@@ -2531,12 +2532,11 @@ document.cookie = 'info=123; expires=Fri, 31 Dec 2018 23:59:59 GMT; path=/; doma
 <h3>this</h3>
 <!------------------------------------------------------>
 <ul class="list-point">
-	<li>У каждого вызова функции есть свой «контекст выполнения» <bg-list>execution context</bg-list> и он всегда разный в зависимости от того как функция была вызвана</li>
-	<li><bg-list>Контекст выполнения</bg-list> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор</li>
-	<li><bg-list>Контекст вызова функции</bg-list> - тот объект который ее вызывает</li>
-	<li><bg-list>this</bg-list> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие) и определяется в момент вызова функции</li>
+	<li><bg-define>Контекст выполнения (execution context)</bg-define> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор. У каждого вызова функции свой «контекст выполнения» и он всегда разный в зависимости от того как функция была вызвана</li>
+	<li><bg-define>Контекст вызова функции</bg-define> - тот объект который ее вызывает</li>
+	<li><bg-define>this</bg-define> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие). Определяется в момент вызова функции</li>
 	<li>Любая функция может иметь в себе <u>this</u>. Если функция использует <u>this</u> - это подразумевает работу с объектом</li>
-	<li><bg-list>this</bg-list> - это текущий объект при вызове «через точку» и новый объект при конструировании через <u>new</u></li>
+	<li><u>this</u> - это текущий объект при вызове «через точку» и новый объект при конструировании через <u>new</u></li>
 	<li><u>Функции</u> не привязаны к своему контексту <u>this</u></li>
 	<li>В глобальном контексте this указывает на глобальный объект, в функциональном контексте this указывает на контекст, откуда функция вызвана</li>
 	<li>В функции, обрабатывающей событие <u>DOM</u>, <u>this</u> указывает на <u>DOM</u> элемент, который вызвал событие</li>
@@ -2565,18 +2565,18 @@ func.apply(context, args) // this = context (явная передача)
 func.call(context, arg1, arg2, ...)
 </code></pre>
 
-
 <!------------------------------------------------------>
-<h3>bind(), call(), apply() - использование другого контекста</h3>
+<h3 id="methods-this-bind">bind(), call(), apply() - использование другого контекста</h3>
 <!------------------------------------------------------>
-<ul class="list">
-	<li><bg-list>call()</bg-list> - явное указание контекст вызова</li>
-	<li><bg-list>apply()</bg-list> - аналогичен call(), только аргументы передаются массивом вторым аргументом</li>
-	<li><bg-list>bind()</bg-list> - не вызывает функцию, а связывает с объектом. не изменяет исходную функцию, а возвращает новую</li>
-</ul>
+<pre><code class="js light">
+<table>
+	<tr><td><bg-methods>call</bg-methods><bg-arguments>()</bg-arguments></td><td>  // явное указание контекст вызова</td></tr>
+	<tr><td><bg-methods>apply</bg-methods><bg-arguments>()</bg-arguments></td><td>  // аналогичен call(), только аргументы передаются массивом вторым аргументом</td></tr>
+	<tr><td><bg-methods>bind</bg-methods><bg-arguments>()</bg-arguments></td><td>  // не вызывает функцию, а связывает с объектом. не изменяет исходную функцию, а возвращает новую</td></tr>
+</table></code></pre>
 
 <ul class="list-point">
-	<li><u>all/apply</u> вызывают функцию с заданным контекстом и аргументами</li>
+	<li><u>call/apply</u> вызывают функцию с заданным контекстом и аргументами</li>
 	<li><u>bind</u> не вызывает функцию, а только возвращает «обёртку», которая передаст вызов в исходную функцию, с привязанным контекстом</li>
 	<li><u>Function.prototype.bind</u> возвращает копию функции, заменяя при этом упоминающиеся в ней <u>this</u> на объект, указанный в аргументе. На функции, возвращенной методом bind, нельзя использовать bind еще раз</li>
 </ul>
@@ -2595,18 +2595,27 @@ var anotherPerson = {
 }
 </code></pre>
 
+<ul class="list-point">
+	<li>Если в <u>bind</u> указаны аргументы - они будут прибавлены к каждому вызову новой функции, причем встанут перед теми, которые указаны при вызове</li>
+</ul>
+
+<pre><code class="html">
+<a href="theory.html#currying" target="_blank">[Local] Каррирование</a>
+</code></pre>
+
+
+
+
 <pre><code class="js">
 // this указывает на person
 var a = anotherPerson.greet.<bg-code>call</bg-code>(person, 'Hello', 'World');    // => "Hello World Brad"
 var a = anotherPerson.greet.<bg-code>apply</bg-code>(person, ['Hello', 'World']); // => "Hello World Brad"
 
-var b = greet.<bg-code>bind</bg-code>(person);
+var b = greet.<bg-code>bind</bg-code>(person); // без аргументов
 var a = b('Hello', 'World'); // => "Hello World Brad"
 
-var b = greet.<bg-code>bind</bg-code>(person, 'Hello', 'World'); 
+var b = greet.<bg-code>bind</bg-code>(person, 'Hello', 'World'); // с аргументами
 var a = b(); // => "Hello World Brad"
-
-// если в bind указаны аргументы - они будут прибавлены к каждому вызову новой функции, причем встанут перед теми, которые указаны при вызове
 </code></pre>
 
 <pre><code class="js">
@@ -2616,15 +2625,6 @@ function f() {
 }
 f.call(null);
 </code></pre>
-
-<!------------------------------------------------------>
-<h3>Карринг</h3>
-<!------------------------------------------------------>
-<ul class="list-point">
-	<li><bg-list>Карринг (currying) или каррирование</bg-list> - (термин функционального программирования) создание новой функции путём фиксирования аргументов существующей</li>
-	<li><bg-list>Каррирование</bg-list> - bind с аргументами</li>
-	<li>Вызов bind позволяет фиксировать первые аргументы функции («каррировать» её), и таким образом из общей функции получить её «частные» варианты – чтобы использовать их многократно без повтора одних и тех же аргументов каждый раз</li>
-</ul>
 
 <!------------------------------------------------------>
 <h3>Примеры</h3>
@@ -4588,7 +4588,6 @@ for(let i=0; i<5; i++) {
 
 
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="architecture">Архитектура среды выполнения JS</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -4613,31 +4612,33 @@ for(let i=0; i<5; i++) {
 
 <h4>Архитектура среды выполнения JS на примере движка <u>V8</u> (Chrome, Node.js)</h4>
 <ul class="list-point">
-	<li><bg-header>1. Heap (куча)</bg-header> - структура данных, с помощью которой реализована динамически распределяемая память приложения</li>
+	<li><bg-define>1. Heap (куча)</bg-define> - структура данных, с помощью которой реализована динамически распределяемая память приложения</li>
 	<ul class="list-point">
 		<li>Куча - ссылка на определённую неструктурированную область памяти</li>
 		<li>Содержит объекты, на которые ссылаются переменные программы</li>
 		<li>memory allocation</li>
 	</ul>
 
-	<li><bg-header>2. Call Stack</bg-header> - <u>стек вызовов</u> LIFO структура (последний вошедший выходит первым)</li> 
+	<li><bg-define>2. Call Stack</bg-define> - <u>стек вызовов</u> LIFO структура (последний вошедший выходит первым)</li> 
 	<ul class="list-point">
 		<li>В стек помещаются и удаляются аргументы, локальные переменные функций по мере выполнения программы. Синхронные функции помещаются в стек вызова сразу. Асинхронные откладываются в специальную таблицу - <u>Event Table</u>, где ожидают дальнейшей обработки, чтобы не блокировать процесс выполнения программы. Видно какая функция какую вызвала (<u>execution context</u>)</li>
 		<li>Стек вызовов - это структура данных, которая, записывает сведения о месте в программе, где мы находимся. Если мы переходим в функцию, мы помещаем запись о ней в верхнюю часть стека. Когда мы из функции возвращаемся, мы вытаскиваем из стека самый верхний элемент и оказываемся там, откуда вызывали эту функцию. Каждая запись в стеке вызовов называется стековым кадром</li>
 		<li>Если будет достигнут максимальный размер стека (16 000), возникнет переполнение стека</li>
 	</ul>
 
-	<li><bg-header>3. Web API</bg-header> - <u>расширения браузера</u></li>
+	<li><bg-define>3. Web API</bg-define> - <u>расширения браузера</u></li>
 	<ul class="list-point">
 		<li>Event Table и Event Queue являются частью Web API, который реализуют браузеры для того, чтобы использовать такие возможности, как асинхронные запросы, таймеры, обрабатывать DOM события и другое асинхронное поведение. Это не является стандартным функционалом JavaScript и в различных средах данное API может быть реализовано по разному</li>
 		<li>Web API - это потоки, к которым у нас нет прямого доступа, мы можем лишь выполнять обращения к ним. Они встроены в браузер, где и выполняются асинхронные действия</li>
 	</ul>
 
-	<li><bg-header>3.1 Event Table</bg-header> - <u>таблица</u> в которой находится информация о том, по какому событию необходимо поместить функцию в <u>Event Queue</u> (очередь событий)</li>
+	<li><bg-define>3.1 Event Table</bg-define> - <u>таблица</u> в которой находится информация о том, по какому событию необходимо поместить функцию в <u>Event Queue</u> (очередь событий)</li>
 
-	<li><bg-header>3.2 Event/Callback/Task Queue</bg-header> - <u>очередь задач/событий</u> - FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
+	<li><bg-define>3.2 Callback/Event/Task Queue</bg-define> - <u>очередь задач/событий</u> - FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
 
-	<li><bg-header>4. Event Loop</bg-header> - <u>цикл/петля событий</u> - наблюдает за стеком вызовов и очередью коллбэков (callback queue). Если стек вызовов пуст, цикл берёт первое событие из очереди и помещает его в стек, что приводит к запуску этого события на выполнение. Подобная итерация называется тиком (tick) цикла событий. Каждое событие — это просто коллбэк</li>
+	<li><bg-define>3.3 Job Queue (ES6)</bg-define> - <u>очередь заданий (микротаски)</u> Эта конструкцию можно считать слоем, расположенном поверх очереди цикла событий. Очередь заданий — это очередь, которая присоединена к концу каждого тика в очереди цикла событий</li>
+
+	<li><bg-define>4. Event Loop</bg-define> - <u>цикл/петля событий</u> - наблюдает за стеком вызовов и очередью коллбэков (callback queue). Если стек вызовов пуст, цикл берёт первое событие из очереди и помещает его в стек, что приводит к запуску этого события на выполнение. Подобная итерация называется тиком (tick) цикла событий. Каждое событие — это просто коллбэк</li>
 	<ul class="list-point">
 		<li>Позволяет запланировать выполнение асинхронного кода сразу после выполнения синхронного кода</li>
 	</ul>
@@ -5487,10 +5488,205 @@ let user = new User('Jane'); // => _default {name: "Jane"}
 </code></pre>
 
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="proxy">Proxy</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-define>Прокси (proxy)</bg-define> - особый объект, смысл которого – перехватывать обращения к другому объекту/функции и, при необходимости, модифицировать их</li>
+	<li>Прокси позволяет модифицировать поведение объекта как угодно, перехватывать любые обращения к его свойствам и методам, включая вызовы для функций</li>
+	<li>Почти любая операция может быть перехвачена и обработана прокси до или даже вместо доступа к объекту target, например: чтение и запись свойств, получение списка свойств, вызов функции (если target – функция)</li>
+	<li>Если ловушки нет – операция идёт над target</li>
+</ul>
+
+<pre><code class="js light">
+<table>
+	<tr><td>let proxy = <bg-methods>new Proxy</bg-methods><bg-arguments>(target, handler)</bg-arguments></td><td></td></tr>
+	<tr><td><em>	&#8226; target</em></td><td>  // объект, обращения к которому надо перехватывать</td></tr>
+	<tr><td><em>	&#8226; handler</em></td><td>  // объект с «ловушками»: функциями-перехватчиками для операций к target</td></tr>
+</table></code></pre>
+
+<!------------------------------------------------------>
+<h3>get/set</h3>
+<!------------------------------------------------------>
+<pre><code class="js light">
+<table>
+	<tr><td><bg-methods>get</bg-methods><bg-arguments>(target, property, receiver)</bg-arguments></td><td> // срабатывает при чтении свойства из прокси</td></tr>
+	<tr><td><em>	&#8226; target</em></td><td>  // целевой объект, тот же который был передан первым аргументом в new Proxy</td></tr>
+	<tr><td><em>	&#8226; property</em></td><td>  // имя свойства</td></tr>
+	<tr><td><em>	&#8226; receiver</em></td><td>  // объект, к которому было применено присваивание. Обычно сам прокси, либо прототипно наследующий от него</td></tr>
+</table></code></pre>
+
+<pre><code class="js light">
+<table>
+	<tr><td><bg-methods>set</bg-methods><bg-arguments>(target, property, value, receiver)</bg-arguments></td><td> // срабатывает при чтении свойства из прокси</td></tr>
+	<tr><td><em>	&#8226; target</em></td><td>  // целевой объект, тот же который был передан первым аргументом в new Proxy</td></tr>
+	<tr><td><em>	&#8226; property</em></td><td>  // имя свойства</td></tr>
+	<tr><td><em>	&#8226; value</em></td><td>  // значение свойства</td></tr>
+	<tr><td><em>	&#8226; receiver</em></td><td>  // объект, к которому было применено присваивание, обычно сам прокси, либо прототипно наследующий от него</td></tr>
+</table></code></pre>
+
+<ul class="list-point">
+	<li>Метод set должен вернуть true, если присвоение успешно обработано и false в случае ошибки (приведёт к генерации TypeError)</li>
+</ul>
+
+<pre><code class="js">
+let user = {};
+
+let proxy = new Proxy(user, {
+	get(target, prop) {
+		console.log(`Чтение ${prop}`);
+		return target[prop];
+	},
+	set(target, prop, value) {
+		console.log(`Запись ${prop} ${value}`);
+		target[prop] = value;
+		return true;
+	}
+});
+
+proxy.firstName = 'Tony';    // запись
+proxy.firstName;             // чтение
+console.log(user.firstName); // => 'Tony'
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>has</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Ловушка has срабатывает в операторе in и некоторых других случаях, когда проверяется наличие свойства</li>
+</ul>
+<pre><code class="js">
+// dictionary будет всегда возвращать true для любой in-проверки:
+let dictionary = {
+	'Hello': 'Привет'
+};
+
+dictionary = new Proxy(dictionary, {
+	has(target, phrase) {
+		return true;
+	}
+});
+
+alert("BlaBlaBla" in dictionary); // true
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>deleteProperty</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Ловушка deleteProperty по синтаксису аналогична get/has. Срабатывает при операции delete, должна вернуть true, если удаление было успешным</li>
+</ul>
+<pre><code class="js">
+// delete не повлияет на исходный объект, так как все операции перехватываются и «аннигилируются» прокси
+
+let dictionary = {
+	'Hello': 'Привет'
+};
+
+let proxy = new Proxy(dictionary, {
+	deleteProperty(target, phrase) {
+		return true; // ничего не делаем, но возвращает true
+	}
+});
+
+// не удалит свойство
+delete proxy['Hello'];
+
+alert("Hello" in dictionary); // true
+
+// будет то же самое, что и выше
+// так как нет ловушки has, операция in сработает на исходном объекте
+alert("Hello" in proxy); // true
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>apply</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Если аргумент target прокси – функция, то становится доступна ловушка apply для её вызова</li>	
+</ul>
+
+<pre><code class="js light">
+<table>
+	<tr><td><bg-methods>apply</bg-methods><bg-arguments>(target, thisArgument, argumentsList)</bg-arguments></td><td>  //</td></tr>
+	<tr><td><em>	&#8226; target</em></td><td>  // исходный объект</td></tr>
+	<tr><td><em>	&#8226; thisArgument</em></td><td>  // контекст this вызова</td></tr>
+	<tr><td><em>	&#8226; argumentsList</em></td><td>  // аргументы вызова в виде массива</td></tr>
+</table></code></pre>
+
+<pre><code class="js">
+// может обработать вызов сама и/или передать его функции
+function sum(a, b) {
+	return a + b;
+}
+
+let proxy = new Proxy(sum, {
+	// передаст вызов в target, предварительно сообщив о нём
+	apply: function(target, thisArg, argumentsList) {
+		alert(`Буду вычислять сумму: ${argumentsList}`);
+		return target.apply(thisArg, argumentsList);
+	}
+});
+
+// Выведет сначала сообщение из прокси,
+// а затем уже сумму
+alert( proxy(1, 2) );
+</code></pre>
 
 
+<!------------------------------------------------------>
+<h3>construct</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Ловушка construct(target, argumentsList) перехватывает вызовы при помощи new. Она получает исходный объект target и список аргументов argumentsList</li>	
+</ul>
 
+<pre><code class="js">
+// передаёт операцию создания исходному классу или функции-конструктору, выводя сообщение об этом
 
+function User(name, surname) {
+	this.name = name;
+	this.surname = surname;
+}
+
+let UserProxy = new Proxy(User, {
+	// передаст вызов new User, предварительно сообщив о нём
+	construct: function(target, argumentsList) {
+		alert(`Запуск new с аргументами: ${argumentsList}`);
+		return new target(...argumentsList);
+	}
+});
+
+let user = new UserProxy('Tony', 'Smith');
+
+alert( user.name ); // Tony
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Полный список возможных функций-перехватчиков, которые может задавать handler</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/getPrototypeOf" target="_blank">getPrototypeOf</a> - перехватывает обращение к методу <bg-code>getPrototypeOf</bg-code></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/setPrototypeOf" target="_blank">setPrototypeOf</a> - перехватывает обращение к методу <bg-code>setPrototypeOf</bg-code></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/isExtensible" target="_blank">isExtensible</a> - перехватывает обращение к методу <bg-code>isExtensible</bg-code></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/preventExtensions" target="_blank">preventExtensions</a> - перехватывает обращение к методу <bg-code>preventExtensions</bg-code></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/getOwnPropertyDescriptor" target="_blank">getOwnPropertyDescriptor</a> - перехватывает обращение к методу <bg-code>getOwnPropertyDescriptor</bg-code></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/defineProperty" target="_blank">defineProperty</a> - перехватывает обращение к методу <bg-code>defineProperty</bg-code></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/has" target="_blank">has</a> - перехватывает проверку существования свойства, которая используется в операторе <bg-code>in</bg-code> и в некоторых других методах встроенных объектов</li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/get" target="_blank">get</a> - перехватывает чтение свойства</li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/set" target="_blank">set</a> - перехватывает запись свойства</li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/deleteProperty" target="_blank">deleteProperty</a> - перехватывает удаление свойства оператором <bg-code>delete</bg-code></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/enumerate" target="_blank">enumerate</a> - срабатывает при вызове <bg-code>for..in</bg-code> или <bg-code>for..of</bg-code>, возвращает итератор для свойств объекта</li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/ownKeys" target="_blank">ownKeys</a> - перехватывает обращения к методу <bg-code>getOwnPropertyNames</bg-code></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/apply" target="_blank">apply</a> - перехватывает вызовы <bg-code>target()</bg-code></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/construct" target="_blank">construct</a> - перехватывает вызовы new <bg-code>target()</bg-code></li>
+</ul>
+
+<ul class="list-point">
+	<li>Каждый перехватчик запускается с <bg-code>handler</bg-code> в качестве <bg-code>this</bg-code>. Это означает, что <bg-code>handler</bg-code> кроме ловушек может содержать и другие полезные свойства и методы</li>
+	<li>Каждый перехватчик получает в аргументах <bg-code>target</bg-code> и дополнительные параметры в зависимости от типа</li>
+	<li>Если перехватчик в <bg-code>handler</bg-code> не указан, то операция совершается, как если бы была вызвана прямо на <bg-code>target</bg-code></li>
+</ul>
 
 
 

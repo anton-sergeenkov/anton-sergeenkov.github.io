@@ -22,7 +22,7 @@ h1 {
 	background: rgb(var(--color-js));
 	color: #fff;
 	border-radius: 3px;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 h2 {
 	font-size: 16px;
@@ -74,10 +74,16 @@ h2 {
 #menu-top {
 	margin: 0;
 	padding: 0;
-	margin-top: 50px;
+	margin: 50px 0px 20px;
 }
 pre {
 	background: rgba(var(--color-other),0.2);
+}
+.test {
+	font-size: 25px;
+	background: rgba(var(--color-other),0.2);
+	margin: 10px;
+	padding: 10px;
 }
 </style>
 <body>
@@ -102,17 +108,35 @@ pre {
 <div class="element-menu" data-page="theory" data-theme="paradigms-decl">Декларативное</div>
 <div class="element-menu" data-page="theory" data-theme="paradigms-func">Функциональное</div>
 <div class="element-menu" data-page="theory" data-theme="paradigms-oop">Объектно-ориентированное</div>
+<br>
 <div class="element-menu" data-page="theory" data-theme="composition">Композиция</div>
+<div class="element-menu" data-page="theory" data-theme="currying">Каррирование / Частичное применение функций</div>
+
+<h2>Методологии разработки</h2>
+<div class="element-menu" data-page="theory" data-theme="method-waterfall">Waterfall</div>
+<div class="element-menu" data-page="theory" data-theme="method-agile">Agile</div>
+<div class="element-menu" data-page="theory" data-theme="method-scrum">Scrum</div>
+<div class="element-menu" data-page="theory" data-theme="method-kanban">Kanban</div>
+
+
+
+
+
+
+<div class="test test1">addEventListener div</div>
+<a href="#" class="test test2">addEventListener a</a>
+<button class="test test3">addEventListener button</button>
+
+<div class="test" onclick="test();">addEventListener div</div>
+<a class="test" href="#" onclick="test();">addEventListener a</a>
+<button class="test" onclick="test();">addEventListener button</button>
+
+
 
 
 <div id="content">
 	<div class="content-close"></div>
 </div>
-
-
-
-
-
 
 <!-- <div class="element-menu" data-page="js" data-theme=""></div> -->
 <!-- #ct-theme -->
@@ -157,6 +181,22 @@ window.onkeydown = function(event) {
 		$('.element-content').css('display', 'none');
 		$('.content-close').css('display', 'none');	
 	}
+}
+
+
+
+document.querySelector('.test1').addEventListener('click', function() {
+	alert(1);
+});
+document.querySelector('.test2').addEventListener('click', function(e) {
+	e.preventDefault();
+	alert(1);
+});
+document.querySelector('.test3').addEventListener('click', function() {
+	alert(1);
+});
+function test() {
+	alert(2);
 }
 </script>
 

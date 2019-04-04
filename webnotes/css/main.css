@@ -197,6 +197,11 @@ h3 {
 	color: rgba(75, 80, 89, 0.7);
 	background-image: linear-gradient(to right, #f0f0e2, #f9f1e7, #fef3ef, #fff6f7, #fefafc, #fefcfe, #fefdff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
 }
+h3 a {
+	font-size: inherit;
+	text-decoration: inherit;
+	color: inherit;
+}
 h4 {
 	margin: 15px 0px 15px 0px;
 	padding-bottom: 5px;

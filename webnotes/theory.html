@@ -20,7 +20,14 @@
     <a href="#paradigms-func">3. Функциональное</a>
     <a href="#paradigms-oop">4. Объектно-ориентированное</a>
     <a href="#composition">Композиция</a>
+    <a href="#currying">Каррирование</a>
     
+    <div class="theme">Методологии разработки</div>
+    <a href="#method-waterfall">Waterfall</a>
+    <a href="#method-agile">Agile</a>
+    <a href="#method-scrum">Scrum</a>
+    <a href="#method-kanban">Kanban</a>
+
     <div class="theme">Прочее</div>
     <a href="#web-applications">Виды веб приложений</a>
     <a href="#design">Эволюция веб-дизайна</a>
@@ -163,28 +170,6 @@ function double (arr) {
     <li><bg-define>Замыкания</bg-define></li>
 </ol>
 
-<h4>Каррирование</h4>
-<pre><code class="js">
-function add(x){
-    return function() {
-        return x + y;
-    }
-}
-inc = add(1);
-console.log(inc(15));   // 16
-console.log(add(8)(7)); // 15
-
-function add(x){
-    return function() {
-        return function() {
-            return function() {
-                return x + y;
-            }
-        }
-    }
-}
-</code></pre>
-
 </div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="paradigms-oop">Объектно-ориентированное программирование</h2>
@@ -263,6 +248,186 @@ barista(makeCoffee, produceCoffee);
 </code></pre>
 
 </div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="currying">Каррирование</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-currying">
+
+<ul class="list-point">
+    <li><bg-define>Каррирование / Карринг (Currying)</bg-define> - в функциональном программирование - это преобразование функции с множеством аргументов в набор вложенных функций с одним аргументом. При вызове каррированной функции с передачей ей одного аргумента, она возвращает новую функцию, которая ожидает поступления следующего аргумента. Новые функции, ожидающие следующего аргумента, возвращаются при каждом вызове каррированной функции — до тех пор, пока функция не получит все необходимые ей аргументы. Ранее полученные аргументы, благодаря механизму <u>замыканий</u>, ждут того момента, когда функция получит всё, что ей нужно для выполнения вычислений. После получения последнего аргумента функция выполняет вычисления и возвращает результат.
+    <li>При каррировании число вложенных функций равно числу аргументов исходной функции. Каждая из этих функций ожидает собственный аргумент. Если функция аргументов не принимает, или принимает лишь один аргумент, то каррировать её нельзя</li>
+
+    <li><bg-define>Частичное применение функций (Partial Function Application)</bg-define> - функцию преобразуют в другую функцию, обладающую меньшим числом аргументов. Некоторые аргументы такой функции оказываются зафиксированными (для них задаются значения по умолчанию</li>
+
+    <li>Каррирование и преобразования функций реализуются в JavaScript благодаря замыканиям и тому, что функции в JS являются объектами первого класса (их можно передавать в качестве аргументов другим функциям, возвращать из них, присваивать переменным)</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Каррирование</h3>
+<!------------------------------------------------------>
+<h4>Пример 1</h4>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+// исходная функция
+function multiply(a, b, c) {
+    return a * b * c;
+}
+multiply(1,2,3); // 6
+<br><br><br><br><br><br><br><br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+// каррирование
+function multiply(a) {
+    return (b) => {
+        return (c) => {
+            return a * b * c
+        }
+    }
+}
+log(multiply(1)(2)(3)) // 6
+
+//const mul1 = multiply(1);
+//const mul2 = mul1(2);
+//const result = mul2(3);
+//log(result); // 6
+</code></pre></div></div>
+
+<h4>Пример 2</h4>
+<pre><code class="js">
+function add(x){
+    return function() {
+        return x + y;
+    }
+}
+inc = add(1);
+console.log(inc(15));   // 16
+console.log(add(8)(7)); // 15
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Частичное применение функций</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+function volume(l) {
+    return (w, h) => {
+        return l * w * h
+    }
+}
+</code></pre>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+// вариант использования 1
+const hV = volume(70);
+hV(203,142);
+hV(220,122);
+hV(120,123);
+</code></pre></div><div class="container-half"><pre><code class="js">
+// вариант использования 2
+volume(70)(90,30);
+volume(70)(390,320);
+volume(70)(940,340);
+</code></pre></div></div>
+
+<!------------------------------------------------------>
+<h3>Частичная функция через bind</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+    <li>Вызов <u>bind</u> позволяет фиксировать первые аргументы функции («каррировать» её), и таким образом из общей функции получить её «частные» варианты – чтобы использовать их многократно без повтора одних и тех же аргументов каждый раз</li>
+    <li>Если в bind указаны аргументы - они будут прибавлены к каждому вызову новой функции, причем встанут перед теми, которые указаны при вызове</li>
+</ul>
+
+<pre><code class="html">
+<a href="js.html#methods-this-bind" target="_blank">[Local] bind()</a>
+</code></pre>
+
+<pre><code class="js">
+function mul(a, b) {
+    return a * b;
+};
+
+// double умножает только на два
+var double = mul.bind(null, 2); // контекст фиксируем null, он не используется
+
+console.log( double(3) ); // = mul(2, 3) = 6
+console.log( double(4) ); // = mul(2, 4) = 8
+console.log( double(5) ); // = mul(2, 5) = 10
+</code></pre>
+
+<ul class="list-point">
+    <li>При вызове double будет передавать свои аргументы исходной функции mul после тех, которые указаны в bind, то есть в данном случае после зафиксированного первого аргумента 2</li>
+    <li>"double" является «частичной функцией» (partial function) от mul</li>
+    <li>При помощи bind мы можем получить из функции её «частный вариант» как самостоятельную функцию</li>
+</ul>
+
+</div>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- Методологии разработки -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="method-waterfall">Waterfall</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-method-waterfall">
+
+<ul class="list-point">
+    <li>Каскадная модель (waterfall model) - модель процесса разработки программного обеспечения, в которой процесс разработки выглядит как поток, последовательно проходящий фазы анализа требований, проектирования, реализации, тестирования, интеграции и поддержки</li>
+    <li>Переход от одной фазы к другой происходит только после полного и успешного завершения предыдущей</li>
+</ul>
+
+<ul class="list-num">
+    <b>Шаги</b>
+    <li><u>Определение требований</u> - список требований к ПО</li>
+    <li><u>Проектирование</u> - создаются документы, подробно описывающие для программистов способ и план реализации указанных требований</li>
+    <li><u>Конструирование</u> (также «реализация» либо «кодирование»)</li>
+    <li><u>Воплощение</u> - интеграция отдельных компонентов, разрабатываемых различными командами программистов</li>
+    <li><u>Тестирование и отладка</u> (также «верификация»)</li>
+    <li><u>Инсталляция</u></li>
+    <li><u>Поддержка</u></li>
+</ul>
+
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="method-agile">Agile</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-method-agile">
+
+<ul class="list-point">
+    <li></li>
+</ul>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="method-scrum">Scrum</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-method-scrum">
+
+<ul class="list-point">
+    <li></li>
+</ul>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="method-kanban">Kanban</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-method-kanban">
+
+<ul class="list-point">
+    <li></li>
+</ul>
+
+</div>
+
+
+
 
 
 
