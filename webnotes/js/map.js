@@ -28,8 +28,11 @@ div('theory', 'method-agile', 'Agile');
 div('theory', 'method-scrum', 'Scrum');
 div('theory', 'method-kanban', 'Kanban');
 
-h2('');
-div('theory', '', '');
+h2('Функции');
+div('js_functions', 'special', 'Особенности');
+div('js_functions', 'announcement', 'Function Declaration / Function Expression / IIFE / new Function');
+div('js_functions', '', '');
+div('js_functions', '', '');
 
 h2('');
 div('theory', '', '');
