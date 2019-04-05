@@ -24,9 +24,7 @@ div('theory', 'currying',        'Каррирование / Частичное 
 h2('Методологии разработки');
 div('theory', 'method-dev',       'Методологии разработки');
 div('theory', 'method-waterfall', 'Waterfall');
-div('theory', 'method-agile',     'Agile');
-div('theory', 'method-scrum',     'Scrum');
-div('theory', 'method-kanban',    'Kanban');
+div('theory', 'method-agile',     'Agile / Scrum / Kanban');
 
 h2('Функции');
 div('js_functions', 'special',            'Особенности');

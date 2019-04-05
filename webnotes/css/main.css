@@ -342,7 +342,7 @@ bg-define {
 	color: white;
 }
 
-alert-ok, alert-info, alert-warn, alert-error  {
+alert-ok, alert-info, alert-warn, alert-error {
 	border: 0;
 	display: block;
 	padding: 15px 10px;
