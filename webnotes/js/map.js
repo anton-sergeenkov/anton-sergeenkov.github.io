@@ -25,6 +25,7 @@ h2('Методологии разработки');
 div('theory', 'method-dev',       'Методологии разработки');
 div('theory', 'method-waterfall', 'Waterfall');
 div('theory', 'method-agile',     'Agile / Scrum / Kanban');
+div('theory', 'estimation',       'Эстимация');
 
 h2('Функции');
 div('js_functions', 'special',            'Особенности');
