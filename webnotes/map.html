@@ -79,41 +79,18 @@ h2 {
 pre {
 	background: rgba(var(--color-other),0.2);
 }
-
-.test {
-	font-size: 25px;
-	background: rgba(var(--color-other),0.2);
-	margin: 10px;
-	padding: 10px;
-}
 </style>
 <body>
 
-<div id="elements-menu"></div>
+	<div id="elements-menu"></div>
+	<div id="content">
+		<div class="content-close"></div>
+	</div>
+	<div id="menu-top"></div>
 
+	<!-- <div class="element-menu" data-page="js" data-theme=""></div> -->
+	<!-- #ct-theme -->
 
-
-
-
-<div class="test test1">addEventListener div</div>
-<a href="#" class="test test2">addEventListener a</a>
-<button class="test test3">addEventListener button</button>
-
-<div class="test" onclick="test();">addEventListener div</div>
-<a class="test" href="#" onclick="test();">addEventListener a</a>
-<button class="test" onclick="test();">addEventListener button</button>
-
-
-
-
-<div id="content">
-	<div class="content-close"></div>
-</div>
-
-<!-- <div class="element-menu" data-page="js" data-theme=""></div> -->
-<!-- #ct-theme -->
-
-<div id="menu-top"></div>
 <script src="libraries/jquery.js"></script>
 <script src="libraries/highlight/highlight.pack.js"></script>
 <script src="js/main.js"></script>
@@ -154,22 +131,6 @@ window.onkeydown = function(event) {
 		$('.element-content').css('display', 'none');
 		$('.content-close').css('display', 'none');	
 	}
-}
-
-
-
-document.querySelector('.test1').addEventListener('click', function() {
-	alert(1);
-});
-document.querySelector('.test2').addEventListener('click', function(e) {
-	e.preventDefault();
-	alert(1);
-});
-document.querySelector('.test3').addEventListener('click', function() {
-	alert(1);
-});
-function test() {
-	alert(2);
 }
 </script>
 

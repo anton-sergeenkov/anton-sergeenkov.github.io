@@ -174,6 +174,7 @@ alert(result); // 3
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="named">Named Function Expression</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-named">
 
 <h3>Named Function Expression (NFE) - именованные функциональные выражения</h3>
 
@@ -217,10 +218,12 @@ alert( g(5) ); // 120, работает!
 <br>
 </code></pre></div></div>
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="arguments">Псевдомассив аргументов "arguments"</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-arguments">
+
 <ul class="list-point">
 	<li>Любая функция может быть вызвана с произвольным количеством аргументов</li>
 	<li>Нет «перегрузки» функций, «полиморфизма функций»: объявление нескольких одинаковых функции с разными аргументами</li>
@@ -272,11 +275,12 @@ showMessage({
 </code></pre>
 
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="parameters">Параметры функции (ES6)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<div id="ct-default-parameters">
 <!------------------------------------------------------>
 <h3>Параметры по умолчанию (default parameters)</h3>
 <!------------------------------------------------------>
@@ -286,7 +290,9 @@ function greet(greeting='Hello', name='Friend') {
 }
 greet();
 </code></pre>
+</div>
 
+<div id="ct-rest-parameters">
 <!------------------------------------------------------>
 <h3>Оставшиеся параметры (rest parameters)</h3>
 <!------------------------------------------------------>
@@ -343,11 +349,21 @@ function sum(...values) {
 }
 sum(1, 2, 3, 4);
 </code></pre>
-
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="arrow">Стрелочные функции (ES6)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div id="ct-arrow">
+
+<ul class="list-point">
+	<b>Особенности</b>
+	<li>this берется из контекста (окружения) в котором функция объявлена в независимости от того где эта функция будет выполнена</li>
+	<li>нельзя использовать как конструкторы объектов</li>
+	<li>нельзя использовать .bind(), .call(), .apply(), т.к. нельзя изменить this, оно берется из контекста</li>
+</ul>
+
 <ul class="list-point">
 	<li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 " target="_blank">MDN</a></li>
@@ -489,17 +505,11 @@ var person2 = {
 person2.greet();
 </code></pre></div></div>
 
-<ul class="list-point">
-	<b>Особенности</b>
-	<li>this берется из контекста (окружения) в котором функция объявлена в независимости от того где эта функция будет выполнена</li>
-	<li>нельзя использовать как конструкторы объектов</li>
-	<li>нельзя использовать .bind(), .call(), .apply(), т.к. нельзя изменить this, оно берется из контекста</li>
-</ul>
-
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="closures-theory">Замыкания (теория)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-closures-theory">
 
 <ul class="list">
 
@@ -543,10 +553,11 @@ person2.greet();
 	<li>Инкапсуляция</li>
 </ul>
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="closures">Замыкания</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-closures">
 
 <!------------------------------------------------------>
 <h3>Пример 1</h3>
@@ -621,11 +632,12 @@ console.log(counter()); // 0
 console.log(counter()); // 1 
 console.log(counter()); // 2 
 </code></pre>
-
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="recursion">Рекурсия</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-recursion">
 <h4>Степень pow(x, n) через рекурсию</h4>
 <pre><code class="js">
 function pow(x, n) {
@@ -637,7 +649,7 @@ function pow(x, n) {
 }
 alert( pow(2, 3) ); // 8
 </code></pre>
-
+</div>
 
 
 
