@@ -13,8 +13,7 @@
 		<a href="#menu-top">Starter</a>
 	</div>
 	
-	<a href="#operations">Базовые операции</a>
-	<a href="#commands">Команды</a>
+	<a href="#terminal">Терминал</a>
 	<a href="#github-desktop">GitHub Desktop</a>
 	<a href="#smart-git">SmartGit</a>
 </div>
@@ -28,35 +27,97 @@
 <h1>GitHub</h1>
 
 <pre><code class="html">
-<a href="https://git-scm.com/" target="_blank">Git</a>
-<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Generating a new SSH key</a>
 <a href="https://www.gitignore.io/" target="_blank">Generate GitIgnore</a>
 <a href="https://www.youtube.com/playlist?list=PL3LQJkGQtzc5rDeb7FjACNb6sOW300yA0" target="_blank">[playlist] GitHub</a>
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="operations">Базовые операции</h2>
+<h2 id="terminal">Терминал</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="html">
-<em>clone</em>  - создание локальной копии удаленного git-репозитория (выполняется 1 раз)
-<em>commit</em> - сохранение изменений в локальном репозитории
-<em>push</em>   - отправка изменений на удаленный git-репозиторий
-<em>pull</em>   - получить изменения из удаленного git-репозитория в локальный репозиторий
-</code>
-</pre>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="commands">Команды</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>Два вида соединений</b>
+	<li>Соединение по HTTPS</li>
+	<li>Соединение по SSH</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Базовые операции</h3>
+<!------------------------------------------------------>
 <pre><code class="bash">
-git status
-git init
-git add
-git commit
-git clone
-git push
+<em>$ git clone</em>                               # создание локальной копии удаленного git-репозитория (выполняется 1 раз)
+<em>$ git add .</em>                               # добавление всех измененных файлов в коммит
+<em>$ git commit -m "comment"</em>                 # сохранение изменений в локальном репозитории
+<em>$ git push</em>                                # отправка изменений на удаленный git-репозиторий
+<em>$ git pull</em>                                # получить изменения из удаленного git-репозитория в локальный репозиторий
 </code></pre>
+
+<pre><code class="bash">
+<em>$ git checkout -b features</em>                # создание новой ветки "features"
+<em>$ git branch</em>                              # текущая ветка
+<em>$ git checkout master</em>                     # переключение на ветку "master"
+<em>$ git push --set-upstream origin features</em> # 
+<em>$ git branch --delete features</em>            # удаление ветки
+</code></pre>
+
+<pre><code class="bash">
+<em>$ git status</em>                              # информация о текущей ветке, подготовленных коммитах и т.д.
+<em>$ git init</em>                                # 
+<em>$ git checkout</em>                            # 
+<em>$ git reset</em>                               # 
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>1. Git Bash</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<a href="https://git-scm.com/" target="_blank">Git</a>
+</code></pre>
+
+<pre><code class="bash none">
+1. Install Git
+2. Open Git Bash
+	<bg-code>$ cd</bg-code> путь_до_папки ($ cd и перетащить папку)
+</code></pre>
+
+
+<!------------------------------------------------------>
+<h3>2. Generating a new SSH key</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Generating a new SSH key</a>
+</code></pre>
+
+<pre><code class="bash none">
+1. Generating a new SSH key
+	<bg-code>$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</bg-code>
+2. Adding your SSH key to the ssh-agent
+	<bg-code>$ eval $(ssh-agent -s)</bg-code>
+3. Add your SSH private key to the ssh-agent
+	<bg-code>$ ssh-add ~/.ssh/id_rsa</bg-code>
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>3. Add the SSH key to your GitHub account</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank">Adding a new SSH key to your GitHub account</a>
+</code></pre>
+
+<pre><code class="bash none">
+1. Copy the SSH key to your clipboard.
+	<bg-code>$ clip < ~/.ssh/id_rsa.pub</bg-code>
+2. https://github.com/ -> Settings -> SSH and GPG keys -> New SSH key
+	- ввести название ключа
+	- вставить ключ скопированный в буфер обмена на 1 этапе
+3. https://github.com/ -> Репозиторий -> Clone or download -> Use SSH -> Скопировать строку
+4. Git Bash
+	<bg-code>$ git clone git@github.com:</bg-code>name_account/name_repo.git
+</code></pre>
+
+
+
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="github-desktop">GitHub Desktop</h2>

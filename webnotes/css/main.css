@@ -240,6 +240,10 @@ code.light {
 	background: rgba(var(--color-other), 0.1);
 	border: 2px dashed rgba(var(--color-other), 0.2);
 }
+code.none {
+	background: none;
+	border: 1px solid rgba(var(--color-other), 0.2);
+}
 pre.inline {
 	display: inline-block;
 }
