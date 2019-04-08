@@ -49,8 +49,10 @@ div('theory', 'method-agile',     'Agile / Scrum / Kanban');
 div('theory', 'estimation',       'Эстимация');
 
 h2('Системы контроля версий');
+div('git', 'vcs',      'Системы управления версиями');
 div('git', 'terminal', 'Git-команды');
 div('git', 'gitflow',  'Gitflow');
+
 
 
 
