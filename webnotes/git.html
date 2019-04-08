@@ -16,6 +16,8 @@
 	<a href="#terminal">Терминал</a>
 	<a href="#github-desktop">GitHub Desktop</a>
 	<a href="#smart-git">SmartGit</a>
+	<a href="#gitflow">Gitflow</a>
+	<a href="#vcs">Системы управления версиями</a>
 </div>
 <div id="content-wrapper">
 <div id="menu-top"></div>
@@ -34,6 +36,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="terminal">Терминал</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-terminal">
 
 <ul class="list-point">
 	<b>Два вида соединений</b>
@@ -46,12 +49,19 @@
 <!------------------------------------------------------>
 <pre><code class="bash">
 <em>$ git clone</em>                               # создание локальной копии удаленного git-репозитория (выполняется 1 раз)
-<em>$ git add .</em>                               # добавление всех измененных файлов в коммит
-<em>$ git commit -m "comment"</em>                 # сохранение изменений в локальном репозитории
+<em>$ git add .</em>                               # добавляет содержимое рабочей директории в индекс (staging area) для последующего коммита. сборка слепка коммита
 <em>$ git push</em>                                # отправка изменений на удаленный git-репозиторий
 <em>$ git pull</em>                                # получить изменения из удаленного git-репозитория в локальный репозиторий
 </code></pre>
 
+<h4>Commit</h4>
+<pre><code class="bash">
+<em>$ git commit</em>                              # сохранение изменений в локальном репозитории. Берёт все данные, добавленные в индекс с помощью git add, и сохраняет их слепок во внутренней базе данных, а затем сдвигает указатель текущей ветки на этот слепок
+<em>$ git commit -a</em>                           # добавление всех изменений в индекс без использования git add
+<em>$ git commit -m "comment"</em>                 # передача сообщения коммита без запуска полноценного редактора
+</code></pre>
+
+<h4>Branches</h4>
 <pre><code class="bash">
 <em>$ git checkout -b features</em>                # создание новой ветки "features"
 <em>$ git branch</em>                              # текущая ветка
@@ -60,11 +70,22 @@
 <em>$ git branch --delete features</em>            # удаление ветки
 </code></pre>
 
+<h4>Diff</h4>
 <pre><code class="bash">
-<em>$ git status</em>                              # информация о текущей ветке, подготовленных коммитах и т.д.
+<em>$ git diff</em>                                # вычисление разницы между любыми двумя Git деревьями
+<em>$ git diff</em>                                # разница между рабочей директорией и индексом
+<em>$ git diff --staged</em>                       # разница между индексом и последним коммитом
+<em>$ git diff master branchB</em>                 # разница между любыми двумя коммитами
+<em>$ git difftool</em>                            # запускает внешнюю утилиту сравнения для показа различий в двух деревьях, на случай если вы хотите использовать что-либо отличное от встроенного просмотрщика git diff
+</code></pre>
+
+<pre><code class="bash">
+<em>$ git status</em>                              # показывает состояния файлов в рабочей директории и индексе: какие файлы изменены, но не добавлены в индекс; какие ожидают коммита в индексе
 <em>$ git init</em>                                # 
-<em>$ git checkout</em>                            # 
-<em>$ git reset</em>                               # 
+<em>$ git reset</em>                               # отмена изменений. Она изменяет указатель HEAD и, опционально, состояние индекса
+<em>$ git rm</em>                                  # удаление файлов из индекса и рабочей директории
+<em>$ git mv</em>                                  # удобный способ переместить файл, а затем выполнить git add для нового файла и git rm для старого
+<em>$ git clean</em>                               # удаление мусора из рабочей директории. Это могут быть результаты сборки проекта или файлы конфликтов слияний
 </code></pre>
 
 <!------------------------------------------------------>
@@ -118,7 +139,7 @@
 
 
 
-
+</div>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="github-desktop">GitHub Desktop</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -154,6 +175,67 @@ GitHub Desktop -> Fetch origin
 
 <em>Branches</em> -> Local Branches -> пкм по ветке -> Delete - удалить ветку
 </code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="gitflow">Gitflow</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-gitflow">
+<ul class="list-point">
+	<li><bg-difine>Gitflow</bg-difine> - модуль управления ветками. Есть две основные ветки: <bg-code>master</bg-code> и <bg-code>develop</bg-code></li>
+	<li><bg-code>gitflow-avh</bg-code> – инструмент для работы с Gitflow</li>
+</ul>
+
+<pre><code class="bash">
+<em>master</em>  # содержится тот же код, что и в рабочей (продакт) версии проекта
+<em>develop</em> # происходит вся работа
+<em>feature</em> # создаются в процессе работы над develop, их может быть неограниченное количество
+<em>release</em> # подготовка к новому релизу проекта
+<em>hotfix</em>  # срочное исправление багов, найденных, например, на продакте
+</code></pre>
+
+<h4>Рабочий процесс в Gitflow</h4>
+<ol class="list-num">
+	<li>Создается репозиторий</li>
+	<li>Репозиторий инициализируется</li>
+	<li>Начинается работа на ветке <bg-code>develop</bg-code></li>
+	<li>Возникает необходимость опробовать новую штуку – создается <bg-code>feature-ветка</bg-code> и делаются коммиты</li>
+	<li>Закончив работу на <bg-code>feature-ветке</bg-code>, вы сливаете ее с <bg-code>develop</bg-code></li>
+	<li>Если вы довольны текущей версией, но хотите продолжить работу, создается ветка <bg-code>release</bg-code>, куда перемещается текущая версия. Правка багов будет происходить на этой же ветке</li>
+	<li>Когда с веткой <bg-code>release</bg-code> покончено, время слить ее в master и продолжить работу с <bg-code>develop</bg-code></li>
+	<li>Кроме того, этот момент можно отметить на <bg-code>master-ветке</bg-code></li>
+</ol>
+
+Традиционные системы управления версиями используют централизованную модель, когда имеется единое хранилище документов, управляемое специальным сервером, который и выполняет бо́льшую часть функций по управлению версиями
+
+Распределённые системы управления версиями (Distributed Version Control System, DVCS)
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="vcs">Системы управления версиями</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-define>Система управления версиями</bg-define> (Version Control System, VCS или Revision Control System) - позволяет хранить несколько версий одного и того же документа, при необходимости возвращаться к более ранним версиям, определять, кто и когда сделал то или иное изменение, и многое другое</li>
+	<li>Такие системы наиболее широко используются при разработке программного обеспечения для хранения исходных кодов разрабатываемой программы</li>
+	
+
+	<li>Контроль версий означает что вы храните все версии редактируемых документов и можете вернуться к любой сохраненной версии в любой момент времени</li>
+	<li><bg-define>Git</bg-define> - распределенная система контроля версий (version control system - VCS)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
