@@ -26,6 +26,7 @@
     
     <div class="theme">Array</div>
     <a href="#8">Значение массива</a>
+    <a href="#15">reduceRight и создание объекта</a>
     <a href="#10">map</a>
     <a href="#13">Duplicate</a>
 
@@ -35,7 +36,7 @@
     <a href="#11">Promise 1</a>
     <a href="#12">Promise 2</a>
     
-<!-- 14 -->
+<!-- 15 -->
 </div>
 <div id="content-wrapper">
 <div id="menu-top"></div>
@@ -448,6 +449,44 @@ console.log( '' || 0 && true );     // 0
 console.log( {} || 0 && true );     // Object {}
 console.log( false || {} && true ); // true
 </code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="15">reduceRight и создание объекта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Реализовать функцию, принимающую строку “a.b.c.d” и возвращающая объект со свойством объектом - a, со свойством объектом - b, со свойством объектом - с, со свойством d, равным null. Можно передать любую строку в указанном формате х.х.х.х.х.х…, и получить объект с вложенными объектами и завершающим null</li>
+</ul>
+
+<h4>reduceRight</h4>
+<pre><code class="js">
+function parse(str) {
+    let arr = str.split('.');
+    let obj = arr.reduceRight(function(result, current){
+        return {
+            [current]: result
+        }
+    }, null);
+    return obj;
+}
+parse('a.b.c.d');
+</code></pre>
+
+<h4>reduce</h4>
+<pre><code class="js">
+function parse(str) {
+    let arr = str.split('.').reverse();
+    let obj = arr.reduce(function(result, current){
+        return {
+            [current]: result
+        }
+    }, null);
+    return obj;
+}
+parse('a.b.c.d');
+</code></pre>
+
+
 
 
 
