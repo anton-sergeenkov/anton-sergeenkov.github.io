@@ -43,10 +43,11 @@ div('theory', 'composition',     'Композиция');
 div('theory', 'currying',        'Каррирование / Частичное применение функций');
 
 h2('Принципы программирования')
-div('theory', 'solid', 'SOLID');
-div('theory', 'dry',   'DRY');
-div('theory', 'kiss',  'KISS');
-div('theory', 'yagni', 'YAGNI');
+div('theory', 'solid',      'SOLID');
+div('theory', 'dry',        'DRY');
+div('theory', 'kiss',       'KISS');
+div('theory', 'yagni',      'YAGNI');
+div('theory', 'code-smell', 'Запахи кода');
 
 h2('Методологии разработки');
 div('theory', 'method-dev',       'Методологии разработки');
