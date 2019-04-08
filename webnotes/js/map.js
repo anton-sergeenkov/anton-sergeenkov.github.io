@@ -33,6 +33,14 @@ div('js', 'client-server-http',  'HTTP');
 div('js', 'client-server-https', 'HTTPS');
 div('js', 'client-server-rest',  'REST API');
 
+h2('Паттерны проектирования');
+div('theory', 'patterns',                  'Паттерны проектирования');
+div('theory', 'pattern-singleton',         '«Синглтон»');
+div('theory', 'pattern-module',            '«Модуль»');
+div('theory', 'pattern-revealing-module"', '«Открытый модуль»');
+div('theory', 'pattern-decorator',         '«Декоратор»');
+div('theory', 'pattern-factory',           '«Фабрика»');
+
 h2('Парадигмы программирования');
 div('theory', 'paradigms',       'Парадигмы программирования');
 div('theory', 'paradigms-imper', 'Императивное');
@@ -61,15 +69,6 @@ div('git', 'vcs',      'Системы управления версиями');
 div('git', 'terminal', 'Git-команды');
 div('git', 'gitflow',  'Gitflow');
 
-
-
-
-
-h2('');
-div('theory', '', '');
-
-h2('');
-div('theory', '', '');
 
 
 
