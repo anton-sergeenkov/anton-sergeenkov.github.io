@@ -25,7 +25,7 @@ div('js_functions', 'named',              'Named Function Expression');
 
 h2('Объекты');
 div('js_objects', 'obj-main-theory',      'Теория');
-div('js_objects', 'ct-obj-main-methods',  'Методы');
+div('js_objects', 'obj-main-methods',  'Методы');
 div('js_objects', 'obj-create',           'Литеральная нотация');
 div('js_objects', 'obj-for',              'Перебор объекта');
 div('js_objects', 'obj-constructor',      'Конструктор создания объекта');
