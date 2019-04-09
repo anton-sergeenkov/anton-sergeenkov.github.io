@@ -35,11 +35,12 @@ div('js', 'client-server-rest',  'REST API');
 
 h2('Паттерны проектирования');
 div('theory', 'patterns',                  'Паттерны проектирования');
-div('theory', 'pattern-singleton',         '«Синглтон»');
-div('theory', 'pattern-module',            '«Модуль»');
-div('theory', 'pattern-revealing-module"', '«Открытый модуль»');
-div('theory', 'pattern-decorator',         '«Декоратор»');
-div('theory', 'pattern-factory',           '«Фабрика»');
+div('theory', 'pattern-singleton',         'Порожд. «Синглтон»');
+div('theory', 'pattern-module',            'Порожд. «Модуль»');
+div('theory', 'pattern-revealing-module"', 'Порожд. «Открытый модуль»');
+div('theory', 'pattern-decorator',         'Структурн. «Декоратор»');
+div('theory', 'pattern-facade',            'Структурн. Фасад');
+div('theory', 'pattern-observer',          'Поведен. «Наблюдатель»');
 
 h2('Парадигмы программирования');
 div('theory', 'paradigms',       'Парадигмы программирования');
