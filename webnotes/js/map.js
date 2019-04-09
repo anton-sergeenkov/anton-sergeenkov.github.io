@@ -23,6 +23,41 @@ div('js_functions', 'closures',           'Замыкания');
 div('js_functions', 'recursion',          'Рекурсия');
 div('js_functions', 'named',              'Named Function Expression');
 
+h2('Объекты');
+div('js_objects', 'obj-main-theory',      'Теория');
+div('js_objects', 'ct-obj-main-methods',  'Методы');
+div('js_objects', 'obj-create',           'Литеральная нотация');
+div('js_objects', 'obj-for',              'Перебор объекта');
+div('js_objects', 'obj-constructor',      'Конструктор создания объекта');
+div('js_objects', 'obj-prototype-create', 'Создание прототипа');
+div('js_objects', 'descriptor',           'Дескрипторы свойств');
+div('js_objects', 'extends-obj',          'Расширяемость объектов');
+div('js_objects', 'object-conversion',    'toString и valueOf');
+div('js_objects', 'class-instanceof',     'instanceof');
+div('js_objects', 'obj-samples',          'Примеры');
+
+h2('Классы ES6');
+div('js_objects', 'class-theory',     'Теория');
+div('js_objects', 'class-create',     'Объявление');
+div('js_objects', 'class-inherit',    'Наследование');
+div('js_objects', 'class-expression', 'Выражения классов');
+
+h2('Классы ES5 (функциональный стиль)');
+div('js_objects', 'class-es5-theory',  'Теория');
+div('js_objects', 'class-es5-func"',   'Объявление');
+div('js_objects', 'class-es5-private', 'Приватный метод');
+div('js_objects', 'class-es5-getters', 'Геттеры и сеттеры');
+div('js_objects', 'class-es5-inherit', 'Наследование');
+div('js_objects', 'class-es5-return',  'Правила обработки return');
+
+h2('Классы ES5 (прототипный стиль)');
+div('js_objects', 'class-es5-proto-main',      'Основное');
+div('js_objects', 'class-es5-proto-prototype', 'Свойство prototype');
+div('js_objects', 'class-es5-proto-methods',   'Добавление методов');
+div('js_objects', 'class-es5-proto-inherit',   'Наследование классов');
+div('js_objects', 'class-mixins',              'Примеси (mixins)');
+
+
 ////////////////////////////////////////////////////////////////
 currentHTML = 2;
 h1('Theory');
