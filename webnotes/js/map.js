@@ -25,7 +25,7 @@ div('js_functions', 'named',              'Named Function Expression');
 
 h2('Объекты');
 div('js_objects', 'obj-main-theory',      'Теория');
-div('js_objects', 'obj-main-methods',  'Методы');
+div('js_objects', 'obj-main-methods',     'Методы');
 div('js_objects', 'obj-create',           'Литеральная нотация');
 div('js_objects', 'obj-for',              'Перебор объекта');
 div('js_objects', 'obj-constructor',      'Конструктор создания объекта');
@@ -72,12 +72,12 @@ h2('Паттерны проектирования');
 div('theory', 'patterns',                  'Паттерны проектирования');
 div('theory', 'pattern-singleton',         'Порожд. «Синглтон»');
 div('theory', 'pattern-builder',           'Порожд. «Строитель»');
-div('theory', 'pattern-module',            'Порожд. «Модуль»');
-div('theory', 'pattern-revealing-module"', 'Порожд. «Открытый модуль»');
 div('theory', 'pattern-simple-factory"',   'Порожд. «Простая фабрика»');
 div('theory', 'pattern-decorator',         'Структурн. «Декоратор»');
 div('theory', 'pattern-facade',            'Структурн. Фасад');
 div('theory', 'pattern-observer',          'Поведен. «Наблюдатель»');
+div('theory', 'pattern-module',            'Неизвестно. «Модуль»');
+div('theory', 'pattern-revealing-module"', 'Неизвестно. «Открытый модуль»');
 
 h2('Парадигмы программирования');
 div('theory', 'paradigms',       'Парадигмы программирования');
