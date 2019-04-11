@@ -101,8 +101,6 @@ div('theory', 'yagni',       'YAGNI');
 div('theory', 'code-smell',  'Запахи кода');
 div('theory', 'refactoring', 'Рефакторинг');
 
-
-
 h2('Методологии разработки');
 div('theory', 'method-dev',       'Методологии разработки');
 div('theory', 'method-waterfall', 'Waterfall');
