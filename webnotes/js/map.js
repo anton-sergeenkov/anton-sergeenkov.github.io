@@ -101,6 +101,15 @@ div('theory', 'yagni',       'YAGNI');
 div('theory', 'code-smell',  'Запахи кода');
 div('theory', 'refactoring', 'Рефакторинг');
 
+h2('Тестирование');
+div('theory', 'testing-test',        'Тестирование');
+div('theory', 'testing-pyramid',     'Пирамида тестирования');
+div('theory', 'testing-unit',        'Юнит-тесты');
+div('theory', 'testing-integration', 'Интеграционные тесты');
+div('theory', 'testing-e2e',         'E2E-тесты');
+div('theory', 'testing-tdd',         'TDD');
+div('theory', 'testing-bdd',         'BDD');
+
 h2('Методологии разработки');
 div('theory', 'method-dev',       'Методологии разработки');
 div('theory', 'method-waterfall', 'Waterfall');
