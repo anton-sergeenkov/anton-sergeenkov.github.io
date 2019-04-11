@@ -118,12 +118,9 @@ div('git', 'gitflow',  'Gitflow');
 
 
 
-
-
-
-
 document.querySelector('#elements-menu1').innerHTML = mapHTML1;
 document.querySelector('#elements-menu2').innerHTML = mapHTML2;
+document.querySelector('#elements-menu2').innerHTML += '<div id="menu-top"></div>';
 
 function h1(content) {
 	var el = `<h1>${content}</h1>`;
