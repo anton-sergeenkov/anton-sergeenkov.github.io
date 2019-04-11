@@ -101,6 +101,11 @@ div('theory', 'yagni',       'YAGNI');
 div('theory', 'code-smell',  'Запахи кода');
 div('theory', 'refactoring', 'Рефакторинг');
 
+h2('Deployment');
+div('theory', 'deployment',    'Deployment');
+div('theory', 'deployment-ci', 'Continuous Integration');
+div('theory', 'deployment-cd', 'Continuous Delivery');
+
 h2('Тестирование');
 div('theory', 'testing-test',        'Тестирование');
 div('theory', 'testing-pyramid',     'Пирамида тестирования');
