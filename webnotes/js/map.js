@@ -87,6 +87,7 @@ div('theory', 'paradigms-func',  'Функциональное');
 div('theory', 'paradigms-oop',   'Объектно-ориентированное');
 div('theory', 'composition',     'Композиция');
 div('theory', 'currying',        'Каррирование / Частичное применение функций');
+div('theory', 'ddd',             'DDD');
 
 h2('Алгоритмы и структуры данных');
 div('theory', 'big-o-notation',       'Big-O Notation (сложность алгоритмов)');
