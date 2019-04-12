@@ -165,12 +165,13 @@ window.onkeydown = function(event) {
 		$('.element-content').css('display', 'none');
 		$('.content-close').css('display', 'none');	
 	}
-	if (event.keyCode == 81) {
+	alert(event.keyCode);
+	if (event.keyCode == 87) {
 		$('.element-content').css('display', 'none');
 		$('#'+hover.page+hover.theme).css('display', 'block');
 		$('.content-close').css('display', 'block');
 	}
-	if (event.keyCode == 90) {
+	if (event.keyCode == 68) {
 		showElement(hoverLink);
 	}
 }
