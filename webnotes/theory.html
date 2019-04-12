@@ -48,17 +48,17 @@
     <a href="#basic-algoritms-sort">Алгоритмы сотрировки</a>
 
     <div class="theme">Deployment</div>
+    <a href="#deployment-ci"><bg-menu>1</bg-menu> Continuous Integration</a>
+    <a href="#deployment-cd"><bg-menu>2</bg-menu> Continuous Delivery</a>
+    <a href="#deployment-continuous"><bg-menu>3</bg-menu> Continuous Deployment</a>
     <a href="#deployment-software">Software Deployment</a>
-    <a href="#deployment-continuous">Continuous Deployment</a>
-    <a href="#deployment-ci">Continuous Integration</a>
-    <a href="#deployment-cd">Continuous Delivery</a>
 
     <div class="theme">Тестирование</div>
     <a href="#testing-test">Тестирование</a>
     <a href="#testing-pyramid">Пирамида тестирования</a>
-    <a href="#testing-unit">Юнит-тесты</a>
-    <a href="#testing-integration">Интеграционные тесты</a>
-    <a href="#testing-e2e">E2E-тесты</a>
+    <a href="#testing-unit"><bg-menu>1</bg-menu> Юнит-тесты</a>
+    <a href="#testing-integration"><bg-menu>2</bg-menu> Интеграционные тесты</a>
+    <a href="#testing-e2e"><bg-menu>3</bg-menu> E2E-тесты</a>
     <a href="#testing-tdd">TDD</a>
     <a href="#testing-bdd">BDD</a>
 
@@ -2127,9 +2127,13 @@ function QuickSort(A) {
 <div id="ct-deployment-continuous">
 
 <ul class="list-point">
-    <li><bg-define>Continuous Integration</bg-define> Непрерывная интеграция</li>
-    <li><bg-define>Continuous Delivery</bg-define> Непрерывная доставка</li>
-    <li><bg-define>Continuous Deployment</bg-define> Непрерывное развертывание</li>
+    <li><bg-define>Continuous Integration (Непрерывная интеграция)</bg-define> - короткоживущие функциональные ветки, команда сливает их с основной веткой разработки по несколько раз в день, процессы сборки и тестирования полностью автоматизированы, результат имеем в пределах 10 минут; развертывание выполняется вручную</li>
+    <li><bg-define>Continuous Delivery (Непрерывная доставка)</bg-define> автоматизируется CI + весь процесс релиза ПО. Может состоять из нескольких этапов. Развертывание в продакшен выполняется вручную</li>
+    <li><bg-define>Continuous Deployment (Непрерывное развертывание)</bg-define> CI + CD + полностью автоматизированное развертывание в продакшен</li>
+</ul>
+
+<ul class="list-point">
+    <li><bg-define>Continuous Deployment (Непрерывное развертывание)</bg-define> - располагается «на уровень выше» непрерывной доставки. В данном случае все изменения, вносимые в исходный код, автоматически развертываются в продакшен, без явной отмашки от разработчика. Как правило, задача разработчика сводится к проверке запроса на включение (pull request) от коллеги и к информированию команды о результатах всех важных событий</li>
 </ul>
 
 </div>
@@ -2147,7 +2151,6 @@ function QuickSort(A) {
     <li><bg-define>Continuous Integration System (CIS)</bg-define> - системы непрерывной интеграции применяются для автоматизации интеграционного тестирования</li>
     <li>Автоматические интеграционные тесты выполняются сразу же после внесения изменений, что позволяет обнаруживать и устранять ошибки в короткие сроки</li>
 </ul> 
-
 
 <h4>Задачи службы</h4>
 <ol class="list-num">
@@ -2199,6 +2202,7 @@ function QuickSort(A) {
     
 <ul class="list-point">
     <li><bg-define>Continuous Delivery, CD (Непрерывная поставка/доставка)</bg-define> - подход к разработке программного обеспечения, при котором все изменения, включая новые функции, изменения конфигурации, исправления ошибок и эксперименты — поставляются пользователям максимально быстро и безопасно</li>
+    <li><b>Идея</b>: выполнять CI, плюс автоматически готовить и вести релиз к продакшену. Как правило, в процессе непрерывной доставки требуется выполнять вручную как минимум один этап: одобрить развертывание в продакшен и запустить его</li>
     <li>На протяжении всего процесса непрерывной доставки, мы постоянно получаем обратную связь</li>
     <li>Автоматизируя большинство операций, таких как развертывание, настройки окружения, тестирование, мы сокращаем время поставки новой функциональности</li>
     <li>Позволяет нам доставлять ценность пользователям, небольшими, но частыми партиями. Это позволяет нам как можно скорее получать обратную связь от пользователей, проверять большее количество гипотез и поставлять действительно ценное программное обеспечение</li>
