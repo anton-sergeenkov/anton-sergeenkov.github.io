@@ -23,6 +23,8 @@ div('js_functions', 'closures',           'Замыкания');
 div('js_functions', 'recursion',          'Рекурсия');
 div('js_functions', 'named',              'Named Function Expression');
 
+h1('Классы и Объекты');
+
 h2('Объекты');
 div('js_objects', 'obj-main-theory',      'Теория');
 div('js_objects', 'obj-main-methods',     'Методы');
@@ -103,9 +105,10 @@ div('theory', 'code-smell',  'Запахи кода');
 div('theory', 'refactoring', 'Рефакторинг');
 
 h2('Deployment');
-div('theory', 'deployment',    'Deployment');
-div('theory', 'deployment-ci', 'Continuous Integration');
-div('theory', 'deployment-cd', 'Continuous Delivery');
+div('theory', 'deployment-software',   'Software Deployment');
+div('theory', 'deployment-continuous', 'Continuous Deployment');
+div('theory', 'deployment-ci',         'Continuous Integration');
+div('theory', 'deployment-cd',         'Continuous Delivery');
 
 h2('Тестирование');
 div('theory', 'testing-test',        'Тестирование');
