@@ -7,7 +7,7 @@ var htmlMenu = '';
 var htmlLink = '';
 for (var i=0; i<category.length; i++) {
 	htmlMenu += `<div class="elements-menu-item" id="elements-menu-${category[i][0]}"></div>`;
-	htmlLink += `<div class="elements-menu-link" onclick="showElement('elements-menu-${category[i][0]}');" data-id="">${category[i][1]}</div>`;
+	htmlLink += `<div class="elements-menu-link" onclick="showElement('elements-menu-${category[i][0]}');">${category[i][1]}</div>`;
 }
 
 document.querySelector('#elements-menu').innerHTML = htmlMenu;
