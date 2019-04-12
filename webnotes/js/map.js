@@ -27,6 +27,8 @@ showElement('elements-menu-cat-js');
 
 var position;
 
+
+
 ////////////////////////////////////////////////////////////////
 // JavaScript
 ////////////////////////////////////////////////////////////////
@@ -176,3 +178,14 @@ function div(page, theme, content) {
 	var item = `<div class="element-menu" data-page="${page}" data-theme="${theme}">${content}</div>`;
 	container.innerHTML += item;
 }
+
+var hover = {
+	page: null,
+	theme: null
+};
+$('.element-menu').hover(function() {
+	let page = this.getAttribute('data-page');
+	let theme = this.getAttribute('data-theme');
+	hover.page = page;
+	hover.theme = theme;
+});

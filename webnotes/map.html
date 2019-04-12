@@ -165,6 +165,11 @@ window.onkeydown = function(event) {
 		$('.element-content').css('display', 'none');
 		$('.content-close').css('display', 'none');	
 	}
+	if (event.keyCode == 81) {
+		$('.element-content').css('display', 'none');
+		$('#'+hover.page+hover.theme).css('display', 'block');
+		$('.content-close').css('display', 'block');
+	}
 }
 </script>
 
