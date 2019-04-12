@@ -1,10 +1,36 @@
-var mapHTML1 = '';
-var mapHTML2 = '';
-var currentHTML = 1;
+var category = [
+	['cat-js',      'JS'], 
+	['cat-objects', 'Объекты'], 
+	['cat-theory',  'Теория']
+];
+var htmlMenu = '';
+var htmlLink = '';
+for (var i=0; i<category.length; i++) {
+	htmlMenu += `<div class="elements-menu-item" id="elements-menu-${category[i][0]}"></div>`;
+	htmlLink += `<div class="elements-menu-link" onclick="showElement('elements-menu-${category[i][0]}');" data-id="">${category[i][1]}</div>`;
+}
+
+document.querySelector('#elements-menu').innerHTML = htmlMenu;
+document.querySelector('#elements-link').innerHTML = htmlLink;
+// '<div id="menu-top"></div>'
+
+var prevID = '';
+function showElement(e) {
+	if (prevID!='') {
+		document.querySelector('#'+prevID).style.display = 'none';
+	}
+	document.querySelector('#'+e).style.display = 'block';
+	prevID = e;
+}
+
+showElement('elements-menu-cat-js');
+
+var position;
 
 ////////////////////////////////////////////////////////////////
-currentHTML = 1;
-h1('JavaScript');
+// JavaScript
+////////////////////////////////////////////////////////////////
+position = 'cat-js';
 
 h2('Client Storage');
 div('js', 'data-storage', 'localStorage / sessionStorage');
@@ -23,7 +49,10 @@ div('js_functions', 'closures',           'Замыкания');
 div('js_functions', 'recursion',          'Рекурсия');
 div('js_functions', 'named',              'Named Function Expression');
 
-h1('Классы и Объекты');
+////////////////////////////////////////////////////////////////
+// Классы и Объекты
+////////////////////////////////////////////////////////////////
+position = 'cat-objects';
 
 h2('Объекты');
 div('js_objects', 'obj-main-theory',      'Теория');
@@ -59,10 +88,10 @@ div('js_objects', 'class-es5-proto-methods',   'Добавление метод�
 div('js_objects', 'class-es5-proto-inherit',   'Наследование классов');
 div('js_objects', 'class-mixins',              'Примеси (mixins)');
 
-
 ////////////////////////////////////////////////////////////////
-currentHTML = 2;
-h1('Theory');
+// Теория
+////////////////////////////////////////////////////////////////
+position = 'cat-theory';
 
 h2('Клиент-сервер');
 div('js', 'client-server-desc',  'Клиент-сервер');
@@ -137,35 +166,13 @@ div('git', 'gitflow',  'Gitflow');
 
 
 
-
-document.querySelector('#elements-menu1').innerHTML = mapHTML1;
-document.querySelector('#elements-menu2').innerHTML = mapHTML2;
-document.querySelector('#elements-menu2').innerHTML += '<div id="menu-top"></div>';
-
-function h1(content) {
-	var el = `<h1>${content}</h1>`;
-	if (currentHTML == 1) {
-		mapHTML1 += el;
-	} else {
-		mapHTML2 += el;
-	}
-}
 function h2(content) {
-	var el = `<h2>${content}</h2>`;
-	if (currentHTML == 1) {
-		mapHTML1 += el;
-	} else {
-		mapHTML2 += el;
-	}
+	var container = document.querySelector('#elements-menu-'+position);
+	var item = `<h2>${content}</h2>`;
+	container.innerHTML += item;
 }
 function div(page, theme, content) {
-	var el = `<div class="element-menu" data-page="${page}" data-theme="${theme}">${content}</div>`;
-	if (currentHTML == 1) {
-		mapHTML1 += el;
-	} else {
-		mapHTML2 += el;
-	}
+	var container = document.querySelector('#elements-menu-'+position);
+	var item = `<div class="element-menu" data-page="${page}" data-theme="${theme}">${content}</div>`;
+	container.innerHTML += item;
 }
-
-
-

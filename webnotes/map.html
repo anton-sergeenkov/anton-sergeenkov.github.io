@@ -11,6 +11,9 @@ body {
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 h1 {
 	font-size: 20px;
@@ -80,20 +83,33 @@ h2 {
 #elements-menu {
 	display: flex;
 	width: 100%;
-	height: 100vh;
 	overflow: auto;
 }
-#elements-menu1, #elements-menu2 {
-	width: 50%;
+.elements-menu-item {
 	padding: 0px 30px;
+	display: none;
+}
+.elements-menu-link {
+	font-size: 18px;
+	border-left: 5px solid rgb(var(--color-js));
+	color: rgb(var(--color-js));
+	padding: 10px;
+	background: none;
+	text-align: left;
+	background: rgb(var(--color-js));
+	color: #fff;
+	margin: 5px;
+}
+#elements-link {
+	display: flex;
+	align-items: flex-start;
+	cursor: pointer;
 }
 </style>
 <body>
 
-	<div id="elements-menu">
-		<div id="elements-menu1"></div>
-		<div id="elements-menu2"></div>
-	</div>
+	<div id="elements-link"></div>
+	<div id="elements-menu"></div>
 	<div id="content">
 		<div class="content-close"></div>
 	</div>
