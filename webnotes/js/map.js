@@ -7,7 +7,7 @@ var htmlMenu = '';
 var htmlLink = '';
 for (var i=0; i<category.length; i++) {
 	htmlMenu += `<div class="elements-menu-item" id="elements-menu-${category[i][0]}"></div>`;
-	htmlLink += `<div class="elements-menu-link" onclick="showElement('elements-menu-${category[i][0]}');">${category[i][1]}</div>`;
+	htmlLink += `<div class="elements-menu-link" onclick="showElement('elements-menu-${category[i][0]}');" data-id="elements-menu-${category[i][0]}">${category[i][1]}</div>`;
 }
 
 document.querySelector('#elements-menu').innerHTML = htmlMenu;
@@ -184,8 +184,11 @@ var hover = {
 	theme: null
 };
 $('.element-menu').hover(function() {
-	let page = this.getAttribute('data-page');
-	let theme = this.getAttribute('data-theme');
-	hover.page = page;
-	hover.theme = theme;
+	hover.page = this.getAttribute('data-page');
+	hover.theme = this.getAttribute('data-theme');
 });
+var hoverLink = '';
+$('.elements-menu-link').hover(function() {
+	hoverLink = this.getAttribute('data-id');
+});
+
