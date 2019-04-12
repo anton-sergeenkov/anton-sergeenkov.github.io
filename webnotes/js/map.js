@@ -90,6 +90,8 @@ div('theory', 'paradigms-oop',   'Объектно-ориентированно�
 div('theory', 'composition',     'Композиция');
 div('theory', 'currying',        'Каррирование / Частичное применение функций');
 div('theory', 'ddd',             'DDD');
+div('theory', 'cqrs',            'CQRS');
+div('theory', 'event-sourcing',  'Event Sourcing');
 
 h2('Алгоритмы и структуры данных');
 div('theory', 'big-o-notation',       'Big-O Notation (сложность алгоритмов)');
