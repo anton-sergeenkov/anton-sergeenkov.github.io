@@ -1,7 +1,7 @@
 var category = [
 	['cat-js',      'JS'], 
-	['cat-objects', 'Объекты'], 
-	['cat-theory',  'Теория']
+	['cat-objects', 'Object'], 
+	['cat-theory',  'Theory']
 ];
 var htmlMenu = '';
 var htmlLink = '';
