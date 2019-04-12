@@ -130,12 +130,13 @@ div('theory', 'structure-data',       'Структуры данных');
 div('theory', 'basic-algoritms-sort', 'Алгоритмы сотрировки');
 
 h2('Принципы программирования');
-div('theory', 'solid',       'SOLID');
-div('theory', 'dry',         'DRY');
-div('theory', 'kiss',        'KISS');
-div('theory', 'yagni',       'YAGNI');
-div('theory', 'code-smell',  'Запахи кода');
-div('theory', 'refactoring', 'Рефакторинг');
+div('theory', 'solid',         'SOLID');
+div('theory', 'dry',           'DRY');
+div('theory', 'kiss',          'KISS');
+div('theory', 'yagni',         'YAGNI');
+div('theory', 'code-smell',    'Запахи кода');
+div('theory', 'refactoring',   'Рефакторинг');
+div('theory', 'code-standart', 'Стандарты кода');
 
 h2('Deployment');
 div('theory', 'deployment-ci',         '1. Continuous Integration');
