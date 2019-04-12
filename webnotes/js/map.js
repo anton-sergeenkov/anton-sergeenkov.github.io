@@ -105,17 +105,17 @@ div('theory', 'code-smell',  'Запахи кода');
 div('theory', 'refactoring', 'Рефакторинг');
 
 h2('Deployment');
+div('theory', 'deployment-ci',         '1. Continuous Integration');
+div('theory', 'deployment-cd',         '2. Continuous Delivery');
+div('theory', 'deployment-continuous', '3. Continuous Deployment');
 div('theory', 'deployment-software',   'Software Deployment');
-div('theory', 'deployment-continuous', 'Continuous Deployment');
-div('theory', 'deployment-ci',         'Continuous Integration');
-div('theory', 'deployment-cd',         'Continuous Delivery');
 
 h2('Тестирование');
 div('theory', 'testing-test',        'Тестирование');
 div('theory', 'testing-pyramid',     'Пирамида тестирования');
-div('theory', 'testing-unit',        'Юнит-тесты');
-div('theory', 'testing-integration', 'Интеграционные тесты');
-div('theory', 'testing-e2e',         'E2E-тесты');
+div('theory', 'testing-unit',        '1. Юнит-тесты');
+div('theory', 'testing-integration', '2. Интеграционные тесты');
+div('theory', 'testing-e2e',         '3. E2E-тесты');
 div('theory', 'testing-tdd',         'TDD');
 div('theory', 'testing-bdd',         'BDD');
 
