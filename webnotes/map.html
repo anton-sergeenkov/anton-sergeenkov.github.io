@@ -79,21 +79,19 @@ h2 {
 }
 .elements-menu-link {
 	font-size: 16px;
-	border-left: 5px solid rgb(var(--color-js));
-	color: rgb(var(--color-js));
-	padding: 10px;
-	background: none;
-	text-align: left;
-	background: rgb(var(--color-js));
+	padding: 10px 20px;
 	color: #fff;
 	margin: 5px;
 	border-radius: 3px;
+	font-family: FiraSans-Bold;
+	color: rgba(var(--color-html), 1);
+	background: rgba(var(--color-html), 0.2);
 }
 #elements-link {
 	display: flex;
 	align-items: flex-start;
 	cursor: pointer;
-	margin-bottom: 10px;
+	margin: 10px 0px;
 	padding: 0px 30px;
 }
 </style>
@@ -108,9 +106,9 @@ h2 {
 <script src="libraries/jquery.js"></script>
 <script src="libraries/highlight/highlight.pack.js"></script>
 <script src="js/map.js"></script>
-<script src="js/main.js"></script>
 
 <script>
+hljs.initHighlightingOnLoad();
 
 let element = document.querySelectorAll('.element-menu');
 let arrThemes = [];
