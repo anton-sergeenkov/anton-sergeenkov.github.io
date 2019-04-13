@@ -4440,21 +4440,32 @@ while(queue.waitForMessage()){
 
 <h4>Event Loop (tasks, microtasks)</h4>
 <ul class="list-point">
-	<li><bg-header>tasks (macrotask)</bg-header></li>
+	<li><bg-define>tasks (macrotask)</bg-define> (очередь задач)</li>
 	<ul class="list-point">
-		<li>Примеры: setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, рендеринг пользовательского интерфейса</li>
 		<li>Задачи исполняются по порядку и браузер может рендерить в промежутках между ними</li>
+		<li><b>Примеры</b>: setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, рендеринг пользовательского интерфейса</li>
 	</ul>
 
-	<li><bg-header>microtasks</bg-header></li>
+	<li><bg-define>microtasks</bg-define> (очередь микрозадач / задания "jobs")</li>
 	<ul class="list-point">
-		<li>Примеры: process.nextTick, Promises, Object.observe, MutationObserver</li>
-		<li>Микрозадачи исполняются по порядку и исполняются: &#8226; после каждого колбека, если только это не часть выполнения какого-то другого сценария &#8226; в конце каждой задачи</li>
-		<li>Задания "jobs"</li>
+		Микрозадачи исполняются по порядку:
+		<li>Каждый раз после таски</li>
+		<li>Каждый раз когда пустеет стек</li>
+		<li>Могут выполняться посередине таска, если очистился стек</li>
+		<li>Рекурсивный вызов блокирует Event Loop</li>
+		<li><b>Примеры</b>: process.nextTick, Promises, Object.observe, MutationObserver</li>
+		<li><bg-code>Promise.then</bg-code> - микротаск <bg-code>then</bg-code>. <bg-code>Promise.then.then</bg-code> - 2 микротаска</li>
 	</ul>
 
-	<li>Сначала выполняется "microtasks", затем "tasks"</li>
+	<li>Сначала выполняется <u>microtasks</u>, затем <u>tasks</u></li>
 </ul>
+
+<pre><code class="js">
+// Рекурсивный вызов микротаска повесит программу
+function startMicrotask() {
+	return Promise.resolve().then(startMicrotask);
+}
+</code></pre>
 
 <div class="container-flex"><div class="container-half"><pre><code class="js">
 console.log('Hi');
@@ -4465,8 +4476,6 @@ console.log('Bye');
 </code></pre></div><div class="container-half">
 <img src="img/js/event-loop2.gif" height="300px" class="center">
 </div></div>
-
-
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
