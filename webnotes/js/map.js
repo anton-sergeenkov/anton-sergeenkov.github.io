@@ -213,6 +213,9 @@ e('js_tasks', '14', 'Приведение типов');
 e('js_tasks', '9', 'Всплытие функции и переменной');
 
 
+e('npm', 'npm-command', 'NPM Команды');
+e('npm', 'webpack-package', 'Webpack NPM');
+e('npm', 'webpack-package-json', 'Webpack package.json');
 
 
 

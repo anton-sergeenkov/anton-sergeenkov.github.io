@@ -69,6 +69,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="npm-command">Команды</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-npm-command">
 <pre><code class="bash">
 npm <bg-code>init</bg-code>                   # инициализация проекта (создание package.json)
 npm <bg-code>i</bg-code>                      # установить все пакеты из package.json
@@ -98,6 +99,8 @@ npm <em>-v</em>                     # проверить версию npm
 	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
 	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
 </ul>
+
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="npm-shortcut">Сокращения</h2>
@@ -178,6 +181,8 @@ npm i --save-dev http-server
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="webpack-package">NPM</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-webpack-package">
+
 <pre><code class="bash">
 npm i --save-dev <em>webpack webpack-cli</em>                        # module bundler, передача параметров в консоли (webpack-cli)
 npm i --save-dev <em>webpack-dev-server</em>                         # server, hot-reload, watching
@@ -197,24 +202,18 @@ npm i --save-dev <em>style-loader</em>                               # compile c
 npm i --save-dev <em>image-webpack-loader</em>                       # optimized images
 </code></pre>
 
-
-
-
-
-
-
-
-
-
-
 <pre><code class="js">
 npm run server
 npm run build
 </code></pre>
 
+</div>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="webpack-package-json">Скрипты (package.json)</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-webpack-package-json">
+
 <h4>Основное</h4>
 <pre><code class="json">
 {
@@ -238,6 +237,7 @@ npm run build
 }
 </code></pre>
 
+</div>
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
