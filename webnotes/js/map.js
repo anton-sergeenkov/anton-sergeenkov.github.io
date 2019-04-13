@@ -1,10 +1,11 @@
 var category = [
-	['cat-js',      'JS'], 
-	['cat-objects', 'JS Object'], 
-	['cat-vue',     'Vue.js'],
-	['cat-html',    'Верстка'],
-	['cat-theory',  'Theory'],
-	['cat-tasks',   'Задачи']
+	['cat-js',           'JS'], 
+	['cat-objects',      'JS Object'], 
+	['cat-vue',          'Vue.js'],
+	['cat-html',         'Верстка'],
+	['cat-theory',       'Theory'],
+	['cat-tasks',        'Задачи'],
+	['cat-technologies', 'Технологии']
 ];
 
 generateMenu();
@@ -212,6 +213,10 @@ h('Прочее');
 e('js_tasks', '14', 'Приведение типов');
 e('js_tasks', '9', 'Всплытие функции и переменной');
 
+////////////////////////////////////////////////////////////////
+// Технологии
+////////////////////////////////////////////////////////////////
+position = 'cat-technologies';
 
 e('npm', 'npm-command', 'NPM Команды');
 e('npm', 'webpack-package', 'Webpack NPM');
