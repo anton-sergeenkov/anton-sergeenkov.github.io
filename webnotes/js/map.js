@@ -171,7 +171,7 @@ e('theory', 'testing-bdd',         'BDD');
 
 h('Методологии разработки');
 e('theory', 'method-dev',       'Методологии разработки');
-e('theeory', 'method-waterfall', 'Waterfall');
+e('theory', 'method-waterfall', 'Waterfall');
 e('theory', 'method-agile',     'Agile / Scrum / Kanban');
 e('theory', 'estimation',       'Эстимация');
 
@@ -185,7 +185,34 @@ e('git', 'gitflow',  'Gitflow');
 ////////////////////////////////////////////////////////////////
 position = 'cat-tasks';
 
-e('theory', 'pattern-singleton',         'Паттерн «Синглтон»');
+h('Замыкания');
+e('js_tasks', '2', 'Сумма произвольного кол-ва скобок');
+
+h('Объекты');
+e('theory', 'pattern-singleton', 'Паттерн «Синглтон»');
+e('js_tasks', '1', 'Обращение к функции как к объекту');
+e('js_tasks', '6', 'Прототипное наследование');
+
+h('Полифилы');
+e('js_tasks', '5', 'Object.create');
+e('js_tasks', '7', 'Object.create (JSR)');
+e('js_tasks', '16', 'bind()');
+
+h('Массивы');
+e('js_tasks', '8', 'Всплытие и значение массива');
+e('js_tasks', '15', 'reduceRight и создание объекта');
+e('js_tasks', '10', 'map и перебор массива объектов');
+e('js_tasks', '13', 'Метод дублирующий массив');
+
+h('Асинхронность');
+e('js_tasks', '11', 'Promise и setTimeout');
+e('js_tasks', '12', 'Promise и аргументы then');
+
+h('Прочее');
+e('js_tasks', '14', 'Приведение типов');
+e('js_tasks', '9', 'Всплытие функции и переменной');
+
+
 
 
 
