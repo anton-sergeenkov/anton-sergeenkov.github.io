@@ -106,6 +106,7 @@ position = 'cat-vue';
 ////////////////////////////////////////////////////////////////
 position = 'cat-html';
 
+h('Технологии');
 e('sass', 'sass',  'Sass');
 e('css_flex', 'flex',  'Flexbox');
 e('css_grid', 'grid',  'CSS Grid');
