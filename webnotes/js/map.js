@@ -134,6 +134,9 @@ e('css_grid', 'grid',     'CSS Grid');
 ////////////////////////////////////////////////////////////////
 position = 'cat-theory';
 
+h('JavaScript');
+e('theory', 'js-architecture-runtime',  'Архитектура среды выполнения (Event Loop)');
+
 h('Клиент-сервер');
 e('js', 'client-server-desc',  'Клиент-сервер');
 e('js', 'client-server-http',  'HTTP');
