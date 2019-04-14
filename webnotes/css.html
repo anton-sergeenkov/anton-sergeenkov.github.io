@@ -26,7 +26,7 @@
 	<a href="#css-masking">CSS Masking</a>
 	
 	<div class="theme">Basic I</div>
-	<a href="#custom_properties">Custom Properties</a>
+	<a href="#custom-properties">Custom Properties</a>
 	<a href="#mixins">Native CSS Mixins</a>
 	<a href="#import">@import</a>
 	<a href="#supports">@supports</a>
@@ -43,7 +43,7 @@
 	<a href="#display">Display</a>
 	<a href="#position">Position</a>
 	<a href="#background">Background</a>
-	<a href="#list">Списки: маркированные и нумерованные</a>
+	<a href="#list">Списки</a>
 	<a href="#samples">Примеры</a>
 	
 	<div class="theme">CSS Selectors</div>
@@ -143,17 +143,18 @@ div {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="measurement">Единицы измерения</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<div id="ct-measurement">
+
+<pre><code class="js">
 <em>px</em>   - абсолютная единица измерения
 <em>%</em>    - относительная, рассчитывается относительно родителя
 <em>vw</em>   - viewport width, относительная, рассчитывается относительно viewport
 <em>vh</em>   - viewport height, относительная, рассчитывается относительно viewport
 <em>em</em>   - относительная, рассчитывается относительно родителя (берет значение font-size)
 <em>rem</em>  - root em, относительная, рассчитывается относительно html (берет значение font-size)
-</code>
-</pre>
+</code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="viewport">Viewport width (vw). Viewport height (vh)</h2>
@@ -258,6 +259,8 @@ div {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="import">@import</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-import">
+
 Импортировать содержимое CSS-файла
 <pre>
 <code>
@@ -274,6 +277,8 @@ span {
 }
 </code>
 </pre>
+
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="supports">@supports</h2>
@@ -350,6 +355,7 @@ div {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="transition">Transition</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-transition">
 
 <h3>transition (анимированный переход)</h3>
 <pre><code class="css">
@@ -376,10 +382,13 @@ div:hover {
 }
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="transform">Transform</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-transform">
+
 <pre>
 <code class="css">
 1. СДВИГ
@@ -464,10 +473,13 @@ div {
 </code>
 </pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="animation">Animation</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-animation">
+
 <h3></h3>
 <pre>
 <code class="css">
@@ -518,9 +530,13 @@ div {
 </code>
 </pre>
 
+</div>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="shadow">Box-Shadow, Text-Shadow</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-shadow">
+
 Тень для блока
 <pre>
 <code class="css">
@@ -562,9 +578,12 @@ div {
 </code>
 </pre>
 
+</div>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="font">Font / Text</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-font">
 
 <h3>Шрифты</h3>
 <pre>
@@ -647,6 +666,7 @@ div {
 </code>
 </pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="overflow">Overflow</h2>
@@ -665,21 +685,24 @@ div {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="list">Списки: маркированные и нумерованные</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="css">
+<div id="ct-list">
+
+<pre><code class="css">
 ul {
 	list-style:          list-style-type list-style-image list-style-position; 
 	list-style-type:     none | circle ...          - изменяет вид маркера 
 	list-style-image:    none | url('путь к файлу') - устанавливает изображение
 	list-style-position: inside | outside           - размешение относительно текста   
 }       
-</code>
-</pre>
+</code></pre>
+
+</div>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2 id="custom_properties">Custom Properties</h2>
+<h2 id="custom-properties">Custom Properties</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-custom-properties">
 
 <pre><code class="js">
 <a href="https://github.com/jhildenbiddle/css-vars-ponyfill" target="_blank">css-vars-ponyfill</a>
@@ -731,6 +754,7 @@ p {
 }
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="mixins">Native CSS Mixins</h2>
@@ -1048,21 +1072,17 @@ div {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="html">HTML</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-adaptive-html">
 
 Ширина под размер устройства
-<pre>
-<code class="html">
+<pre><code class="html">
 &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-</code>
-</pre>
+</code></pre>
 
 Фиксированная ширина
-<pre>
-<code class="html">
+<pre><code class="html">
 &lt;meta name="viewport" content="width=600, user-scalable=yes"&gt;
-</code>
-</pre>
-
+</code></pre>
 
 <span>Версия для печати</span>
 <pre>
@@ -1080,7 +1100,6 @@ div {
 </code>
 </pre>
 
-
 <h3>Стилизация браузера на мобильных устройствах</h3>
 <pre>
 <code class="html">
@@ -1092,7 +1111,6 @@ div {
 &lt;meta name="apple-mobile-web-app-status-bar-style" content="#000"&gt;
 </code>
 </pre>
-
 
 <h3>Стандартные разрешения экрана</h3>
 <pre>
@@ -1114,57 +1132,49 @@ div {
 </code>
 </pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="media">CSS Media queries</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-adaptive-css">
 
- <h3>Desktop First</h3>
+<h3>Desktop First</h3>
 
-<pre>
-<code>
+<pre><code>
 @media screen and (max-width: 480px) {
     /* если ширина экрана стала меньше 480px, применяются свойства, написанные здесь */
 }
-</code>
-</pre>
+</code></pre>
 
 <h3>Mobile First</h3>
 
-<pre>
-<code>
+<pre><code>
 @media screen and (min-width: 480px) {
     /* если ширина экрана стала больше 480px, применяются свойства, написанные здесь */
 }
-</code>
-</pre>
+</code></pre>
 
 <h3>Print</h3>
-<pre>
-<code>
+<pre><code>
 @media print
-</code>
-</pre>
+</code></pre>
 
 <h3>Несколько условий</h3>
-<pre>
-<code>
+<pre><code>
 @media screen and (min-width: 600px) and (max-width: 980px) {
 	/* экраны от 600px до 980px */
 }
-</code>
-</pre>
+</code></pre>
 
-<span>Для мобильной версии когда шрифт разный</spn>
-<pre>
-<code class="css">
+<span>Для мобильной версии когда шрифт разный</span>
+<pre><code class="css">
 html * {
 	max-height: 1000000px;
 }
-</code>
-</pre>
+</code></pre>
 
-
+</div>
 
 
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -1176,6 +1186,8 @@ html * {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="selectors">Селекторы и их комбинации</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-selectors">
+
 <pre>
 <code class="css">
 div                 - тег
@@ -1216,51 +1228,45 @@ a[title]            - все a у которых есть атрибут title
 </code>
 </pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="pseudo-classes">Псевдоклассы</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="css">
+<div id="ct-pseudo-classes">
+
+<pre><code class="css">
 a:hover              - наведение на элемент
 a:not(:hover)        - увод с элемента
 a:active             - активный элемент 
 a:focus              - элемент в фокусе
 a:visited            - посещеннае ссылки
 a:link               - не посещенные ссылки
-</code>
-</pre>
+</code></pre>
 
-<pre>
-<code class="css">
+<pre><code class="css">
 p:empty             - все пустые элементы p
 p:not(:empty)       - все не пустые элементы p
 p:not(.myclass)     - если p не имеет класса myclass
-</code>
-</pre>
+</code></pre>
 
-<pre>
-<code class="css">
+<pre><code class="css">
 p:first-child       - первый элемент (элементы должны быть в wrapper)
 p:last-child         - последний элемент (элементы должны быть в wrapper)
 p:nth-child(2)       - второй элемент
 p:nth-child(2n)      - каждый второй элемент
 p:nth-child(even)    - каждый четный элемент
 p:nth-child(odd)     - каждый нечетный элемент
-</code>
-</pre>
+</code></pre>
 
-<pre>
-<code class="css">
+<pre><code class="css">
 div:nth-of-type(2n) - каждый второй элемент определенного типа
 div:only-child      - только дочерние div
 :nth-last-child     - добавление стиля к элементам на основе нумерации в дереве элементов (в отличие от :nth-child отсчёт ведётся от последнего элемента)
 :nth-last-of-type   - добавление стиля к элементам указанного типа на основе нумерации в дереве элементов (в отличие от :nth-of-type отсчёт ведётся от последнего элемента)
-</code>
-</pre>
+</code></pre>
 
-<pre>
-<code class="css">
+<pre><code class="css">
 input:checked       - выбранный элемент для checkbox и radio
 input:enabled       - активные элементы
 input:disabled      - неактивные элементы
@@ -1272,32 +1278,30 @@ input:out-of-range  - превышение лимита max в input number
 input:in-range      - в лимите min max в input number
 input:read-only     - input с атрибутом readonly
 input:read-write    - input доступные для изменения
-</code>
-</pre>
+</code></pre>
 
-<pre>
-<code class="css">
+<pre><code class="css">
 div:target          - стилизация элемента target1 при нажатии на ссылку &lt;a href="#target1"&gt;Link 1&lt;/a&gt;
 p:first-of-type     - первый элемент определенного типа
 p:last-of-type      - последний элемент определенного типа
 :only-of-type       - применяется к дочернему элементу указанного типа, только если он единственный у родителя
 q:lang              - определяет язык, который используется в документе
-</code>
-</pre>
+</code></pre>
 
-<pre>
-<code class="css">
+<pre><code class="css">
 :root               - корневой элемент документа
 :default            - элемент по умолчанию, н-р: есть 2 кнопки submit, 1 будет задана по умолчанию
 :fullscreen         - полноэкранный режим
 :indeterminate      - если переключатель находится в неопределенном состоянии
-</code>
-</pre>
+</code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="pseudo-elements">Псевдоэлементы</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-pseudo-elements">
+
 <pre><code class="css">
 div::before         - псевдоэлемент before
 div::after          - псевдоэлемент after
@@ -1308,6 +1312,7 @@ input::placeholder  - оформление placeholder
 p::selection        - применяет стиль к выделенному пользователем тексту
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="blend-mode">CSS Blend Modes</h2>

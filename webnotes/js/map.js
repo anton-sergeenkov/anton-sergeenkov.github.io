@@ -106,11 +106,28 @@ position = 'cat-vue';
 ////////////////////////////////////////////////////////////////
 position = 'cat-html';
 
-h('Технологии');
-e('sass', 'sass',  'Sass');
-e('css_flex', 'flex',  'Flexbox');
-e('css_grid', 'grid',  'CSS Grid');
+h('Селекторы и элементы');
+e('css', 'selectors',         'Селекторы');
+e('css', 'pseudo-classes',    'Псевдоклассы');
+e('css', 'pseudo-elements',   'Псевдоэлементы');
 
+h('Остальное');
+e('css', 'measurement',       'Единицы измерения');
+e('css', 'adaptive-html',     'HTML viewport');
+e('css', 'adaptive-css',      'Media queries');
+e('css', 'custom-properties', 'Custom Properties');
+e('css', 'import',            '@import');
+e('css', 'transition',        'Transition');
+e('css', 'transform',         'Transform');
+e('css', 'animation',         'Animation');
+e('css', 'shadow',            'Box-Shadow и Text-Shadow');
+e('css', 'font',              'Font / Text');
+e('css', 'list',              'Списки');
+
+h('Технологии');
+e('sass', 'sass',         'Sass');
+e('css_flex', 'flex',     'Flexbox');
+e('css_grid', 'grid',     'CSS Grid');
 
 ////////////////////////////////////////////////////////////////
 // Теория
