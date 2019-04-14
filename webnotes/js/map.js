@@ -136,6 +136,7 @@ position = 'cat-theory';
 
 h('JavaScript');
 e('theory', 'js-architecture-runtime',  'Архитектура среды выполнения (Event Loop)');
+e('theory', 'js-dictionary',            'Словарь');
 
 h('Клиент-сервер');
 e('js', 'client-server-desc',  'Клиент-сервер');
