@@ -136,13 +136,14 @@ position = 'cat-theory';
 
 h('JavaScript');
 e('theory', 'js-architecture-runtime',  'Архитектура среды выполнения (Event Loop)');
+e('theory', 'js-garbage-collection',    'Сборщик мусора');
 e('theory', 'js-dictionary',            'Словарь');
 
 h('Клиент-сервер');
-e('js', 'client-server-desc',  'Клиент-сервер');
-e('js', 'client-server-http',  'HTTP');
-e('js', 'client-server-https', 'HTTPS');
-e('js', 'client-server-rest',  'REST API');
+e('theory', 'client-server-desc',  'Клиент-сервер');
+e('theory', 'client-server-http',  'HTTP');
+e('theory', 'client-server-https', 'HTTPS');
+e('theory', 'client-server-rest',  'REST API');
 
 h('Паттерны проектирования');
 e('theory', 'patterns',                  'Паттерны проектирования');
