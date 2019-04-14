@@ -1514,7 +1514,7 @@ parseFloat(num); // преобразование в целое/дробное ч
 </code></pre>
 
 <h4>isNaN</h4>
-<ul>
+<ul class="list-point">
 	<li>isNaN преобразует к числу пустую строку, строку из пробельных символов, значения false, true, null</li>
 </ul>
 <pre><code class="js">
@@ -4384,13 +4384,17 @@ var myWorker = new Worker("worker.js");
 </code></pre>
 
 <h4>2.Отправка данных в веб-воркер</h4>
-У каждого веб воркера, как и у главного потока, имеется свой stack, heap и event loop. Послать сообщения в веб воркер (например, передать данные для расчетов) можно с помощью метода postMessage(). 
+<ul class="list-point">
+	<li>У каждого веб воркера, как и у главного потока, имеется свой stack, heap и event loop. Послать сообщения в веб воркер (например, передать данные для расчетов) можно с помощью метода postMessage()</li>
+</ul>
 <pre><code class="js">
 myWorker.postMessage(imageData);
 </code></pre>
 
 <h4>3. Событие типа message</h4>
-Это создаст событие типа message в очередь событий web worker’а, которое будет обработано в следующей итерации event loop воркера.
+<ul class="list-point">
+	<li>Это создаст событие типа message в очередь событий web worker’а, которое будет обработано в следующей итерации event loop воркера</li>
+</ul>
 <pre><code class="js">
 onmessage = function(e) {
 	console.log('Message received from main script');
@@ -4401,7 +4405,9 @@ onmessage = function(e) {
 </code></pre>
 
 <h4>4. Отправка данных в главный поток</h4>
-Аналогично, результаты вычислений и прочие данные воркер может отправить в главный поток с помощью метода postMessage(). И это опять же добавит событие типа message в очередь события главного потока.
+<ul class="list-point">
+	<li>Аналогично, результаты вычислений и прочие данные воркер может отправить в главный поток с помощью метода postMessage(). И это опять же добавит событие типа message в очередь события главного потока</li>
+</ul>
 <pre><code class="js">
 myWorker.onmessage = function(e) {
 	result.textContent = e.data;

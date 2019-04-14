@@ -39,6 +39,22 @@ var position;
 ////////////////////////////////////////////////////////////////
 position = 'cat-js';
 
+h('Типы данных');
+e('js', 'type',                 'Типы данных');
+e('js', 'let-const',            'var, let, const');
+e('js', 'typeof',               'typeof');
+e('js', 'wrappers',             'Autoboxing (Object Wrappers)');
+e('js', 'number',               'Числа');
+e('js', 'str',                  'Строки');
+e('js', 'json',                 'JSON');
+e('js', 'comparison',           'Сравнение и логические значения');
+e('js', 'operators',            'Остаток от деления / Инкремент и декремент');
+
+h('Primary');
+e('js', 'methods-this',                 'this, call, apply, bind');
+e('js_functions', 'closures-theory',    'Замыкания (теория)');
+e('js_functions', 'closures',           'Замыкания');
+
 h('Функции');
 e('js_functions', 'special',            'Особенности');
 e('js_functions', 'announcement',       'FD / FE / IIFE / new Function');
@@ -46,33 +62,37 @@ e('js_functions', 'arguments',          'Arguments');
 e('js_functions', 'default-parameters', 'Default Parameters (ES6)');
 e('js_functions', 'rest-parameters',    'Rest Parameters (ES6)');
 e('js_functions', 'arrow',              'Стрелочные функции (ES6)');
-e('js_functions', 'closures-theory',    'Замыкания (теория)');
-e('js_functions', 'closures',           'Замыкания');
 e('js_functions', 'recursion',          'Рекурсия');
 e('js_functions', 'named',              'Named Function Expression');
 
+h('ES6');
+e('js_functions', 'arrow',              'Стрелочные функции (ES6)');
+e('js_functions', 'default-parameters', 'Функции. Параметры по умолчанию');
+e('js_functions', 'rest-parameters',    'Функции. Оставшиеся параметры');
+e('js', 'promise',                      'Promise (ES6)');
+e('js', 'spread',                       'Оператор разворота');
+e('js', 'destructive-array',            'Деструктивное присваивание array');
+e('js', 'destructive-obj',              'Деструтивное присваивание object');
+e('js', 'pattern',                      'Шаблонные строки');
+e('js', 'map',                          'Map и WeakMap');
+e('js', 'set',                          'Set и WeakSet');
+e('js', 'proxy',                        'Proxy');
+e('js', 'symbol',                       'Symbol');
+e('js', 'iterators',                    'Iterators');
+
 h('Циклы и массивы');
 e('js', 'cycle',       'Циклы');
-e('js', 'cycle-array', 'Перебор массива');
+e('js', 'cycle-array', 'Перебор массива (forEach, filter, map, every/some, reduce/reduceRight)');
+e('js', 'map',         'Map');
 e('js', 'array',       'Массивы');
 e('js', 'array-obj',   'Массивы обьектов');
-
-h('ES6');
-e('js', 'map',               'Map и WeakMap');
-e('js', 'set',               'Set и WeakSet');
-e('js', 'spread',            'Оператор разворота');
-e('js', 'destructive-array', 'Деструктивное присваивание array');
-e('js', 'destructive-obj',   'Деструтивное присваивание object');
-e('js', 'pattern',           'Шаблонные строки');
-e('js', 'proxy',             'Proxy');
-e('js', 'symbol',            'Symbol');
-e('js', 'iterators',         'Iterators');
 
 h('Асинхронный код');
 e('js', 'collback',   '1. Collback Function');
 e('js', 'promise',    '2. Promise (ES6)');
 e('js', 'generators', '3. Generators (ES6)');
 e('js', 'async-func', '4. Async Function (ES2017)');
+e('js', 'timeout',    'setTimeout, setInterval');
 
 h('AJAX');
 e('js', 'ajax-request',      'Описание');
@@ -118,37 +138,25 @@ e('js', 'data-storage', 'localStorage, sessionStorage');
 e('js', 'data-db',      'IndexedDB');
 e('js', 'data-cookie',  'cookie');
 
-h('Primary');
-e('js', 'methods-this',         'this, call, apply, bind');
+h('Secondary');
 e('js', 'css',                  'classList, style');
 e('js', 'attribute',            'attributes');
-e('js', 'typeof',               'typeof');
-e('js', 'timeout',              'setTimeout, setInterval');
-e('js', 'json',                 'JSON');
-e('js', 'str',                  'Строки');
-e('js', 'number',               'Числа');
-e('js', 'type',                 'Типы данных');
 e('js', 'web-workers',          'Web Workers');
-e('js', 'wrappers',             'Object Wrappers');
 e('js', 'regexr',               'Регулярные выражения');
-e('js', 'let-const',            'var, let, const');
 e('js', 'eval',                 'eval');
 e('js', 'notifications-api',    'Notifications API');
 e('js', 'custom-properties-js', 'Custom Properties JS');
-e('js', 'math', 'Math');
-e('js', 'operators', 'Операторы');
-e('js', 'catch', 'Исключения');
-e('js', 'date', 'Дата и время');
-e('js', 'case', 'Условные операторы');
-e('js', 'external-script', 'Асинхронные скрипты: defer/async');
-e('js', 'comparison', 'Сравнение и логические значения');
-e('js', 'method-chaining', 'Цепные вызовы методов');
-e('js', 'chrome-dev-tools', 'Chrome DevTools');
-e('js', 'ecmascript', 'ECMAScript');
+e('js', 'math',                 'Math');
+e('js', 'catch',                'Исключения');
+e('js', 'date',                 'Дата и время');
+e('js', 'case',                 'Условные операторы');
+e('js', 'external-script',      'Асинхронные скрипты: defer/async');
+e('js', 'method-chaining',      'Цепные вызовы методов');
+e('js', 'ecmascript',           'ECMAScript');
 
 h('Window');
 e('js', 'web-api', 'Web API');
-e('js', 'document-open', 'open, location');
+e('js', 'document-open',  'open, location');
 e('js', 'document-width', 'innerWidth/Height, clientWidth/Height');
 e('js', 'document-media', 'Media queries');
 
@@ -293,6 +301,7 @@ e('theory', 'testing-integration', '2. Интеграционные тесты')
 e('theory', 'testing-e2e',         '3. E2E-тесты');
 e('theory', 'testing-tdd',         'TDD');
 e('theory', 'testing-bdd',         'BDD');
+e('js',     'chrome-dev-tools',    'Chrome DevTools');
 
 h('Методологии разработки');
 e('theory', 'method-dev',       'Методологии разработки');
