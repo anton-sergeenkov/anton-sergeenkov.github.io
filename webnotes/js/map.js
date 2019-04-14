@@ -99,6 +99,12 @@ e('js', 'cors',              'CORS');
 e('js', 'websocket',         'WebSocket');
 e('js', 'comet',             'Comet');
 
+h('Клиент-сервер');
+e('theory', 'client-server-desc',  'Клиент-сервер');
+e('theory', 'client-server-http',  'HTTP');
+e('theory', 'client-server-https', 'HTTPS');
+e('theory', 'client-server-rest',  'REST API');
+
 h('Циклы и массивы');
 e('js', 'cycle',       'Циклы');
 e('js', 'cycle-array', 'Перебор массива (forEach, filter, map, every/some, reduce/reduceRight)');
