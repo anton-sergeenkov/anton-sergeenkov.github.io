@@ -40,30 +40,21 @@ var position;
 position = 'cat-js';
 
 h('Типы данных');
-e('js', 'type',                 'Типы данных');
-e('js', 'let-const',            'var, let, const');
-e('js', 'typeof',               'typeof');
-e('js', 'wrappers',             'Autoboxing (Object Wrappers)');
-e('js', 'number',               'Числа');
-e('js', 'str',                  'Строки');
-e('js', 'json',                 'JSON');
-e('js', 'comparison',           'Сравнение и логические значения');
-e('js', 'operators',            'Остаток от деления / Инкремент и декремент');
+e('js', 'type',       'Типы данных');
+e('js', 'let-const',  'var, let, const');
+e('js', 'typeof',     'typeof');
+e('js', 'wrappers',   'Autoboxing (Object Wrappers)');
+e('js', 'number',     'Числа');
+e('js', 'str',        'Строки');
+e('js', 'date',       'Дата и время');
+e('js', 'json',       'JSON');
+e('js', 'comparison', 'Сравнение и логические значения');
+e('js', 'operators',  'Остаток от деления / Инкремент и декремент');
 
 h('Primary');
 e('js', 'methods-this',                 'this, call, apply, bind');
 e('js_functions', 'closures-theory',    'Замыкания (теория)');
 e('js_functions', 'closures',           'Замыкания');
-
-h('Функции');
-e('js_functions', 'special',            'Особенности');
-e('js_functions', 'announcement',       'FD / FE / IIFE / new Function');
-e('js_functions', 'arguments',          'Arguments');
-e('js_functions', 'default-parameters', 'Default Parameters (ES6)');
-e('js_functions', 'rest-parameters',    'Rest Parameters (ES6)');
-e('js_functions', 'arrow',              'Стрелочные функции (ES6)');
-e('js_functions', 'recursion',          'Рекурсия');
-e('js_functions', 'named',              'Named Function Expression');
 
 h('ES6');
 e('js_functions', 'arrow',              'Стрелочные функции (ES6)');
@@ -80,12 +71,14 @@ e('js', 'proxy',                        'Proxy');
 e('js', 'symbol',                       'Symbol');
 e('js', 'iterators',                    'Iterators');
 
-h('Циклы и массивы');
-e('js', 'cycle',       'Циклы');
-e('js', 'cycle-array', 'Перебор массива (forEach, filter, map, every/some, reduce/reduceRight)');
-e('js', 'map',         'Map');
-e('js', 'array',       'Массивы');
-e('js', 'array-obj',   'Массивы обьектов');
+h('Модули');
+e('js', 'module-system', 'Модульная система');
+e('js', 'module-es6',    'Модули ES6');
+
+h('Client Storage');
+e('js', 'data-storage', 'localStorage, sessionStorage');
+e('js', 'data-db',      'IndexedDB');
+e('js', 'data-cookie',  'cookie');
 
 h('Асинхронный код');
 e('js', 'collback',   '1. Collback Function');
@@ -106,14 +99,22 @@ e('js', 'cors',              'CORS');
 e('js', 'websocket',         'WebSocket');
 e('js', 'comet',             'Comet');
 
-h('События');
-e('js', 'actions-modal',   'Модель распространения событий');
-e('js', 'actions',         'Назначение обработчиков событий');
-e('js', 'actions-target',  'Делегирование событий');
-e('js', 'actions-params',  'Передаваемый параметр (Event)');
-e('js', 'actions-list',    'Список событий');
-e('js', 'prevent',         'Отмена обычного поведения');
-e('js', 'actions-samples', 'Примеры');
+h('Циклы и массивы');
+e('js', 'cycle',       'Циклы');
+e('js', 'cycle-array', 'Перебор массива (forEach, filter, map, every/some, reduce/reduceRight)');
+e('js', 'map',         'Map');
+e('js', 'array',       'Массивы');
+e('js', 'array-obj',   'Массивы обьектов');
+
+h('Функции');
+e('js_functions', 'special',            'Особенности');
+e('js_functions', 'announcement',       'FD / FE / IIFE / new Function');
+e('js_functions', 'arguments',          'Arguments');
+e('js_functions', 'default-parameters', 'Default Parameters (ES6)');
+e('js_functions', 'rest-parameters',    'Rest Parameters (ES6)');
+e('js_functions', 'arrow',              'Стрелочные функции (ES6)');
+e('js_functions', 'recursion',          'Рекурсия');
+e('js_functions', 'named',              'Named Function Expression');
 
 h('DOM')
 e('js', 'select',      'Выборка элементов');
@@ -121,9 +122,14 @@ e('js', 'methods',     'Методы элементов страницы');
 e('js', 'dom-element', 'createElement, appendChild, ...');
 e('js', 'form',        'Web Forms');
 
-h('Модули');
-e('js', 'module-system', 'Модульная система');
-e('js', 'module-es6',    'Модули ES6');
+h('DOM События');
+e('js', 'actions-modal',   'Модель распространения событий');
+e('js', 'actions',         'Назначение обработчиков событий');
+e('js', 'actions-target',  'Делегирование событий');
+e('js', 'actions-params',  'Передаваемый параметр (Event)');
+e('js', 'actions-list',    'Список событий');
+e('js', 'prevent',         'Отмена обычного поведения');
+e('js', 'actions-samples', 'Примеры');
 
 h('Веб-компоненты');
 e('js', 'web-components-theory',          'Теория');
@@ -133,23 +139,17 @@ e('js', 'web-components-template',        '2. HTML Templates');
 e('js', 'web-components-custom-elements', '3. Custom Elements');
 e('js', 'web-components-imports',         '4. HTML Imports');
 
-h('Client Storage');
-e('js', 'data-storage', 'localStorage, sessionStorage');
-e('js', 'data-db',      'IndexedDB');
-e('js', 'data-cookie',  'cookie');
-
 h('Secondary');
+e('js', 'case',                 'Условные операторы');
+e('js', 'catch',                'Исключения');
+e('js', 'regexr',               'Регулярные выражения');
 e('js', 'css',                  'classList, style');
 e('js', 'attribute',            'attributes');
 e('js', 'web-workers',          'Web Workers');
-e('js', 'regexr',               'Регулярные выражения');
 e('js', 'eval',                 'eval');
 e('js', 'notifications-api',    'Notifications API');
 e('js', 'custom-properties-js', 'Custom Properties JS');
 e('js', 'math',                 'Math');
-e('js', 'catch',                'Исключения');
-e('js', 'date',                 'Дата и время');
-e('js', 'case',                 'Условные операторы');
 e('js', 'external-script',      'Асинхронные скрипты: defer/async');
 e('js', 'method-chaining',      'Цепные вызовы методов');
 e('js', 'ecmascript',           'ECMAScript');
