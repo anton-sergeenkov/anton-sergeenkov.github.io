@@ -39,11 +39,6 @@ var position;
 ////////////////////////////////////////////////////////////////
 position = 'cat-js';
 
-h('Client Storage');
-e('js', 'data-storage', 'localStorage / sessionStorage');
-e('js', 'data-db',      'IndexedDB');
-e('js', 'data-cookie',  'Cookie');
-
 h('Функции');
 e('js_functions', 'special',            'Особенности');
 e('js_functions', 'announcement',       'FD / FE / IIFE / new Function');
