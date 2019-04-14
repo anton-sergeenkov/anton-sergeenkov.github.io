@@ -56,6 +56,108 @@ e('js_functions', 'closures',           'Замыкания');
 e('js_functions', 'recursion',          'Рекурсия');
 e('js_functions', 'named',              'Named Function Expression');
 
+h('Циклы и массивы');
+e('js', 'cycle',       'Циклы');
+e('js', 'cycle-array', 'Перебор массива');
+e('js', 'array',       'Массивы');
+e('js', 'array-obj',   'Массивы обьектов');
+
+h('ES6');
+e('js', 'map',               'Map и WeakMap');
+e('js', 'set',               'Set и WeakSet');
+e('js', 'spread',            'Оператор разворота');
+e('js', 'destructive-array', 'Деструктивное присваивание array');
+e('js', 'destructive-obj',   'Деструтивное присваивание object');
+e('js', 'pattern',           'Шаблонные строки');
+e('js', 'proxy',             'Proxy');
+e('js', 'symbol',            'Symbol');
+e('js', 'iterators',         'Iterators');
+
+h('Асинхронный код');
+e('js', 'collback',   '1. Collback Function');
+e('js', 'promise',    '2. Promise (ES6)');
+e('js', 'generators', '3. Generators (ES6)');
+e('js', 'async-func', '4. Async Function (ES2017)');
+
+h('AJAX');
+e('js', 'ajax-request',      'Описание');
+e('js', 'xmlhttprequest',    '1. XMLHttpRequest');
+e('js', 'fetch',             '2. Fetch');
+e('js', 'axios',             '3. Axios');
+e('js', 'ajax-request-js',   'Request JS');
+e('js', 'ajax-response-php', 'Response PHP');
+e('js', 'jsonp',             'JSONP');
+e('js', 'cors',              'CORS');
+e('js', 'websocket',         'WebSocket');
+e('js', 'comet',             'Comet');
+
+h('События');
+e('js', 'actions-modal',   'Модель распространения событий');
+e('js', 'actions',         'Назначение обработчиков событий');
+e('js', 'actions-target',  'Делегирование событий');
+e('js', 'actions-params',  'Передаваемый параметр (Event)');
+e('js', 'actions-list',    'Список событий');
+e('js', 'prevent',         'Отмена обычного поведения');
+e('js', 'actions-samples', 'Примеры');
+
+h('DOM')
+e('js', 'select',      'Выборка элементов');
+e('js', 'methods',     'Методы элементов страницы');
+e('js', 'dom-element', 'createElement, appendChild, ...');
+e('js', 'form',        'Web Forms');
+
+h('Модули');
+e('js', 'module-system', 'Модульная система');
+e('js', 'module-es6',    'Модули ES6');
+
+h('Веб-компоненты');
+e('js', 'web-components-theory',          'Теория');
+e('js', 'web-components-virtual-dom',     'Virtual DOM');
+e('js', 'web-components-shadow-dom',      '1. Shadow DOM');
+e('js', 'web-components-template',        '2. HTML Templates');
+e('js', 'web-components-custom-elements', '3. Custom Elements');
+e('js', 'web-components-imports',         '4. HTML Imports');
+
+h('Client Storage');
+e('js', 'data-storage', 'localStorage, sessionStorage');
+e('js', 'data-db',      'IndexedDB');
+e('js', 'data-cookie',  'cookie');
+
+h('Primary');
+e('js', 'methods-this',         'this, call, apply, bind');
+e('js', 'css',                  'classList, style');
+e('js', 'attribute',            'attributes');
+e('js', 'typeof',               'typeof');
+e('js', 'timeout',              'setTimeout, setInterval');
+e('js', 'json',                 'JSON');
+e('js', 'str',                  'Строки');
+e('js', 'number',               'Числа');
+e('js', 'type',                 'Типы данных');
+e('js', 'web-workers',          'Web Workers');
+e('js', 'wrappers',             'Object Wrappers');
+e('js', 'regexr',               'Регулярные выражения');
+e('js', 'let-const',            'var, let, const');
+e('js', 'eval',                 'eval');
+e('js', 'notifications-api',    'Notifications API');
+e('js', 'custom-properties-js', 'Custom Properties JS');
+e('js', 'math', 'Math');
+e('js', 'operators', 'Операторы');
+e('js', 'catch', 'Исключения');
+e('js', 'date', 'Дата и время');
+e('js', 'case', 'Условные операторы');
+e('js', 'external-script', 'Асинхронные скрипты: defer/async');
+e('js', 'comparison', 'Сравнение и логические значения');
+e('js', 'method-chaining', 'Цепные вызовы методов');
+e('js', 'chrome-dev-tools', 'Chrome DevTools');
+e('js', 'ecmascript', 'ECMAScript');
+
+h('Window');
+e('js', 'web-api', 'Web API');
+e('js', 'document-open', 'open, location');
+e('js', 'document-width', 'innerWidth/Height, clientWidth/Height');
+e('js', 'document-media', 'Media queries');
+
+
 ////////////////////////////////////////////////////////////////
 // Классы и Объекты
 ////////////////////////////////////////////////////////////////

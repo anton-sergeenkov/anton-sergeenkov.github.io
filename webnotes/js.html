@@ -4293,32 +4293,11 @@ for(let i=0; i<5; i++) {
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="eval">eval</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-eval">
+
 <ul class="list-point">
 	<li><bg-list>eval(code)</bg-list> выполняет код, переданный ей в виде строки и возвращает последнее вычисленное выражение</li>
 	<li>Код будет выполнен в <u>текущей области видимости</u></li>
@@ -4363,10 +4342,13 @@ var a = 1;
 })();
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="notifications-api">Notifications API</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-notifications-api">
+
 <ul class="list-point">
 	<li>Notifications API позволяют web-страницам контролировать отображение системных уведомлений для конечного пользователя — они находятся вне контекста окна браузера верхнего уровня, поэтому могут отображаться даже если пользователь сменил вкладку или перешел к другому приложению</li>
 </ul>
@@ -4375,10 +4357,13 @@ var a = 1;
 var promise = Notification.requestPermission();
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="web-workers">Web Workers</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-web-workers">
+
 <ul class="list-point">
 	<li>Спецификация Web Workers позволяет запускать дополнительные JavaScript-процессы (workers). Они могут обмениваться сообщениями с главным процессом, но у них свои переменные, и работают они также сами по себе</li>
 	<li>Worker - это объект, созданный при помощи конструктора , который запускает JavaScript файл с кодом, который будет выполнен в потоке Worker’а</li>
@@ -4417,10 +4402,13 @@ myWorker.onmessage = function(e) {
 }
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="custom-properties-js">Custom Properties JS</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-custom-properties-js">
+
 <pre><code class="js">
 var root = document.querySelector(':root');
 var rootStyles = <bg-code>getComputedStyle</bg-code>(root);
@@ -4430,10 +4418,13 @@ console.log(mainColor); // '#ffeead'
 root.style.<bg-code>setProperty</bg-code>('--main-color', '#88d8b0');
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="cors">CORS</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-cors">
+
 <ul class="list-point">
 	<li><bg-define>Cross-origin resource sharing</bg-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
 </ul>
@@ -4474,7 +4465,6 @@ xhr.send();
 ?&gt;
 </code></pre>
 
-
 <h4>Передавать куки и HTTP-авторизацию</h4>
 <pre><code class="js">
 xhr.withCredentials = true;
@@ -4486,10 +4476,13 @@ xhr.withCredentials = true;
 ?&gt;
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="jsonp">JSONP</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-jsonp">
+
 <ul class="list-point">
 	<li><bg-define>JSONP</bg-define> (JSON with Padding) - дополнение к базовому формату JSON. Он предоставляет способ запросить данные с сервера, находящегося в другом домене - операцию, запрещённую в типичных веб-браузерах из-за политики ограничения домена</li>
 	<li>JSONP - способ загрузки script на лету и обработки script, который вводится на страницу. Это означает введение нового объекта javascript с сервера в клиентское приложение /script</li>
@@ -4548,10 +4541,13 @@ function clientFunction(arg) {
 }
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="websocket">WebSocket</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-websocket">
+
 <ul class="list-point">
 	<li><bg-define>Протокол WebSocket</bg-define> предназначен для решения снятия ограничений обмена данными между браузером и сервером. Кросс-доменный, универсальный, безопасный. Позволяет пересылать любые данные, на любой домен, безопасно и почти без лишнего сетевого трафика. Позволяет создать <u>постоянное соединение</u> для отображения в реальном времени (н-р: сервис биржи и т.д.)</li>
 	<li>Сервер должен поддерживать протокол WebSocket</li>
@@ -4595,11 +4591,13 @@ socket.send("Привет");              // строка
 socket.send(form.elements[0].file); // файл из формы
 </code></pre>
 
-
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="comet">Comet</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-comet">
+
 <ul class="list-point">
 	<li><bg-define>Comet</bg-define> - любая модель работы веб-приложения, при которой постоянное HTTP-соединение позволяет веб-серверу отправлять (push) данные браузеру без дополнительного запроса со стороны браузера</li>
 	<li>AJAX – это «отправил запрос – получил результат», а COMET – это «непрерывный канал, по которому приходят данные»</li>
@@ -4616,7 +4614,7 @@ socket.send(form.elements[0].file); // файл из формы
 	<li>5. JavaScript Api полученное от сервера сообщение предаёт в ваш callback</li>
 </ul>
 
-
+</div>
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -4627,6 +4625,8 @@ socket.send(form.elements[0].file); // файл из формы
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="web-components-theory">Теория</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-web-components-theory">
+
 <ul class="list-point">
 	<li><bg-header>Веб-компоненты</bg-header> - это семейство API, предназначенных для описания новых элементов DOM, подходящих для повторного использования. Функционал таких элементов отделён от остального кода, их можно применять в веб-приложениях собственной разработки</li>
 	<li>HTML-элементу с нестандартным названием (например <mytag>) соответствует класс <u>HTMLUnknownElement</u>, и у него нет каких-либо особых методов</li>
@@ -4639,10 +4639,12 @@ socket.send(form.elements[0].file); // файл из формы
 <a href="https://www.polymer-project.org/" target="_blank">Polymer (полифилл на тему веб-компонент)</a>
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="web-components-custom-elements">Custom Elements</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-web-components-custom-elements">
 
 <alert-error>document.registerElement => window.customElements.define (устаревшая конструкция)</alert-error>
 
@@ -4785,10 +4787,12 @@ hello-world {
 &lt;hello-world id="hello"&gt;Hello, world!&lt;/hello-world&gt;
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="web-components-shadow-dom">Shadow DOM</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-web-components-shadow-dom">
 
 <alert-error>Element.createShadowRoot => Element.attachShadowe (устаревшая конструкция)</alert-error>
 
@@ -4827,7 +4831,7 @@ var root = document.querySelector('#element').<bg-code>createShadowRoot()</bg-co
 </code></pre>
 <pre><code class="html">
 &lt;div id="element"&gt;Hi&lt;/div&gt;
-</code></pre
+</code></pre>
 
 <!------------------------------------------------------>
 <h3>Замена содержимого &lt;content&gt;&lt;/content&gt;</h3>
@@ -4871,21 +4875,25 @@ rootElement.querySelector('p').innerHTML = 'New Shadow';
 	<li>Например, <bg-code>#elem >>> span</bg-code> найдёт все span внутри Shadow DOM #elem, но кроме того, если в #elem есть подэлементы, у которых свой Shadow DOM, то оно продолжит поиск в них</li>
 </ul>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="web-components-virtual-dom">Virtual DOM</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-web-components-virtual-dom">
 <ul class="list-point">
 	<li>Вместо того, чтобы взаимодействовать с DOM напрямую, мы работаем с его легковесной копией. Мы можем вносить изменения в копию, исходя из наших потребностей, а после этого применять изменения к реальному DOM</li>
 	<li>При этом происходит сравнение DOM-дерева с его виртуальной копией, определяется разница и запускается перерисовка того, что было изменено</li>
 	<li>Virtual DOM не является стандартом и в конечном итоге мы по-прежнему взаимодействуем с DOM, но делаем это как можно реже и более эффективно</li>
 </ul>
 
-
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="web-components-template">Шаблоны &lt;template&gt;</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-web-components-template">
+
 <ul class="list-point">
 <li>Элемент &lt;template&gt; предназначен для хранения «образца» разметки, невидимого и предназначенного для вставки куда-либо. Содержимое читается находящимся вообще «вне документа»</li>
 </ul>
@@ -4923,10 +4931,12 @@ main.innerHTML = '';
 main.appendChild(instance);
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="web-components-imports">HTML Imports</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-web-components-imports">
 
 <alert-error>HTML Imports => ES modules (устаревшая конструкция)</alert-error>
 
@@ -4969,11 +4979,13 @@ page.html
 &lt;/script&gt;
 </code></pre>
 
-
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="module-system">Модульная система</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-module-system">
+
 <ul class="list-point">
 	<b>Стандарты</b>
 	<li><bg-define>1. Паттерн "Модуль"</bg-define> (2003 год) - немедленно вызываемая функция, образующая приватную область видимости</li>
@@ -4990,10 +5002,12 @@ page.html
 
 </ul>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="module-es6">Модули ES6</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-module-es6">
 
 <pre><code class="html">
 <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/import" target="_blank">import</a>
@@ -5092,10 +5106,13 @@ let user = new User('Jane'); // => _default {name: "Jane"}
 &lt;script type="module" import="main.js"&gt;&lt;/script&gt;
 </code></pre>
 
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="proxy">Proxy</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-proxy">
+
 <ul class="list-point">
 	<li><bg-define>Прокси (proxy)</bg-define> - особый объект, смысл которого – перехватывать обращения к другому объекту/функции и, при необходимости, модифицировать их</li>
 	<li>Прокси позволяет модифицировать поведение объекта как угодно, перехватывать любые обращения к его свойствам и методам, включая вызовы для функций</li>
@@ -5238,7 +5255,6 @@ let proxy = new Proxy(sum, {
 alert( proxy(1, 2) );
 </code></pre>
 
-
 <!------------------------------------------------------>
 <h3>construct</h3>
 <!------------------------------------------------------>
@@ -5292,6 +5308,14 @@ alert( user.name ); // Tony
 	<li>Каждый перехватчик получает в аргументах <bg-code>target</bg-code> и дополнительные параметры в зависимости от типа</li>
 	<li>Если перехватчик в <bg-code>handler</bg-code> не указан, то операция совершается, как если бы была вызвана прямо на <bg-code>target</bg-code></li>
 </ul>
+
+</div>
+
+
+
+
+
+
 
 
 
