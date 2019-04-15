@@ -1,0 +1,21 @@
+<h2>Методы-наблюдатели (watch)</h2>
+
+<p>Наблюдение за одним свойством</p>
+<pre><code class="html">
+&lt;input type="text" v-model="messText"&gt;
+</code></pre>
+
+<pre><code class="js">
+// при изменении свойства messText, вызывается messText()
+var app = new Vue({
+    el: '#app',
+    data: {
+        messText: null
+    },
+    watch: {
+        messText() {
+            console.log(this.messText);
+        }
+    }
+})
+</code></pre>

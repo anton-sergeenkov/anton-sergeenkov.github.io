@@ -1,0 +1,26 @@
+<h2>Функция render()</h2>
+
+<pre><code class="js">
+render: function(h) { 
+    return h(App) 
+}
+</code></pre>
+
+<pre><code class="js">
+render: h => h (App)
+</code></pre>
+<ul class="list-point">
+	<li><bg-list>h</bg-list> является сокращением от hyperscript</li>
+	<li><bg-list>hyperscript</bg-list> - скрипт, который генерирует HTML-структуру</li>
+	<li>Про сокращение h можно думать как о более краткой форме функции createElement</li>
+</ul>
+
+<pre><code class="js">
+// vue-версия функции render() принимает три аргумента
+render(h) {
+	return h('div', {}, [...])
+}
+// 1 - тип элемента
+// 2 - объект данных (свойства, атрибуты, классы, стили)
+// 3 - массив дочерних Node-узлов (можно размещать вложенные вызовы функции createElement и вернуть обратно дерево виртуальных DOM-узлов)
+</code></pre>

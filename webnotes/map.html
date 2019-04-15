@@ -21,8 +21,41 @@ h2 {
 	color: black;
 	margin: 7px 0px;
 	padding: 0;
+	width: 100%;
 }
-.element-menu {
+bg-menu {
+	background: rgba(255, 255, 255, 0.4);
+	color: rgba(var(--color-js)) !important;
+}
+#map-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	padding: 10px 30px;
+	box-shadow:
+		0 16px 24px 2px rgba(33,37,41,.02), 
+		0 6px 30px 5px rgba(33,37,41,.04), 
+		0 8px 10px -5px rgba(33,37,41,.1);
+}
+#map-header .map-header-menu {
+	font-size: 16px;
+	padding: 10px 20px;
+	color: #fff;
+	margin: 5px;
+	border-radius: 3px;
+	font-family: FiraSans-Bold;
+	color: rgba(var(--color-other), 1);
+	background: rgba(var(--color-other), 0.3);
+	cursor: pointer;
+}
+#map-themes {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	overflow: auto;
+	padding: 10px 20px;
+}
+#map-themes .map-themes-menu {
 	display: inline-block;
 	padding: 10px;
 	background: rgba(var(--color-js), 0.3);
@@ -33,18 +66,18 @@ h2 {
 	cursor: pointer;
 	margin: 0px 2px 5px 2px;
 }
-.element-content {
+#map-content {
 	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100vw;
+	width : 100vw;
 	background: #fff;
 	padding: 30px 60px 30px 30px;
 	overflow: auto;
 	height: 100vh;
 }
-.content-close {
+#map-content .map-content-close {
 	width: 50px;
 	height: 50px;
 	position: fixed;
@@ -54,115 +87,17 @@ h2 {
 	background-repeat: no-repeat;
 	background-position: center center;
 	cursor: pointer;
-	display: none;
 	z-index: 100;
-}
-.menu {
-	padding: 10px !important;
-	color: rgba(var(--color-other),1) !important;
-	background: rgba(var(--color-other),0.2) !important;
-	font-size: 16px !important;
-}
-#menu-top {
-	margin: 0;
-	padding: 0;
-	margin: 20px;
-}
-#elements-menu {
-	display: flex;
-	width: 100%;
-	overflow: auto;
-}
-.elements-menu-item {
-	padding: 0px 30px;
-	display: none;
-}
-.elements-menu-link {
-	font-size: 16px;
-	padding: 10px 20px;
-	color: #fff;
-	margin: 5px;
-	border-radius: 3px;
-	font-family: FiraSans-Bold;
-	color: rgba(var(--color-html), 1);
-	background: rgba(var(--color-html), 0.2);
-}
-#elements-link {
-	display: flex;
-	align-items: flex-start;
-	cursor: pointer;
-	margin: 10px 0px;
-	padding: 0px 30px;
 }
 </style>
 <body>
 
-	<div id="elements-link"></div>
-	<div id="elements-menu"></div>
-	<div id="content">
-		<div class="content-close"></div>
-	</div>
+	<div id="map-header"></div>
+	<div id="map-themes"></div>
+	<div id="map-content"></div>
 
-<script src="libraries/jquery.js"></script>
-<script src="libraries/highlight/highlight.pack.js"></script>
-<script src="js/map.js"></script>
-
-<script>
-hljs.initHighlightingOnLoad();
-
-let element = document.querySelectorAll('.element-menu');
-let arrThemes = [];
-
-for(let i=0; i<element.length; i++) {
-	let page = element[i].getAttribute('data-page');
-	let theme = element[i].getAttribute('data-theme');
-
-	let item = document.createElement('div');
-	item.setAttribute('class', 'element-content');
-	item.setAttribute('id', page+theme);
-
-	document.querySelector('#content').appendChild(item);
-
-	$.ajax({
-		type: "GET",
-		url: page+".html",
-		async: false,  
-		success: function (data) {
-			var parser = new DOMParser()
-			var doc = parser.parseFromString(data, 'text/html');
-			document.querySelector('#'+page+theme).appendChild(doc.querySelector('#ct-'+theme))
-		}          
-	});
-
-	element[i].addEventListener('click', function() {
-		let page = this.getAttribute('data-page');
-		let theme = this.getAttribute('data-theme');
-		$('.element-content').css('display', 'none');
-		$('#'+page+theme).css('display', 'block');
-		$('.content-close').css('display', 'block');
-	});
-}
-
-document.querySelector('.content-close').addEventListener('click', function() {
-	$('.element-content').css('display', 'none');
-	$('.content-close').css('display', 'none');	
-});
-
-window.onkeydown = function(event) {
-	if (event.keyCode == 27) {
-		$('.element-content').css('display', 'none');
-		$('.content-close').css('display', 'none');	
-	}
-	if (event.keyCode == 87) {
-		$('.element-content').css('display', 'none');
-		$('#'+hover.page+hover.theme).css('display', 'block');
-		$('.content-close').css('display', 'block');
-	}
-	if (event.keyCode == 68) {
-		showElement(hoverLink);
-	}
-}
-</script>
-
+	<script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="js/map.js"></script>
 </body>
 </html>

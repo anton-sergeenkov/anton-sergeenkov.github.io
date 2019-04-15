@@ -1,0 +1,43 @@
+<h2>Фильтры</h2>
+
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;p&gt;{{ message | lowercase }}&lt;/p&gt;
+	&lt;p&gt;{{ message | uppercase }}&lt;/p&gt;
+	&lt;p&gt;{{ message | filter1 | filter2 }}&lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// глобальный фильтр
+Vue.filter('uppercase', function(value){
+	return value.toUpperCase()
+});
+
+var app = new Vue({
+	el: '#app', 
+	data: {
+		message: 'Hello'
+	},
+	// локальный фильтр
+	filters: {
+		lowercase(value) {
+			return value.toLowerCase()
+		}
+	}
+});
+</code>
+</pre>
+
+<blockquote>
+	Обращение к объекту <b>data</b> и вывод его в формат <b>json</b><br>
+	Используя стандартный фильтр <b>json</b>
+</blockquote>
+<pre>
+<code>
+&lt;pre&gt;{{ $data | json }}&lt;/pre&gt;
+</code>
+</pre>

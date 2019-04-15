@@ -95,6 +95,23 @@ MENU-TOP
 /***************************************************
 MENU-LEFT
 /***************************************************/
+#menu-build a {
+	color: black;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    border-bottom: 1px solid rgba(var(--color-black), 0.2);
+    padding: 5px 15px;
+    line-height: 1.7;
+}
+#menu-build a.active {
+	background: rgba(var(--color-html), 0.2);
+	color: #4aaf2d; 
+	font-weight: bold;
+}
+
 #menu-left .theme, #menu-left .part, #menu-left > a {
 	color: black;
 	text-decoration: none;

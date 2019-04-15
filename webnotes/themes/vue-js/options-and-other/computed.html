@@ -1,0 +1,55 @@
+<h2>Computed Properties</h2>
+
+<ul class="list">
+	<li><bg-list>Computed Properties</bg-list> - вычисляемые (обработанные) свойства применяются когда есть зависимость переменных от других переменных</li>
+</ul>
+
+<pre><code class="html">
+&lt;div id="app"&gt;
+	&lt;input type="text" @input="increment($event.target.value)"&gt;
+	&lt;p&gt;{{value}}&lt;/p&gt;
+	&lt;p&gt;{{doubleValue}}&lt;/p&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+var app = new Vue({
+	el: '#app', 
+	data: {
+		value: 1
+	},
+	methods: {
+		increment(value) {
+			this.value = value
+		}
+	},
+	computed: {
+		doubleValue() {
+			return this.value * 2
+		}
+	}
+});
+</code></pre>
+
+<h4>Пример #1. При вводе более 10 символов, скрывается кнопка</h4>
+<pre><code class="html">
+&lt;div id="app"&gt;
+	&lt;form action=""&gt;
+		&lt;span&gt;{{ count }} / 10&lt;/span&gt;
+		&lt;textarea v-model="text"&gt;&lt;/textarea&gt;
+		&lt;button <bg-code>v-if="count &lt;= 10"</bg-code>&gt;Отправить&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+var app = new Vue({
+	el: '#app',
+	data: {
+		text: ''
+	},
+	computed: {
+		count() {
+			return this.text.length
+		}
+	}
+})
+</code></pre>

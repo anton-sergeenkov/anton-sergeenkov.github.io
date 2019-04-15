@@ -1,0 +1,91 @@
+<h2>v-bind:</h2>
+
+<h3>Связывание атрибутов элементов</h3>
+
+<ul class="list-point">
+	<li>Директива связывает входной атрибут тега или входной параметр компонента с выражением</li>
+	<li>Значение атрибута берется из переменной</li>
+	<li>:class можно использовать с обычным атрибутом class</li>
+</ul>
+
+<pre><code class="js">
+new Vue({
+    el: '#app',
+    data: {
+        url: 'https://yandex.ru/',
+        link: 'Yandex',
+        isActive: true,
+        activeClass: 'class-active',
+        errorClass: 'class-error'
+    }
+})
+</code></pre>
+
+<pre><code class="html">
+&lt;a <bg-code>v-bind:href</bg-code>="url"&gt;{{ link }}&lt;/a&gt;     - полная запись
+&lt;p <bg-code>v-bind:class</bg-code>="activeClass"&gt;&lt;/p&gt;      - полная запись
+&lt;p <bg-code>:class</bg-code>="activeClass"&gt;&lt;/p&gt;            - сокращенная запись
+</code></pre>
+
+<h4>Указание дополнительных значений</h4>
+<pre><code class="html">
+&lt;div class="img" :style="{ backgroundImage: 'url('+item.img+')' }"&gt;&lt;/div&gt;
+&lt;a :href="'courses/'+i"&gt;&lt;/a&gt;
+</code></pre>
+
+<h4>CSS Class</h4>
+<pre><code class="html">
+&lt;div :class="[activeClass, errorClass]"&gt;&lt;/div&gt; - использование массивов
+</code></pre>
+
+<pre><code class="html">
+&lt;!-- active - название класса --&gt;
+&lt;p <bg-code>:class</bg-code>="{ active:true }"&gt;&lt;/p&gt;        - true (отобразится)
+&lt;p <bg-code>:class</bg-code>="{ active:false }"&gt;&lt;/p&gt;       - false (не отобразится)
+&lt;p <bg-code>:class</bg-code>="{ active:isActive }"&gt;&lt;/p&gt;    - свойство isActive (true/false)
+</code></pre>
+
+<h4>CSS Style</h4>
+
+<h5>1 вариант (объектная запись в html)</h5>
+<pre><code class="html">
+&lt;div :style="{ color: activeColor, fontSize: fontSize+'px' }"&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js">
+new Vue({
+    el: '#app',
+    data: {
+        activeColor: 'blue',
+        fontSize: 30
+    }
+})
+</code></pre>
+
+<h5>2 вариант (объектная запись в js)</h5>
+<pre><code class="html">
+&lt;div id="app"&gt;
+	&lt;div :style="styleBlock"&gt;block&lt;/div&gt;
+	&lt;button @click="changeStyle"&gt;changeStyle&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js">
+// styleBlock может содержать массивы или объекты
+var app = new Vue({
+	el: '#app',
+	data: {
+		styleBlock: {
+			width: '100px',
+			height: '100px',
+			background: 'blue'
+		}
+	},
+	methods: {
+		changeStyle() {
+			this.styleBlock.background = 'orange';
+			this.styleBlock['border-radius'] = '10px';
+		}
+	}
+})
+</code></pre>

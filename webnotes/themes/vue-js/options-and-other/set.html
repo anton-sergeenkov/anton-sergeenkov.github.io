@@ -1,0 +1,35 @@
+<h2>Добаление реактивных элементов</h2>
+
+<pre><code class="js">
+Vue.<bg-code>set</bg-code>(vm.items, indexOfItem, newValue)
+</code></pre>
+
+<h4>Массивы</h4>
+<pre><code class="js">
+var vm = new Vue({
+	data: {
+		items: ['a', 'b', 'c']
+	}
+})
+</code></pre>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+vm.items[1] = 'x';   // не реактивно
+vm.items.length = 2; // не реактивно
+</code></pre></div><div class="container-half"><pre><code class="js">
+Vue.set(vm.items, indexOfItem, newValue); // реактивно
+vm.items.splice(newLength);               // реактивно
+</code></pre></div></div>
+
+<h4>Объекты</h4>
+<pre><code class="js">
+var vm = new Vue({
+	data: {
+		userProfile: {
+			name: 'Anika'
+		}
+	}
+})
+
+Vue.set(vm.userProfile, 'age', 27)
+</code></pre>

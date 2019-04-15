@@ -1,0 +1,33 @@
+<h2>v-show, v-if, v-else, v-else-if</h2>
+
+<ul class="list-point">
+	<li>Можно применить v-if к псевдоэлементу &lt;template&gt;</li>
+	<li>v-show не работает на элементе &lt;template&gt; и не работает с v-else</li>
+	<li>Для v-if выше затраты на переключения, а у v-show больше затрат на первичную отрисовку. Если вы предполагаете, что переключения будут частыми, используйте v-show, если же редкими или маловероятными - v-if</li>
+</ul>
+
+<pre><code class="html">
+&lt;p <bg-code>v-show</bg-code>="view"&gt;text&lt;/p&gt;  - устанавливается display: none/block
+&lt;p <bg-code>v-if</bg-code>="view"&gt;text&lt;/p&gt;    - условие if. удаляется/добавляется в DOM дерево
+&lt;p <bg-code>v-else</bg-code>&gt;text&lt;/p&gt;         - условие else при невыполнении if
+</code></pre>
+
+<h4>v-else-if</h4>
+<pre><code class="html">
+&lt;div v-if="type === 'A'"&gt;A&lt;/div&gt;
+&lt;div v-else-if="type === 'B'"&gt;B&lt;/div&gt;
+&lt;div v-else-if="type === 'C'"&gt;C&lt;/div&gt;
+&lt;div v-else&gt;Не A/B/C&lt;/div&gt;
+</code></pre>
+
+<h4>slot (не рендерится)</h4>
+<div class="container-flex"><div class="container-half"><pre><code class="html">
+&lt;div&gt;
+    &lt;slot v-if="view"&gt;text&lt;/p&gt;
+&lt;/div&gt;
+</code></pre></div><div class="container-half"><pre><code class="html">
+&lt;div&gt;
+    text
+&lt;/div&gt;
+</code></pre></div></div>
+
