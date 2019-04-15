@@ -55,12 +55,14 @@ h('Primary');
 e('js', 'methods-this',                 'this, call, apply, bind');
 e('js_functions', 'closures-theory',    'Замыкания (теория)');
 e('js_functions', 'closures',           'Замыкания');
+e('js_functions', 'announcement',       'FD / FE / IIFE / new Function');
 
 h('ES6');
-e('js_functions', 'arrow',              'Стрелочные функции (ES6)');
+e('js_functions', 'arrow',              'Стрелочные функции');
+e('js', 'promise',                      'Promise');
+e('js', 'module-es6',                   'Модули');
 e('js_functions', 'default-parameters', 'Функции. Параметры по умолчанию');
 e('js_functions', 'rest-parameters',    'Функции. Оставшиеся параметры');
-e('js', 'promise',                      'Promise (ES6)');
 e('js', 'spread',                       'Оператор разворота');
 e('js', 'destructive-array',            'Деструктивное присваивание array');
 e('js', 'destructive-obj',              'Деструтивное присваивание object');
@@ -70,15 +72,6 @@ e('js', 'set',                          'Set и WeakSet');
 e('js', 'proxy',                        'Proxy');
 e('js', 'symbol',                       'Symbol');
 e('js', 'iterators',                    'Iterators');
-
-h('Модули');
-e('js', 'module-system', 'Модульная система');
-e('js', 'module-es6',    'Модули ES6');
-
-h('Client Storage');
-e('js', 'data-storage', 'localStorage, sessionStorage');
-e('js', 'data-db',      'IndexedDB');
-e('js', 'data-cookie',  'cookie');
 
 h('Асинхронный код');
 e('js', 'collback',   '1. Collback Function');
@@ -122,11 +115,14 @@ e('js_functions', 'arrow',              'Стрелочные функции (ES
 e('js_functions', 'recursion',          'Рекурсия');
 e('js_functions', 'named',              'Named Function Expression');
 
-h('DOM')
-e('js', 'select',      'Выборка элементов');
-e('js', 'methods',     'Методы элементов страницы');
-e('js', 'dom-element', 'createElement, appendChild, ...');
-e('js', 'form',        'Web Forms');
+h('Модули');
+e('js', 'module-system', 'Модульная система');
+e('js', 'module-es6',    'Модули ES6');
+
+h('Client Storage');
+e('js', 'data-storage', 'localStorage, sessionStorage');
+e('js', 'data-db',      'IndexedDB');
+e('js', 'data-cookie',  'cookie');
 
 h('DOM События');
 e('js', 'actions-modal',   'Модель распространения событий');
@@ -136,6 +132,12 @@ e('js', 'actions-params',  'Передаваемый параметр (Event)');
 e('js', 'actions-list',    'Список событий');
 e('js', 'prevent',         'Отмена обычного поведения');
 e('js', 'actions-samples', 'Примеры');
+
+h('DOM')
+e('js', 'select',      'Выборка элементов');
+e('js', 'methods',     'Методы элементов страницы');
+e('js', 'dom-element', 'createElement, appendChild, ...');
+e('js', 'form',        'Web Forms');
 
 h('Веб-компоненты');
 e('js', 'web-components-theory',          'Теория');
@@ -161,7 +163,7 @@ e('js', 'method-chaining',      'Цепные вызовы методов');
 e('js', 'ecmascript',           'ECMAScript');
 
 h('Window');
-e('js', 'web-api', 'Web API');
+e('js', 'web-api',        'Web API');
 e('js', 'document-open',  'open, location');
 e('js', 'document-width', 'innerWidth/Height, clientWidth/Height');
 e('js', 'document-media', 'Media queries');
