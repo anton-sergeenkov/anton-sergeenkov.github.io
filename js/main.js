@@ -12,24 +12,24 @@ var menu = `
     <a href="/pages/+jquery.html"        class="menu menu-js">jquery</a>
     <a href="/pages/+canvas.html"        class="menu menu-js">canvas</a>
 
-    <a href="../pages/webpack.html"        class="menu menu-other">webpack</a>
-    <a href="../pages/npm.html"            class="menu menu-other">npm</a>
-    <a href="../pages/git.html"            class="menu menu-other">git</a>
-    <a href="../pages/linux.html"          class="menu menu-other">linux</a>
-    <a href="../pages/theory.html"         class="menu menu-other">theory</a>
-    <a href="../pages/other.html"          class="menu menu-other">other</a>
+    <a href="/pages/webpack.html"        class="menu menu-other">webpack</a>
+    <a href="/pages/npm.html"            class="menu menu-other">npm</a>
+    <a href="/pages/git.html"            class="menu menu-other">git</a>
+    <a href="/pages/linux.html"          class="menu menu-other">linux</a>
+    <a href="/pages/theory.html"         class="menu menu-other">theory</a>
+    <a href="/pages/other.html"          class="menu menu-other">other</a>
 
-    <a href="../pages/+html.html"          class="menu menu-html">html</a>
-    <a href="../pages/+css.html"           class="menu menu-html">css</a>
-    <a href="../pages/+css-flexbox.html"   class="menu menu-html">flexbox</a>
-    <a href="../pages/+css-grid.html"      class="menu menu-html">css grid</a>
-    <a href="../pages/+sass.html"          class="menu menu-html">sass</a>
-    <a href="../pages/+svg.html"           class="menu menu-html">svg</a>
+    <a href="/pages/+html.html"          class="menu menu-html">html</a>
+    <a href="/pages/+css.html"           class="menu menu-html">css</a>
+    <a href="/pages/+css-flexbox.html"   class="menu menu-html">flexbox</a>
+    <a href="/pages/+css-grid.html"      class="menu menu-html">css grid</a>
+    <a href="/pages/+sass.html"          class="menu menu-html">sass</a>
+    <a href="/pages/+svg.html"           class="menu menu-html">svg</a>
 
-    <a href="../pages/+node-js.html"       class="menu menu-php">node.js</a>
-    <a href="../pages/+php.html"           class="menu menu-php">php</a>
-    <a href="../pages/+python.html"        class="menu menu-php">python</a>
-    <a href="../pages/+mysql.html"         class="menu menu-php">mysql</a>
+    <a href="/pages/+node-js.html"       class="menu menu-php">node.js</a>
+    <a href="/pages/+php.html"           class="menu menu-php">php</a>
+    <a href="/pages/+python.html"        class="menu menu-php">python</a>
+    <a href="/pages/+mysql.html"         class="menu menu-php">mysql</a>
 `;
 
 $('#menu-top').html(menu);
