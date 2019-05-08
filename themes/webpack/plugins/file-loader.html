@@ -1,0 +1,34 @@
+<h2>file-loader</h2>
+
+<pre class="npm"><code class="bash">
+npm i --save-dev <bg-npm>file-loader</bg-npm>
+</code></pre>
+
+<pre><code class="js">
+module.exports = {
+	module: {
+		rules: [
+			{
+				<bg-code-wrapper>
+				test: /\.(jpe?g|png|svg|gif|ico)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[path][name].[ext]',
+							//name:'[name].[ext]'
+							//outputPath: './'
+						}
+					},
+				],
+				</bg-code-wrapper>
+			},
+		],
+	},
+};
+</code></pre>
+
+<pre><code class="none">
+name: '[path][name].[ext]'
+name: '[name].[ext]'
+</code></pre>

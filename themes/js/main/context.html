@@ -1,0 +1,148 @@
+<h2>Context (this, call, apply, bind)</h2>
+
+<!------------------------------------------------------>
+<h3>this</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li><bg-define>Контекст выполнения (execution context)</bg-define> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор. У каждого вызова функции свой «контекст выполнения» и он всегда разный в зависимости от того как функция была вызвана</li>
+	<li><bg-define>Контекст вызова функции</bg-define> - тот объект который ее вызывает</li>
+	<li><bg-define>this</bg-define> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие). Определяется в момент вызова функции</li>
+	<li>Любая функция может иметь в себе <u>this</u>. Если функция использует <u>this</u> - это подразумевает работу с объектом</li>
+	<li><u>this</u> - это текущий объект при вызове «через точку» и новый объект при конструировании через <u>new</u></li>
+	<li><u>Функции</u> не привязаны к своему контексту <u>this</u></li>
+	<li>В глобальном контексте this указывает на глобальный объект, в функциональном контексте this указывает на контекст, откуда функция вызвана</li>
+	<li>В функции, обрабатывающей событие <u>DOM</u>, <u>this</u> указывает на <u>DOM</u> элемент, который вызвал событие</li>
+</ul>
+
+<h4>Значение this устанавливается в зависимости от того, как вызвана функция</h4>
+<p>1. При вызове функции как метода</p>
+<pre><code class="js">
+obj.func(...)    // this = obj
+obj["func"](...)
+</code></pre>
+
+<p>2. При обычном вызове</p>
+<pre><code class="js">
+func(...) // this = window (ES3) /undefined (ES5)
+</code></pre>
+
+<p>3. В new</p>
+<pre><code class="js">
+new func() // this = {} (новый объект)
+</code></pre>
+
+<p>4. Явное указание</p>
+<pre><code class="js">
+func.apply(context, args) // this = context (явная передача)
+func.call(context, arg1, arg2, ...)
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="methods-this-bind">bind(), call(), apply() - использование другого контекста</h3>
+<!------------------------------------------------------>
+<pre><code class="js light">
+<table>
+	<tr><td><bg-methods>call</bg-methods><bg-arguments>()</bg-arguments></td><td>  // явное указание контекст вызова</td></tr>
+	<tr><td><bg-methods>apply</bg-methods><bg-arguments>()</bg-arguments></td><td>  // аналогичен call(), только аргументы передаются массивом вторым аргументом</td></tr>
+	<tr><td><bg-methods>bind</bg-methods><bg-arguments>()</bg-arguments></td><td>  // не вызывает функцию, а связывает с объектом. не изменяет исходную функцию, а возвращает новую</td></tr>
+</table></code></pre>
+
+<ul class="list-point">
+	<li><u>call/apply</u> вызывают функцию с заданным контекстом и аргументами</li>
+	<li><u>bind</u> не вызывает функцию, а только возвращает «обёртку», которая передаст вызов в исходную функцию, с привязанным контекстом</li>
+	<li><u>Function.prototype.bind</u> возвращает копию функции, заменяя при этом упоминающиеся в ней <u>this</u> на объект, указанный в аргументе. На функции, возвращенной методом bind, нельзя использовать bind еще раз</li>
+</ul>
+
+<pre><code class="js">
+var greet = function(greet1, greet2) {
+	return greet1 + greet2 + this.name;
+}
+var person = {
+	name: 'Brad',
+	greet: greet
+}
+var anotherPerson = {
+	name: 'Tony',
+	greet: greet
+}
+</code></pre>
+
+<ul class="list-point">
+	<li>Если в <u>bind</u> указаны аргументы - они будут прибавлены к каждому вызову новой функции, причем встанут перед теми, которые указаны при вызове</li>
+</ul>
+
+<pre><code class="html">
+<a href="theory.html#currying" target="_blank">[Local] Каррирование</a>
+</code></pre>
+
+<pre><code class="js">
+// this указывает на person
+var a = anotherPerson.greet.<bg-code>call</bg-code>(person, 'Hello', 'World');    // => "Hello World Brad"
+var a = anotherPerson.greet.<bg-code>apply</bg-code>(person, ['Hello', 'World']); // => "Hello World Brad"
+
+var b = greet.<bg-code>bind</bg-code>(person); // без аргументов
+var a = b('Hello', 'World'); // => "Hello World Brad"
+
+var b = greet.<bg-code>bind</bg-code>(person, 'Hello', 'World'); // с аргументами
+var a = b(); // => "Hello World Brad"
+</code></pre>
+
+<pre><code class="js">
+// call/apply передают this «как есть»
+function f() {
+	alert( this ); // null
+}
+f.call(null);
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Примеры</h3>
+<!------------------------------------------------------>
+<h4>Потеря контекста</h4>
+<pre><code class="js">
+var user = {
+	userName: 'Tony',
+	userGreet() {
+		console.log('Hi ' + this.userName);
+	}
+};
+var newUser = user.userGreet; 
+newUser(); // => "Hi undefined"
+</code></pre>
+<pre><code class="js">
+newUser.call(user); // => "Hi Tony"
+</code></pre>
+<pre><code class="js">
+var func = newUser.bind(user);
+func(); // => "Hi Tony" 
+</code></pre>
+
+<h4>Привязать всё</h4>
+<pre><code class="js">
+for (var prop in user) {
+	if (typeof user[prop] == 'function') {
+		user[prop] = user[prop].bind(user);
+	}
+}
+</code></pre>
+
+<h4>Вызов функции</h4>
+<pre><code class="js">
+function showFullName() {
+	alert( this.firstName + " " + this.lastName );
+}
+var user = {
+	firstName: "Василий",
+	lastName: "Петров"
+};
+showFullName.call(user) // => "Василий Петров" (функция вызовется с this=user)
+</code></pre>
+
+<h4>Максимальный элемент массива</h4>
+<pre><code class="js">
+var arr = [1, 2, 3, 77, 4];
+var max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
+var max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
+// в данном случае в качестве контекста можно передавать что угодно, 
+// поскольку в своей внутренней реализации метод Math.max не использует this
+</code></pre>

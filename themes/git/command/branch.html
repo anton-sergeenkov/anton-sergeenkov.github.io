@@ -1,0 +1,15 @@
+<h2>BRANCH</h2>
+
+<pre><code class="none">
+<em>$ git <bg-code>branch</bg-code></em>                        # список веток с указанием текущей
+<em>$ git <bg-code>branch -a</bg-code></em>                     # список веток с указанием remotes/origin
+<em>$ git <bg-code>branch</bg-code> features</em>               # создание новой ветки "features" (ответвиться от текущей)
+<em>$ git <bg-code>checkout</bg-code> features</em>             # переключение на ветку "features"
+<em>$ git <bg-code>checkout -b</bg-code> features</em>          # создание новой ветки "features" и переключение на нее
+<em>$ git <bg-code>merge</bg-code> features</em>                # слияние "features" в текущую ветку
+<em>$ git <bg-code>branch --delete</bg-code> features</em>      # удаление ветки "features"
+<em>$ git <bg-code>branch -d</bg-code> features</em>            # удаление ветки "features" (после мерджа)
+<em>$ git <bg-code>branch -D</bg-code> features</em>            # удаление ветки "features" (тупиковая ветвь)
+<em>$ git <bg-code>push origin --delete</bg-code> features</em> # удаление ветки в удаленном репозитории
+<em>$ git <bg-code>push origin</bg-code> :features</em>         # удаление ветки в удаленном репозитории
+</code></pre>

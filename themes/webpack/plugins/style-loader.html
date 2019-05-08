@@ -1,0 +1,34 @@
+<h2>style-loader</h2>
+
+<pre class="npm"><code class="bash">
+npm i --save-dev <bg-npm>style-loader</bg-npm>
+</code></pre>
+
+<ul class="list">
+	<li><bg-define>style-loader</bg-define> - компилирует css в js файл (creates style nodes from JS strings)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>css-loader + style-loader</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><code-type>Component.js</code-type>
+import './style.css';
+</code></pre>
+
+<pre><code class="js"><code-type>webpack.config.js</code-type>
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: [
+					<bg-code-wrapper>
+					'style-loader',
+					</bg-code-wrapper>
+					'css-loader'
+				],
+			},
+		],
+	},
+};
+</code></pre>

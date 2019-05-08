@@ -1,0 +1,42 @@
+<h2>Gitflow</h2>
+
+<div id="ct-gitflow">
+<ul class="list-point">
+	<li><bg-difine>Gitflow</bg-difine> - модуль управления ветками. Есть две основные ветки: <bg-code>master</bg-code> и <bg-code>develop</bg-code></li>
+	<li><bg-code>gitflow-avh</bg-code> – инструмент для работы с Gitflow</li>
+</ul>
+
+<pre><code class="bash">
+<em>master</em>  # содержится тот же код, что и в рабочей (продакт) версии проекта
+<em>develop</em> # происходит вся работа
+<em>feature</em> # создаются в процессе работы над develop, их может быть неограниченное количество
+<em>release</em> # подготовка к новому релизу проекта
+<em>hotfix</em>  # срочное исправление багов, найденных, например, на продакте
+</code></pre>
+
+<h4>Рабочий процесс в Gitflow</h4>
+<ol class="list-num">
+	<li>Создается репозиторий</li>
+	<li>Репозиторий инициализируется</li>
+	<li>Начинается работа на ветке <bg-code>develop</bg-code></li>
+	<li>Возникает необходимость опробовать новую штуку – создается <bg-code>feature-ветка</bg-code> и делаются коммиты</li>
+	<li>Закончив работу на <bg-code>feature-ветке</bg-code>, вы сливаете ее с <bg-code>develop</bg-code></li>
+	<li>Если вы довольны текущей версией, но хотите продолжить работу, создается ветка <bg-code>release</bg-code>, куда перемещается текущая версия. Правка багов будет происходить на этой же ветке</li>
+	<li>Когда с веткой <bg-code>release</bg-code> покончено, время слить ее в master и продолжить работу с <bg-code>develop</bg-code></li>
+	<li>Кроме того, этот момент можно отметить на <bg-code>master-ветке</bg-code></li>
+</ol>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Codereview GitHub</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+1. Создать репозиторий
+2. Основная ветка разработки "dev"
+3. Под каждую задачу создается ветка от "dev"
+4. Создание PR (Pool Request) для слития ветки задачи с веткой "dev"
+5. Ссылка на PR руководителю
+6. Если всё ок, слитие веток, если нет, то исправление замечания
+7. Если несколько задач и несколько веток, то вливать нужно не ветки полностью а только отдельные коммиты
+</code></pre>
+

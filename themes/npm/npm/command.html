@@ -1,0 +1,33 @@
+<h2>Команды</h2>
+
+<div id="ct-npm-command">
+<pre><code class="bash">
+npm <bg-code>init</bg-code>                   # инициализация проекта (создание package.json)
+npm <bg-code>init</bg-code> -y                # инициализация проекта с параметрами по умолчанию
+npm <bg-code>i</bg-code>                      # установить все пакеты из package.json
+npm <bg-code>up</bg-code>                     # обновить все пакеты из package.json
+npm <bg-code>i</bg-code> package              # установить package (не должен добавляться в package.json)
+npm <bg-code>i --save</bg-code> package       # установить package и добавить запись в секцию dependencies package.json 
+npm <bg-code>i --save-dev</bg-code> package   # установить package и добавить запись в секцию devDependencies package.json
+npm <bg-code>i --g</bg-code> package          # установить package глобально
+npm <bg-code>r</bg-code> package              # удалить package
+npm <bg-code>up</bg-code> package             # обновить package
+npm <bg-code>run</bg-code> package            # запустить package
+</code></pre>
+
+<pre><code class="bash">
+npm i -g <em>npm-check-updates</em> # проверка обновлений всех пакетов в package.json
+<em>ncu</em>                        # проверить какие пакеты устарели
+<em>ncu -u</em>                     # обновить версию в package.json
+npm i <em>npm</em>                  # обновление npm
+npm <em>up</em>                     # обновить все модули
+npm <em>-v</em>                     # проверить версию npm
+</code></pre>
+
+<ul class="list-point">
+	<li><em>devDependencies</em> - пакеты, которые нужны для разработки</li>
+	<li><em>dependencies</em> - пакеты, от которых проект зависит непосредственно (библиотеки)</li>
+	<li><em>devDependencies</em> и <em>dependencies</em> - устанавливаются в node_modules</li>
+	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
+	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
+</ul>

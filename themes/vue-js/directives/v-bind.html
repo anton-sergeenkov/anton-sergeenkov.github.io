@@ -1,0 +1,162 @@
+<h2>v-bind:</h2>
+
+<ul class="list-links">
+	<li><a href="#v-bind-bind">Связывание атрибутов элементов</a></li>
+	<li><a href="#v-bind-values">Указание дополнительных значений</a></li>
+	<li><a href="#v-bind-class">CSS-классы</a></li>
+	<li><a href="#v-bind-style">CSS Style</a></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-bind">Связывание атрибутов элементов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Директива связывает входной атрибут тега или входной параметр компонента с выражением</li>
+	<li>Значение атрибута берется из переменной</li>
+</ul>
+
+<pre><code class="html">
+&lt;a <bg-code>v-bind:href</bg-code>="url"&gt;{{ link }}&lt;/a&gt;  <bg-comment># полная запись</bg-comment>
+&lt;p <bg-code>v-bind:class</bg-code>="activeClass"&gt;&lt;/p&gt;   <bg-comment># полная запись</bg-comment>
+&lt;p <bg-code>:class</bg-code>="activeClass"&gt;&lt;/p&gt;         <bg-comment># сокращенная запись</bg-comment>
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-values">Указание дополнительных значений</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+&lt;div class="img" :style="{ backgroundImage: 'url('+item.img+')' }"&gt;&lt;/div&gt;
+&lt;a :href="'courses/'+i"&gt;&lt;/a&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-class">CSS-классы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+&lt;!-- active - название класса --&gt;
+&lt;p <bg-code>:class</bg-code>="{ active:true }"&gt;&lt;/p&gt;      <bg-comment># true (отобразится)</bg-comment>
+&lt;p <bg-code>:class</bg-code>="{ active:false }"&gt;&lt;/p&gt;     <bg-comment># false (не отобразится)</bg-comment>
+&lt;p <bg-code>:class</bg-code>="{ active:isActive }"&gt;&lt;/p&gt;  <bg-comment># свойство isActive (true/false)</bg-comment>
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Использование с обычным атрибутом class</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Наличие класса <code class="txt">active</code> будет определяться истинностью параметра <code class="txt">isActive</code></li>
+</ul>
+
+<pre><code class="html"><code-type>html</code-type>
+&lt;div 
+	class="static" 
+	v-bind:class="{ active: isActive, 'text-danger': hasError }"
+&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js"><code-type>js</code-type>
+data: {
+	isActive: true,
+	hasError: false
+}
+</code></pre>
+
+<pre><code class="html"><code-type>result</code-type>
+&lt;div class="static active"&gt;&lt;/div&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Массив в аргументе</h4>
+<!------------------------------------------------------------->
+<pre><code class="html"><code-type>html</code-type>
+&lt;div :class="[activeClass, errorClass]"&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="js"><code-type>js</code-type>
+data: {
+    activeClass: 'class-active',
+    errorClass: 'class-error'
+}
+</code></pre>
+<pre><code class="html"><code-type>result</code-type>
+&lt;div class="active text-danger"&gt;&lt;/div&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Объект в аргументе</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;div v-bind:class="classObject"&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="js">
+data: {
+	classObject: {
+		active: true,
+		'text-danger': false
+	}
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Вычисляемое свойство в аргументе</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;div v-bind:class="classObject"&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="js">
+data: {
+	isActive: true,
+	error: null
+},
+computed: {
+	classObject: function () {
+		return {
+			active: this.isActive && !this.error,
+			'text-danger': this.error && this.error.type === 'fatal'
+		}
+	}
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-style">CSS Style</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Объектная запись в HTML</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;div :style="{ color: activeColor, fontSize: fontSize+'px' }"&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js">
+data: {
+    activeColor: 'blue',
+    fontSize: 30
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Объектная запись в JS</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;div :style="styleObject"&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js">
+// styleObject может содержать массивы или объекты
+data: {
+	styleObject: {
+		width: '100px',
+		height: '100px',
+		background: 'blue'
+	}
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Использование массивов</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;!-- Позволяет применить несколько объектов стилей к одному и тому же элементу --&gt;
+&lt;div v-bind:style="[baseStyles, overridingStyles]"&gt;&lt;/div&gt;
+</code></pre>

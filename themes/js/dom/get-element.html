@@ -1,0 +1,45 @@
+<h2>Выборка элементов страницы</h2>
+
+<pre><code class="js">
+var a = document.getElementById('item');               // по id
+var a = document.getElementsByClassName('item')[0];    // по названию класса (первый элемент)
+var a = document.getElementsByName('item');            // по атрибуту name
+var a = document.getElementsByTagName('img');          // по названию тега (все элементы)
+var a = document.querySelector('.nav.bar');            // возвращает первый элемент внутри документа
+var a = document.querySelectorAll('.nav');             // возвращает список элементов в пределах документа
+</code></pre>
+
+<p>Методы getElementsByTagName и т.д. вызывают не обычные массивы, а живые коллекции</p>
+
+<h4>Форма</h4>
+<pre><code class="js">
+var a = document.forms[0];                             // первая форма на странице
+var a = document.myform;                               // форма с name=myform (если name уникальный)
+var a = document.forms[0].elements[0];                 // первый элемент в форме
+var a = document.forms[0].element;                     // элемент в форме с name=element
+var a = document.forms['nameForm']['nameField'];       // поле формы
+</code></pre>
+
+<h4>Изображение</h4>
+<pre><code class="js">
+var a = document.images.logo;                          // img с name=logo
+var a = document.images['logo'];                       // img с name=logo
+var a = document.logo;                                 // img с name=logo (если name уникальный)
+</code></pre>
+
+<h3>Выбор родственных элементов</h3>
+<pre><code class="js">
+var a = element.childNodes;                            // дети (включая текстовые узлы)
+var a = element.children;                              // дети (не включая текстовые узлы)
+var a = element.parentNode;                            // родитель 
+var a = element.nextSibling;                           // следующий брат
+var a = element.previousSibling;                       // предыдущий брат
+var a = element.firstChild;                            // первый ребенок
+var a = element.lastChild;                             // последний ребенок
+</code></pre>
+
+<pre><code class="js">
+var a = document.childNodes;                           // дети с doctype и комментариями
+var a = document.children;                             // дети
+var a = document.children[0].children[1].children;     // выборка всех элементов из body
+</code></pre>

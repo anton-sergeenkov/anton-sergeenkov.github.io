@@ -1,0 +1,50 @@
+<h2>Методы</h2>
+
+<h4>Методы</h4>
+<pre><code class="js">
+var a = parent <bg-code>instanceof</bg-code> ClassParent; // проверка, какому классу принадлежит объект, с учетом прототипного наследования
+var obj = Object.<bg-code>assign</bg-code>({name:'Tony'}, {age:25}, {test:'test'}); // используется для копирования значений всех собственных перечисляемых свойств из одного или более исходных объектов в целевой объект. После копирования он возвращает целевой объект
+</code></pre>
+
+<h4>Методы для работы с __proto__</h4>
+<pre><code class="js">
+Object.<bg-code>create</bg-code>(proto, descriptors); // добавление прототипа при создании объекта (создаёт пустой объект с __proto__, равным первому аргументу, второй содержит дескрипторы свойств)
+Object.<bg-code>setPrototypeOf</bg-code>(obj, proto); // добавление прототипа после создания объекта (устанавливает obj.__proto__ = proto)
+Object.<bg-code>getPrototypeOf</bg-code>(obj);        // возвращает obj.__proto__
+</code></pre>
+
+<pre><code class="js">
+ObjChild.<bg-code>isPrototypeOf</bg-code>(ObjParent); // является ли объект ObjParent прототипом для объекта ObjChild
+</code></pre>
+
+<h4>Перечисление всех свойств объекта</h4>
+<pre><code class="js">
+for(let key <bg-code>in</bg-code> obj) { obj[key] }         // перебирает все перечисляемые свойства объекта и его цепочку прототипов
+var a = Object.<bg-code>keys</bg-code>(obj);                // возвращает массив со всеми собственными (те, что в цепочке прототипов, не войдут в массив) именами перечисляемых свойств объекта
+var a = Object.<bg-code>keys</bg-code>(obj).<bg-code>length</bg-code>;         // количество свойств
+var a = Object.<bg-code>getOwnPropertyNames</bg-code>(obj); // возвращает массив содержащий все имена своих свойств (перечисляемых и неперечисляемых) объекта
+</code></pre>
+
+<h4>Проверка наличия свойства</h4>
+<ul class="list-point">
+	<li>Можно обратиться к любому свойству объекта, даже если его нет. Если свойство не существует, вернется undefined</li>
+</ul>
+<pre><code class="js">
+var a = obj.name;                        // проверка наличия свойсва 'name' в объекте (не различает отсутствующие свойства и те что были установлен в undefined)
+var a = 'name' <bg-code>in</bg-code> obj;                   // проверка наличия свойсва 'name' в объекте (различает отсутствующие свойства и те что были установлен в undefined)
+var a = obj.<bg-code>hasOwnProperty</bg-code>('name');      // проверка наличия свойства 'name' в объекте (не берет наследованные свойства)
+</code></pre>
+
+<h4>Прототипное наследование</h4>
+<pre><code class="js">
+ClassChild.<bg-code>prototype</bg-code>.parentFunc = function() {}         // запись метода в прототип
+ClassChild.<bg-code>prototype</bg-code>.parentProp = function() {}         // запись свойства в прототип
+ClassChild.<bg-code>prototype</bg-code> = <bg-code>Object.create</bg-code>(ClassParent.prototype); // наследования методов и свойств из ClassParent.prototype
+</code></pre>
+
+<h4>Дескрипторы свойств</h4>
+<pre><code class="js">
+Object.<bg-code>getOwnPropertyDescriptor</bg-code>(obj, 'name');  // получение дескриптора свойств
+Object.<bg-code>defineProperty</bg-code>(obj, prop, descriptor);  // переопределение дескриптора свойств
+Object.<bg-code>defineProperties</bg-code>(obj, descriptors);     // позволяет объявить сразу несколько свойств
+</code></pre>

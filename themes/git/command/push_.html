@@ -1,0 +1,41 @@
+<h2>INIT / PUSH ...</h2>
+
+<pre><code class="none">
+<em>$ git <bg-code>init</bg-code></em>                  # инициализация пустого локального git-репозитория. Создаёт в текущем каталоге новый подкаталог с именем .git
+<em>$ git <bg-code>add</bg-code> .</em>                 # добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита
+<em>$ git <bg-code>commit</bg-code> -m "text"</em>      # создание слепка (snapshot) директории и зафиксировать изменения файлов
+<em>$ git <bg-code>remote add</bg-code> origin git@github.com:anton-sergeenkov/repo.git</em> # добавление к локальному репозиторию ссылки на удаленный репозиторий
+<em>$ git <bg-code>push</bg-code> -u origin master</em> # отправка изменений на удаленный git-репозиторий
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>$ push</h4>
+<!------------------------------------------------------------->
+<pre><code class="none">
+<em>$ git <bg-code>push</bg-code> --set-upstream origin master</em>                 # отправка изменений на удаленный git-репозиторий
+<em>$ git <bg-code>push origin</bg-code></em>                                       # замерджить все ветки локального репозитория на удаленный репозиторий 
+<em>$ git <bg-code>push origin</bg-code> master</em>                                # аналогично предыдущему, но делается пуш только ветки master
+<em>$ git <bg-code>push origin HEAD</bg-code></em>                                  # запушить текущую ветку, не вводя целиком ее название
+<em>$ git <bg-code>push -f</bg-code></em>                                           # залить на сервер измененные коммиты
+<em>$ git <bg-code>push</bg-code> https://github.com/Eclerrr/readme.git master</em> # 
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>$ add</h4>
+<!------------------------------------------------------------->
+<pre><code class="none">
+<em>$ git <bg-code>add</bg-code> .</em>          # индексирование всех файлов
+<em>$ git <bg-code>add</bg-code> index.html</em> # индексирование одного файлв
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>$ commit</h4>
+<!------------------------------------------------------------->
+<pre><code class="none">
+<em>$ git <bg-code>commit</bg-code></em>              # сохранение изменений в локальном репозитории. Берёт все данные, добавленные в индекс с помощью git add, и сохраняет их слепок во внутренней базе данных, а затем сдвигает указатель текущей ветки на этот слепок
+<em>$ git <bg-code>commit -a</bg-code></em>           # добавление всех изменений в индекс без использования git add
+<em>$ git <bg-code>commit -m</bg-code> "text"</em>    # передача сообщения коммита без запуска полноценного редактора
+<em>$ git <bg-code>commit -a -m</bg-code> "text"</em> #
+<em>$ git commit --amend -m "Перезапись коммита"</em> # перезапишется последний коммит
+</code></pre>
+

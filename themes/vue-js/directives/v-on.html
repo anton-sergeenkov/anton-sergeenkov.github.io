@@ -1,0 +1,214 @@
+<h2>v-on:</h2>
+
+<ul class="list-links">
+	<li><a href="#v-on-mod-actions">Модификаторы событий</a></li>
+	<li><a href="#v-on-mod-key">Модификаторы клавиш</a></li>
+	<li><a href="#v-on-mod-key-system">Системные модификаторы клавиш</a></li>
+	<li><a href="#v-on-exact">Модификатор .exact</a></li>
+	<li><a href="#v-on-mod-key-mouse">Модификаторы клавиш мыши</a></li>
+</ul>
+
+<ul class="list-point">
+	<li><bg-define>v-on</bg-define> - подписка на события DOM и выполнения JavaScript-кода по их наступлении</li>
+</ul>
+
+<pre><code class="html"><code-type>html</code-type>
+&lt;button <bg-code>v-on:click</bg-code>=""&gt;&lt;/button&gt;            <bg-comment># полная запись</bg-comment>
+&lt;button <bg-code>@click</bg-code>=""&gt;&lt;/button&gt;                <bg-comment># сокращенная запись</bg-comment>
+&lt;button <bg-code>@click</bg-code>="methodOne"&gt;&lt;/button&gt;       <bg-comment># указание названия метода</bg-comment>
+&lt;button <bg-code>@click</bg-code>="methodTwo('hi')"&gt;&lt;/button&gt; <bg-comment># указание JavaScript-выражения</bg-comment>
+</code></pre>
+
+<pre><code class="js"><code-type>js</code-type>
+var app = new Vue({
+	el: '#app',
+	methods: {
+		methodOne() {
+			console.log('methodOne');
+		},
+		methodTwo(text) {
+			console.log(text); // => hi
+		}
+	}
+})
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Императивный вызов методов</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+app.methodOne();
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-mod-actions">Модификаторы событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>При использовании модификаторов порядок имеет значение, потому что код генерируется в том же порядке</li>
+	<li>В отличие от остальных модификаторов, которые поддерживают только нативные события DOM, модификатор <code class="txt">.once</code> может использоваться и в пользовательских событиях компонентов</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>События</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><bg-code-list>.stop</bg-code-list> - событие не будет всплывать дальше <code class="txt">event.stopPropagation()</code></li>
+	<li><bg-code-list>.prevent</bg-code-list> - отмена обычного поведения <code class="txt">event.preventDefault()</code></li>
+	<li><bg-code-list>.capture</bg-code-list> - событие, нацеленное на внутренний элемент, обрабатывается здесь до обработки этим элементом</li>
+	<li><bg-code-list>.self</bg-code-list> - вызов обработчика только в случае наступления события непосредственно на данном элементе (то есть не на дочернем компоненте)</li>
+	<li><bg-code-list>.once</bg-code-list> - событие click сработает только 1 раз</li>
+	<li><bg-code-list>.passive</bg-code-list> - сообщает браузеру, что вы не хотите предотвращать поведение по умолчанию для события. <code class="txt">event.preventDefault()</code> будет проигнорирован. Поэтому нельзя использовать вместе <code class="txt">.passive</code> и <code class="txt">.prevent</code>. Соответствующий опции <code class="txt">passive</code> в <code class="txt">addEventListener</code>. Модификатор <code class="txt">.passive</code> особенно полезен для повышения производительности на мобильных устройствах</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Примеры</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;!-- событие click не будет всплывать дальше --&gt;
+&lt;a v-on:click.stop="doThis"&gt;&lt;/a&gt;
+
+&lt;!-- событие submit больше не будет перезагружать страницу --&gt;
+&lt;form v-on:submit.prevent="onSubmit"&gt;&lt;/form&gt;
+
+&lt;!-- модификаторы можно объединять в цепочки --&gt;
+&lt;a v-on:click.stop.prevent="doThat"&gt;&lt;/a&gt;
+
+&lt;!-- и использовать без указания метода-обработчика --&gt;
+&lt;form v-on:submit.prevent&gt;&lt;/form&gt;
+
+&lt;!-- можно отслеживать события в режиме capture, т.е. событие, нацеленное --&gt;
+&lt;!-- на внутренний элемент, обрабатывается здесь до обработки этим элементом --&gt;
+&lt;div v-on:click.capture="doThis"&gt;...&lt;/div&gt;
+
+&lt;!-- вызов обработчика только в случае наступления события непосредственно --&gt;
+&lt;!-- на данном элементе (то есть не на дочернем компоненте) --&gt;
+&lt;div v-on:click.self="doThat"&gt;...&lt;/div&gt;
+
+&lt;!-- событие click сработает только 1 раз --&gt;
+&lt;a v-on:click.once="doThis"&gt;&lt;/a&gt;
+
+&lt;!-- по умолчанию событие scroll (при прокрутке) произойдёт --&gt;
+&lt;!-- незамедлительно, вместо ожидания окончания `onScroll`  --&gt;
+&lt;!-- на случай, если там будет `event.preventDefault()`     --&gt;
+&lt;div v-on:scroll.passive="onScroll"&gt;...&lt;/div&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Отмена обычного поведения</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;button <bg-code>@click</bg-code>="submit1"&gt;&lt;/button&gt;
+&lt;button <bg-code>@click.prevent</bg-code>="submit2"&gt;&lt;/button&gt;
+</code></pre>
+
+<pre><code class="js">
+methods: {
+	submit1(e) {
+		<bg-code>e.preventDefault()</bg-code>;
+		console.log('prevent');
+	}
+	submit2() {
+		console.log('prevent');
+	}
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-mod-key">Модификаторы клавиш</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Использование значения <code class="txt">keyCode</code> событий - устаревшая практика и может не поддерживаться в новых браузерах</li>
+	<li>Можно использовать любые допустимые имена клавиш, предоставляемые через <code class="txt">KeyboardEvent.key</code> в качестве модификаторов, именуя их в kebab-case</li>
+</ul>
+
+<pre><code class="html">
+&lt;input type="text" @keyup="methodOne"&gt;       <bg-comment># любые символы</bg-comment>
+&lt;input type="text" @keyup.13="methodOne"&gt;    <bg-comment># использование значений keyCode (enter)</bg-comment>
+&lt;input type="text" @keyup.enter="methodOne"&gt; <bg-comment># использование модификатора (enter)</bg-comment>
+</code></pre>
+
+<pre><code class="js">
+methods: {
+	methodOne(){
+		console.log('methodOne')
+	}
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Псевдонимы для наиболее часто используемых клавиш</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><bg-code-list>.enter</bg-code-list></li>
+	<li><bg-code-list>.esc</bg-code-list></li>
+	<li><bg-code-list>.space</bg-code-list></li>
+	<li><bg-code-list>.tab</bg-code-list></li>
+	<li><bg-code-list>.delete</bg-code-list> ("delete" и "backspace")</li>
+	<li><bg-code-list>.up</bg-code-list> <bg-code-list>.down</bg-code-list></li>
+	<li><bg-code-list>.left</bg-code-list><bg-code-list>.right</bg-code-list></li>
+</ul>
+
+<pre><code>
+<a href="https://vuejs.org/v2/guide/events.html#Key-Modifiers" target="_blank">Список псевдонимов клавиш в Vue</a>
+<a href="https://css-tricks.com/snippets/javascript/javascript-keycodes/#article-header-id-1" target="_blank">Таблица с кодами клавиш</a>
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Определение пользовательских псевдонимов клавиш</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Определение пользовательских псевдонимов клавиш через глобальную опцию <code class="txt">config.keyCodes</code></li>
+</ul>
+
+<pre><code class="js">
+Vue.config.keyCodes.f1 = 112; // позволит использовать 'v-on:keyup.f1'
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-mod-key-system">Системные модификаторы клавиш</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Можно использовать следующие модификаторы для отслеживания событий мыши или клавиатуры с зажатой клавишей-модификатором</li>
+	<li><bg-code-list>.ctrl</bg-code-list></li>
+	<li><bg-code-list>.alt</bg-code-list></li>
+	<li><bg-code-list>.shift</bg-code-list></li>
+	<li><bg-code-list>.meta</bg-code-list></li>
+</ul>
+
+<alert-info>
+<ul class="list-point">
+	<li>Клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий <code class="txt">keyup</code> они должны быть нажаты, когда событие генерируется. Другими словами, <code class="txt">keyup.ctrl</code> сработает только тогда, когда вы отпустите клавишу, удерживая нажатой <code class="txt">ctrl</code>. Это не сработает, если вы отпустите только клавишу <code class="txt">ctrl</code>. Если вы хотите такое поведение, используйте <code class="txt">keyCode</code> для <code class="txt">ctrl</code> вместо <code class="txt">keyup.17</code></li>
+</ul>
+</alert-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-exact">Модификатор .exact</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><bg-define>.exact</bg-define> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события</li>
+</ul>
+
+<pre><code class="html">
+&lt;!-- сработает, даже если Alt или Shift также нажаты --&gt;
+&lt;button @click.ctrl="onClick"&gt;A&lt;/button&gt;
+
+&lt;!-- сработает, только когда нажат Ctrl и не нажаты никакие другие клавиши --&gt;
+&lt;button @click.ctrl.exact="onCtrlClick"&gt;A&lt;/button&gt;
+
+&lt;!-- сработает, только когда не нажаты никакие системные модификаторы --&gt;
+&lt;button @click.exact="onClick"&gt;A&lt;/button&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-mod-key-mouse">Модификаторы клавиш мыши</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Модификаторы ограничивают обработчик события только вызовами определённой кнопкой мыши</li>
+</ul>
+
+<ul class="list-point">
+	<li><bg-code-list>.left</bg-code-list></li>
+	<li><bg-code-list>.right</bg-code-list></li>
+	<li><bg-code-list>.middle</bg-code-list></li>
+</ul>

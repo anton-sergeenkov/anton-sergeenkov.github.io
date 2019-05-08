@@ -1,0 +1,64 @@
+<h2>Create React App</h2>
+
+<bg-link>
+	<a href="https://facebook.github.io/create-react-app/docs/getting-started" target="_blank">Getting Started</a>
+	<a href="https://github.com/facebook/create-react-app#create-react-app--" target="_blank">Create React App</a>
+	<a href="https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents" target="_blank">Available Scripts</a>
+</bg-link>
+
+<ul class="list-point">
+	<li><bg-define>Create React App</bg-define> - создание одностраничных приложений, предоставляет команды для сборки фронтенда</li>
+	<li>«Под капотом» используются <u>Babel</u> и <u>Webpack</u>, <u>eslint</u> и т.д.</li>
+</ul>
+
+<pre><code class="bash">
+<em>npx create-react-app my-app</em> # пакеты
+<em>cd my-app</em>                   # выбор директирии
+<em>npm start</em>                   # start
+<em>npm run build</em>               # создаст оптимизированную сборку приложения в папке build
+</code></pre>
+
+<img src="/img/react/tree3.png" class="inline" width="200px">
+<img src="/img/react/tree2.png" class="inline">
+<img src="/img/react/tree1.png" class="inline">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>./public/index.html</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;div id="root"&gt;&lt;/div&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>./src/index.js</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './components/App/App';
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>./src/components/App/App.js</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+import React from 'react';
+import logo from '../../assets/logo.svg';
+
+export default class App extends React.Component {
+	render() {
+		return (
+			&lt;div&gt;
+				&lt;img src={logo} /&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+</code></pre>

@@ -1,0 +1,20 @@
+<h2>Оператор разворота (ES6)</h2>
+
+Позволяет разворачить элементы массива для передачи в качестве аргументов функций 
+или в элементы другого массива
+<h3>Массив</h3>
+<pre><code class="js">
+var staticLanguages = ['C', 'C++', 'Java'];
+var dinamicLanguages = ['JavaScript', 'PHP', 'Ruby'];
+var languages = [...staticLanguages, 'C#', ...dinamicLanguages, 'Python'];
+// result: ['C', 'C++', 'Java', 'C#', 'JavaScript', 'PHP', 'Ruby']
+</code></pre>
+
+<h3>Функция</h3>
+<pre><code class="js">
+function add(x,y,z) {
+	console.log(x + y + z);
+}
+var numbers = [1, 2, 3];
+add(...numbers);
+</code></pre>

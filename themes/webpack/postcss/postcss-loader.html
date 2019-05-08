@@ -1,0 +1,75 @@
+<h2>postcss-loader</h2>
+
+<pre class="npm"><code class="bash">
+npm i --save-dev <bg-npm>postcss-loader</bg-npm>
+</code></pre>
+
+<bg-link>
+    <a href="https://github.com/postcss/postcss/blob/master/docs/plugins.md" target="_blank">PostCSS Plugins</a>
+</bg-link>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через webpack.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><code-type>webpack.config.js</code-type>
+module: {
+    rules: [
+        {
+            test: /\.scss/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                <bg-code-wrapper>
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: [
+                            //
+                        ],
+                        sourceMap: true
+                    }
+                },
+                </bg-code-wrapper>
+                'sass-loader'
+            ]
+        },
+    ]
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через postcss.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><code-type>webpack.config.js</code-type>
+module: {
+    rules: [
+        {
+            test: /\.scss/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                <bg-code-wrapper>
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        config: { path: './postcss.config.js' },
+                        sourceMap: true
+                    }
+                },
+                </bg-code-wrapper>
+                'sass-loader'
+            ]
+        },
+    ]
+}
+</code></pre>
+
+<pre><code class="js"><code-type>postcss.config.js</code-type>
+module.exports = {
+    plugins: [
+        require('autoprefixer'),
+        require('css-mqpacker'),
+        require('cssnano')
+    ]
+}
+</code></pre>

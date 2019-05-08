@@ -1,0 +1,11 @@
+<snippet>
+<content><![CDATA[
+<pre><code class="js light">
+<table>
+	<tr><td><bg-methods>${1:this}</bg-methods><bg-arguments>arguments</bg-arguments></td><td>  //</td></tr>
+	<tr><td><em>	&#8226; argument</em></td><td>  //</td></tr>
+</table></code></pre>
+]]></content>
+<tabTrigger>=method</tabTrigger>
+<scope>text.html</scope>
+</snippet>

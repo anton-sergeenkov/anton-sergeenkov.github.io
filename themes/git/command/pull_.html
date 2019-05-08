@@ -1,0 +1,15 @@
+<h2>CLONE / PULL</h2>
+
+<pre><code class="none">
+<em>$ git <bg-code>clone</bg-code> git@github.com:anton-sergeenkov/repo.git</em> # создание локальной копии удаленного git-репозитория (выполняется 1 раз)
+<em>$ git <bg-code>pull</bg-code></em> # получить изменения из удаленного git-репозитория в локальный репозиторий
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>pull</h4>
+<!------------------------------------------------------------->
+<pre><code class="none">
+<em>$ git <bg-code>pull origin</bg-code></em>        # Замерджить все ветки с удаленного репозитория
+<em>$ git <bg-code>pull origin</bg-code> master</em> # Аналогично предыдущему, но накатывается только ветка master
+<em>$ git <bg-code>pull origin HEAD</bg-code></em>   # Накатить текущую ветку, не вводя ее длинное имя
+</code></pre>

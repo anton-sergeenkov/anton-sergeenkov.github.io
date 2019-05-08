@@ -1,0 +1,25 @@
+<h2>Media queries</h2>
+
+<h3>Media queries</h3>
+<pre><code class="js">
+var screen = <bg-code>window.matchMedia</bg-code>('(max-width:500px)');
+if (screen.<bg-code>matches</bg-code>) {
+	console.log('<500px');
+} else {
+	console.log('>500px');
+}
+</code></pre>
+
+<pre><code class="js">
+var screen = window.matchMedia('(max-width:500px)');
+screen.addListener(changes);
+changes(screen);
+
+function changes(screen) {
+	if (screen.matches) {
+		console.log('<500px');
+	} else {
+		console.log('>500px');
+	}
+}
+</code></pre>

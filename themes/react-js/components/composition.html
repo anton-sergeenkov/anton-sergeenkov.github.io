@@ -1,0 +1,83 @@
+<h2>Композиция против наследования</h2>
+
+<ul class="list-point">
+	<li>Для переиспользования кода между компонентами рекомендуется использовать композицию вместо наследования</li>
+	<li>Если вы хотите переиспользовать не связанную с внешним видом функциональность между компонентами, извлеките её в отдельный JavaScript-модуль. Импортируйте его в компонент и используйте эту функцию, объект или класс, не расширяя их</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вставка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>props children</h4>
+<!------------------------------------------------------------->
+
+<ul class="list-point">
+	<li><bg-define>props children</bg-define> - передаст дочерние элементы сразу на вывод</li>
+</ul>
+
+<pre><code class="js"><code-type>parent js</code-type>
+// ReactDOM.render
+class ComponentParent extends React.Component {
+	render() {
+		return (
+			&lt;ComponentChild color="blue"&gt;
+				&lt;h2&gt;Данные из ComponentParent&lt;/h2&gt;
+			&lt;/ComponentChild&gt;
+		);
+	}
+}
+</code></pre>
+
+<pre><code class="js"><code-type>child js</code-type>
+class ComponentChild extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			&lt;div&gt;
+				{this.props.color}
+				<bg-code>{this.props.children}</bg-code>
+			&lt;/div&gt;
+		);
+	}
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Передача компонета в props</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>В React нет никаких ограничений на то, что можно передать в качестве пропсов</li>
+</ul>
+
+<pre><code class="js"><code-type>parent js</code-type>
+// ReactDOM.render
+class ComponentParent extends React.Component {
+	render() {
+		return (<bg-code>&lt;ComponentChild small={&lt;ComponentSmall /&gt;} /&gt;</bg-code>);
+	}
+}
+</code></pre>
+
+<pre><code class="js"><code-type>small js</code-type>
+class ComponentSmall extends React.Component {
+	render() {
+		return (&lt;div&gt;ComponentSmall&lt;/div&gt;);
+	}
+}
+</code></pre>
+
+<pre><code class="js"><code-type>child js</code-type>
+class ComponentChild extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (&lt;div&gt;{<bg-code>this.props.small</bg-code>}&lt;/div&gt;);
+	}
+}
+</code></pre>
+

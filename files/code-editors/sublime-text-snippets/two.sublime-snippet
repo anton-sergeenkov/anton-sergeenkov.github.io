@@ -1,0 +1,14 @@
+<snippet>
+<content><![CDATA[
+<v-two type="html;js" comment="comment;comment">
+<template v-slot:first>
+${1:this}
+</template>
+<template v-slot:last>
+${2:this}
+</template>
+</v-two>
+]]></content>
+<tabTrigger>=two</tabTrigger>
+<scope>text.html</scope>
+</snippet>

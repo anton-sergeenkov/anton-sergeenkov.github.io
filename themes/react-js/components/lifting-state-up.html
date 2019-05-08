@@ -1,0 +1,43 @@
+<h2>Подъём состояния</h2>
+
+<ul class="list-point">
+	<li><bg-define>Подъём состояния</bg-define> - совместное использование состояния, которое достигается перемещением его до ближайшего предка компонентов, которым оно требуется</li>
+	<li>Рекомендуется поднимать общее состояние до ближайшего общего предка</li>
+
+	<hr>
+	<li>Создания «управляемого» компонента. Точно так же, как DOM-элемент <code class="txt">&lt;input&gt;</code> принимает атрибуты <code class="txt">value</code> и <code class="txt">onChange</code>, так и пользовательский <code class="txt">ComponentChild</code> принимает <code class="txt">emitHandleParent</code> от своего родителя <code class="txt">ComponentParent</code></li>
+</ul>
+
+<pre><code class="js"><code-type>child js</code-type>
+class ComponentChild extends React.Component {
+	handleChild = () =&gt; {
+		<bg-code>this.props.emitHandleParent('Jack');</bg-code>
+	}
+	render() {
+		return (
+			&lt;button onClick={<bg-code>this.handleChild</bg-code>}&gt;Ok&lt;/button&gt;
+		);
+	}
+}
+</code></pre>
+
+<pre><code class="js"><code-type>parent js</code-type>
+class ComponentParent extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { name: 'Tony' };
+	}
+	handleParent = (name) =&gt; {
+		<bg-code>this.setState({ name: name });</bg-code>
+	}
+	render() {
+		return (
+			&lt;div&gt;
+				<bg-code>&lt;ComponentChild emitHandleParent={this.handleParent} /&gt;</bg-code>
+				{this.state.name}
+			&lt;/div&gt;
+		);
+	}
+}
+</code></pre>
+

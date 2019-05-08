@@ -1,0 +1,36 @@
+<h2>sass-loader</h2>
+
+<pre class="npm"><code class="bash">
+npm i --save-dev <bg-npm>sass-loader</bg-npm>
+npm i --save-dev <bg-npm>node-sass</bg-npm>
+</code></pre>
+
+<ul class="list">
+    <li><bg-define>sass-loader</bg-define> - compiles Sass to CSS, using Node Sass by default</li>
+</ul>
+
+<pre><code class="js"><code-type>webpack.config.js</code-type>
+module: {
+    rules: [
+        {
+            test: /\.scss/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                <bg-code-wrapper>
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                },
+                </bg-code-wrapper>
+            ]
+        },
+    ]
+}
+</code></pre>
+
+<pre><code class="js"><code-type>Component.js</code-type>
+import './style.scss';
+</code></pre>

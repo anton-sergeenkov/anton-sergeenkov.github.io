@@ -1,0 +1,65 @@
+<h2>Параметры функции (ES6)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Параметры по умолчанию (default parameters)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function greet(greeting='Hello', name='Friend') {
+	console.log(greeting + ' ' + name);
+}
+greet();
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Оставшиеся параметры (rest parameters)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// arguments - объект, содержащий переданные агрументы
+[object Arguments] {
+	0: arg1,
+	1: arg2, 
+	2: arg3,
+	3: arg4
+}
+</code></pre>
+
+<v-two type="js;js" comment="ES6;ES5">
+<template v-slot:first>
+function sum() {
+	var sum = 0;
+	Array.prototype.forEach.call(arguments, function(value) {
+		sum += value;
+	});
+	console.log(sum);
+}
+sum(1, 2, 3, 4);
+
+function sum() {
+	var sum = 0;
+	for (let value in arguments) {
+		sum += arguments[value];
+	}
+	console.log(sum);
+}
+sum(1, 2, 3, 4);
+</template>
+<template v-slot:last>
+// Синтаксис отдельных параметров превращает отдельные элементы в масссив
+function sum(...values) {
+	var sum = 0;
+	values.forEach(function(value) {
+		sum += value;
+	});
+	console.log(sum);
+}
+sum(1, 2, 3, 4);
+
+function sum(...values) {
+	console.log(values.reduce(function(prevValue, currentValue){
+		return prevValue + currentValue;
+	}));
+}
+sum(1, 2, 3, 4);
+</template>
+</v-two>

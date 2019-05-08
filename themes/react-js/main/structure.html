@@ -1,0 +1,75 @@
+<h2>Структура</h2>
+
+<ul class="list-point">
+	<li>Один компонент <code class="txt">App</code>, который находится на самом верху</li>
+	<li>Существует два типа «модели» данных: пропсы <code class="txt">this.props</code> и состояние <code class="txt">this.state</code></li>
+</ul>
+
+<pre><code class="js"><code-type>Component App</code-type>
+class App extends React.Component {
+	<bg-code-wrapper><code-type>constructor</code-type>
+	constructor(props) {
+		super(props);
+		<bg-code>this.state</bg-code> = {
+			name: 'Tony'
+		};
+	}
+	</bg-code-wrapper>
+
+<bg-code-wrapper><code-type>метод</code-type>
+	changeName(name) {
+		// синхронно
+		<bg-code>this.setState</bg-code>({
+			name: name
+		});
+		// асинхронно
+		<bg-code>this.setState</bg-code>((state, props) => ({
+			info: state.name + props.age
+		}));
+	}
+	// стрелочная функция для обработчиков событий (предотвращение потери контекста)
+	handleClick = () => {
+		alert(this.state.name);
+	}
+</bg-code-wrapper>
+
+<bg-code-wrapper><code-type>mounting (метод жизненного цикла)</code-type>
+	componentDidMount() {
+        // новое свойство, не видно в render
+        this.info = 'Start Variable';
+        // вызов метода
+        this.changeName('Jack');
+	}
+</bg-code-wrapper>
+
+<bg-code-wrapper><code-type>unmounting (метод жизненного цикла)</code-type>
+	componentWillUnmount() {
+		//
+	}
+</bg-code-wrapper>
+
+<bg-code-wrapper><code-type>render</code-type>
+	render() {
+		return (
+			&lt;h2&gt;
+				&lt;ComponentA param="data" /&gt;
+				{<bg-code>this.state</bg-code>.name}
+				{<bg-code>this.props</bg-code>.age}
+				&lt;button onClick={this.handleClick}&gt;Ok&lt;/button&gt;
+			&lt;/h2&gt;
+		);
+	}
+</bg-code-wrapper>
+}
+</code></pre>
+
+<pre><code class="js"><code-type>render</code-type>
+ReactDOM.render(
+	&lt;App age="25" /&gt;,
+	document.getElementById('root')
+);
+</code></pre>
+
+<pre><code class="html"><code-type>html</code-type>
+&lt;div id="root"&gt;&lt;/div&gt;
+</code></pre>

@@ -1,0 +1,145 @@
+<h2>Формы</h2>
+
+<ul class="list-point">
+	<li>У элементов формы изначально есть внутреннее состояние</li>
+	<li><bg-define>Управляемые компоненты</bg-define> В HTML элементы формы, такие как <code class="txt">&lt;input&gt;, &lt;textarea&gt; &lt;select&gt;</code>, обычно сами управляют своим состоянием и обновляют его когда пользователь вводит данные. В React мутабельное состояние обычно содержится в свойстве компонентов state и обновляется только через вызов <code class="txt">setState()</code>. Мы можем скомбинировать оба подхода и сделать состояние React-компонента <u>«единственным источником правды»</u>. Тогда React-компонент будет рендерить форму и контролировать её поведение в ответ на пользовательский ввод. Значение элемента формы <code class="txt">input</code> в этом случае будет контролировать React, а сам элемент будет называться управляемый компонент»</li>
+	<li><bg-define>Неуправляемые компоненты</bg-define> - альтернативная техника реализации ввода данных в форму</li>
+</ul>
+
+
+<ul class="list-point">
+	<li><a href="https://jaredpalmer.com/formik/" target="_blank">Formik</a> - библиотека построенная на принципах управляемых компонентов и управления состоянием. Полноценное решение, которое может валидировать ввод, запомнить посещённые поля формы и обработать её отправку</li>
+	
+</ul>
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>input, submit</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { value: '' };
+	}
+	handleChange = (event) =&gt; {
+		this.setState({value: <bg-code>event.target.value</bg-code>.toUpperCase()});
+	}
+	handleSubmit = (event) =&gt; {
+		alert(this.state.value);
+		<bg-code>event.preventDefault();</bg-code>
+	}
+	render() {
+		return (
+			&lt;form <bg-code>onSubmit</bg-code>={this.handleSubmit}&gt;
+				&lt;input type="text" <bg-code>value={this.state.value}</bg-code> <bg-code>onChange</bg-code>={this.handleChange} /&gt;
+				&lt;input type="submit" value="Отправить" /&gt;
+			&lt;/form&gt;
+		);
+	}
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>textarea</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+&lt;textarea value={this.state.value} onChange={this.handleChange}&gt;&lt;/textarea&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>select</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Пункт списка «Кокос» выбран по умолчанию из-за установленного атрибута <code class="txt">selected</code>. React вместо этого атрибута использует <code class="txt">value</code> в корневом теге <code class="txt">select</code>. В управляемом компоненте так удобнее, потому что обновлять значение нужно только в одном месте (<code class="txt">state</code>)</li>
+</ul>
+
+<pre><code class="js">
+constructor(props) {
+	this.state = {value: 'coconut'};
+}
+</code></pre>
+
+<pre><code class="html">
+&lt;form onSubmit={this.handleSubmit}&gt;
+	&lt;select value={this.state.value} onChange={this.handleChange}&gt;
+		&lt;option value="lime"&gt;Лайм&lt;/option&gt;
+		&lt;option value="coconut"&gt;Кокос&lt;/option&gt;
+		&lt;option value="mango"&gt;Манго&lt;/option&gt;
+	&lt;/select&gt;
+	&lt;input type="submit" value="Отправить" /&gt;
+&lt;/form&gt;
+</code></pre>
+
+<ul class="list-point">
+	<li>В атрибут <code class="txt">value</code> можно передать массив, что позволит выбрать несколько опций в теге <code class="txt">select</code></li>
+</ul>
+
+<pre><code class="html">
+&lt;select multiple={true} value={['Б', 'В']}&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обработка нескольких элементов input</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Если нужны несколько управляемых элементов <code class="txt">input</code>, можно назначить каждому из них атрибут name, что позволит функции-обработчику решать, что делать, основываясь на значении <code class="txt">event.target.name</code></li>
+</ul>
+
+<pre><code class="js">
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isGoing: true,
+			numberOfGuests: 2
+		  };
+	}
+	handleInputChange = (event) =&gt; {
+		const target = event.target;
+		const value = target.type === 'checkbox' ? target.checked : target.value;
+		<bg-code>const name = target.name;</bg-code>
+		this.setState({
+			<bg-code>[name]: value</bg-code>
+		});
+	}
+	render() {
+		return (
+			&lt;div&gt;
+				&lt;input <bg-code>name="isGoing"</bg-code> type="checkbox" checked={this.state.isGoing} onChange={this.handleInputChange} /&gt;
+				&lt;input <bg-code>name="numberOfGuests"</bg-code> type="number" value={this.state.numberOfGuests} onChange={this.handleInputChange} /&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Вычисляемые имена свойств</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+this.setState({
+	[name]: value
+});
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Значение null управляемого компонента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Если установить управляемому компоненту проп <code class="txt">value</code>, то пользователь не сможет изменить его значение без вашего желания. Если вы установили <code class="txt">value</code>, а поле ввода по-прежнему можно редактировать, то, возможно, вы случайно задали <code class="txt">value</code>, равный <code class="txt">undefined</code> или <code class="txt">null</code></li>
+	<li>Пример: изначально заблокированный <code class="txt">input</code> становится редактируемым спустя 1с</li>
+</ul>
+
+<pre><code class="js">
+ReactDOM.render(&lt;input value="Привет" /&gt;, mountNode);
+
+setTimeout(function() {
+	ReactDOM.render(&lt;input value={null} /&gt;, mountNode);
+}, 1000);
+</code></pre>

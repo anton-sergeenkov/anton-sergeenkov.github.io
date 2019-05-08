@@ -1,0 +1,27 @@
+<h2>html-webpack-plugin</h2>
+
+<pre class="npm"><code class="bash">
+npm i --save-dev <bg-npm>html-webpack-plugin</bg-npm>
+</code></pre>
+
+<bg-link>
+	<a href="https://webpack.js.org/concepts/#plugins" target="_blank">webpack.js.org (html-webpack-plugin)</a>
+</bg-link>
+
+<ul class="list-point">
+	<li>Указание шаблона файла .html в который подключается основной скрипт .js</li>
+	<li>Плагин генерирует HTML файл, затем вставляет в него скрипт и записывает файл на dist/index.html</li>
+</ul>
+
+<pre><code class="js">
+	<bg-code-wrapper>
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+	</bg-code-wrapper>
+module.exports = {
+	plugins: [
+		<bg-code-wrapper>
+		new HtmlWebpackPlugin({template: './index.html'})
+		</bg-code-wrapper>
+	]
+}
+</code></pre>

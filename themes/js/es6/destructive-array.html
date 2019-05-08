@@ -1,0 +1,62 @@
+<h2>Деструктивное присваивание массивов (ES6)</h2>
+
+<pre><code class="js">
+var languages = ['JavaScript', 'Python', 'Ruby'];
+// ES5
+var js = languages[0];
+var py = languages[1];
+var rb = languages[2];
+</code></pre>
+
+<h4>Деструтивное присваивание</h4>
+<pre><code class="js">
+var languages = ['JavaScript', 'Python', 'Ruby'];
+var [js, py, rb] = languages;
+</code></pre>
+
+<h4>Игнорирование значения</h4>
+<pre><code class="js">
+var scores = [3, 4, 5];
+var [low, , high] = scores; 
+</code></pre>
+
+<h4>Преобразование в массив оставшихся значений</h4>
+<pre><code class="js">
+var scores = [3, 4, 5];
+var [low, ...rest] = scores;
+</code></pre>
+
+<h4>Значение по умолчанию</h4>
+<pre><code class="js">
+var scores = [3, 4];
+var [low, mid, high=5] = scores;
+</code></pre>
+
+<h4>Значение из массива</h4>
+<pre><code class="js">
+var scores = [3, 4, [5, 6]];
+var [low, mid, [high, higher]] = scores;
+</code></pre>
+
+<h4>Деструктивное присванивание как параметр функции</h4>
+<pre><code class="js">
+function cumputeScore([low, mid]) {
+	console.log(low, mid);
+}
+cumputeScore([3, 4]);
+</code></pre>
+
+<h4>Деструктивное присвание для возврата нескольких значений из функции</h4>
+<pre><code class="js">
+function getScores() {
+	return [3, 4, 5];
+}
+var [low, mid, high] = getScores();
+</code></pre>
+
+<h3>Пример #1. Быстрый обмен значений переменнных</h3>
+<pre><code class="js">
+var yes = 'Yes';
+var no = 'No';
+[yes, no] = [no, yes];
+</code></pre>

@@ -1,0 +1,26 @@
+<h2>package.json</h2>
+
+<pre><code class="bash">
+npm init
+npm i --save-dev http-server
+</code></pre>
+
+<pre><code class="json">
+{
+	"scripts": {
+		"hello": "echo \"hi\"",                                      # вывод в консоль
+		"start": "node index.js",                                    # вызов js
+		"server": "node ./node_modules/http-server/bin/http-server", # аналогично
+		"server": "http-server",                                     # аналогично
+		"webpack": "webpack <bg-code>-w</bg-code>"                                      # watcher
+	}
+}
+</code></pre>
+
+<pre><code class="bash">
+<bg-code>node</bg-code>           # выполнение кода в консоли
+<bg-code>node index.js</bg-code>  # выполнение файла index.js
+<bg-code>npm start</bg-code>      # выполнение скрипта из package.json
+<bg-code>npm server</bg-code>     # выполнение скрипта из package.json (аналогично)
+<bg-code>npm run server</bg-code> # выполнение скрипта из package.json (аналогично)
+</code></pre>

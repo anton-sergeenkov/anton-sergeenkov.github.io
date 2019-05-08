@@ -1,0 +1,65 @@
+<h2>Скрипты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>package.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre class="npm"><code class="js">
+npm run <bg-npm>start</bg-npm>
+npm run <bg-npm>build</bg-npm>
+</code></pre>
+
+<ul class="list-point">
+	<li>В Webpack 4 есть два режима: режим <u>production</u>, который создает оптимизированные файлы, готовые к использованию в режиме <u>production</u> и режим <u>development</u>, который создает легко читаемый код. Флаг <code class="txt">--mode</code> позволяет выбрать, какой режим использовать</li>
+	<li>Флаги <code class="txt">--open</code> и <code class="txt">--hot</code> ответственны за обновление веб-страницы всякий раз, когда происходят какие-либо изменения в компонентах</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Основное</h4>
+<!------------------------------------------------------------->
+<pre><code class="json">
+{
+	"scripts": {
+		"start": "webpack-dev-server",         <bg-comment># server</bg-comment>
+		"build": "webpack"                     <bg-comment># watcher</bg-comment>
+	}
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Дополнительно</h4>
+<!------------------------------------------------------------->
+<pre><code class="json">
+{
+	"scripts": {
+		"watch":  "webpack -w",                         <bg-comment># watcher</bg-comment>
+		"watch":  "webpack --watch",                    <bg-comment># watcher</bg-comment>
+		"dev":    "webpack -d",                         <bg-comment># development</bg-comment>
+		"prod":   "webpack -p",                         <bg-comment># production</bg-comment>
+		"dev":    "webpack --mode development --watch", <bg-comment># development</bg-comment>
+		"prod":   "webpack --mode production"           <bg-comment># production</bg-comment>
+		"start":  "webpack-dev-server --mode development --open --hot"
+	}
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>webpack.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+module.exports = {
+	mode: 'development',
+	devtool: 'source-map',
+	module: {
+		rules: [
+			...
+		]
+	},
+	devServer: {
+		...
+	},
+	plugins: [
+		...
+	]
+}
+</code></pre>

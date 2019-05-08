@@ -1,0 +1,21 @@
+<h2>clean-webpack-plugin</h2>
+
+<pre class="npm"><code class="bash">
+npm i --save-dev <bg-npm>clean-webpack-plugin</bg-npm>
+</code></pre>
+
+<pre><code class="js">
+	<bg-code-wrapper>
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+	</bg-code-wrapper>
+
+module.exports = {
+    plugins: [
+    	<bg-code-wrapper>
+		new CleanWebpackPlugin()
+		</bg-code-wrapper>
+    ]
+};
+</code></pre>
+
+<alert-info>Если webpack запущен в режиме watch, то при пересохранении удаляет все изображения из dist. Изображения создаются только при запуске webpack</alert-info>

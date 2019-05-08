@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="../img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+<div id="container">
+<div id="menu-left">
+    <div id="menu-left-starter">
+        <div id="menu-left-show"></div>
+        <a href="#menu-top">Starter</a>
+    </div>
+
+    <a href="#functions">Функции</a>
+    <a href="#export">Require, Exports</a>
+    <a href="#modules">Модули</a>
+    <a href="#files">Файлы и директории</a>
+    <a href="#server">Создание сервера</a>
+    <a href="#stream">Потоки</a>
+    <a href="#pipe">.pipe</a>
+    <a href="#router">Маршрутизация</a>
+    <a href="#express">NPM пакет Express</a>
+    <a href="#body-parser">NPM пакет Body-parser</a>
+    <a href="#nodemailer">NPM пакет Nodemailer</a>
+    <a href="#data-url">Данные из url</a>
+    <a href="#samples">Примеры</a>
+</div>
+<div id="content-wrapper">
+<div id="menu-top"></div>
+<div id="content">
+
+
+
+
+<h1>Node.js</h1>
+
+<ul class="list">
+    <li><span class="hl">Node.js</span> - платформа, среда запуска JS на локальном компьютере</li>
+</ul>
+
+<pre><code class="js">
+node -v       // Проверка версии NodeJs
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="functions">Функции</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Именованная функция</h3>
+<pre>
+<code class="js">
+var name = function() {
+	console.log('text');
+};
+name();
+</code>
+</pre>
+
+<h3>Вызов функции через другую функцию</h3>
+<pre>
+<code class="js">
+var name = function() {
+	console.log('text');
+};
+function call(func) {
+	func();
+}
+call(name);
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="export">Require, Exports</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+things.js
+<pre>
+<code class="js">
+var array_counter = function(array) {
+    return "В массиве находится " + array.length + " элемента!";
+};
+module.exports = array_counter;
+</code>
+</pre>
+index.js
+<pre>
+<code class="js">
+var counter = require('./things');
+var a = counter([1, 7, 9, 99, 45, 8]);
+console.log(a);
+</code>
+</pre>
+
+<h3>Exports нескольких переменных/функций (1 вариант)</h3>
+things.js
+<pre>
+<code class="js">
+var multiply = function(x, y) {
+    // шаблон
+    return `${x} умножить ${y} равно ${x * y}`;
+};
+var some_value = 451;
+module.exports.multiply = multiply;
+module.exports.some_value = some_value;
+</code>
+</pre>
+index.js
+<pre>
+<code class="js">
+var things = require('./things');
+var a = things.some_value;
+var b = things.multiply(5, 7);
+</code>
+</pre>
+
+<h3>Exports нескольких переменных/функций (2 вариант)</h3>
+things.js
+<pre>
+<code class="js">
+module.exports.multiply = function(x, y) {
+    return `${x} умножить ${y} равно ${x * y}`;
+};
+module.exports.some_value = 451;
+</code>
+</pre>
+index.js
+<pre>
+<code class="js">
+var things = require('./things');
+var a = things.some_value;
+var b = things.multiply(5, 7);
+</code>
+</pre>
+
+<h3>Exports нескольких переменных/функций (3 вариант)</h3>
+things.js
+<pre>
+<code class="js">
+var multiply = function(x, y) {
+    return `${x} умножить ${y} равно ${x * y}`;
+};
+var some_value = 451;
+module.exports = {
+    array_counter: array_counter,
+    multiply: multiply,
+    some_value: some_value
+};
+</code>
+</pre>
+index.js
+<pre>
+<code class="js">
+var things = require('./things');
+var a = things.some_value;
+var b = things.multiply(5, 7);
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="modules">Модули</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Модуль отслеживания событий</h3>
+<pre>
+<code class="js">
+// модуль отслеживания событий
+var events = require('events');
+</code>
+</pre>
+
+<pre>
+<code class="js">
+var my_emit = new events.EventEmitter();
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// обработчик событий
+my_emit.on('some_event', function(text) {
+    console.log(text);
+});
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// вызов события
+my_emit.emit('some_event', 'Обработчки событий');
+</code>
+</pre>
+
+<h3>Модуль наследования событий для объекта</h3>
+
+<pre>
+<code class="js">
+var events = require('events'); // модуль отслеживания событий
+var util = require('util');     // модуль наследования событий для объекта
+</code>
+</pre>
+<pre>
+<code class="js">
+// конструктор объектов
+var cars = function(model) {
+    this.model = model;
+}
+</code>
+</pre>
+<pre>
+<code class="js">
+// наследование событий для всех объектов, созданных на основе cars
+util.inherits(cars, events.EventEmitter);
+</code>
+</pre>
+<pre>
+<code class="js">
+var bmw   = new cars('BMW');
+var audi  = new cars('Audi');
+var volvo = new cars('Volvo');
+</code>
+</pre>
+<pre>
+<code class="js">
+// массив объектов
+var cars_arr = [bmw, audi, volvo];
+cars_arr.forEach(function(element) {
+    element.on('speed', function(text) {
+        console.log(element.model + ' speed is - ' + text);
+    });
+});
+</code>
+</pre>
+<pre>
+<code class="js">
+bmw.emit('speed', '254km');
+audi.emit('speed', '150km');
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="files">Файлы и директории</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Чтение из файла</h3>
+Синхронно. Дальнейший код будет выполняться только после чтения файла (Sync)
+<pre>
+<code class="js">
+var fs = require('fs');
+var file_readed = fs.readFileSync('text.txt', 'utf8');
+console.log(file_readed);
+</code>
+</pre>
+Асинхронно
+<pre>
+<code class="js">
+var fs = require('fs');
+fs.readFile('text.txt', 'utf8', function(err, data) {
+    console.log(data);
+});
+</code>
+</pre>
+
+<h3>Запись в файл</h3>
+Синхронно
+<pre>
+<code class="js">
+var fs = require('fs');
+fs.writeFileSync('new_file.txt', 'Текст для \n файла');
+</code>
+</pre>
+Асинхронно
+<pre>
+<code class="js">
+var fs = require('fs');
+fs.writeFile('new_file.txt', 'Текст для \n файла', function(err, data) {});
+</code>
+</pre>
+
+<h3>Удаление файла</h3>
+<pre>
+<code class="js">
+var fs = require('fs');
+fs.unlinkSync('file.txt'); // синхронно
+fs.unlink('file.txt', function() {}); // асинхронно
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// удаление сначала файла из папки
+fs.unlink('./test-folder/file.txt', function() {
+    // после этого удаление папки
+    fs.rmdir('test-folder', function() {});
+});
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="server">Создание сервера</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+req - request (запрос)
+res - response (ответ)
+</code>
+</pre>
+
+<pre>
+<code class="js">
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    console.log('url: ' + req.url);
+    res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+    res.end('Привет мир');
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="stream">Потоки</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="js">
+var fs = require('fs');
+// поток на чтение
+var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+// поток на запись
+var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+// обработчик чтения данных
+myReadShort.on('data', function(chunk) {
+    console.log('Данные получены: \n' + chunk);
+    // записываем в новый файл
+    myWriteShort.write(chunk);
+});
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="pipe">.pipe</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+Взять файл article.txt и записать его в news.txt
+<pre>
+<code class="js">
+var fs = require('fs');
+var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+myReadShort.pipe(myWriteShort);
+</code>
+</pre>
+
+Вывод текстового файла на страницу
+<pre>
+<code class="js">
+var fs = require('fs');
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+    var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+    myReadShort.pipe(res);
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</code>
+</pre>
+
+Вывод html на страницу
+<pre>
+<code class="js">
+var fs = require('fs');
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+    var myReadShort = fs.createReadStream(__dirname + '/index.html', 'utf8');
+    myReadShort.pipe(res);
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</code>
+</pre>
+
+Вывод json на страницу
+<pre>
+<code class="js">
+var fs = require('fs');
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
+    var obj = {
+        model: 'Audi',
+        speed: '234',
+        wheels: 4
+    };
+    // конвертация в строку
+    res.end(JSON.stringify(obj));
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="router">Маршрутизация (проверка url)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+Проверка url и вывод страницы 404, если страница не найдена
+<pre>
+<code class="js">
+var fs = require('fs');
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    console.log('url: ' + req.url);
+    if (req.url === '/index' || req.url === '/') {
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/index.html').pipe(res);
+    } else if (req.url === '/about') {
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/about.html').pipe(res);
+    } else {
+        res.writeHead(404, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/404.html').pipe(res);
+    }
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="express">NPM пакет Express</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="js">
+npm i express          - установка пакета
+npm uninstall express  - удаление пакета
+npm i                  - установка всех пакетов из package.json
+</code>
+</pre>
+
+<h3>Маршрутизация на Express</h3>
+<pre>
+<code class="js">
+var express = require('express');
+var app = express();
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// статическая ссылка (главная)
+app.get('/', function(req, res) {
+    res.send('This is home');
+});
+
+// статическая ссылка (news)
+app.get('/news', function(req, res) {
+    res.send('This is news');
+});
+
+// ссылка с name статьи /news/23
+app.get('/news/:name', function(req, res) {
+    res.send('id=' + req.params.name);
+});
+
+// ссылка с name и id статьи /news/23
+app.get('/news/:name/:id', function(req, res) {
+    res.send('id=' + req.params.name + req.params.id);
+});
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// отображение html файла
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
+app.get('/about', function(req, res) {
+    res.sendFile(__dirname + '/about.html');
+});
+</code>
+</pre>
+
+<pre>
+<code class="js">
+app.listen(3000);
+</code>
+</pre>
+
+
+<h3>Шаблонизатор на Express</h3>
+
+<h4>Установка шаблонизатора ejs</h4>
+<pre>
+<code class="js">
+npm i ejs
+</code>
+</pre>
+
+<h4>index.js</h4>
+<pre>
+<code class="js">
+var express = require('express');
+var app = express();
+// указание шаблонизатора, который будем использовать
+app.set('view engine', 'ejs');
+// ссылка на статические файлы (css, img, doc и т.д. иначе не будут загружаться)
+app.use('/public', express.static('public'));
+app.get('/news/:id', function(req, res) {
+    // берет шаблон news.ejs из папки views
+    // передает свойство newsId = req.params.id
+    // передает переменную newsParam = 234
+    // передаем объект newsParam
+    var obj = {title: 'Новость', id: 4, paragraphs: ['Текст', 'Числа: 2, 4', 77]};
+    res.render('news', {newsId: req.params.id, newsParam: 234, newsObj: obj});
+});
+app.get('/about', function(req, res) {
+    res.render('about');
+});
+app.listen(3000);
+</code>
+</pre>
+
+<h4>public/css/style.css</h4>
+public - все статические файлы (css, img, doc и т.д.)
+
+<h4>views/about.ejs</h4>
+подключение статического файла
+<pre>
+<code class="html">
+&lt;link rel="stylesheet" href="/public/css/style.css"&gt;
+</code>
+</pre>
+
+<h4>views/news.ejs</h4>
+<pre>
+<code class="html">
+<% include blocks/header.ejs %>    - подключение файла-заголовка
+<%= newsId %>                      - вывод переменной
+<%= newsObj.id %>                  - вывод переменной объекта
+</code>
+</pre>
+<pre>
+<code class="html">
+&lt;ul&gt;
+    &lt;% newsObj.paragraphs.forEach(function(item) { %&gt;
+        &lt;li&gt;&lt;%= item %&gt;&lt;/li&gt;
+    &lt;% }); %&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+
+<h4>views/blocks/header.ejs</h4>
+<pre>
+<code class="html">
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href="/"&gt;main&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/about"&gt;about&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/news/новости"&gt;news&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="body-parser">NPM пакет Body-parser (чтение данных из формы)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="html">
+npm i body-parser
+https://www.npmjs.com/package/body-parser
+</code>
+</pre>
+
+<h3>view/about.ejs</h3>
+<pre>
+<code class="html">
+&lt;form method="post" action="/about"&gt;
+    &lt;input type="email" name="email" placeholder="Email"&gt;
+    &lt;input type="password" name="password" placeholder="Password"&gt;
+    &lt;input type="checkbox" name="checkbox"&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</code>
+</pre>
+
+<h3>index.js</h3>
+<pre>
+<code class="js">
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');                           // подключение пакета
+var urlencodedParser = bodyParser.urlencoded({ extended: false }); // принимаем данные из post-запроса
+app.set('view engine', 'ejs');
+app.get('/about', function(req, res) {
+    res.render('about');
+});
+app.post('/about', urlencodedParser, function(req, res) {  // обработка данных из формы
+    if (!req.body) return res.sendStatus(400);             // если не переданы данные из формы
+    console.log(req.body);                                 // все данные
+    console.log(req.body.email);                           // только email
+    console.log(req.body.password);                        // только password
+    res.render('about');
+});
+app.listen(3000);
+</code>
+</pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="nodemailer">NPM пакет Nodemailer (отправка на почту)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="html">
+https://www.npmjs.com/package/nodemailer
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="data-url">Данные из url</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre>
+<code class="js">
+app.get('/news/:id', function(req, res) {
+    console.log(req.query);
+    res.render('news');
+});
+</code>
+</pre>
+
+<pre>
+<code class="html">
+http://127.0.0.1:3000/news/some?filter=id&city=penza  - запрос
+{ filter: 'id', city: 'penza' }                       - результат
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Примеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Exports функции 1</h3>
+things.js
+<pre>
+<code class="js">
+function things(name) {
+    return `Привет, ${name}`;
+}
+module.exports = things;
+</code>
+</pre>
+index.js
+<pre>
+<code class="js">
+var things = require('./things');
+var a = things('Tony');
+console.log(a);
+</code>
+</pre>
+
+<h3>Exports функции 2</h3>
+greet.js
+<pre>
+<code class="js">
+module.exports = function(greeting) {
+    return function(name) {
+        return `${greeting}, ${name}`;
+    }
+}
+</code>
+</pre>
+
+index.js
+<pre>
+<code class="js">
+const getGreet = require('./greet');
+const greet = getGreet('Привет');
+console.log(greet('Tony'));
+console.log(greet('Harvey'));
+console.log(greet('Andy'));
+</code>
+</pre>
+
+Результат
+<pre>
+<code>
+Привет, Tony
+Привет, Harvey
+Привет, Andy
+</code>
+</pre>
+
+
+
+
+</div>
+</div>
+</div>
+	<div id="preloader"></div>
+    <script src="../libraries/jquery.js"></script>
+	<script src="../libraries/highlight/highlight.pack.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../module/preloader/preloader.js"></script>
+</body>
+</html>

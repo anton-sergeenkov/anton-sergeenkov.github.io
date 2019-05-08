@@ -1,0 +1,60 @@
+<h2>Наследование</h2>
+
+<pre><code class="js">
+class Task {
+	constructor(title, comment) {
+		this._comment = comment; 
+		this.title = title;
+		this.done = false;
+		Task.count += 1;
+		console.log('create task');
+	}
+	get comment() {
+		return this._comment;
+	}
+	set comment(value) {
+		this._comment = value;
+	}
+	static getDefaultComment() {
+		return 'Задача';
+	}
+	complete() {
+		this.done = true;
+		console.log(`Задача ${this.title} выполнена`);
+	}
+}
+Task.count = 0; // общее кол-во задач
+
+// наследование между двумя классами
+// если у подкласса нет конструктора, он будет использовать конструктор родителя
+// если подклассу указать конструктор, то он должен вызывать в начале
+// конструктор родительского класса super()
+// метод super() позволяет наследовать свойства и методы из прототипа
+class SubTask extends Task {
+	constructor(title, comment, parent) {
+		super(title, comment);
+		this.parent = parent;
+		console.log('create subtask');
+	}
+	// переопределение родительского метода
+	complete() {
+		// this.done = true;
+		super.complete();
+		console.log(`Подзадача ${this.title} выполнена`);	
+	}
+}
+
+let task = new Task('Изучить JavaScript', 'Comment Task');
+let subtask = new SubTask('Изучить ES6', 'Comment SubTask', task);
+
+task.complete();
+subtask.complete();
+
+console.log(SubTask.getDefaultComment());
+console.log(SubTask.count);
+</code></pre>
+
+<ul class="list-point">
+	<li>В ES6 нельзя указывать класс до его объявления</li>
+	<li>Классы не засоряют глобальное пространство имен (объект window)</li>
+</ul>

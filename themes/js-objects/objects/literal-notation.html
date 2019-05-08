@@ -1,0 +1,56 @@
+<h2>Литеральная нотация</h2>
+
+<h4>Литеральная нотация</h4>
+<pre><code class="js">
+var property = 'lastName';
+
+var person = {
+	firstName: 'Brad',
+	[property]: 'Stark',
+	age: 25,
+	children: ['Liza', 'Petro'],
+	address: {
+		street: '555 Some st',
+		city: 'Boston',
+		state: 'MA'
+	},
+	getName() {
+		return this.firstName;
+	}, 
+	<bg-code>get</bg-code> fullName() {
+		return this.firstName + ' ' + this.lastName;
+	}, 
+	<bg-code>set</bg-code> fullName(value) {
+		this.firstName = value;
+	}
+}
+</code></pre>
+
+<h4>Обращение к свойствам и методам</h4>
+<pre><code class="js">
+var a = person.firstName;      // точечная нотация (Dot notation)
+var a = person['firstName'];   // скобочная нотация (Bracket notation)
+var a = person.children[0];    // обращение к свойству (массив)
+var a = person.address.street; // обращение к свойству (объект)
+var a = person.getName();      // обращение к методу
+</code></pre>
+
+<h4>Обновление и удаление свойства</h4>
+<pre><code class="js">
+person.firstName = 'Tony';     // обновление свойства
+person.height = 190;           // задание нового свойства
+delete person.firstName;       // удаление свойства (можно удалить только ненаследованные свойства объекта, наследованные свойства удаляются у прототипа)
+</code></pre>
+
+<h4>Добавление метода</h4>
+<pre><code class="js">
+person.greet = function() {
+	console.log('hi');
+}
+</code></pre>
+
+<h4>Геттеры и сеттеры</h4>
+<pre><code class="js">
+person.fullName = 'Steve';     // сеттер
+var a = person.fullName;       // геттер (result = Steve Stark)
+</code></pre>

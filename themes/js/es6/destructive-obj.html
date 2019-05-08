@@ -1,0 +1,68 @@
+<h2>Деструтивное присваивание объектов (ES6)</h2>
+
+<pre><code class="js">
+var person = {
+	firstname: 'Tony',
+	lastname: 'Stark'
+};
+// ES5
+var firstname = person.firstname;
+var lastname = person.lastname;
+</code></pre>
+
+<h4>Деструтивное присваивание объектов</h4>
+<pre><code class="js">
+// имена переменных должны совпадать с именами свойст объекта
+var {firstname, lastname} = person;
+</code></pre>
+
+<h4>Изменение имен переменных</h4>
+<pre><code class="js">
+var {firstname:first, lastname:last} = person;
+</code></pre>
+
+<h4>Значение по умолчанию</h4>
+<pre><code class="js">
+var {firstname, lastname, age=25} = person;
+</code></pre>
+
+<h4>Динамическое определение имен свойст с помощью выражения в []</h4>
+<pre><code class="js">
+var {['first'+'name']:first, lastname} = person;
+</code></pre>
+
+<h3>Извлечение свойств вложенных объектов</h3>
+<pre><code class="js">
+var user = {
+	firstname: 'Tony',
+	lastname: 'Stark',
+	social: {
+		facebook: 'tonystark',
+		twitter: 't-stark'
+	}
+};
+var {firstname, lastname, social:{facebook}} = user;
+</code></pre>
+
+<h3>Использование в качестве параметра функции</h3>
+<pre><code class="js">
+var user = {
+	firstname: 'Tony',
+	lastname: 'Stark'
+};
+function post(url, {data:{firstname, lastname}, cache}) {
+	console.log(firstname, lastname, cache);
+}
+var result = post('api/users', {data:user, cache:false});
+</code></pre>
+
+<h3>Возврат нескольких значений из функции</h3>
+<pre><code class="js">
+function getUser() {
+	return {
+		firstname: 'Tony',
+		lastname: 'Stark'
+	};
+}
+var {firstname, lastname} = getUser();
+</code></pre>

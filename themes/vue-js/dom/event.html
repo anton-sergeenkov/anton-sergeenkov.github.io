@@ -1,0 +1,29 @@
+<h2>Доступ к оригинальному событию DOM</h2>
+
+<ul class="list-point">
+	<li><bg-define>$event</bg-define> - доступ к оригинальному событию DOM, <code class="txt">event</code> нативное событие DOM</li>
+	<li><code class="txt">event.target</code> - выбранный элемент</li>
+	<li><code class="txt">this</code> внутри методов указывает на экземпляр Vue</li>
+</ul>
+
+<pre><code class="html">
+&lt;button @click="methodOne"&gt;&lt;/button&gt;
+&lt;button @click="methodTwo(<bg-code>$event</bg-code>, id)"&gt;&lt;/button&gt;
+</code></pre>
+
+<pre><code class="js">
+var app = new Vue({
+	el: '#app',
+	methods: {
+		methodOne(<bg-code>event</bg-code>) {
+			if (event) {
+				console.log(<bg-code>event</bg-code>.target.tagName);
+				<bg-code>event</bg-code>.preventDefault();
+			}
+		},
+		methodTwo(<bg-code>event</bg-code>, id) {
+			<bg-code>event</bg-code>.toElement.classList.add('active');
+		}
+	}
+})
+</code></pre>

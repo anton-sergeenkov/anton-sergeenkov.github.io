@@ -1,0 +1,133 @@
+
+<h2>Замыкания</h2>
+
+<ul class="list-links">
+	<li><a href="#functions-closures-theory">Теория</a></li>
+	<li><a href="#functions-closures">Практика</a></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="functions-closures-theory">Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list">
+
+	<li><bg-list>1. Создание LexicalEnvironment</bg-list> Создается специальный внутренний объект (словарь / лексическое окружение / объект переменных) LexicalEnvironment, привязанный к этому вызову</li>
+	<ul class="list-point">
+		<li>LexicalEnvironment - это хранилище для данных в памяти и механизм для извлечения этих данных при обращении</li>
+		<li>LexicalEnvironment существует когда есть хотя бы одна функция у которой свойство <u>[[Scope]]</u> ссылается на него</li>
+		<li>LexicalEnvironment является внутренним, он скрыт от прямого доступ</li>
+		<li>На верхнем уровне им является <u>«глобальный объект»</u>, в браузере – <u>window</u></li>
+	</ul>
+
+	<li><bg-list>2. Свойства LexicalEnvironment</bg-list> Все аргументы, функции переменные и константы внутри функции автоматически записываются в LexicalEnvironment и становятся <u>свойствами</u> LexicalEnvironment: имена становятся <u>ключами</u>, а значения <u>значениями</u> в LexicalEnvironment</li>
+
+	<li><bg-list>3. Ссылка на [[Scope]]</bg-list> <u>LexicalEnvironment</u> получает ссылку на скрытое свойство <u>[[Scope]]</u>, которое ссылается на <u>LexicalEnvironment</u> в котором функция была создана, а также на все его <u>свойства</u>. Н-р если функция создана в глобальном объекте <u>window</u>, то <u>[[Scope]]</u> будет ссылаться на <u>window</u></li>
+
+	<ul class="list-point">
+		<li>Благодаря [[Scope]], функция имеет доступ к <u>внешним переменным</u></li>
+		<li>[[Scope]] появляется и исчезает вместе с функцией</li>
+		<li>К [[Scope]] нет прямого доступа</li>
+		<li>При создании функции с использованием <u>new Function</u>, её свойство [[Scope]] ссылается не на текущий LexicalEnvironment, а на window. Следствие - такие функции не могут использовать замыкание</li>
+	</ul>
+	
+	<li><bg-list>4. Доступ к переменным</bg-list> Интерпретатор, при доступе к переменной, сначала пытается найти переменную в текущем <u>LexicalEnvironment</u>, а затем, если её нет – ищет во внешнем объекте переменных, н-р <u>window</u></li>
+
+	<li><bg-list>5. Доступ к внешним переменным</bg-list> Для доступа к внешней переменной функция по ссылке <u>[[Scope]]</u> обращается во <u>внешний объект переменных</u> и берёт то значение, которое там есть на момент обращения</li>
+</ul>
+
+<ul class="list-point">
+	<b>Замыкание</b>
+	<li><bg-header>Замыкание</bg-header> - функция и ее лексическая область видимости в которой она была создана. При этом функция замыкает в себе некоторую информацию из области видимости</li>
+
+	<li>лексическое окружение - переменные внешней области видимости, к которым функция имеет доступ</li>
+	<li>функция вместе со всеми внешними переменными, которые ей доступны</li>
+	<li>сама функция и вся цепока видимости LexicalEnvironment, образованная при создании функции</li>
+	<li>сочетании функции и окружения (глобальные переменные), где она была задана</li>
+</ul>
+
+<ul class="list-point">
+	<b>Свойства замыкания</b>
+	<li>Сохранение промежуточных данных (переменных)</li>
+	<li>Инкапсуляция</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="functions-closures">Практика</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+function sum(a) {
+	return function(b) {
+		return a + b;
+	}
+}
+var s = sum(10);
+console.log(s(15));
+
+// в функции "s" можно производить вычисления с переменными, объявленными в функции sum, 
+// выполнение которых уже завершено, которые уже возвратили некие значения 
+// и обработаны сборщиком мусора
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Пример 2</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+var func = function() {
+	var i = 10;
+	return function() {
+		return i;
+	}
+}
+var anotherFunc = function() {
+	var i = 20;
+	console.log(func()());
+}
+anotherFunc();
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Пример 3</h4>
+<!------------------------------------------------------------->
+<v-two type="js;js code-select" comment="js;js">
+<template v-slot:first>
+function counter() {
+	var count = 0;
+	return function() {
+		count++;
+		console.log(count);
+	}
+}
+var plus = counter();
+plus(); // 1
+plus(); // 2
+plus(); // 3
+</template>
+<template v-slot:last>
+function counter() {
+	var count = 0;
+	return function() {
+		return count++;
+	}
+}
+var plus = counter();
+console.log(plus()); // 0
+console.log(plus()); // 1
+console.log(plus()); // 2
+</template>
+</v-two>
+
+<pre><code class="js">
+var counter = (function() {
+	var count = 0;
+	return function() {
+		return count++;
+	}
+})();
+console.log(counter()); // 0
+console.log(counter()); // 1 
+console.log(counter()); // 2 
+</code></pre>

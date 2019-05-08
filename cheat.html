@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<style>
+	body {
+		max-width: 1200px;
+		margin: auto;
+		padding: 20px 0px;
+	}
+	alert-ok, alert-info, alert-warn, alert-error {
+		display: inline-block;
+		width: auto;
+		height: 55px;
+		margin: 5px;
+	}
+	pre, code, h4, ul {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	pre.clear, code.clear {
+		background: none !important;
+	}
+	ul {
+		margin-right: 20px;
+	}
+</style>
+</head>
+<body>
+
+<!------------------------------------------------------------->
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start;">
+	<alert-ok><code>&lt;alert-ok&gt;text&lt;/alert-ok&gt;</code></alert-ok>
+	<alert-info><code>&lt;alert-info&gt;text&lt;/alert-info&gt;</code></alert-info>
+	<alert-warn><code>&lt;alert-warn&gt;text&lt;/alert-warn&gt;</code></alert-warn>
+	<alert-error><code>&lt;alert-error&gt;text&lt;/alert-error&gt;</code></alert-error>
+</div>
+<!------------------------------------------------------------->
+
+</div>
+<div class="container-flex"><div class="container-half">
+<bg-link>
+	<a href="#">Link1</a>
+	<a href="#">Link2</a>
+</bg-link>
+</div><div class="container-half"><pre><code class="html">
+&lt;bg-link&gt;
+	&lt;a href="#"&gt;Link1&lt;/a&gt;
+	&lt;a href="#"&gt;Link2&lt;/a&gt;
+&lt;/bg-link&gt;
+</code></pre></div></div>
+
+<div></div>
+
+<!------------------------------------------------------------->
+<pre><code class="bash clear">
+<h4>Snippets</h4>
+two-code    # two flex
+list-point  # list-point без &lt;bg-define&gt;
+list-define # list-point с &lt;bg-define&gt;
+list-num    # list-num
+hr3         # h3
+hr4         # h4
+xhtml       # code html
+xcss        # code css
+xjs         # code js
+xbash       # code bash
+</code></pre>
+<!------------------------------------------------------------->
+
+
+<!------------------------------------------------------------->
+<pre><code class="bash clear">
+<h4>Маркеры</h4>
+&#8226;    # &amp;#8226;
+&#9776;   # &amp;#9776;
+&hellip;    # &amp;hellip;
+&#10006;   # &amp;#10006;
+</code></pre>
+<!------------------------------------------------------------->
+
+
+<!------------------------------------------------------------->
+<pre><code class="html clear">
+<h4>Headers</h4>
+&lt;!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --&gt;
+&lt;h3&gt;&lt;/h3&gt;
+&lt;!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --&gt;
+
+&lt;!-------------------------------------------------------------&gt;
+&lt;h4&gt;&lt;/h4&gt;
+&lt;!-------------------------------------------------------------&gt;
+</code></pre>
+<!------------------------------------------------------------->
+
+
+<!------------------------------------------------------------->
+<h4>Ссылки на разделы</h4>
+<!------------------------------------------------------------->
+<div>
+<ul class="list-links">
+	<li><a href="#">Ссылка 1</a></li>
+	<li><a href="#">Ссылка 2</a></li>
+	<li><a href="#">Ссылка 3</a></li>
+	<li><a href="#">Ссылка 4</a></li>
+</ul>
+<pre><code class="html clear">
+&lt;ul class="list-links"&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Ссылка 1&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Ссылка 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</div>
+
+
+<!------------------------------------------------------------->
+<h4>Code Comment</h4>
+<!------------------------------------------------------------->
+<div>
+
+<pre><code class="html"><code-type>result</code-type>
+<b>CODE CODE CODE</b>
+</code></pre>
+
+<pre><code class="html clear">
+&lt;pre&gt;&lt;code class="html"&gt;&lt;code-type&gt;result&lt;/code-type&gt;
+&lt;!-- code --&gt;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+
+</div>
+
+
+<!------------------------------------------------------------->
+<h4>Текст</h4>
+<!------------------------------------------------------------->
+<div>
+<bg-define>Определение</bg-define>
+<pre><code class="html clear">
+&lt;bg-define&gt;&lt;/bg-define&gt;
+</code></pre>
+</div>
+
+<div>
+<u>Акцент в тексте</u>
+<pre><code class="html clear">
+&lt;u&gt;&lt;/u&gt;
+</code></pre>
+</div>
+
+<div>
+<code class="txt">Код в тексте</code>
+<pre><code class="html clear">
+&lt;code class="txt"&gt;&lt;/code&gt;
+</code></pre>
+</div>
+
+<div>
+<bg-code-list>Выделение кода в тексте</bg-code-list>
+<pre><code class="html clear">
+&lt;bg-code-list&gt;&lt;/bg-code-list&gt;
+</code></pre>
+</div>
+
+<div>
+<bg-header>Выделение подзаголовка</bg-header>
+<pre><code class="html clear">
+&lt;bg-header&gt;&lt;/bg-header&gt;
+</code></pre>
+</div>
+
+<!------------------------------------------------------------->
+<h4>Код</h4>
+<!------------------------------------------------------------->
+<div>
+<bg-comment># Комментарий в коде</bg-comment>
+<pre><code class="html clear">
+&lt;bg-comment&gt;Комментарий в коде&lt;/bg-comment&gt;
+</code></pre>
+</div>
+
+<div>
+<bg-code>Выделение кода</bg-code>
+<pre><code class="html clear">
+&lt;bg-code&gt;Выделение кода&lt;/bg-code&gt;
+</code></pre>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-flex"><div class="container-half">
+	<!--  -->
+</code></pre>
+</div><div class="container-half">
+	<!--  -->
+</div></div>
+
+
+
+
+
+<code class="txt"></code>
+<code class="h"></code>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

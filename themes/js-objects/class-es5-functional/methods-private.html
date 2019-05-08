@@ -1,0 +1,47 @@
+<h2>Приватный метод</h2>
+
+<h4>Простой приватный метод и свойство</h4>
+<pre><code class="js">
+function User() {
+    var privateProperty = 77;
+	this.publicMethod = function() {
+        <bg-code>privateMethod</bg-code>();
+    }
+    var <bg-code>privateMethod</bg-code> = function() {
+        console.log('private method call' + privateProperty);
+    }
+}
+var user = new User();
+user.publicMethod(); // => 'private method call77
+</code></pre>
+
+<h4>Сохранение this в замыкании</h4>
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+    <bg-code>var self = this;</bg-code>
+	this.publicMethod = function() {
+        privateMethod();
+    }
+    var privateMethod = function() {
+        console.log(<bg-code>self.name</bg-code>);
+    }
+}
+var user = new User();
+user.publicMethod(); // => 'Tony'
+</code></pre>
+
+<h4>Стрелочная функция</h4>
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+	this.publicMethod = function() {
+        privateMethod();
+    }
+    var privateMethod = () => {
+        console.log(this.name);
+    }
+}
+var user = new User();
+user.publicMethod(); 
+</code></pre>

@@ -1,0 +1,29 @@
+<h2>prototype</h2>
+
+<h3>Создание объекта через new</h3>
+<ol class="list-num">
+	<li>Создается новый объект, он становится <code class="txt">this</code></li>
+	<li>Неявно возвращается <code class="txt">return</code></li>
+	<li>Устанавливается прототип</li>
+</ol>
+
+<h3>prototype</h3>
+<ul class="list-point">
+	<li>При создании объекта через <code class="txt">new</code>, в его прототип <code class="txt">__proto__</code> записывается ссылка из <code class="txt">prototype</code> функции-конструктора</li>
+	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <code class="txt">new</code></li>
+	<li>Назначение: указывать <code class="txt">__proto__</code> для новых объектов</li>
+	<li>Значением prototype может быть только объект</li>
+	<li>У каждой функции по умолчанию есть свойство <code class="txt">prototype</code></li>
+</ul>
+
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+}
+function Admin() {
+    this.id = 77;
+}
+Admin.<bg-code>prototype</bg-code> = new User();
+// Admin.__proto__ = new User();
+var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
+</code></pre>

@@ -1,0 +1,106 @@
+<h2>Перебор массива</h2>
+
+<ul class="list-point">
+	<li><bg-code-list>forEach</bg-code-list> - для перебора массива</li>
+	<li><bg-code-list>filter</bg-code-list> - для фильтрации массива</li>
+	<li><bg-code-list>map</bg-code-list> - для трансформации массива в массив</li>
+	<li><bg-code-list>every/some</bg-code-list> - для проверки массива</li>
+	<li><bg-code-list>reduce/reduceRight</bg-code-list> - для прохода по массиву с вычислением значения</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>forEach</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Ничего не возвращает, используется только для перебора</li>
+</ul>
+<pre><code class="js">
+var arr = ["Яблоко", "Апельсин", "Груша"];
+arr.forEach(function(element, index, arr) {
+	console.log( index + ": " + element + " (массив:" + arr + ")" );
+});
+// "0: Яблоко   (массив:Яблоко,Апельсин,Груша)"
+// "1: Апельсин (массив:Яблоко,Апельсин,Груша)"
+// "2: Груша    (массив:Яблоко,Апельсин,Груша)"
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>filter</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Используется для фильтрации массива через функцию</li>
+	<li>Создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true</li>
+</ul>
+
+<pre><code class="js">
+var arr = [1, -1, 2, -2, 3];
+var positiveArr = arr.filter(function(number) {
+	return number > 0;
+});
+alert(positiveArr); // 1,2,3
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>map</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+<a href="#map">Ссылка</a>
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>every/some</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Используется для проверки массива</li>
+	<li>Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr</li>
+	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
+</ul>
+
+<pre><code class="js">
+var arr = [1, -1, 2, -2, 3];
+function isPositive(number) {
+  return number > 0;
+}
+alert( arr.every(isPositive) ); // false, не все положительные
+alert( arr.some(isPositive) );  // true, есть хоть одно положительное
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>reduce/reduceRight</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Используется для последовательной обработки каждого элемента массива с сохранением промежуточного результата</li>
+	<li><b>arr.reduce</b> идёт по массиву слева-направо</li>
+	<li><b>arr.reduceRight</b> идёт по массиву справа-налево</li>
+</ul>
+
+<pre><code class="js">
+<em>arr.reduce(callback[, initialValue])</em>
+</code></pre>
+
+<ul class="list-point">
+	<b>callback(previousValue, currentItem, index, arr)</b>
+	<li><bg-list>previousValue</bg-list> - последний результат вызова функции, «промежуточный результат»</li>
+	<li><bg-list>currentItem</bg-list> - текущий элемент массива, элементы перебираются по очереди слева-направо</li>
+	<li><bg-list>index</bg-list> - номер текущего элемента</li>
+	<li><bg-list>arr</bg-list> - обрабатываемый массив</li>
+</ul>
+
+<ul class="list-point">
+	<b>initialValue - начальное значение</b>
+	<li>Если есть <bg-list>initialValue</bg-list>, то на первом вызове значение <bg-list>previousValue</bg-list> будет равно <bg-list>initialValue</bg-list></li>
+	<li>Если нет <bg-list>initialValue</bg-list>, то оно равно первому элементу массива, а перебор начинается со второго</li>
+</ul>
+
+<pre><code class="js">
+// сумма элементов массива
+var arr = [1, 2, 3, 4, 5]
+
+// для каждого элемента массива запустить функцию,
+// промежуточный результат передавать первым аргументом далее
+var result = arr.reduce(function(sum, current) {
+  return sum + current
+});
+
+alert(result); // 15
+</code></pre>

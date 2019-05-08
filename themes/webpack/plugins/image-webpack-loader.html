@@ -1,0 +1,50 @@
+<h2>image-webpack-loader</h2>
+
+<pre class="npm"><code class="bash">
+npm i --save-dev <bg-npm>image-webpack-loader</bg-npm> # оптимизация изображений
+</code></pre>
+
+<bg-link>
+    <a href="https://github.com/tcoopman/image-webpack-loader" target="_blank">image-webpack-loader</a>
+</bg-link>
+
+<pre><code class="js">
+module.exports = {
+    module: {
+        rules: [
+            {   
+                <bg-code-wrapper>
+                test: /\.(jpe?g|png|svg|gif)$/i,
+                use: [
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 70
+                            },
+                            optipng: {
+                                enabled: false,
+                            },
+                            pngquant: {
+                                quality: '65-90',
+                                speed: 4
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            webp: {
+                                quality: 75
+                            }
+                        }
+                    }
+                ],
+                </bg-code-wrapper>
+            }
+        ]
+    }
+}
+</code></pre>
+
+<alert-info>Оптимизированные изображения в build подгружаются на страницу, но не открываются в просмотре изображений Windows. Если не указывать "options", то изображения открываются в просмотре изображений Windows</alert-info>
+

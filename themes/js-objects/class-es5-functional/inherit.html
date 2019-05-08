@@ -1,0 +1,47 @@
+<h2>Наследование</h2>
+
+<h4>Без аргументов</h4>
+<pre><code class="js">
+// Admin вызывает функцию User, передавая ей в качестве контекста this текущий объект
+// User, в процессе выполнения, записывает в this свойства и методы, в данном случае this.name
+function User() {
+    this.name = 'Tony';
+}
+function Admin() {
+    <bg-code>User.call(this);</bg-code>
+    this.id = 77;
+}
+var admin = new Admin(); // => Admin {name: "Tony", id: 77}
+</code></pre>
+
+<h4>Передача аргументов</h4>
+<pre><code class="js">
+function User(id, name) {
+	this.id = id;
+	this.name = name;
+}
+function Admin() {
+	<bg-code>User.apply(this, arguments);</bg-code>
+}
+var admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
+</code></pre>
+
+<h4>Переопределение наследованных методов</h4>
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+    this.getName = function() {
+        console.log(this.name);
+    }
+}
+function Admin() {
+    User.call(this);
+    <bg-code>var parentFunc = this.getName;</bg-code>
+    this.getName = function() {
+        <bg-code>parentFunc.call(this);</bg-code> // то что было в this.getName
+        console.log('Jack');   // добавлено в метод getName
+    }
+}
+var admin = new Admin();
+admin.getName(); // => 'Tony', 'Jack'
+</code></pre>

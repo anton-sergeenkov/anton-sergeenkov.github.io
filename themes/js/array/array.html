@@ -1,0 +1,94 @@
+<h2>Массивы</h2>
+
+<ul class="list-point">
+	<li>Массив - это объект, где в качестве ключей выбраны цифры, с дополнительными методами и свойством length</li>
+	<li>Так как это объект, то в функцию он передаётся по ссылке</li>
+	<li>Нет причин использовать массив как обычный объект, хотя технически это и возможно</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Объявление</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var arr = [];                        // объявление пустого массива
+var arr = ['Tony', 'Anne'];          // объявление массива из заполненных элементов
+var arr = [,,'Tony'];                // пропуск элементов
+var arr = new Array(5);              // объявление массива из пустых элементов с длиной 5 (конструктор)
+var arr = new Array('Tony', 'Anne'); // объявление массива (конструктор)
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Методы</h3>
+<!------------------------------------------------------>
+<bg-list>push</bg-list> <bg-list>pop</bg-list> <bg-list>unshift</bg-list> <bg-list>shift</bg-list>
+<pre><code class="js">
+arr.<bg-code>push</bg-code>('Jack', 'Tony');            // добавляет элементы в конец
+arr.<bg-code>unshift</bg-code>('Jack', 'Tony');         // добавляет элементы в начало
+arr.<bg-code>pop</bg-code>();                           // удаляет и возвращает последний элемент
+arr.<bg-code>shift</bg-code>();                         // удаляет и возвращает первый элемент
+</code></pre>
+
+<bg-list>indexOf</bg-list> <bg-list>lastIndexOf</bg-list>
+<pre><code class="js">
+var a = colors.<bg-code>indexOf</bg-code>('white');     // возвращает первый индекс, по которому элемент может быть найден в массиве или -1, если индекса нет
+var a = colors.<bg-code>lastIndexOf</bg-code>('white'); // возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет
+</code></pre>
+
+<bg-list>join</bg-list> <bg-list>split</bg-list>
+<pre><code class="js">
+var a = arr.<bg-code>join</bg-code>('.');               // преобразование массива в строку с заданным разделителем
+var arr = str.<bg-code>split</bg-code>(';');            // преобразование строки с заданным разделителем в массив 
+</code></pre>
+
+<bg-list>slice</bg-list>
+<pre><code class="js">
+var arr2 = arr1.<bg-code>slice</bg-code>(1, 7);         // копировать с 1 до 7 не включая, если не указан второй аргумент, то до конца
+var arr2 = arr1.<bg-code>slice</bg-code>(1);            // копировать с 1 до конца
+var arr2 = arr.<bg-code>slice</bg-code>(-2);            // копировать c 2 элемента с конца и дальше
+var arr2 = arr.<bg-code>slice</bg-code>();              // копировать весь массив
+</code></pre>
+
+<bg-list>splice</bg-list>
+<pre><code class="js">                
+arr.<bg-code>splice</bg-code>(3, 2);                     // удалить с 3 индекса 2 элемента
+arr.<bg-code>splice</bg-code>(2, 0, 'Алина', 'Марина');  // добавление элементов
+arr.<bg-code>splice</bg-code>(1, 2, 'Алексей", "Билл');  // замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
+arr.<bg-code>splice</bg-code>(-1, 1);                    // удалить с последнего индекса-1 1 элемент (отрицательная позиция отсчитывается с конца)
+</code></pre>
+
+<bg-list>length</bg-list> <bg-list>reverse</bg-list> <bg-list>concat</bg-list>
+<pre><code class="js">
+var a = arr.<bg-code>length</bg-code>;                  // длина массива (индекс последнего элемента)
+arr.<bg-code>reverse</bg-code>();                       // меняет порядок элементов в массиве на обратный
+var arr = arr1.<bg-code>concat</bg-code>(arr2, arr3);   // создаёт новый массив, в который копируются элементы из массивов
+</code></pre>
+
+<bg-list>sort</bg-list>
+<pre><code class="js">
+arr.<bg-code>sort</bg-code>();                          // сортировка по алфавиту, преобразуя элементы к строке
+</code></pre>
+
+<pre><code class="js">
+// свой порядок сортировки (сортировка чисел)
+var arr = [1, 12, 2];
+arr.sort(function(a, b) {
+  if (a > b) return 1;
+  if (a < b) return -1;	
+});
+console.log(arr);  // 1, 2, 15
+</code></pre>
+
+<bg-list>Array.isArray()</bg-list>
+<pre><code class="js">
+// проверка на массив
+var a = Array.<bg-code>isArray</bg-code>([1,2,3]); // true
+var b = Array.<bg-code>isArray</bg-code>("not array"); // false
+</code></pre>
+
+<h3>Примеры</h3>
+<pre><code class="js">
+arr['someIndex'] = 'someValue';       // использование строки в виде индекса
+arr.length = 10;                      // все элементы больше 10 индекса будут удалены
+delete arr[4];                        // присваивание элементу по индексу 4 undefined
+var a = Array.isArray(arr);           // проверка на массив
+</code></pre>

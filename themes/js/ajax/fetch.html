@@ -1,0 +1,92 @@
+<h2>Fetch</h2>
+
+<pre><code class="html">
+<a href="https://github.com/github/fetch" target="_blank">Полифил и описание методов</a>
+<a href="https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">MDN</a>
+</code></pre>
+
+<pre><code class="js light">
+<bg-methods>fetch</bg-methods><bg-arguments>(url[, options])</bg-arguments>
+	<em>&#8226; url</em>     // URL, на который сделать запрос
+	<em>&#8226; options</em> // необязательный объект с настройками запроса
+</code></pre>
+
+<pre><code class="js light">
+Свойства <bg-methods>options</bg-methods>
+	<em>&#8226; method</em>      // метод запроса
+	<em>&#8226; headers</em>     // headers
+	<em>&#8226; body</em>        // тело запроса: FormData, Blob, строка и т.д.
+	<em>&#8226; mode</em>        // одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос
+	<em>&#8226; credentials</em> // одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом
+	<em>&#8226; cache</em>       // одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кешировать запрос
+	<em>&#8226; redirect</em>    // можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки 
+</code></pre>
+
+<h4>Объект response (ответ)</h4>
+<pre><code class="js">
+var a = response.headers.get('Content-Type');
+var a = response.status; 
+
+var a = response.arrayBuffer();
+var a = response.blob();
+var a = response.formData();
+var a = response.json();
+var a = response.text();
+</code></pre>
+
+<ul class="list-point">
+	<li>При вызове <u>fetch</u> возвращает <u>промис</u>, который, когда получен ответ, выполняет <u>коллбэки</u> с объектом <u>Response</u> или с ошибкой, если запрос не удался</li>
+	<li>В примере мы можем <u>в первом .then</u> проанализировать ответ и, если он нас устроит – вернуть промис с нужным форматом</li>
+	<li><u>Следующий .then</u> уже будет содержать полный ответ сервера</li>
+</ul>
+
+<h4>Пример #1. Без передачи значений</h4>
+<pre><code class="js">
+fetch('script.php')
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(body) {
+        document.body.innerHTML = body;
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+</code></pre>
+
+<h4>Пример #2. Передача одного значения</h4>
+<pre><code class="js">
+fetch('script.php', {
+	method: 'POST',
+	body: 'hello'
+})
+</code></pre>
+<pre><code class="php">
+// script.php
+&lt;?php
+    $content = file_get_contents("php://input");
+    echo $content;
+?&gt;
+</code></pre>
+
+<h4>Пример #3. Передача JSON</h4>
+<pre><code class="js">
+fetch('script.php', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json'
+	},
+	body: JSON.stringify({
+		name: 'Tony',
+		login: 'Admin'
+	})
+})
+</code></pre>
+<pre><code class="php">
+// script.php
+&lt;?php
+    $content = file_get_contents("php://input");
+    $decoded = json_decode($content, true);
+    echo $decoded[name];
+?&gt;
+</code></pre>

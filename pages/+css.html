@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="../img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+<div id="container">
+<div id="menu-left">
+	<div id="menu-left-starter">
+		<div id="menu-left-show"></div>
+		<a href="#menu-top">Starter</a>
+	</div>
+
+	<div class="theme">Адаптивность</div>
+	<a href="#html">HTML</a>
+	<a href="#media">CSS Media queries</a>
+
+	<div class="theme">Графика</div>
+	<a href="#blend-mode">CSS Blend Modes</a>
+	<a href="#filter">CSS Filters</a>
+	<a href="#backdrop-filter">CSS Backdrop-Filter</a>
+	<a href="#clip-path">CSS Clipping (Clip-path)</a>
+	<a href="#css-shapes">CSS Shapes</a>
+	<a href="#css-masking">CSS Masking</a>
+
+	<div class="theme">Basic I</div>
+	<a href="#custom-properties">Custom Properties</a>
+	<a href="#mixins">Native CSS Mixins</a>
+	<a href="#import">@import</a>
+	<a href="#supports">@supports</a>
+	<a href="#transition">Transition</a>
+	<a href="#transform">Transform</a>
+	<a href="#animation">Animation</a>
+	<a href="#shadow">Box-Shadow, Text-Shadow</a>
+	<a href="#overflow">Overflow</a>
+	<a href="#measurement">Единицы измерения</a>
+
+	<div class="theme">Basic II</div>
+	<a href="#font">Font / Text</a>
+	<a href="#viewport">Viewport width / height</a>
+	<a href="#display">Display</a>
+	<a href="#position">Position</a>
+	<a href="#background">Background</a>
+	<a href="#list">Списки</a>
+	<a href="#samples">Примеры</a>
+
+	<div class="theme">CSS Selectors</div>
+	<a href="#selectors">Селекторы</a>
+	<a href="#pseudo-classes">Псевдоклассы</a>
+	<a href="#pseudo-elements">Псевдоэлементы</a>
+</div>
+<div id="content-wrapper">
+<div id="menu-top"></div>
+<div id="content">
+
+
+<h1>CSS</h1>
+
+<pre><code class="css">
+div {
+	margin: 0 auto;             - выравнивание по центру и очистка margin
+	calc(100% - 200px);         - расчет значения
+	width: auto;                - возвращение ширины к исходному значению
+	border-radius: 50%;         - задание круга
+	white-space: pre-wrap;      - разрешить перенос строк в pre
+	background: linear-gradient(#e66465, #9198e5);
+	visibility: visible;
+	-webkit-text-stroke: 2px black;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+</code></pre>
+
+<pre><code class="css">
+.item:before {
+	content: '\f219';
+	font-family: fontawesome;
+}
+</code></pre>
+
+<pre><code class="css">
+pre {
+	tab-size: 4;
+}
+</code></pre>
+
+<pre><code class="css">
+::-webkit-scrollbar       { width: 7px; height: 7px; }
+::-webkit-scrollbar-thumb { height: 50px; background-color: rgba(255,255,255,0.7); border-radius: 3px; }
+::-webkit-resizer         { background: rgba(255,255,255,0.7); }
+</code></pre>
+
+<pre><code class="css">
+::-webkit-scrollbar-button      { background-color: #666; }
+::-webkit-scrollbar-track       { background-color: #999; }
+::-webkit-scrollbar-track-piece { background-color: #ffffff; }
+::-webkit-scrollbar-corner      { background-color: #999; }
+</code></pre>
+
+<pre><code class="css">
+body{
+	margin: 0;
+	padding: 0;
+	line-height: 1.75;
+ }
+*, :after, :before {
+    box-sizing: border-box;
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="clip-path">Clip-path</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Ссылки</h3>
+<pre>
+<code>
+<a href="https://webref.ru/layout/shapes-polygon" target="_blank">webref.ru</a>
+<a href="https://bennettfeely.com/clippy/" target="_blank">bennettfeely.com</a>
+</code>
+</pre>
+
+<h3>Фигуры</h3>
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="css">
+div {
+	width: 300px;
+	height: 300px;
+	clip-path: polygon(50% 0%, 100% 100%, 0 100%);
+}
+</code>
+</pre>
+</div>
+<img src="/img/clip-path/polygon1.png" height="200px" style="display: inline-block;">
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="measurement">Единицы измерения</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-measurement">
+
+<pre><code class="js">
+<em>px</em>   - абсолютная единица измерения
+<em>%</em>    - относительная, рассчитывается относительно родителя
+<em>vw</em>   - viewport width, относительная, рассчитывается относительно viewport
+<em>vh</em>   - viewport height, относительная, рассчитывается относительно viewport
+<em>em</em>   - относительная, рассчитывается относительно родителя (берет значение font-size)
+<em>rem</em>  - root em, относительная, рассчитывается относительно html (берет значение font-size)
+</code></pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="viewport">Viewport width (vw). Viewport height (vh)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="css">
+div {
+	width: 100vw;  - ширина блока 100% от viewport
+	height: 100vh; - высота блока 100% от viewport
+}
+</code>
+</pre>
+
+<pre>
+<code class="css">
+vh, vw
+- единицы измерения, которые расчитываются относительно viewport
+- включают в себя ширину скроллбара
+</code>
+</pre>
+
+<pre>
+<code class="css">
+vmin, vmax
+div {
+	width: 100vmin;
+	height: 100vmin;
+}
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="display">Display</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="plaintext">
+<em>block</em>        - блок
+<em>inline</em>       - строка
+<em>inline-block</em> - блок-строка
+<em>table</em>        - блочная таблица
+<em>table-cell</em>   - ячейка таблицы
+<em>none</em>         - нет
+<em>flex</em>         - flexbox
+<em>grid</em>         - grid
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="position">Position</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="css">
+div {
+	<em>position: static;</em>    - статичное (стандартное позиционирование)
+	<em>position: relative;</em>  - относительное (положение устанавливается относительно его исходного места)
+	<em>position: absolute;</em>  - абсолютное (отсчёт координат ведётся от края окна браузера, если у родителя не установлено position: relative)
+	<em>position: fixed;</em>     - фиксированное (привязывается к указанной свойствами left, top, right и bottom точке на экране)
+	<em>position: sticky;</em>    - сочетание относительного и фиксированного позиционирования
+}
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="background">Background</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="css">
+div {
+	background-image: url(img.png);                - путь к изображению
+	background-repeat: no-repeat;                  - повторение изображения
+	background-position: center center;            - позиционирование изображения (задние в px и %)
+	background-size: contain;                      - изображение полностью помещается в блок
+	background-size: cover;                        - изображение заполняет весь блок
+	background-size: 50%;                          - задание в %
+	background-color: #3b3b3b;                     - цвет фона
+	background-attachment: fixed;                  - будет ли прокручиваться фоновое изображение
+}
+</code></pre>
+
+Сокращенная запись
+<pre><code class="css">
+div {
+	background: color url no-repeat center center / cover;
+	background: url(img.png) no-repeat center 50%;
+	background: url no-repeat center;
+}
+</code></pre>
+
+Задание нескольких фонов
+<pre>
+<code class="css">
+div {
+	background: url(img.png) no-repeat,
+		#fff url(img.png) no-repeat 100% 0;
+}
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="import">@import</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-import">
+
+Импортировать содержимое CSS-файла
+<pre>
+<code>
+@import "main.css" screen;
+</code>
+</pre>
+
+Подключение шрифта
+<pre>
+<code class="css">
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+span {
+	font-family: 'Oswald', sans-serif;'
+}
+</code>
+</pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="supports">@supports</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="css">
+@supports (display: flex) {
+	//
+}
+@supports not (display: flex) {
+	//
+}
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="filter">CSS Filters</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre>
+<code class="css">
+div {
+	filter: blur(5px);          - размытие (напрямую к body применить нельзя)
+	filter: brightness(150%);   - яркость, 100% по умолчанию
+	filter: contrast(150%);     - контрастность, 100% по умолчанию
+	filter: grayscale(70%);     - черно-белое, 0% по умолчанию
+	filter: hue-rotate(90deg);  - поворот оттенка, определяет угол, 0deg по умолчанию
+	filter: invert(100%);       - инвертирование
+	filter: opacity(50%);       - прозрачность
+	filter: saturate(150%);     - изменение насыщенности
+	filter: sepia(100%);        - сепия
+	filter: drop-shadow(10px 10px 3px rgba(100,0,0,0.5));  - добавляет тень к изображениям, учитывая прозрачные участки
+}
+</code>
+</pre>
+
+<ul class="list-point">
+	<li>Можно применять несколько фильтров</li>
+	<li>Первый фильтр применяется к исходному изображению, а остальные к предыдущему</li>
+</ul>
+
+<pre><code class="css">
+div {
+	filter: contrast(150%) sepia(100%);
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="backdrop-filter">Backdrop-filter (draft)</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Аналогичен filter, но работает только с фоном, не трогая сам элемент</li>
+	<li>Значения такие же как у filter</li>
+</ul>
+
+<div class="container-flex"><div class="container-half"><pre><code class="css">
+div {
+	backdrop-filter: blur(10px);
+}
+</code></pre></div><div class="container-half"><pre><code class="css">
+div {
+	filter: blur(10px);
+}
+</code></pre></div></div>
+
+<h4>Функция filter</h4>
+<pre><code class="css">
+div {
+	background: filter (url(), blur(10px));
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="transition">Transition</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-transition">
+
+<h3>transition (анимированный переход)</h3>
+<pre><code class="css">
+transition: all 0s ease 0s;
+1. transition-property        - какие свойства анимируются
+2. transition-duration        - длина анимации
+3. transition-timing-function - как вычисляются промежуточные состояния
+4. transition-delay           - время ожидания перед запуском эффекта
+</code></pre>
+
+<pre><code class="css">
+div {
+	transition: all 0.7s ease-in 0s;
+}
+</code></pre>
+
+<pre><code class="css">
+div {
+	background: orange;
+	transition: all 0.7s ease-in 0s;
+}
+div:hover {
+	background: blue;
+}
+</code></pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="transform">Transform</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-transform">
+
+<pre>
+<code class="css">
+1. СДВИГ
+	translate(50px, 50px);    - сдвигает элемент на заданное значение по горизонтали и вертикали (положительное значение сдвигает вправо, отрицательное влево)
+	translateX(50px);         - сдвигает элемент по горизонтали на указанное значение
+	translateY(50px);         - сдвигает элемент по вертикали на указанное значение
+	translateZ(50px);         - сдвигает элемент по оси Z на указанное значение
+
+- один параметр translate(): перемещает элемент вдоль оси х
+- два параметра translate(): первое значение для оси х, второе для оси у
+</code>
+</pre>
+
+<pre>
+<code class="css">
+2. ПОВОРОТ
+	rotate(15deg);     - поворот
+	rotateX(15deg);    - поворот по оси X
+	rotateY(15deg);    - поворот по оси Y
+	rotateZ(15deg);    - поворот по оси Z
+</code>
+</pre>
+
+<pre>
+<code class="css">
+3. МАСШТАБИРОВАНИЕ
+	scale(1.2);       - масштабирует элемент по горизонтали и вертикали
+	scaleX(1.2);      - масштабирует элемент по горизонтали
+	scaleY(1.2);      - масштабирует элемент по вертикали
+	scaleZ(1.2);      - масштабирует элемент по оси Z
+
+- один параметр scale(): изменение размеров элемента одинаково по высоте и ширине
+- два параметра scale(): первое значение изменяет размер элемента по горизонтали, второе по вертикали
+</code>
+</pre>
+
+<pre>
+<code class="css">
+4. НАКЛОН (ИСКАЖЕНИЕ)
+	skew(15deg);
+	skewX(15deg);     - наклоняет элемент на заданный угол по вертикали
+	skewY(15deg);     - наклоняет элемент на заданный угол по горизонтали
+
+- один параметр: элемент искажается по горизонтали;
+- два параметра: первое значение искажает элемент по горизонтали, второе по вертикали.
+</code>
+</pre>
+
+<pre>
+<code class="css">
+matrix        - задаёт двумерную матрицу преобразований
+matrix3d      - задаёт трёхмерную матрицу преобразований
+rotate3d      - поворачивает элемент в трёхмерном пространстве
+scale3d       - масштабирует элемент в трёхмерном пространстве
+translate3d   - сдвигает элемент на заданное значение в трёхмерном пространстве
+perspective   - задаёт перспективу
+</code>
+</pre>
+
+<pre>
+<code class="css">
+Свойства трансформации
+transform          - определяет, какая функция будет применяться (translate, rotate, scale, skew)
+transform-origin   - позволяет изменять точку начала преобразования (работает как background-position)
+transform-style    - для настройки 3D
+</code>
+</pre>
+
+<pre>
+<code class="html">
+Особенности:
+1. Не прерывает поток (не влияют на другие элементы)
+2. Трансформации можно записывать несколько через пробел
+</code>
+</pre>
+
+<pre>
+<code class="css">
+div {
+	transform: translate(50px, 50px);
+}
+</code>
+</pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="animation">Animation</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-animation">
+
+<pre>
+<code class="css">
+animation: none 0s ease 0s 1 normal none running;
+1. animation-name             - название анимации
+2. animation-duration         - как долго длится анимация
+3. animation-timing-function  - как вычисляются промежуточные состояния
+4. animation-delay            - анимация начинается спустя некоторое время
+5. animation-iteration-count  - сколько раз должна выполняться анимация
+6. animation-direction        - должно движение идти в обратную сторону или нет
+7. animation-fill-mode        - какие стили применяются до начала анимации и после её завершения
+8. animation-play-state       - проигрывать анимацию или поставить её на паузу
+</code>
+</pre>
+
+<pre>
+<code class="css">
+@keyframes move{
+    0%   { transform: translate(0px, 0px);     background: blue; }
+    25%  { transform: translate(300px, 0px);   background: red; }
+    50%  { transform: translate(300px, 300px); background: gray; }
+    75%  { transform: translate(0px, 300px);   background: green; }
+    100% { transform: translate(0px, 0px);     background: orange;}
+}
+</code>
+</pre>
+
+<pre>
+<code class="css">
+div {
+	animation-name: move;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: none;
+	animation-play-state: running;
+}
+</code>
+</pre>
+
+<pre>
+<code class="css">
+div {
+	animation: move 2s ease infinite;
+}
+</code>
+</pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="shadow">Box-Shadow, Text-Shadow</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-shadow">
+
+Тень для блока
+<pre>
+<code class="css">
+div {
+	box-shadow: 1px 2px 3px 4px #000000;
+	box-shadow: inset 1px 2px 3px 4px #000000;
+}
+/* 1px - смещение по горизонтали */
+/* 2px - смещени по вертикали */
+/* 3px - размытие */
+/* 4px - толщина */
+</code>
+</pre>
+
+Тень для текста
+<pre>
+<code class="css">
+div {
+	text-shadow: 1px 2px 3px #000;
+}
+/* 1px - смещение по горизонтали */
+/* 2px - смещени по вертикали */
+/* 3px - размытие */
+</code>
+</pre>
+
+Задание нескольких теней для блоков
+<pre>
+<code class="css">
+div {
+	box-shadow:
+		-75px -125px 0 40px #6cce74,
+		 75px -125px 0 40px #c18d46,
+		150px    0px 0 40px #c14745,
+		 75px  125px 0 40px #2e1e5b,
+		-75px  125px 0 40px #9c37a6,
+		-150px    0px 0 40px #76bdd1;
+}
+</code>
+</pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="font">Font / Text</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-font">
+
+<h3>Шрифты</h3>
+<pre>
+<code class="html">
+- <em>Sans-serif</em> (без засечек)
+- <em>Serif</em> (с засечками)
+- <em>Accident</em> (декоративные)
+- <em>Handwriting</em> (рукописные)
+- <em>Monospaced</em> (моноширинные)
+- <em>Symbol</em> (символьные: fontawesome, stroke, icomoon)
+</code>
+</pre>
+
+<pre>
+<code>
+Open Sans
+Museo sans
+Roboto
+Verdana
+AG Book
+</code>
+</pre>
+
+<h3>font</h3>
+<pre>
+<code class="css">
+p {
+    font-size: 20px;     - размер шрифта
+    font-style: italic;  - начертание шрифта
+    font-weight: bold;   - насыщенность шрифта
+}
+</code>
+</pre>
+
+<h3>text</h3>
+<pre>
+<code class="css">
+p {
+    text-align: center | left | right;     - горизонтальное выравнивание текста в пределах элемента
+    text-decoration: none | underline;     - оформление текста
+    text-decoration-color: orange;         - оформление текста (цвет линии)
+    text-decoration-style: solid | double | dotted | dashed | wavy; - оформление текста (стиль линии)
+    text-indent: 20px;                     - красная строка
+    text-transform: uppercase | lowercase; - преобразованием текста элемента в заглавные или прописные символы
+}
+</code>
+</pre>
+
+
+<h3>spacing</h3>
+<pre>
+<code class="css">
+div {
+	word-spacing: 10px;   - расстояние между словами
+	letter-spacing: 4px;  - расстояние между буквами
+	line-height: 1.5;     - расстояние между строками
+}
+</code>
+</pre>
+
+
+<h3>fonts (.eot, .ttf, .woff)</h3>
+<pre>
+<code class="css">
+@font-face {
+    font-family: OpenSans;           - имя шрифта
+    src: url(../font/OpenSans.ttf);  - путь к файлу со шрифтом
+}
+</code>
+</pre>
+
+Обрезать текст по длине блока
+<pre>
+<code class="css">
+div {
+	white-space: nowrap;      - запрещаем перенос строк
+	overflow: hidden;         - обрезаем все, что не помещается в область
+	text-overflow: ellipsis;  - добавляем многоточие
+}
+</code>
+</pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="overflow">Overflow</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+Свойство overflow управляет отображением содержания блочного элемента, если оно целиком не помещается и выходит за область заданных размеров.
+<pre>
+<code class="css">
+div {
+    overflow: auto;   - добавление полос прокрутки, если контент не помешается в блок
+    overflow: hidden; - обрезка контента, если контент не помешается в блок
+}
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="list">Списки: маркированные и нумерованные</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-list">
+
+<pre><code class="css">
+ul {
+	list-style:          list-style-type list-style-image list-style-position;
+	list-style-type:     none | circle ...          - изменяет вид маркера
+	list-style-image:    none | url('путь к файлу') - устанавливает изображение
+	list-style-position: inside | outside           - размешение относительно текста
+}
+</code></pre>
+
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="custom-properties">Custom Properties</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-custom-properties">
+
+<pre><code class="js">
+<a href="https://github.com/jhildenbiddle/css-vars-ponyfill" target="_blank">css-vars-ponyfill</a>
+</code></pre>
+
+<pre><code class="js">
+- уровень root и область видимости
+- резервное значение
+</code></pre>
+
+<h4>Root-level custom properties</h4>
+<pre><code class="css">
+:root {
+    --color:green;
+}
+body {
+    background: var(--color);
+}
+</code></pre>
+
+<h4>Custom properties referencing custom properties</h4>
+<pre><code class="css">
+:root {
+    --a: var(--b);
+    --b: var(--c);
+    --c: red;
+}
+p {
+    color: var(--a);
+}
+</code></pre>
+
+<h4>Complex values with custom properties</h4>
+<pre><code class="css">
+:root {
+    --a: 1em;
+    --b: 2;
+}
+p {
+    font-size: calc(var(--a) * var(--b));
+}
+</code></pre>
+
+<h4>Fallback values</h4>
+<pre><code class="css">
+p {
+    font-size: var(--a, 1rem);
+    color: var(--b, var(--c, var(--d, red)));
+}
+</code></pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="mixins">Native CSS Mixins</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Миксины</h3>
+<span>Поддреживаются только в Chrome с флагом экспериментов <br>
+chrome://flags/#enable-experimental-web-platform-features﻿</span>
+<pre>
+<code class="css">
+:root {
+	--first-mix:{
+		background: blue;
+		padding: 10px;
+		color: orange;
+	}
+}
+body {
+	@apply --first-mix;
+}
+</code>
+</pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="samples">Примеры</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h3>Выравнивание блоков по центру inline-block</h3>
+<pre>
+<code class="html">
+&lt;div class="container"&gt;
+	&lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="css">
+.container {
+	text-align: center;
+}
+.box {
+	display: inline-block;
+	vertical-align: middle;
+}
+</code>
+</pre>
+
+<h3>Выравнивание блока по центру (горизонталь, вертикаль) fixed</h3>
+<span>Обязательно задание width и  height</span>
+<pre>
+<code class="css">
+#box {
+	width: 400px;
+	height: 700px;
+	position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: orange;
+}
+</code>
+</pre>
+
+<h3>Выравнивание блока по центру (горизонталь, вертикаль) transform</h3>
+<pre>
+<code class="html">
+&lt;div class="container"&gt;
+	&lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="css">
+Проценты считаются относительно самого элемента
+.box {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.container {
+	border: 2px solid blue;
+	height: 500px;
+}
+.box {
+	width: 200px;
+	height: 200px;
+	background: gray;
+	position: relative;
+}
+</code>
+</pre>
+
+
+<h3>Выравнивание текста по центру (горизонталь, вертикаль)</h3>
+<pre>
+<code class="html">
+&lt;div class="container"&gt;
+	&lt;div class="text"&gt;No result found&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="css">
+.container {
+	display: table;
+	width:100%;
+	background:orange;
+}
+.text {
+	height:500px;
+	width:100%;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle
+}
+</code>
+</pre>
+
+<h3>Треугольник</h3>
+<pre>
+<code class="css">
+div {
+	width: 0px;
+	height: 0px;
+	background: pink;
+	border-top:    100px solid transparent;
+	border-bottom: 100px solid transparent;
+	border-left:   100px solid blue;
+	border-right:  100px solid transparent;
+}
+</code>
+</pre>
+
+<h3>Меню</h3>
+<pre>
+<code class="html">
+&lt;header&gt;
+	&lt;nav class="header-menu"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;a href="#portfolio"&gt;Портфолио&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#news"&gt;Новости&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#contacts"&gt;Контакты&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/nav&gt;
+&lt;/header&gt;
+</code>
+</pre>
+
+<span>inline-block</span>
+<pre>
+<code class="css">
+.header-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: orange;
+}
+.header-menu li {
+	display: inline-block;
+	vertical-align: middle;
+}
+.header-menu li a {
+	display: block;
+	color: black;
+	padding: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.7s;
+	background: gray;
+}
+.header-menu li a:hover {
+	background: white;
+}
+</code>
+</pre>
+
+<span>flexbox</span>
+<pre>
+<code class="css">
+.header-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	background: orange;
+}
+.header-menu li a {
+	display: block;
+	color: black;
+	padding: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.7s;
+	background: gray;
+}
+.header-menu li a:hover {
+	background: white;
+}
+</code>
+</pre>
+
+<h3>Отключение обтекания float у родительского блока (clearfix)</h3>
+<pre>
+<code class="css">
+.parent:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+</code>
+</pre>
+
+<h3>Убрать float у блока</h3>
+<pre>
+<code class="css">
+.item {
+	float: none;
+}
+</code>
+</pre>
+
+
+<h3>Убрать пробелы у inline-block</h3>
+<span>Пробелы между блоками, это пробелы между словами в строке.<br>
+Ставим font-size:0 для родителя, а для дочерних элементов возвращаем обратно</span>
+<pre>
+<code class="html">
+&lt;div class="container"&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="css">
+.container {
+	font-size: 0;
+}
+.item {
+	font-size: 16px;
+}
+</code>
+</pre>
+
+
+<h3>resize у div</h3>
+<pre>
+<code class="css">
+div {
+	resize: both;
+	overflow: auto;
+}
+</code>
+</pre>
+
+
+<h3>Задание максимальной, минимальной ширины и выравнивание по центру</h3>
+<pre>
+<code class="css">
+.container {
+	width: 100%;
+	max-width: 960px;
+	min-width: 640px;
+	margin: 0 auto;
+}
+</code>
+</pre>
+
+
+
+<h3>Псевдоклассы. При наведении на .news показывается кнопка</h3>
+<pre>
+<code class="css">
+&lt;div class="news"&gt;&lt;/div&gt;
+&lt;div class="close"&gt;&lt;/div&gt;
+.news {
+	width: 100px;
+	height: 100px;
+	background: orange;
+}
+.close {
+	width: 100px;
+	height: 100px;
+	background: blue;
+	display: none;
+}
+.news:hover ~ .close {
+	display: block;
+}
+</code>
+</pre>
+
+
+<h3>Обращение к img по наведению на .item</h3>
+<pre>
+<code class="css">
+.item:hover img {}
+</code>
+</pre>
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<h1>Адаптивность</h1>
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="html">HTML</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-adaptive-html">
+
+Ширина под размер устройства
+<pre><code class="html">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+</code></pre>
+
+Фиксированная ширина
+<pre><code class="html">
+&lt;meta name="viewport" content="width=600, user-scalable=yes"&gt;
+</code></pre>
+
+<span>Версия для печати</span>
+<pre>
+<code class="html">
+&lt;link href="print.css" rel="stylesheet" media="print"&gt;
+</code>
+</pre>
+
+<span>Указание media в html (в css указывать media не нужно)</span>
+<pre>
+<code class="html">
+&lt;link rel="stylesheet" href="responsive.css" media="all and (max-width: 820px)"&gt;
+&lt;link rel="stylesheet" href="responsive.css" media="(min-width: 600px) and (max-width: 980px)"&gt;
+&lt;link rel="stylesheet" href="responsive.css" media="print"&gt;
+</code>
+</pre>
+
+<h3>Стилизация браузера на мобильных устройствах</h3>
+<pre>
+<code class="html">
+&lt;!-- Chrome, Firefox OS and Opera --&gt;
+&lt;meta name="theme-color" content="#000"&gt;
+&lt;!-- Windows Phone --&gt;
+&lt;meta name="msapplication-navbutton-color" content="#000"&gt;
+&lt;!-- iOS Safari --&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="#000"&gt;
+</code>
+</pre>
+
+<h3>Стандартные разрешения экрана</h3>
+<pre>
+<code class="html">
+<em>1200px</em> - Large Devices, Wide Screens
+<em>1024px</em> - Medium Devices, Desktops
+<em>992px</em>  - Medium Devices, Desktops
+<em>768px</em>  - Small Devices, Tablets
+<em>640px</em>  - Small Devices, Tablets
+<em>480px</em>  - Extra Small Devices, Phones
+<em>320px</em>  - Custom, iPhone Retina
+</code>
+</pre>
+
+<pre>
+<code class="html">
+<em>1920px</em> - ширина фонового изображения (Full HD)
+<em>1280px</em> - ширина изображения для галереи
+</code>
+</pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="media">CSS Media queries</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-adaptive-css">
+
+<h3>Desktop First</h3>
+
+<pre><code>
+@media screen and (max-width: 480px) {
+    /* если ширина экрана стала меньше 480px, применяются свойства, написанные здесь */
+}
+</code></pre>
+
+<h3>Mobile First</h3>
+
+<pre><code>
+@media screen and (min-width: 480px) {
+    /* если ширина экрана стала больше 480px, применяются свойства, написанные здесь */
+}
+</code></pre>
+
+<h3>Print</h3>
+<pre><code>
+@media print
+</code></pre>
+
+<h3>Несколько условий</h3>
+<pre><code>
+@media screen and (min-width: 600px) and (max-width: 980px) {
+	/* экраны от 600px до 980px */
+}
+</code></pre>
+
+<span>Для мобильной версии когда шрифт разный</span>
+<pre><code class="css">
+html * {
+	max-height: 1000000px;
+}
+</code></pre>
+
+</div>
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<h1>CSS Selectors</h1>
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="selectors">Селекторы и их комбинации</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-selectors">
+
+<pre>
+<code class="css">
+div                 - тег
+.class              - класс
+#id                 - идентификатор
+header, p           - несколько элементов
+*                   - все элементы
+div p               - вложенные селекторы (каскад)
+</code>
+</pre>
+
+<pre>
+<code class="css">
+ul li > span        - не все span, а только дочерние span
+ul li + li          - все последующие элементы li
+.class1 ~ div       - все div элементы после class1
+.class1 ~ *         - все элементы после class1
+</code>
+</pre>
+
+<pre>
+<code class="css">
+input[type="text"]  - все input у которых type="text"
+input[name="text"]  - все input у которых name="text"
+input[class="text"] - все input у которых class="text"
+</code>
+</pre>
+
+<pre>
+<code class="css">
+a[title]            - все a у которых есть атрибут title
+[checked]           - выбранный элемент для checkbox и radio
+[class|="yes"]      - все div у которых class начинается со слова yes, может содержать "-", н-р "yes-class"
+[class^="yes"]      - выбирает подстроку с начала названия класса, н-р "yesclass"
+[class$="yes"]      - выбирает подстроку с конца названия класса, н-р "classyes"
+[class*="yes"]      - выбирает подстроку в любом месте названия класса, н-р "classyesmy"
+[class~="yes"]      - когда задано несколько классов, н-р "yes tagname"
+</code>
+</pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="pseudo-classes">Псевдоклассы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-pseudo-classes">
+
+<pre><code class="css">
+a:hover              - наведение на элемент
+a:not(:hover)        - увод с элемента
+a:active             - активный элемент
+a:focus              - элемент в фокусе
+a:visited            - посещеннае ссылки
+a:link               - не посещенные ссылки
+</code></pre>
+
+<pre><code class="css">
+p:empty             - все пустые элементы p
+p:not(:empty)       - все не пустые элементы p
+p:not(.myclass)     - если p не имеет класса myclass
+</code></pre>
+
+<pre><code class="css">
+p:first-child       - первый элемент (элементы должны быть в wrapper)
+p:last-child         - последний элемент (элементы должны быть в wrapper)
+p:nth-child(2)       - второй элемент
+p:nth-child(2n)      - каждый второй элемент
+p:nth-child(even)    - каждый четный элемент
+p:nth-child(odd)     - каждый нечетный элемент
+</code></pre>
+
+<pre><code class="css">
+div:nth-of-type(2n) - каждый второй элемент определенного типа
+div:only-child      - только дочерние div
+:nth-last-child     - добавление стиля к элементам на основе нумерации в дереве элементов (в отличие от :nth-child отсчёт ведётся от последнего элемента)
+:nth-last-of-type   - добавление стиля к элементам указанного типа на основе нумерации в дереве элементов (в отличие от :nth-of-type отсчёт ведётся от последнего элемента)
+</code></pre>
+
+<pre><code class="css">
+input:checked       - выбранный элемент для checkbox и radio
+input:enabled       - активные элементы
+input:disabled      - неактивные элементы
+input:invalid       - поля формы, содержимое которых не соответствует указанному типу, н-р: незаполненные input с required
+input:valid         - поля формы, содержимое которых соответствует указанному типу
+input:optional      - input без required
+input:required      - input с required
+input:out-of-range  - превышение лимита max в input number
+input:in-range      - в лимите min max в input number
+input:read-only     - input с атрибутом readonly
+input:read-write    - input доступные для изменения
+</code></pre>
+
+<pre><code class="css">
+div:target          - стилизация элемента target1 при нажатии на ссылку &lt;a href="#target1"&gt;Link 1&lt;/a&gt;
+p:first-of-type     - первый элемент определенного типа
+p:last-of-type      - последний элемент определенного типа
+:only-of-type       - применяется к дочернему элементу указанного типа, только если он единственный у родителя
+q:lang              - определяет язык, который используется в документе
+</code></pre>
+
+<pre><code class="css">
+:root               - корневой элемент документа
+:default            - элемент по умолчанию, н-р: есть 2 кнопки submit, 1 будет задана по умолчанию
+:fullscreen         - полноэкранный режим
+:indeterminate      - если переключатель находится в неопределенном состоянии
+</code></pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="pseudo-elements">Псевдоэлементы</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div id="ct-pseudo-elements">
+
+<pre><code class="css">
+div::before         - псевдоэлемент before
+div::after          - псевдоэлемент after
+p:first-letter      - первая буква
+p:first-line        - первая строка
+dialog::backdrop    - затемнения страницы (авторизация)
+input::placeholder  - оформление placeholder
+p::selection        - применяет стиль к выделенному пользователем тексту
+</code></pre>
+
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="blend-mode">CSS Blend Modes</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li><span class="hl">normal</span> - обычный</li>
+	<li><span class="hl">multiply</span> - умножение</li>
+	<li><span class="hl">screen</span> - осветление</li>
+	<li><span class="hl">overlay</span> - перекрытие</li>
+	<li><span class="hl">darken</span> - замена тёмным</li>
+	<li><span class="hl">lighten</span> - замена светлым</li>
+	<li><span class="hl">color-dodge</span> - осветление основы</li>
+	<li><span class="hl">color-burn</span> - затемнение основы</li>
+	<li><span class="hl">hard-light</span> - направленный свет</li>
+	<li><span class="hl">soft-light</span> - рассеянный свет</li>
+	<li><span class="hl">difference</span> - разница</li>
+	<li><span class="hl">exclusion</span> - исключение</li>
+	<li><span class="hl">hue</span> - тон</li>
+	<li><span class="hl">saturation</span> - насыщенность</li>
+	<li><span class="hl">color</span> - цвет</li>
+	<li><span class="hl">luminosity</span> - яркость</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>background-blend-mode</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<a href="https://webref.ru/css/background-blend-mode" target="_blank">background-blend-mode</a>
+<a href="https://codepen.io/yoksel/pen/kGAsK" target="_blank">[codepen] background-blend-mode playground</a>
+</code></pre>
+
+<ul class="list-point">
+	<li>Управляет режимами наложения слоев фона, заданного в CSS</li>
+	<li>Слои: backround-color, background-image (несколько), linear-gradient</li>
+</ul>
+
+<pre><code class="css">
+div {
+	background-color: blue;
+	background-image: url(...);
+	<span class="hc">background-blend-mode</span>: multiply;
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>mix-blend-mode</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+<a href="https://webref.ru/css/mix-blend-mode" target="_blank">mix-blend-mode</a>
+</code></pre>
+
+<ul class="list-point">
+	<li>Определяет режим наложения исходного цвета на фоновый цвет или фоновое изображение</li>
+</ul>
+
+<div class="container-flex"><div class="container-half">
+<pre><code class="html">
+&lt;div&gt;
+	&lt;h1&gt;EVEN MORE CSS SECRETS&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="css">
+h1 {
+	margin: auto;
+	background-color: black;
+	color: white;
+	<span class="hc">mix-blend-mode</span>: multiply;
+}
+div {
+	background-image: url(...);
+}
+</code></pre></div><div class="container-half">
+<img src="/img/blend-mode/blend-mode2.jpg" height="350px" style="margin-top: 10px;">
+</div></div>
+
+<div class="container-flex"><div class="container-half">
+<pre><code class="html">
+&lt;div&gt;
+	&lt;h1&gt;EVEN MORE CSS SECRETS&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="css">
+h1 {
+	margin: auto;
+	background-color: white;
+	color: black;
+	<span class="hc">mix-blend-mode</span>: screen;
+}
+div {
+	background-image: url(...);
+}
+</code></pre></div><div class="container-half">
+<img src="/img/blend-mode/blend-mode1.jpg" height="350px"style="margin-top: 10px;">
+</div></div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="css-masking">CSS Masking</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="css">
+- mask-image
+- mask-box-image
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="css-shapes">CSS Shapes</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list">
+	<li><span class="hl">shape-outside</span> (module 1)</li>
+	<li><span class="hl">shape-inside</span> (module 2)</li>
+	<li>shape работают только для float элементов у которых определена ширина и высота</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Syntax</h3>
+<!------------------------------------------------------>
+
+<h4>Function values</h4>
+<pre><code class="css">
+.item {
+	shape-outside:<span class="hc">circle</span>(50%);                              /* (radius at x y) - окружность */
+	shape-outside:<span class="hc">ellipse</span>(150px 300px at 50% 50%);          /* (radius radius at x y) - эллипс */
+	shape-outside:<span class="hc">inset</span>(100px 100px 100px 100px 10px);      /* (p1, p2, p3, p4 round 10px) - прямоугольник внутри shape */
+	shape-outside:<span class="hc">polygon</span>(10px 10px, 20px 20px, 30px 30px); /* (p1, p2, p3 ...) - полигон */
+}
+</code></pre>
+
+<h4>URL and gradient values</h4>
+<pre><code class="css">
+.item {
+	shape-outside: <span class="hc">url</span>(image.png);     /* по границе изображения */
+	shape-outside: <span class="hc">linear-gradient</span>(45deg, rgba(255, 255, 255, 0) 150px, red 150px);
+}
+</code></pre>
+
+<h4>Keyword values (reference-box)</h4>
+<pre><code class="css">
+.item {
+	shape-outside:<span class="hc">none</span>;
+	shape-outside:<span class="hc">margin-box</span>;
+	shape-outside:<span class="hc">content-box</span>;
+	shape-outside:<span class="hc">border-box</span>;
+	shape-outside:<span class="hc">padding-box</span>;
+}
+</code></pre>
+
+<h4>Global values</h4>
+<pre><code class="css">
+.item {
+	shape-outside: initial;
+	shape-outside: inherit;
+	shape-outside: unset;
+}
+</code></pre>
+
+<pre><code class="css">
+.item {
+	<span class="hc">shape-margin</span>: 10px;          /* margin от shape до контента */
+	<span class="hc">shape-image-threshold</span>: 0.7;  /* альфа канал для обрезки по изображению
+	/* closest-side - расстояние до ближайшей строны (circle, ellipse) */
+	/* fartest-side - расстояние до дальней стороны (circle, ellipse) */
+}
+</code></pre>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+	<div id="preloader"></div>
+    <script src="../libraries/jquery.js"></script>
+	<script src="../libraries/highlight/highlight.pack.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../module/preloader/preloader.js"></script>
+</body>
+</html>
