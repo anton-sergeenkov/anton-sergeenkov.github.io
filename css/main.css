@@ -354,6 +354,7 @@ code.txt {
 	color: #e96900;
 	padding: 2px 5px !important;
 	background: rgba(var(--color-other),0.2);
+	font-size: 14px;
 }
 code.color {
 	color: #e96900;

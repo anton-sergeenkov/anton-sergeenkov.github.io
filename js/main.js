@@ -1,8 +1,6 @@
 
 hljs.initHighlightingOnLoad();
 
-var pathname = '../pages/';
-
 var menu = `
     <a href="/pages/js.html"             class="menu menu-js">js</a>
     <a href="/pages/js-objects.html"     class="menu menu-js">objects</a>
