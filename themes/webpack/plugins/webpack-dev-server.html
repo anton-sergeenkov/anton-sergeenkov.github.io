@@ -12,7 +12,12 @@ npm i --save-dev <bg-npm>webpack-dev-server</bg-npm>
 module.exports = {
 	<bg-code-wrapper>
 	devServer: {
-		contentBase: './dist'
+		contentBase: './dist',
+		historyApiFallback: {
+			disableDotRule: true
+		},
+		stats: 'errors-only',
+		port: 3000
 	}
 	</bg-code-wrapper>
 }
