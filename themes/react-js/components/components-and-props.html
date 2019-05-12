@@ -1,55 +1,42 @@
 <h2>Компоненты и пропсы</h2>
 
-<ul class="list-point">
-	<li><bg-define>Компоненты</bg-define> - позволяют разбить интерфейс на независимые части, про которые легко думать в отдельности. Их можно складывать вместе и использовать несколько раз</li>
-	<li>Во многом компоненты ведут себя как обычные функции JavaScript. Они принимают произвольные входные данные («<u>пропсы</u>») и возвращают React-элементы, описывающие, что мы хотим увидеть на экране</li>
-	<li>Принцип единственной ответственности: каждый компонент по-хорошему должен заниматься какой-то одной задачей</li>
-	
-	<hr>
-	<li><bg-define>Умные компоненты</bg-define> - делают что-то с данными и работают со стором</li>
-	<ul class="list-point">
-		<li><b>Название директории: </b>containers</li>
-		<li><b>Реализация: </b>классы</li>
-		<li><b>Наличие state: </b>да</li>
-	</ul>
-
-	<li><bg-define>Глупые компоненты</bg-define> - получают данные и их отрисовывают</li>
-	<ul class="list-point">
-		<li><b>Название директории: </b>components</li>
-		<li><b>Реализация: </b>функции</li>
-		<li><b>Наличие state: </b>нет</li>
-	</ul>
-
-	<hr>
-	<li><bg-define>Пропсы</bg-define> - это способ передачи данных от родителя к потомку</li>
-	<li>Пропсы можно только читать. React-компоненты обязаны вести себя как чистые функции по отношению к своим пропсам (не должен что-то записывать в свои пропсы)</li>
-	<li>Компоненты могут принимать произвольные пропсы, включая примитивные значения, React-элементы или функции</li>
-</ul>
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Функциональные и классовые компоненты</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<div class="container-flex"><div class="container-half">
-<b>Функциональные</b>
-<pre><code class="js">
+<v-two type="js;js" comment="Функциональный;Классовый">
+<template v-slot:first>
 function Welcome(props) {
 	return &lt;h1&gt;Привет, {props.name}&lt;/h1&gt;;
 }
-</code></pre>
-<ul class="list-point">
-	<li>Эта функция - компонент, потому что она получает данные в одном объекте («пропсы») в качестве параметра и возвращает React-элемент</li>
-</ul>
-</div><div class="container-half">
-<b>Классовые</b>
-<pre><code class="js">
+// она получает данные через props
+// возвращает React-элемент
+</template>
+<template v-slot:last>
 class Welcome extends React.Component {
 	render() {
 		return &lt;h1&gt;Привет, {this.props.name}&lt;/h1&gt;;
 	}
 }
-</code></pre>
-</div></div>
+</template>
+</v-two>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Импорт</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two type="js;js" comment="React.Component;Component">
+<template v-slot:first>
+import React from 'react';
+export default class Logo extends <bg-code>React.Component</bg-code> {
+	//
+}
+</template>
+<template v-slot:last>
+import React, {Component} from 'react';
+export default class App extends <bg-code>Component</bg-code> {
+	//
+}
+</template>
+</v-two>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Рендеринг</h3>
@@ -89,7 +76,7 @@ class App extends React.Component {
 	}
 }
 ReactDOM.render(
-	&lt;App /&gt;, 
+	&lt;App /&gt;,
 	document.getElementById('root')
 );
 </code></pre></div><div class="container-half"><pre><code class="js"><code-type>js</code-type>
@@ -100,7 +87,7 @@ class App extends React.Component {
 	}
 }
 ReactDOM.render(
-	<bg-code>e</bg-code>(App), 
+	<bg-code>e</bg-code>(App),
 	document.getElementById('root')
 );
 </code></pre></div></div>
@@ -150,7 +137,7 @@ class Button extends React.Component {
 	}
 }
 ReactDOM.render(
-	&lt;App /&gt;, 
+	&lt;App /&gt;,
 	document.getElementById('root')
 );
 </code></pre>
@@ -168,9 +155,8 @@ function Button(props) {
 	return &lt;button&gt;{props.name}&lt;/button&gt;;
 }
 ReactDOM.render(
-	&lt;App /&gt;, 
+	&lt;App /&gt;,
 	document.getElementById('root')
 );
 </code></pre>
 </div></div>
-

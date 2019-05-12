@@ -1,12 +1,14 @@
 <h2>Структура</h2>
 
 <ul class="list-point">
-	<li>Один компонент <code class="txt">App</code>, который находится на самом верху</li>
+	<li>Один компонент <code class="txt">App</code> находится на самом верху</li>
 	<li>Существует два типа «модели» данных: пропсы <code class="txt">this.props</code> и состояние <code class="txt">this.state</code></li>
 </ul>
 
 <pre><code class="js"><code-type>Component App</code-type>
-class App extends React.Component {
+import React, {Component} from 'react';
+
+export default class App extends Component {
 	<bg-code-wrapper><code-type>constructor</code-type>
 	constructor(props) {
 		super(props);

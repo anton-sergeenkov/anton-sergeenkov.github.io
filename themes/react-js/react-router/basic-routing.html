@@ -1,0 +1,67 @@
+<h2>Basic Routing</h2>
+
+<ul class="list-point">
+	<li><bg-define>BrowserRouter</bg-define> - router. Использует html5 history api и следит за тем чтобы UI был синхронизирован с тем что написано в адресной строке</li>
+	<li><bg-define>Route</bg-define> - отображение UI, слелит чтобы совпадали пути между компонентом и адресной строкой</li>
+	<li><bg-define>Link</bg-define> - видоизмененная ссылка под React для редиректа на нужную страницу. Предотвращает обновление страницы, в отличии от обычной ссылке</li>
+
+	<hr>
+	<li><code class="txt">exact</code> - компонент будет рендериться только по указанному адресу, а не по всем адресам, связанным с ним</li>
+	<li><code class="txt">Router</code> и <code class="txt">Route</code> технически они являются компонентами, но сами не создают DOM-элементов</li>
+</ul>
+
+<pre><code class="js">
+import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+const Home    = () =&gt; ( &lt;h2&gt;Home&lt;/h2&gt; )
+const About   = () =&gt; ( &lt;h2&gt;About&lt;/h2&gt; )
+const Contact = () =&gt; ( &lt;h2&gt;Contact&lt;/h2&gt; )
+
+export default class App extends Component {
+	render() {
+		return (
+			&lt;Router&gt;
+				&lt;div&gt;
+					&lt;Link to="/"&gt;Home&lt;/Link&gt;
+					&lt;Link to="/about/"&gt;About&lt;/Link&gt;
+					&lt;Link to="/contact/"&gt;Contact&lt;/Link&gt;
+
+					&lt;Route path="/" exact component={Home} /&gt;
+					&lt;Route path="/about" component={About} /&gt;
+					&lt;Route path="/contact" component={Contact} /&gt;
+				&lt;/div&gt;
+			&lt;/Router&gt;
+		);
+	}
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка сервера Webpack</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>При переходе по <code class="txt">Link</code> изменяется url, но физически этой страницы нет. Поэтому нужно настроить сервер</li>
+</ul>
+
+<pre><code class="js"><code-type>webpack.config.js</code-type>
+module.exports = {
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'build'),
+		<bg-code-wrapper>
+		publicPath: '/'
+		</bg-code-wrapper>
+	},
+	devServer: {
+		contentBase: './dist',
+		<bg-code-wrapper>
+		historyApiFallback: {
+			disableDotRule: true
+		},
+		</bg-code-wrapper>
+		stats: 'errors-only',
+		port: 3000
+	}
+}
+</code></pre>

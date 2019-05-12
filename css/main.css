@@ -380,13 +380,13 @@ hr {
 /***************************************************
 SELECTED
 /***************************************************/
-bg-code, bg-code-accent, bg-header, bg-list, bg-menu, bg-menu-border, bg-menu-accent,
+bg-code, bg-code-accent, bg-header, bg-list, bg-menu, bg-menu-code, bg-menu-border, bg-menu-accent,
 bg-mass, bg-methods, bg-define, bg-link, bg-npm, bg-code-warn {
 	margin: 0;
 	padding: 0;
 	border: 0;
 }
-bg-code, bg-code-accent, bg-header, bg-list, bg-menu, bg-menu-border, bg-menu-accent,
+bg-code, bg-code-accent, bg-header, bg-list, bg-menu, bg-menu-code, bg-menu-border, bg-menu-accent,
 bg-mass, bg-methods, bg-define, bg-npm, bg-code-warn {
 	display: inline;
 }
@@ -403,7 +403,7 @@ bg-comment {
 	color: var(--comment);
 }
 bg-code {
-	background: rgba(var(--color-other), 0.2);
+	background: rgba(var(--color-other), 0.4);
 	padding: 2px;
 }
 bg-code-warn {
@@ -426,7 +426,7 @@ bg-list {
 	font-size: 15px;
 	border: 1px solid rgba(var(--color-black), 0.1);
 }
-bg-menu, bg-menu-accent, bg-menu-border  {
+bg-menu, bg-menu-accent, bg-menu-border, bg-menu-code  {
 	padding: 2px 5px;
 	color: black !important;
 }
@@ -436,6 +436,12 @@ bg-menu-border {
 }
 bg-menu {
 	background: rgba(var(--color-other), 0.3);
+}
+bg-menu-code {
+	/*background: rgba(var(--color-php), 0.2);*/
+	color: rgba(var(--color-php), 1) !important;
+	border: 1px solid rgba(var(--color-php), 1) !important;
+	border-radius: 3px;
 }
 bg-menu-accent {
 	background: rgba(var(--color-html), 0.35);

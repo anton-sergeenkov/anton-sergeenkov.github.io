@@ -1,0 +1,32 @@
+<h2>URL Parameters</h2>
+
+<pre><code class="js">
+export default class App extends Component {
+	render() {
+		return (
+			&lt;Router&gt;
+				&lt;div&gt;
+					&lt;Link to="/posts/"&gt;Posts&lt;/Link&gt;
+					&lt;Link to="/posts/<bg-code>77</bg-code>"&gt;Post 77&lt;/Link&gt;
+
+					&lt;Route path="/posts" <bg-code>exact</bg-code> component={Posts} /&gt;
+					&lt;Route path="/posts/<bg-code>:id</bg-code>" component={Post} /&gt;
+				&lt;/div&gt;
+			&lt;/Router&gt;
+		);
+	}
+}
+
+class Post extends Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			&lt;div&gt;
+				<bg-code>{this.props.match.params.id}</bg-code>
+			&lt;/div&gt;
+		);
+	}
+}
+</code></pre>

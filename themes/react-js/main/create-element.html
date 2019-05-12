@@ -1,0 +1,18 @@
+<h2>React.createElement</h2>
+
+<pre><code class="js">
+var image     = React.createElement('img', { src: '...' });
+var title     = React.createElement('h1', null, 'React');
+var subtitle  = React.createElement('p', null, '...');
+var container = React.createElement('div', { className: 'container' }, image, title, subtitle);
+
+ReactDOM.render(container, document.getElementById('root'));
+</code></pre>
+
+<pre><code class="js">
+React.createElement('div', { className: 'container' },
+	React.createElement('img', { src: '...' }),
+	React.createElement('h1', null, 'React'),
+	React.createElement('p', null, '...'),
+);
+</code></pre>
