@@ -24,6 +24,9 @@ var arrReactjs = [
     ['react-js', 'processing-data-output', 'lists-and-keys',        '<bg-menu>4.</bg-menu> Списки и ключи'],
     ['react-js', 'processing-data-output', 'forms',                 '<bg-menu>5.</bg-menu> Формы'],
 
+    [1, 'Redux'],
+    ['react-js', 'redux', 'info', 'Информация'],
+
     [1, 'React Router'],
     ['react-js', 'react-router', 'npm',               'Установка'],
     ['react-js', 'react-router', 'basic-routing',     '<bg-menu>1.</bg-menu> Basic Routing'],
