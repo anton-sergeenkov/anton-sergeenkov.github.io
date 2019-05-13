@@ -4,3 +4,6 @@
 		"build": "webpack --config ./build/webpack.build.conf.js"
 	}
 }
+
+
+"dev": "webpack-dev-server --mode development --open --hot",

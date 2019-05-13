@@ -31,3 +31,11 @@ npm <em>-v</em>                     # проверить версию npm
 	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
 	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Linux</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash">
+sudo npm i <bg-code>--unsafe-perm</bg-code>                      # установка всех пакетов из package.json
+sudo npm i --save-dev <bg-code>--unsafe-perm node-sass</bg-code> # установка пакета node-sass
+</code></pre>

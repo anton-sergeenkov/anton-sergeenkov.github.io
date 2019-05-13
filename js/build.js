@@ -124,6 +124,32 @@ var arrNpm = [
 // JAVASCRIPT
 //---------------------------------------------------------------------
 var arrJavaScript = [
+
+    [1, 'WORK'],
+    ['js', 'ajax', 'axios',                 '<div class="circle-menu"></div> Axios'],
+    ['js', 'ajax', 'fetch',                 '<div class="circle-menu"></div> Fetch'],
+    ['js', 'async', 'promise',              '<div class="circle-menu"></div> Promise'],
+    ['js', 'async', 'async-func',           '<div class="circle-menu"></div> Async Function'],
+    ['js', 'type-data', 'json',             '<div class="circle-menu"></div> JSON'],
+    ['js', 'array', 'array-cycle',          '<div class="circle-menu"></div> forEach <bg-menu>...</bg-menu>'],
+    ['js', 'es6', 'map',                    '<div class="circle-menu"></div> map'],
+    ['js', 'main', 'context',               '<div class="circle-menu"></div> call <bg-menu>...</bg-menu>'],
+    ['js', 'es6', 'spread',                 '<div class="circle-menu"></div> Spread Operator'],
+    ['js', 'es6', 'destructive-array',      '<div class="circle-menu"></div> Деструктивное присваивание массивов'],
+    ['js', 'es6', 'destructive-obj',        '<div class="circle-menu"></div> Деструтивное присваивание объектов'],
+    ['js', 'client-storage', 'web-storage', '<div class="circle-menu"></div> WebStorage'],
+
+
+    [1, 'Функции'],
+    ['js', 'functions', 'info',                      'Описание'],
+    ['js', 'functions', 'announcement',              'Объявление'],
+    ['js', 'functions', 'arguments',                 'Псевдомассив аргументов "arguments"'],
+    ['js', 'functions', 'parameters',                'Параметры функции (ES6)'],
+    ['js', 'functions', 'arrow',                     'Стрелочные функции (ES6)'],
+    ['js', 'functions', 'closures',                  'Замыкания'],
+    ['js', 'functions', 'recursion',                 'Рекурсия'],
+    ['js', 'functions', 'named-function-expression', 'Named Function Expression'],
+
     [1, 'Типы данных'],
     ['js', 'type-data', 'type-data',         'Типы данных'],
     ['js', 'type-data', 'variables',         '<bg-menu>var</bg-menu> <bg-menu>let</bg-menu> <bg-menu>const</bg-menu>'],
@@ -144,16 +170,6 @@ var arrJavaScript = [
     ['js', 'main', 'attribute',              '<bg-menu>attributes</bg-menu>'],
     ['js', 'main', 'exceptions',             'Исключения'],
     ['js', 'main', 'conditional-statements', 'Условные операторы'],
-
-    [1, 'Функции'],
-    ['js', 'functions', 'info',                      'Описание'],
-    ['js', 'functions', 'announcement',              'Объявление'],
-    ['js', 'functions', 'arguments',                 'Псевдомассив аргументов "arguments"'],
-    ['js', 'functions', 'parameters',                'Параметры функции (ES6)'],
-    ['js', 'functions', 'arrow',                     'Стрелочные функции (ES6)'],
-    ['js', 'functions', 'closures',                  'Замыкания'],
-    ['js', 'functions', 'recursion',                 'Рекурсия'],
-    ['js', 'functions', 'named-function-expression', 'Named Function Expression'],
 
     [1, 'Массивы'],
     ['js', 'array', 'array-cycle', '<bg-menu>forEach</bg-menu> <bg-menu>filter</bg-menu> <bg-menu>map</bg-menu> <bg-menu>every/some</bg-menu> <bg-menu>reduce/reduceRight</bg-menu>'],
@@ -499,6 +515,7 @@ var arrLinux = [
     [1, 'Ubuntu (Debian)'],
     ['linux', 'ubuntu', 'command', 'Команды'],
     ['linux', 'ubuntu', 'package', 'Пакеты'],
+    ['linux', 'ubuntu', 'nodejs',  'Node.js'],
     ['linux', 'ubuntu', 'setting', 'Настройка'],
     ['linux', 'ubuntu', 'other',   'Прочее'],
 ];
