@@ -292,7 +292,7 @@ code.none {
 }
 code.border {
 	border: 2px solid rgba(var(--color-js), 0.45);
-	background: rgba(var(--color-js), 0.1) !important; 
+	background: rgba(var(--color-js), 0.1) !important;
 }
 pre.npm {
 	border-left: 3px solid rgba(var(--color-php), 0.85);
@@ -383,8 +383,8 @@ hr {
 	height: 25px;
 }
 .circle-menu {
-	width: 12px;
-	height: 12px;
+	width: 9px;
+	height: 9px;
 }
 
 
