@@ -1,0 +1,69 @@
+<h2>Redux</h2>
+
+<pre class="npm"><code class="bash">
+npm i --save <bg-npm>redux</bg-npm>
+</code></pre>
+
+<bg-link>
+	<a href="https://redux.js.org/introduction/getting-started" target="_blank">Документация</a>
+</bg-link>
+
+<ul class="list-point">
+	<li><bg-define>Redux</bg-define> - предсказуемый контейнер состояния для JS приложений</li>
+</ul>
+
+<ol class="list-num">
+	<li><u>Store</u> - помещаются все данные приложения. Store иммутабельный: мы можем создавать всегда только новую копию данных, а не менять старое состояние store</li>
+	<li><u>Reducer</u> (преобразователь) - функция не изменяет состояние, а возвращает новое (чистая функция)</li>
+	<li><u>Actions</u> - изменение состоние происходит с помощью действий</li>
+</ol>
+
+<ul class="list-point">
+	<b>Принципы функционального программирования в Redux</b>
+	<li><u>Чистые функции (pure functions)</u> - функция возвращаюшая знечение, зависомое только от получаемых аргументов</li>
+	<li><u>Неизменность данных (immutability)</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Основы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+const store = <bg-code>createStore</bg-code>(reducerFunction); // создание store
+store.<bg-code>subscribe</bg-code>();                          // подписка на изменение store
+store.<bg-code>getState</bg-code>();                           // получить значение store
+store.<bg-code>dispatch</bg-code>({                            // событие изменения значения в store
+	type: 'тип_события', 
+	payload: 'данные' 
+}); 
+</code></pre>
+
+<pre><code class="js border">
+import { createStore } from 'redux';
+
+function changeCalalog(state = [], action) {
+    if (action.type === 'ADD_PRODUCT') {
+        return [
+            ...state,
+            action.payload
+        ];
+    }
+    return state;
+}
+
+const store = <bg-code>createStore</bg-code>(changeCalalog);
+
+store.<bg-code>subscribe</bg-code>(() => {
+    console.log('subscribe', store.<bg-code>getState</bg-code>());
+});
+
+store.<bg-code>dispatch</bg-code>({ type: 'ADD_PRODUCT', payload: 'Product1' });
+store.<bg-code>dispatch</bg-code>({ type: 'ADD_PRODUCT', payload: 'Product2' });
+</code></pre>
+
+<pre><code class="js">
+function changeCalalog(state = [], action) {
+    console.log(action);
+    // => {type: "@@redux/INITn.9.1.1.y.1"}          // всегда когда redux инициализирован
+    // => {type: "ADD_PRODUCT", payload: "Product1"} // добавленный action
+}
+</code></pre>

@@ -25,7 +25,9 @@ var arrReactjs = [
     ['react-js', 'processing-data-output', 'forms',                 '<bg-menu>5.</bg-menu> Формы'],
 
     [1, 'Redux'],
-    ['react-js', 'redux', 'info', 'Информация'],
+    ['react-js', 'redux', 'flux', 'Flux'],
+    ['react-js', 'redux', 'redux', 'Redux'],
+    ['react-js', 'redux', 'redux-react', 'Redux-React'],
 
     [1, 'React Router'],
     ['react-js', 'react-router', 'npm',               'Установка'],

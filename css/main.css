@@ -290,6 +290,10 @@ code.none {
 	background: none;
 	border: 1px solid rgba(var(--color-other), 0.2);
 }
+code.border {
+	border: 2px solid rgba(var(--color-js), 0.45);
+	background: rgba(var(--color-js), 0.1) !important; 
+}
 pre.npm {
 	border-left: 3px solid rgba(var(--color-php), 0.85);
 	border-radius: none !important;
@@ -412,6 +416,11 @@ bg-comment {
 bg-code {
 	background: rgba(var(--color-other), 0.4);
 	padding: 2px;
+}
+code.border bg-code {
+	background: rgba(var(--color-js), 0.4) !important;
+	text-shadow: 0px 0px 5px white;
+	border-radius: 3px;
 }
 bg-code-warn {
 	background: rgba(var(--color-php), 0.4);
