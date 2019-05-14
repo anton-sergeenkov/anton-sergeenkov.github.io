@@ -578,6 +578,19 @@ var arrJquery = [
     ['jquery', 'main', 'samples',     'Примеры'],
 ];
 
+//---------------------------------------------------------------------
+// CANVAS
+//---------------------------------------------------------------------
+var arrCanvas = [
+    [1, 'Основное'],
+    ['canvas', 'main', 'info',   'Информация'],
+    ['canvas', 'main', 'html',   'HTML'],
+    ['canvas', 'main', 'basic',  'Основы'],
+    ['canvas', 'main', 'figure', 'Фигуры'],
+    ['canvas', 'main', 'other', 'Остальное'],
+];
+
+
 
 
 
@@ -598,6 +611,7 @@ switch(pageName) {
     case 'other.html':      var arrCurrent = arrOther;      break;
     case 'js-tasks.html':   var arrCurrent = arrJsTasks;    break;
     case 'jquery.html':     var arrCurrent = arrJquery;     break;
+    case 'canvas.html':     var arrCurrent = arrCanvas;     break;
 }
 
 if (pageName != 'map.html') {
