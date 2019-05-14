@@ -3,13 +3,14 @@
 //---------------------------------------------------------------------
 var arrReactjs = [
     [1, 'Информация'],
-    ['react-js', 'main', 'info',             'Информация'],
-    ['react-js', 'main', 'structure',        '<bg-menu-code>&lt;/&gt;</bg-menu-code> Структура'],
-    ['react-js', 'main', 'create-element',   '<bg-menu>1.</bg-menu> React.createElement'],
-    ['react-js', 'main', 'jsx',              '<bg-menu>2.</bg-menu> JSX'],
-    ['react-js', 'main', 'state',            '<bg-menu>3.</bg-menu> Состояние'],
-    ['react-js', 'main', 'lifecycle',        '<bg-menu>4.</bg-menu> Жизненный цикл'],
-    ['react-js', 'main', 'create-react-app', '<bg-menu>5.</bg-menu> Create React App'],
+    ['react-js', 'main', 'info',                  'Информация'],
+    ['react-js', 'main', 'structure',             '<bg-menu-code>&lt;/&gt;</bg-menu-code> Структура'],
+    ['react-js', 'main', 'create-element',        '<bg-menu>1.</bg-menu> React.createElement'],
+    ['react-js', 'main', 'jsx',                   '<bg-menu>2.</bg-menu> JSX'],
+    ['react-js', 'main', 'state',                 '<bg-menu>3.</bg-menu> Состояние'],
+    ['react-js', 'main', 'lifecycle',             '<bg-menu>4.</bg-menu> Жизненный цикл'],
+    ['react-js', 'main', 'create-react-app',      '<bg-menu>5.</bg-menu> Create React App'],
+    ['react-js', 'main', 'react-developer-tools', '<bg-menu>6.</bg-menu> React Developer Tools'],
 
     [1, 'Компоненты'],
     ['react-js', 'components', 'info',                  'Информация'],
@@ -25,9 +26,10 @@ var arrReactjs = [
     ['react-js', 'processing-data-output', 'forms',                 '<bg-menu>5.</bg-menu> Формы'],
 
     [1, 'Redux'],
-    ['react-js', 'redux', 'flux', 'Flux'],
-    ['react-js', 'redux', 'redux', 'Redux'],
-    ['react-js', 'redux', 'redux-react', 'Redux-React'],
+    ['react-js', 'redux', 'flux',                  'Flux'],
+    ['react-js', 'redux', 'redux',                 'Redux'],
+    ['react-js', 'redux', 'redux-react',           'Redux-React'],
+    ['react-js', 'redux', 'redux-developer-tools', 'Redux DevTools'],
 
     [1, 'React Router'],
     ['react-js', 'react-router', 'npm',               'Установка'],
@@ -35,10 +37,6 @@ var arrReactjs = [
     ['react-js', 'react-router', 'style-active-link', '<bg-menu>2.</bg-menu> Style Active Link'],
     ['react-js', 'react-router', 'url-parameters',    '<bg-menu>3.</bg-menu> URL Parameters'],
     ['react-js', 'react-router', 'page-404',          '<bg-menu>4.</bg-menu> Page 404'],
-
-    [1, 'Тестирование'],
-    ['react-js', 'testing', 'react-developer-tools', 'React Developer Tools'],
-    ['react-js', 'testing', 'redux-developer-tools', 'Redux DevTools'],
 ];
 
 //---------------------------------------------------------------------
@@ -557,7 +555,28 @@ var arrJsTasks = [
     ['js-task', 'other', 'popup-func-and-variable', 'Всплытие функции и переменной'],
 ];
 
+//---------------------------------------------------------------------
+// JQUERY
+//---------------------------------------------------------------------
+var arrJquery = [
+    [1, 'События'],
+    ['jquery', 'actions', 'handling-events', 'Обработчики событий'],
+    ['jquery', 'actions', 'hover-toggle',    'События hover() и toggle()'],
+    ['jquery', 'actions', 'event-object',    'Объект события eventObject()'],
 
+    [1, 'Основное'],
+    ['jquery', 'main', 'info',        'Информация'],
+    ['jquery', 'main', 'ajax',        'AJAX'],
+    ['jquery', 'main', 'css',         'CSS'],
+    ['jquery', 'main', 'methods',     'Методы'],
+    ['jquery', 'main', 'attributes',  'Атрибуты. Object this'],
+    ['jquery', 'main', 'input',       'Input'],
+    ['jquery', 'main', 'include',     'Подключение файлов'],
+    ['jquery', 'main', 'is',          'Псевдо-селекторы :visible и :hidden'],
+    ['jquery', 'main', 'animation',   'Анимация'],
+    ['jquery', 'main', 'get-element', 'Выборка элементов'],
+    ['jquery', 'main', 'samples',     'Примеры'],
+];
 
 
 
@@ -578,6 +597,7 @@ switch(pageName) {
     case 'linux.html':      var arrCurrent = arrLinux;      break;
     case 'other.html':      var arrCurrent = arrOther;      break;
     case 'js-tasks.html':   var arrCurrent = arrJsTasks;    break;
+    case 'jquery.html':     var arrCurrent = arrJquery;     break;
 }
 
 if (pageName != 'map.html') {

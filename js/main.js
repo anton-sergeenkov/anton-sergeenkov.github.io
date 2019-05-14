@@ -7,7 +7,7 @@ var menu = `
     <a href="/pages/js-tasks.html"       class="menu menu-js">tasks</a>
     <a href="/pages/react-js.html"       class="menu menu-js">react.js</a>
     <a href="/pages/vue-js.html"         class="menu menu-js">vue.js</a>
-    <a href="/pages/+jquery.html"        class="menu menu-js">jquery</a>
+    <a href="/pages/jquery.html"         class="menu menu-js">jquery</a>
     <a href="/pages/+canvas.html"        class="menu menu-js">canvas</a>
 
     <a href="/pages/webpack.html"        class="menu menu-other">webpack</a>

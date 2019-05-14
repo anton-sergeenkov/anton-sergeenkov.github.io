@@ -40,7 +40,7 @@ store.<bg-code>dispatch</bg-code>({                            // событие
 <pre><code class="js border">
 import { createStore } from 'redux';
 
-function changeCalalog(state = [], action) {
+function changeStore(state = [], action) {
     if (action.type === 'ADD_PRODUCT') {
         return [
             ...state,
@@ -50,7 +50,7 @@ function changeCalalog(state = [], action) {
     return state;
 }
 
-const store = <bg-code>createStore</bg-code>(changeCalalog);
+const store = <bg-code>createStore</bg-code>(changeStore);
 
 store.<bg-code>subscribe</bg-code>(() => {
     console.log('subscribe', store.<bg-code>getState</bg-code>());
@@ -61,7 +61,7 @@ store.<bg-code>dispatch</bg-code>({ type: 'ADD_PRODUCT', payload: 'Product2' });
 </code></pre>
 
 <pre><code class="js">
-function changeCalalog(state = [], action) {
+function changeStore(state = [], action) {
     console.log(action);
     // => {type: "@@redux/INITn.9.1.1.y.1"}          // всегда когда redux инициализирован
     // => {type: "ADD_PRODUCT", payload: "Product1"} // добавленный action

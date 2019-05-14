@@ -1,0 +1,15 @@
+<h2>Redux DevTools</h2>
+
+<bg-link>
+	<a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ru" target="_blank">Интернет-магазин Chrome</a>
+</bg-link>
+
+<pre><code class="js">
+// Включить Redux DevTools
+// если найдено расширение, то мы применяем его во второй аргумент createStore,
+// в другом случае он будет undefined
+const store = createStore(changeStore,
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+</code></pre>
