@@ -14,7 +14,8 @@ npm i --save <bg-npm>react-redux</bg-npm>
 </ul>
 
 <pre><code class="js">
-import { createStore } from 'redux';       // создание store
-import { Provider }    from 'react-redux'; // рутовый компонент для того чтобы прокидывать Store
-import { connect }     from 'react-redux'; // декоратор
+import { createStore }     from "redux";       // создание store
+import { Provider }        from "react-redux"; // рутовый компонент для того чтобы прокидывать Store
+import { connect }         from "react-redux"; // function for you to connect your component to the store (декоратор)
+import { combineReducers } from "redux";       // объединение нескольких reducer
 </code></pre>

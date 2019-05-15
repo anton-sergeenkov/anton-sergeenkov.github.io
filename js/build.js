@@ -32,6 +32,7 @@ var arrReactjs = [
     ['react-js', 'redux', 'flux',                  'Flux'],
     ['react-js', 'redux', 'redux',                 point+'Redux'],
     ['react-js', 'redux', 'react-redux',           point+'React-Redux'],
+    ['react-js', 'redux', 'structure',             code+'Структура'],
     ['react-js', 'redux', 'redux-developer-tools', 'Redux DevTools'],
 
     [1, 'React Router'],

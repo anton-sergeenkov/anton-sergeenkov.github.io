@@ -369,6 +369,9 @@ hr {
     border: none;
     height: 1px;
 }
+p.center {
+	text-align: center;
+}
 .circle, .circle-menu  {
 	background: rgba(0, 161, 232, 0.7);
 	color: white;
