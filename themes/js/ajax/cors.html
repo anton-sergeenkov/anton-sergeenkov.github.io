@@ -4,23 +4,23 @@
 	<li><bg-define>Cross-origin resource sharing</bg-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
 </ul>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Кросс-доменные запросы</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Запрос обязательно должен быть асинхронным</li>
 </ul>
 
-<ul class="list-point">
+<ol class="list-num">
 	<li>1. В кросс-доменный запрос браузер автоматически добавляет заголовок <u>Origin</u>, содержащий домен, с которого осуществлён запрос</li>
 	<li>2. Если сервер разрешает кросс-доменный запрос с этого домена он должен добавить к ответу заголовок <u>Access-Control-Allow-Origin</u>, содержащий домен запроса или звёздочку <u>*</u>. Только при наличии такого заголовка в ответе – браузер сочтёт запрос успешным, а иначе JavaScript получит ошибку</li>
 	<li>3. Чтобы JavaScript мог прочитать HTTP-заголовок ответа, сервер должен указать его имя в <u>Access-Control-Expose-Headers</u></li>
-</ul>
+</ol>
 
+<!------------------------------------------------------------->
 <h4>Простой метод GET, POST, HEAD</h4>
-
-<p>Запрос с домена http://test1.ru</p>
-<pre><code class="js">
+<!------------------------------------------------------------->
+<pre><code class="js"><code-type>Запрос с домена http://test1.ru</code-type>
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://test2.ru/script.php', true);
 xhr.onload = function() {
@@ -32,18 +32,31 @@ xhr.onerror = function() {
 xhr.send();
 </code></pre>
 
-<p>Сервер http://test2.ru</p>
-<pre><code class="js">
+<pre><code class="js"><code-type>Сервер http://test2.ru</code-type>
 &lt;?php
     header('<bg-code>Access-Control-Allow-Origin</bg-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
     header('Access-Control-Allow-Origin: *');               // разрешить доступ любому домену
 ?&gt;
 </code></pre>
 
+<!------------------------------------------------------------->
+<h4>Чтение json файла</h4>
+<!------------------------------------------------------------->
+<pre><code class="json"><code-type>.htaccess</code-type>
+&lt;IfModule mod_rewrite.c&gt;
+	Header add Access-Control-Allow-Origin "*"
+	Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+	AddType application/json .json
+&lt;/IfModule&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
 <h4>Передавать куки и HTTP-авторизацию</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 xhr.withCredentials = true;
 </code></pre>
+
 <pre><code class="js">
 &lt;?php
 	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
