@@ -5,22 +5,26 @@
 </bg-link>
 
 <pre><code class="bash"><em>
-&#10006; src
-	&#10006; redux
-		&#10006; reducers
-			&#8226; index.js
-			&#8226; catalog.js
-		&#8226; store.js	
-		&#8226; actions.js
-		&#8226; actionTypes.js
-	&#8226; App.js
-	&#8226; index.js
+&#10006; redux
+	&#10006; reducers
+		&#8226; index.js
+		&#8226; catalog.js
+	&#8226; store.js	
+	&#8226; actions.js
+	&#8226; actionTypes.js
+&#8226; App.js
+&#8226; index.js
 </em></code></pre>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>SRC</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border"><code-type>./src/index.js</code-type>
+
+<!------------------------------------------------------------->
+<h4>Providing the Store</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>index.js</code-type>
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -37,7 +41,10 @@ ReactDOM.render(
 );
 </code></pre>
 
-<pre><code class="js border"><code-type>./src/App.js</code-type>
+<!------------------------------------------------------------->
+<h4>Connecting the Components</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>App.js</code-type>
 import React, {Component} from "react";
 import { <bg-code>connect</bg-code> } from "react-redux";
 import { addProduct } from "./redux/actions";
@@ -57,20 +64,25 @@ class App extends Component {
 const mapStateToProps = state =&gt; ({
 	<bg-code>catalog: state.catalog</bg-code>
 })
-const actionCreators = {
+const mapDispatchToProps = {
 	<bg-code>add: addProduct</bg-code>
 }
 
 export default <bg-code>connect</bg-code>(
 	mapStateToProps,
-	actionCreators
+	mapDispatchToProps
 )(App);
 </code></pre>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>SRC/REDUX</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border"><code-type>./src/redux/store.js</code-type>
+
+<!------------------------------------------------------------->
+<h4>Create Store</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>redux/store.js</code-type>
 import { <bg-code>createStore</bg-code> } from "redux";
 import rootReducer from "./reducers";
 
@@ -80,7 +92,10 @@ const devtoolMiddleware = ext && ext();
 export default <bg-code>createStore</bg-code>(rootReducer, devtoolMiddleware);
 </code></pre>
 
-<pre><code class="js border"><code-type>./src/redux/actions.js</code-type>
+<!------------------------------------------------------------->
+<h4>Create Actions</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>redux/actions.js</code-type>
 import { ADD_PRODUCT } from "./actionTypes";
 
 export const addProduct = product => ({
@@ -89,14 +104,22 @@ export const addProduct = product => ({
 })
 </code></pre>
 
-<pre><code class="js border"><code-type>./src/redux/actionTypes.js</code-type>
+<!------------------------------------------------------------->
+<h4>Create Action Types</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>redux/actionTypes.js</code-type>
 export const ADD_PRODUCT = "ADD_PRODUCT";
 </code></pre>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>SRC/REDUX/REDUCERS</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border"><code-type>./src/redux/reducers/index.js</code-type>
+
+<!------------------------------------------------------------->
+<h4>Combine Reducers</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>redux/reducers/index.js</code-type>
 import { <bg-code>combineReducers</bg-code> } from "redux";
 import catalog from "./catalog";
 
@@ -105,7 +128,10 @@ export default <bg-code>combineReducers</bg-code>({
 });
 </code></pre>
 
-<pre><code class="js border"><code-type>./src/redux/reducers/catalog.js (custom reducer)</code-type>
+<!------------------------------------------------------------->
+<h4>Reducer</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>redux/reducers/catalog.js (custom reducer)</code-type>
 import { ADD_PRODUCT } from "../actionTypes";
 
 const initialState = ['Product1', 'Product2']

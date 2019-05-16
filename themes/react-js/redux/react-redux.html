@@ -19,3 +19,13 @@ import { Provider }        from "react-redux"; // рутовый компоне�
 import { connect }         from "react-redux"; // function for you to connect your component to the store (декоратор)
 import { combineReducers } from "redux";       // объединение нескольких reducer
 </code></pre>
+
+<!------------------------------------------------------------->
+<h4>connect()</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+connect()(Component)                                    // Subscribe=False Action=False
+connect(mapStateToProps)(Component)                     // Subscribe=True  Action=False
+connect(null, mapDispatchToProps)(Component)            // Subscribe=False Action=True
+connect(mapStateToProps, mapDispatchToProps)(Component) // Subscribe=True  Action=True
+</code></pre>
