@@ -133,6 +133,7 @@ var arrNpm = [
 var arrJavaScript = [
 
     [1, 'WORK'],
+    ['js', 'modules', 'module-es6',         'Модули ES6'],
     ['js', 'ajax', 'axios',                 '<div class="circle-menu"></div> Axios'],
     ['js', 'ajax', 'fetch',                 '<div class="circle-menu"></div> Fetch'],
     ['js', 'async', 'promise',              '<div class="circle-menu"></div> Promise'],
