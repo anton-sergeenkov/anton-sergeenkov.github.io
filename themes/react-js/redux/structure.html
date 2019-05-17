@@ -9,7 +9,7 @@
 	&#10006; reducers
 		&#8226; index.js
 		&#8226; catalog.js
-	&#8226; store.js	
+	&#8226; store.js
 	&#8226; actions.js
 	&#8226; actionTypes.js
 &#8226; App.js
@@ -18,9 +18,8 @@
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>SRC</h3>
+<h3>INDEX [PROVIDER]</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <!------------------------------------------------------------->
 <h4>Providing the Store</h4>
 <!------------------------------------------------------------->
@@ -41,44 +40,10 @@ ReactDOM.render(
 );
 </code></pre>
 
-<!------------------------------------------------------------->
-<h4>Connecting the Components</h4>
-<!------------------------------------------------------------->
-<pre><code class="js border"><code-type>App.js</code-type>
-import React, {Component} from "react";
-import { <bg-code>connect</bg-code> } from "react-redux";
-import { addProduct } from "./redux/actions";
-
-class App extends Component {
-	componentDidMount() {
-		<bg-code>this.props.add</bg-code>('New Product');
-	}
-	render() {
-		console.log(<bg-code>this.props.catalog</bg-code>);
-		// => (2) ["Product1", "Product2"]
-		// => (3) ["Product1", "Product2", "New Product"]
-		return (&lt;div&gt;&lt;/div&gt;);
-	}
-}
-
-const mapStateToProps = state =&gt; ({
-	<bg-code>catalog: state.catalog</bg-code>
-})
-const mapDispatchToProps = {
-	<bg-code>add: addProduct</bg-code>
-}
-
-export default <bg-code>connect</bg-code>(
-	mapStateToProps,
-	mapDispatchToProps
-)(App);
-</code></pre>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>SRC/REDUX</h3>
+<h3>STORE</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <!------------------------------------------------------------->
 <h4>Create Store</h4>
 <!------------------------------------------------------------->
@@ -91,30 +56,6 @@ const devtoolMiddleware = ext && ext();
 
 export default <bg-code>createStore</bg-code>(rootReducer, devtoolMiddleware);
 </code></pre>
-
-<!------------------------------------------------------------->
-<h4>Create Actions</h4>
-<!------------------------------------------------------------->
-<pre><code class="js border"><code-type>redux/actions.js</code-type>
-import { ADD_PRODUCT } from "./actionTypes";
-
-export const addProduct = product => ({
-    <bg-code>type</bg-code>: ADD_PRODUCT,
-    <bg-code>payload</bg-code>: { product }
-})
-</code></pre>
-
-<!------------------------------------------------------------->
-<h4>Create Action Types</h4>
-<!------------------------------------------------------------->
-<pre><code class="js border"><code-type>redux/actionTypes.js</code-type>
-export const ADD_PRODUCT = "ADD_PRODUCT";
-</code></pre>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>SRC/REDUX/REDUCERS</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
 <h4>Combine Reducers</h4>
@@ -148,4 +89,60 @@ const catalog = (state = initialState, action) => {
 };
 
 export default catalog;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Create Action Types</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>redux/actionTypes.js</code-type>
+export const ADD_PRODUCT = "ADD_PRODUCT";
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>COMPONENT [CONNECT]</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Connecting the Components</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>App.js</code-type>
+import React, {Component} from "react";
+import { <bg-code>connect</bg-code> } from "react-redux";
+import { addProduct } from "./redux/actions";
+
+class App extends Component {
+	componentDidMount() {
+		<bg-code>this.props.add</bg-code>('New Product');
+	}
+	render() {
+		console.log(<bg-code>this.props.catalog</bg-code>);
+		// => (2) ["Product1", "Product2"]
+		// => (3) ["Product1", "Product2", "New Product"]
+		return (&lt;div&gt;&lt;/div&gt;);
+	}
+}
+
+const mapStateToProps = state =&gt; ({
+	<bg-code>catalog: state.catalog</bg-code>
+})
+const mapDispatchToProps = {
+	<bg-code>add: addProduct</bg-code>
+}
+
+export default <bg-code>connect</bg-code>(
+	mapStateToProps,
+	mapDispatchToProps
+)(App);
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Create Actions</h4>
+<!------------------------------------------------------------->
+<pre><code class="js border"><code-type>redux/actions.js</code-type>
+import { ADD_PRODUCT } from "./actionTypes";
+
+export const addProduct = product => ({
+    <bg-code>type</bg-code>: ADD_PRODUCT,
+    <bg-code>payload</bg-code>: { product }
+})
 </code></pre>
