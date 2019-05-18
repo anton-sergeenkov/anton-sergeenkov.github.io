@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+<pre><code class="js"><code-type>js</code-type>
+${1:this}
+</code></pre>
+]]></content>
+<tabTrigger>=xjs</tabTrigger>
+<scope>text.html</scope>
+</snippet>

@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+<pre><code class="bash"><code-type>bash</code-type>
+${1:this}
+</code></pre>
+]]></content>
+<tabTrigger>=xbash</tabTrigger>
+<scope>text.html</scope>
+</snippet>
