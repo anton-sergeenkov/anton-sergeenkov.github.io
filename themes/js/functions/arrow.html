@@ -25,7 +25,7 @@
 <!------------------------------------------------------------->
 <h4>2 агрумента</h4>
 <!------------------------------------------------------------->
-<v-two type="js;js" comment="arrow function;function">
+<v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
 var add = (x, y) => x + y;
 </template>
@@ -34,7 +34,7 @@ function add(x, y) {
 	return x + y;
 }
 </template>
-</v-two>
+</v-two-code>
 
 <!------------------------------------------------------------->
 <h4>1 агрумент</h4>
@@ -43,7 +43,7 @@ function add(x, y) {
 	<li>Если функция принимает 1 параметр, не нужно заключать его в скобки</li>
 </ul>
 
-<v-two type="js;js" comment="arrow function;function">
+<v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
 var square = x => x*x;
 </template>
@@ -52,12 +52,12 @@ var square = function(x) {
 	return x*x;
 }
 </template>
-</v-two>
+</v-two-code>
 
 <!------------------------------------------------------------->
 <h4>Без аргументов</h4>
 <!------------------------------------------------------------->
-<v-two type="js;js" comment="arrow function;function">
+<v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
 var giveMeAnswer = () => 42;
 </template>
@@ -66,12 +66,12 @@ var giveMeAnswer = function() {
 	return 42;
 }
 </template>
-</v-two>
+</v-two-code>
 
 <!------------------------------------------------------------->
 <h4>Не возвращает значение</h4>
 <!------------------------------------------------------------->
-<v-two type="js;js" comment="arrow function;function">
+<v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
 var log = () => console.log('hi');
 </template>
@@ -80,7 +80,7 @@ var log = function() {
 	console.log('hi');
 }
 </template>
-</v-two>
+</v-two-code>
 
 <!------------------------------------------------------------->
 <h4>Состоит из двух строк</h4>
@@ -88,7 +88,7 @@ var log = function() {
 <ul class="list-point">
 	<li>Если в стрелочной функции несколько строк, то используются фигурные скобки и <code class="txt">return</code></li>
 </ul>
-<v-two type="js;js" comment="arrow function;function">
+<v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
 var multiply = (x, y) => {
 	var result = x*y;
@@ -101,7 +101,7 @@ var multiply = function(x, y) {
 	return result;
 }
 </template>
-</v-two>
+</v-two-code>
 
 <!------------------------------------------------------------->
 <h4>Возвращает объект</h4>
@@ -110,7 +110,7 @@ var multiply = function(x, y) {
 	<li>Возвращаемый объект оборачивается в круглые скобки</li>
 </ul>
 
-<v-two type="js;js" comment="arrow function;function">
+<v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
 var getPerson = () => ({ name:'Jack' });
 </template>
@@ -119,12 +119,12 @@ var getPerson = function() {
 	return { name:'Jack' }
 }
 </template>
-</v-two>
+</v-two-code>
 
 <!------------------------------------------------------------->
 <h4>Самовызывающаяся функция (IIFE)</h4>
 <!------------------------------------------------------------->
-<v-two type="js;js" comment="arrow function;function">
+<v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
 (() => console.log('IIFE'))();
 </template>
@@ -133,7 +133,7 @@ var getPerson = function() {
 	console.log('IIFE');
 })();
 </template>
-</v-two>
+</v-two-code>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -163,7 +163,7 @@ var squared = numbers.map(n => n * n);
 <!------------------------------------------------------------->
 <h4>Объекты</h4>
 <!------------------------------------------------------------->
-<v-two type="js;js" comment="arrow function;function">
+<v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
 var person2 = {
 	name: 'Tony',
@@ -184,4 +184,4 @@ var person1 = {
 }
 person1.greet();
 </template>
-</v-two>
+</v-two-code>

@@ -13,14 +13,14 @@
 	<li><code class="txt">super(props)</code> - передаём <code class="txt">props</code> базовому (родительскому) конструктору. Классовые компоненты всегда должны вызывать базовый конструктор с аргументом <code class="txt">props</code></li>
 </ul>
 
-<v-two type="js;js" comment="правильно;неправильно">
+<v-two-code type="js;js" comment="правильно;неправильно">
 <template v-slot:first>
 this.<bg-code>setState</bg-code>({comment: 'Привет'});
 </template>
 <template v-slot:last>
 this.state.comment = 'Привет';
 </template>
-</v-two>
+</v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Асинхронное обновления состояния</h3>
@@ -42,7 +42,7 @@ this.setState({
 	<li>Второй вариант вызова <code class="txt">setState()</code>, принимает функцию, а не объект. Эта функция получит предыдущее состояние в качестве первого аргумента и значения пропсов непосредственно во время обновления в качестве второго аргумента</li>
 </ul>
 
-<v-two type="js;js" comment="стрелочная функция;обычная функция">
+<v-two-code type="js;js" comment="стрелочная функция;обычная функция">
 <template v-slot:first>
 this.setState((state, props) => ({
 	counter: state.counter + props.increment
@@ -55,4 +55,4 @@ this.setState(function(state, props) {
 	};
 });
 </template>
-</v-two>
+</v-two-code>

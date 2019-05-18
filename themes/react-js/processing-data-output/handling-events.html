@@ -5,21 +5,21 @@
 	<li>С JSX вы передаёте функцию как обработчик события вместо строки</li>
 </ul>
 
-<v-two type="html;html" comment="react jsx;html">
+<v-two-code type="html;html" comment="react jsx;html">
 <template v-slot:first>
 &lt;button onClick={methodName}&gt;&lt;/button&gt;
 </template>
 <template v-slot:last>
 &lt;button onclick="methodName()"&gt;&lt;/button&gt;
 </template>
-</v-two>
+</v-two-code>
 
 <ul class="list-point">
 	<li>В React нельзя предотвратить обработчик события по умолчанию, вернув <code class="txt">false</code>. Нужно явно вызвать <code class="txt">preventDefault</code></li>
 	<li>В приведённом выше коде <code class="txt">e</code> - это синтетическое событие</li>
 </ul>
 
-<v-two type="js;html" comment="react jsx;html">
+<v-two-code type="js;html" comment="react jsx;html">
 <template v-slot:first>
 function ActionLink() {
 	function handleClick(e) {
@@ -34,7 +34,7 @@ function ActionLink() {
 <template v-slot:last>
 &lt;a href="#" onclick="console.log('ok'); return false"&gt;&lt;/a&gt;
 </template>
-</v-two>
+</v-two-code>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

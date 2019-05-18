@@ -10,16 +10,16 @@
 		margin: auto;
 		padding: 20px 0px;
 	}
-	alert-ok, alert-info, alert-warn, alert-error {
+/*	alert-ok, alert-info, alert-warn, alert-error {
 		display: inline-block;
 		width: auto;
 		height: 55px;
 		margin: 5px;
-	}
-	pre, code, h4, ul {
+	}*/
+/*	pre, code, h4, ul {
 		display: inline-block;
 		vertical-align: middle;
-	}
+	}*/
 	pre.clear, code.clear {
 		background: none !important;
 	}
@@ -29,6 +29,26 @@
 </style>
 </head>
 <body>
+<div id="content">
+
+
+<!------------------------------------------------------------->
+<h4>Snippets</h4>
+<pre><code class="bash">
+=two-code    # two flex code
+=two         # two flex
+=list-point  # list-point без &lt;bg-define&gt;
+=list-define # list-point с &lt;bg-define&gt;
+=list-num    # list-num
+=hr3         # h3
+=hr4         # h4
+=xhtml       # code html
+=xcss        # code css
+=xjs         # code js
+=xbash       # code bash
+</code></pre>
+<!------------------------------------------------------------->
+
 
 <!------------------------------------------------------------->
 <div style="display: flex; flex-wrap: wrap; align-items: flex-start;">
@@ -54,21 +74,7 @@
 
 <div></div>
 
-<!------------------------------------------------------------->
-<pre><code class="bash clear">
-<h4>Snippets</h4>
-two-code    # two flex
-list-point  # list-point без &lt;bg-define&gt;
-list-define # list-point с &lt;bg-define&gt;
-list-num    # list-num
-hr3         # h3
-hr4         # h4
-xhtml       # code html
-xcss        # code css
-xjs         # code js
-xbash       # code bash
-</code></pre>
-<!------------------------------------------------------------->
+
 
 
 <!------------------------------------------------------------->
@@ -78,20 +84,6 @@ xbash       # code bash
 &#9776;   # &amp;#9776;
 &hellip;    # &amp;hellip;
 &#10006;   # &amp;#10006;
-</code></pre>
-<!------------------------------------------------------------->
-
-
-<!------------------------------------------------------------->
-<pre><code class="html clear">
-<h4>Headers</h4>
-&lt;!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --&gt;
-&lt;h3&gt;&lt;/h3&gt;
-&lt;!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --&gt;
-
-&lt;!-------------------------------------------------------------&gt;
-&lt;h4&gt;&lt;/h4&gt;
-&lt;!-------------------------------------------------------------&gt;
 </code></pre>
 <!------------------------------------------------------------->
 
@@ -115,22 +107,6 @@ xbash       # code bash
 </div>
 
 
-<!------------------------------------------------------------->
-<h4>Code Comment</h4>
-<!------------------------------------------------------------->
-<div>
-
-<pre><code class="html"><code-type>result</code-type>
-<b>CODE CODE CODE</b>
-</code></pre>
-
-<pre><code class="html clear">
-&lt;pre&gt;&lt;code class="html"&gt;&lt;code-type&gt;result&lt;/code-type&gt;
-&lt;!-- code --&gt;
-&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
-
-</div>
 
 
 <!------------------------------------------------------------->
@@ -209,10 +185,7 @@ xbash       # code bash
 
 
 
-
-
-<code class="txt"></code>
-<code class="h"></code>
+<code class="txt">This is Code</code>
 
 
 
@@ -223,10 +196,12 @@ xbash       # code bash
 
 
 
-
-
+</div>
     <script src="libraries/jquery.js"></script>
 	<script src="libraries/highlight/highlight.pack.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script src="js/components.js"></script>
 </body>
 </html>

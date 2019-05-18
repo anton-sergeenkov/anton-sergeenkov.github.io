@@ -18,7 +18,7 @@ var f = function sayHi(name) {
 alert( sayHi ); // снаружи - не видно (ошибка: undefined variable 'sayHi')
 </code></pre>
 
-<v-two type="js;js" comment="js;js">
+<v-two-code type="js;js" comment="js;js">
 <template v-slot:first>
 function f(n) {
   return n ? n * f(n - 1) : 1;
@@ -41,4 +41,4 @@ f = null;
 
 alert( g(5) ); // 120, работает!
 </template>
-</v-two>
+</v-two-code>

@@ -3,14 +3,14 @@
     'two-code':
         'prefix': 'two-code'
         'body': """
-            <v-two type="html;js" comment="comment;comment">
+            <v-two-code type="html;js" comment="comment;comment">
             <template v-slot:first>
             $1
             </template>
             <template v-slot:last>
             $2
             </template>
-            </v-two>
+            </v-two-code>
         """
 
     'list-point':
