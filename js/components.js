@@ -3,9 +3,9 @@ let customElementRegistry = window.customElements;
 let arrCustomElements = [
 	'code-type', 
 	'alert-ok', 'alert-info', 'alert-warn', 'alert-error',
-	'bg-code', 'bg-code-accent', 'bg-code-warn', 'bg-code-wrapper',  
+	'bg-code', 'bg-code-accent', 'bg-code-warn', 'bg-code-wrapper', 'bg-code-list', 
 	'bg-menu', 'bg-menu-code', 'bg-menu-accent', 'bg-menu-border',
-	'bg-npm', 'bg-map', 'bg-header', 'bg-list', 'bg-mass', 'bg-methods', 'bg-define', 'bg-link', 
+	'bg-npm', 'bg-map', 'bg-header', 'bg-list', 'bg-mass', 'bg-methods', 'bg-define', 'bg-link', 'bg-comment', 
 ];
 
 arrCustomElements.forEach(function(element) {
