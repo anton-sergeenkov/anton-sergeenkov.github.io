@@ -595,6 +595,17 @@ var arrCanvas = [
     ['canvas', 'main', 'other', 'Остальное'],
 ];
 
+//---------------------------------------------------------------------
+// ENGLISH
+//---------------------------------------------------------------------
+var arrEnglish = [
+    [1, 'Основное'],
+    ['english', 'main', 'to-be',       point+'Verb To Be'],
+    ['english', 'main', 'articles',    point+'Articles'],
+    ['english', 'main', 'phrases',     code+'Phrases'],
+    ['english', 'main', 'nationality', 'Nationality'],
+    ['english', 'main', 'other',       'Other'],
+];
 
 
 
@@ -617,6 +628,7 @@ switch(pageName) {
     case 'js-tasks.html':   var arrCurrent = arrJsTasks;    break;
     case 'jquery.html':     var arrCurrent = arrJquery;     break;
     case 'canvas.html':     var arrCurrent = arrCanvas;     break;
+    case 'english.html':    var arrCurrent = arrEnglish;     break;
 }
 
 if (pageName != 'map.html') {
