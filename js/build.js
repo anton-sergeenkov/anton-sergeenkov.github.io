@@ -12,7 +12,7 @@ var arrReactjs = [
     ['react-js', 'main', 'jsx',                   point+'JSX'],
     ['react-js', 'main', 'state',                 point+'Состояние'],
     ['react-js', 'main', 'lifecycle',             point+'Жизненный цикл'],
-    ['react-js', 'main', 'create-react-app',      point+'Create React App'],
+    ['react-js', 'main', 'create-react-app',      '<bg-menu-border>react</bg-menu-border> <bg-menu-border>react-dom</bg-menu-border> <bg-menu-border>create-react-app</bg-menu-border>'],
     ['react-js', 'main', 'react-developer-tools', point+'React Developer Tools'],
 
     [1, 'Компоненты'],
@@ -34,13 +34,6 @@ var arrReactjs = [
     ['react-js', 'redux', 'redux',                 '<bg-menu-border>redux</bg-menu-border>'],
     ['react-js', 'redux', 'react-redux',           '<bg-menu-border>react-redux</bg-menu-border>'],
     ['react-js', 'redux', 'redux-developer-tools', 'Redux DevTools'],
-
-
-
-
-
-    
-
 
     [1, 'React Router'],
     ['react-js', 'react-router', 'npm',               '<bg-menu-border>react-router</bg-menu-border> <bg-menu-border>react-router-dom</bg-menu-border>'],
