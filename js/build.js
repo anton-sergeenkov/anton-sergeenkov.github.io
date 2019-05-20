@@ -33,15 +33,20 @@ var arrReactjs = [
     ['react-js', 'redux', 'structure',             code+'Структура'],
     ['react-js', 'redux', 'redux',                 '<bg-menu-border>redux</bg-menu-border>'],
     ['react-js', 'redux', 'react-redux',           '<bg-menu-border>react-redux</bg-menu-border>'],
+    ['react-js', 'redux', 'redux-thunk',           '<bg-menu-border>redux-thunk</bg-menu-border> <br> <bg-menu-border>redux-devtools-extension</bg-menu-border>'],
     ['react-js', 'redux', 'redux-developer-tools', 'Redux DevTools'],
 
     [1, 'React Router'],
-    ['react-js', 'react-router', 'npm',               '<bg-menu-border>react-router</bg-menu-border> <bg-menu-border>react-router-dom</bg-menu-border>'],
+    ['react-js', 'react-router', 'react-router',      '<bg-menu-border>react-router</bg-menu-border> <bg-menu-border>react-router-dom</bg-menu-border>'],
     ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
     ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
     ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
     ['react-js', 'react-router', 'page-404',          'Page 404'],
 ];
+
+
+
+
 
 //---------------------------------------------------------------------
 // WEBPACK
