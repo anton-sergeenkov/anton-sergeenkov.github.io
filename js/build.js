@@ -30,13 +30,20 @@ var arrReactjs = [
 
     [1, 'Redux'],
     ['react-js', 'redux', 'flux',                  'Flux'],
-    ['react-js', 'redux', 'redux',                 point+'Redux'],
-    ['react-js', 'redux', 'react-redux',           point+'React-Redux'],
     ['react-js', 'redux', 'structure',             code+'Структура'],
+    ['react-js', 'redux', 'redux',                 '<bg-menu-border>redux</bg-menu-border>'],
+    ['react-js', 'redux', 'react-redux',           '<bg-menu-border>react-redux</bg-menu-border>'],
     ['react-js', 'redux', 'redux-developer-tools', 'Redux DevTools'],
 
+
+
+
+
+    
+
+
     [1, 'React Router'],
-    ['react-js', 'react-router', 'npm',               'Установка'],
+    ['react-js', 'react-router', 'npm',               '<bg-menu-border>react-router</bg-menu-border> <bg-menu-border>react-router-dom</bg-menu-border>'],
     ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
     ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
     ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
