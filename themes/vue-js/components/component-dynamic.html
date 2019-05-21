@@ -2,14 +2,14 @@
 
 <h4>Создание компонента</h4>
 <pre><code class="html">
-&lt;component <bg-code>:is</bg-code>="currentView"&gt;&lt;/component&gt;
+&lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
 </code></pre>
 
 <h4>Кэширование компонента (сохранение состояния)</h4>
 <pre><code class="html">
-<bg-code>&lt;keep-alive&gt;</bg-code>
-	&lt;component <bg-code>:is</bg-code>="currentView"&gt;&lt;/component&gt;
-<bg-code>&lt;/keep-alive&gt;</bg-code>
+<u-code>&lt;keep-alive&gt;</u-code>
+	&lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
+<u-code>&lt;/keep-alive&gt;</u-code>
 </code></pre>
 
 <h4>Пример</h4>
@@ -20,7 +20,7 @@
 		&lt;a href="#" @click="changeView('orange')"&gt;orange&lt;/a&gt;
 		&lt;a href="#" @click="changeView('blue')"&gt;blue&lt;/a&gt;
 	&lt;/nav&gt;
-	<bg-code>&lt;component :is="currentView"&gt;&lt;/component&gt;</bg-code>
+	<u-code>&lt;component :is="currentView"&gt;&lt;/component&gt;</u-code>
 &lt;/div&gt;
 
 &lt;template id="orange-template"&gt;

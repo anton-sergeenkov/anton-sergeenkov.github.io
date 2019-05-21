@@ -2,8 +2,8 @@
 
 <ul class="list-point">
 	<li>У элементов формы изначально есть внутреннее состояние</li>
-	<li><bg-define>Управляемые компоненты</bg-define> В HTML элементы формы, такие как <code-text>&lt;input&gt;, &lt;textarea&gt; &lt;select&gt;</code-text>, обычно сами управляют своим состоянием и обновляют его когда пользователь вводит данные. В React мутабельное состояние обычно содержится в свойстве компонентов state и обновляется только через вызов <code-text>setState()</code-text>. Мы можем скомбинировать оба подхода и сделать состояние React-компонента <u>«единственным источником правды»</u>. Тогда React-компонент будет рендерить форму и контролировать её поведение в ответ на пользовательский ввод. Значение элемента формы <code-text>input</code-text> в этом случае будет контролировать React, а сам элемент будет называться управляемый компонент»</li>
-	<li><bg-define>Неуправляемые компоненты</bg-define> - альтернативная техника реализации ввода данных в форму</li>
+	<li><u-text-define>Управляемые компоненты</u-text-define> В HTML элементы формы, такие как <u-code-text>&lt;input&gt;, &lt;textarea&gt; &lt;select&gt;</u-code-text>, обычно сами управляют своим состоянием и обновляют его когда пользователь вводит данные. В React мутабельное состояние обычно содержится в свойстве компонентов state и обновляется только через вызов <u-code-text>setState()</u-code-text>. Мы можем скомбинировать оба подхода и сделать состояние React-компонента <u>«единственным источником правды»</u>. Тогда React-компонент будет рендерить форму и контролировать её поведение в ответ на пользовательский ввод. Значение элемента формы <u-code-text>input</u-code-text> в этом случае будет контролировать React, а сам элемент будет называться управляемый компонент»</li>
+	<li><u-text-define>Неуправляемые компоненты</u-text-define> - альтернативная техника реализации ввода данных в форму</li>
 </ul>
 
 <ul class="list-point">
@@ -20,16 +20,16 @@ class App extends React.Component {
 		this.state = { value: '' };
 	}
 	handleChange = (event) =&gt; {
-		this.setState({value: <bg-code>event.target.value</bg-code>.toUpperCase()});
+		this.setState({value: <u-code>event.target.value</u-code>.toUpperCase()});
 	}
 	handleSubmit = (event) =&gt; {
 		alert(this.state.value);
-		<bg-code>event.preventDefault();</bg-code>
+		<u-code>event.preventDefault();</u-code>
 	}
 	render() {
 		return (
-			&lt;form <bg-code>onSubmit</bg-code>={this.handleSubmit}&gt;
-				&lt;input type="text" <bg-code>value={this.state.value}</bg-code> <bg-code>onChange</bg-code>={this.handleChange} /&gt;
+			&lt;form <u-code>onSubmit</u-code>={this.handleSubmit}&gt;
+				&lt;input type="text" <u-code>value={this.state.value}</u-code> <u-code>onChange</u-code>={this.handleChange} /&gt;
 				&lt;input type="submit" value="Отправить" /&gt;
 			&lt;/form&gt;
 		);
@@ -48,7 +48,7 @@ class App extends React.Component {
 <h3>select</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Пункт списка «Кокос» выбран по умолчанию из-за установленного атрибута <code-text>selected</code-text>. React вместо этого атрибута использует <code-text>value</code-text> в корневом теге <code-text>select</code-text>. В управляемом компоненте так удобнее, потому что обновлять значение нужно только в одном месте (<code-text>state</code-text>)</li>
+	<li>Пункт списка «Кокос» выбран по умолчанию из-за установленного атрибута <u-code-text>selected</u-code-text>. React вместо этого атрибута использует <u-code-text>value</u-code-text> в корневом теге <u-code-text>select</u-code-text>. В управляемом компоненте так удобнее, потому что обновлять значение нужно только в одном месте (<u-code-text>state</u-code-text>)</li>
 </ul>
 
 <pre><code class="js">
@@ -69,7 +69,7 @@ constructor(props) {
 </code></pre>
 
 <ul class="list-point">
-	<li>В атрибут <code-text>value</code-text> можно передать массив, что позволит выбрать несколько опций в теге <code-text>select</code-text></li>
+	<li>В атрибут <u-code-text>value</u-code-text> можно передать массив, что позволит выбрать несколько опций в теге <u-code-text>select</u-code-text></li>
 </ul>
 
 <pre><code class="html">
@@ -80,7 +80,7 @@ constructor(props) {
 <h3>Обработка нескольких элементов input</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Если нужны несколько управляемых элементов <code-text>input</code-text>, можно назначить каждому из них атрибут name, что позволит функции-обработчику решать, что делать, основываясь на значении <code-text>event.target.name</code-text></li>
+	<li>Если нужны несколько управляемых элементов <u-code-text>input</u-code-text>, можно назначить каждому из них атрибут name, что позволит функции-обработчику решать, что делать, основываясь на значении <u-code-text>event.target.name</u-code-text></li>
 </ul>
 
 <pre><code class="js">
@@ -95,16 +95,16 @@ class App extends React.Component {
 	handleInputChange = (event) =&gt; {
 		const target = event.target;
 		const value = target.type === 'checkbox' ? target.checked : target.value;
-		<bg-code>const name = target.name;</bg-code>
+		<u-code>const name = target.name;</u-code>
 		this.setState({
-			<bg-code>[name]: value</bg-code>
+			<u-code>[name]: value</u-code>
 		});
 	}
 	render() {
 		return (
 			&lt;div&gt;
-				&lt;input <bg-code>name="isGoing"</bg-code> type="checkbox" checked={this.state.isGoing} onChange={this.handleInputChange} /&gt;
-				&lt;input <bg-code>name="numberOfGuests"</bg-code> type="number" value={this.state.numberOfGuests} onChange={this.handleInputChange} /&gt;
+				&lt;input <u-code>name="isGoing"</u-code> type="checkbox" checked={this.state.isGoing} onChange={this.handleInputChange} /&gt;
+				&lt;input <u-code>name="numberOfGuests"</u-code> type="number" value={this.state.numberOfGuests} onChange={this.handleInputChange} /&gt;
 			&lt;/div&gt;
 		);
 	}
@@ -124,8 +124,8 @@ this.setState({
 <h3>Значение null управляемого компонента</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Если установить управляемому компоненту проп <code-text>value</code-text>, то пользователь не сможет изменить его значение без вашего желания. Если вы установили <code-text>value</code-text>, а поле ввода по-прежнему можно редактировать, то, возможно, вы случайно задали <code-text>value</code-text>, равный <code-text>undefined</code-text> или <code-text>null</code-text></li>
-	<li>Пример: изначально заблокированный <code-text>input</code-text> становится редактируемым спустя 1с</li>
+	<li>Если установить управляемому компоненту проп <u-code-text>value</u-code-text>, то пользователь не сможет изменить его значение без вашего желания. Если вы установили <u-code-text>value</u-code-text>, а поле ввода по-прежнему можно редактировать, то, возможно, вы случайно задали <u-code-text>value</u-code-text>, равный <u-code-text>undefined</u-code-text> или <u-code-text>null</u-code-text></li>
+	<li>Пример: изначально заблокированный <u-code-text>input</u-code-text> становится редактируемым спустя 1с</li>
 </ul>
 
 <pre><code class="js">

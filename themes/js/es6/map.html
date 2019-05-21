@@ -1,8 +1,8 @@
 <h2>Коллекции Map и WeakMap (ES6)</h2>
 
 <ul class="list-point">
-	<li><bg-define>Map и WeakMap</bg-define> - позволяют хранить пары "ключ:значение"</li>
-	<li><bg-define>Map</bg-define> - создаёт новый массив с результатом вызова указанной функции для каждого элемента массива</li>
+	<li><u-text-define>Map и WeakMap</u-text-define> - позволяют хранить пары "ключ:значение"</li>
+	<li><u-text-define>Map</u-text-define> - создаёт новый массив с результатом вызова указанной функции для каждого элемента массива</li>
 	<li>Отличие от объекта: ключ map может быть любого типа, а не только строки и символы как у объекта</li>
 </ul>
 
@@ -75,22 +75,22 @@ const map = new Map([
 <pre><code class="js">
 const map = new Map();
 
-map.<bg-code>set</bg-code>(42, 'Ответ на главный вопрос'); // установить значение
-var a = map.<bg-code>get</bg-code>(42);                    // получить значение по ключу
-var a = map.<bg-code>size</bg-code>;                       // получить кол-во элементов
-var a = map.<bg-code>has</bg-code>(42);                    // проверка наличия значения по ключу
+map.<u-code>set</u-code>(42, 'Ответ на главный вопрос'); // установить значение
+var a = map.<u-code>get</u-code>(42);                    // получить значение по ключу
+var a = map.<u-code>size</u-code>;                       // получить кол-во элементов
+var a = map.<u-code>has</u-code>(42);                    // проверка наличия значения по ключу
 
-map.<bg-code>delete</bg-code>(42);                         // удалить значение по ключу
-map.<bg-code>clear</bg-code>();                            // очистка map
+map.<u-code>delete</u-code>(42);                         // удалить значение по ключу
+map.<u-code>clear</u-code>();                            // очистка map
 
-var a = map.<bg-code>keys</bg-code>();                     // возвращает перебираемый объект с ключами
-var a = map.<bg-code>values</bg-code>();                   // возвращает перебираемый объект с значениями
-var a = map.<bg-code>entries</bg-code>();                  // возвращает массив массивов
+var a = map.<u-code>keys</u-code>();                     // возвращает перебираемый объект с ключами
+var a = map.<u-code>values</u-code>();                   // возвращает перебираемый объект с значениями
+var a = map.<u-code>entries</u-code>();                  // возвращает массив массивов
 </code></pre>
 
 <h3>Перебор map</h3>
 <pre><code class="js">
-for(let [key, value] <bg-code>of</bg-code> map) {
+for(let [key, value] <u-code>of</u-code> map) {
 	console.log(key, value);
 }
 </code></pre>

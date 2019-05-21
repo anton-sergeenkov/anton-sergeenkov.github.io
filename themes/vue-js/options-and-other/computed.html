@@ -1,12 +1,12 @@
 <h2>Computed Properties</h2>
 
-<ul class="list-links">
+<ul class="link-page-wrapper">
 	<li><a href="#options-and-other-computed-set">Сеттеры вычисляемых свойств</a></li>
 	<li><a href="#options-and-other-computed-samples">Примеры</a></li>
 </ul>
 
 <ul class="list">
-	<li><bg-define>Computed Properties</bg-define> - вычисляемые (обработанные) свойства применяются когда есть зависимость переменных от других переменных</li>
+	<li><u-text-define>Computed Properties</u-text-define> - вычисляемые (обработанные) свойства применяются когда есть зависимость переменных от других переменных</li>
 	<li>Кешируются, основываясь на своих реактивных зависимостях. Вычисляемое свойство пересчитывается лишь тогда, когда изменится одна из его реактивных зависимостей</li>
 </ul>
 
@@ -41,7 +41,7 @@ var app = new Vue({
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>По умолчанию вычисляемые свойства работают только на чтение, но при необходимости можно также указать и сеттер</li>
-	<li>Теперь запись <code class="txt">vm.fullName = 'Иван Иванов'</code> вызовет сеттер, и <code class="txt">vm.firstName</code> и <code class="txt">vm.lastName</code> будут соответствующим образом обновлены</li>
+	<li>Теперь запись <u-code-text>vm.fullName = 'Иван Иванов'</u-code-text> вызовет сеттер, и <u-code-text>vm.firstName</u-code-text> и <u-code-text>vm.lastName</u-code-text> будут соответствующим образом обновлены</li>
 </ul>
 
 <pre><code class="js">
@@ -70,7 +70,7 @@ computed: {
 	&lt;form action=""&gt;
 		&lt;span&gt;{{ count }} / 10&lt;/span&gt;
 		&lt;textarea v-model="text"&gt;&lt;/textarea&gt;
-		&lt;button <bg-code>v-if="count &lt;= 10"</bg-code>&gt;Отправить&lt;/button&gt;
+		&lt;button <u-code>v-if="count &lt;= 10"</u-code>&gt;Отправить&lt;/button&gt;
 	&lt;/form&gt;
 &lt;/div&gt;
 </code>

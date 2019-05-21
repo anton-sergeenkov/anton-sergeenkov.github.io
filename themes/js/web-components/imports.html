@@ -1,6 +1,6 @@
 <h2>HTML Imports</h2>
 
-<alert-error>HTML Imports => ES modules (устаревшая конструкция)</alert-error>
+<u-message-error>HTML Imports => ES modules (устаревшая конструкция)</u-message-error>
 
 <ul class="list-point">
 	<li>Спецификация HTML Imports описывает, как вставить один документ в другой при помощи HTML-тега &lt;link rel="import"&gt;</li>
@@ -8,7 +8,7 @@
 	<li>Файл, загруженный через &lt;link rel="import"&gt;, обрабатывается, выполняются скрипты, строится DOM документа, но не показывается, а записывается в свойство link.import</li>
 </ul>
 
-<alert-info>Запускать на сервере</alert-info>
+<u-message-info>Запускать на сервере</u-message-info>
 
 <pre><code class="js light">
 <table>
@@ -22,12 +22,12 @@ index.html
 
 &lt;script&gt;
 	function show() {
-		var element = page.<bg-code>import</bg-code>.querySelector('h1');
+		var element = page.<u-code>import</u-code>.querySelector('h1');
 		document.body.appendChild(element);
 	};
 &lt;/script&gt;
 
-&lt;link <bg-code>rel="import"</bg-code> href="page.html" id="page" onload="show()"&gt;
+&lt;link <u-code>rel="import"</u-code> href="page.html" id="page" onload="show()"&gt;
 </code></pre>
 
 page.html
@@ -36,7 +36,7 @@ page.html
 
 &lt;script&gt;
 	// доступ к импортированному документу
-    var importedDocument = document.<bg-code>currentScript.ownerDocument</bg-code>; 
+    var importedDocument = document.<u-code>currentScript.ownerDocument</u-code>; 
     importedDocument.querySelector('h1').innerHTML = 'Changed Text';
 &lt;/script&gt;
 </code></pre>

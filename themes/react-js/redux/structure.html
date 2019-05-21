@@ -1,8 +1,8 @@
 <h2>Структура</h2>
 
-<bg-link>
+<u-link-wrapper>
 	<a href="https://codesandbox.io/s/v8n57owly0" target="_blank">Пример из документации</a>
-</bg-link>
+</u-link-wrapper>
 
 <v-two><template v-slot:first>
 <pre><code class="bash"><em>
@@ -30,15 +30,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { <bg-code>Provider</bg-code> } from "react-redux";
+import { <u-code>Provider</u-code> } from "react-redux";
 import store from "./redux/store";
 
 import App from "./App";
 
 ReactDOM.render(
-    &lt;<bg-code>Provider store={store}</bg-code>&gt;
+    &lt;<u-code>Provider store={store}</u-code>&gt;
         &lt;App /&gt;
-    &lt;/<bg-code>Provider</bg-code>&gt;,
+    &lt;/<u-code>Provider</u-code>&gt;,
     document.getElementById('root')
 );
 </code></pre>
@@ -51,23 +51,23 @@ ReactDOM.render(
 <h4>Create Store</h4>
 <!------------------------------------------------------------->
 <pre><code class="js border"><code-type>redux/store.js</code-type>
-import { <bg-code>createStore</bg-code> } from "redux";
+import { <u-code>createStore</u-code> } from "redux";
 import rootReducer from "./reducers";
 
 const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
 const devtoolMiddleware = ext && ext();
 
-export default <bg-code>createStore</bg-code>(rootReducer, devtoolMiddleware);
+export default <u-code>createStore</u-code>(rootReducer, devtoolMiddleware);
 </code></pre>
 
 <!------------------------------------------------------------->
 <h4>Combine Reducers</h4>
 <!------------------------------------------------------------->
 <pre><code class="js border"><code-type>redux/reducers/index.js</code-type>
-import { <bg-code>combineReducers</bg-code> } from "redux";
+import { <u-code>combineReducers</u-code> } from "redux";
 import catalog from "./catalog";
 
-export default <bg-code>combineReducers</bg-code>({
+export default <u-code>combineReducers</u-code>({
     catalog
 });
 </code></pre>
@@ -83,7 +83,7 @@ const initialState = ['Product1', 'Product2']
 const catalog = (state = initialState, action) => {
     switch (action.type) {
         case ADD_PRODUCT: {
-            <bg-code>return [...state, action.payload.product]</bg-code>;
+            <u-code>return [...state, action.payload.product]</u-code>;
         }
         default: {
             return state;
@@ -110,15 +110,15 @@ export const ADD_PRODUCT = "ADD_PRODUCT";
 <!------------------------------------------------------------->
 <pre><code class="js border"><code-type>App.js</code-type>
 import React, {Component} from "react";
-import { <bg-code>connect</bg-code> } from "react-redux";
+import { <u-code>connect</u-code> } from "react-redux";
 import { addProduct } from "./redux/actions";
 
 class App extends Component {
 	componentDidMount() {
-		<bg-code>this.props.add</bg-code>('New Product');
+		<u-code>this.props.add</u-code>('New Product');
 	}
 	render() {
-		console.log(<bg-code>this.props.catalog</bg-code>);
+		console.log(<u-code>this.props.catalog</u-code>);
 		// => (2) ["Product1", "Product2"]
 		// => (3) ["Product1", "Product2", "New Product"]
 		return (&lt;div&gt;&lt;/div&gt;);
@@ -126,13 +126,13 @@ class App extends Component {
 }
 
 const mapStateToProps = state =&gt; ({
-	<bg-code>catalog: state.catalog</bg-code>
+	<u-code>catalog: state.catalog</u-code>
 })
 const mapDispatchToProps = {
-	<bg-code>add: addProduct</bg-code>
+	<u-code>add: addProduct</u-code>
 }
 
-export default <bg-code>connect</bg-code>(
+export default <u-code>connect</u-code>(
 	mapStateToProps,
 	mapDispatchToProps
 )(App);
@@ -145,7 +145,7 @@ export default <bg-code>connect</bg-code>(
 import { ADD_PRODUCT } from "./actionTypes";
 
 export const addProduct = product => ({
-    <bg-code>type</bg-code>: ADD_PRODUCT,
-    <bg-code>payload</bg-code>: { product }
+    <u-code>type</u-code>: ADD_PRODUCT,
+    <u-code>payload</u-code>: { product }
 })
 </code></pre>

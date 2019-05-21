@@ -8,7 +8,7 @@ function User(name) {
 	this.name = name;
 	this.avatar = 'Photo';
 }
-<bg-code>User.prototype.deleteAvatar</bg-code> = function() {
+<u-code>User.prototype.deleteAvatar</u-code> = function() {
 	this.avatar = null;
 }
 var user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", __proto__: deleteAvatar: ƒ () }
@@ -21,7 +21,7 @@ console.log(user);           // => User {name: "Jack", avatar: null, __proto__:
 <!------------------------------------------------------------->
 <h4></h4>
 <pre><code class="js">
-<bg-code>Object.prototype.myFunc</bg-code> = function() {
+<u-code>Object.prototype.myFunc</u-code> = function() {
     alert('myFunc');
 }
 let obj = {}

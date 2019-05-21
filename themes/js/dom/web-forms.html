@@ -4,16 +4,16 @@
 <h3>input type="text"</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-var a = element.<bg-code>value</bg-code>;
-element.<bg-code>value</bg-code> = 'new value';
+var a = element.<u-code>value</u-code>;
+element.<u-code>value</u-code> = 'new value';
 </code></pre>
 
 <!------------------------------------------------------>
 <h3>input type="checkbox"</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-var a = element.<bg-code>checked</bg-code>; 
-element.<bg-code>checked</bg-code> = true;
+var a = element.<u-code>checked</u-code>; 
+element.<u-code>checked</u-code> = true;
 </code></pre>
 
 <pre><code class="html">
@@ -27,7 +27,7 @@ element.<bg-code>checked</bg-code> = true;
 <pre><code class="js">
 var radio = document.querySelectorAll('input[type="radio"]');
 for(var i=0; i<=radio.length-1; i++) {
-	if(radio[i].<bg-code>checked</bg-code>) {
+	if(radio[i].<u-code>checked</u-code>) {
 		var value = radio[i].getAttribute('value');
 		console.log(value);
 	}
@@ -35,7 +35,7 @@ for(var i=0; i<=radio.length-1; i++) {
 </code></pre>
 
 <pre><code class="js">
-radio.<bg-code>disabled</bg-code> = true;         
+radio.<u-code>disabled</u-code> = true;         
 </code></pre>	
 
 <!------------------------------------------------------>
@@ -43,7 +43,7 @@ radio.<bg-code>disabled</bg-code> = true;
 <!------------------------------------------------------>
 <pre><code class="js">
 var select = document.querySelector('select');
-var a = select.<bg-code>value</bg-code>;
-var a = select.<bg-code>options</bg-code>[select.selectedIndex].value;
-var a = select.<bg-code>options</bg-code>[select.selectedIndex].text;
+var a = select.<u-code>value</u-code>;
+var a = select.<u-code>options</u-code>[select.selectedIndex].value;
+var a = select.<u-code>options</u-code>[select.selectedIndex].text;
 </code></pre>

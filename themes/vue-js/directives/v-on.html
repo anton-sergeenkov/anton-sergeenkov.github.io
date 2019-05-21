@@ -1,6 +1,6 @@
 <h2>v-on:</h2>
 
-<ul class="list-links">
+<ul class="link-page-wrapper">
 	<li><a href="#v-on-mod-actions">Модификаторы событий</a></li>
 	<li><a href="#v-on-mod-key">Модификаторы клавиш</a></li>
 	<li><a href="#v-on-mod-key-system">Системные модификаторы клавиш</a></li>
@@ -9,14 +9,14 @@
 </ul>
 
 <ul class="list-point">
-	<li><bg-define>v-on</bg-define> - подписка на события DOM и выполнения JavaScript-кода по их наступлении</li>
+	<li><u-text-define>v-on</u-text-define> - подписка на события DOM и выполнения JavaScript-кода по их наступлении</li>
 </ul>
 
 <pre><code class="html"><code-type>html</code-type>
-&lt;button <bg-code>v-on:click</bg-code>=""&gt;&lt;/button&gt;            <bg-comment># полная запись</bg-comment>
-&lt;button <bg-code>@click</bg-code>=""&gt;&lt;/button&gt;                <bg-comment># сокращенная запись</bg-comment>
-&lt;button <bg-code>@click</bg-code>="methodOne"&gt;&lt;/button&gt;       <bg-comment># указание названия метода</bg-comment>
-&lt;button <bg-code>@click</bg-code>="methodTwo('hi')"&gt;&lt;/button&gt; <bg-comment># указание JavaScript-выражения</bg-comment>
+&lt;button <u-code>v-on:click</u-code>=""&gt;&lt;/button&gt;            <u-code-comment># полная запись</u-code-comment>
+&lt;button <u-code>@click</u-code>=""&gt;&lt;/button&gt;                <u-code-comment># сокращенная запись</u-code-comment>
+&lt;button <u-code>@click</u-code>="methodOne"&gt;&lt;/button&gt;       <u-code-comment># указание названия метода</u-code-comment>
+&lt;button <u-code>@click</u-code>="methodTwo('hi')"&gt;&lt;/button&gt; <u-code-comment># указание JavaScript-выражения</u-code-comment>
 </code></pre>
 
 <pre><code class="js"><code-type>js</code-type>
@@ -46,19 +46,19 @@ app.methodOne();
 
 <ul class="list-point">
 	<li>При использовании модификаторов порядок имеет значение, потому что код генерируется в том же порядке</li>
-	<li>В отличие от остальных модификаторов, которые поддерживают только нативные события DOM, модификатор <code class="txt">.once</code> может использоваться и в пользовательских событиях компонентов</li>
+	<li>В отличие от остальных модификаторов, которые поддерживают только нативные события DOM, модификатор <u-code-text>.once</u-code-text> может использоваться и в пользовательских событиях компонентов</li>
 </ul>
 
 <!------------------------------------------------------------->
 <h4>События</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li><bg-code-list>.stop</bg-code-list> - событие не будет всплывать дальше <code-text>event.stopPropagation()</code-text></li>
-	<li><bg-code-list>.prevent</bg-code-list> - отмена обычного поведения <code-text>event.preventDefault()</code-text></li>
-	<li><bg-code-list>.capture</bg-code-list> - событие, нацеленное на внутренний элемент, обрабатывается здесь до обработки этим элементом</li>
-	<li><bg-code-list>.self</bg-code-list> - вызов обработчика только в случае наступления события непосредственно на данном элементе (то есть не на дочернем компоненте)</li>
-	<li><bg-code-list>.once</bg-code-list> - событие click сработает только 1 раз</li>
-	<li><bg-code-list>.passive</bg-code-list> - сообщает браузеру, что вы не хотите предотвращать поведение по умолчанию для события. <code-text>event.preventDefault()</code-text> будет проигнорирован. Поэтому нельзя использовать вместе <code-text>.passive</code-text> и <code-text>.prevent</code-text>. Соответствующий опции <code-text>passive</code-text> в <code-text>addEventListener</code-text>. Модификатор <code-text>.passive</code-text> особенно полезен для повышения производительности на мобильных устройствах</li>
+	<li><u-code-list>.stop</u-code-list> - событие не будет всплывать дальше <u-code-text>event.stopPropagation()</u-code-text></li>
+	<li><u-code-list>.prevent</u-code-list> - отмена обычного поведения <u-code-text>event.preventDefault()</u-code-text></li>
+	<li><u-code-list>.capture</u-code-list> - событие, нацеленное на внутренний элемент, обрабатывается здесь до обработки этим элементом</li>
+	<li><u-code-list>.self</u-code-list> - вызов обработчика только в случае наступления события непосредственно на данном элементе (то есть не на дочернем компоненте)</li>
+	<li><u-code-list>.once</u-code-list> - событие click сработает только 1 раз</li>
+	<li><u-code-list>.passive</u-code-list> - сообщает браузеру, что вы не хотите предотвращать поведение по умолчанию для события. <u-code-text>event.preventDefault()</u-code-text> будет проигнорирован. Поэтому нельзя использовать вместе <u-code-text>.passive</u-code-text> и <u-code-text>.prevent</u-code-text>. Соответствующий опции <u-code-text>passive</u-code-text> в <u-code-text>addEventListener</u-code-text>. Модификатор <u-code-text>.passive</u-code-text> особенно полезен для повышения производительности на мобильных устройствах</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -98,14 +98,14 @@ app.methodOne();
 <h4>Отмена обычного поведения</h4>
 <!------------------------------------------------------------->
 <pre><code class="html">
-&lt;button <bg-code>@click</bg-code>="submit1"&gt;&lt;/button&gt;
-&lt;button <bg-code>@click.prevent</bg-code>="submit2"&gt;&lt;/button&gt;
+&lt;button <u-code>@click</u-code>="submit1"&gt;&lt;/button&gt;
+&lt;button <u-code>@click.prevent</u-code>="submit2"&gt;&lt;/button&gt;
 </code></pre>
 
 <pre><code class="js">
 methods: {
 	submit1(e) {
-		<bg-code>e.preventDefault()</bg-code>;
+		<u-code>e.preventDefault()</u-code>;
 		console.log('prevent');
 	}
 	submit2() {
@@ -118,14 +118,14 @@ methods: {
 <h3 id="v-on-mod-key">Модификаторы клавиш</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Использование значения <code-text>keyCode</code-text> событий - устаревшая практика и может не поддерживаться в новых браузерах</li>
-	<li>Можно использовать любые допустимые имена клавиш, предоставляемые через <code-text>KeyboardEvent.key</code-text> в качестве модификаторов, именуя их в kebab-case</li>
+	<li>Использование значения <u-code-text>keyCode</u-code-text> событий - устаревшая практика и может не поддерживаться в новых браузерах</li>
+	<li>Можно использовать любые допустимые имена клавиш, предоставляемые через <u-code-text>KeyboardEvent.key</u-code-text> в качестве модификаторов, именуя их в kebab-case</li>
 </ul>
 
 <pre><code class="html">
-&lt;input type="text" @keyup="methodOne"&gt;       <bg-comment># любые символы</bg-comment>
-&lt;input type="text" @keyup.13="methodOne"&gt;    <bg-comment># использование значений keyCode (enter)</bg-comment>
-&lt;input type="text" @keyup.enter="methodOne"&gt; <bg-comment># использование модификатора (enter)</bg-comment>
+&lt;input type="text" @keyup="methodOne"&gt;       <u-code-comment># любые символы</u-code-comment>
+&lt;input type="text" @keyup.13="methodOne"&gt;    <u-code-comment># использование значений keyCode (enter)</u-code-comment>
+&lt;input type="text" @keyup.enter="methodOne"&gt; <u-code-comment># использование модификатора (enter)</u-code-comment>
 </code></pre>
 
 <pre><code class="js">
@@ -140,13 +140,13 @@ methods: {
 <h4>Псевдонимы для наиболее часто используемых клавиш</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li><bg-code-list>.enter</bg-code-list></li>
-	<li><bg-code-list>.esc</bg-code-list></li>
-	<li><bg-code-list>.space</bg-code-list></li>
-	<li><bg-code-list>.tab</bg-code-list></li>
-	<li><bg-code-list>.delete</bg-code-list> ("delete" и "backspace")</li>
-	<li><bg-code-list>.up</bg-code-list> <bg-code-list>.down</bg-code-list></li>
-	<li><bg-code-list>.left</bg-code-list><bg-code-list>.right</bg-code-list></li>
+	<li><u-code-list>.enter</u-code-list></li>
+	<li><u-code-list>.esc</u-code-list></li>
+	<li><u-code-list>.space</u-code-list></li>
+	<li><u-code-list>.tab</u-code-list></li>
+	<li><u-code-list>.delete</u-code-list> ("delete" и "backspace")</li>
+	<li><u-code-list>.up</u-code-list> <u-code-list>.down</u-code-list></li>
+	<li><u-code-list>.left</u-code-list><u-code-list>.right</u-code-list></li>
 </ul>
 
 <pre><code>
@@ -158,7 +158,7 @@ methods: {
 <h4>Определение пользовательских псевдонимов клавиш</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li>Определение пользовательских псевдонимов клавиш через глобальную опцию <code-text>config.keyCodes</code-text></li>
+	<li>Определение пользовательских псевдонимов клавиш через глобальную опцию <u-code-text>config.keyCodes</u-code-text></li>
 </ul>
 
 <pre><code class="js">
@@ -170,23 +170,23 @@ Vue.config.keyCodes.f1 = 112; // позволит использовать 'v-on
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Можно использовать следующие модификаторы для отслеживания событий мыши или клавиатуры с зажатой клавишей-модификатором</li>
-	<li><bg-code-list>.ctrl</bg-code-list></li>
-	<li><bg-code-list>.alt</bg-code-list></li>
-	<li><bg-code-list>.shift</bg-code-list></li>
-	<li><bg-code-list>.meta</bg-code-list></li>
+	<li><u-code-list>.ctrl</u-code-list></li>
+	<li><u-code-list>.alt</u-code-list></li>
+	<li><u-code-list>.shift</u-code-list></li>
+	<li><u-code-list>.meta</u-code-list></li>
 </ul>
 
-<alert-info>
+<u-message-info>
 <ul class="list-point">
-	<li>Клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий <code-text>keyup</code-text> они должны быть нажаты, когда событие генерируется. Другими словами, <code-text>keyup.ctrl</code-text> сработает только тогда, когда вы отпустите клавишу, удерживая нажатой <code-text>ctrl</code-text>. Это не сработает, если вы отпустите только клавишу <code-text>ctrl</code-text>. Если вы хотите такое поведение, используйте <code-text>keyCode</code-text> для <code-text>ctrl</code-text> вместо <code-text>keyup.17</code-text></li>
+	<li>Клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий <u-code-text>keyup</u-code-text> они должны быть нажаты, когда событие генерируется. Другими словами, <u-code-text>keyup.ctrl</u-code-text> сработает только тогда, когда вы отпустите клавишу, удерживая нажатой <u-code-text>ctrl</u-code-text>. Это не сработает, если вы отпустите только клавишу <u-code-text>ctrl</u-code-text>. Если вы хотите такое поведение, используйте <u-code-text>keyCode</u-code-text> для <u-code-text>ctrl</u-code-text> вместо <u-code-text>keyup.17</u-code-text></li>
 </ul>
-</alert-info>
+</u-message-info>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-on-exact">Модификатор .exact</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><bg-define>.exact</bg-define> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события</li>
+	<li><u-text-define>.exact</u-text-define> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события</li>
 </ul>
 
 <pre><code class="html">
@@ -208,7 +208,7 @@ Vue.config.keyCodes.f1 = 112; // позволит использовать 'v-on
 </ul>
 
 <ul class="list-point">
-	<li><bg-code-list>.left</bg-code-list></li>
-	<li><bg-code-list>.right</bg-code-list></li>
-	<li><bg-code-list>.middle</bg-code-list></li>
+	<li><u-code-list>.left</u-code-list></li>
+	<li><u-code-list>.right</u-code-list></li>
+	<li><u-code-list>.middle</u-code-list></li>
 </ul>

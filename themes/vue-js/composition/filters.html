@@ -1,7 +1,7 @@
 <h2>Фильтры</h2>
 
 <ul class="list-point">
-	<li><bg-define>Фильтры</bg-define> применяются для распространённых задач форматирования текста</li>
+	<li><u-text-define>Фильтры</u-text-define> применяются для распространённых задач форматирования текста</li>
 	<li>Находят своё применение в двух местах: в <u>mustache-интерполяциях</u> и в <u>выражениях v-bind</u></li>
 	<li>Фильтры добавляются в конце выражения JavaScript и отделяются вертикальной чертой</li>
 </ul>
@@ -14,8 +14,8 @@
 </code></pre>
 
 <ul class="list-point">
-	<li>Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра <code-text>capitalize</code-text> получит значение <code-text>message</code-text> в качестве аргумента</li>
-	<li>В этом случае <code-text>filterA</code-text>, определённый с одним аргументом, получит значение message, а затем функция <code-text>filterB</code-text> будет вызвана с результатом <code-text>filterA</code-text>, переданным единственным аргументом в <code-text>filterB</code-text></li>
+	<li>Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра <u-code-text>capitalize</u-code-text> получит значение <u-code-text>message</u-code-text> в качестве аргумента</li>
+	<li>В этом случае <u-code-text>filterA</u-code-text>, определённый с одним аргументом, получит значение message, а затем функция <u-code-text>filterB</u-code-text> будет вызвана с результатом <u-code-text>filterA</u-code-text>, переданным единственным аргументом в <u-code-text>filterB</u-code-text></li>
 </ul>
 
 <hr>
@@ -25,7 +25,7 @@
 <pre><code class="html" v-pre>
 {{ message | filterA('arg1', arg2) }}
 </code></pre>
-	<li><code-text>filterA</code-text> определяется как функция с тремя аргументами. Значение <code-text>message</code-text> будет передано первым аргументом. Простая строка <code-text>'arg1'</code-text> будет передана в <code-text>filterA</code-text> вторым аргументом, а значение выражения <code-text>arg2</code-text> - третьим</li>
+	<li><u-code-text>filterA</u-code-text> определяется как функция с тремя аргументами. Значение <u-code-text>message</u-code-text> будет передано первым аргументом. Простая строка <u-code-text>'arg1'</u-code-text> будет передана в <u-code-text>filterA</u-code-text> вторым аргументом, а значение выражения <u-code-text>arg2</u-code-text> - третьим</li>
 </ul>
 
 
@@ -62,7 +62,7 @@ var app = new Vue({
 </code></pre>
 
 <ul class="list-point">
-	<li>Обращение к объекту <code-text>data</code-text> и вывод его в формат <code-text>json</code-text> и спользуя стандартный фильтр <code-text>json</code-text></li>
+	<li>Обращение к объекту <u-code-text>data</u-code-text> и вывод его в формат <u-code-text>json</u-code-text> и спользуя стандартный фильтр <u-code-text>json</u-code-text></li>
 </ul>
 
 <pre><code v-pre>

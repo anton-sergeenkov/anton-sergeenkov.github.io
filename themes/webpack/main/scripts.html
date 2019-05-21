@@ -10,8 +10,8 @@ npm run <bg-npm>build</bg-npm>
 </code></pre>
 
 <ul class="list-point">
-	<li>В Webpack 4 есть два режима: режим <u>production</u>, который создает оптимизированные файлы, готовые к использованию в режиме <u>production</u> и режим <u>development</u>, который создает легко читаемый код. Флаг <code class="txt">--mode</code> позволяет выбрать, какой режим использовать</li>
-	<li>Флаги <code class="txt">--open</code> и <code class="txt">--hot</code> ответственны за обновление веб-страницы всякий раз, когда происходят какие-либо изменения в компонентах</li>
+	<li>В Webpack 4 есть два режима: режим <u>production</u>, который создает оптимизированные файлы, готовые к использованию в режиме <u>production</u> и режим <u>development</u>, который создает легко читаемый код. Флаг <u-code-text>--mode</u-code-text> позволяет выбрать, какой режим использовать</li>
+	<li>Флаги <u-code-text>--open</u-code-text> и <u-code-text>--hot</u-code-text> ответственны за обновление веб-страницы всякий раз, когда происходят какие-либо изменения в компонентах</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -20,8 +20,8 @@ npm run <bg-npm>build</bg-npm>
 <pre><code class="json">
 {
 	"scripts": {
-		"start": "webpack-dev-server",         <bg-comment># server</bg-comment>
-		"build": "webpack"                     <bg-comment># watcher</bg-comment>
+		"start": "webpack-dev-server",         <u-code-comment># server</u-code-comment>
+		"build": "webpack"                     <u-code-comment># watcher</u-code-comment>
 	}
 }
 </code></pre>
@@ -32,12 +32,12 @@ npm run <bg-npm>build</bg-npm>
 <pre><code class="json">
 {
 	"scripts": {
-		"watch":  "webpack -w",                         <bg-comment># watcher</bg-comment>
-		"watch":  "webpack --watch",                    <bg-comment># watcher</bg-comment>
-		"dev":    "webpack -d",                         <bg-comment># development</bg-comment>
-		"prod":   "webpack -p",                         <bg-comment># production</bg-comment>
-		"dev":    "webpack --mode development --watch", <bg-comment># development</bg-comment>
-		"prod":   "webpack --mode production"           <bg-comment># production</bg-comment>
+		"watch":  "webpack -w",                         <u-code-comment># watcher</u-code-comment>
+		"watch":  "webpack --watch",                    <u-code-comment># watcher</u-code-comment>
+		"dev":    "webpack -d",                         <u-code-comment># development</u-code-comment>
+		"prod":   "webpack -p",                         <u-code-comment># production</u-code-comment>
+		"dev":    "webpack --mode development --watch", <u-code-comment># development</u-code-comment>
+		"prod":   "webpack --mode production"           <u-code-comment># production</u-code-comment>
 		"start":  "webpack-dev-server --mode development --open --hot"
 	}
 }

@@ -4,9 +4,9 @@
 npm i --save-dev <bg-npm>html-webpack-plugin</bg-npm>
 </code></pre>
 
-<bg-link>
+<u-link-wrapper>
 	<a href="https://webpack.js.org/concepts/#plugins" target="_blank">webpack.js.org (html-webpack-plugin)</a>
-</bg-link>
+</u-link-wrapper>
 
 <ul class="list-point">
 	<li>Указание шаблона файла .html в который подключается основной скрипт .js</li>
@@ -14,14 +14,14 @@ npm i --save-dev <bg-npm>html-webpack-plugin</bg-npm>
 </ul>
 
 <pre><code class="js">
-	<bg-code-wrapper>
+	<u-code-wrapper>
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-	</bg-code-wrapper>
+	</u-code-wrapper>
 module.exports = {
 	plugins: [
-		<bg-code-wrapper>
+		<u-code-wrapper>
 		new HtmlWebpackPlugin({template: './index.html'})
-		</bg-code-wrapper>
+		</u-code-wrapper>
 	]
 }
 </code></pre>

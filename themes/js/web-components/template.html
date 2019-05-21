@@ -6,7 +6,7 @@
 
 <h4>Пример 1</h4>
 <pre><code class="js">
-element.appendChild(template.<bg-code>content.cloneNode(true)</bg-code>); // => Hi Template
+element.appendChild(template.<u-code>content.cloneNode(true)</u-code>); // => Hi Template
 </code></pre>
 <pre><code class="html">
 &lt;div id="element"&gt;Hi&lt;/div&gt;
@@ -25,7 +25,7 @@ element.appendChild(template.<bg-code>content.cloneNode(true)</bg-code>); // => 
 
 <pre><code class="js">
 const template = document.getElementById('template');
-const instance = document.<bg-code>importNode</bg-code>(<bg-code>template.content</bg-code>, true);
+const instance = document.<u-code>importNode</u-code>(<u-code>template.content</u-code>, true);
 
 const main = document.querySelector('.main');
 const header = main.querySelector('.main-header');

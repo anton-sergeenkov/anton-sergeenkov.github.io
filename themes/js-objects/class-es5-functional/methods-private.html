@@ -5,9 +5,9 @@
 function User() {
     var privateProperty = 77;
 	this.publicMethod = function() {
-        <bg-code>privateMethod</bg-code>();
+        <u-code>privateMethod</u-code>();
     }
-    var <bg-code>privateMethod</bg-code> = function() {
+    var <u-code>privateMethod</u-code> = function() {
         console.log('private method call' + privateProperty);
     }
 }
@@ -19,12 +19,12 @@ user.publicMethod(); // => 'private method call77
 <pre><code class="js">
 function User() {
     this.name = 'Tony';
-    <bg-code>var self = this;</bg-code>
+    <u-code>var self = this;</u-code>
 	this.publicMethod = function() {
         privateMethod();
     }
     var privateMethod = function() {
-        console.log(<bg-code>self.name</bg-code>);
+        console.log(<u-code>self.name</u-code>);
     }
 }
 var user = new User();

@@ -1,8 +1,8 @@
 <h2>JSON</h2>
 
 <ul class="list-point">
-	<li><bg-define>JSON</bg-define> - JavaScript Object Notation</li>
-	<li><bg-define>Сериализация объектов</bg-define> - преобразование объектов в строки</li>
+	<li><u-text-define>JSON</u-text-define> - JavaScript Object Notation</li>
+	<li><u-text-define>Сериализация объектов</u-text-define> - преобразование объектов в строки</li>
 	<li><u>В JSON можно хранить</u> - объекты, массивы, строки, числа true, false, null. Другие значения при сериализации превращаются в null</li>
 </ul>
 
@@ -21,8 +21,8 @@ var user = {
     name: 'Tony',
     id: 25
 }
-var userData = <bg-code>JSON.stringify</bg-code>(user); // объект в JSON ("{"name":"Tony","id":25}")
-var userObj = <bg-code>JSON.parse</bg-code>(userData);  // JSON в строку
+var userData = <u-code>JSON.stringify</u-code>(user); // объект в JSON ("{"name":"Tony","id":25}")
+var userObj = <u-code>JSON.parse</u-code>(userData);  // JSON в строку
 </code></pre>
 
 <h4>Метод toJSON</h4>

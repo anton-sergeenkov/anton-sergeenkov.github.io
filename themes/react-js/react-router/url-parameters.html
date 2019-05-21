@@ -7,10 +7,10 @@ export default class App extends Component {
 			&lt;Router&gt;
 				&lt;div&gt;
 					&lt;Link to="/posts/"&gt;Posts&lt;/Link&gt;
-					&lt;Link to="/posts/<bg-code>77</bg-code>"&gt;Post 77&lt;/Link&gt;
+					&lt;Link to="/posts/<u-code>77</u-code>"&gt;Post 77&lt;/Link&gt;
 
-					&lt;Route path="/posts" <bg-code>exact</bg-code> component={Posts} /&gt;
-					&lt;Route path="/posts/<bg-code>:id</bg-code>" component={Post} /&gt;
+					&lt;Route path="/posts" <u-code>exact</u-code> component={Posts} /&gt;
+					&lt;Route path="/posts/<u-code>:id</u-code>" component={Post} /&gt;
 				&lt;/div&gt;
 			&lt;/Router&gt;
 		);
@@ -24,7 +24,7 @@ class Post extends Component {
 	render() {
 		return (
 			&lt;div&gt;
-				<bg-code>{this.props.match.params.id}</bg-code>
+				<u-code>{this.props.match.params.id}</u-code>
 			&lt;/div&gt;
 		);
 	}

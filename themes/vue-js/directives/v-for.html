@@ -1,23 +1,23 @@
 <h2>Отрисовка списков: v-for</h2>
 
-<ul class="list-links">
+<ul class="link-page-wrapper">
 	<li><a href="#v-for-arr">Отображение массива элементов</a></li>
 	<li><a href="#v-for-components">v-for на компонентах</a></li>
 </ul>
 
 <ul class="list-point">
-	<li>Когда присутствуют вместе на одном элементе, <code-text>v-for</code-text> имеет больший приоритет, чем <code-text>v-if</code-text>. Поэтому <code-text>v-if</code-text> будет выполняться для каждой итерации цикла</li>
-	<li><code-text>key</code-text> с <code-text>v-for</code-text> всегда обязателен для компонентов</li>
+	<li>Когда присутствуют вместе на одном элементе, <u-code-text>v-for</u-code-text> имеет больший приоритет, чем <u-code-text>v-if</u-code-text>. Поэтому <u-code-text>v-if</u-code-text> будет выполняться для каждой итерации цикла</li>
+	<li><u-code-text>key</u-code-text> с <u-code-text>v-for</u-code-text> всегда обязателен для компонентов</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-for-arr">Отображение массива элементов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="html" v-pre><code-type>html</code-type>
-&lt;li <bg-code>v-for</bg-code>="item <bg-code>in</bg-code> items"&gt;{{ item.name }}&lt;/li&gt;
-&lt;li <bg-code>v-for</bg-code>="item <bg-code>of</bg-code> items"&gt;{{ item.name }}&lt;/li&gt;
-&lt;li <bg-code>v-for</bg-code>="(item, i) <bg-code>in</bg-code> items"&gt;{{i}}, {{ item.name }}&lt;/li&gt;
-&lt;li <bg-code>v-for</bg-code>="item <bg-code>in</bg-code> items" <bg-code>:key</bg-code>="item.id"&gt;{{ item.name }}&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="item <u-code>in</u-code> items"&gt;{{ item.name }}&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="item <u-code>of</u-code> items"&gt;{{ item.name }}&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="(item, i) <u-code>in</u-code> items"&gt;{{i}}, {{ item.name }}&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="item <u-code>in</u-code> items" <u-code>:key</u-code>="item.id"&gt;{{ item.name }}&lt;/li&gt;
 </code></pre>
 
 <pre><code class="js"><code-type>js</code-type>
@@ -86,7 +86,7 @@ var app = new Vue({
 <h3 id="v-for-components">v-for на компонентах</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>При использовании <code-text>v-for</code-text> на компонентах обязательно требуется указывать <code-text>key</code-text></li>
+	<li>При использовании <u-code-text>v-for</u-code-text> на компонентах обязательно требуется указывать <u-code-text>key</u-code-text></li>
 </ul>
 
 <pre><code class="html">

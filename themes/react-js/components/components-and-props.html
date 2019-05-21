@@ -26,13 +26,13 @@ class Welcome extends React.Component {
 <v-two-code type="js;js" comment="React.Component;Component">
 <template v-slot:first>
 import React from 'react';
-export default class Logo extends <bg-code>React.Component</bg-code> {
+export default class Logo extends <u-code>React.Component</u-code> {
 	//
 }
 </template>
 <template v-slot:last>
 import React, {Component} from 'react';
-export default class App extends <bg-code>Component</bg-code> {
+export default class App extends <u-code>Component</u-code> {
 	//
 }
 </template>
@@ -74,15 +74,15 @@ ReactDOM.render(element, document.getElementById('root'));
 </code></pre>
 
 <ol class="list-num">
-	<li>Мы передаём React-элемент <code-text>&lt;Welcome name="Алиса" /&gt;</code-text> в <code-text>ReactDOM.render()</code-text></li>
-	<li>React вызывает наш компонент <code-text>Welcome</code-text> с пропсами <code-text>{name: 'Алиса'}</code-text></li>
-	<li>Наш компонент <code-text>Welcome</code-text> возвращает элемент <code-text>&lt;h1&gt;Привет, Алиса&lt;/h1&gt;</code-text> в качестве результата</li>
-	<li>React DOM делает минимальные изменения в DOM, чтобы получилось <code-text>&lt;h1&gt;Привет, Алиса&lt;/h1&gt;</code-text></li>
+	<li>Мы передаём React-элемент <u-code-text>&lt;Welcome name="Алиса" /&gt;</u-code-text> в <u-code-text>ReactDOM.render()</u-code-text></li>
+	<li>React вызывает наш компонент <u-code-text>Welcome</u-code-text> с пропсами <u-code-text>{name: 'Алиса'}</u-code-text></li>
+	<li>Наш компонент <u-code-text>Welcome</u-code-text> возвращает элемент <u-code-text>&lt;h1&gt;Привет, Алиса&lt;/h1&gt;</u-code-text> в качестве результата</li>
+	<li>React DOM делает минимальные изменения в DOM, чтобы получилось <u-code-text>&lt;h1&gt;Привет, Алиса&lt;/h1&gt;</u-code-text></li>
 </ol>
 
-<alert-info>
-	Всегда называйте компоненты с заглавной буквы. Если компонент начинается с маленькой буквы, React принимает его за DOM-тег. Например, <code-text>&lt;div /&gt;</code> это div-тег из HTML, а <code-text>&lt;Welcome /&gt;</code-text> это уже наш компонент <code-text>Welcome</code-text>, который должен быть в области видимости
-</alert-info>
+<u-message-info>
+	Всегда называйте компоненты с заглавной буквы. Если компонент начинается с маленькой буквы, React принимает его за DOM-тег. Например, <u-code-text>&lt;div /&gt;</code> это div-тег из HTML, а <u-code-text>&lt;Welcome /&gt;</u-code-text> это уже наш компонент <u-code-text>Welcome</u-code-text>, который должен быть в области видимости
+</u-message-info>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Классовые компоненты jsx/js</h3>
@@ -98,14 +98,14 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 </code></pre></div><div class="container-half"><pre><code class="js"><code-type>js</code-type>
-const e = React.<bg-code>createElement</bg-code>;
+const e = React.<u-code>createElement</u-code>;
 class App extends React.Component {
 	render() {
-		return <bg-code>e</bg-code>('button', null, 'Кнопка');
+		return <u-code>e</u-code>('button', null, 'Кнопка');
 	}
 }
 ReactDOM.render(
-	<bg-code>e</bg-code>(App),
+	<u-code>e</u-code>(App),
 	document.getElementById('root')
 );
 </code></pre></div></div>
@@ -141,7 +141,7 @@ ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
 <b>Классовый компонент</b>
 <pre><code class="js">
 class App extends React.Component {
-	<bg-code>render()</bg-code> {
+	<u-code>render()</u-code> {
 		return (
 			&lt;div&gt;
 				&lt;Button name="Кнопка" /&gt;
@@ -150,8 +150,8 @@ class App extends React.Component {
 	}
 }
 class Button extends React.Component {
-	<bg-code>render()</bg-code> {
-		return &lt;button&gt;{<bg-code>this.props.name</bg-code>}&lt;/button&gt;;
+	<u-code>render()</u-code> {
+		return &lt;button&gt;{<u-code>this.props.name</u-code>}&lt;/button&gt;;
 	}
 }
 ReactDOM.render(

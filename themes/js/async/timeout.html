@@ -17,17 +17,17 @@
 
 <pre><code class="js">
 // если первый аргумент является строкой, то интерпретатор создаёт анонимную функцию из этой строки
-var timer = <bg-code>setTimeout</bg-code>("console.log('go');", 1000);
+var timer = <u-code>setTimeout</u-code>("console.log('go');", 1000);
 // анонимная функция
-var timer = <bg-code>setTimeout</bg-code>(function() { console.log('go'); }, 1000);
+var timer = <u-code>setTimeout</u-code>(function() { console.log('go'); }, 1000);
 // функция
-var timer = <bg-code>setTimeout</bg-code>(func, 1000);
+var timer = <u-code>setTimeout</u-code>(func, 1000);
 
 function func() {
     console.log('go');
 }
 
-<bg-code>clearTimeout</bg-code>(timer);
+<u-code>clearTimeout</u-code>(timer);
 </code></pre>
 
 <h4>Передача аргументов</h4>
@@ -58,6 +58,6 @@ var timerId = setTimeout(function tick() {
 </code></pre>
 
 <pre><code class="js">
-var timer = <bg-code>setInterval</bg-code>("console.log('go');", 1000);
-<bg-code>clearInterval</bg-code>(timer);
+var timer = <u-code>setInterval</u-code>("console.log('go');", 1000);
+<u-code>clearInterval</u-code>(timer);
 </code></pre>

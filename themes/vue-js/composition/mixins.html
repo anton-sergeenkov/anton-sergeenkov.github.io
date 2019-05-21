@@ -1,6 +1,6 @@
 <h2>Примеси</h2>
 
-<ul class="list-links">
+<ul class="link-page-wrapper">
 	<li><a href="#composition-mixins-basic">Основы</a></li>
 	<li><a href="#composition-mixins-merge">Слияние опций</a></li>
 	<li><a href="#composition-mixins-global">Глобальные примеси</a></li>
@@ -8,7 +8,7 @@
 </ul>
 
 <ul class="list-point">
-	<li><bg-define>Примеси (mixins)</bg-define> - гибкий инструмент повторного использования кода в компонентах Vue. Объект примеси может содержать любые опции компонентов. При использовании компонентом примеси, все опции примеси «подмешиваются» к собственным опциям компонента</li>
+	<li><u-text-define>Примеси (mixins)</u-text-define> - гибкий инструмент повторного использования кода в компонентах Vue. Объект примеси может содержать любые опции компонентов. При использовании компонентом примеси, все опции примеси «подмешиваются» к собственным опциям компонента</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -23,9 +23,9 @@ var mixin = {
     }
 }
 export default {
-    <bg-code>mixins: [mixin]</bg-code>,
+    <u-code>mixins: [mixin]</u-code>,
     created: function () {
-        console.log(<bg-code>this.$data</bg-code>); // => { mixinData: "This is Mixin Data" }
+        console.log(<u-code>this.$data</u-code>); // => { mixinData: "This is Mixin Data" }
     }
 }
 </code></pre>
@@ -34,7 +34,7 @@ export default {
 <h3 id="composition-mixins-merge">Слияние опций</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Если примесь и компонент содержат пересекающиеся опции, ожидающие значения в форме объектов, такие как <code-text>methods</code-text>, <code-text>components</code-text> и <code-text>directives</code-text> будут объединены. В случае конфликта, приоритет имеют опции компонента</li>
+	<li>Если примесь и компонент содержат пересекающиеся опции, ожидающие значения в форме объектов, такие как <u-code-text>methods</u-code-text>, <u-code-text>components</u-code-text> и <u-code-text>directives</u-code-text> будут объединены. В случае конфликта, приоритет имеют опции компонента</li>
 </ul>
 
 <pre><code class="js">
@@ -59,7 +59,7 @@ export default {
 </code></pre>
 
 <ul class="list-point">
-	<li>Функции <code-text>хуков</code-text> с одинаковыми именами объединяются в массив, чтобы все они вызывались. Хуки примеси будут вызываться <u>перед</u> собственными хуками компонента</li>
+	<li>Функции <u-code-text>хуков</u-code-text> с одинаковыми именами объединяются в массив, чтобы все они вызывались. Хуки примеси будут вызываться <u>перед</u> собственными хуками компонента</li>
 </ul>
 
 <pre><code class="js">
@@ -107,7 +107,7 @@ new Vue({
 <h3 id="composition-mixins-user-merge">Пользовательские стратегии слияния опций</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>При слиянии пользовательских опций применяется стратегия по умолчанию, которая просто заменяет одни значения другими. Если вы хотите использовать пользовательскую логику при слиянии пользовательских опций, добавьте функцию в <code-text>Vue.config.optionMergeStrategies</code-text></li>
+	<li>При слиянии пользовательских опций применяется стратегия по умолчанию, которая просто заменяет одни значения другими. Если вы хотите использовать пользовательскую логику при слиянии пользовательских опций, добавьте функцию в <u-code-text>Vue.config.optionMergeStrategies</u-code-text></li>
 </ul>
 
 <pre><code class="js">
@@ -117,7 +117,7 @@ Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
 </code></pre>
 
 <ul class="list-point">
-	<li>Для большей части опций-объектов можно просто использовать стратегию, применяемую по умолчанию для опции <code-text>methods</code-text></li>
+	<li>Для большей части опций-объектов можно просто использовать стратегию, применяемую по умолчанию для опции <u-code-text>methods</u-code-text></li>
 </ul>
 
 <pre><code class="js">

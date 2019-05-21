@@ -1,6 +1,6 @@
 <h2>Custom Elements</h2>
 
-<alert-error>document.registerElement => window.customElements.define (устаревшая конструкция)</alert-error>
+<u-message-error>document.registerElement => window.customElements.define (устаревшая конструкция)</u-message-error>
 
 <ul class="list-point">
 	<li>Стандарт Custom Elements позволяет описывать для новых элементов свои свойства, методы, объявлять свой DOM, подобие конструктора и многое другое</li>
@@ -26,19 +26,19 @@
 <h3>Регистрация элемента</h3>
 <!------------------------------------------------------>
 <div class="container-flex"><div class="container-half"><pre><code class="js">
-var element = <bg-code>Object.create(HTMLElement.prototype)</bg-code>;
+var element = <u-code>Object.create(HTMLElement.prototype)</u-code>;
 element.action = function(content) {
     this.innerHTML = content;
 };
-<bg-code>document.registerElement</bg-code>("my-element", {
+<u-code>document.registerElement</u-code>("my-element", {
     prototype: element
 });
 document.querySelector('my-element').action('zzz');
 <br><br>
 </code></pre></div><div class="container-half"><pre><code class="js">
-<bg-code>document.registerElement</bg-code>("my-element", {
+<u-code>document.registerElement</u-code>("my-element", {
     prototype: {
-        __proto__: <bg-code>HTMLElement.prototype</bg-code>,
+        __proto__: <u-code>HTMLElement.prototype</u-code>,
         action: function(content) { 
         	this.innerHTML = content; 
         },
@@ -57,18 +57,18 @@ var a = document.querySelector('my-element').value;
 <h3>Расширение встроенных элементов</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-var element = <bg-code>Object.create(HTMLButtonElement.prototype)</bg-code>;
+var element = <u-code>Object.create(HTMLButtonElement.prototype)</u-code>;
 element.action = function(content) {
     this.innerHTML = content;
 };
-<bg-code>document.registerElement</bg-code>("my-element", {
+<u-code>document.registerElement</u-code>("my-element", {
     prototype: element,
-    <bg-code>extends: 'button'</bg-code>
+    <u-code>extends: 'button'</u-code>
 });
 document.querySelector('button').action('zzz');
 </code></pre>
 <pre><code class="css">
-&lt;button <bg-code>is="my-element"</bg-code>&gt;&lt;/button&gt;
+&lt;button <u-code>is="my-element"</u-code>&gt;&lt;/button&gt;
 </code></pre>
 
 <!------------------------------------------------------>
@@ -95,13 +95,13 @@ element.createdCallback = function() {
 <h4>#1 - Элемент таймер</h4>
 <pre><code class="js">
 // прототип с методами для нового элемента
-var MyTimerProto = <bg-code>Object.create(HTMLElement.prototype)</bg-code>;
+var MyTimerProto = <u-code>Object.create(HTMLElement.prototype)</u-code>;
 MyTimerProto.tick = function() { // свой метод tick
     this.innerHTML++;
 };
 
 // регистрируем новый элемент в браузере
-<bg-code>document.registerElement</bg-code>("my-timer", {
+<u-code>document.registerElement</u-code>("my-timer", {
     prototype: MyTimerProto
 });
 
@@ -119,7 +119,7 @@ setInterval(function() {
 <pre><code class="js">
 // регистрация произойдёт через 2 сек
 setTimeout(function() {
-    <bg-code>document.registerElement</bg-code>("hello-world", {
+    <u-code>document.registerElement</u-code>("hello-world", {
         prototype: {
             __proto__: HTMLElement.prototype,
             sayHi: function() { alert('Привет!'); }
@@ -130,7 +130,7 @@ setTimeout(function() {
 </code></pre>
 <pre><code class="css">
 /* стиль для :unresolved элемента (до регистрации) */
-hello-world<bg-code>:unresolved</bg-code> {
+hello-world<u-code>:unresolved</u-code> {
     color: blue;
 }
 hello-world {

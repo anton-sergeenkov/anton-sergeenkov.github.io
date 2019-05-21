@@ -18,9 +18,11 @@
 	}
 	pre, code {
 		padding: 0 !important;
-		/*margin: 0 !important;*/
-		line-height: 1 !important;
+		line-height: 1.2 !important;
 		overflow-y: hidden;
+	}
+	code.custom {
+		line-height: 1.9 !important;
 	}
 </style>
 </head>
@@ -33,8 +35,8 @@
 	<pre><code class="bash">
 	=two-code    # two flex code
 	=two         # two flex
-	=list-point  # list-point без &lt;bg-define&gt;
-	=list-define # list-point с &lt;bg-define&gt;
+	=list-point  # list-point без &lt;u-text-define&gt;
+	=list-define # list-point с &lt;u-text-define&gt;
 	=list-num    # list-num
 	=hr3         # h3
 	=hr4         # h4
@@ -44,6 +46,35 @@
 	=xbash       # code bash
 	</code></pre>
 </template><template v-slot:last>
+	<h4>Сообщения</h4>
+	<u-message-ok><code>&lt;u-message-ok&gt;text&lt;/u-message-ok&gt;</code></u-message-ok>
+	<u-message-info><code>&lt;u-message-info&gt;text&lt;/u-message-info&gt;</code></u-message-info>
+	<u-message-warn><code>&lt;u-message-warn&gt;text&lt;/u-message-warn&gt;</code></u-message-warn>
+	<u-message-error><code>&lt;u-message-error&gt;text&lt;/u-message-error&gt;</code></u-message-error>
+</template></v-two>
+
+<v-two>
+	<template v-slot:first>
+	<pre><code class="html custom">
+	&lt;u-code&gt;&lt;/u-code&gt;                 <u-code>Код</u-code>
+	&lt;u-code-wrapper&gt;&lt;/u-code-wrapper&gt; <u-code>Блок кода</u-code>
+	&lt;u-code-text&gt;&lt;u-code-text&gt;        <u-code-text>Код в тексте</u-code-text>
+	&lt;u-code-list&gt;&lt;/u-code-list&gt;       <u-code-list>Код в списке</u-code-list>
+	&lt;u-code-comment&gt;&lt;/u-code-comment&gt; <u-code-comment>Комментарий в коде</u-code-comment>
+
+</template><template v-slot:last>
+	<pre><code class="html custom">
+	&lt;u-text-define&gt;&lt;/u-text-define&gt;   <u-text-define>Определение</u-text-define>
+	&lt;u-text-header&gt;&lt;/u-text-header&gt;   <u-text-header>Подзаголовок</u-text-header>
+	&lt;u-link-wrapper&gt;&lt;/u-link-wrapper&gt; Обертка для ссылок
+	</code></pre>
+</template></v-two>
+
+
+<hr>
+
+
+<v-two><template v-slot:first>
 	<h4>Маркеры</h4>
 	<pre><code class="bash">
 	&#8226;    # &amp;#8226;
@@ -51,83 +82,19 @@
 	&hellip;    # &amp;hellip;
 	&#10006;   # &amp;#10006;
 	</code></pre>
-</template></v-two>
-
-
-<v-two><template v-slot:first>
-	<code-text>Код в тексте</code-text>
-	<pre><code class="html">
-	&lt;code-text&gt;Код в тексте&lt;code-text&gt;
-	</code></pre>
-
-	<bg-code>Выделение кода</bg-code>
-	<pre><code class="html">
-	&lt;bg-code&gt;Выделение кода&lt;/bg-code&gt;
-	</code></pre>
-
-	<bg-code-list>Выделение кода в тексте</bg-code-list>
-	<pre><code class="html clear">
-	&lt;bg-code-list&gt;&lt;/bg-code-list&gt;
-	</code></pre>
-
-	<bg-comment># Комментарий в коде</bg-comment>
-	<pre><code class="html">
-	&lt;bg-comment&gt;Комментарий в коде&lt;/bg-comment&gt;
-	</code></pre>
-</template><template v-slot:last>
-	<bg-define>Определение</bg-define>
-	<pre><code class="html clear">
-	&lt;bg-define&gt;&lt;/bg-define&gt;
-	</code></pre>
-
-	<u>Акцент в тексте</u>
-	<pre><code class="html clear">
-	&lt;u&gt;&lt;/u&gt;
-	</code></pre>
-
-	<bg-header>Выделение подзаголовка</bg-header>
-	<pre><code class="html clear">
-	&lt;bg-header&gt;&lt;/bg-header&gt;
-	</code></pre>
-</template></v-two>
-
-
-<v-two><template v-slot:first>
-	<h4>Ссылки</h4>
-	<bg-link>
-		<a href="#">Link1</a>
-		<a href="#">Link2</a>
-	</bg-link>
-	<pre><code class="html"><code-type>html</code-type>
-	&lt;bg-link&gt;
-		&lt;a href="#"&gt;Link1&lt;/a&gt;
-		&lt;a href="#"&gt;Link2&lt;/a&gt;
-	&lt;/bg-link&gt;
-	</code></pre>
 </template><template v-slot:last>
 	<h4>Ссылки на разделы</h4>
-	<ul class="list-links">
+	<ul class="link-page-wrapper">
 		<li><a href="#">Ссылка 1</a></li>
 		<li><a href="#">Ссылка 2</a></li>
-		<li><a href="#">Ссылка 3</a></li>
-		<li><a href="#">Ссылка 4</a></li>
 	</ul>
 	<pre><code class="html"><code-type>html</code-type>
-	&lt;ul class="list-links"&gt;
+	&lt;ul class="link-page-wrapper"&gt;
 		&lt;li&gt;&lt;a href="#"&gt;Ссылка 1&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href="#"&gt;Ссылка 2&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 	</code></pre>
 </template></v-two>
-
-
-<div style="display: flex; flex-wrap: wrap; align-items: flex-start;">
-	<alert-ok><code>&lt;alert-ok&gt;text&lt;/alert-ok&gt;</code></alert-ok>
-	<alert-info><code>&lt;alert-info&gt;text&lt;/alert-info&gt;</code></alert-info>
-	<alert-warn><code>&lt;alert-warn&gt;text&lt;/alert-warn&gt;</code></alert-warn>
-	<alert-error><code>&lt;alert-error&gt;text&lt;/alert-error&gt;</code></alert-error>
-</div>
-
 
 
 

@@ -1,15 +1,18 @@
 
 let customElementRegistry = window.customElements;
 let arrCustomElements = [
-	'code-type', 'code-text', 
-	'alert-ok', 'alert-info', 'alert-warn', 'alert-error',
-	'bg-code', 'bg-code-accent', 'bg-code-warn', 'bg-code-wrapper', 'bg-code-list', 
+	'u-code-text', 'u-code-list', 'u-code-comment', 'u-code', 'u-text-define',
+	'u-text-header', 'u-code-wrapper', 'u-link-wrapper',
+	'u-message-ok', 'u-message-info', 'u-message-warn', 'u-message-error',
+
+	'code-type',
+	'u-code-accent', 'u-code-warn',
 	'bg-menu', 'bg-menu-code', 'bg-menu-accent', 'bg-menu-border',
-	'bg-npm', 'bg-map', 'bg-header', 'bg-list', 'bg-mass', 'bg-methods', 'bg-define', 'bg-link', 'bg-comment', 
+	'bg-npm', 'bg-map', 'bg-list', 'bg-mass', 'bg-methods',
 ];
 
 arrCustomElements.forEach(function(element) {
-	customElementRegistry.define(element, 
+	customElementRegistry.define(element,
 		class extends HTMLElement {
 			constructor() {
 				super();
@@ -30,16 +33,16 @@ Vue.component('v-two-code', {
 			return this.comment.split(';');
 		}
 	},
-    template:  `<div class="container-flex"><div class="container-half"><pre><code :class="textType[0]"><code-type v-text="textComment[0]"></code-type><slot name="first">User Default1</slot></code></pre></div><div class="container-half"><pre><code :class="textType[1]"><code-type v-text="textComment[1]"></code-type><slot name="last">User Default2</slot></code></pre></div></div>`,
+    template:  `<div class="v-two-wrapper"><div class="v-two-column"><pre><code :class="textType[0]"><code-type v-text="textComment[0]"></code-type><slot name="first">User Default1</slot></code></pre></div><div class="v-two-column"><pre><code :class="textType[1]"><code-type v-text="textComment[1]"></code-type><slot name="last">User Default2</slot></code></pre></div></div>`,
     // template:  `
-    // 	<div class="container-flex">
-    // 		<div class="container-half">
+    // 	<div class="v-two-wrapper">
+    // 		<div class="v-two-column">
     // 			<pre><code :class="textType[0]">
     // 				<code-type v-text="textComment[0]"></code-type>
     // 				<slot name="first">User Default1</slot>
     // 			</code></pre>
     // 		</div>
-    // 		<div class="container-half">
+    // 		<div class="v-two-column">
     // 			<pre><code :class="textType[1]">
     // 				<code-type v-text="textComment[1]"></code-type>
     // 				<slot name="last">User Default2</slot>
@@ -50,11 +53,11 @@ Vue.component('v-two-code', {
 
 Vue.component('v-two', {
     template:
-		`<div class="container-flex">
-			<div class="container-half">
+		`<div class="v-two-wrapper">
+			<div class="v-two-column">
 				<slot name="first">User Default1</slot>
 			</div>
-			<div class="container-half">
+			<div class="v-two-column">
 				<slot name="last">User Default2</slot>
 			</div>
 		</div>`,
@@ -63,4 +66,3 @@ Vue.component('v-two', {
 var app = new Vue({
 	el: '#content'
 })
-

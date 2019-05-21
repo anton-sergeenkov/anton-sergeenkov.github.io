@@ -1,23 +1,23 @@
 <h2>DOM элементы</h2>
 
 <ul class="list-point">
-	<li><bg-define>Document Object Model (DOM) </bg-define> - объектная модель представления документа. Независящий от платформы и языка программирования способ представления документа, позволяющий программам и скриптам получить доступ к содержимому HTML, XHTML и XML документов, а также изменять содержимое, структуру и оформление таких документов</li>
-	<li><bg-define>DOM</bg-define> - представление документа в виде дерева тегов, доступное для изменения через JS</li>
+	<li><u-text-define>Document Object Model (DOM) </u-text-define> - объектная модель представления документа. Независящий от платформы и языка программирования способ представления документа, позволяющий программам и скриптам получить доступ к содержимому HTML, XHTML и XML документов, а также изменять содержимое, структуру и оформление таких документов</li>
+	<li><u-text-define>DOM</u-text-define> - представление документа в виде дерева тегов, доступное для изменения через JS</li>
 	<li>Всё содержимое документа представлено в виде иерархии объектов</li>
 	<li>Структура этой иерархии стандартизирована, чтобы обеспечить независимость от платформы</li>
 </ul>
 
 <ul class="list-point">
 	<b>Узлы (nodes)</b>
-	<li><bg-define>Тип "element"</bg-define> - каждый HTML тег создает узел (node) дерева</li>
-	<li><bg-define>Тип "element" дочерние узлы</bg-define> - вложенные в него элементы</li>
-	<li><bg-define>Тип "text"</bg-define> - для представления текста</li>
+	<li><u-text-define>Тип "element"</u-text-define> - каждый HTML тег создает узел (node) дерева</li>
+	<li><u-text-define>Тип "element" дочерние узлы</u-text-define> - вложенные в него элементы</li>
+	<li><u-text-define>Тип "text"</u-text-define> - для представления текста</li>
 </ul>
 
 <pre><code class="js">
-var a = element.<bg-code>tagName</bg-code>;  // название тега (если текстовый узел будет undefined)
-var a = element.<bg-code>nodeName</bg-code>; // название узла (узел элемента или тексовый узел)
-var a = element.<bg-code>nodeType</bg-code>; // тип узла (узел элемента 1 или текстовый узел 3)
+var a = element.<u-code>tagName</u-code>;  // название тега (если текстовый узел будет undefined)
+var a = element.<u-code>nodeName</u-code>; // название узла (узел элемента или тексовый узел)
+var a = element.<u-code>nodeType</u-code>; // тип узла (узел элемента 1 или текстовый узел 3)
 </code></pre>
 
 <pre><code class="js">
@@ -30,7 +30,7 @@ var a = element.<bg-code>nodeType</bg-code>; // тип узла (узел эле
 
 <h4>Создание</h4>
 <pre><code class="js">
-var element = document.<bg-code>createElement</bg-code>('div');
+var element = document.<u-code>createElement</u-code>('div');
 element.innerHTML = 'Go to google';
 element.className = 'class-google';
 </code></pre>
@@ -39,11 +39,11 @@ element.className = 'class-google';
 <pre><code class="js">
 var wrapper = document.querySelector('#wrapper');
 
-wrapper.<bg-code>appendChild</bg-code>(element);                      // внутри элемента после контента
-wrapper.<bg-code>insertBefore</bg-code>(element, wrapper.lastChild);  // внутри элемента перед контентом
-wrapper.parentNode.<bg-code>insertBefore</bg-code>(element, wrapper); // после элемента
-wrapper.parentNode.<bg-code>appendChild</bg-code>(element);           // до элемента
-wrapper.parentNode.<bg-code>replaceChild</bg-code>(element, wrapper); // заменить элемент другим элементом
+wrapper.<u-code>appendChild</u-code>(element);                      // внутри элемента после контента
+wrapper.<u-code>insertBefore</u-code>(element, wrapper.lastChild);  // внутри элемента перед контентом
+wrapper.parentNode.<u-code>insertBefore</u-code>(element, wrapper); // после элемента
+wrapper.parentNode.<u-code>appendChild</u-code>(element);           // до элемента
+wrapper.parentNode.<u-code>replaceChild</u-code>(element, wrapper); // заменить элемент другим элементом
 
 // insertBefore (1 - элемент который вставляем, 2 - элемент перед которым вставляем)
 // insertBefore (1 - чем заменяем, 2 - что заменяем)
@@ -51,7 +51,7 @@ wrapper.parentNode.<bg-code>replaceChild</bg-code>(element, wrapper); // зам�
 
 <h4>Удаление</h4>
 <pre><code class="js">
-wrapper.parentNode.<bg-code>removeChild</bg-code>(element); // удаление нового элемента
-wrapper.parentNode.<bg-code>removeChild</bg-code>(wrapper); // удаление элемента обертки
-document.body.<bg-code>removeChild</bg-code>(element);      // удаление нового элемента (если родитель body)
+wrapper.parentNode.<u-code>removeChild</u-code>(element); // удаление нового элемента
+wrapper.parentNode.<u-code>removeChild</u-code>(wrapper); // удаление элемента обертки
+document.body.<u-code>removeChild</u-code>(element);      // удаление нового элемента (если родитель body)
 </code></pre>

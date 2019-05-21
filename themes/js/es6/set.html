@@ -1,7 +1,7 @@
 <h2>Коллекции Set и WeakSet (ES6)</h2>
 
 <ul class="list-point">
-	<li><bg-define>Set</bg-define> - множество, набор значений. Структура данных в которой хранятся уникальные значения</li>
+	<li><u-text-define>Set</u-text-define> - множество, набор значений. Структура данных в которой хранятся уникальные значения</li>
 	<li>Нет литеральной формы, создается с помощью конструктора</li>
 	<li>Варианты использования: хранение css классов dom элементов</li>
 	<li>Является итерируемой структурой данных, можно перебрать с помощью for..of</li>
@@ -19,7 +19,7 @@
 <h3>Объявление</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-const set = <bg-code>new Set()</bg-code>; // Set(0) {}
+const set = <u-code>new Set()</u-code>; // Set(0) {}
 </code></pre>
 
 <pre><code class="js">
@@ -48,9 +48,9 @@ const set2 = new Set(set1);       // Set(1) {"button"}
 <!------------------------------------------------------>
 <pre><code class="js">
 const set = new Set();
-set.<bg-code>add</bg-code>('button');
-set.<bg-code>add</bg-code>('active');
-set.<bg-code>add</bg-code>('active');
+set.<u-code>add</u-code>('button');
+set.<u-code>add</u-code>('active');
+set.<u-code>add</u-code>('active');
 // Set(2) {"button", "active"}
 
 const set = new Set();
@@ -64,10 +64,10 @@ set
 <h3>Методы</h3>
 <!------------------------------------------------------>
 <pre><code class="js">
-var a = set.<bg-code>size</bg-code>;          // кол-во элементо в set
-var a = set.<bg-code>has</bg-code>('button'); // проверка наличия значения
-set.<bg-code>delete</bg-code>('active');      // удаление элемента 
-set.<bg-code>clear</bg-code>();               // очистка set
+var a = set.<u-code>size</u-code>;          // кол-во элементо в set
+var a = set.<u-code>has</u-code>('button'); // проверка наличия значения
+set.<u-code>delete</u-code>('active');      // удаление элемента 
+set.<u-code>clear</u-code>();               // очистка set
 </code></pre>
 
 <!------------------------------------------------------>

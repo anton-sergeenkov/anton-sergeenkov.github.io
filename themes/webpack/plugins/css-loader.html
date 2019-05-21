@@ -5,7 +5,7 @@ npm i --save-dev <bg-npm>css-loader</bg-npm>
 </code></pre>
 
 <ul class="list-point">
-	<li><bg-define>css-loader</bg-define> - загрузка и объединение всех CSS файлов в один (translates CSS into CommonJS)</li>
+	<li><u-text-define>css-loader</u-text-define> - загрузка и объединение всех CSS файлов в один (translates CSS into CommonJS)</li>
 	<li>Если лоадера нет, то Webpack считает это js файлом, пытается его разобрать и видит ошибку</li>
 	<li>Webpack выполняет loaders в обратном порядке: с последнего до первого, то есть справа налево</li>
 </ul>
@@ -18,14 +18,14 @@ module.exports = {
 				test: /\.css$/,
 				use: [
 					MiniCssExtractPlugin.loader,
-					<bg-code-wrapper>
+					<u-code-wrapper>
 					{
 						loader: 'css-loader',
 						options: {
 							sourceMap: true
 						}
 					}
-					</bg-code-wrapper>
+					</u-code-wrapper>
 				],
 			},
 		],
@@ -41,7 +41,7 @@ module.exports = {
 	test: /\.css$/,
 	use: [
 		MiniCssExtractPlugin.loader,
-		<bg-code-wrapper>
+		<u-code-wrapper>
 		{
 			loader: 'css-loader',
 			options: {
@@ -51,7 +51,7 @@ module.exports = {
 				sourceMap: true
 			}
 		}
-		</bg-code-wrapper>
+		</u-code-wrapper>
 	]
 },
 </code></pre>

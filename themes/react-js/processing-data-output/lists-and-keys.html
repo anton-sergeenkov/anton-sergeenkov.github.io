@@ -9,7 +9,7 @@
 <pre><code class="js">
 const arr = [1, 2, 3, 4, 5];
 const items = arr.map((item) =&gt;
-	&lt;li <bg-code>key</bg-code>={item.id}&gt;
+	&lt;li <u-code>key</u-code>={item.id}&gt;
 		{item.text}
 	&lt;/li&gt;
 );
@@ -24,13 +24,13 @@ render() {
             {item}
         &lt;/li&gt;
     );
-    <bg-code>return</bg-code> (&lt;ul&gt;{items}&lt;/ul&gt;);
+    <u-code>return</u-code> (&lt;ul&gt;{items}&lt;/ul&gt;);
 }
 </template>
 <template v-slot:last>
 render() {
     const arr = [1, 2, 3, 4, 5];
-    <bg-code>return</bg-code> (
+    <u-code>return</u-code> (
         &lt;ul&gt;
             {arr.map((item) =&gt;
                 &lt;li key={item.toString()}&gt;

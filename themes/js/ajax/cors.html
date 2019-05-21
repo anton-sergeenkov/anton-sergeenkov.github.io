@@ -1,7 +1,7 @@
 <h2>CORS</h2>
 
 <ul class="list-point">
-	<li><bg-define>Cross-origin resource sharing</bg-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
+	<li><u-text-define>Cross-origin resource sharing</u-text-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -34,7 +34,7 @@ xhr.send();
 
 <pre><code class="js"><code-type>Сервер http://test2.ru</code-type>
 &lt;?php
-    header('<bg-code>Access-Control-Allow-Origin</bg-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
+    header('<u-code>Access-Control-Allow-Origin</u-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
     header('Access-Control-Allow-Origin: *');               // разрешить доступ любому домену
 ?&gt;
 </code></pre>
@@ -60,6 +60,6 @@ xhr.withCredentials = true;
 <pre><code class="js">
 &lt;?php
 	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
-	header('<bg-code>Access-Control-Allow-Credentials</bg-code>: true');
+	header('<u-code>Access-Control-Allow-Credentials</u-code>: true');
 ?&gt;
 </code></pre>

@@ -1,21 +1,21 @@
 <h2>Состояние React-компонентов</h2>
 
 <ul class="list-point">
-	<li><bg-define>Состояние» (state)</bg-define> - контролируется и доступно только конкретному компоненту</li>
+	<li><u-text-define>Состояние» (state)</u-text-define> - контролируется и доступно только конкретному компоненту</li>
 	<li>Нельзя меня состояние напрямую, иначе повторного рендера не происходит</li>
-	<li>Конструктор - это единственное место, где можно присвоить значение <code-text>this.state</code-text> напрямую</li>
+	<li>Конструктор - это единственное место, где можно присвоить значение <u-code-text>this.state</u-code-text> напрямую</li>
 
 	<hr>
 	<li>Состояние доступно только для самого компонента и скрыто от других</li>
 	<li>Этот процесс называется <u>«нисходящим» («top-down»)</u> или <u>«однонаправленным» («unidirectional»)</u> потоком данных. Состояние всегда принадлежит определённому компоненту, а любые производные этого состояния могут влиять только на компоненты, находящиеся «ниже» в дереве компонентов</li>
 
 	<hr>
-	<li><code-text>super(props)</code-text> - передаём <code-text>props</code-text> базовому (родительскому) конструктору. Классовые компоненты всегда должны вызывать базовый конструктор с аргументом <code-text>props</code-text></li>
+	<li><u-code-text>super(props)</u-code-text> - передаём <u-code-text>props</u-code-text> базовому (родительскому) конструктору. Классовые компоненты всегда должны вызывать базовый конструктор с аргументом <u-code-text>props</u-code-text></li>
 </ul>
 
 <v-two-code type="js;js" comment="правильно;неправильно">
 <template v-slot:first>
-this.<bg-code>setState</bg-code>({comment: 'Привет'});
+this.<u-code>setState</u-code>({comment: 'Привет'});
 </template>
 <template v-slot:last>
 this.state.comment = 'Привет';
@@ -27,8 +27,8 @@ this.state.comment = 'Привет';
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Обновления состояния могут быть асинхронными</li>
-	<li>React может сгруппировать несколько вызовов <code-text>setState()</code-text> в одно обновление для улучшения производительности</li>
-	<li>Поскольку <code-text>this.props</code-text> и <code-text>this.state</code-text> могут обновляться асинхронно, вы не должны полагаться на их текущее значение для вычисления следующего состояния</li>
+	<li>React может сгруппировать несколько вызовов <u-code-text>setState()</u-code-text> в одно обновление для улучшения производительности</li>
+	<li>Поскольку <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text> могут обновляться асинхронно, вы не должны полагаться на их текущее значение для вычисления следующего состояния</li>
 </ul>
 
 <pre><code class="js">
@@ -39,9 +39,9 @@ this.setState({
 </code></pre>
 
 <ul class="list-point">
-	<li>Второй вариант вызова <code-text>setState()</code-text>, принимает функцию, а не объект. Эта функция получит предыдущее состояние в качестве первого аргумента и значения пропсов непосредственно во время обновления в качестве второго аргумента</li>
+	<li>Второй вариант вызова <u-code-text>setState()</u-code-text>, принимает функцию, а не объект. Эта функция получит предыдущее состояние в качестве первого аргумента и значения пропсов непосредственно во время обновления в качестве второго аргумента</li>
 </ul>
-code-text
+u-code-text
 <v-two-code type="js;js" comment="стрелочная функция;обычная функция">
 <template v-slot:first>
 this.setState((state, props) => ({

@@ -1,7 +1,7 @@
 <h2>Композиция против наследования</h2>
 
 <ul class="list-point">
-	<li><bg-define>Композиция</bg-define> - соединение мальньких или простых частей воедино для создания более крупных частей</li>
+	<li><u-text-define>Композиция</u-text-define> - соединение мальньких или простых частей воедино для создания более крупных частей</li>
 	<li>Для переиспользования кода между компонентами рекомендуется использовать композицию вместо наследования</li>
 	<li>Если вы хотите переиспользовать не связанную с внешним видом функциональность между компонентами, извлеките её в отдельный JavaScript-модуль. Импортируйте его в компонент и используйте эту функцию, объект или класс, не расширяя их</li>
 </ul>
@@ -15,7 +15,7 @@
 <!------------------------------------------------------------->
 
 <ul class="list-point">
-	<li><code-text>props children</code-text> - передаст дочерние элементы сразу на вывод</li>
+	<li><u-code-text>props children</u-code-text> - передаст дочерние элементы сразу на вывод</li>
 </ul>
 
 <pre><code class="js"><code-type>parent js</code-type>
@@ -40,7 +40,7 @@ class ComponentChild extends React.Component {
 		return (
 			&lt;div&gt;
 				{this.props.color}
-				<bg-code>{this.props.children}</bg-code>
+				<u-code>{this.props.children}</u-code>
 			&lt;/div&gt;
 		);
 	}
@@ -58,7 +58,7 @@ class ComponentChild extends React.Component {
 // ReactDOM.render
 class ComponentParent extends React.Component {
 	render() {
-		return (<bg-code>&lt;ComponentChild small={&lt;ComponentSmall /&gt;} /&gt;</bg-code>);
+		return (<u-code>&lt;ComponentChild small={&lt;ComponentSmall /&gt;} /&gt;</u-code>);
 	}
 }
 </code></pre>
@@ -77,7 +77,7 @@ class ComponentChild extends React.Component {
 		super(props);
 	}
 	render() {
-		return (&lt;div&gt;{<bg-code>this.props.small</bg-code>}&lt;/div&gt;);
+		return (&lt;div&gt;{<u-code>this.props.small</u-code>}&lt;/div&gt;);
 	}
 }
 </code></pre>

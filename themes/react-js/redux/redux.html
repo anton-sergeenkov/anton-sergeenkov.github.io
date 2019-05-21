@@ -4,12 +4,12 @@
 npm i --save <bg-npm>redux</bg-npm>
 </code></pre>
 
-<bg-link>
+<u-link-wrapper>
 	<a href="https://redux.js.org/introduction/getting-started" target="_blank">Документация</a>
-</bg-link>
+</u-link-wrapper>
 
 <ul class="list-point">
-	<li><bg-define>Redux</bg-define> - предсказуемый контейнер состояния для JS приложений</li>
+	<li><u-text-define>Redux</u-text-define> - предсказуемый контейнер состояния для JS приложений</li>
 </ul>
 
 <ol class="list-num">
@@ -28,10 +28,10 @@ npm i --save <bg-npm>redux</bg-npm>
 <h3>1. State</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
-const store = <bg-code>createStore</bg-code>(reducerFunction); // создание store
-store.<bg-code>getState</bg-code>();                           // получить состояние store
-store.<bg-code>subscribe</bg-code>();                          // подписка на изменение store
-store.<bg-code>dispatch</bg-code>({                            // событие обновления состояния store
+const store = <u-code>createStore</u-code>(reducerFunction); // создание store
+store.<u-code>getState</u-code>();                           // получить состояние store
+store.<u-code>subscribe</u-code>();                          // подписка на изменение store
+store.<u-code>dispatch</u-code>({                            // событие обновления состояния store
 	type: 'тип_события', 
 	payload: 'данные' 
 }); 
@@ -41,11 +41,11 @@ store.<bg-code>dispatch</bg-code>({                            // событие
 <h3>2. Actions</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><bg-define>Actions</bg-define> - объект. Описывает факт, что что-то произошло, но не указывает, как состояние приложения должно измениться в ответ (Reducer)</li>
+    <li><u-text-define>Actions</u-text-define> - объект. Описывает факт, что что-то произошло, но не указывает, как состояние приложения должно измениться в ответ (Reducer)</li>
     <li><u class="accent">type</u> - обязательное поле</li>
     <li><u class="accent">payload</u> - свойство в которое помещаются все данные, которые передаются вместе 
     с действием</li>
-    <li><bg-define>ActionsCreator</bg-define> - функция для вызова Action</li>
+    <li><u-text-define>ActionsCreator</u-text-define> - функция для вызова Action</li>
 </ul>
 
 <pre><code class="js"><code-type>js</code-type>
@@ -62,10 +62,10 @@ const getPhotos = (year) => ({
 <h3>3. Reducer</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><bg-define>Reducer</bg-define> - указывает, как состояние приложения должно измениться в ответ на Action</li>
-    <li><bg-define>Reducer Composition</bg-define> - фундаментальный шаблон построения redux приложений: мы разбиваем наше глобальное состояние на кусочки, за каждый кусочек отвечает свой <code-text>reducer</code-text>. Кусочки объединяются в <code-text>rootReducer</code-text> Корневом Редьюсере</li>
+    <li><u-text-define>Reducer</u-text-define> - указывает, как состояние приложения должно измениться в ответ на Action</li>
+    <li><u-text-define>Reducer Composition</u-text-define> - фундаментальный шаблон построения redux приложений: мы разбиваем наше глобальное состояние на кусочки, за каждый кусочек отвечает свой <u-code-text>reducer</u-code-text>. Кусочки объединяются в <u-code-text>rootReducer</u-code-text> Корневом Редьюсере</li>
     <li>Мы не мутировали наш state, мы создали новый state. В редьюсере, мы всегда должны возвращать новый объект, а не измененный предыдущий</li>
-    <li>Объект, который мы возвращаем в редьюсере, далее с помощью функции <code-text>connect</code-text>, превратится в свойства для компонентов. Благодаря этому, внутри компонента <code-text>&lt;Component /&gt;</code-text>, мы сможем получить доступ к свойству <code-text>this.props.name_prop</code-text></li>
+    <li>Объект, который мы возвращаем в редьюсере, далее с помощью функции <u-code-text>connect</u-code-text>, превратится в свойства для компонентов. Благодаря этому, внутри компонента <u-code-text>&lt;Component /&gt;</u-code-text>, мы сможем получить доступ к свойству <u-code-text>this.props.name_prop</u-code-text></li>
 </ul>
 
 <pre><code class="js"><code-type>js</code-type>
@@ -97,14 +97,14 @@ function changeStore(state = [], action) {
     return state;
 }
 
-const store = <bg-code>createStore</bg-code>(changeStore);
+const store = <u-code>createStore</u-code>(changeStore);
 
-store.<bg-code>subscribe</bg-code>(() => {
-    console.log('subscribe', store.<bg-code>getState</bg-code>());
+store.<u-code>subscribe</u-code>(() => {
+    console.log('subscribe', store.<u-code>getState</u-code>());
 });
 
-store.<bg-code>dispatch</bg-code>({ type: 'ADD_PRODUCT', payload: 'Product1' });
-store.<bg-code>dispatch</bg-code>({ type: 'ADD_PRODUCT', payload: 'Product2' });
+store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product1' });
+store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product2' });
 </code></pre>
 
 <pre><code class="js">

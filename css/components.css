@@ -1,0 +1,12 @@
+/*******************************************
+v-two
+v-two-code
+*******************************************/
+.v-two-wrapper {
+	display: flex;
+	margin: 10px 0px;
+}
+.v-two-column {
+	width: 50%;
+	margin: 0px 5px;
+}

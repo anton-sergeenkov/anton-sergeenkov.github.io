@@ -1,13 +1,13 @@
 <h2>Плагины</h2>
 
-<ul class="list-links">
+<ul class="link-page-wrapper">
 	<li><a href="#composition-plugins-type">Типы плагинов</a></li>
 	<li><a href="#composition-plugins-use">Использование плагинов</a></li>
 	<li><a href="#composition-plugins-create">Создание плагина</a></li>
 </ul>
 
 <ul class="list-point">
-	<li><bg-define>Плагины</bg-define> позволяют добавить во Vue некоторую глобальную функциональность. Область применения плагинов явно не определена</li>
+	<li><u-text-define>Плагины</u-text-define> позволяют добавить во Vue некоторую глобальную функциональность. Область применения плагинов явно не определена</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -17,7 +17,7 @@
 	<li>Добавляют глобальные методы и/или свойства, например <u>vue-custom-element</u></li>
 	<li>Добавляют глобальные объекты: директивы/фильтры/переходы и т.д., например <u>vue-touch</u></li>
 	<li>Добавляют опции компонентам через глобальную примесь, например <u>vue-router</u></li>
-	<li>Добавляют методы экземпляра <code class="txt">Vue</code> через <code class="txt">Vue.prototype</code></li>
+	<li>Добавляют методы экземпляра <u-code-text>Vue</u-code-text> через <u-code-text>Vue.prototype</u-code-text></li>
 	<li>Библиотеки, предоставляющие собственные API и комбинирующие вышеперечисленные возможности, например <u>vue-router</u></li>
 </ol>
 
@@ -26,7 +26,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
-	<li>Для использования плагина необходимо вызвать глобальный метод <code class="txt">Vue.use()</code>. Его нужно вызывать перед new <code class="txt">Vue()</code></li>
+	<li>Для использования плагина необходимо вызвать глобальный метод <u-code-text>Vue.use()</code>. Его нужно вызывать перед new <u-code-text>Vue()</code></li>
 </ul>
 
 <pre><code class="js">
@@ -47,8 +47,8 @@ Vue.use(MyPlugin, { someOption: true })
 </code></pre>
 
 <ul class="list-point">
-	<li><code class="txt">Vue.use</code> автоматически предотвращает многократную регистрацию плагина. Несколько вызовов <code class="txt">Vue.use</code> для одного плагина установит его лишь один раз</li>
-	<li>Некоторые официальные плагины <code class="txt">Vue.js</code>, такие как <u>vue-router</u>, автоматически вызывают <code class="txt">Vue.use()</code>, если обнаружат глобальную переменную <code class="txt">Vue</code>. Однако при использовании инструментов модульного окружения, например <u>CommonJS</u>, необходимо всегда вызывать <code class="txt">Vue.use()</code> явно</li>
+	<li><u-code-text>Vue.use</u-code-text> автоматически предотвращает многократную регистрацию плагина. Несколько вызовов <u-code-text>Vue.use</u-code-text> для одного плагина установит его лишь один раз</li>
+	<li>Некоторые официальные плагины <u-code-text>Vue.js</u-code-text>, такие как <u>vue-router</u>, автоматически вызывают <u-code-text>Vue.use()</u-code-text>, если обнаружат глобальную переменную <u-code-text>Vue</u-code-text>. Однако при использовании инструментов модульного окружения, например <u>CommonJS</u>, необходимо всегда вызывать <u-code-text>Vue.use()</u-code-text> явно</li>
 </ul>
 
 <pre><code class="js">
@@ -64,7 +64,7 @@ Vue.use(VueRouter)
 <h3 id="composition-plugins-create">Создание плагина</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Плагин <code class="txt">Vue.js</code> должен содержать метод <code class="txt">install</code>. Этот метод будет вызываться с конструктором <code class="txt">Vue</code> в качестве первого аргумента, и с дополнительными опциями плагина в качестве второго (если передавались)</li>
+	<li>Плагин <u-code-text>Vue.js</u-code-text> должен содержать метод <u-code-text>install</u-code-text>. Этот метод будет вызываться с конструктором <u-code-text>Vue</u-code-text> в качестве первого аргумента, и с дополнительными опциями плагина в качестве второго (если передавались)</li>
 </ul>
 
 <pre><code class="js">

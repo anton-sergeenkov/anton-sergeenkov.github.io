@@ -1,6 +1,6 @@
 <h2>v-bind:</h2>
 
-<ul class="list-links">
+<ul class="link-page-wrapper">
 	<li><a href="#v-bind-bind">Связывание атрибутов элементов</a></li>
 	<li><a href="#v-bind-values">Указание дополнительных значений</a></li>
 	<li><a href="#v-bind-class">CSS-классы</a></li>
@@ -17,9 +17,9 @@
 </ul>
 
 <pre><code class="html">
-&lt;a <bg-code>v-bind:href</bg-code>="url"&gt;{{ link }}&lt;/a&gt;  <bg-comment># полная запись</bg-comment>
-&lt;p <bg-code>v-bind:class</bg-code>="activeClass"&gt;&lt;/p&gt;   <bg-comment># полная запись</bg-comment>
-&lt;p <bg-code>:class</bg-code>="activeClass"&gt;&lt;/p&gt;         <bg-comment># сокращенная запись</bg-comment>
+&lt;a <u-code>v-bind:href</u-code>="url"&gt;{{ link }}&lt;/a&gt;  <u-code-comment># полная запись</u-code-comment>
+&lt;p <u-code>v-bind:class</u-code>="activeClass"&gt;&lt;/p&gt;   <u-code-comment># полная запись</u-code-comment>
+&lt;p <u-code>:class</u-code>="activeClass"&gt;&lt;/p&gt;         <u-code-comment># сокращенная запись</u-code-comment>
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -35,16 +35,16 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="html">
 &lt;!-- active - название класса --&gt;
-&lt;p <bg-code>:class</bg-code>="{ active:true }"&gt;&lt;/p&gt;      <bg-comment># true (отобразится)</bg-comment>
-&lt;p <bg-code>:class</bg-code>="{ active:false }"&gt;&lt;/p&gt;     <bg-comment># false (не отобразится)</bg-comment>
-&lt;p <bg-code>:class</bg-code>="{ active:isActive }"&gt;&lt;/p&gt;  <bg-comment># свойство isActive (true/false)</bg-comment>
+&lt;p <u-code>:class</u-code>="{ active:true }"&gt;&lt;/p&gt;      <u-code-comment># true (отобразится)</u-code-comment>
+&lt;p <u-code>:class</u-code>="{ active:false }"&gt;&lt;/p&gt;     <u-code-comment># false (не отобразится)</u-code-comment>
+&lt;p <u-code>:class</u-code>="{ active:isActive }"&gt;&lt;/p&gt;  <u-code-comment># свойство isActive (true/false)</u-code-comment>
 </code></pre>
 
 <!------------------------------------------------------------->
 <h4>Использование с обычным атрибутом class</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li>Наличие класса <code-text>active</code-text> будет определяться истинностью параметра <code-text>isActive</code-text></li>
+	<li>Наличие класса <u-code-text>active</u-code-text> будет определяться истинностью параметра <u-code-text>isActive</u-code-text></li>
 </ul>
 
 <pre><code class="html"><code-type>html</code-type>

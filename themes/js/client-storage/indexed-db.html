@@ -5,13 +5,13 @@
 </code></pre>
 
 <ul class="list-point">
-	<li><bg-define>IndexedDB</bg-define> - это способ постоянного хранения данных внутри клиентского браузера. NOSQL хранилище на стороне клиента. Что позволяет создавать веб-приложения обращения к данным независимо от доступности сети, приложения могут работать как онлайн, так и офлайн</li>
+	<li><u-text-define>IndexedDB</u-text-define> - это способ постоянного хранения данных внутри клиентского браузера. NOSQL хранилище на стороне клиента. Что позволяет создавать веб-приложения обращения к данным независимо от доступности сети, приложения могут работать как онлайн, так и офлайн</li>
 </ul>
 
-<alert-info>
+<u-message-info>
 1. Сначал вызывается dbCreate() для открытия/создания БД<br>
 2. После dbInsert()
-</alert-info>
+</u-message-info>
 
 <h4>Глобальная переменная</h4>
 <pre><code class="js">
@@ -22,19 +22,19 @@ var db = null;
 <pre><code class="js">
 function dbCreate() {
 	// Создание базы данных
-	const request = <bg-code>window.indexedDB.open</bg-code>('dbName', 77); //create DB: name,version 
+	const request = <u-code>window.indexedDB.open</u-code>('dbName', 77); //create DB: name,version 
 
     // Обработчик create
-	request.<bg-code-accent>onupgradeneeded</bg-code-accent> = function(event) {
+	request.<u-code-accent>onupgradeneeded</u-code-accent> = function(event) {
 	    db = event.target.result;     // => IDBDatabase {name: "dbTest", version: 1 ...}
 	    //const name = db.name;         // => 'dbTest'
 	    //const version = db.version;   // => '1'
-	    const objectStore = <bg-code>db.createObjectStore</bg-code>('notes', { keyPath: 'title' });
+	    const objectStore = <u-code>db.createObjectStore</u-code>('notes', { keyPath: 'title' });
 	};
-	request.<bg-code-accent>onsuccess</bg-code-accent> = function(event) {
+	request.<u-code-accent>onsuccess</u-code-accent> = function(event) {
 	    db = event.target.result; 
 	};
-	request.<bg-code-accent>onerror</bg-code-accent> = function(event) {
+	request.<u-code-accent>onerror</u-code-accent> = function(event) {
 	    console.error(event.target.error);
 	    console.error(event.target.errorCode);
 	};
@@ -48,8 +48,8 @@ function dbInsert() {
         title: 'My note',
         text: 'This is my note'
     }
-    const tx = db.<bg-code>transaction</bg-code>('notes', 'readwrite');
-    const notes = tx.<bg-code>objectStore</bg-code>('notes');
+    const tx = db.<u-code>transaction</u-code>('notes', 'readwrite');
+    const notes = tx.<u-code>objectStore</u-code>('notes');
     notes.add(note);
 }
 </code></pre>
@@ -57,15 +57,15 @@ function dbInsert() {
 <h4>Выборка всех записей</h4>
 <pre><code class="js">
 function dbSelect() {
-    const tx = db.<bg-code>transaction</bg-code>('notes', 'readonly');
-    const notes = tx.<bg-code>objectStore</bg-code>('notes');
-    const request = notes.<bg-code>openCursor</bg-code>();
-    request.<bg-code-accent>onsuccess</bg-code-accent> = function(event) {
+    const tx = db.<u-code>transaction</u-code>('notes', 'readonly');
+    const notes = tx.<u-code>objectStore</u-code>('notes');
+    const request = notes.<u-code>openCursor</u-code>();
+    request.<u-code-accent>onsuccess</u-code-accent> = function(event) {
         const cursor = event.target.result;
         if (cursor) {
             console.log(cursor.key);        // => 'My note'
             console.log(cursor.value.text); // => 'This is my note'
-            cursor.<bg-code>continue</bg-code>();
+            cursor.<u-code>continue</u-code>();
         }
     };
 }

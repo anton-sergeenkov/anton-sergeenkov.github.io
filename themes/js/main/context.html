@@ -4,9 +4,9 @@
 <h3>this</h3>
 <!------------------------------------------------------>
 <ul class="list-point">
-	<li><bg-define>Контекст выполнения (execution context)</bg-define> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор. У каждого вызова функции свой «контекст выполнения» и он всегда разный в зависимости от того как функция была вызвана</li>
-	<li><bg-define>Контекст вызова функции</bg-define> - тот объект который ее вызывает</li>
-	<li><bg-define>this</bg-define> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие). Определяется в момент вызова функции</li>
+	<li><u-text-define>Контекст выполнения (execution context)</u-text-define> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор. У каждого вызова функции свой «контекст выполнения» и он всегда разный в зависимости от того как функция была вызвана</li>
+	<li><u-text-define>Контекст вызова функции</u-text-define> - тот объект который ее вызывает</li>
+	<li><u-text-define>this</u-text-define> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие). Определяется в момент вызова функции</li>
 	<li>Любая функция может иметь в себе <u>this</u>. Если функция использует <u>this</u> - это подразумевает работу с объектом</li>
 	<li><u>this</u> - это текущий объект при вызове «через точку» и новый объект при конструировании через <u>new</u></li>
 	<li><u>Функции</u> не привязаны к своему контексту <u>this</u></li>
@@ -77,13 +77,13 @@ var anotherPerson = {
 
 <pre><code class="js">
 // this указывает на person
-var a = anotherPerson.greet.<bg-code>call</bg-code>(person, 'Hello', 'World');    // => "Hello World Brad"
-var a = anotherPerson.greet.<bg-code>apply</bg-code>(person, ['Hello', 'World']); // => "Hello World Brad"
+var a = anotherPerson.greet.<u-code>call</u-code>(person, 'Hello', 'World');    // => "Hello World Brad"
+var a = anotherPerson.greet.<u-code>apply</u-code>(person, ['Hello', 'World']); // => "Hello World Brad"
 
-var b = greet.<bg-code>bind</bg-code>(person); // без аргументов
+var b = greet.<u-code>bind</u-code>(person); // без аргументов
 var a = b('Hello', 'World'); // => "Hello World Brad"
 
-var b = greet.<bg-code>bind</bg-code>(person, 'Hello', 'World'); // с аргументами
+var b = greet.<u-code>bind</u-code>(person, 'Hello', 'World'); // с аргументами
 var a = b(); // => "Hello World Brad"
 </code></pre>
 

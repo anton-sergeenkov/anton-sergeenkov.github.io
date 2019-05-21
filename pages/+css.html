@@ -1316,25 +1316,24 @@ p::selection        - применяет стиль к выделенному п
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h2 id="blend-mode">CSS Blend Modes</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<ul class="list-point">
-	<li><span class="hl">normal</span> - обычный</li>
-	<li><span class="hl">multiply</span> - умножение</li>
-	<li><span class="hl">screen</span> - осветление</li>
-	<li><span class="hl">overlay</span> - перекрытие</li>
-	<li><span class="hl">darken</span> - замена тёмным</li>
-	<li><span class="hl">lighten</span> - замена светлым</li>
-	<li><span class="hl">color-dodge</span> - осветление основы</li>
-	<li><span class="hl">color-burn</span> - затемнение основы</li>
-	<li><span class="hl">hard-light</span> - направленный свет</li>
-	<li><span class="hl">soft-light</span> - рассеянный свет</li>
-	<li><span class="hl">difference</span> - разница</li>
-	<li><span class="hl">exclusion</span> - исключение</li>
-	<li><span class="hl">hue</span> - тон</li>
-	<li><span class="hl">saturation</span> - насыщенность</li>
-	<li><span class="hl">color</span> - цвет</li>
-	<li><span class="hl">luminosity</span> - яркость</li>
-</ul>
+<pre><code class="bash"><code-type>bash</code-type>
+<em>normal</em>      # обычный
+<em>multiply</em>    # умножение
+<em>screen</em>      # осветление
+<em>overlay</em>     # перекрытие
+<em>darken</em>      # замена тёмным
+<em>lighten</em>     # замена светлым
+<em>color-dodge</em> # осветление основы
+<em>color-burn</em>  # затемнение основы
+<em>hard-light</em>  # направленный свет
+<em>soft-light</em>  # рассеянный свет
+<em>difference</em>  # разница
+<em>exclusion</em>   # исключение
+<em>hue</em>         # тон
+<em>saturation</em>  # насыщенность
+<em>color</em>       # цвет
+<em>luminosity</em>  # яркость
+</code></pre>
 
 <!------------------------------------------------------>
 <h3>background-blend-mode</h3>
@@ -1353,7 +1352,7 @@ p::selection        - применяет стиль к выделенному п
 div {
 	background-color: blue;
 	background-image: url(...);
-	<span class="hc">background-blend-mode</span>: multiply;
+	<u-code>background-blend-mode</u-code>: multiply;
 }
 </code></pre>
 
@@ -1379,7 +1378,7 @@ h1 {
 	margin: auto;
 	background-color: black;
 	color: white;
-	<span class="hc">mix-blend-mode</span>: multiply;
+	<u-code>mix-blend-mode</u-code>: multiply;
 }
 div {
 	background-image: url(...);
@@ -1399,7 +1398,7 @@ h1 {
 	margin: auto;
 	background-color: white;
 	color: black;
-	<span class="hc">mix-blend-mode</span>: screen;
+	<u-code>mix-blend-mode</u-code>: screen;
 }
 div {
 	background-image: url(...);
@@ -1422,8 +1421,8 @@ div {
 <h2 id="css-shapes">CSS Shapes</h2>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list">
-	<li><span class="hl">shape-outside</span> (module 1)</li>
-	<li><span class="hl">shape-inside</span> (module 2)</li>
+	<li><u-text-define>shape-outside</u-text-define> (module 1)</li>
+	<li><u-text-define>shape-inside</u-text-define> (module 2)</li>
 	<li>shape работают только для float элементов у которых определена ширина и высота</li>
 </ul>
 
@@ -1434,29 +1433,29 @@ div {
 <h4>Function values</h4>
 <pre><code class="css">
 .item {
-	shape-outside:<span class="hc">circle</span>(50%);                              /* (radius at x y) - окружность */
-	shape-outside:<span class="hc">ellipse</span>(150px 300px at 50% 50%);          /* (radius radius at x y) - эллипс */
-	shape-outside:<span class="hc">inset</span>(100px 100px 100px 100px 10px);      /* (p1, p2, p3, p4 round 10px) - прямоугольник внутри shape */
-	shape-outside:<span class="hc">polygon</span>(10px 10px, 20px 20px, 30px 30px); /* (p1, p2, p3 ...) - полигон */
+	shape-outside:<u-code>circle</u-code>(50%);                              /* (radius at x y) - окружность */
+	shape-outside:<u-code>ellipse</u-code>(150px 300px at 50% 50%);          /* (radius radius at x y) - эллипс */
+	shape-outside:<u-code>inset</u-code>(100px 100px 100px 100px 10px);      /* (p1, p2, p3, p4 round 10px) - прямоугольник внутри shape */
+	shape-outside:<u-code>polygon</u-code>(10px 10px, 20px 20px, 30px 30px); /* (p1, p2, p3 ...) - полигон */
 }
 </code></pre>
 
 <h4>URL and gradient values</h4>
 <pre><code class="css">
 .item {
-	shape-outside: <span class="hc">url</span>(image.png);     /* по границе изображения */
-	shape-outside: <span class="hc">linear-gradient</span>(45deg, rgba(255, 255, 255, 0) 150px, red 150px);
+	shape-outside: <u-code>url</u-code>(image.png);     /* по границе изображения */
+	shape-outside: <u-code>linear-gradient</u-code>(45deg, rgba(255, 255, 255, 0) 150px, red 150px);
 }
 </code></pre>
 
 <h4>Keyword values (reference-box)</h4>
 <pre><code class="css">
 .item {
-	shape-outside:<span class="hc">none</span>;
-	shape-outside:<span class="hc">margin-box</span>;
-	shape-outside:<span class="hc">content-box</span>;
-	shape-outside:<span class="hc">border-box</span>;
-	shape-outside:<span class="hc">padding-box</span>;
+	shape-outside:<u-code>none</u-code>;
+	shape-outside:<u-code>margin-box</u-code>;
+	shape-outside:<u-code>content-box</u-code>;
+	shape-outside:<u-code>border-box</u-code>;
+	shape-outside:<u-code>padding-box</u-code>;
 }
 </code></pre>
 
@@ -1471,8 +1470,8 @@ div {
 
 <pre><code class="css">
 .item {
-	<span class="hc">shape-margin</span>: 10px;          /* margin от shape до контента */
-	<span class="hc">shape-image-threshold</span>: 0.7;  /* альфа канал для обрезки по изображению
+	<u-code>shape-margin</u-code>: 10px;          /* margin от shape до контента */
+	<u-code>shape-image-threshold</u-code>: 0.7;  /* альфа канал для обрезки по изображению
 	/* closest-side - расстояние до ближайшей строны (circle, ellipse) */
 	/* fartest-side - расстояние до дальней стороны (circle, ellipse) */
 }

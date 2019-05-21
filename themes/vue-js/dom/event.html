@@ -1,28 +1,28 @@
 <h2>Доступ к оригинальному событию DOM</h2>
 
 <ul class="list-point">
-	<li><bg-define>$event</bg-define> - доступ к оригинальному событию DOM, <code class="txt">event</code> нативное событие DOM</li>
-	<li><code class="txt">event.target</code> - выбранный элемент</li>
-	<li><code class="txt">this</code> внутри методов указывает на экземпляр Vue</li>
+	<li><u-text-define>$event</u-text-define> - доступ к оригинальному событию DOM, <u-code-text>event</u-code-text> нативное событие DOM</li>
+	<li><u-code-text>event.target</code> - выбранный элемент</li>
+	<li><u-code-text>this</u-code-text> внутри методов указывает на экземпляр Vue</li>
 </ul>
 
 <pre><code class="html">
 &lt;button @click="methodOne"&gt;&lt;/button&gt;
-&lt;button @click="methodTwo(<bg-code>$event</bg-code>, id)"&gt;&lt;/button&gt;
+&lt;button @click="methodTwo(<u-code>$event</u-code>, id)"&gt;&lt;/button&gt;
 </code></pre>
 
 <pre><code class="js">
 var app = new Vue({
 	el: '#app',
 	methods: {
-		methodOne(<bg-code>event</bg-code>) {
+		methodOne(<u-code>event</u-code>) {
 			if (event) {
-				console.log(<bg-code>event</bg-code>.target.tagName);
-				<bg-code>event</bg-code>.preventDefault();
+				console.log(<u-code>event</u-code>.target.tagName);
+				<u-code>event</u-code>.preventDefault();
 			}
 		},
-		methodTwo(<bg-code>event</bg-code>, id) {
-			<bg-code>event</bg-code>.toElement.classList.add('active');
+		methodTwo(<u-code>event</u-code>, id) {
+			<u-code>event</u-code>.toElement.classList.add('active');
 		}
 	}
 })

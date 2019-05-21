@@ -21,7 +21,7 @@ function Admin() {
 
 <h4>2. Наследование. В прототип Admin добавлили всё из прототипа User</h4>
 <pre><code class="js">
-<bg-code>Admin.prototype = Object.create(User.prototype);</bg-code>
+<u-code>Admin.prototype = Object.create(User.prototype);</u-code>
 var admin = new Admin();
 </code></pre>
 
@@ -32,7 +32,7 @@ var admin = Object.setPrototypeOf(new Admin(), User.prototype);
 
 <h4>3. Добавление методов к Admin.prototype (при необходимости)</h4>
 <pre><code class="js">
-// добавлять после <bg-code>Admin.prototype = Object.create(User.prototype)</bg-code> чтобы не перетерло
+// добавлять после <u-code>Admin.prototype = Object.create(User.prototype)</u-code> чтобы не перетерло
 Admin.prototype.adminFunc = function() {
 	alert('adminFunc');
 }

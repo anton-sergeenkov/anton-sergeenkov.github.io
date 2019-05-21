@@ -1,7 +1,7 @@
 <h2>Добаление реактивных элементов</h2>
 
 <ul class="list-point">
-	<li>Vue не может отследить добавление или удаление свойства объекта. Чтобы поле стало реактивным, Vue превращает его в пару <u>геттер/сеттер</u> в ходе инициализации экземпляра. Поэтому все поля должны изначально быть заданы в объекте <code class="txt">data</code></li>
+	<li>Vue не может отследить добавление или удаление свойства объекта. Чтобы поле стало реактивным, Vue превращает его в пару <u>геттер/сеттер</u> в ходе инициализации экземпляра. Поэтому все поля должны изначально быть заданы в объекте <u-code-text>data</u-code-text></li>
 </ul>
 
 <pre><code class="js">
@@ -17,23 +17,23 @@ vm.b = 2
 </code></pre>
 
 <ul class="list-point">
-	<li>Во Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <code class="txt">Vue.set(object, key, value)</code></li>
+	<li>Во Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <u-code-text>Vue.set(object, key, value)</u-code-text></li>
 </ul>
 
 <pre><code class="js">
-Vue.<bg-code>set</bg-code>(vm.someObject, 'b', 2);
+Vue.<u-code>set</u-code>(vm.someObject, 'b', 2);
 </code></pre>
 
 <ul class="list-point">
-	<li>Также можно использовать метод экземпляра <code class="txt">vm.$set</code>, который представляет собой псевдоним к глобальному <code class="txt">Vue.set</code></li>
+	<li>Также можно использовать метод экземпляра <u-code-text>vm.$set</u-code-text>, который представляет собой псевдоним к глобальному <u-code-text>Vue.set</u-code-text></li>
 </ul>
 
 <pre><code class="js">
-this.<bg-code>$set</bg-code>(this.someObject, 'b', 2);
+this.<u-code>$set</u-code>(this.someObject, 'b', 2);
 </code></pre>
 
 <ul class="list-point">
-	<li>Иногда нужно добавить несколько свойств в существующий объект, например, с помощью <code class="txt">Object.assign()</code> или <code class="txt">_.extend()</code>. Если так поступить, добавленные свойства не станут реактивными. Для решения этой задачи придётся создать новый объект, содержащий поля как оригинального объекта, так и объекта-примеси</li>
+	<li>Иногда нужно добавить несколько свойств в существующий объект, например, с помощью <u-code-text>Object.assign()</u-code-text> или <u-code-text>_.extend()</u-code-text>. Если так поступить, добавленные свойства не станут реактивными. Для решения этой задачи придётся создать новый объект, содержащий поля как оригинального объекта, так и объекта-примеси</li>
 </ul>
 
 <pre><code class="js">
@@ -46,7 +46,7 @@ this.someObject = Object.assign({}, this.someObject, { a: 1, b: 2 })
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <pre><code class="js">
-Vue.<bg-code>set</bg-code>(vm.items, indexOfItem, newValue)
+Vue.<u-code>set</u-code>(vm.items, indexOfItem, newValue)
 </code></pre>
 
 <h4>Массивы</h4>

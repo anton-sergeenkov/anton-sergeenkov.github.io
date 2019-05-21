@@ -2,16 +2,16 @@
 
 <ul class="list-point">
 
-	<li><code class="txt">router.<bg-code>push</bg-code>(location, onComplete?, onAbort?)</code> (аналог: <code class="color">window.history.pushState</code>) - для перехода к новому URL. Метод добавляет новую запись в историю навигации, что позволяет клику пользователя по кнопке "назад" в браузере сработать привычным образом. В качестве аргумента можно передать строку или объект, описывающий маршрут</li>
+	<li><u-code-text>router.<u-code>push</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <code class="color">window.history.pushState</code>) - для перехода к новому URL. Метод добавляет новую запись в историю навигации, что позволяет клику пользователя по кнопке "назад" в браузере сработать привычным образом. В качестве аргумента можно передать строку или объект, описывающий маршрут</li>
 
-	<li><code class="txt">router.<bg-code>replace</bg-code>(location, onComplete?, onAbort?)</code> (аналог: <code class="color">window.history.replaceState</code>) - действует как router.push, с той лишь разницей, что переход осуществляется без добавления новой записи в историю навигации, а заменяет текущую запись в нём</li>
+	<li><u-code-text>router.<u-code>replace</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <code class="color">window.history.replaceState</code>) - действует как router.push, с той лишь разницей, что переход осуществляется без добавления новой записи в историю навигации, а заменяет текущую запись в нём</li>
 
-	<li><code class="txt">router.<bg-code>go</bg-code>(n)</code> (аналог: <code class="color">window.history.go</code>) - метод принимает параметром целое число, которое указывает на сколько шагов необходимо перейти по истории навигации</li>
+	<li><u-code-text>router.<u-code>go</u-code>(n)</u-code-text> (аналог: <code class="color">window.history.go</code>) - метод принимает параметром целое число, которое указывает на сколько шагов необходимо перейти по истории навигации</li>
 
 </ul>
 
 <ul class="list-point">
-	<li>Внутри экземпляра Vue у вас есть доступ к экземпляру маршрутизатора через <code class="txt">$router</code>. Поэтому можно вызвать <code class="txt">this.$router.push</code></li>
+	<li>Внутри экземпляра Vue у вас есть доступ к экземпляру маршрутизатора через <u-code-text>$router</u-code-text>. Поэтому можно вызвать <u-code-text>this.$router.push</u-code-text></li>
 </ul>
 
 <!------------------------------------------------------------->

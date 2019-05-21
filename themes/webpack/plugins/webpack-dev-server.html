@@ -4,13 +4,13 @@
 npm i --save-dev <bg-npm>webpack-dev-server</bg-npm>
 </code></pre>
 
-<bg-link>
+<u-link-wrapper>
 	<a href="https://webpack.js.org/guides/development/#using-webpack-dev-server" target="_blank">webpack.js.org (webpack-dev-server)</a>
-</bg-link>
+</u-link-wrapper>
 
 <pre><code class="js">
 module.exports = {
-	<bg-code-wrapper>
+	<u-code-wrapper>
 	devServer: {
 		contentBase: './dist',
 		historyApiFallback: {
@@ -19,6 +19,6 @@ module.exports = {
 		stats: 'errors-only',
 		port: 3000
 	}
-	</bg-code-wrapper>
+	</u-code-wrapper>
 }
 </code></pre>

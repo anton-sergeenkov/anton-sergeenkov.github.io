@@ -4,16 +4,16 @@
 npm i --save-dev <bg-npm>image-webpack-loader</bg-npm> # оптимизация изображений
 </code></pre>
 
-<bg-link>
+<u-link-wrapper>
     <a href="https://github.com/tcoopman/image-webpack-loader" target="_blank">image-webpack-loader</a>
-</bg-link>
+</u-link-wrapper>
 
 <pre><code class="js">
 module.exports = {
     module: {
         rules: [
             {   
-                <bg-code-wrapper>
+                <u-code-wrapper>
                 test: /\.(jpe?g|png|svg|gif)$/i,
                 use: [
                     {
@@ -39,12 +39,12 @@ module.exports = {
                         }
                     }
                 ],
-                </bg-code-wrapper>
+                </u-code-wrapper>
             }
         ]
     }
 }
 </code></pre>
 
-<alert-info>Оптимизированные изображения в build подгружаются на страницу, но не открываются в просмотре изображений Windows. Если не указывать "options", то изображения открываются в просмотре изображений Windows</alert-info>
+<u-message-info>Оптимизированные изображения в build подгружаются на страницу, но не открываются в просмотре изображений Windows. Если не указывать "options", то изображения открываются в просмотре изображений Windows</u-message-info>
 

@@ -8,7 +8,7 @@
 // у каждой функции по умолчанию есть свойство prototype, содержащее объект
 function MyFunc() {}
 MyFunc.prototype = { 
-	<bg-code>constructor</bg-code>: MyFunc 
+	<u-code>constructor</u-code>: MyFunc 
 };
 var a = new MyFunc(); // => MyFunc {} __proto__: constructor: ƒ MyFunc()
 </code></pre>
@@ -29,5 +29,5 @@ function User(name) {
     console.log(name);
 }
 var user1 = new User('Tony');
-var user2 = new user1.<bg-code>constructor</bg-code>('Jack');
+var user2 = new user1.<u-code>constructor</u-code>('Jack');
 </code></pre>

@@ -5,7 +5,7 @@
 <!------------------------------------------------------>
 <pre><code class="js">
 const store = new Vuex.Store({
-    <bg-code>state</bg-code>: {
+    <u-code>state</u-code>: {
         count: 0,
         name: null
     },
@@ -37,7 +37,7 @@ const ComponentChild = {
     template: `&lt;div&gt;{{ count }}&lt;/div&gt;`,
     computed: {
         count() {
-            return <bg-code>this.$store.state.count</bg-code>; // получение доступа к объекту состояния из дочернего элемента
+            return <u-code>this.$store.state.count</u-code>; // получение доступа к объекту состояния из дочернего элемента
         }
     }
 }
@@ -51,18 +51,18 @@ var app = new Vue({
 	el: '#app',
     // указание хранилища в опции «store» обеспечивает
     // доступ к нему также и во всех дочерних компонентах через this.$store
-	<bg-code>store</bg-code>,
+	<u-code>store</u-code>,
 	components: { 
         'component-child': ComponentChild 
     },
 	methods: {
 		change() {
-			<bg-code>store.commit</bg-code>('changeStore', {count:77, name:'Tony'}); // изменение состояния
+			<u-code>store.commit</u-code>('changeStore', {count:77, name:'Tony'}); // изменение состояния
 		}
 	},
 	computed: {
-		count() { return <bg-code>store.state.count</bg-code>; }, // получение доступа к объекту состояния
-		name()  { return <bg-code>store.state.name</bg-code>; }   // получение доступа к объекту состояния
+		count() { return <u-code>store.state.count</u-code>; }, // получение доступа к объекту состояния
+		name()  { return <u-code>store.state.name</u-code>; }   // получение доступа к объекту состояния
 	}
 });
 </code></pre>

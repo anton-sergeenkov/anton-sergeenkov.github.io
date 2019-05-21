@@ -8,19 +8,19 @@
 // при создании экземпляра маршрутизатора, вы можете указать функцию scrollBehavior
 const router = new VueRouter({
 	routes: [...],
-	<bg-code>scrollBehavior</bg-code>(to, from, savedPosition) {
+	<u-code>scrollBehavior</u-code>(to, from, savedPosition) {
 		// возвращаем требуемую позицию прокрутки
 	}
 })
 </code></pre>
 
 <ul class="list-point">
-	<li>Функция <code class="txt">scrollBehavior</code> получает объекты маршрутов <code class="txt">to</code> и <code class="txt">from</code>. В третьем параметре, <code class="txt">savedPosition</code>, передаётся сохранённая в истории браузера позиция прокрутки (только в случае popstate-перехода, вызванного нажатием кнопок вперёд/назад в браузере)</li>
+	<li>Функция <u-code-text>scrollBehavior</u-code-text> получает объекты маршрутов <u-code-text>to</u-code-text> и <u-code-text>from</u-code-text>. В третьем параметре, <u-code-text>savedPosition</u-code-text>, передаётся сохранённая в истории браузера позиция прокрутки (только в случае popstate-перехода, вызванного нажатием кнопок вперёд/назад в браузере)</li>
 
 	<li>Функция возвращает объект позиции прокрутки. Он может иметь одну из двух форм</li>
 	<ul class="list-point">
-		<li><bg-code class="txt">{ x: number, y: number }</bg-code></li>
-		<li><bg-code class="txt">{ selector: string, offset? : { x: number, y: number }}</bg-code></li>
+		<li><u-code class="txt">{ x: number, y: number }</u-code></li>
+		<li><u-code class="txt">{ selector: string, offset? : { x: number, y: number }}</u-code></li>
 	</ul>
 	<li>Если возвращается пустой объект или значение, приводимое к ложному, прокрутки не будет</li>
 </ul>

@@ -11,8 +11,8 @@
 	<li><span class="circle">1</span>Инициализация нового экземпляра Vue</li>
 	<li><span class="circle">2</span>Инициализация событий и жизненного цикла компонента. Пока элемент не создан в него могут быть добавлены данные</li>
 	<li><span class="circle">4</span>Инициализация инъекций и системы реактивности. После чего компонент создается. Компонент создан, но не смонтирован в DOM</li>
-	<li><span class="circle">6</span><b>Проверка</b>: Есть ли у компонента <code class="txt">el</code> - элемент DOM дерева в который предположительно будет смонтирован компонент</li>
-	<li><span class="circle">7</span><b>Проверка</b>: Есть ли у компонента шаблон <code class="txt">template</code></li>
+	<li><span class="circle">6</span><b>Проверка</b>: Есть ли у компонента <u-code-text>el</u-code-text> - элемент DOM дерева в который предположительно будет смонтирован компонент</li>
+	<li><span class="circle">7</span><b>Проверка</b>: Есть ли у компонента шаблон <u-code-text>template</u-code-text></li>
 	<li><span class="circle">11</span>Создание готового экземпляра Vue с раземеткой и необходимыми данными, который появляется в DOM дереве</li>
 	<li><span class="circle">13</span> Можно взаимодействовать с компонентом: изменить его внутренние данные</li>
 	<li><span class="circle">15</span> Обновление витруального DOM, поиск различий и перерендеривание компонента</li>
@@ -21,20 +21,20 @@
 
 <h4>Хуки жизненного цикла экземпляра</h4>
 <div class="list">
-	<li><span class="circle">3</span>Хук <code class="txt">beforeCreate</code> - вызывается перед созданием компонента</li>
-	<li><span class="circle">5</span>Хук <code class="txt">created</code> - вызывается после того как компонент создан, но не смонтирован в DOM</li>
-	<li><span class="circle">10</span>Хук <code class="txt">beforeMount</code> - вызывается перед монтированием компонента в DOM. Пока элемент не смонтирован в DOM, можно добавить в него данные</li>
-	<li><span class="circle">12</span>Хук <code class="txt">mounted</code> - вызывается когда компонент находится в DOM. Может быть вызван метод, выполнение которого зависит от отрендерренного DOM-дерева</li>
-	<li><span class="circle">14</span>Хук <code class="txt">beforeUpdate</code> - вызывается перед перерендерингом компонента, после изменения данных в нем</li>
-	<li><span class="circle">16</span>Хук <code class="txt">updated</code> - вызывается после обновления компонента</li></li>
-	<li><span class="circle">17</span>Хук <code class="txt">beforeDestroy</code> - вызывается перед уничтожением компонента
-	<li><span class="circle">20</span>Хук <code class="txt">destroyed</code> - вызывается после того как компонент уничтожен и удален из DOM</li>
+	<li><span class="circle">3</span>Хук <u-code-text>beforeCreate</u-code-text> - вызывается перед созданием компонента</li>
+	<li><span class="circle">5</span>Хук <u-code-text>created</u-code-text> - вызывается после того как компонент создан, но не смонтирован в DOM</li>
+	<li><span class="circle">10</span>Хук <u-code-text>beforeMount</u-code-text> - вызывается перед монтированием компонента в DOM. Пока элемент не смонтирован в DOM, можно добавить в него данные</li>
+	<li><span class="circle">12</span>Хук <u-code-text>mounted</u-code-text> - вызывается когда компонент находится в DOM. Может быть вызван метод, выполнение которого зависит от отрендерренного DOM-дерева</li>
+	<li><span class="circle">14</span>Хук <u-code-text>beforeUpdate</u-code-text> - вызывается перед перерендерингом компонента, после изменения данных в нем</li>
+	<li><span class="circle">16</span>Хук <u-code-text>updated</u-code-text> - вызывается после обновления компонента</li></li>
+	<li><span class="circle">17</span>Хук <u-code-text>beforeDestroy</u-code-text> - вызывается перед уничтожением компонента
+	<li><span class="circle">20</span>Хук <u-code-text>destroyed</u-code-text> - вызывается после того как компонент уничтожен и удален из DOM</li>
 </div>
 
 <h4>Описание</h4>
 <ul class="list-point">
 	<li>Каждый экземпляр Vue при создании проходит через последовательность шагов инициализации — например, настраивает наблюдение за данными, компилирует шаблон, монтирует экземпляр в DOM, обновляет DOM при изменении данных. Между этими шагами вызываются функции, называемые <u>хуками жизненного цикла</u>, с помощью которых можно выполнять свой код на определённых этапах</li>
 	<li>Все хуки вызываются с контекстной переменной <u>this</u>, ссылающейся на вызывающий экземпляр Vue</li>
-	<li>Не используйте <u>стрелочные функции</u> в свойствах экземпляра и в коллбэках, например <code class="txt">created: () => console.log(this.a)</code> или <code class="txt">vm.$watch('a', newVal => this.myMethod())</code>. Так как стрелочные функции не имеют собственного <u>this</u>, то <u>this</u> в коде будет обрабатываться как любая другая переменная и её поиск будет производиться в областях видимости выше до тех пор пока не будет найдена</li>
+	<li>Не используйте <u>стрелочные функции</u> в свойствах экземпляра и в коллбэках, например <u-code-text>created: () => console.log(this.a)</u-code-text> или <u-code-text>vm.$watch('a', newVal => this.myMethod())</u-code-text>. Так как стрелочные функции не имеют собственного <u>this</u>, то <u>this</u> в коде будет обрабатываться как любая другая переменная и её поиск будет производиться в областях видимости выше до тех пор пока не будет найдена</li>
 </ul>
 

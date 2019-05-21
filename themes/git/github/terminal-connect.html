@@ -27,7 +27,7 @@ Use HTTPS: https://github.com/anton-sergeenkov/repo.git
 <pre><code class="bash none">
 1. Install Git
 2. Open Git Bash
-	<bg-code>$ cd</bg-code> путь_до_папки ($ cd и перетащить папку)
+	<u-code>$ cd</u-code> путь_до_папки ($ cd и перетащить папку)
 </code></pre>
 
 
@@ -40,11 +40,11 @@ Use HTTPS: https://github.com/anton-sergeenkov/repo.git
 
 <pre><code class="bash none">
 1. Generating a new SSH key
-	<bg-code>$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</bg-code>
+	<u-code>$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</u-code>
 2. Adding your SSH key to the ssh-agent
-	<bg-code>$ eval $(ssh-agent -s)</bg-code>
+	<u-code>$ eval $(ssh-agent -s)</u-code>
 3. Add your SSH private key to the ssh-agent
-	<bg-code>$ ssh-add ~/.ssh/id_rsa</bg-code>
+	<u-code>$ ssh-add ~/.ssh/id_rsa</u-code>
 </code></pre>
 
 <!------------------------------------------------------>
@@ -56,12 +56,12 @@ Use HTTPS: https://github.com/anton-sergeenkov/repo.git
 
 <pre><code class="bash none">
 1. Copy the SSH key to your clipboard.
-	<bg-code>$ clip < ~/.ssh/id_rsa.pub</bg-code>
+	<u-code>$ clip < ~/.ssh/id_rsa.pub</u-code>
 2. https://github.com/ -> Settings -> SSH and GPG keys -> New SSH key
 	- ввести название ключа
 	- вставить ключ скопированный в буфер обмена на 1 этапе
 3. https://github.com/ -> Репозиторий -> Clone or download -> Use SSH -> Скопировать строку
 4. Git Bash
-	<bg-code>$ git clone git@github.com:</bg-code>name_account/name_repo.git
+	<u-code>$ git clone git@github.com:</u-code>name_account/name_repo.git
 </code></pre>
 
