@@ -4,7 +4,6 @@ bg-methods, bg-arguments {
 	border: 0;
 	display: inline;
 }
-
 bg-methods {
 	padding: 5px;
 	border: 1px solid rgba(var(--color-html), 0.25);
@@ -17,16 +16,6 @@ bg-arguments {
 	background: rgba(var(--color-other), 0.3);
 	border-radius: 0px 3px 3px 0px;
 }
-
-
-
-
-
-
-
-
-
-
 
 em {
 	color: #690;
@@ -94,37 +83,6 @@ MENU-LEFT-HIDE
 	box-shadow: none;
 }
 
-/***************************************************
-LIST
-/***************************************************/
-.list {
-	margin: 0;
-	padding: 15px;
-	list-style-type: none;
-}
-.list, .link-page-wrapper {
-	line-height: 2;
-	border-radius: 3px;
-	margin-top: 5px;
-	font-size: 14px;
-}
-.list-inline {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-.list-inline li {
-	margin: 10px;
-}
-.link-page-wrapper {
-	list-style-image: url(../img/app/arrow-right.svg);
-}
-.link-page-wrapper a {
-	color: rgba(var(--color-js), 1) !important;
-	border-bottom: none !important;
-}
 
 /***************************************************
 CONTAINERS

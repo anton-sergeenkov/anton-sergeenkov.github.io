@@ -7,3 +7,7 @@
 <v-pre name="js" comment="comment">
 	code
 </v-pre>
+
+
+vue.js
+v-pre
