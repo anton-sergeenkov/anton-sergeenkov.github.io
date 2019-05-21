@@ -11,3 +11,16 @@
 
 vue.js
 v-pre
+- count
+- name
+- alias
+- lastName
+- firstName
+- doubleValue
+- messText
+- value
+- message
+- age
+- view
+- text
+- link
