@@ -2,7 +2,7 @@
 
 <ul class="list-point">
 	<li>У элементов формы изначально есть внутреннее состояние</li>
-	<li><bg-define>Управляемые компоненты</bg-define> В HTML элементы формы, такие как <code class="txt">&lt;input&gt;, &lt;textarea&gt; &lt;select&gt;</code>, обычно сами управляют своим состоянием и обновляют его когда пользователь вводит данные. В React мутабельное состояние обычно содержится в свойстве компонентов state и обновляется только через вызов <code class="txt">setState()</code>. Мы можем скомбинировать оба подхода и сделать состояние React-компонента <u>«единственным источником правды»</u>. Тогда React-компонент будет рендерить форму и контролировать её поведение в ответ на пользовательский ввод. Значение элемента формы <code class="txt">input</code> в этом случае будет контролировать React, а сам элемент будет называться управляемый компонент»</li>
+	<li><bg-define>Управляемые компоненты</bg-define> В HTML элементы формы, такие как <code-text>&lt;input&gt;, &lt;textarea&gt; &lt;select&gt;</code-text>, обычно сами управляют своим состоянием и обновляют его когда пользователь вводит данные. В React мутабельное состояние обычно содержится в свойстве компонентов state и обновляется только через вызов <code-text>setState()</code-text>. Мы можем скомбинировать оба подхода и сделать состояние React-компонента <u>«единственным источником правды»</u>. Тогда React-компонент будет рендерить форму и контролировать её поведение в ответ на пользовательский ввод. Значение элемента формы <code-text>input</code-text> в этом случае будет контролировать React, а сам элемент будет называться управляемый компонент»</li>
 	<li><bg-define>Неуправляемые компоненты</bg-define> - альтернативная техника реализации ввода данных в форму</li>
 </ul>
 
@@ -48,7 +48,7 @@ class App extends React.Component {
 <h3>select</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Пункт списка «Кокос» выбран по умолчанию из-за установленного атрибута <code class="txt">selected</code>. React вместо этого атрибута использует <code class="txt">value</code> в корневом теге <code class="txt">select</code>. В управляемом компоненте так удобнее, потому что обновлять значение нужно только в одном месте (<code class="txt">state</code>)</li>
+	<li>Пункт списка «Кокос» выбран по умолчанию из-за установленного атрибута <code-text>selected</code-text>. React вместо этого атрибута использует <code-text>value</code-text> в корневом теге <code-text>select</code-text>. В управляемом компоненте так удобнее, потому что обновлять значение нужно только в одном месте (<code-text>state</code-text>)</li>
 </ul>
 
 <pre><code class="js">
@@ -69,7 +69,7 @@ constructor(props) {
 </code></pre>
 
 <ul class="list-point">
-	<li>В атрибут <code class="txt">value</code> можно передать массив, что позволит выбрать несколько опций в теге <code class="txt">select</code></li>
+	<li>В атрибут <code-text>value</code-text> можно передать массив, что позволит выбрать несколько опций в теге <code-text>select</code-text></li>
 </ul>
 
 <pre><code class="html">
@@ -80,7 +80,7 @@ constructor(props) {
 <h3>Обработка нескольких элементов input</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Если нужны несколько управляемых элементов <code class="txt">input</code>, можно назначить каждому из них атрибут name, что позволит функции-обработчику решать, что делать, основываясь на значении <code class="txt">event.target.name</code></li>
+	<li>Если нужны несколько управляемых элементов <code-text>input</code-text>, можно назначить каждому из них атрибут name, что позволит функции-обработчику решать, что делать, основываясь на значении <code-text>event.target.name</code-text></li>
 </ul>
 
 <pre><code class="js">
@@ -124,8 +124,8 @@ this.setState({
 <h3>Значение null управляемого компонента</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Если установить управляемому компоненту проп <code class="txt">value</code>, то пользователь не сможет изменить его значение без вашего желания. Если вы установили <code class="txt">value</code>, а поле ввода по-прежнему можно редактировать, то, возможно, вы случайно задали <code class="txt">value</code>, равный <code class="txt">undefined</code> или <code class="txt">null</code></li>
-	<li>Пример: изначально заблокированный <code class="txt">input</code> становится редактируемым спустя 1с</li>
+	<li>Если установить управляемому компоненту проп <code-text>value</code-text>, то пользователь не сможет изменить его значение без вашего желания. Если вы установили <code-text>value</code-text>, а поле ввода по-прежнему можно редактировать, то, возможно, вы случайно задали <code-text>value</code-text>, равный <code-text>undefined</code-text> или <code-text>null</code-text></li>
+	<li>Пример: изначально заблокированный <code-text>input</code-text> становится редактируемым спустя 1с</li>
 </ul>
 
 <pre><code class="js">

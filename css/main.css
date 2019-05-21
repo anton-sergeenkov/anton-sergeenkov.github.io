@@ -2,6 +2,25 @@
 @import "../libraries/highlight/sawyer.css" screen;
 @import "../module/preloader/preloader.css" screen;
 
+code-text {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+code-text {
+	display: inline;
+}
+code-text {
+	font-family: monospace;
+	border-radius: 5px;
+	line-height: 1.5em;
+	color: #e96900;
+	padding: 2px 5px !important;
+	background: rgba(var(--color-other),0.2);
+	font-size: 14px;
+}
+
+
 /* dark theme */
 /*@import "../libraries/highlight/styles/atom-one-dark.css" screen;
 code-type {
@@ -329,9 +348,9 @@ pre.inline > code {
 	padding: 0 10px !important;
 	line-height: inherit;
 }
-u {
+u.accent {
 	text-decoration: none;
-	border-bottom: 1px dashed rgba(var(--color-fw), 1);
+	border-bottom: 1px solid rgba(var(--color-fw), 1);
 	color: rgba(var(--color-fw), 0.8);
 	font-weight: bold;
 }

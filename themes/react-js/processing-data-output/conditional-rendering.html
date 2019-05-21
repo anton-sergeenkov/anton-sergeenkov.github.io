@@ -28,8 +28,8 @@ class App extends React.Component {
 <h3>Встроенные условия if с логическим оператором &&</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Можно внедрить любое выражение в JSX, заключив его в фигурные скобки. Это правило распространяется и на логический оператор <code class="txt">&&</code> языка JavaScript, которым можно удобно вставить элемент в зависимости от условия</li>
-	<li>В JavaScript выражение <code class="txt">true && expression</code> всегда вычисляется как <code class="txt">expression</code>, а выражение <code class="txt">false && expression</code> - как <code class="txt">false</code></li>
+	<li>Можно внедрить любое выражение в JSX, заключив его в фигурные скобки. Это правило распространяется и на логический оператор <code-text>&&</code-text> языка JavaScript, которым можно удобно вставить элемент в зависимости от условия</li>
+	<li>В JavaScript выражение <code-text>true && expression</code-text> всегда вычисляется как <code-text>expression</code-text>, а выражение <code-text>false && expression</code-text> - как <code-text>false</code-text></li>
 </ul>
 
 <pre><code class="js">
@@ -46,7 +46,7 @@ render() {
 <h3>Встроенные условия if-else с тернарным оператором</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Можно использовать тернарный оператор <code class="txt">condition ? true : false</code></li>
+	<li>Можно использовать тернарный оператор <code-text>condition ? true : false</code-text></li>
 </ul>
 
 <h4>Вариант 1</h4>
@@ -79,8 +79,8 @@ render() {
 <h3>Предотвращение рендеринга компонента</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>В редких случаях может потребоваться позволить компоненту спрятать себя, хотя он уже и отрендерен другим компонентом. Чтобы этого добиться, верните <code class="txt">null</code> вместо того, что обычно возвращается на рендеринг</li>
-	<li>Сам факт возврата <code class="txt">null</code> из метода <code class="txt">render</code> компонента никак не влияет на срабатывание методов жизненного цикла компонента. Например, <code class="txt">componentDidUpdate</code> будет всё равно вызван</li>
+	<li>В редких случаях может потребоваться позволить компоненту спрятать себя, хотя он уже и отрендерен другим компонентом. Чтобы этого добиться, верните <code-text>null</code-text> вместо того, что обычно возвращается на рендеринг</li>
+	<li>Сам факт возврата <code-text>null</code-text> из метода <code-text>render</code-text> компонента никак не влияет на срабатывание методов жизненного цикла компонента. Например, <code-text>componentDidUpdate</code-text> будет всё равно вызван</li>
 </ul>
 
 <pre><code class="js">

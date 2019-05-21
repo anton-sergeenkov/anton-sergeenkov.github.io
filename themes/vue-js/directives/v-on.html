@@ -53,12 +53,12 @@ app.methodOne();
 <h4>События</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li><bg-code-list>.stop</bg-code-list> - событие не будет всплывать дальше <code class="txt">event.stopPropagation()</code></li>
-	<li><bg-code-list>.prevent</bg-code-list> - отмена обычного поведения <code class="txt">event.preventDefault()</code></li>
+	<li><bg-code-list>.stop</bg-code-list> - событие не будет всплывать дальше <code-text>event.stopPropagation()</code-text></li>
+	<li><bg-code-list>.prevent</bg-code-list> - отмена обычного поведения <code-text>event.preventDefault()</code-text></li>
 	<li><bg-code-list>.capture</bg-code-list> - событие, нацеленное на внутренний элемент, обрабатывается здесь до обработки этим элементом</li>
 	<li><bg-code-list>.self</bg-code-list> - вызов обработчика только в случае наступления события непосредственно на данном элементе (то есть не на дочернем компоненте)</li>
 	<li><bg-code-list>.once</bg-code-list> - событие click сработает только 1 раз</li>
-	<li><bg-code-list>.passive</bg-code-list> - сообщает браузеру, что вы не хотите предотвращать поведение по умолчанию для события. <code class="txt">event.preventDefault()</code> будет проигнорирован. Поэтому нельзя использовать вместе <code class="txt">.passive</code> и <code class="txt">.prevent</code>. Соответствующий опции <code class="txt">passive</code> в <code class="txt">addEventListener</code>. Модификатор <code class="txt">.passive</code> особенно полезен для повышения производительности на мобильных устройствах</li>
+	<li><bg-code-list>.passive</bg-code-list> - сообщает браузеру, что вы не хотите предотвращать поведение по умолчанию для события. <code-text>event.preventDefault()</code-text> будет проигнорирован. Поэтому нельзя использовать вместе <code-text>.passive</code-text> и <code-text>.prevent</code-text>. Соответствующий опции <code-text>passive</code-text> в <code-text>addEventListener</code-text>. Модификатор <code-text>.passive</code-text> особенно полезен для повышения производительности на мобильных устройствах</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -118,8 +118,8 @@ methods: {
 <h3 id="v-on-mod-key">Модификаторы клавиш</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Использование значения <code class="txt">keyCode</code> событий - устаревшая практика и может не поддерживаться в новых браузерах</li>
-	<li>Можно использовать любые допустимые имена клавиш, предоставляемые через <code class="txt">KeyboardEvent.key</code> в качестве модификаторов, именуя их в kebab-case</li>
+	<li>Использование значения <code-text>keyCode</code-text> событий - устаревшая практика и может не поддерживаться в новых браузерах</li>
+	<li>Можно использовать любые допустимые имена клавиш, предоставляемые через <code-text>KeyboardEvent.key</code-text> в качестве модификаторов, именуя их в kebab-case</li>
 </ul>
 
 <pre><code class="html">
@@ -158,7 +158,7 @@ methods: {
 <h4>Определение пользовательских псевдонимов клавиш</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li>Определение пользовательских псевдонимов клавиш через глобальную опцию <code class="txt">config.keyCodes</code></li>
+	<li>Определение пользовательских псевдонимов клавиш через глобальную опцию <code-text>config.keyCodes</code-text></li>
 </ul>
 
 <pre><code class="js">
@@ -178,7 +178,7 @@ Vue.config.keyCodes.f1 = 112; // позволит использовать 'v-on
 
 <alert-info>
 <ul class="list-point">
-	<li>Клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий <code class="txt">keyup</code> они должны быть нажаты, когда событие генерируется. Другими словами, <code class="txt">keyup.ctrl</code> сработает только тогда, когда вы отпустите клавишу, удерживая нажатой <code class="txt">ctrl</code>. Это не сработает, если вы отпустите только клавишу <code class="txt">ctrl</code>. Если вы хотите такое поведение, используйте <code class="txt">keyCode</code> для <code class="txt">ctrl</code> вместо <code class="txt">keyup.17</code></li>
+	<li>Клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий <code-text>keyup</code-text> они должны быть нажаты, когда событие генерируется. Другими словами, <code-text>keyup.ctrl</code-text> сработает только тогда, когда вы отпустите клавишу, удерживая нажатой <code-text>ctrl</code-text>. Это не сработает, если вы отпустите только клавишу <code-text>ctrl</code-text>. Если вы хотите такое поведение, используйте <code-text>keyCode</code-text> для <code-text>ctrl</code-text> вместо <code-text>keyup.17</code-text></li>
 </ul>
 </alert-info>
 

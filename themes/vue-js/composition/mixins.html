@@ -34,7 +34,7 @@ export default {
 <h3 id="composition-mixins-merge">Слияние опций</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>Если примесь и компонент содержат пересекающиеся опции, ожидающие значения в форме объектов, такие как <code class="txt">methods</code>, <code class="txt">components</code> и <code class="txt">directives</code> будут объединены. В случае конфликта, приоритет имеют опции компонента</li>
+	<li>Если примесь и компонент содержат пересекающиеся опции, ожидающие значения в форме объектов, такие как <code-text>methods</code-text>, <code-text>components</code-text> и <code-text>directives</code-text> будут объединены. В случае конфликта, приоритет имеют опции компонента</li>
 </ul>
 
 <pre><code class="js">
@@ -59,7 +59,7 @@ export default {
 </code></pre>
 
 <ul class="list-point">
-	<li>Функции <code class="txt">хуков</code> с одинаковыми именами объединяются в массив, чтобы все они вызывались. Хуки примеси будут вызываться <u>перед</u> собственными хуками компонента</li>
+	<li>Функции <code-text>хуков</code-text> с одинаковыми именами объединяются в массив, чтобы все они вызывались. Хуки примеси будут вызываться <u>перед</u> собственными хуками компонента</li>
 </ul>
 
 <pre><code class="js">
@@ -107,7 +107,7 @@ new Vue({
 <h3 id="composition-mixins-user-merge">Пользовательские стратегии слияния опций</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>При слиянии пользовательских опций применяется стратегия по умолчанию, которая просто заменяет одни значения другими. Если вы хотите использовать пользовательскую логику при слиянии пользовательских опций, добавьте функцию в <code class="txt">Vue.config.optionMergeStrategies</code></li>
+	<li>При слиянии пользовательских опций применяется стратегия по умолчанию, которая просто заменяет одни значения другими. Если вы хотите использовать пользовательскую логику при слиянии пользовательских опций, добавьте функцию в <code-text>Vue.config.optionMergeStrategies</code-text></li>
 </ul>
 
 <pre><code class="js">
@@ -117,7 +117,7 @@ Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
 </code></pre>
 
 <ul class="list-point">
-	<li>Для большей части опций-объектов можно просто использовать стратегию, применяемую по умолчанию для опции <code class="txt">methods</code></li>
+	<li>Для большей части опций-объектов можно просто использовать стратегию, применяемую по умолчанию для опции <code-text>methods</code-text></li>
 </ul>
 
 <pre><code class="js">

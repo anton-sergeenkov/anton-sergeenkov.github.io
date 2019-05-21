@@ -2,18 +2,18 @@
 
 <h3>Создание объекта через new</h3>
 <ol class="list-num">
-	<li>Создается новый объект, он становится <code class="txt">this</code></li>
-	<li>Неявно возвращается <code class="txt">return</code></li>
+	<li>Создается новый объект, он становится <code-text>this</code-text></li>
+	<li>Неявно возвращается <code-text>return</code-text></li>
 	<li>Устанавливается прототип</li>
 </ol>
 
 <h3>prototype</h3>
 <ul class="list-point">
-	<li>При создании объекта через <code class="txt">new</code>, в его прототип <code class="txt">__proto__</code> записывается ссылка из <code class="txt">prototype</code> функции-конструктора</li>
-	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <code class="txt">new</code></li>
-	<li>Назначение: указывать <code class="txt">__proto__</code> для новых объектов</li>
+	<li>При создании объекта через <code-text>new</code-text>, в его прототип <code-text>__proto__</code-text> записывается ссылка из <code-text>prototype</code-text> функции-конструктора</li>
+	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <code-text>new</code-text></li>
+	<li>Назначение: указывать <code-text>__proto__</code-text> для новых объектов</li>
 	<li>Значением prototype может быть только объект</li>
-	<li>У каждой функции по умолчанию есть свойство <code class="txt">prototype</code></li>
+	<li>У каждой функции по умолчанию есть свойство <code-text>prototype</code-text></li>
 </ul>
 
 <pre><code class="js">

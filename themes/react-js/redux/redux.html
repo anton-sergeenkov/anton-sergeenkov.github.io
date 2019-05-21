@@ -1,5 +1,5 @@
 <h2>Redux</h2>
-
+ 
 <pre class="npm"><code class="bash">
 npm i --save <bg-npm>redux</bg-npm>
 </code></pre>
@@ -13,9 +13,9 @@ npm i --save <bg-npm>redux</bg-npm>
 </ul>
 
 <ol class="list-num">
-	<li><code class="txt">Store</code> - помещаются все данные приложения. Store иммутабельный: мы можем создавать всегда только новую копию данных, а не менять старое состояние store</li>
-	<li><code class="txt">Reducer</code> (преобразователь) - чистая функция, которая берет на вход предыдущее состояние и action и возвращает новое состояние. Не модифицирует данные, а всегда возвращает новые данные</li>
-	<li><code class="txt">Actions</code> - изменение состоние происходит с помощью действий</li>
+	<li><u class="accent">Store</u> - помещаются все данные приложения. Store иммутабельный: мы можем создавать всегда только новую копию данных, а не менять старое состояние store. ТОЛЬКО ОДИН объект Store. Store, "объединяет" Reducer и Actions</li>
+	<li><u class="accent">Reducer</u> (преобразователь) - чистая функция, которая берет на вход предыдущее состояние и action и возвращает новое состояние. Не модифицирует данные, а всегда возвращает новые данные</li>
+	<li><u class="accent">Actions</u> - изменение состоние происходит с помощью действий</li>
 </ol>
 
 <ul class="list-point">
@@ -25,18 +25,65 @@ npm i --save <bg-npm>redux</bg-npm>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Основы</h3>
+<h3>1. State</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 const store = <bg-code>createStore</bg-code>(reducerFunction); // создание store
+store.<bg-code>getState</bg-code>();                           // получить состояние store
 store.<bg-code>subscribe</bg-code>();                          // подписка на изменение store
-store.<bg-code>getState</bg-code>();                           // получить значение store
-store.<bg-code>dispatch</bg-code>({                            // событие изменения значения в store
+store.<bg-code>dispatch</bg-code>({                            // событие обновления состояния store
 	type: 'тип_события', 
 	payload: 'данные' 
 }); 
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Actions</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><bg-define>Actions</bg-define> - объект. Описывает факт, что что-то произошло, но не указывает, как состояние приложения должно измениться в ответ (Reducer)</li>
+    <li><u class="accent">type</u> - обязательное поле</li>
+    <li><u class="accent">payload</u> - свойство в которое помещаются все данные, которые передаются вместе 
+    с действием</li>
+    <li><bg-define>ActionsCreator</bg-define> - функция для вызова Action</li>
+</ul>
+
+<pre><code class="js"><code-type>js</code-type>
+const GET_PHOTOS = 'GET_PHOTOS'
+
+// ActionsCreator
+const getPhotos = (year) => ({
+    type: GET_PHOTOS,
+    payload: 2019
+})
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Reducer</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><bg-define>Reducer</bg-define> - указывает, как состояние приложения должно измениться в ответ на Action</li>
+    <li><bg-define>Reducer Composition</bg-define> - фундаментальный шаблон построения redux приложений: мы разбиваем наше глобальное состояние на кусочки, за каждый кусочек отвечает свой <code-text>reducer</code-text>. Кусочки объединяются в <code-text>rootReducer</code-text> Корневом Редьюсере</li>
+    <li>Мы не мутировали наш state, мы создали новый state. В редьюсере, мы всегда должны возвращать новый объект, а не измененный предыдущий</li>
+    <li>Объект, который мы возвращаем в редьюсере, далее с помощью функции <code-text>connect</code-text>, превратится в свойства для компонентов. Благодаря этому, внутри компонента <code-text>&lt;Component /&gt;</code-text>, мы сможем получить доступ к свойству <code-text>this.props.name_prop</code-text></li>
+</ul>
+
+<pre><code class="js"><code-type>js</code-type>
+function page(state = initialState, action) {
+    switch (action.type) {
+        case GET_PHOTO_SUCCESS:
+            return {...state, photos: action.payload}
+        default:
+            return state
+    }
+}
+</code></pre>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js border">
 import { createStore } from 'redux';
 

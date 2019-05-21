@@ -15,8 +15,8 @@
 </v-two-code>
 
 <ul class="list-point">
-	<li>В React нельзя предотвратить обработчик события по умолчанию, вернув <code class="txt">false</code>. Нужно явно вызвать <code class="txt">preventDefault</code></li>
-	<li>В приведённом выше коде <code class="txt">e</code> - это синтетическое событие</li>
+	<li>В React нельзя предотвратить обработчик события по умолчанию, вернув <code-text>false</code-text>. Нужно явно вызвать <code-text>preventDefault</code-text></li>
+	<li>В приведённом выше коде <code-text>e</code-text> - это синтетическое событие</li>
 </ul>
 
 <v-two-code type="js;html" comment="react jsx;html">
@@ -45,7 +45,7 @@ function ActionLink() {
 <h4>1. Привязка с помощью bind</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li>При обращении к <code class="txt">this</code> в JSX-колбэках необходимо учитывать, что методы класса в JavaScript по умолчанию не привязаны к контексту. Если вы забудете привязать метод <code class="txt">this.handleClick</code> и передать его в <code class="txt">onClick</code>, значение <code class="txt">this</code> будет undefined в момент вызова функции. Это часть того, как работают функции в JavaScript. Обычно, если ссылаться на метод без <code class="txt">()</code> после него, например, <code class="txt">onClick={this.handleClick}</code>, этот метод нужно привязать</li>
+	<li>При обращении к <code-text>this</code-text> в JSX-колбэках необходимо учитывать, что методы класса в JavaScript по умолчанию не привязаны к контексту. Если вы забудете привязать метод <code-text>this.handleClick</code-text> и передать его в <code-text>onClick</code-text>, значение <code-text>this</code-text> будет undefined в момент вызова функции. Это часть того, как работают функции в JavaScript. Обычно, если ссылаться на метод без <code-text>()</code-text> после него, например, <code-text>onClick={this.handleClick}</code-text>, этот метод нужно привязать</li>
 </ul>
 
 <pre><code class="js">
@@ -75,7 +75,7 @@ class App extends React.Component {
 <!------------------------------------------------------------->
 <ul class="list-point">
 	<li>Такой синтаксис доступен в Create React App по умолчанию</li>
-	<li>Такой синтаксис гарантирует, что <code class="txt">this</code> привязан к <code class="txt">handleClick</code></li>
+	<li>Такой синтаксис гарантирует, что <code-text>this</code-text> привязан к <code-text>handleClick</code-text></li>
 	<li><b>Предупреждение</b>: это экспериментальный синтаксис</li>
 </ul>
 
@@ -102,7 +102,7 @@ class App extends React.Component {
 <h4>3. Стрелочные функции в колбэке</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li>Такой синтаксис гарантирует, что <code class="txt">this</code> привязан к <code class="txt">handleClick</code></li>
+	<li>Такой синтаксис гарантирует, что <code-text>this</code-text> привязан к <code-text>handleClick</code-text></li>
 	<li>Проблема этого синтаксиса в том, что при каждом рендере компонента создаётся новый колбэк. Чаще всего это не страшно. Однако, если этот колбэк попадает как проп в дочерние компоненты, эти компоненты могут быть отрендерены снова</li>
 	<li>Рекомендуется делать привязку в конструкторе или использовать синтаксис полей классов, чтобы избежать проблем с производительностью</li>
 </ul>
@@ -130,7 +130,7 @@ class App extends React.Component {
 <h3>Передача аргументов в обработчики событий</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>В обоих случаях аргумент <code class="txt">e</code>, представляющий событие React, будет передан как второй аргумент после идентификатора. Используя стрелочную функцию, необходимо передавать аргумент явно, но с <code class="txt">bind</code> любые последующие аргументы передаются автоматически</li>
+	<li>В обоих случаях аргумент <code-text>e</code-text>, представляющий событие React, будет передан как второй аргумент после идентификатора. Используя стрелочную функцию, необходимо передавать аргумент явно, но с <code-text>bind</code-text> любые последующие аргументы передаются автоматически</li>
 </ul>
 
 <pre><code class="html">

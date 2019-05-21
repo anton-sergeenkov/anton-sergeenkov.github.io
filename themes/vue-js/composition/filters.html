@@ -14,8 +14,8 @@
 </code></pre>
 
 <ul class="list-point">
-	<li>Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра <code class="txt">capitalize</code> получит значение <code class="txt">message</code> в качестве аргумента</li>
-	<li>В этом случае <code class="txt">filterA</code>, определённый с одним аргументом, получит значение message, а затем функция <code class="txt">filterB</code> будет вызвана с результатом <code class="txt">filterA</code>, переданным единственным аргументом в <code class="txt">filterB</code></li>
+	<li>Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра <code-text>capitalize</code-text> получит значение <code-text>message</code-text> в качестве аргумента</li>
+	<li>В этом случае <code-text>filterA</code-text>, определённый с одним аргументом, получит значение message, а затем функция <code-text>filterB</code-text> будет вызвана с результатом <code-text>filterA</code-text>, переданным единственным аргументом в <code-text>filterB</code-text></li>
 </ul>
 
 <hr>
@@ -25,7 +25,7 @@
 <pre><code class="html" v-pre>
 {{ message | filterA('arg1', arg2) }}
 </code></pre>
-	<li><code class="txt">filterA</code> определяется как функция с тремя аргументами. Значение <code class="txt">message</code> будет передано первым аргументом. Простая строка <code class="txt">'arg1'</code> будет передана в <code class="txt">filterA</code> вторым аргументом, а значение выражения <code class="txt">arg2</code> - третьим</li>
+	<li><code-text>filterA</code-text> определяется как функция с тремя аргументами. Значение <code-text>message</code-text> будет передано первым аргументом. Простая строка <code-text>'arg1'</code-text> будет передана в <code-text>filterA</code-text> вторым аргументом, а значение выражения <code-text>arg2</code-text> - третьим</li>
 </ul>
 
 
@@ -62,7 +62,7 @@ var app = new Vue({
 </code></pre>
 
 <ul class="list-point">
-	<li>Обращение к объекту <code class="txt">data</code> и вывод его в формат <code class="txt">json</code> и спользуя стандартный фильтр <code class="txt">json</code></li>
+	<li>Обращение к объекту <code-text>data</code-text> и вывод его в формат <code-text>json</code-text> и спользуя стандартный фильтр <code-text>json</code-text></li>
 </ul>
 
 <pre><code v-pre>

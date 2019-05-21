@@ -1,7 +1,7 @@
 
 let customElementRegistry = window.customElements;
 let arrCustomElements = [
-	'code-type', 
+	'code-type', 'code-text', 
 	'alert-ok', 'alert-info', 'alert-warn', 'alert-error',
 	'bg-code', 'bg-code-accent', 'bg-code-warn', 'bg-code-wrapper', 'bg-code-list', 
 	'bg-menu', 'bg-menu-code', 'bg-menu-accent', 'bg-menu-border',
