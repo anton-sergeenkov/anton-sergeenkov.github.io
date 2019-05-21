@@ -1,7 +1,7 @@
 /*******************************************
 all
 *******************************************/
-u-code-text, u-code-list, u-code-comment, u-code, u-text-value, u-text-header,
+u-code-text, u-code-list, u-code-comment, u-code, u-text-define, u-text-header,
 u-code-wrapper, u-link-wrapper, u-code-npm, u-code-title, u-code-accent,
 u-menu, u-menu-accent, u-menu-code, u-menu-border  {
 	margin: 0;
@@ -38,7 +38,7 @@ u-code-list {
 u-code-comment {
 	color: var(--comment);
 }
-u-text-value {
+u-text-define {
 	padding: 4px;
 	background: rgba(var(--color-js), 0.66);
 	border-radius: 3px;

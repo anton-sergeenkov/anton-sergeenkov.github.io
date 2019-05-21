@@ -1,4 +1,4 @@
-bg-list, bg-methods, u-code-warn {
+bg-methods, u-code-warn {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -8,13 +8,6 @@ bg-list, bg-methods, u-code-warn {
 u-code-warn {
 	background: rgba(var(--color-php), 0.4);
 	padding: 2px;
-}
-bg-list {
-	padding: 5px 10px;
-	background: rgba(var(--color-black), 0.1);
-	border-radius: 3px;
-	font-size: 15px;
-	border: 1px solid rgba(var(--color-black), 0.1);
 }
 bg-light {
 	background: rgba(var(--color-black), 0.1);

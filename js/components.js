@@ -1,13 +1,13 @@
 
 let customElementRegistry = window.customElements;
 let arrCustomElements = [
-	'u-code-text',    'u-code-list',    'u-code-comment',  'u-code',
-	'u-text-define',  'u-text-value',   'u-text-header',   'u-code-wrapper',
-	'u-link-wrapper', 'u-code-npm',     'u-code-title',    'u-message-ok',
-	'u-message-info', 'u-message-warn', 'u-message-error', 'u-code-accent',
-	'u-menu',         'u-menu-accent',  'u-menu-code',     'u-menu-border',
-	
-	'u-code-warn', 'bg-map', 'bg-list', 'bg-methods',
+	'u-code-text',    'u-code-list',     'u-code-comment', 'u-code',
+	'u-text-define',   'u-text-header',   'u-code-wrapper', 'u-link-wrapper',
+	'u-code-npm',     'u-code-title',    'u-message-ok',   'u-message-info',
+	'u-message-warn', 'u-message-error', 'u-code-accent',  'u-menu',
+	'u-menu-accent',  'u-menu-code',     'u-menu-border',
+
+	'u-code-warn', 'bg-map', 'bg-methods',
 ];
 
 arrCustomElements.forEach(function(element) {

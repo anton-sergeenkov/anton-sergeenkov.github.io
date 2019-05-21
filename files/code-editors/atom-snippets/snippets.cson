@@ -25,7 +25,7 @@
         'prefix': 'list-define'
         'body': """
             <ul class="list-point">
-                <li><u-text-value>$1</u-text-value> - </li>
+                <li><u-text-define>$1</u-text-define> - </li>
             </ul>
         """
 
