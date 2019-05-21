@@ -12,12 +12,12 @@ v-two-code
 }
 
 /*******************************************
-v-code-npm
+v-pre-npm
 *******************************************/
-.v-code-npm {
+.v-pre-npm {
 	border-left: 3px solid rgba(var(--color-php), 0.85);
 	border-radius: none !important;
 }
-.v-code-npm code {
+.v-pre-npm code {
 	background: none !important;
 }

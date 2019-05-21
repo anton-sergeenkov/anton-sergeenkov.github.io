@@ -2,12 +2,12 @@
 let customElementRegistry = window.customElements;
 let arrCustomElements = [
 	'u-code-text',    'u-code-list',     'u-code-comment', 'u-code',
-	'u-text-define',   'u-text-header',   'u-code-wrapper', 'u-link-wrapper',
+	'u-text-define',  'u-text-header',   'u-code-wrapper', 'u-link-wrapper',
 	'u-code-npm',     'u-code-title',    'u-message-ok',   'u-message-info',
 	'u-message-warn', 'u-message-error', 'u-code-accent',  'u-menu',
 	'u-menu-accent',  'u-menu-code',     'u-menu-border',
 
-	'u-code-warn', 'bg-map', 'bg-methods',
+	'bg-methods',     'bg-arguments',
 ];
 
 arrCustomElements.forEach(function(element) {
@@ -62,10 +62,10 @@ Vue.component('v-two', {
 		</div>`,
 })
 
-Vue.component('v-code-npm', {
-	template: `<pre class="v-code-npm"><code class="bash"><slot></slot></code></pre>`,
+Vue.component('v-pre-npm', {
+	template: `<pre class="v-pre-npm"><code class="bash"><slot></slot></code></pre>`,
     // template:
-	// 	`<pre class="v-code-npm"><code class="bash">
+	// 	`<pre class="v-pre-npm"><code class="bash">
 	// 		<slot></slot>
 	// 	</code></pre>`,
 })

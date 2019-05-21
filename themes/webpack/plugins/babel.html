@@ -1,8 +1,8 @@
 <h2>babel</h2>
 
-<v-code-npm>
-npm i --save-dev <u-code-npm>babel-loader</u-code-npm> <u-code-npm>@babel/core</u-code-npm> <u-code-npm>@babel/preset-env</u-code-npm> <u-code-warn><u-code-npm>@babel/preset-react</u-code-npm></u-code-warn>
-</v-code-npm>
+<v-pre-npm>
+npm i --save-dev <u-code-npm>babel-loader</u-code-npm> <u-code-npm>@babel/core</u-code-npm> <u-code-npm>@babel/preset-env</u-code-npm> <u-code>@babel/preset-react</u-code>
+</v-pre-npm>
 
 <ul class="list-point">
 	<li><u>babel</u> - transpiler. может транспилировать ES6 в ES5 и JSX в ES5</li>
@@ -27,7 +27,7 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env', <u-code-warn>'@babel/preset-react'</u-code-warn>]
+						presets: ['@babel/preset-env', <u-code>'@babel/preset-react'</u-code>]
 					}
 				}
 				</u-code-wrapper>

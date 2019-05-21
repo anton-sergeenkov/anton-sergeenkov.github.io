@@ -1,18 +1,10 @@
-bg-methods, u-code-warn {
+bg-methods, bg-arguments {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	display: inline;
 }
 
-u-code-warn {
-	background: rgba(var(--color-php), 0.4);
-	padding: 2px;
-}
-bg-light {
-	background: rgba(var(--color-black), 0.1);
-	padding: 2px;
-}
 bg-methods {
 	padding: 5px;
 	border: 1px solid rgba(var(--color-html), 0.25);
@@ -25,12 +17,7 @@ bg-arguments {
 	background: rgba(var(--color-other), 0.3);
 	border-radius: 0px 3px 3px 0px;
 }
-bg-map {
-	border-radius: 3px;
-	padding: 1px;
-	color: #fff;
-	background: yellowgreen;
-}
+
 
 
 
@@ -110,15 +97,12 @@ MENU-LEFT-HIDE
 /***************************************************
 LIST
 /***************************************************/
-.list-point {
-	list-style-type: disc;
-}
 .list {
 	margin: 0;
 	padding: 15px;
 	list-style-type: none;
 }
-.list, .list-point, .list-num, .link-page-wrapper {
+.list, .link-page-wrapper {
 	line-height: 2;
 	border-radius: 3px;
 	margin-top: 5px;
@@ -170,6 +154,12 @@ CONTAINERS
 /***************************************************
 ELEMENTS
 /***************************************************/
+.map {
+	border-radius: 3px;
+	padding: 1px;
+	color: #fff;
+	background: yellowgreen;
+}
 code.border u-code {
 	background: rgba(var(--color-js), 0.4) !important;
 	text-shadow: 0px 0px 5px white;

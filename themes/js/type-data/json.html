@@ -43,7 +43,7 @@ var userData = JSON.stringify(user); // объект в JSON ("{"name":"Tony"}")
 
 <h4>JSON.parse(str, reviver). Умный разбор</h4>
 <ul class="list-point">
-	<li>Для интеллектуального восстановления из строки у JSON.parse(str, reviver) есть второй параметр reviver, который является функцией <e>function(key, value)</e></li>
+	<li>Для интеллектуального восстановления из строки у JSON.parse(str, reviver) есть второй параметр reviver, который является функцией <u-code-text>function(key, value)<u-code-text></li>
 	<li>Если она указана, то в процессе чтения объекта из строки JSON.parse передаёт ей по очереди все создаваемые пары ключ-значение и может возвратить либо преобразованное значение, либо undefined, если его нужно пропустить</li>
 </ul>
 <pre><code class="js">

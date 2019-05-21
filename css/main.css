@@ -169,3 +169,15 @@ code {
     border-radius: 5px;
     position: relative;
 }
+
+/***************************************************
+LISTS
+/***************************************************/
+.list-point, .list-num {
+	line-height: 2;
+	margin-top: 5px;
+	font-size: 14px;
+}
+.list-point {
+	list-style-type: disc;
+}
