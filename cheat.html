@@ -35,8 +35,8 @@
 	<pre><code class="bash">
 	=two-code    # two flex code
 	=two         # two flex
-	=list-point  # list-point без &lt;u-text-define&gt;
-	=list-define # list-point с &lt;u-text-define&gt;
+	=list-point  # list-point без &lt;u-text-value&gt;
+	=list-define # list-point с &lt;u-text-value&gt;
 	=list-num    # list-num
 	=hr3         # h3
 	=hr4         # h4
@@ -56,22 +56,39 @@
 <v-two>
 	<template v-slot:first>
 	<pre><code class="html custom">
-	&lt;u-code&gt;&lt;/u-code&gt;                 <u-code>Код</u-code>
-	&lt;u-code-wrapper&gt;&lt;/u-code-wrapper&gt; <u-code>Блок кода</u-code>
+	&lt;u-code&gt;&lt;/u-code&gt;                 <u-code>Выделение кода</u-code>
+	&lt;u-code-accent&gt;&lt;/u-code-accent&gt;   <u-code>Акцентное выделение кода</u-code>
+	&lt;u-code-wrapper&gt;&lt;/u-code-wrapper&gt; Блок кода<u-code></u-code>
 	&lt;u-code-text&gt;&lt;u-code-text&gt;        <u-code-text>Код в тексте</u-code-text>
 	&lt;u-code-list&gt;&lt;/u-code-list&gt;       <u-code-list>Код в списке</u-code-list>
+	&lt;u-code-title&gt;&lt;/u-code-title&gt;     Верхний угол кода<u-code></u-code>
 	&lt;u-code-comment&gt;&lt;/u-code-comment&gt; <u-code-comment>Комментарий в коде</u-code-comment>
 
 </template><template v-slot:last>
 	<pre><code class="html custom">
-	&lt;u-text-define&gt;&lt;/u-text-define&gt;   <u-text-define>Определение</u-text-define>
+	&lt;u-text-value&gt;&lt;/u-text-value&gt;     <u-text-value>Определение</u-text-value>
 	&lt;u-text-header&gt;&lt;/u-text-header&gt;   <u-text-header>Подзаголовок</u-text-header>
-	&lt;u-link-wrapper&gt;&lt;/u-link-wrapper&gt; Обертка для ссылок
+	&lt;u-link-wrapper&gt;&lt;/u-link-wrapper&gt; Обертка для ссылок<u-code></u-code>
+
+	&lt;u-code-npm&gt;&lt;/u-code-npm&gt; <u-code-npm>NPM пакеты</u-code-npm>
+	&lt;v-code-npm&gt;&lt;/v-code-npm&gt; NPM
+
+	&lt;u-menu&gt;&lt;/u-menu&gt;               <u-menu>zzzz</u-menu>
+	&lt;u-menu-accent&gt;&lt;/u-menu-accent&gt; <u-menu-accent>zzzz</u-menu-accent>
+	&lt;u-menu-code&gt;&lt;/u-menu-code&gt;     <u-menu-code>zzzz</u-menu-code>
+	&lt;u-menu-border&gt;&lt;/u-menu-border&gt; <u-menu-border>zzzz</u-menu-border>
 	</code></pre>
 </template></v-two>
 
 
 <hr>
+
+
+
+
+
+
+
 
 
 <v-two><template v-slot:first>
@@ -88,7 +105,7 @@
 		<li><a href="#">Ссылка 1</a></li>
 		<li><a href="#">Ссылка 2</a></li>
 	</ul>
-	<pre><code class="html"><code-type>html</code-type>
+	<pre><code class="html"><u-code-type>html</u-code-type>
 	&lt;ul class="link-page-wrapper"&gt;
 		&lt;li&gt;&lt;a href="#"&gt;Ссылка 1&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href="#"&gt;Ссылка 2&lt;/a&gt;&lt;/li&gt;

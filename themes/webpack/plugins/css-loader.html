@@ -1,16 +1,16 @@
 <h2>css-loader</h2>
 
-<pre class="npm"><code class="bash">
-npm i --save-dev <bg-npm>css-loader</bg-npm>
-</code></pre>
+<v-code-npm>
+npm i --save-dev <u-code-npm>css-loader</u-code-npm>
+</v-code-npm>
 
 <ul class="list-point">
-	<li><u-text-define>css-loader</u-text-define> - загрузка и объединение всех CSS файлов в один (translates CSS into CommonJS)</li>
+	<li><u-text-value>css-loader</u-text-value> - загрузка и объединение всех CSS файлов в один (translates CSS into CommonJS)</li>
 	<li>Если лоадера нет, то Webpack считает это js файлом, пытается его разобрать и видит ошибку</li>
 	<li>Webpack выполняет loaders в обратном порядке: с последнего до первого, то есть справа налево</li>
 </ul>
 
-<pre><code class="js"><code-type>webpack.config.js</code-type>
+<pre><code class="js"><u-code-title>webpack.config.js</u-code-title>
 module.exports = {
 	module: {
 		rules: [
@@ -36,7 +36,7 @@ module.exports = {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>CSS модули</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js"><code-type>webpack.config.js</code-type>
+<pre><code class="js"><u-code-title>webpack.config.js</u-code-title>
 {
 	test: /\.css$/,
 	use: [
@@ -63,7 +63,7 @@ localIdentName: '[name]__[local]__[hash:base64:5]'
 	[hash:base64:5]  # 5 символов hash
 </code></pre>
 
-<pre><code class="js"><code-type>Component.js (react.js)</code-type>
+<pre><code class="js"><u-code-title>Component.js (react.js)</u-code-title>
 import classes from './Component.css';
 
 render() {
@@ -71,12 +71,12 @@ render() {
 }
 </code></pre>
 
-<pre><code class="css"><code-type>Component.css</code-type>
+<pre><code class="css"><u-code-title>Component.css</u-code-title>
 .headerItem { background: orange; }
 </code></pre>
 
-<pre class="npm"><code class="bash">
+<v-code-npm>
 # дополнительные плагины
-<bg-npm>react-css-modules</bg-npm>              # возможно его заменил babel-plugin-react-css-modules
-<bg-npm>babel-plugin-react-css-modules</bg-npm>
-</code></pre>
+<u-code-npm>react-css-modules</u-code-npm>              # возможно его заменил babel-plugin-react-css-modules
+<u-code-npm>babel-plugin-react-css-modules</u-code-npm>
+</v-code-npm>

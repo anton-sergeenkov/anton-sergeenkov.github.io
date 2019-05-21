@@ -1,15 +1,15 @@
 <h2>Redux</h2>
  
-<pre class="npm"><code class="bash">
-npm i --save <bg-npm>redux</bg-npm>
-</code></pre>
+<v-code-npm>
+npm i --save <u-code-npm>redux</u-code-npm>
+</v-code-npm>
 
 <u-link-wrapper>
 	<a href="https://redux.js.org/introduction/getting-started" target="_blank">Документация</a>
 </u-link-wrapper>
 
 <ul class="list-point">
-	<li><u-text-define>Redux</u-text-define> - предсказуемый контейнер состояния для JS приложений</li>
+	<li><u-text-value>Redux</u-text-value> - предсказуемый контейнер состояния для JS приложений</li>
 </ul>
 
 <ol class="list-num">
@@ -41,14 +41,14 @@ store.<u-code>dispatch</u-code>({                            // событие �
 <h3>2. Actions</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><u-text-define>Actions</u-text-define> - объект. Описывает факт, что что-то произошло, но не указывает, как состояние приложения должно измениться в ответ (Reducer)</li>
+    <li><u-text-value>Actions</u-text-value> - объект. Описывает факт, что что-то произошло, но не указывает, как состояние приложения должно измениться в ответ (Reducer)</li>
     <li><u class="accent">type</u> - обязательное поле</li>
     <li><u class="accent">payload</u> - свойство в которое помещаются все данные, которые передаются вместе 
     с действием</li>
-    <li><u-text-define>ActionsCreator</u-text-define> - функция для вызова Action</li>
+    <li><u-text-value>ActionsCreator</u-text-value> - функция для вызова Action</li>
 </ul>
 
-<pre><code class="js"><code-type>js</code-type>
+<pre><code class="js"><u-code-title>js</u-code-title>
 const GET_PHOTOS = 'GET_PHOTOS'
 
 // ActionsCreator
@@ -62,13 +62,13 @@ const getPhotos = (year) => ({
 <h3>3. Reducer</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><u-text-define>Reducer</u-text-define> - указывает, как состояние приложения должно измениться в ответ на Action</li>
-    <li><u-text-define>Reducer Composition</u-text-define> - фундаментальный шаблон построения redux приложений: мы разбиваем наше глобальное состояние на кусочки, за каждый кусочек отвечает свой <u-code-text>reducer</u-code-text>. Кусочки объединяются в <u-code-text>rootReducer</u-code-text> Корневом Редьюсере</li>
+    <li><u-text-value>Reducer</u-text-value> - указывает, как состояние приложения должно измениться в ответ на Action</li>
+    <li><u-text-value>Reducer Composition</u-text-value> - фундаментальный шаблон построения redux приложений: мы разбиваем наше глобальное состояние на кусочки, за каждый кусочек отвечает свой <u-code-text>reducer</u-code-text>. Кусочки объединяются в <u-code-text>rootReducer</u-code-text> Корневом Редьюсере</li>
     <li>Мы не мутировали наш state, мы создали новый state. В редьюсере, мы всегда должны возвращать новый объект, а не измененный предыдущий</li>
     <li>Объект, который мы возвращаем в редьюсере, далее с помощью функции <u-code-text>connect</u-code-text>, превратится в свойства для компонентов. Благодаря этому, внутри компонента <u-code-text>&lt;Component /&gt;</u-code-text>, мы сможем получить доступ к свойству <u-code-text>this.props.name_prop</u-code-text></li>
 </ul>
 
-<pre><code class="js"><code-type>js</code-type>
+<pre><code class="js"><u-code-title>js</u-code-title>
 function page(state = initialState, action) {
     switch (action.type) {
         case GET_PHOTO_SUCCESS:

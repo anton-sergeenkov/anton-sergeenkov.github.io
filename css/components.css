@@ -10,3 +10,14 @@ v-two-code
 	width: 50%;
 	margin: 0px 5px;
 }
+
+/*******************************************
+v-code-npm
+*******************************************/
+.v-code-npm {
+	border-left: 3px solid rgba(var(--color-php), 0.85);
+	border-radius: none !important;
+}
+.v-code-npm code {
+	background: none !important;
+}

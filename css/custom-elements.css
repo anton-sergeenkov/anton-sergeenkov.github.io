@@ -1,8 +1,9 @@
 /*******************************************
 all
 *******************************************/
-u-code-text, u-code-list, u-code-comment, u-code, u-text-define, u-text-header,
-u-code-wrapper, u-link-wrapper {
+u-code-text, u-code-list, u-code-comment, u-code, u-text-value, u-text-header,
+u-code-wrapper, u-link-wrapper, u-code-npm, u-code-title, u-code-accent,
+u-menu, u-menu-accent, u-menu-code, u-menu-border  {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -37,7 +38,7 @@ u-code-list {
 u-code-comment {
 	color: var(--comment);
 }
-u-text-define {
+u-text-value {
 	padding: 4px;
 	background: rgba(var(--color-js), 0.66);
 	border-radius: 3px;
@@ -53,6 +54,34 @@ u-code-wrapper {
 	position: relative;
 	margin-top: -20px;
 	margin-bottom: -20px;
+}
+u-code-accent {
+	background: rgba(var(--color-php), 0.4);
+	padding: 2px;
+}
+
+/*******************************************
+menu
+*******************************************/
+u-menu, u-menu-accent, u-menu-code, u-menu-border {
+	padding: 2px 5px;
+	color: black !important;
+}
+u-menu {
+	background: rgba(var(--color-other), 0.3);
+}
+u-menu-accent {
+	background: rgba(var(--color-html), 0.35);
+	color: rgba(var(--color-dark-green), 1) !important;
+}
+u-menu-code {
+	color: rgba(var(--color-php), 1) !important;
+	border: 1px solid rgba(var(--color-php), 1) !important;
+	border-radius: 3px;
+}
+u-menu-border {
+	background: rgba(var(--color-other), 0.3);
+	border-left: 5px solid yellowgreen;
 }
 
 /*******************************************
@@ -85,6 +114,25 @@ u-link-wrapper a:before {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
+}
+u-code-npm {
+	padding: 2px !important;
+	background: rgba(var(--color-php), 0.85) !important;
+	color: white !important;
+	border-radius: 2px !important;
+}
+u-code-title {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: rgba(var(--color-html), 0.25);
+	padding: 3px 5px;
+	border-radius: 0px 0px 0px 5px;
+	font-size: 12px;
+	display: block;
+	color: rgba(var(--color-html), 1);
+	min-width: 70px;
+	text-align: center;
 }
 
 /*******************************************

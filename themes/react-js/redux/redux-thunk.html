@@ -1,11 +1,11 @@
 <h2>redux-thunk</h2>
 
-<pre class="npm"><code class="bash">
-npm i --save <bg-npm>redux-thunk</bg-npm>              # асинхронный actions
-npm i --save <bg-npm>redux-devtools-extension</bg-npm> # задание нескольких Middleware для createStore
-</code></pre>
+<v-code-npm>
+npm i --save <u-code-npm>redux-thunk</u-code-npm>              # асинхронный actions
+npm i --save <u-code-npm>redux-devtools-extension</u-code-npm> # задание нескольких Middleware для createStore
+</v-code-npm>
 
-<pre><code class="js"><code-type>redux/reducers/store.js</code-type>
+<pre><code class="js"><u-code-title>redux/reducers/store.js</u-code-title>
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";

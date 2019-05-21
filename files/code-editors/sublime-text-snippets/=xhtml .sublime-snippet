@@ -1,6 +1,6 @@
 <snippet>
 <content><![CDATA[
-<pre><code class="html"><code-type>html</code-type>
+<pre><code class="html"><u-code-title>html</u-code-title>
 ${1:this}
 </code></pre>
 ]]></content>

@@ -1,7 +1,7 @@
 <snippet>
 <content><![CDATA[
 <ul class="list-point">
-    <li><u-text-define>${1:this}</u-text-define> - </li>
+    <li><u-text-value>${1:this}</u-text-value> - </li>
 </ul>
 ]]></content>
 <tabTrigger>=list-define</tabTrigger>

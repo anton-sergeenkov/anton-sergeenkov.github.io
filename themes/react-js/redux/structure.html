@@ -26,7 +26,7 @@
 <!------------------------------------------------------------->
 <h4>Providing the Store</h4>
 <!------------------------------------------------------------->
-<pre><code class="js border"><code-type>index.js</code-type>
+<pre><code class="js border"><u-code-title>index.js</u-code-title>
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -50,7 +50,7 @@ ReactDOM.render(
 <!------------------------------------------------------------->
 <h4>Create Store</h4>
 <!------------------------------------------------------------->
-<pre><code class="js border"><code-type>redux/store.js</code-type>
+<pre><code class="js border"><u-code-title>redux/store.js</u-code-title>
 import { <u-code>createStore</u-code> } from "redux";
 import rootReducer from "./reducers";
 
@@ -63,7 +63,7 @@ export default <u-code>createStore</u-code>(rootReducer, devtoolMiddleware);
 <!------------------------------------------------------------->
 <h4>Combine Reducers</h4>
 <!------------------------------------------------------------->
-<pre><code class="js border"><code-type>redux/reducers/index.js</code-type>
+<pre><code class="js border"><u-code-title>redux/reducers/index.js</u-code-title>
 import { <u-code>combineReducers</u-code> } from "redux";
 import catalog from "./catalog";
 
@@ -75,7 +75,7 @@ export default <u-code>combineReducers</u-code>({
 <!------------------------------------------------------------->
 <h4>Reducer</h4>
 <!------------------------------------------------------------->
-<pre><code class="js border"><code-type>redux/reducers/catalog.js (custom reducer)</code-type>
+<pre><code class="js border"><u-code-title>redux/reducers/catalog.js (custom reducer)</u-code-title>
 import { ADD_PRODUCT } from "../actionTypes";
 
 const initialState = ['Product1', 'Product2']
@@ -97,7 +97,7 @@ export default catalog;
 <!------------------------------------------------------------->
 <h4>Create Action Types</h4>
 <!------------------------------------------------------------->
-<pre><code class="js border"><code-type>redux/actionTypes.js</code-type>
+<pre><code class="js border"><u-code-title>redux/actionTypes.js</u-code-title>
 export const ADD_PRODUCT = "ADD_PRODUCT";
 </code></pre>
 
@@ -108,7 +108,7 @@ export const ADD_PRODUCT = "ADD_PRODUCT";
 <!------------------------------------------------------------->
 <h4>Connecting the Components</h4>
 <!------------------------------------------------------------->
-<pre><code class="js border"><code-type>App.js</code-type>
+<pre><code class="js border"><u-code-title>App.js</u-code-title>
 import React, {Component} from "react";
 import { <u-code>connect</u-code> } from "react-redux";
 import { addProduct } from "./redux/actions";
@@ -141,7 +141,7 @@ export default <u-code>connect</u-code>(
 <!------------------------------------------------------------->
 <h4>Create Actions</h4>
 <!------------------------------------------------------------->
-<pre><code class="js border"><code-type>redux/actions.js</code-type>
+<pre><code class="js border"><u-code-title>redux/actions.js</u-code-title>
 import { ADD_PRODUCT } from "./actionTypes";
 
 export const addProduct = product => ({

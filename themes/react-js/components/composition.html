@@ -1,7 +1,7 @@
 <h2>Композиция против наследования</h2>
 
 <ul class="list-point">
-	<li><u-text-define>Композиция</u-text-define> - соединение мальньких или простых частей воедино для создания более крупных частей</li>
+	<li><u-text-value>Композиция</u-text-value> - соединение мальньких или простых частей воедино для создания более крупных частей</li>
 	<li>Для переиспользования кода между компонентами рекомендуется использовать композицию вместо наследования</li>
 	<li>Если вы хотите переиспользовать не связанную с внешним видом функциональность между компонентами, извлеките её в отдельный JavaScript-модуль. Импортируйте его в компонент и используйте эту функцию, объект или класс, не расширяя их</li>
 </ul>
@@ -18,7 +18,7 @@
 	<li><u-code-text>props children</u-code-text> - передаст дочерние элементы сразу на вывод</li>
 </ul>
 
-<pre><code class="js"><code-type>parent js</code-type>
+<pre><code class="js"><u-code-title>parent js</u-code-title>
 // ReactDOM.render
 class ComponentParent extends React.Component {
 	render() {
@@ -31,7 +31,7 @@ class ComponentParent extends React.Component {
 }
 </code></pre>
 
-<pre><code class="js"><code-type>child js</code-type>
+<pre><code class="js"><u-code-title>child js</u-code-title>
 class ComponentChild extends React.Component {
 	constructor(props) {
 		super(props);
@@ -54,7 +54,7 @@ class ComponentChild extends React.Component {
 	<li>В React нет никаких ограничений на то, что можно передать в качестве пропсов</li>
 </ul>
 
-<pre><code class="js"><code-type>parent js</code-type>
+<pre><code class="js"><u-code-title>parent js</u-code-title>
 // ReactDOM.render
 class ComponentParent extends React.Component {
 	render() {
@@ -63,7 +63,7 @@ class ComponentParent extends React.Component {
 }
 </code></pre>
 
-<pre><code class="js"><code-type>small js</code-type>
+<pre><code class="js"><u-code-title>small js</u-code-title>
 class ComponentSmall extends React.Component {
 	render() {
 		return (&lt;div&gt;ComponentSmall&lt;/div&gt;);
@@ -71,7 +71,7 @@ class ComponentSmall extends React.Component {
 }
 </code></pre>
 
-<pre><code class="js"><code-type>child js</code-type>
+<pre><code class="js"><u-code-title>child js</u-code-title>
 class ComponentChild extends React.Component {
 	constructor(props) {
 		super(props);

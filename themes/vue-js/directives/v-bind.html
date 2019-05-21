@@ -47,37 +47,37 @@
 	<li>Наличие класса <u-code-text>active</u-code-text> будет определяться истинностью параметра <u-code-text>isActive</u-code-text></li>
 </ul>
 
-<pre><code class="html"><code-type>html</code-type>
+<pre><code class="html"><u-code-title>html</u-code-title>
 &lt;div 
 	class="static" 
 	v-bind:class="{ active: isActive, 'text-danger': hasError }"
 &gt;&lt;/div&gt;
 </code></pre>
 
-<pre><code class="js"><code-type>js</code-type>
+<pre><code class="js"><u-code-title>js</u-code-title>
 data: {
 	isActive: true,
 	hasError: false
 }
 </code></pre>
 
-<pre><code class="html"><code-type>result</code-type>
+<pre><code class="html"><u-code-title>result</u-code-title>
 &lt;div class="static active"&gt;&lt;/div&gt;
 </code></pre>
 
 <!------------------------------------------------------------->
 <h4>Массив в аргументе</h4>
 <!------------------------------------------------------------->
-<pre><code class="html"><code-type>html</code-type>
+<pre><code class="html"><u-code-title>html</u-code-title>
 &lt;div :class="[activeClass, errorClass]"&gt;&lt;/div&gt;
 </code></pre>
-<pre><code class="js"><code-type>js</code-type>
+<pre><code class="js"><u-code-title>js</u-code-title>
 data: {
     activeClass: 'class-active',
     errorClass: 'class-error'
 }
 </code></pre>
-<pre><code class="html"><code-type>result</code-type>
+<pre><code class="html"><u-code-title>result</u-code-title>
 &lt;div class="active text-danger"&gt;&lt;/div&gt;
 </code></pre>
 

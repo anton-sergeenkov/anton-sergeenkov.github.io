@@ -9,17 +9,17 @@
 </ul>
 
 <ul class="list-point">
-	<li><u-text-define>v-on</u-text-define> - подписка на события DOM и выполнения JavaScript-кода по их наступлении</li>
+	<li><u-text-value>v-on</u-text-value> - подписка на события DOM и выполнения JavaScript-кода по их наступлении</li>
 </ul>
 
-<pre><code class="html"><code-type>html</code-type>
+<pre><code class="html"><u-code-title>html</u-code-title>
 &lt;button <u-code>v-on:click</u-code>=""&gt;&lt;/button&gt;            <u-code-comment># полная запись</u-code-comment>
 &lt;button <u-code>@click</u-code>=""&gt;&lt;/button&gt;                <u-code-comment># сокращенная запись</u-code-comment>
 &lt;button <u-code>@click</u-code>="methodOne"&gt;&lt;/button&gt;       <u-code-comment># указание названия метода</u-code-comment>
 &lt;button <u-code>@click</u-code>="methodTwo('hi')"&gt;&lt;/button&gt; <u-code-comment># указание JavaScript-выражения</u-code-comment>
 </code></pre>
 
-<pre><code class="js"><code-type>js</code-type>
+<pre><code class="js"><u-code-title>js</u-code-title>
 var app = new Vue({
 	el: '#app',
 	methods: {
@@ -186,7 +186,7 @@ Vue.config.keyCodes.f1 = 112; // позволит использовать 'v-on
 <h3 id="v-on-exact">Модификатор .exact</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><u-text-define>.exact</u-text-define> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события</li>
+	<li><u-text-value>.exact</u-text-value> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события</li>
 </ul>
 
 <pre><code class="html">

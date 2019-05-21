@@ -1,6 +1,6 @@
 <snippet>
 <content><![CDATA[
-<pre><code class="bash"><code-type>bash</code-type>
+<pre><code class="bash"><u-code-title>bash</u-code-title>
 ${1:this}
 </code></pre>
 ]]></content>

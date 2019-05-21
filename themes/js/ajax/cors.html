@@ -1,7 +1,7 @@
 <h2>CORS</h2>
 
 <ul class="list-point">
-	<li><u-text-define>Cross-origin resource sharing</u-text-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
+	<li><u-text-value>Cross-origin resource sharing</u-text-value> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -20,7 +20,7 @@
 <!------------------------------------------------------------->
 <h4>Простой метод GET, POST, HEAD</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><code-type>Запрос с домена http://test1.ru</code-type>
+<pre><code class="js"><u-code-title>Запрос с домена http://test1.ru</u-code-title>
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://test2.ru/script.php', true);
 xhr.onload = function() {
@@ -32,7 +32,7 @@ xhr.onerror = function() {
 xhr.send();
 </code></pre>
 
-<pre><code class="js"><code-type>Сервер http://test2.ru</code-type>
+<pre><code class="js"><u-code-title>Сервер http://test2.ru</u-code-title>
 &lt;?php
     header('<u-code>Access-Control-Allow-Origin</u-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
     header('Access-Control-Allow-Origin: *');               // разрешить доступ любому домену
@@ -42,7 +42,7 @@ xhr.send();
 <!------------------------------------------------------------->
 <h4>Чтение json файла</h4>
 <!------------------------------------------------------------->
-<pre><code class="json"><code-type>.htaccess</code-type>
+<pre><code class="json"><u-code-title>.htaccess</u-code-title>
 &lt;IfModule mod_rewrite.c&gt;
 	Header add Access-Control-Allow-Origin "*"
 	Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"

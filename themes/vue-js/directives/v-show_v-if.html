@@ -8,7 +8,7 @@
 </ul>
 
 <ul class="list-point">
-	<li><u-text-define>Conditional Rendering</u-text-define> (условная отрисовка) включает <u-code-text>v-show, v-if, v-else, v-else-if</u-code-text></li>
+	<li><u-text-value>Conditional Rendering</u-text-value> (условная отрисовка) включает <u-code-text>v-show, v-if, v-else, v-else-if</u-code-text></li>
 	
 	<hr>
 	<li><u-code-text>v-if</u-code-text> производит «настоящую» условную отрисовку, удостоверяясь что подписчики событий и дочерние компоненты внутри блока должным образом уничтожаются и воссоздаются при изменении истинности управляющего условия</li>
@@ -25,9 +25,9 @@
 </ul>
 
 <pre><code class="html">
-&lt;p <u-code>v-show</u-code>="view"&gt;text&lt;/p&gt;  <u-code-comment># устанавливается display: none/block</u-code-comment>
-&lt;p <u-code>v-if</u-code>="view"&gt;text&lt;/p&gt;    <u-code-comment># условие if. удаляется/добавляется в DOM дерево</u-code-comment>
-&lt;p <u-code>v-else</u-code>&gt;text&lt;/p&gt;         <u-code-comment># условие else при невыполнении if</u-code-comment>
+&lt;p <u-code>v-show</u-code>="view"&gt;text&lt;/p&gt;  <u-code-title># устанавливается display: none/block</u-code-title>
+&lt;p <u-code>v-if</u-code>="view"&gt;text&lt;/p&gt;    <u-code-title># условие if. удаляется/добавляется в DOM дерево</u-code-title>
+&lt;p <u-code>v-else</u-code>&gt;text&lt;/p&gt;         <u-code-title># условие else при невыполнении if</u-code-title>
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -61,11 +61,11 @@
 	<li><u-code-text>&lt;slot&gt;</u-code-text> невидимая обёртка - не появляется в результатах отрисовки</li>
 </ul>
 
-<div class="container-flex"><div class="container-half"><pre><code class="html"><code-type>html</code-type>
+<div class="container-flex"><div class="container-half"><pre><code class="html"><u-code-title>html</u-code-title>
 &lt;div&gt;
     &lt;slot v-if="view"&gt;text&lt;/p&gt;
 &lt;/div&gt;
-</code></pre></div><div class="container-half"><pre><code class="html"><code-type>result</code-type>
+</code></pre></div><div class="container-half"><pre><code class="html"><u-code-title>result</u-code-title>
 &lt;div&gt;
     text
 &lt;/div&gt;

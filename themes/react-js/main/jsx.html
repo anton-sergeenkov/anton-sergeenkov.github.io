@@ -16,17 +16,17 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Render</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html"><code-type>html</code-type>
+<pre><code class="html"><u-code-title>html</u-code-title>
 &lt;div id="root"&gt;&lt;/div&gt;
 </code></pre>
 
-<div class="container-flex"><div class="container-half"><pre><code class="js"><code-type>jsx</code-type>
+<div class="container-flex"><div class="container-half"><pre><code class="js"><u-code-title>jsx</u-code-title>
 const element = &lt;h2&gt;Hi&lt;/h2&gt;;
 ReactDOM.render(
 	element, 
 	document.getElementById('root')
 );
-</code></pre></div><div class="container-half"><pre><code class="js"><code-type>js</code-type>
+</code></pre></div><div class="container-half"><pre><code class="js"><u-code-title>js</u-code-title>
 var element = React.<u-code>createElement</u-code>('h2', null, 'Hi');
 ReactDOM.render(
 	element, 
@@ -121,13 +121,13 @@ const element = &lt;h1&gt;{title}&lt;/h1&gt;; // этот код безопас�
 	<li>Babel компилирует JSX в вызовы <u-code-text>React.createElement()</u-code-text></li>
 </ul>
 
-<div class="container-flex"><div class="container-half"><pre><code class="js"><code-type>js (babel)</code-type>
+<div class="container-flex"><div class="container-half"><pre><code class="js"><u-code-title>js (babel)</u-code-title>
 const element = (
 	&lt;h1 className="greeting"&gt;
 		Hello, world!
 	&lt;/h1&gt;
 );
-</code></pre></div><div class="container-half"><pre><code class="js"><code-type>js</code-type>
+</code></pre></div><div class="container-half"><pre><code class="js"><u-code-title>js</u-code-title>
 const element = React.createElement(
 	'h1',
 	{className: 'greeting'},
