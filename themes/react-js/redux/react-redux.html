@@ -9,20 +9,45 @@ npm i --save <u-code-npm>react-redux</u-code-npm>
 	<a href="https://react-redux.js.org/introduction/quick-start" target="_blank">Документация</a>
 </u-link-wrapper>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. createStore <u-code-text>redux</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><u-text-define>Provider</u-text-define> - рутовый компонент для того чтобы прокидывать Store. Необходим для того чтобы не пробрасывать Store в каждый компонент самостоятельно. <u-code-text>store</u-code-text> будет доступен в каждом дочернем компоненте <u-code-text>Provider</u-code-text></li>
+    <li><u-text-define>createStore</u-text-define> - создание store</li>
 </ul>
 
-<pre><code class="js">
-import { createStore }     from "redux";       // создание store
-import { Provider }        from "react-redux"; // рутовый компонент для того чтобы прокидывать Store
-import { connect }         from "react-redux"; // function for you to connect your component to the store (декоратор)
-import { combineReducers } from "redux";       // объединение нескольких reducer
-</code></pre>
+<ul class="list-point">
+    <li><u-menu-code>createStore</u-menu-code> </li>
+    <ul class="list-point">
+        <li><u-code-text>&#9776; reducer</u-code-text> - функция-обработчик изменений (редьюсер)</li>
+        <li><u-code-text>initialState</u-code-text> - начальное состояние</li>
+        <li><u-code-text>middleware</u-code-text> - усилители (н-р: логгер (logger), который просто пишет в консоль все что происходит с наблюдаемым объектом)</li>
+    </ul>
+</ul>
 
-<!------------------------------------------------------------->
-<h4>connect()</h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. combineReducers <u-code-text>redux</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>combineReducers</u-text-define> - объединение нескольких reducer</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Provider <u-code-text>react-redux</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>&lt;Provider /&gt;</u-text-define> - рутовый компонент для того чтобы прокидывать Store. Необходим для того чтобы не пробрасывать Store в каждый компонент самостоятельно. <u-code-text>Store</u-code-text> будет доступен в каждом дочернем компоненте <u-code-text>Provider</u-code-text> из функции <u-code-text>connect</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. Connect <u-code-text>react-redux</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>connect</u-text-define> - подключение компонента к Store (декоратор)</li>
+    <li>Результат работы функции <u>connect</u> - новый присоединенный компонент, который оборачивает переданный компонент. У нас был компонент <u-code-text>&lt;App /&gt;</u-code-text>, а на выходе получился <u-code-text>&lt;Connected(App)&gt;</u-code-text></li>
+    <li>В свойствах (<u-code-text>props</u-code-text>) компонента <u-code-text>&lt;App /&gt;</u-code-text> теперь есть метод redux <u-code-text>store - dispatch</u-code-text>, и <u>объект свойств</u>. Это так же результат работы функции <u>connect</u></li>
+</ul>
+
 <pre><code class="js">
 connect()(Component)                                    // Subscribe=False Action=False
 connect(mapStateToProps)(Component)                     // Subscribe=True  Action=False

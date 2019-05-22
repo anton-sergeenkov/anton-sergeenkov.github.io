@@ -9,7 +9,7 @@
 &#10006; redux
 	&#10006; reducers
 		&#8226; index.js
-		&#8226; catalog.js
+		&#8226; my-reducer.js
 	&#8226; store.js
 	&#8226; actions.js
 	&#8226; actionTypes.js
@@ -21,19 +21,16 @@
 </template></v-two>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>INDEX [PROVIDER]</h3>
+<h3>1. PROVIDER</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<!------------------------------------------------------------->
-<h4>Providing the Store</h4>
-<!------------------------------------------------------------->
 <pre><code class="js border"><u-code-title>index.js</u-code-title>
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import { <u-code>Provider</u-code> } from "react-redux";
-import store from "./redux/store";
+import { <u-code>Provider</u-code> } from 'react-redux';
+import store from './redux/store';
 
-import App from "./App";
+import App from './App';
 
 ReactDOM.render(
     &lt;<u-code>Provider store={store}</u-code>&gt;
@@ -43,16 +40,12 @@ ReactDOM.render(
 );
 </code></pre>
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>STORE</h3>
+<h3>2. STORE</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<!------------------------------------------------------------->
-<h4>Create Store</h4>
-<!------------------------------------------------------------->
 <pre><code class="js border"><u-code-title>redux/store.js</u-code-title>
-import { <u-code>createStore</u-code> } from "redux";
-import rootReducer from "./reducers";
+import { <u-code>createStore</u-code> } from 'redux';
+import rootReducer from './reducers';
 
 const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
 const devtoolMiddleware = ext && ext();
@@ -60,30 +53,27 @@ const devtoolMiddleware = ext && ext();
 export default <u-code>createStore</u-code>(rootReducer, devtoolMiddleware);
 </code></pre>
 
-<!------------------------------------------------------------->
-<h4>Combine Reducers</h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. REDUCERS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js border"><u-code-title>redux/reducers/index.js</u-code-title>
-import { <u-code>combineReducers</u-code> } from "redux";
-import catalog from "./catalog";
+import { <u-code>combineReducers</u-code> } from 'redux';
+import myReducer from './my-reducer';
 
 export default <u-code>combineReducers</u-code>({
-    catalog
+    myReducer
 });
 </code></pre>
 
-<!------------------------------------------------------------->
-<h4>Reducer</h4>
-<!------------------------------------------------------------->
-<pre><code class="js border"><u-code-title>redux/reducers/catalog.js (custom reducer)</u-code-title>
-import { ADD_PRODUCT } from "../actionTypes";
+<pre><code class="js border"><u-code-title>redux/reducers/my-reducer.js</u-code-title>
+import { ADD_VALUE } from '../actionTypes';
 
-const initialState = ['Product1', 'Product2']
+const initialState = ['Default Value 1', 'Default Value 2'];
 
-const catalog = (state = initialState, action) => {
+const myReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_PRODUCT: {
-            <u-code>return [...state, action.payload.product]</u-code>;
+        case ADD_VALUE: {
+            <u-code>return [...state, action.payload.myValue]</u-code>;
         }
         default: {
             return state;
@@ -91,45 +81,46 @@ const catalog = (state = initialState, action) => {
     }
 };
 
-export default catalog;
+export default myReducer;
 </code></pre>
 
-<!------------------------------------------------------------->
-<h4>Create Action Types</h4>
-<!------------------------------------------------------------->
-<pre><code class="js border"><u-code-title>redux/actionTypes.js</u-code-title>
-export const ADD_PRODUCT = "ADD_PRODUCT";
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. ACTIONS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js border"><u-code-title>redux/actions.js</u-code-title>
+import { ADD_VALUE } from './actionTypes';
+
+export const addMyValue = myValue => ({
+    <u-code>type</u-code>: ADD_VALUE,
+    <u-code>payload</u-code>: { myValue }
+})
 </code></pre>
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>COMPONENT [CONNECT]</h3>
+<h3>5. COMPONENT</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<!------------------------------------------------------------->
-<h4>Connecting the Components</h4>
-<!------------------------------------------------------------->
 <pre><code class="js border"><u-code-title>App.js</u-code-title>
-import React, {Component} from "react";
-import { <u-code>connect</u-code> } from "react-redux";
-import { addProduct } from "./redux/actions";
+import React, {Component} from 'react';
+import { <u-code>connect</u-code> } from 'react-redux';
+import { addMyValue } from './redux/actions';
 
 class App extends Component {
 	componentDidMount() {
-		<u-code>this.props.add</u-code>('New Product');
+		<u-code>this.props.addMyValue</u-code>('New Value');
 	}
 	render() {
-		console.log(<u-code>this.props.catalog</u-code>);
-		// => (2) ["Product1", "Product2"]
-		// => (3) ["Product1", "Product2", "New Product"]
+		console.log(<u-code>this.props.myValue</u-code>);
+		// => (2) ["Default Value 1", "Default Value 2"]
+		// => (3) ["Default Value 1", "Default Value 2", "New Value"]
 		return (&lt;div&gt;&lt;/div&gt;);
 	}
 }
 
 const mapStateToProps = state =&gt; ({
-	<u-code>catalog: state.catalog</u-code>
+	<u-code>myValue: state.myReducer</u-code>
 })
 const mapDispatchToProps = {
-	<u-code>add: addProduct</u-code>
+	<u-code>addMyValue: addMyValue</u-code>
 }
 
 export default <u-code>connect</u-code>(
@@ -138,14 +129,9 @@ export default <u-code>connect</u-code>(
 )(App);
 </code></pre>
 
-<!------------------------------------------------------------->
-<h4>Create Actions</h4>
-<!------------------------------------------------------------->
-<pre><code class="js border"><u-code-title>redux/actions.js</u-code-title>
-import { ADD_PRODUCT } from "./actionTypes";
-
-export const addProduct = product => ({
-    <u-code>type</u-code>: ADD_PRODUCT,
-    <u-code>payload</u-code>: { product }
-})
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>6. CONST</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js border"><u-code-title>redux/actionTypes.js</u-code-title>
+export const ADD_VALUE = 'ADD_VALUE';
 </code></pre>
