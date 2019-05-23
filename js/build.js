@@ -1,6 +1,13 @@
 var point = '<div class="circle-menu"></div> ';
 var code = '<u-menu-code>&lt;/&gt;</u-menu-code> ';
 
+function border(arr) {
+    let result = arr.map(function(element) {
+        return '<u-menu-border>'+element+'</u-menu-border>'
+    });
+    return result.join(' ');
+}
+
 //---------------------------------------------------------------------
 // REACT.JS
 //---------------------------------------------------------------------
@@ -12,7 +19,7 @@ var arrReactjs = [
     ['react-js', 'main', 'jsx',                   point+'JSX'],
     ['react-js', 'main', 'state',                 point+'Состояние'],
     ['react-js', 'main', 'lifecycle',             point+'Жизненный цикл'],
-    ['react-js', 'main', 'create-react-app',      '<u-menu-border>react</u-menu-border> <u-menu-border>react-dom</u-menu-border> <u-menu-border>create-react-app</u-menu-border>'],
+    ['react-js', 'main', 'create-react-app',      border(['react', 'react-dom', 'create-react-app'])],
     ['react-js', 'main', 'react-developer-tools', point+'React Developer Tools'],
 
     [1, 'Компоненты'],
@@ -29,23 +36,22 @@ var arrReactjs = [
     ['react-js', 'processing-data-output', 'forms',                 point+'Формы'],
 
     [1, 'Redux'],
-    ['react-js', 'redux', 'flux',                  'Flux'],
+    ['react-js', 'redux', 'flux',                  'Flux & Redux'],
     ['react-js', 'redux', 'structure',             code+'Структура'],
-    ['react-js', 'redux', 'redux',                 '<u-menu-border>redux</u-menu-border>'],
-    ['react-js', 'redux', 'react-redux',           '<u-menu-border>react-redux</u-menu-border>'],
-    ['react-js', 'redux', 'redux-thunk',           '<u-menu-border>redux-thunk</u-menu-border> <br> <u-menu-border>redux-devtools-extension</u-menu-border>'],
+    ['react-js', 'redux', 'react-redux',           border(['react', 'react-redux'])],
+    ['react-js', 'redux', 'redux-thunk',           border(['redux-thunk', 'redux-devtools-extension'])],
+    ['react-js', 'redux', 'prop-types',            border(['prop-types'])],
+    ['react-js', 'redux', 'redux-form',            border(['redux-form'])],
+    ['react-js', 'redux', 'redux-actions',         border(['redux-actions'])],
     ['react-js', 'redux', 'redux-developer-tools', 'Redux DevTools'],
 
     [1, 'React Router'],
-    ['react-js', 'react-router', 'react-router',      '<u-menu-border>react-router</u-menu-border> <u-menu-border>react-router-dom</u-menu-border>'],
+    ['react-js', 'react-router', 'react-router',      border(['react-router', 'react-router-dom'])],
     ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
     ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
     ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
     ['react-js', 'react-router', 'page-404',          'Page 404'],
 ];
-
-
-
 
 
 //---------------------------------------------------------------------
@@ -513,12 +519,13 @@ var arrTheory = [
 var arrOther = [
     [1, 'Информация'],
     ['other', 'main', 'code-editors',  'Редакторы кода'],
+    ['other', 'main', 'server-online', 'Server Online'],
     ['other', 'main', 'name-case',     'Соглашение по именованию'],
     ['other', 'main', 'prefix',        'Префиксы'],
     ['other', 'main', 'emmet',         'Emmet'],
     ['other', 'main', 'photoshop',     'Adobe Photoshop'],
     ['other', 'main', 'denwer',        'Denwer'],
-    ['other', 'main', 'google-chrome', 'Chrome'],
+    ['other', 'main', 'google-chrome', 'Google Chrome'],
 ];
 
 //---------------------------------------------------------------------
@@ -528,7 +535,8 @@ var arrLinux = [
     [1, 'Ubuntu (Debian)'],
     ['linux', 'ubuntu', 'command', 'Команды'],
     ['linux', 'ubuntu', 'package', 'Пакеты'],
-    ['linux', 'ubuntu', 'nodejs',  'Node.js'],
+    ['linux', 'ubuntu', 'nodejs',  point+'Node.js'],
+    ['linux', 'ubuntu', 'npm',     point+'Npm'],
     ['linux', 'ubuntu', 'setting', 'Настройка'],
     ['linux', 'ubuntu', 'other',   'Прочее'],
 ];
@@ -597,7 +605,24 @@ var arrCanvas = [
     ['canvas', 'main', 'html',   'HTML'],
     ['canvas', 'main', 'basic',  'Основы'],
     ['canvas', 'main', 'figure', 'Фигуры'],
-    ['canvas', 'main', 'other', 'Остальное'],
+    ['canvas', 'main', 'other',  'Остальное'],
+];
+
+//---------------------------------------------------------------------
+// HTML
+//---------------------------------------------------------------------
+var arrHTML = [
+    [1, 'Основное'],
+    ['html', 'main', 'info',            'Информация'],
+    ['html', 'main', 'custom-elements', 'Custom Elements'],
+    ['html', 'main', 'html5-layout',    'Теги HTML5 Layout'],
+    ['html', 'main', 'web-forms',       'Web Forms'],
+    ['html', 'main', 'element-link',    'Ссылки'],
+    ['html', 'main', 'element-media',   'Видео и аудио'],
+    ['html', 'main', 'yandex-map',      'Яндекс Карты'],
+    ['html', 'main', 'element-table',   'Таблицы'],
+    ['html', 'main', 'element-iframe',  'iframe'],
+    ['html', 'main', 'samples',         'Примеры'],
 ];
 
 //---------------------------------------------------------------------
@@ -611,6 +636,8 @@ var arrEnglish = [
     ['english', 'main', 'nationality', 'Nationality'],
     ['english', 'main', 'other',       'Other'],
 ];
+
+
 
 
 
@@ -633,7 +660,8 @@ switch(pageName) {
     case 'js-tasks.html':   var arrCurrent = arrJsTasks;    break;
     case 'jquery.html':     var arrCurrent = arrJquery;     break;
     case 'canvas.html':     var arrCurrent = arrCanvas;     break;
-    case 'english.html':    var arrCurrent = arrEnglish;     break;
+    case 'english.html':    var arrCurrent = arrEnglish;    break;
+    case 'html.html':       var arrCurrent = arrHTML;       break;
 }
 
 if (pageName != 'map.html') {

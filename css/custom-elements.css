@@ -3,7 +3,7 @@ all
 *******************************************/
 u-code-text, u-code-list, u-code-comment, u-code, u-text-define, u-text-header,
 u-code-wrapper, u-link-wrapper, u-code-npm, u-code-title, u-code-accent,
-u-menu, u-menu-accent, u-menu-code, u-menu-border  {
+u-menu, u-menu-accent, u-menu-code, u-menu-border, u-text-underline  {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -58,6 +58,11 @@ u-code-wrapper {
 u-code-accent {
 	background: rgba(var(--color-php), 0.4);
 	padding: 2px;
+}
+u-text-underline {
+	color: rgba(var(--color-fw), 1);
+	padding: 3px;
+	border-bottom: 2px dashed rgba(var(--color-fw), 0.7);
 }
 
 /*******************************************

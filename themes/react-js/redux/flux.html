@@ -1,5 +1,8 @@
-<h2>Flux</h2>
+<h2>Flux & Redux</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Flux</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ol class="list-num">
 	<b>Методология Flux состоит из 4 частей</b>
 	<li><u>View</u> (компоненты)</li>
@@ -21,3 +24,82 @@
 <ul class="list-point">
 	<li><b>Достоинства: </b>сложно случайно измененить состояние. Если что-то произойдет, то ясно где искать ошибку</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Redux</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save <u-code-npm>redux</u-code-npm>
+</v-pre-npm>
+
+<u-link-wrapper>
+	<a href="https://redux.js.org/introduction/getting-started" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li><u-text-define>Redux</u-text-define> - предсказуемый контейнер состояния для JS приложений</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Store</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li><u class="accent">Store</u> - помещаются все данные приложения. Store иммутабельный: мы можем создавать всегда только новую копию данных, а не менять старое состояние store. ТОЛЬКО ОДИН объект Store. Store, "объединяет" Reducer и Actions</li>
+</ol>
+
+<pre><code class="js">
+const store = <u-code>createStore</u-code>(reducerFunction); // создание store
+store.<u-code>getState</u-code>();                           // получить состояние store
+store.<u-code>subscribe</u-code>();                          // подписка на изменение store
+store.<u-code>dispatch</u-code>({                            // событие обновления состояния store
+    type: 'тип_события', 
+    payload: 'данные' 
+}); 
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Принципы функционального программирования в Redux</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u>Чистые функции (pure functions)</u> - функция возвращаюшая знечение, зависомое только от получаемых аргументов</li>
+	<li><u>Неизменность данных (immutability)</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>File Structure</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Rails Style</li>
+    <li>Redux Ducks</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример использования Redux</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js border">
+import { createStore } from 'redux';
+
+function changeStore(state = [], action) {
+    // console.log(action);
+    // => {type: "@@redux/INITn.9.1.1.y.1"}          // всегда когда redux инициализирован
+    // => {type: "ADD_PRODUCT", payload: "Product1"} // добавленный action
+
+    if (action.type === 'ADD_PRODUCT') {
+        return [
+            ...state,
+            action.payload
+        ];
+    }
+    return state;
+}
+
+const store = <u-code>createStore</u-code>(changeStore);
+
+store.<u-code>subscribe</u-code>(() => {
+    console.log('subscribe', store.<u-code>getState</u-code>());
+});
+
+store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product1' });
+store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product2' });
+</code></pre>
+

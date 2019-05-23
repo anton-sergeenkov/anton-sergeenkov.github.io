@@ -33,11 +33,18 @@ arr.forEach(function(element, index, arr) {
 </ul>
 
 <pre><code class="js">
+// Выбор положительных элементов массива
 var arr = [1, -1, 2, -2, 3];
-var positiveArr = arr.filter(function(number) {
+var result = arr.filter(function(number) {
 	return number > 0;
 });
-alert(positiveArr); // 1,2,3
+alert(result); // => 1,2,3
+</code></pre>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+// Поиск вхождения подстроки в массив
+let arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
+let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
 </code></pre>
 
 <!------------------------------------------------------>

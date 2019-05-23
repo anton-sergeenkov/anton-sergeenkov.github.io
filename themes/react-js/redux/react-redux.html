@@ -7,50 +7,97 @@ npm i --save <u-code-npm>react-redux</u-code-npm>
 
 <u-link-wrapper>
 	<a href="https://react-redux.js.org/introduction/quick-start" target="_blank">Документация</a>
+    <a href="https://maxfarseer.gitbooks.io/redux-course-ru-v2/" target="_blank">Максим Пацианский "React Redux" (книга)</a>
 </u-link-wrapper>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>1. createStore <u-code-text>redux</u-code-text></h3>
+<h3>Составляющие</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-text-define>createStore</u-text-define> - создание store</li>
-</ul>
 
 <ul class="list-point">
-    <li><u-menu-code>createStore</u-menu-code> </li>
+    <li><u-text-define>1. View</u-text-define></li>
+
+    <hr>
+    <li><u-text-define>2. Store</u-text-define> - помещаются все данные приложения. Store иммутабельный: мы можем создавать всегда только новую копию данных, а не менять старое состояние store. ТОЛЬКО ОДИН объект Store. Store, "объединяет" Reducer и Actions</li>
+    
+    <hr>
+    <li><u-text-define>3. Reducer</u-text-define> - (преобразователь) - чистая функция, которая берет на вход предыдущее состояние и action и возвращает новое состояние. Не модифицирует данные, а всегда возвращает новые данные. Указывает, как состояние приложения должно измениться в ответ на Action</li>
+    <li>Мы не мутировали наш state, мы создали новый state. В редьюсере, мы всегда должны возвращать новый объект, а не измененный предыдущий</li>
+    <li>Объект, который мы возвращаем в редьюсере, далее с помощью функции <u-code-text>connect</u-code-text>, превратится в свойства для компонентов. Благодаря этому, внутри компонента <u-code-text>&lt;Component /&gt;</u-code-text>, мы сможем получить доступ к свойству <u-code-text>this.props.name_prop</u-code-text></li>
+    
+    <li><u-text-underline>Reducer Composition</u-text-underline> - фундаментальный шаблон построения redux приложений: мы разбиваем наше глобальное состояние на кусочки, за каждый кусочек отвечает свой <u-code-text>reducer</u-code-text>. Кусочки объединяются в <u-code-text>rootReducer</u-code-text> Корневом Редьюсере</li>
+
+    <hr>
+    <li><u-text-define>4. Actions</u-text-define> - объект. Описывает факт, что что-то произошло, но не указывает, как состояние приложения должно измениться в ответ (Reducer). Изменение состоние происходит с помощью действий</li>
+
     <ul class="list-point">
-        <li><u-code-text>&#9776; reducer</u-code-text> - функция-обработчик изменений (редьюсер)</li>
-        <li><u-code-text>initialState</u-code-text> - начальное состояние</li>
-        <li><u-code-text>middleware</u-code-text> - усилители (н-р: логгер (logger), который просто пишет в консоль все что происходит с наблюдаемым объектом)</li>
+        <li><u-menu-code>Actions</u-menu-code> </li>
+        <ul class="list-point">
+            <li><u-code-text>&#9776; type</u-code-text> - обязательное поле</li>
+            <li><u-code-text>payload</u-code-text> - свойство в которое помещаются все данные, которые передаются вместе с действием</li>
+        </ul>
+    </ul>
+    
+    <li><u-text-underline>ActionsCreator</u-text-underline> - функция для вызова Action</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>1. createStore</u-text-define> <u-code-npm>redux</u-code-npm> - создание store</li>
+
+    <ul class="list-point">
+        <li><u-menu-code>createStore</u-menu-code> </li>
+        <ul class="list-point">
+            <li><u-code-text>&#9776; reducer</u-code-text> - функция-обработчик изменений (редьюсер)</li>
+            <li><u-code-text>initialState</u-code-text> - начальное состояние</li>
+            <li><u-code-text>middleware</u-code-text> - суть middleware функций, взять входные данные, добавить что-то и передать дальше. Middleware - это всегда функция, которые обычно возвращают функцию, если только целью middleware не является прервать цепочку вызовов</li>
+        </ul>
+    </ul>
+    <hr>
+
+    <li><u-text-define>2. combineReducers</u-text-define> <u-code-npm>redux</u-code-npm> - объединение нескольких reducer</li>
+    <hr>
+
+    <li><u-text-define>3. Provider</u-text-define> <u-code-npm>react-redux</u-code-npm> - рутовый компонент для того чтобы прокидывать Store. Необходим для того чтобы не пробрасывать Store в каждый компонент самостоятельно. <u-code-text>Store</u-code-text> будет доступен в каждом дочернем компоненте <u-code-text>Provider</u-code-text> из функции <u-code-text>connect</u-code-text></li>
+    <hr>
+
+    <li><u-text-define>4. Connect</u-text-define> <u-code-npm>react-redux</u-code-npm> - подключение компонента к Store (декоратор)</li>
+    <li>Результат работы функции <u>connect</u> - новый присоединенный компонент, который оборачивает переданный компонент. У нас был компонент <u-code-text>&lt;App /&gt;</u-code-text>, а на выходе получился <u-code-text>&lt;Connected(App)&gt;</u-code-text>. В свойствах (<u-code-text>props</u-code-text>) компонента <u-code-text>&lt;App /&gt;</u-code-text> теперь есть метод redux <u-code-text>store - dispatch</u-code-text>, и <u>объект свойств</u>. Это так же результат работы функции <u>connect</u></li>
+
+    <ul class="list-point">
+        <li><u-menu-code>connect</u-menu-code> </li>
+        <ul class="list-point">
+            <li><u-code-text>mapStateToProps</u-code-text> - "маппинг" (соответствие) state к props</li>
+            <li><u-code-text>mapDispatchToProps</u-code-text> - "маппинг" (соответствие) dispatch к props</li>
+        </ul>
+    </ul>
+
+
+<pre><code class="bash none">
+<em>connect()(Component)</em>                                    # Subscribe=False Action=False
+<em>connect(mapStateToProps)(Component)</em>                     # Subscribe=True  Action=False
+<em>connect(null, mapDispatchToProps)(Component)</em>            # Subscribe=False Action=True
+<em>connect(mapStateToProps, mapDispatchToProps)(Component)</em> # Subscribe=True  Action=True
+</code></pre>
+
+    <ul class="list-point">
+        <li><u-text-underline>mapStateToProps</u-text-underline> - подписаться на обновления данных</li>
+        <li>Мы не только получаем в this.props.XXX данные, которым нам нужны, но мы еще и подписываемся на изменение этих данных</li>
+        <li>Когда мы подписываемся только на нужные редьюсеры в компоненте, перерисовка происходит только в случае изменения конкретно этих данных. Если же мы бы подписались просто на весь корневой редьюсер, то не важно в каком бы редьюсере изменились данные - все подписанные на корневой редьюсер компоненты обновились бы</li>
+        <li><u-text-underline>mapDispatchToProps</u-text-underline> - "прокинуть" actions в контейнер</li>
     </ul>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>2. combineReducers <u-code-text>redux</u-code-text></h3>
+<h3>Однонаправленный поток данных</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-text-define>combineReducers</u-text-define> - объединение нескольких reducer</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>3. Provider <u-code-text>react-redux</u-code-text></h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li><u-text-define>&lt;Provider /&gt;</u-text-define> - рутовый компонент для того чтобы прокидывать Store. Необходим для того чтобы не пробрасывать Store в каждый компонент самостоятельно. <u-code-text>Store</u-code-text> будет доступен в каждом дочернем компоненте <u-code-text>Provider</u-code-text> из функции <u-code-text>connect</u-code-text></li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>4. Connect <u-code-text>react-redux</u-code-text></h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li><u-text-define>connect</u-text-define> - подключение компонента к Store (декоратор)</li>
-    <li>Результат работы функции <u>connect</u> - новый присоединенный компонент, который оборачивает переданный компонент. У нас был компонент <u-code-text>&lt;App /&gt;</u-code-text>, а на выходе получился <u-code-text>&lt;Connected(App)&gt;</u-code-text></li>
-    <li>В свойствах (<u-code-text>props</u-code-text>) компонента <u-code-text>&lt;App /&gt;</u-code-text> теперь есть метод redux <u-code-text>store - dispatch</u-code-text>, и <u>объект свойств</u>. Это так же результат работы функции <u>connect</u></li>
-</ul>
-
-<pre><code class="js">
-connect()(Component)                                    // Subscribe=False Action=False
-connect(mapStateToProps)(Component)                     // Subscribe=True  Action=False
-connect(null, mapDispatchToProps)(Component)            // Subscribe=False Action=True
-connect(mapStateToProps, mapDispatchToProps)(Component) // Subscribe=True  Action=True
-</code></pre>
+<ol class="list-num">
+    <li>Приложение получило начальное состояние (<u-code-text>initial state</u-code-text>)</li>
+    <li>Пользователь нажав кнопку, отправил действие (<u-code-text>dispatch action</u-code-text>)</li>
+    <li>Соответсвующий редьюсер обновил часть приложения, в согласии с тем, что узнал от действия</li>
+    <li>Приложение изменилось и теперь отражает новое состояние</li>
+    <li>... (все повторяется по кругу, с пункта 2)</li>
+</ol>
