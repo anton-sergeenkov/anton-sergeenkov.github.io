@@ -48,6 +48,7 @@ var arrReactjs = [
     ['react-js', 'redux', 'info',                  'Информация'],
     ['react-js', 'redux', 'structure',             code+'Структура'],
     ['react-js', 'redux', 'react-redux',           point+setBg(['react', 'react-redux'])],
+    ['react-js', 'redux', 'middleware',            point+'Middleware'],
     ['react-js', 'redux', 'redux-developer-tools', 'Redux DevTools'],
 
     [1, 'Redux Plugins'],
@@ -101,6 +102,7 @@ var arrWebpack = [
     ['webpack', 'options', 'entry-output', '<u-menu>entry</u-menu> <u-menu>output</u-menu>'],
     ['webpack', 'options', 'library',      '<u-menu>library</u-menu>'],
     ['webpack', 'options', 'watch',        '<u-menu>watch</u-menu> <u-menu>watchOptions</u-menu>'],
+    ['webpack', 'options', 'resolve',      '<u-menu>resolve</u-menu>'],
 ];
 
 //---------------------------------------------------------------------
