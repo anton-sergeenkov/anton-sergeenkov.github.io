@@ -1,12 +1,21 @@
 var point = '<div class="circle-menu"></div> ';
 var code = '<u-menu-code>&lt;/&gt;</u-menu-code> ';
 
-function border(arr) {
+function setBorder(arr) {
     let result = arr.map(function(element) {
         return '<u-menu-border>'+element+'</u-menu-border>'
     });
     return result.join(' ');
 }
+
+function setBg(arr) {
+    let result = arr.map(function(element) {
+        return '<u-menu>'+element+'</u-menu>'
+    });
+    return result.join(' ');
+}
+
+
 
 //---------------------------------------------------------------------
 // REACT.JS
@@ -19,8 +28,8 @@ var arrReactjs = [
     ['react-js', 'main', 'jsx',                   point+'JSX'],
     ['react-js', 'main', 'state',                 point+'Состояние'],
     ['react-js', 'main', 'lifecycle',             point+'Жизненный цикл'],
-    ['react-js', 'main', 'create-react-app',      border(['react', 'react-dom', 'create-react-app'])],
-    ['react-js', 'main', 'react-developer-tools', point+'React Developer Tools'],
+    ['react-js', 'main', 'create-react-app',      point+setBg(['react', 'react-dom', 'create-react-app'])],
+    ['react-js', 'main', 'react-developer-tools', 'React Developer Tools'],
 
     [1, 'Компоненты'],
     ['react-js', 'components', 'info',                  'Информация'],
@@ -36,17 +45,20 @@ var arrReactjs = [
     ['react-js', 'processing-data-output', 'forms',                 point+'Формы'],
 
     [1, 'Redux'],
-    ['react-js', 'redux', 'flux',                  'Flux & Redux'],
+    ['react-js', 'redux', 'info',                  'Информация'],
     ['react-js', 'redux', 'structure',             code+'Структура'],
-    ['react-js', 'redux', 'react-redux',           border(['react', 'react-redux'])],
-    ['react-js', 'redux', 'redux-thunk',           border(['redux-thunk', 'redux-devtools-extension'])],
-    ['react-js', 'redux', 'prop-types',            border(['prop-types'])],
-    ['react-js', 'redux', 'redux-form',            border(['redux-form'])],
-    ['react-js', 'redux', 'redux-actions',         border(['redux-actions'])],
+    ['react-js', 'redux', 'react-redux',           point+setBg(['react', 'react-redux'])],
     ['react-js', 'redux', 'redux-developer-tools', 'Redux DevTools'],
 
+    [1, 'Redux Plugins'],
+    ['react-js', 'redux-plugins', 'redux-thunk',    setBg(['redux-thunk', 'redux-devtools-extension'])],
+    ['react-js', 'redux-plugins', 'prop-types',     setBg(['prop-types'])],
+    ['react-js', 'redux-plugins', 'redux-form',     setBg(['redux-form'])],
+    ['react-js', 'redux-plugins', 'redux-actions',  setBg(['redux-actions'])],
+    ['react-js', 'redux-plugins', 'redux-logger',   setBg(['redux-logger'])],
+
     [1, 'React Router'],
-    ['react-js', 'react-router', 'react-router',      border(['react-router', 'react-router-dom'])],
+    ['react-js', 'react-router', 'react-router',      setBg(['react-router', 'react-router-dom'])],
     ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
     ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
     ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
