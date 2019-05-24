@@ -58,6 +58,7 @@ var arrReactjs = [
     ['react-js', 'redux-plugins', 'prop-types',     setBg(['prop-types'])],
     ['react-js', 'redux-plugins', 'redux-form',     setBg(['redux-form'])],
     ['react-js', 'redux-plugins', 'redux-actions',  setBg(['redux-actions'])],
+    ['react-js', 'redux-plugins', 'redux-saga',     setBg(['redux-saga'])],
     ['react-js', 'redux-plugins', 'redux-logger',   setBg(['redux-logger'])],
 
     [1, 'React Router'],
