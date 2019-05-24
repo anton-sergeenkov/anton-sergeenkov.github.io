@@ -47,7 +47,9 @@ var arrReactjs = [
     [1, 'Redux'],
     ['react-js', 'redux', 'info',                  'Информация'],
     ['react-js', 'redux', 'structure',             code+'Структура'],
+    ['react-js', 'redux', 'elements',              point+'View | Store | Reducer | Actions'],
     ['react-js', 'redux', 'react-redux',           point+setBg(['react', 'react-redux'])],
+    ['react-js', 'redux', 'connect',               point+'Connect'],
     ['react-js', 'redux', 'middleware',            point+'Middleware'],
     ['react-js', 'redux', 'redux-developer-tools', 'Redux DevTools'],
 

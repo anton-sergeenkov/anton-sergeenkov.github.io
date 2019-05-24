@@ -61,7 +61,6 @@ u-code-accent {
 }
 u-text-underline {
 	color: rgba(var(--color-fw), 1);
-	padding: 3px;
 	border-bottom: 2px dashed rgba(var(--color-fw), 0.7);
 }
 

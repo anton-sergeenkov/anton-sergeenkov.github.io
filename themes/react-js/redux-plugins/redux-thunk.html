@@ -2,11 +2,18 @@
 
 <v-pre-npm>
 npm i --save <u-code-npm>redux-thunk</u-code-npm>              # асинхронные actions
-npm i --save <u-code-npm>redux-devtools-extension</u-code-npm> # задание нескольких Middleware для createStore
+npm i --save <u-code-npm>redux-devtools-extension</u-code-npm> # для работы devtools
 </v-pre-npm>
 
 <pre><code class="js"><u-code-title>redux/reducers/store.js</u-code-title>
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
+import thunk from <u-code>'redux-thunk'</u-code>;
+import rootReducer from './reducers';
+
+export default createStore(rootReducer, <u-code>composeWithDevTools(applyMiddleware(thunk))</u-code>);
 </code></pre>
+
+<ul class="list-point">
+    <li>Если action creator возвращает не простой объект, а функцию - она выполняется, иначе если это простой объект - передается дальше. Более того, в цепочке middleware есть доступный метод dispatch и getState</li>
+</ul>
