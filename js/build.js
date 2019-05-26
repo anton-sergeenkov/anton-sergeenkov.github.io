@@ -647,8 +647,8 @@ var arrHTML = [
 //---------------------------------------------------------------------
 var arrEnglish = [
     [1, 'Основное'],
-    ['english', 'main', 'to-be',       point+'Verb To Be'],
-    ['english', 'main', 'articles',    point+'Articles'],
+    ['english', 'main', 'to-be',       setBg(['1'])+' Verb To Be'],
+    ['english', 'main', 'articles',    setBg(['2'])+' Articles'],
     ['english', 'main', 'phrases',     code+'Phrases'],
     ['english', 'main', 'nationality', 'Nationality'],
     ['english', 'main', 'other',       'Other'],
