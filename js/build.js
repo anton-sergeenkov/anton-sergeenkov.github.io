@@ -57,6 +57,7 @@ var arrReactjs = [
     ['react-js', 'redux-plugins', 'redux-thunk',    setBg(['redux-thunk', 'redux-devtools-extension'])],
     ['react-js', 'redux-plugins', 'prop-types',     setBg(['prop-types'])],
     ['react-js', 'redux-plugins', 'redux-form',     setBg(['redux-form'])],
+    ['react-js', 'redux-plugins', 'formik',         setBg(['formik'])],
     ['react-js', 'redux-plugins', 'redux-actions',  setBg(['redux-actions'])],
     ['react-js', 'redux-plugins', 'redux-saga',     setBg(['redux-saga'])],
     ['react-js', 'redux-plugins', 'redux-logger',   setBg(['redux-logger'])],
