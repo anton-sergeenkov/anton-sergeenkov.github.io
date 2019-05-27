@@ -1,1 +1,2 @@
 
+https://learn.javascript.ru/task/debounce
