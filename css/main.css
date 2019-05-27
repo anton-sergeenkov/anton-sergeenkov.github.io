@@ -6,7 +6,7 @@
 @import "./custom-elements.css" screen;
 @import "./components.css" screen;
 
-@import "./_test.css" screen;
+@import "./test.css" screen;
 
 /***************************************************
 STRUCTURE
