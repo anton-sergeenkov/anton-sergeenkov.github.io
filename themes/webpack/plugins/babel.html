@@ -1,15 +1,17 @@
 <h2>babel</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>babel-loader</u-code-npm> <u-code-npm>@babel/core</u-code-npm> <u-code-npm>@babel/preset-env</u-code-npm> <u-code>@babel/preset-react</u-code>
+npm i --save-dev <u-code-npm>babel-loader</u-code-npm> <u-code-npm>@babel/core</u-code-npm> <u-code-npm>@babel/preset-env</u-code-npm> <u-code>@babel/preset-react</u-code> <u-code>@babel/plugin-proposal-class-properties</u-code>
 </v-pre-npm>
 
 <ul class="list-point">
-	<li><u>babel</u> - transpiler. может транспилировать ES6 в ES5 и JSX в ES5</li>
-	<li><u>babel-core</u> - преобразует код ES6 в ES5</li>
-	<li><u>babel-loader</u> - используется для загрузки JavaScript/JSX файлов. Помощник Webpack для транспайлинга кода, задает пресеты</li>
-	<li><u>babel-preset-env</u> - пресет для транспайлинга кода ES6/ES7/ES8 в ES5</li>
-	<li><u>babel-preset-react</u> - пресет для транспайлинга кода JSX в ES5</li>
+	<li><u-text-define>babel</u-text-define> - transpiler. может транспилировать ES6 в ES5 и JSX в ES5</li><hr>
+
+	<li><u-code-text>babel-loader</u-code-text> - используется для загрузки JavaScript/JSX файлов. Помощник Webpack для транспайлинга кода, задает пресеты</li>	
+	<li><u-code-text>@babel/core</u-code-text> - преобразует код ES6 в ES5</li>
+	<li><u-code-text>@babel/preset-env</u-code-text> - пресет для транспайлинга кода ES6/ES7/ES8 в ES5</li>
+	<li><u-code-text>@babel/preset-react</u-code-text> - пресет для транспайлинга кода JSX в ES5</li>
+	<li><u-code-text>@babel/plugin-proposal-class-properties</u-code-text> - пресет для использования в react эспериментального синтаксиса общедоступных полей классов для задания обработчиков событий</li>
 </ul>
 
 <u-link-wrapper>
@@ -22,12 +24,15 @@ module.exports = {
 		rules: [
 			{
 				<u-code-wrapper>
-				test: /\.m?js$/,
+				test: /\.m?js|jsx$/,
 				exclude: /(node_modules|bower_components)/,
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env', <u-code>'@babel/preset-react'</u-code>]
+						presets: ['@babel/preset-env',  <u-code>'@babel/preset-react'</u-code>],
+					    plugins: [
+							 <u-code>'@babel/plugin-proposal-class-properties'</u-code>
+						]
 					}
 				}
 				</u-code-wrapper>
