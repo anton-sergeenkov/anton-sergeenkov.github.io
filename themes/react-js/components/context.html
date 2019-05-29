@@ -10,6 +10,10 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>API</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. React.createContext</h4>
+<!------------------------------------------------------------->
 <pre><code class="js none">
 const MyContext = React.createContext(defaultValue);
 </code></pre>
@@ -21,6 +25,9 @@ const MyContext = React.createContext(defaultValue);
     </ul>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>2. Context.Provider</h4>
+<!------------------------------------------------------------->
 <pre><code class="js none">
 &lt;MyContext.Provider value={/* некоторое значение */}&gt;
 </code></pre>
@@ -34,15 +41,37 @@ const MyContext = React.createContext(defaultValue);
     </ul>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>3. Class.contextType</h4>
+<!------------------------------------------------------------->
+<pre><code class="js none">
+class MyClass extends React.Component {
+	static contextType = MyContext;
+	render() {
+		{this.context}
+	}
+}
+</code></pre>
 
 <ul class="list-point">
-    <li><u-menu-code>Class.contextType</u-menu-code> - </li>
-    <ul class="list-point">
-        <li><u-code-text></u-code-text> - </li>
-    </ul>
+    <li><u-menu-code>Class.contextType</u-menu-code> - определяет <u>contextType</u>, чтобы получить значение контекста. React найдёт (выше по дереву) ближайший <u>Provider-компонент</u>, предоставляющий этот контекст, и использует его значение</li>
+    <li>В свойство класса <u>contextType</u> может быть назначен объект контекста, созданный с помощью <u>React.createContext()</u>. Это позволяет использовать ближайшее и актуальное значение указанного контекста при помощи <u>this.context</u>. В этом случае вы получаете доступ к контексту, как во всех методах жизненного цикла, так и в рендер методе</li>
+    <li>Можно подписаться только на один контекст, используя этот API</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>4. Context.Consumer</h4>
+<!------------------------------------------------------------->
+<pre><code class="html none">
+&lt;MyContext.Consumer&gt;
+	{value =&gt; /* отрендерить что-то, используя значение контекста */}
+&lt;/MyContext.Consumer&gt;
+</code></pre>
 
+<ul class="list-point">
+    <li><u-menu-code>MyContext.Consumer</u-menu-code> - React-компонент, который подписывается на изменения контекста. В свою очередь, это позволяет вам подписаться на контекст в функциональном компоненте</li>
+    <li>Consumer принимает функцию в качестве дочернего компонента. Эта функция принимает текущее значение контекста и возвращает React-компонент. Передаваемый аргумент <u>value</u> будет равен ближайшему (вверх по дереву) значению этого контекста, а именно пропу <u>value Provider</u> компонента. Если такого <u>Provider</u> компонента не существует, аргумент <u>value</u> будет равен значению <u>defaultValue</u>, которое было передано в <u>createContext()</u></li>
+</ul>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -79,11 +108,8 @@ class Toolbar extends Component {
 </code></pre>
 
 <pre><code class="js">
+// 1. Используя contextType
 class ThemedButton extends Component {
-	// Определяем contextType, чтобы получить значение контекста.
-	// React найдёт (выше по дереву) ближайший Provider-компонент,
-	// предоставляющий этот контекст, и использует его значение.
-	// В этом примере значение UI-темы будет "dark"
 	<u-code>static contextType = ThemeContext;</u-code>
 	render() {
 		return (
@@ -93,5 +119,22 @@ class ThemedButton extends Component {
 		);
 	}
 }
+
+// 2. Используя Context.Consumer
+class ThemedButton extends Component {
+	render() {
+		return (
+			&lt;div&gt;
+				<u-code-wrapper>
+				&lt;ThemeContext.Consumer&gt;
+					{value =&gt; &lt;h2&gt;value&lt;/h2&gt;}
+				&lt;/ThemeContext.Consumer&gt;
+				</u-code-wrapper>
+			&lt;/div&gt;
+		);
+	}
+}
 </code></pre>
+
+
 
