@@ -19,9 +19,9 @@ var menu = `
     <a href="/pages/english.html"    class="menu menu-other">english</a>
 
     <a href="/pages/html.html"       class="menu menu-html">html</a>
+    <a href="/pages/css.html"        class="menu menu-html">css</a>
 
 
-    <a href="/pages/+css.html"           class="menu menu-html">css</a>
     <a href="/pages/+css-flexbox.html"   class="menu menu-html">flexbox</a>
     <a href="/pages/+css-grid.html"      class="menu menu-html">css grid</a>
     <a href="/pages/+sass.html"          class="menu menu-html">sass</a>

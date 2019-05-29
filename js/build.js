@@ -643,6 +643,50 @@ var arrHTML = [
     ['html', 'main', 'samples',         'Примеры'],
 ];
 
+
+//---------------------------------------------------------------------
+// CSS
+//---------------------------------------------------------------------
+var arrCSS = [
+    [1, 'CSS Selectors'],
+    ['css', 'selectors', 'selectors',       'Селекторы'],
+    ['css', 'selectors', 'pseudo-classes',  'Псевдоклассы'],
+    ['css', 'selectors', 'pseudo-elements', 'Псевдоэлементы'],
+
+    [1, 'Основное'],
+    ['css', 'main', 'info',              'Информация'],
+    ['css', 'main', 'custom-properties', 'Custom Properties'],
+    ['css', 'main', 'mixins',            'Native CSS Mixins'],
+    ['css', 'main', 'import',            '@import'],
+    ['css', 'main', 'supports',          '@supports'],
+    ['css', 'main', 'transition',        'Transition'],
+    ['css', 'main', 'transform',         'Transform'],
+    ['css', 'main', 'animation',         'Animation'],
+    ['css', 'main', 'shadow',            'Box-Shadow, Text-Shadow'],
+    ['css', 'main', 'overflow',          'Overflow'],
+    ['css', 'main', 'px',                'Единицы измерения'],
+    ['css', 'main', 'font',              'Font / Text'],
+    ['css', 'main', 'viewport',          'Viewport width / height'],
+    ['css', 'main', 'display',           'Display'],
+    ['css', 'main', 'position',          'Position'],
+    ['css', 'main', 'background',        'Background'],
+    ['css', 'main', 'lists',             'Списки'],
+    ['css', 'main', 'samples',           'Примеры'],
+
+    [1, 'Адаптивность'],
+    ['css', 'adaptive', 'html',          'HTML'],
+    ['css', 'adaptive', 'media-queries', 'CSS Media queries'],
+
+    [1, 'Графика'],
+    ['css', 'graphics', 'blend-mode',      'CSS Blend Modes'],
+    ['css', 'graphics', 'filter',          'CSS Filters'],
+    ['css', 'graphics', 'backdrop-filter', 'CSS Backdrop-Filter'],
+    ['css', 'graphics', 'clip-path',       'CSS Clipping (Clip-path)'],
+    ['css', 'graphics', 'css-shapes',      'CSS Shapes'],
+    ['css', 'graphics', 'css-masking',     'CSS Masking'],
+];
+
+
 //---------------------------------------------------------------------
 // ENGLISH
 //---------------------------------------------------------------------
@@ -680,6 +724,7 @@ switch(pageName) {
     case 'canvas.html':     var arrCurrent = arrCanvas;     break;
     case 'english.html':    var arrCurrent = arrEnglish;    break;
     case 'html.html':       var arrCurrent = arrHTML;       break;
+    case 'css.html':        var arrCurrent = arrCSS;        break;
 }
 
 if (pageName != 'map.html') {
