@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 
 export default class App extends Component {
-	<u-code-wrapper><u-code-title>constructor</u-code-title>
+	<u-code-wrapper><u-code-title>Конструктор</u-code-title>
 	constructor(props) {
 		super(props);
 		<u-code>this.state</u-code> = {
@@ -18,7 +18,7 @@ export default class App extends Component {
 	}
 	</u-code-wrapper>
 
-<u-code-wrapper><u-code-title>метод</u-code-title>
+<u-code-wrapper><u-code-title>Методы</u-code-title>
 	changeName(name) {
 		// синхронно
 		<u-code>this.setState</u-code>({
@@ -29,28 +29,28 @@ export default class App extends Component {
 			info: state.name + props.age
 		}));
 	}
-	// стрелочная функция для обработчиков событий (предотвращение потери контекста)
+	// обработчик события
 	handleClick = () => {
 		alert(this.state.name);
 	}
 </u-code-wrapper>
 
-<u-code-wrapper><u-code-title>mounting (метод жизненного цикла)</u-code-title>
+<u-code-wrapper><u-code-title>Методы жизненного цикла</u-code-title>
 	componentDidMount() {
         // новое свойство, не видно в render
         this.info = 'Start Variable';
         // вызов метода
         this.changeName('Jack');
 	}
-</u-code-wrapper>
-
-<u-code-wrapper><u-code-title>unmounting (метод жизненного цикла)</u-code-title>
 	componentWillUnmount() {
+		//
+	}
+	componentDidUpdate() {
 		//
 	}
 </u-code-wrapper>
 
-<u-code-wrapper><u-code-title>render</u-code-title>
+<u-code-wrapper><u-code-title>Рендер</u-code-title>
 	render() {
 		return (
 			&lt;h2&gt;
@@ -65,7 +65,7 @@ export default class App extends Component {
 }
 </code></pre>
 
-<pre><code class="js"><u-code-title>render</u-code-title>
+<pre><code class="js"><u-code-title>ReactDOM.render</u-code-title>
 ReactDOM.render(
 	&lt;App age="25" /&gt;,
 	document.getElementById('root')

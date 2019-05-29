@@ -36,6 +36,7 @@ var arrReactjs = [
     ['react-js', 'components', 'components-and-props',  point+'Компоненты и пропсы'],
     ['react-js', 'components', 'lifting-state-up',      point+'Подъём состояния'],
     ['react-js', 'components', 'composition',           point+'Композиция'],
+    ['react-js', 'components', 'context',               point+'Контекст'],
 
     [1, 'Обработка и вывод данных'],
     ['react-js', 'processing-data-output', 'css',                   point+'CSS'],

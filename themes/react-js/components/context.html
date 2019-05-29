@@ -1,0 +1,97 @@
+<h2>Контекст</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Контекст</u-text-define> - позволяет передавать данные через дерево компонентов без необходимости передавать пропсы на промежуточных уровнях</li>
+    <li>Контекст разработан для передачи данных, которые можно назвать «глобальными» для всего дерева React-компонентов</li>
+    <li>В типичном React-приложении данные передаются сверху вниз (от родителя к дочернему компоненту) с помощью пропсов. Однако, этот способ может быть чересчур громоздким для некоторых типов пропсов (например, выбранный язык, UI-тема), которые необходимо передавать во многие компоненты в приложении. Контекст предоставляет способ делиться такими данными между компонентами без необходимости явно передавать пропсы через каждый уровень дерева</li>
+    <li>Усложняет переиспользование компонентов</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>API</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js none">
+const MyContext = React.createContext(defaultValue);
+</code></pre>
+
+<ul class="list-point">
+    <li><u-menu-code>React.createContext</u-menu-code> - создание объекта Context. Когда React рендерит компонент, который подписан на этот объект, React получит текущее значение контекста из ближайшего подходящего <u>Provider</u> выше в дереве компонентов</li>
+    <ul class="list-point">
+        <li><u-code-text>defaultValue</u-code-text> - аргумент используется только в том случае, если для компонента нет подходящего <u>Provider</u> выше в дереве. Если передать <u>undefined</u> как значение <u>Provider</u>, компоненты, использующие этот контекст, не будут использовать <u>defaultValue</u></li>
+    </ul>
+</ul>
+
+<pre><code class="js none">
+&lt;MyContext.Provider value={/* некоторое значение */}&gt;
+</code></pre>
+
+<ul class="list-point">
+    <li><u-menu-code>Context.Provider</u-menu-code> - компонент используется для передачи текущего значения по дереву. Любой дочерний компонент может использовать этот контекст</li>
+    <li>Один Provider может быть связан с несколькими компонентами, потребляющими контекст. Так же Provider компоненты могут быть вложены друг в друга, переопределяя значение контекста глубже в дереве</li>
+    <li>Все потребители, которые являются потомками <u>Provider</u>, будут повторно рендериться, как только проп <u>value</u> у <u>Provider</u> изменится. Потребитель перерендерится при изменении контекста, даже если его родитель, не использующий данный контекст, блокирует повторные рендеры с помощью <u>shouldComponentUpdate</u></li>
+    <ul class="list-point">
+        <li><u-code-text>value</u-code-text> - значение контекста. Проп <u>value</u> будут передан во все компоненты, использующие этот контекст и являющиеся потомками этого <u>Provider</u> компонента</li>
+    </ul>
+</ul>
+
+
+<ul class="list-point">
+    <li><u-menu-code>Class.contextType</u-menu-code> - </li>
+    <ul class="list-point">
+        <li><u-code-text></u-code-text> - </li>
+    </ul>
+</ul>
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+import React, { Component } from 'react';
+
+const ThemeContext = <u-code>React.createContext</u-code>('light');
+
+export default class App extends Component {
+	render() {
+		return (
+			<u-code>&lt;ThemeContext.Provider value="dark"&gt;</u-code>
+				&lt;Toolbar /&gt;
+			<u-code>&lt;/ThemeContext.Provider&gt;</u-code>
+		);
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+// Компонент, который находится в середине,
+// теперь не должен явно передавать UI-тему вниз
+class Toolbar extends Component {
+	render() {
+		return (
+			&lt;div&gt;
+				&lt;ThemedButton /&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+class ThemedButton extends Component {
+	// Определяем contextType, чтобы получить значение контекста.
+	// React найдёт (выше по дереву) ближайший Provider-компонент,
+	// предоставляющий этот контекст, и использует его значение.
+	// В этом примере значение UI-темы будет "dark"
+	<u-code>static contextType = ThemeContext;</u-code>
+	render() {
+		return (
+			&lt;div&gt;
+				<u-code>{this.context}</u-code>
+			&lt;/div&gt;
+		);
+	}
+}
+</code></pre>
+
