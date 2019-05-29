@@ -1,80 +1,35 @@
 var arrCategory = [
-	['theme-js',           'JS'],
-	['theme-objects',      'JS Object'],
-	['theme-vue',          'Vue.js'],
-	['theme-react',        'React.js'],
-	['theme-html',         'Верстка'],
-	['theme-theory',       'Теория'],
-	['theme-tasks',        'Задачи'],
-	['theme-technologies', 'Технологии']
+	['theme-react',    'React.js'],  // arrReactjs
+	['theme-js',       'JS'],        // arrJavaScript
+	['theme-objects',  'JS Object'], // arrJsObjects
+	['theme-tasks',    'JS Tasks'],  // arrJsTasks
+	['theme-theory',   'Теория'],    // arrTheory
+	['theme-html',     'HTML'],      // arrHTML
+	['theme-css',      'CSS'],       // arrCSS
+	['theme-git',      'Git'],       // arrGit
+	['theme-vue',      'Vue.js'],    // arrVuejs
+	['theme-webpack',  'Webpack'],   // arrWebpack
+	['theme-npm',      'NPM'],       // arrNpm
 ];
 
+// arrOther
+// arrLinux
+// arrJquery
+// arrCanvas
+// arrEnglish
+
 var arrThemes = [
-	{
-		name: 'theme-js', // JavaScript
-		data: [
-			...arrJavaScript,
-		]
-	},
-	{
-		name: 'theme-objects', // Классы и Объекты
-		data: [
-			...arrJsObjects,
-		]
-	},
-	{
-		name: 'theme-vue', // Vue.js
-		data: [
-			...arrVuejs,
-			['theory', 'application-architecture', 'mvc',  'MVC'],
-			['theory', 'application-architecture', 'mvvm', 'MVVM'],
-		]
-	},
-	{
-		name: 'theme-react', // React.js
-		data: [
-			...arrReactjs,
-		]
-	},
-	{
-		name: 'theme-theory', // Теория
-		data: [
-			...arrTheory,
-		]
-	},
-	{
-		name: 'theme-tasks', // Задачи
-		data: [
-			...arrJsTasks,
-		]
-	},
-	{
-		name: 'theme-html', // Верстка
-		data: [
-			[1, 'Селекторы и элементы'],
-			[false, '+css', 'selectors',         'Селекторы'],
-			[false, '+css', 'pseudo-classes',    'Псевдоклассы'],
-			[false, '+css', 'pseudo-elements',   'Псевдоэлементы'],
-
-			[1, 'Остальное'],
-			[false, '+css', 'measurement',       'Единицы измерения'],
-			[false, '+css', 'adaptive-html',     'HTML viewport'],
-			[false, '+css', 'adaptive-css',      'Media queries'],
-			[false, '+css', 'custom-properties', 'Custom Properties'],
-			[false, '+css', 'import',            '@import'],
-			[false, '+css', 'transition',        'Transition'],
-			[false, '+css', 'transform',         'Transform'],
-			[false, '+css', 'animation',         'Animation'],
-			[false, '+css', 'shadow',            'Box-Shadow и Text-Shadow'],
-			[false, '+css', 'font',              'Font / Text'],
-			[false, '+css', 'list',              'Списки'],
-
-			[1, 'Технологии'],
-			[false, '+sass', 'sass',        'Sass'],
-			[false, '+css-flexbox', 'flex', 'Flexbox'],
-			[false, '+css-grid', 'grid',    'CSS Grid']
-		]
-	},
+	{ name: 'theme-react',   data: [ ...arrReactjs,    ] },
+	{ name: 'theme-js',      data: [ ...arrJavaScript, ] },
+	{ name: 'theme-objects', data: [ ...arrJsObjects,  ] },
+	{ name: 'theme-tasks',   data: [ ...arrJsTasks,    ] },
+	{ name: 'theme-theory',  data: [ ...arrTheory,     ] },
+	{ name: 'theme-html',    data: [ ...arrHTML,       ] },
+	{ name: 'theme-css',     data: [ ...arrCSS,        ] },
+	{ name: 'theme-git',     data: [ ...arrGit,        ] },
+	{ name: 'theme-webpack', data: [ ...arrWebpack,    ] },
+	{ name: 'theme-npm',     data: [ ...arrNpm,        ] },
+	{ name: 'theme-vue',     data: [ ...arrVuejs       ] },
 ];
 
 

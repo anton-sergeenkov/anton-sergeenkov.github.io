@@ -114,7 +114,7 @@ var arrWebpack = [
 //---------------------------------------------------------------------
 var arrGit = [
     [1, 'Terminal'],
-    ['git', 'command', 'push_',   '<u-menu>init</u-menu> <u-menu>add</u-menu> <u-menu>commit</u-menu> <u-menu>remote</u-menu> <u-menu>push</u-menu> <u-menu></u-menu>'],
+    ['git', 'command', 'push_',   '<u-menu>init</u-menu> <u-menu>add</u-menu> <u-menu>commit</u-menu> <u-menu>remote</u-menu> <u-menu>push</u-menu>'],
     ['git', 'command', 'pull_',   '<u-menu>clone</u-menu> <u-menu>pull</u-menu>'],
     ['git', 'command', 'branch',  '<u-menu>branch</u-menu> <u-menu>checkout</u-menu> <u-menu>merge</u-menu>'],
     ['git', 'command', 'diff',    '<u-menu>diff</u-menu>'],
@@ -160,21 +160,20 @@ var arrNpm = [
 // JAVASCRIPT
 //---------------------------------------------------------------------
 var arrJavaScript = [
-
     [1, 'WORK'],
-    ['js', 'modules', 'module-es6',         'Модули ES6'],
-    ['js', 'ajax', 'axios',                 '<div class="circle-menu"></div> Axios'],
-    ['js', 'ajax', 'fetch',                 '<div class="circle-menu"></div> Fetch'],
-    ['js', 'async', 'promise',              '<div class="circle-menu"></div> Promise'],
-    ['js', 'async', 'async-func',           '<div class="circle-menu"></div> Async Function'],
-    ['js', 'type-data', 'json',             '<div class="circle-menu"></div> JSON'],
-    ['js', 'array', 'array-cycle',          '<div class="circle-menu"></div> forEach <u-menu>...</u-menu>'],
-    ['js', 'es6', 'map',                    '<div class="circle-menu"></div> map'],
-    ['js', 'main', 'context',               '<div class="circle-menu"></div> call <u-menu>...</u-menu>'],
-    ['js', 'es6', 'spread',                 '<div class="circle-menu"></div> Spread Operator'],
-    ['js', 'es6', 'destructive-array',      '<div class="circle-menu"></div> Деструктивное присваивание массивов'],
-    ['js', 'es6', 'destructive-obj',        '<div class="circle-menu"></div> Деструтивное присваивание объектов'],
-    ['js', 'client-storage', 'web-storage', '<div class="circle-menu"></div> WebStorage'],
+    ['js', 'functions', 'arrow',            point+'Стрелочные функции (ES6)'],
+    ['js', 'modules', 'module-es6',         point+'Модули ES6'],
+    ['js', 'ajax', 'axios',                 point+'Axios'],
+    ['js', 'async', 'promise',              point+'Promise'],
+    ['js', 'async', 'async-func',           point+'Async Function'],
+    ['js', 'type-data', 'json',             point+'JSON'],
+    ['js', 'array', 'array-cycle',          point+'forEach <u-menu>...</u-menu>'],
+    ['js', 'es6', 'map',                    point+'map'],
+    ['js', 'main', 'context',               point+'call <u-menu>...</u-menu>'],
+    ['js', 'es6', 'spread',                 point+'Spread Operator'],
+    ['js', 'es6', 'destructive-array',      point+'Деструктивное присваивание массивов'],
+    ['js', 'es6', 'destructive-obj',        point+'Деструтивное присваивание объектов'],
+    ['js', 'client-storage', 'web-storage', point+'WebStorage'],
 
 
     [1, 'Функции'],
