@@ -61,70 +61,20 @@ function buildThemes(element) {
 					html += `<h2>${item[1]}</h2>`;
 				}
 				if (item[0] !== 1) {
-					if (item[0] !== false) {
-						// новая тема
-						// item[0] - folder main     - 'vue-js'
-						// item[1] - folder sub-main - 'main'
-						// item[2] - name file       - 'project-structure'
-						// item[3] - name theme      - 'Структура проекта'
-						html += `
-							<div
-								class="map-themes-menu"
-								data-path="themes/${item[0]}/${item[1]}/${item[2]}.html"
-								onclick="buildContent(this);"
-								onmouseover="hoverThemesMenu=this"
-							>${item[3]}</div>`;
-
-					} else {
-						// старая тема
-						// item[0] - old version  - false
-						// item[1] - page         - 'js'
-						// item[2] - id container - 'module-es6'
-						// item[3] - name theme   - 'Модули ES6'
-						html += `
-							<div
-								class="map-themes-menu"
-								data-page="${item[1]}"
-								data-theme="${item[2]}"
-								onclick="buildContentOld(this);"
-								onmouseover="hoverThemesMenu=this"
-							>${item[3]}</div>`;
-					}
+					// item[0] - folder main     - 'vue-js'
+					// item[1] - folder sub-main - 'main'
+					// item[2] - name file       - 'project-structure'
+					// item[3] - name theme      - 'Структура проекта'
+					html += `
+						<div
+							class="map-themes-menu"
+							data-path="themes/${item[0]}/${item[1]}/${item[2]}.html"
+							onclick="buildContent(this);"
+							onmouseover="hoverThemesMenu=this"
+						>${item[3]}</div>`;
 				}
 			});
 			document.querySelector('#map-themes').innerHTML = html;
-		}
-	});
-}
-
-function buildContentOld(element) {
-	var page = element.getAttribute('data-page');
-	var theme = element.getAttribute('data-theme');
-
-	$.ajax({
-		type: "GET",
-		url: page+".html",
-		async: false,
-		success: function(data) {
-			var parser = new DOMParser();
-			var doc = parser.parseFromString(data, 'text/html');
-
-			var close = document.createElement('div');
-			close.setAttribute('class', 'map-content-close');
-			close.addEventListener('click', function() {
-				var content = document.querySelector('#map-content');
-				content.innerHTML = '';
-				content.style.display = 'none';
-			});
-
-			var content = document.querySelector('#map-content');
-			content.appendChild(doc.querySelector('#ct-'+theme));
-			content.appendChild(close);
-			content.style.display = 'block';
-
-			document.querySelectorAll('pre code').forEach((block) => {
-				hljs.highlightBlock(block);
-			});
 		}
 	});
 }
@@ -172,9 +122,5 @@ window.onkeydown = function(event) {
 	// D - ThemesMenu
 	if (event.keyCode == 68) {
 		buildContent(hoverThemesMenu);
-	}
-	// A - ThemesMenu-Old
-	if (event.keyCode == 65) {
-		buildContentOld(hoverThemesMenu);
 	}
 }
