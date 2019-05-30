@@ -161,14 +161,16 @@ img.inline {
 pre {
     tab-size: 4;
     margin: 10px 0px;
+    height: 100%;
 }
 code {
-	padding: 0px 25px 25px 25px !important;
+	padding: 10px 25px 25px 25px !important;
     line-height: 1.5em;
-    font-size: 16px;
-    border-radius: 5px;
+    font-size: 15px;
     position: relative;
+    height: 100%;
 }
+
 
 /***************************************************
 LISTS

@@ -2,7 +2,7 @@
 @font-face { font-family: Consolas; src: url(../../fonts/Consolas.ttf); }
 
 :root {
-	--bg: #f5f1f0;
+	--bg: 245, 241, 240;
 	--color: #333;
 	--comment: #6e89a2;
 	--keyword: #07a;
@@ -17,7 +17,7 @@
 	overflow-x: auto;
 	padding: 0.5em;
 	color: var(--color);
-	background: var(--bg);
+	background: rgba(var(--bg), 0.7);
 	font-family: Consolas;
 }
 
