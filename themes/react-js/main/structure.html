@@ -31,23 +31,16 @@ export default class App extends Component {
 	}
 	// обработчик события
 	handleClick = () => {
-		alert(this.state.name);
+		let name = this.state.name;   // обращение к свойству
+		this.changeName('Jack');      // обращение к методу
+        this.info = 'Start Variable'; // новое свойство (не видно в render)
 	}
 </u-code-wrapper>
 
 <u-code-wrapper><u-code-title>Методы жизненного цикла</u-code-title>
-	componentDidMount() {
-        // новое свойство, не видно в render
-        this.info = 'Start Variable';
-        // вызов метода
-        this.changeName('Jack');
-	}
-	componentWillUnmount() {
-		//
-	}
-	componentDidUpdate() {
-		//
-	}
+	componentDidMount()    { ... }
+	componentWillUnmount() { ... }
+	componentDidUpdate()   { ... }
 </u-code-wrapper>
 
 <u-code-wrapper><u-code-title>Рендер</u-code-title>

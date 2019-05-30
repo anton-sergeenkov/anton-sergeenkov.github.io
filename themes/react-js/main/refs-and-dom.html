@@ -1,0 +1,43 @@
+<h2>Рефы и DOM</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Рефы</u-text-define> дают возможность получить доступ к DOM-узлам или React-элементам, созданным в рендер-методе. Используется когда требуется императивно изменить дочерний элемент, обойдя обычный поток данных</li>
+
+    <li><b>Примеры использования</b></li>
+    <ul class="list-point">
+        <li>Управление фокусом, выделение текста или воспроизведение медиа</li>
+        <li>Императивный вызов анимаций</li>
+        <li>Интеграция со сторонними DOM-библиотеками</li>
+    </ul>
+</ul>
+
+<pre><code class="js">
+import React, { Component } from 'react';
+
+export default class App extends Component {
+	constructor(props) {
+		super(props);
+		this.domElement     = <u-code>React.createRef()</u-code>; // ref для dom элемента
+		this.classComponent = <u-code>React.createRef()</u-code>; // ref для классового компонента
+	}
+	handleClick = () =&gt; {
+		const nodeDom       = <u-code>this.domElement.current</u-code>;
+		const nodeComponent = <u-code>this.classComponent.current</u-code>;
+		console.log(nodeDom, nodeComponent);
+	}
+	render() {
+		return (
+			&lt;div&gt;
+				&lt;div <u-code>ref={this.domElement}</u-code>&gt;DOM element&lt;/div&gt;
+				&lt;Child <u-code>ref={this.classComponent}</u-code> /&gt;
+				&lt;button onClick={this.handleClick}&gt;Button&lt;/button&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+class Child extends Component {
+	render() {
+		return (&lt;div&gt;Class Component&lt;/div&gt;);
+	}
+}
+</code></pre>
