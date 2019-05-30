@@ -28,6 +28,7 @@ var arrReactjs = [
     ['react-js', 'main', 'jsx',                   point+'JSX'],
     ['react-js', 'main', 'state',                 point+'Состояние'],
     ['react-js', 'main', 'lifecycle',             point+'Жизненный цикл'],
+    ['react-js', 'main', 'refs-and-dom',          point+'Рефы и DOM'],
     ['react-js', 'main', 'create-react-app',      point+setBg(['react', 'react-dom', 'create-react-app'])],
     ['react-js', 'main', 'error-boundaries',      'Предохранители'],
     ['react-js', 'main', 'react-developer-tools', 'React Developer Tools'],
