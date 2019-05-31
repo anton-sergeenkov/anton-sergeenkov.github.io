@@ -45,24 +45,29 @@ export default class App extends Component {
 	render() {
 		return (
 			&lt;div&gt;
-				&lt;EnhancedComponent /&gt;
+				&lt;EnhancedComponent <u-code>name="Tony"</u-code> /&gt;
 			&lt;/div&gt;
 		);
 	}
 }
+</code></pre>
 
+<pre><code class="js">
 class WrappedComponent extends Component {
 	render() {
 		return (
 			&lt;div&gt;
 				{this.props.count}
+				<u-code>{this.props.name}</u-code>
 				&lt;button onClick={this.props.increment}&gt;Ok&lt;/button&gt;
 			&lt;/div&gt;
 		);
 	}	
 }
+</code></pre>
 
-const higherOrderComponent = WrappedComponent =&gt; {
+<pre><code class="js">
+const higherOrderComponent = (WrappedComponent, incrementNumber) =&gt; {
 	return class extends Component {
 		constructor(props) {
 			super(props);
@@ -72,16 +77,23 @@ const higherOrderComponent = WrappedComponent =&gt; {
 		}
 		increment = () =&gt; {
 			this.setState(state =&gt; ({
-				count: ++state.count
+				count: state.count + incrementNumber
 			}));
 		}
 		render() {
+			//console.log(this.props.name);
 			return (
-				&lt;WrappedComponent count={this.state.count} increment={this.increment} /&gt;
+				&lt;WrappedComponent 
+					count={this.state.count} 
+					increment={this.increment} 
+					<u-code>{ ...this.props }</u-code>
+				/&gt;
 			);
 		}		
 	}
 }
+</code></pre>
 
-const EnhancedComponent = higherOrderComponent(WrappedComponent);
+<pre><code class="js">
+const EnhancedComponent = higherOrderComponent(WrappedComponent, 5);
 </code></pre>
