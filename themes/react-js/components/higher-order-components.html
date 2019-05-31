@@ -1,0 +1,87 @@
+<h2>Компоненты высшего порядка</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Компонент высшего порядка</u-text-define> (Higher-Order Component, HOC) - функция, расширяющая функционал компонента без изменение его исходного кода. HOC не наследует поведение оборачиваемого компонента. HOC является чистой функцией без побочных эффектов</li>
+	
+	<b>Действия</b>
+	<ol class="list-num">
+		<li>Принимает оборачиваемый компонент (оборачивает оригинальный компонент в контейнер посредством композиции)</li>
+		<li>Через пропсы передает ему новые данные</li>
+		<li>Возвращает новый компонент с расширенной логикой</li>
+	</ol>
+
+	<b>Предостережения</b>
+	<ol class="list-num">
+		<li>Не используйте HOC внутри рендер-метода. Происходит повторное монтирование компонента обнуляет его состояние, а также состояние его дочерних компонентов</li>
+		<li>Копируйте статические методы</li>
+		<li>Рефы не передаются. По соглашению компоненты высшего порядка передают оборачиваемому компоненту все пропсы, кроме рефов. ref на самом деле не проп, как, например, key, и поэтому иначе обрабатывается React. Реф элемента, созданного компонентом из HOC, будет указывать на экземпляр ближайшего в иерархии контейнера, а не на оборачиваемый компонент</li>
+	</ol>
+
+	<hr>
+	<li><b>Для чего:</b> Есть 2 или несколько компонентов, логика которых совпадает. Чтобы не дублировать логику, можно использовать HOC</li>
+    <hr>
+    <li>Это один из продвинутых способов для повторного использования логики. HOC не являются частью API React, но часто применяются из-за композиционной природы компонентов</li>
+    <li>HOC часто встречаются в сторонних библиотеках, например <u-code-text>connect</u-code-text> в Redux и <u-code-text>createFragmentContainer</u-code-text> в Relay</li>
+    <li>Если обычный компонент преобразует <u>пропсы в UI</u>, то компонент высшего порядка преобразует <u>компонент в другой компонент</u></li>
+</ul>
+
+<pre><code class="js none">
+const EnhancedComponent = higherOrderComponent(WrappedComponent, SelectData);
+	// WrappedComponent - оборачиваемый компонент
+	// SelectData - функция, которая извлекает нужные данные
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример: Counter</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://www.youtube.com/watch?v=B6aNv8nkUSw&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=34" target="_blank">YouTube PlayList</a>
+</u-link-wrapper>
+
+<pre><code class="js">
+import React, { Component } from 'react';
+
+export default class App extends Component {
+	render() {
+		return (
+			&lt;div&gt;
+				&lt;EnhancedComponent /&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+
+class WrappedComponent extends Component {
+	render() {
+		return (
+			&lt;div&gt;
+				{this.props.count}
+				&lt;button onClick={this.props.increment}&gt;Ok&lt;/button&gt;
+			&lt;/div&gt;
+		);
+	}	
+}
+
+const higherOrderComponent = WrappedComponent =&gt; {
+	return class extends Component {
+		constructor(props) {
+			super(props);
+			this.state = {
+				count: 0
+			};
+		}
+		increment = () =&gt; {
+			this.setState(state =&gt; ({
+				count: ++state.count
+			}));
+		}
+		render() {
+			return (
+				&lt;WrappedComponent count={this.state.count} increment={this.increment} /&gt;
+			);
+		}		
+	}
+}
+
+const EnhancedComponent = higherOrderComponent(WrappedComponent);
+</code></pre>

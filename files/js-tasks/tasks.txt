@@ -1,2 +1,64 @@
 
 https://learn.javascript.ru/task/debounce
+
+/////////////////////////////////////////////////////////
+function sum(a, b) {
+return a + b;
+}
+
+function mul(a, b) {
+return a * b;
+}
+
+function myFunc(func){
+// ...
+
+}
+
+console.info(myFunc(sum)(2)(3)); // => 5
+console.info(myFunc(mul)(2)(3)); // => 6
+
+/////////////////////////////////////////////////////////
+var a = 1;
+
+function foo() {
+consоle.log(a);
+}
+
+functiоn foo2() {
+var a = 2;
+foo.call(foow);
+}
+
+fоo2();
+
+/////////////////////////////////////////////////////////
+var obj = {
+    getProp: funсtion(){
+         сonsole.log(this.prop);
+    },
+    prop: 1
+};
+
+obj.getProp.prop = 2;
+obj.getProp(); // ?
+var fn = obj.getProp;
+fn(); // ?
+
+/////////////////////////////////////////////////////////
+var obj = {
+    getProp: funсtion(){
+         сonsole.log(this.prop);
+    },
+    prop: 1
+};
+
+obj.getProp.prop = 2;
+obj.getProp(); // ?
+var fn = obj.getProp;
+fn(); // ?
+
+
+
+
+
