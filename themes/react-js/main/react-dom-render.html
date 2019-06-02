@@ -1,0 +1,15 @@
+<h2>ReactDOM.render() - рендеринг элементов</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Элементы</u-text-define> - это то, «из чего сделаны» компоненты</li>
+	<li>В отличие от DOM-элементов, элементы React - это простые объекты, не отнимающие много ресурсов. React DOM обновляет DOM, чтобы он соответствовал переданным React-элементам</li>
+	<li><u-code-text>ReactDOM.render()</u-code-text> - рендеринг React-элемента в узел DOM</li>
+	<li>Элементы React иммутабельны. После создания элемента, нельзя изменить его потомков или атрибуты. Элемент похож на кадр в фильме: он отражает состояние интерфейса в конкретный момент времени</li>
+</ul>
+
+<pre><code class="js">
+ReactDOM.render(
+	&lt;App /&gt;,
+	document.getElementById('root')
+);
+</code></pre>

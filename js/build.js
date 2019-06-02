@@ -22,14 +22,15 @@ function setBg(arr) {
 //---------------------------------------------------------------------
 var arrReactjs = [
     [1, 'Информация'],
-    ['react-js', 'main', 'info',                  'Информация'],
-    ['react-js', 'main', 'structure',             code+'Структура'],
-    ['react-js', 'main', 'create-element',        point+'React.createElement'],
-    ['react-js', 'main', 'jsx',                   point+'JSX'],
-    ['react-js', 'main', 'state',                 point+'Состояние'],
-    ['react-js', 'main', 'lifecycle',             point+'Жизненный цикл'],
-    ['react-js', 'main', 'create-react-app',      point+setBg(['react', 'react-dom', 'create-react-app'])],
-    ['react-js', 'main', 'react-developer-tools', 'React Developer Tools'],
+    ['react-js', 'main', 'info',                     'Информация'],
+    ['react-js', 'main', 'structure',                code+'Структура'],
+    ['react-js', 'main', 'react-dom-create-element', point+'React.createElement'],
+    ['react-js', 'main', 'react-dom-render',         point+'ReactDOM.render'],
+    ['react-js', 'main', 'jsx',                      point+'JSX'],
+    ['react-js', 'main', 'state',                    point+'Состояние'],
+    ['react-js', 'main', 'lifecycle',                point+'Жизненный цикл'],
+    ['react-js', 'main', 'create-react-app',         point+setBg(['react', 'react-dom', 'create-react-app'])],
+    ['react-js', 'main', 'react-developer-tools',    'React Developer Tools'],
 
     [1, 'Продвинутые темы'],
     ['react-js', 'advanced', 'refs-and-dom',          point+'Рефы и DOM'],
