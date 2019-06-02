@@ -734,7 +734,7 @@ switch(pageName) {
     case 'css.html':        var arrCurrent = arrCSS;        break;
 }
 
-if (pageName != 'map.html') {
+if ( (pageName!=='map.html') && (pageName!=='map') ) {
     build();
 }
 

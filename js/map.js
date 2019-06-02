@@ -1,16 +1,116 @@
-var arrCategory = [
-	['theme-react',    'React.js'],  // arrReactjs
-	['theme-js',       'JS'],        // arrJavaScript
-	['theme-objects',  'JS Object'], // arrJsObjects
-	['theme-tasks',    'JS Tasks'],  // arrJsTasks
-	['theme-theory',   'Теория'],    // arrTheory
-	['theme-html',     'HTML'],      // arrHTML
-	['theme-css',      'CSS'],       // arrCSS
-	['theme-git',      'Git'],       // arrGit
-	['theme-vue',      'Vue.js'],    // arrVuejs
-	['theme-webpack',  'Webpack'],   // arrWebpack
-	['theme-npm',      'NPM'],       // arrNpm
+let customElementRegistry = window.customElements;
+let arrCustomElements = [
+	'u-code-text',    'u-code-list',     'u-code-comment', 'u-code',
+	'u-text-define',  'u-text-header',   'u-code-wrapper', 'u-link-wrapper',
+	'u-code-npm',     'u-code-title',    'u-message-ok',   'u-message-info',
+	'u-message-warn', 'u-message-error', 'u-code-accent',  'u-menu',
+	'u-menu-accent',  'u-menu-code',     'u-menu-border',  'u-text-underline',
+
+	'bg-methods',     'bg-arguments',
 ];
+
+arrCustomElements.forEach(function(element) {
+	customElementRegistry.define(element,
+		class extends HTMLElement {
+			constructor() {
+				super();
+			}
+		}
+	);
+});
+
+
+
+
+Vue.component('v-two-code', {
+	props: ['type', 'comment'],
+	computed: {
+		textType() {
+			return this.type.split(';');
+		},
+		textComment() {
+			return this.comment.split(';');
+		}
+	},
+    template:  `<div class="v-two-wrapper"><div class="v-two-column"><pre><code :class="textType[0]"><u-code-title v-text="textComment[0]"></u-code-title><slot name="first">User Default1</slot></code></pre></div><div class="v-two-column"><pre><code :class="textType[1]"><u-code-title v-text="textComment[1]"></u-code-title><slot name="last">User Default2</slot></code></pre></div></div>`,
+});
+
+Vue.component('v-two', {
+    template:
+		`<div class="v-two-wrapper">
+			<div class="v-two-column">
+				<slot name="first">User Default1</slot>
+			</div>
+			<div class="v-two-column">
+				<slot name="last">User Default2</slot>
+			</div>
+		</div>`,
+})
+
+Vue.component('v-pre-npm', {
+	template: `<pre class="v-pre-npm"><code class="bash"><slot></slot></code></pre>`,
+})
+
+var app = new Vue({
+	el: '#content',
+	data: { 
+		category: [
+			['React.js',  arrReactjs],
+			['JS',        arrJavaScript],
+			['JS Object', arrJsObjects],
+			['JS Tasks',  arrJsTasks],
+			['Теория',    arrTheory],
+			['HTML',      arrHTML],
+			['CSS',       arrCSS],
+			['Git',       arrGit],
+			['Vue.js',    arrVuejs],
+			['Webpack',   arrWebpack],
+			['NPM',       arrNpm ],
+		],
+		themesContent: null,
+		pageContent: '',
+		pageBuild: false
+	},
+
+	methods: {
+		buildThemes(theme) {
+			this.themesContent = theme;
+		},
+		buildContent(category, section, theme) {
+			var path = 'themes/'+category+'/'+section+'/'+theme+'.html';
+			$.ajax({
+				type: "GET",
+				url: path,
+				async: false,
+				success: function(data) {
+					// app.pageContent = data;
+
+					var MyComponent = Vue.extend({
+						template: `
+							<div>
+								${data}
+							</div>
+						`
+					});
+
+					// var a = new MyComponent().$mount(app.$refs.questionContent);
+					
+					var component = new MyComponent().$mount();
+					var wrapper = document.getElementById('question-content');
+					wrapper.innerHTML = '';
+					wrapper.appendChild(component.$el);
+
+					app.pageBuild = true;
+				}
+			});
+		}
+	},
+	updated() {
+		document.querySelectorAll('pre code').forEach((block) => {
+			hljs.highlightBlock(block);
+		});
+	}
+})
 
 // arrOther
 // arrLinux
@@ -18,109 +118,29 @@ var arrCategory = [
 // arrCanvas
 // arrEnglish
 
-var arrThemes = [
-	{ name: 'theme-react',   data: [ ...arrReactjs,    ] },
-	{ name: 'theme-js',      data: [ ...arrJavaScript, ] },
-	{ name: 'theme-objects', data: [ ...arrJsObjects,  ] },
-	{ name: 'theme-tasks',   data: [ ...arrJsTasks,    ] },
-	{ name: 'theme-theory',  data: [ ...arrTheory,     ] },
-	{ name: 'theme-html',    data: [ ...arrHTML,       ] },
-	{ name: 'theme-css',     data: [ ...arrCSS,        ] },
-	{ name: 'theme-git',     data: [ ...arrGit,        ] },
-	{ name: 'theme-webpack', data: [ ...arrWebpack,    ] },
-	{ name: 'theme-npm',     data: [ ...arrNpm,        ] },
-	{ name: 'theme-vue',     data: [ ...arrVuejs       ] },
-];
 
 
-//----------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------
 
-var hoverHeaderMenu; // пункт HeaderMenu на который навели
-var hoverThemesMenu; // пункт ThemesMenu на который навели
 
-buildHeader();
-function buildHeader() {
-	var html = '';
-	arrCategory.forEach(function(element) {
-		html += `<div class="map-header-menu" data-theme="${element[0]}" onclick="buildThemes(this);" onmouseover="hoverHeaderMenu=this">${element[1]}</div>`;
-	});
-	document.querySelector('#map-header').innerHTML = html;
-}
+// var hoverHeaderMenu; // пункт HeaderMenu на который навели
+// var hoverThemesMenu; // пункт ThemesMenu на который навели
 
-function buildThemes(element) {
-	var theme = element.getAttribute('data-theme');
-	arrThemes.forEach(function(element) {
-		if (element.name == theme) {
+// <div class="map-header-menu" onmouseover="hoverHeaderMenu=this"></div>
+// <div class=""map-themes-menu" onmouseover="hoverThemesMenu=this"></div>
 
-			var html = '';
-			element.data.forEach(function(item) {
-				if (item[0] === 1) {
-					html += `<h2>${item[1]}</h2>`;
-				}
-				if (item[0] !== 1) {
-					// item[0] - folder main     - 'vue-js'
-					// item[1] - folder sub-main - 'main'
-					// item[2] - name file       - 'project-structure'
-					// item[3] - name theme      - 'Структура проекта'
-					html += `
-						<div
-							class="map-themes-menu"
-							data-path="themes/${item[0]}/${item[1]}/${item[2]}.html"
-							onclick="buildContent(this);"
-							onmouseover="hoverThemesMenu=this"
-						>${item[3]}</div>`;
-				}
-			});
-			document.querySelector('#map-themes').innerHTML = html;
-		}
-	});
-}
-
-function buildContent(element) {
-	var path = element.getAttribute('data-path');
-
-	$.ajax({
-		type: "GET",
-		url: path,
-		async: false,
-		success: function(data) {
-
-			var close = document.createElement('div');
-			close.setAttribute('class', 'map-content-close');
-			close.addEventListener('click', function() {
-				var content = document.querySelector('#map-content');
-				content.innerHTML = '';
-				content.style.display = 'none';
-			});
-
-			var content = document.querySelector('#map-content');
-			content.innerHTML = data;
-			content.appendChild(close);
-			content.style.display = 'block';
-
-			document.querySelectorAll('pre code').forEach((block) => {
-				hljs.highlightBlock(block);
-			});
-		}
-	});
-}
-
-window.onkeydown = function(event) {
-	// ESC
-	if (event.keyCode == 27) {
-		var content = document.querySelector('#map-content');
-		content.innerHTML = '';
-		content.style.display = 'none';
-	}
-	// W - HeaderMenu
-	if (event.keyCode == 87) {
-		buildThemes(hoverHeaderMenu);
-	}
-	// D - ThemesMenu
-	if (event.keyCode == 68) {
-		buildContent(hoverThemesMenu);
-	}
-}
+// window.onkeydown = function(event) {
+// 	// ESC
+// 	if (event.keyCode == 27) {
+// 		var content = document.querySelector('#map-content');
+// 		content.innerHTML = '';
+// 		content.style.display = 'none';
+// 	}
+// 	// W - HeaderMenu
+// 	if (event.keyCode == 87) {
+// 		buildThemes(hoverHeaderMenu);
+// 	}
+// 	// D - ThemesMenu
+// 	if (event.keyCode == 68) {
+// 		buildContent(hoverThemesMenu);
+// 	}
+// }

@@ -11,9 +11,6 @@ body {
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0px;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
 }
 h2 {
 	font-size: 16px;
@@ -21,7 +18,8 @@ h2 {
 	color: black;
 	margin: 7px 0px;
 	padding: 0;
-	width: 100%;
+	width: calc(100vw - 40px);
+	flex-shrink: 0;
 	border: none;
 }
 u-menu {
@@ -68,7 +66,6 @@ u-menu {
 	margin: 0px 2px 5px 2px;
 }
 #map-content {
-	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -77,6 +74,10 @@ u-menu {
 	padding: 30px 60px 30px 30px;
 	overflow: auto;
 	height: 100vh;
+	box-shadow:
+		0 16px 24px 2px rgba(33,37,41,.02), 
+		0 6px 30px 5px rgba(33,37,41,.04), 
+		0 8px 10px -5px rgba(33,37,41,.1);
 }
 #map-content .map-content-close {
 	width: 50px;
@@ -90,16 +91,40 @@ u-menu {
 	cursor: pointer;
 	z-index: 100;
 }
+#content {
+	max-width: 100%;
+}
+#content > div:after {
+	content: '';
+	width: 0;
+	height: 0;
+	display: none;
+}
 </style>
 <body>
 
-	<div id="map-header"></div>
-	<div id="map-themes"></div>
-	<div id="map-content"></div>
+	<div id="content">
+		<div id="map-header">
+			<div v-for="item in category" @click="buildThemes(item[1])" class="map-header-menu">{{item[0]}}</div>
+		</div>
 
+		<div id="map-themes">
+			<div v-for="item in themesContent">
+				<h2 v-if="item[0]==1">{{item[1]}}</h2>
+				<div v-else class="map-themes-menu" @click="buildContent(item[0], item[1], item[2])" v-html="item[3]"></div>
+			</div>
+		</div>
+
+		<div id="map-content" v-show="pageBuild == true">
+			<div ref="questionContent" id="question-content"></div>
+			<div class="map-content-close" @click="pageBuild = false"></div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 	<script src="libraries/jquery.js"></script>
 	<script src="libraries/highlight/highlight.pack.js"></script>
 	<script src="js/build.js"></script>
-	<script src="js/map.js"></script>
+	<script src="js/map.js"></script>	
 </body>
 </html>
