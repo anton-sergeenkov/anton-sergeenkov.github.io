@@ -83,8 +83,6 @@ var app = new Vue({
 				url: path,
 				async: false,
 				success: function(data) {
-					// app.pageContent = data;
-
 					var MyComponent = Vue.extend({
 						template: `
 							<div>
@@ -92,9 +90,6 @@ var app = new Vue({
 							</div>
 						`
 					});
-
-					// var a = new MyComponent().$mount(app.$refs.questionContent);
-					
 					var component = new MyComponent().$mount();
 					var wrapper = document.getElementById('question-content');
 					wrapper.innerHTML = '';
@@ -128,19 +123,17 @@ var app = new Vue({
 // <div class="map-header-menu" onmouseover="hoverHeaderMenu=this"></div>
 // <div class=""map-themes-menu" onmouseover="hoverThemesMenu=this"></div>
 
-// window.onkeydown = function(event) {
-// 	// ESC
-// 	if (event.keyCode == 27) {
-// 		var content = document.querySelector('#map-content');
-// 		content.innerHTML = '';
-// 		content.style.display = 'none';
-// 	}
-// 	// W - HeaderMenu
-// 	if (event.keyCode == 87) {
-// 		buildThemes(hoverHeaderMenu);
-// 	}
-// 	// D - ThemesMenu
-// 	if (event.keyCode == 68) {
-// 		buildContent(hoverThemesMenu);
-// 	}
-// }
+window.onkeydown = function(event) {
+	// ESC
+	if (event.keyCode == 27) {
+		app.pageBuild = false
+	}
+	// // W - HeaderMenu
+	// if (event.keyCode == 87) {
+	// 	buildThemes(hoverHeaderMenu);
+	// }
+	// // D - ThemesMenu
+	// if (event.keyCode == 68) {
+	// 	buildContent(hoverThemesMenu);
+	// }
+}
