@@ -9,7 +9,7 @@
 	--color-dark-green:  42, 61, 47;     /*dark green*/
 
 	--color-blue:        19, 193, 247;   /*blue blue*/
-	--color-yellowgreen: 152, 195, 121;  /*yellowgreen*/
+	--color-yellowgreen: 152, 195, 121;  /*yellowgreen*/z-index: ;
 }
 
 ::-webkit-scrollbar       { width: 8px; height: 8px;}

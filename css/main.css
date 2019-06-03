@@ -27,7 +27,7 @@ STRUCTURE
 #content-wrapper {
 	flex-grow: 1;
 	padding: 0px 25px;
-	overflow: auto;
+	overflow: auto;z-index: 
 }
 #content {
 	max-width: 1100px;
