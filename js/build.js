@@ -32,6 +32,7 @@ var arrReactjs = [
     ['react-js', 'main', 'create-react-app',         setBorder(['react', 'react-dom', 'create-react-app'])],
     ['vue-js',   'main', 'virtual-dom',              'Virtual DOM'],
     ['react-js', 'main', 'react-developer-tools',    'React Developer Tools'],
+    ['react-js', 'main', 'react-16',                 'React 16.0'],
 
     [1, 'Продвинутые темы'],
     ['react-js', 'advanced', 'refs-and-dom',          point+'Рефы и DOM'],
@@ -48,9 +49,10 @@ var arrReactjs = [
     ['react-js', 'components', 'context',                 point+'Контекст'],
     ['react-js', 'components', 'higher-order-components', point+'Компоненты высшего порядка'],
 
-    [1, 'Оптимизация'],
-    ['react-js', 'optimization', 'react-pure-component',    setBg(['React.PureComponent'])],
-    ['react-js', 'optimization', 'react-memo',              setBg(['React.memo'])],
+    [1, 'Мемоизация'],
+    ['react-js', 'memoization', 'info',                    'Информация'],
+    ['react-js', 'memoization', 'react-pure-component',    setBg(['React.PureComponent'])],
+    ['react-js', 'memoization', 'react-memo',              setBg(['React.memo'])],
     
     [1, 'Обработка и вывод данных'],
     ['react-js', 'processing-data-output', 'css',                   point+'CSS'],
