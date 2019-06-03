@@ -1,18 +1,59 @@
 <h2>React.createElement</h2>
 
-<pre><code class="js">
+<ul class="list-point">
+    <li>Код, написанный с использованием <u-code-text>JSX</u-code-text>, будет преобразован в <u-code-text>React.createElement()</u-code-text></li>
+</ul>
+
+<ul class="list-point">
+    <li><u-menu-code>React.createElement</u-menu-code> - создаёт и возвращает новый React-элемент определённого типа</li>
+    <ul class="list-point">
+        <li><u-code-text>type</u-code-text> - строка, содержащая имя тега (например, 'div' или 'span'), React-компонент (класс или функция) или React-фрагмент</li>
+        <li><u-code-text>[props]</u-code-text></li>
+        <li><u-code-text>[...children]</u-code-text></li>
+    </ul>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты createElement</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Отдельные createElement;Родительский createElement">
+<template v-slot:first>
 var image     = React.createElement('img', { src: '...' });
 var title     = React.createElement('h1', null, 'React');
 var subtitle  = React.createElement('p', null, '...');
-var container = React.createElement('div', { className: 'container' }, image, title, subtitle);
+var container = React.createElement(
+	'div', 
+	{ className: 'container' }, 
+	image, title, subtitle
+);
 
-ReactDOM.render(container, document.getElementById('root'));
-</code></pre>
-
-<pre><code class="js">
-React.createElement('div', { className: 'container' },
+ReactDOM.render(
+	container, 
+	document.getElementById('root')
+);
+</template>
+<template v-slot:last>
+var container = React.createElement('div', { className: 'container' },
 	React.createElement('img', { src: '...' }),
 	React.createElement('h1', null, 'React'),
 	React.createElement('p', null, '...'),
 );
-</code></pre>
+
+ReactDOM.render(
+	container, 
+	document.getElementById('root')
+);
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сокращенный синтаксис</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Полный синтаксис;Сокращенный синтаксис">
+<template v-slot:first>
+var title = React.createElement('div', null, 'Привет, мир!'),
+</template>
+<template v-slot:last>
+var title = e('div', null, 'Привет, мир!'),
+</template>
+</v-two-code>

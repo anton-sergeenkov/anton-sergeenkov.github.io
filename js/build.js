@@ -30,6 +30,7 @@ var arrReactjs = [
     ['react-js', 'main', 'state',                    point+'Состояние'],
     ['react-js', 'main', 'lifecycle',                point+'Жизненный цикл'],
     ['react-js', 'main', 'create-react-app',         point+setBg(['react', 'react-dom', 'create-react-app'])],
+    ['vue-js',   'main', 'virtual-dom',              'Virtual DOM'],
     ['react-js', 'main', 'react-developer-tools',    'React Developer Tools'],
 
     [1, 'Продвинутые темы'],
