@@ -3,6 +3,10 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Flux</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Flux-архитектура</u-text-define> - архитектурный подход или набор шаблонов программирования для построения пользовательского интерфейса веб-приложений, сочетающийся с реактивным программированием и построенный на однонаправленных потоках данных</li>
+</ul>
+
 <ol class="list-num">
 	<b>Методология Flux состоит из 4 частей</b>
 	<li><u>View</u> (компоненты)</li>
@@ -28,6 +32,25 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Redux</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://getinstance.info/articles/react/learning-react-redux/" target="_blank">Новый уровень React: Redux</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Redux</u-text-define> - это инструмент управления состоянием приложения. Он подходит для одностраничных приложений, в которых управление состоянием может со временем становиться сложным. Redux не связан с каким-то определенным фреймворком, и хотя разрабатывался для React, может использоваться с Angular или jQuery</li>
+
+    <li>В React «однонаправленный поток данных» - поток данных проходит в одном направлении, от родителя к ребенку. При этом не очевидно, как два компонента, не связанные отношением родитель-ребенок, будут взаимодействовать между собой</li>
+
+    <li>Redux предлагает хранить все состояние приложения в одном месте, называемом <u>«store»</u> («хранилище»). Компоненты «отправляют» изменение состояния в хранилище, а не напрямую другим компонентам. Компоненты, которые должны быть в курсе этих изменений, «подписываются» на хранилище</li>
+</ul>
+
+<ol class="list-num">
+    <b>Принципы</b>
+    <li>Единственный источник истины</li>
+    <li>Состояние доступно только для чтения</li>
+    <li>Изменения делаются «чистыми» функциями</li>
+</ol>
+
 <v-pre-npm>
 npm i --save <u-code-npm>redux</u-code-npm>
 </v-pre-npm>

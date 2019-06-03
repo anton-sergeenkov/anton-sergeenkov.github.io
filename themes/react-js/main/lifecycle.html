@@ -1,11 +1,68 @@
 <h2>Жизненный цикл React-компонентов</h2>
 
+<u-link-wrapper>
+	<a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/" target="_blank">Схема</a>
+</u-link-wrapper>
+
+<img src="/img/react/component-lifecycle.png" width="800px" class="center">
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Методы жизненного цикла (lifecycle methods)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li><u-code-text>componentDidMount()</u-code-text> <u>монтирование (mounting)</u> запускается после первоначального рендеринга компонента в DOM</li>
 	<li><u-code-text>componentWillUnmount()</u-code-text> <u>размонтирование (unmounting)</u> запускается после удаления DOM-узла, созданного компонентом</li>
-
-	<li><u-code-text>componentDidUpdate()</u-code-text></li>
+	<li><u-code-text>componentDidUpdate()</u-code-text> <u>обновление</u> происходит при изменении пропсов или состояния</li>
+	<li><u-code-text>componentDidCatch()</u-code-text><u>Обработка ошибок</u> если произошла ошибка в процессе рендеринга, методе жизненного цикла или конструкторе любого дочернего компонента</li>
 </ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u-menu-code>mounting</u-menu-code> <u-menu-code>updated</u-menu-code> <u-code-text>static getDerivedStateFromProps(props, state)</u-code-text> вызывается непосредственно перед вызовом метода render, как при начальном монтировании, так и при последующих обновлениях. Он должен вернуть объект для обновления состояния или null, чтобы ничего не обновлять. Существует для редких случаев, когда состояние зависит от изменений в пропсах. Например, это подойдёт для реализации компонента &lt;Transition&gt;, который сравнивает свои предыдущие и следующие дочерние компоненты, чтобы решить, какой из них нужно анимировать. Метод запускается при каждом рендере, независимо от причины</li>
+
+    <li><u-menu-code>updated</u-menu-code> <u-code-text>shouldComponentUpdate(nextProps, nextState)</u-code-text> для указания необходимости следующего рендера на основе изменений состояния и пропсов. По умолчанию происходит повторный рендер при любом изменении состояния. Вызывается перед рендером, когда получает новые пропсы или состояние. Необходим только для <u>повышения производительности</u></li>
+
+    <li><u-menu-code>updated</u-menu-code> <u-code-text>getSnapshotBeforeUpdate(prevProps, prevState)</u-code-text> вызывается прямо перед этапом «фиксирования» (например, перед добавлением в DOM). Он позволяет компоненту брать некоторую информацию из DOM (например, положение прокрутки) перед её возможным изменением. Любое значение, возвращаемое этим методом жизненного цикла, будет передано как параметр componentDidUpdate(). Это применяется редко, но может быть полезно в таких интерфейсах, как цепочка сообщений в чатах, в которых позиция прокрутки обрабатывается особым образом</li>
+
+    <li><u-menu-code>error</u-menu-code> <u-code-text>static getDerivedStateFromError(error)</u-code-text> - вызывается после возникновения ошибки у компонента-потомка. Он получает ошибку в качестве параметра и возвращает значение для обновления состояния</li>
+</ul>
+
+<v-two><template v-slot:first>
+<!------------------------------------------------------------->
+<h4>Монтирование</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>constructor()</u-code-text></li>
+    <li><u-code-text>static getDerivedStateFromProps()</u-code-text></li>
+    <li><u-code-text>render()</u-code-text></li>
+    <li><u-code-text>componentDidMount()</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Размонтирование</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>componentWillUnmount()</u-code-text></li>
+</ul>
+
+</template><template v-slot:last>
+<!------------------------------------------------------------->
+<h4>Обновление</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>static getDerivedStateFromProps()</u-code-text></li>
+    <li><u-code-text>shouldComponentUpdate()</u-code-text></li>
+    <li><u-code-text>render()</u-code-text></li>
+    <li><u-code-text>getSnapshotBeforeUpdate()</u-code-text></li>
+    <li><u-code-text>componentDidUpdate()</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Обработка ошибок</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>static getDerivedStateFromError()</u-code-text></li>
+    <li><u-code-text>componentDidCatch()</u-code-text></li>
+</ul>
+</template></v-two>
