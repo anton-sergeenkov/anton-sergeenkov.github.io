@@ -6,39 +6,6 @@
 
 <img src="/img/react/component-lifecycle.png" width="800px" class="center">
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Методы жизненного цикла (lifecycle methods)</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li><u-code-text>componentDidMount()</u-code-text> <u>монтирование (mounting)</u> запускается после первоначального рендеринга компонента в DOM</li>
-	<li><u-code-text>componentWillUnmount()</u-code-text> <u>размонтирование (unmounting)</u> запускается после удаления DOM-узла, созданного компонентом</li>
-	<li><u-code-text>componentDidUpdate()</u-code-text> <u>обновление</u> происходит при изменении пропсов или состояния</li>
-	<li><u-code-text>componentDidCatch()</u-code-text><u>Обработка ошибок</u> если произошла ошибка в процессе рендеринга, методе жизненного цикла или конструкторе любого дочернего компонента</li>
-</ul>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>render()</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<ul class="list-point">
-    <li><u-text-define>render()</u-text-define> - при вызове он проверяет <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text></li>
-    <li>Функция render() должна быть <b>чистой</b>. Это означает, что она не изменяет состояние компонента, всегда возвращает один и тот же результат, не взаимодействует напрямую с браузером. Взаимодействовать с браузером необходимо в <u-code-text>componentDidMount()</u-code-text> или других методах жизненного цикла. Чистый <u-code-text>render()</u-code-text> делает компонент понятным</li>
-</ul>
-
-<ol class="list-num">
-    <b>Возвращает один из следующих вариантов</b>
-    <li><u><b>Элемент React</b></u>. Обычно создаётся с помощью JSX. Указывает React, что рендерить: DOM-узел или пользовательский компонент. Например, <u-code-text>&lt;div /&gt;</u-code-text> или <u-code-text>&lt;MyComponent /&gt;</u-code-text></li>
-    <li><u><b>Массивы и фрагменты</b></u>. Возвращает несколько элементов из <u-code-text>render()</u-code-text></li>
-    <li><u><b>Порталы</b></u>. Рендерит несколько дочерних элементов в другое поддерево DOM</li>
-    <li><u><b>Строки и числа</b></u>. Рендерит текстовые DOM-узлы</li>
-    <li><u><b>Booleans или null</b></u>. Ничего не рендерит. Обычно необходим для поддержки паттерна <u-code-text>return test &amp;&amp; &lt;Child /&gt;</u-code-text>, где <u-code-text>test</u-code-text> - логическое значение</li>
-</ol>
-
-
-
-<hr>
-
 <ul class="list-point">
     <li><u-menu-code>mounting</u-menu-code> <u-menu-code>updated</u-menu-code> <u-code-text>static getDerivedStateFromProps(props, state)</u-code-text> вызывается непосредственно перед вызовом метода render, как при начальном монтировании, так и при последующих обновлениях. Он должен вернуть объект для обновления состояния или null, чтобы ничего не обновлять. Существует для редких случаев, когда состояние зависит от изменений в пропсах. Например, это подойдёт для реализации компонента &lt;Transition&gt;, который сравнивает свои предыдущие и следующие дочерние компоненты, чтобы решить, какой из них нужно анимировать. Метод запускается при каждом рендере, независимо от причины</li>
 

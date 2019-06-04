@@ -1,0 +1,7 @@
+<h2>props</h2>
+
+<ul class="list-point">
+    <li><u-text-define>this.props</u-text-define> - содержит свойства, которые были определены тем, кто вызывает этот компонент</li>
+    <li>В конструкоре классового компонента <u-code-text>super(props)</u-code-text> - передаём <u-code-text>props</u-code-text> базовому (родительскому) конструктору. Классовые компоненты всегда должны вызывать базовый конструктор с аргументом <u-code-text>props</u-code-text></li>
+    <li>Существует специальный проп <u-code-text>this.props.children</u-code-text>, который обычно определяется дочерними тегами в JSX-выражении, а не в самом теге</li>
+</ul>
