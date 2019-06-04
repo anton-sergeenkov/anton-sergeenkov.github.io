@@ -61,6 +61,10 @@ var arrReactjs = [
     ['react-js', 'processing-data-output', 'lists-and-keys',        point+'Списки и ключи'],
     ['react-js', 'processing-data-output', 'forms',                 point+'Формы'],
 
+    [1, 'React Plugins'],
+    ['react-js', 'react-plugins', 'prop-types',     setBorder(['prop-types'])],
+    ['react-js', 'react-plugins', 'formik',         setBorder(['formik'])],
+
     [1, 'Redux'],
     ['react-js', 'redux', 'info',                  'Информация'],
     ['react-js', 'redux', 'structure',             code+'Структура'],
@@ -72,9 +76,7 @@ var arrReactjs = [
 
     [1, 'Redux Plugins'],
     ['react-js', 'redux-plugins', 'redux-thunk',    setBorder(['redux-thunk', 'redux-devtools-extension'])],
-    ['react-js', 'redux-plugins', 'prop-types',     setBorder(['prop-types'])],
     ['react-js', 'redux-plugins', 'redux-form',     setBorder(['redux-form'])],
-    ['react-js', 'redux-plugins', 'formik',         setBorder(['formik'])],
     ['react-js', 'redux-plugins', 'redux-actions',  setBorder(['redux-actions'])],
     ['react-js', 'redux-plugins', 'redux-saga',     setBorder(['redux-saga'])],
     ['react-js', 'redux-plugins', 'redux-logger',   setBorder(['redux-logger'])],
