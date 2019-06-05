@@ -1,0 +1,31 @@
+.flex-table {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+}
+.flex-table > * {
+	border: 0.5px solid grey;
+	flex-shrink: 0;
+	font-style: normal;
+	color: black;
+	padding: 5px;
+	font-size: 14px;
+}
+u-fr1 {
+	width: 100%;
+}
+u-fr2 {
+	width: 50%;
+}
+u-fr3 {
+	width: 33.33%;
+}
+
+.flex-table .accent {
+	background: rgba(var(--color-html), 0.45);
+}
+.flex-table .header {
+	background: rgba(var(--color-other), 0.35);
+	text-transform: uppercase;
+	font-weight: bold;
+}

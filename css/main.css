@@ -5,6 +5,7 @@
 @import "./basic.css" screen;
 @import "./custom-elements.css" screen;
 @import "./components.css" screen;
+@import "./tables.css" screen;
 
 @import "./test.css" screen;
 
