@@ -35,11 +35,7 @@
 <h4>1. Первоначальный Render DOM</h4>
 <!------------------------------------------------------------->
 <ol class="list-num">
-	<li>Вернули JSX</li>
-	<li>Транспиляция в React.createElement (Virtual DOM)</li>
-	<li>Рендер в браузер DOM (react-dom)</li>
-</ol>
-
+<li>Вернули JSX</li>
 <pre><code class="js">
 class App extends React.Component {
 	render(
@@ -50,13 +46,16 @@ class App extends React.Component {
 }
 </code></pre>
 
+<li>Транспиляция в React.createElement (Virtual DOM)</li>
 <pre><code class="js">
 React.createElement('div', null, 'Hello'),
 </code></pre>
 
+<li>Рендер в браузер DOM (react-dom)</li>
 <pre><code class="js">
 ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
 </code></pre>
+</ol>
 
 <!------------------------------------------------------------->
 <h4>2. Изменение setState()</h4>
