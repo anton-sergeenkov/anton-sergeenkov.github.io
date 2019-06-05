@@ -22,16 +22,16 @@ function setBg(arr) {
 //---------------------------------------------------------------------
 var arrReactjs = [
     [1, 'Информация'],
-    ['react-js', 'main', 'info',                     'Информация'],
-    ['vue-js',   'main', 'virtual-dom',              'Virtual DOM'],
-    ['react-js', 'main', 'structure',                code+'Структура'],
-    ['react-js', 'main', 'react-dom-create-element', setBg(['ReactDOM.createElement'])],
-    ['react-js', 'main', 'react-dom-render',         setBg(['ReactDOM.render'])],
-    ['react-js', 'main', 'jsx',                      point+'JSX'],
-    ['react-js', 'main', 'refs-and-dom',             point+'Рефы и DOM'],
-    ['react-js', 'main', 'fragments',                point+'Фрагменты'],
-    ['react-js', 'main', 'portals',                  point+'Порталы'],
-    ['react-js', 'main', 'error-boundaries',         'Предохранители'],
+    ['react-js', 'main',  'info',                     'Информация'],
+    ['theory',   'other', 'virtual-dom',              'Virtual DOM'],
+    ['react-js', 'main',  'structure',                code+'Структура'],
+    ['react-js', 'main',  'react-dom-create-element', setBg(['ReactDOM.createElement'])],
+    ['react-js', 'main',  'react-dom-render',         setBg(['ReactDOM.render'])],
+    ['react-js', 'main',  'jsx',                      point+'JSX'],
+    ['react-js', 'main',  'refs-and-dom',             point+'Рефы и DOM'],
+    ['react-js', 'main',  'fragments',                point+'Фрагменты'],
+    ['react-js', 'main',  'portals',                  point+'Порталы'],
+    ['react-js', 'main',  'error-boundaries',         'Предохранители'],
 
     [1, 'Компоненты'],
     ['react-js', 'components', 'info',                    'Информация'],
@@ -46,7 +46,8 @@ var arrReactjs = [
 
     [1, 'Жизненный цикл компонентов'],
     ['react-js', 'lifecycle', 'info',                        'Информация'],
-    ['react-js', 'lifecycle', 'component-methods',           'Методы: component...()'],
+    ['react-js', 'lifecycle', 'methods-component',           point+'Методы компонента'],
+
     ['react-js', 'lifecycle', 'react-component-render',      setBg(['render()'])],
     ['react-js', 'lifecycle', 'react-component-constructor', setBg(['constructor()'])],
 
@@ -365,12 +366,12 @@ var arrJsObjects = [
 //---------------------------------------------------------------------
 var arrVuejs = [
     [1, 'Информация'],
-    ['vue-js', 'main', 'info',            'Информация'],
-    ['vue-js', 'main', 'structure-files', 'Структура проекта'],
-    ['vue-js', 'main', 'structure-code',  code+'Пример кода vue-cli'],
-    ['vue-js', 'main', 'instance-vue',    code+'Экземпляр Vue'],
-    ['vue-js', 'main', 'lifecycle-hooks', 'Хуки жизненного цикла'],
-    ['vue-js', 'main', 'virtual-dom',     'Virtual DOM'],
+    ['vue-js', 'main',  'info',            'Информация'],
+    ['vue-js', 'main',  'structure-files', 'Структура проекта'],
+    ['vue-js', 'main',  'structure-code',  code+'Пример кода vue-cli'],
+    ['vue-js', 'main',  'instance-vue',    code+'Экземпляр Vue'],
+    ['vue-js', 'main',  'lifecycle-hooks', 'Хуки жизненного цикла'],
+    ['theory', 'other', 'virtual-dom',     'Virtual DOM'],
 
     [1, 'Реактивность'],
     ['vue-js', 'reactivity', 'reactivity',   'Реактивность'],
