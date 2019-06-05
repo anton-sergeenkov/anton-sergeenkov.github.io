@@ -23,10 +23,51 @@
 	<li><u-text-underline>«Observable» (наблюдаемый)</u-text-underline> - наблюдение за изменением состояния. Если ничего не изменилось, мы ничего не делаем. Если изменилось, мы точно знаем, что нужно обновить</li>
 </ul>
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Реализация</h3>
+<h3>Реализация в React</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><u-text-define>React</u-text-define> создает легковесное дерево из JavaScript-объектов для имитации DOM-дерева. Затем он создает из них HTML, который вставляется или добавляется к нужному DOM-элементу, что вызывает перерисовку страницы в браузере. </li>
+    <li>React создает легковесное дерево из JavaScript-объектов для имитации DOM-дерева. Затем он создает из них HTML, который вставляется или добавляется к нужному DOM-элементу, что вызывает перерисовку страницы в браузере</li>
+    <li>JS объкты просто строить и сравнивать</li>
 </ul>
+
+<!------------------------------------------------------------->
+<h4>1. Первоначальный Render DOM</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+	<li>Вернули JSX</li>
+	<li>Транспиляция в React.createElement (Virtual DOM)</li>
+	<li>Рендер в браузер DOM (react-dom)</li>
+</ol>
+
+<pre><code class="js">
+class App extends React.Component {
+	render(
+		return (
+			&lt;div&gt;Hello&lt;/div&gt;
+		)
+	);
+}
+</code></pre>
+
+<pre><code class="js">
+React.createElement('div', null, 'Hello'),
+</code></pre>
+
+<pre><code class="js">
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>2. Изменение setState()</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>При нажатии setState() каждый раз асинхронно (React 16) перестраивается Virtual DOM для компонента и всех его потомков. Но в DOM идут только изменения</li>
+</ul>
+<ol class="list-num">
+	<li>Произошел <u-code-text>setState()</u-code-text> в компонене <u-code-text>App</u-code-text>. Помечаем компонент как "грязный"</li>
+	<li>Перестроение Virtual DOM</li>
+	<li>Сравнение измененого Virtual DOM и старого Virtual DOM. При нахождении изменений, меняется компонент в реальном DOM</li>
+</ol>
+
+
