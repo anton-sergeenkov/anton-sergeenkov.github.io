@@ -21,6 +21,7 @@ function setBg(arr) {
 // REACT.JS
 //---------------------------------------------------------------------
 var arrReactjs = [
+
     [1, 'Информация'],
     ['react-js', 'main',  'info',                     'Информация'],
     ['theory',   'other', 'virtual-dom',              'Virtual DOM'],
@@ -47,7 +48,7 @@ var arrReactjs = [
     [1, 'Жизненный цикл компонентов'],
     ['react-js', 'lifecycle', 'info',                        'Информация'],
     ['react-js', 'lifecycle', 'methods-component',           point+'Методы компонента'],
-
+    ['react-js', 'lifecycle', 'methods-other',               point+'Методы остальные'],
     ['react-js', 'lifecycle', 'react-component-render',      setBg(['render()'])],
     ['react-js', 'lifecycle', 'react-component-constructor', setBg(['constructor()'])],
 
@@ -57,6 +58,10 @@ var arrReactjs = [
     ['react-js', 'processing-data-output', 'conditional-rendering', point+'Условный рендеринг'],
     ['react-js', 'processing-data-output', 'lists-and-keys',        point+'Списки и ключи'],
     ['react-js', 'processing-data-output', 'forms',                 point+'Формы'],
+
+    [1, 'Хуки'],
+    ['react-js', 'hooks', 'info',       'Информация'],
+    ['react-js', 'hooks', 'state-hook', 'Хук состояния'],
 
     [1, 'React Plugins'],
     ['react-js', 'react-plugins', 'create-react-app', setBorder(['react', 'react-dom', 'create-react-app'])],
