@@ -29,13 +29,15 @@ var arrReactjs = [
     ['react-js', 'main',  'react-dom-create-element', setBg(['ReactDOM.createElement'])],
     ['react-js', 'main',  'react-dom-render',         setBg(['ReactDOM.render'])],
     ['react-js', 'main',  'jsx',                      point+'JSX'],
-    ['react-js', 'main',  'refs-and-dom',             point+'Рефы и DOM'],
     ['react-js', 'main',  'fragments',                point+'Фрагменты'],
     ['react-js', 'main',  'portals',                  point+'Порталы'],
     ['react-js', 'main',  'error-boundaries',         'Предохранители'],
 
+    [1, 'DOM'],
+    ['react-js', 'dom',  'refs-and-dom',               setBg(['ref'])],
+    ['react-js', 'dom',  'dangerously-set-inner-html', setBg(['dangerouslySetInnerHTML'])],
+
     [1, 'Компоненты'],
-    ['react-js', 'components', 'info',                    'Информация'],
     ['react-js', 'components', 'react-component',         setBg(['React.Component'])],
     ['react-js', 'components', 'state',                   setBg(['state', 'setState'])],
     ['react-js', 'components', 'props',                   setBg(['props'])],
