@@ -1,0 +1,35 @@
+<h2>Прототип __proto__ [[Prototype]]</h2>
+
+<ul class="list-point">
+    <li><u-text-define>__proto__</u-text-define> - специальная ссылка (у объекта) на другой объект (<u>прототип</u>)</li>
+    <li>__proto__ - ссылка на объект функции конструктора свойства prototype</li>
+    <li>Если при чтении свойства, оно отсутствует в самом объекте, оно ищется в объекте <u>__proto__</u></li>
+	<li>__proto__ - наследование на уровне объектов</li>
+</ul>
+
+<img src="/img/js/proto2.jpg" class="center" height="250px">
+
+<pre><code class="js">
+function User() {
+    this.name = 'Tony';
+}
+User.prototype.myFunc = function() {}
+Object.prototype.myFuncObject = function() {}
+let obj = new User();
+</code></pre>
+
+
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+1. У каждой функции по умолчанию есть свойство prototype, содержащее объект
+function User() {
+    this.name = 'Tony';
+}
+
+2. Создание объекта через new
+let user = new User();
+
+3. В user {__proto__: ...} записывается ссылка из prototype функции-конструктора (User)	 
+</code></pre>
+
+

@@ -16,12 +16,35 @@ function setBg(arr) {
 }
 
 
+//---------------------------------------------------------------------
+// ASSESSMENT
+//---------------------------------------------------------------------
+var arrAssessment = [
+    [1, 'Объекты'],
+    ['assessment', 'js',   'inheritance',   'Наследование'],
+    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
+    ['js-objects', 'main', 'new',           setBg(['new'])],
+    ['js-objects', 'main', 'proto',         setBg(['__proto__'])],
+    ['js-objects', 'main', 'prototype',     setBg(['prototype'])],
+    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
+    ['js-objects', 'main', 'return',        setBg(['return'])],
+
+    [1, 'Прочее'],
+    ['assessment', 'js',  'context',     'Контекст'],
+    ['assessment', 'js',  'closures',    'Замыкания'],
+    ['assessment', 'js',  'event-loop',  'Event Loop'],
+    ['assessment', 'js',  'hoisting',    'Всплытие'],
+    ['assessment', 'js',  'promise',     'Промисы'],
+];
+
+
+
+
 
 //---------------------------------------------------------------------
 // REACT.JS
 //---------------------------------------------------------------------
 var arrReactjs = [
-
     [1, 'Информация'],
     ['react-js', 'main',  'info',                     'Информация'],
     ['theory',   'other', 'virtual-dom',              'Virtual DOM'],
@@ -331,6 +354,15 @@ var arrJavaScript = [
 // JAVASCRIPT OBJECTS
 //---------------------------------------------------------------------
 var arrJsObjects = [
+
+    [1, 'Основное'],
+    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
+    ['js-objects', 'main', 'new',           setBg(['new'])],
+    ['js-objects', 'main', 'proto',         setBg(['__proto__'])],
+    ['js-objects', 'main', 'prototype',     setBg(['prototype'])],
+    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
+    ['js-objects', 'main', 'return',        setBg(['return'])],
+
     [1, 'Объекты ES6'],
     ['js-objects', 'objects', 'info',             'Теория'],
     ['js-objects', 'objects', 'methods',          'Методы'],
@@ -356,13 +388,9 @@ var arrJsObjects = [
     ['js-objects', 'class-es5-functional', 'methods-private',     'Приватный метод'],
     ['js-objects', 'class-es5-functional', 'getters-and-setters', 'Геттеры и сеттеры'],
     ['js-objects', 'class-es5-functional', 'inherit',             'Наследование'],
-    ['js-objects', 'class-es5-functional', 'return',              'Правила обработки return'],
 
     [1, 'Классы ES5 «Прототипный стиль»'],
     ['js-objects', 'class-es5-prototype', 'info',        'Теория'],
-    ['js-objects', 'class-es5-prototype', 'proto',       '<u-menu>__proto__</u-menu>'],
-    ['js-objects', 'class-es5-prototype', 'prototype',   '<u-menu>prototype</u-menu> <u-menu>new</u-menu>'],
-    ['js-objects', 'class-es5-prototype', 'constructor', '<u-menu>constructor</u-menu>'],
     ['js-objects', 'class-es5-prototype', 'methods',     'Добавление методов'],
     ['js-objects', 'class-es5-prototype', 'inherit',     'Наследование классов'],
     ['js-objects', 'class-es5-prototype', 'mixins',      'Примеси'],
@@ -759,6 +787,7 @@ switch(pageName) {
     case 'english.html':    var arrCurrent = arrEnglish;    break;
     case 'html.html':       var arrCurrent = arrHTML;       break;
     case 'css.html':        var arrCurrent = arrCSS;        break;
+    case 'assessment.html': var arrCurrent = arrAssessment; break;
 }
 
 if ( (pageName!=='map.html') && (pageName!=='map') ) {
