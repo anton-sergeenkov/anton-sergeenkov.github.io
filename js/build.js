@@ -21,7 +21,7 @@ function setBg(arr) {
 //---------------------------------------------------------------------
 var arrAssessment = [
     [1, 'Объекты'],
-    ['assessment', 'main', 'inheritance',   point+'Наследование'],
+    ['assessment', 'main', 'inheritance',   'Наследование'],
     ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
     ['js-objects', 'main', 'new',           setBg(['new'])],
     ['js-objects', 'main', 'prototype',     setBg(['__proto__', 'prototype'])],
@@ -29,12 +29,12 @@ var arrAssessment = [
     ['js-objects', 'main', 'return',        setBg(['return'])],
 
     [1, 'Прочее'],
-    ['js',         'main',       'context',              point+'Контекст'],
-    ['js',         'functions',  'closures',             point+'Замыкания'],
-    ['theory',     'javascript', 'architecture-runtime', point+'Event Loop'],
-    ['js',         'async',      'promise',              point+'Promise'],
-    
-    ['assessment', 'js',  'hoisting',    point+'Всплытие'],
+    ['js',         'main',       'context',              'Контекст'],
+    ['js',         'functions',  'closures',             'Замыкания'],
+    ['theory',     'javascript', 'architecture-runtime', 'Event Loop'],
+    ['js',         'async',      'promise',              'Promise'],
+
+    ['assessment', 'js',  'hoisting',    'Всплытие'],
 ];
 
 
