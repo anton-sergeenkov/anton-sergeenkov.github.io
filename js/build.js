@@ -24,8 +24,7 @@ var arrAssessment = [
     ['assessment', 'js',   'inheritance',   'Наследование'],
     ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
     ['js-objects', 'main', 'new',           setBg(['new'])],
-    ['js-objects', 'main', 'proto',         setBg(['__proto__'])],
-    ['js-objects', 'main', 'prototype',     setBg(['prototype'])],
+    ['js-objects', 'main', 'prototype',     setBg(['__proto__', 'prototype'])],
     ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
     ['js-objects', 'main', 'return',        setBg(['return'])],
 
@@ -39,6 +38,51 @@ var arrAssessment = [
 
 
 
+
+//---------------------------------------------------------------------
+// JAVASCRIPT OBJECTS
+//---------------------------------------------------------------------
+var arrJsObjects = [
+
+    [1, 'Основное'],
+    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
+    ['js-objects', 'main', 'new',           setBg(['new'])],
+    ['js-objects', 'main', 'prototype',     setBg(['__proto__', 'prototype'])],
+    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
+    ['js-objects', 'main', 'return',        setBg(['return'])],
+
+    [1, 'Объекты ES6'],
+    ['js-objects', 'objects', 'info',             'Теория'],
+    ['js-objects', 'objects', 'methods',          'Методы'],
+    ['js-objects', 'objects', 'literal-notation', 'Литеральная нотация'],
+    ['js-objects', 'objects', 'for',              'Перебор объекта'],
+    ['js-objects', 'objects', 'constructor',      'Конструктор создания объекта'],
+    ['js-objects', 'objects', 'prototype',        'Прототип'],
+    ['js-objects', 'objects', 'descriptor',       'Дескрипторы свойств'],
+    ['js-objects', 'objects', 'extends',          'Расширяемость объектов'],
+    ['js-objects', 'objects', 'conversion',       '<u-menu>toString</u-menu> <u-menu>valueOf</u-menu>'],
+    ['js-objects', 'objects', 'samples',          'Примеры'],
+
+    [1, 'Классы ES6'],
+    ['js-objects', 'class-es6', 'info',        'Теория'],
+    ['js-objects', 'class-es6', 'create',      'Объявление'],
+    ['js-objects', 'class-es6', 'inherit',     'Наследование'],
+    ['js-objects', 'class-es6', 'expression',  'Выражения классов'],
+    ['js-objects', 'class-es6', 'instanceof',  '<u-menu>instanceof</u-menu>'],
+
+    [1, 'Классы ES5 «Функциональный стиль»'],
+    ['js-objects', 'class-es5-functional', 'info',                'Теория'],
+    ['js-objects', 'class-es5-functional', 'create',              'Объявление'],
+    ['js-objects', 'class-es5-functional', 'methods-private',     'Приватный метод'],
+    ['js-objects', 'class-es5-functional', 'getters-and-setters', 'Геттеры и сеттеры'],
+    ['js-objects', 'class-es5-functional', 'inherit',             'Наследование'],
+
+    [1, 'Классы ES5 «Прототипный стиль»'],
+    ['js-objects', 'class-es5-prototype', 'info',        'Теория'],
+    ['js-objects', 'class-es5-prototype', 'methods',     'Добавление методов'],
+    ['js-objects', 'class-es5-prototype', 'inherit',     'Наследование классов'],
+    ['js-objects', 'class-es5-prototype', 'mixins',      'Примеси'],
+];
 
 
 //---------------------------------------------------------------------
@@ -348,52 +392,6 @@ var arrJavaScript = [
     ['js', 'additional', 'ecmascript',             'ECMAScript'],
     ['js', 'additional', 'jsdoc',                  'Синтаксис JSDoc'],
     ['js', 'additional', 'strict-mode',            'Strict Mode'],
-];
-
-//---------------------------------------------------------------------
-// JAVASCRIPT OBJECTS
-//---------------------------------------------------------------------
-var arrJsObjects = [
-
-    [1, 'Основное'],
-    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
-    ['js-objects', 'main', 'new',           setBg(['new'])],
-    ['js-objects', 'main', 'proto',         setBg(['__proto__'])],
-    ['js-objects', 'main', 'prototype',     setBg(['prototype'])],
-    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
-    ['js-objects', 'main', 'return',        setBg(['return'])],
-
-    [1, 'Объекты ES6'],
-    ['js-objects', 'objects', 'info',             'Теория'],
-    ['js-objects', 'objects', 'methods',          'Методы'],
-    ['js-objects', 'objects', 'literal-notation', 'Литеральная нотация'],
-    ['js-objects', 'objects', 'for',              'Перебор объекта'],
-    ['js-objects', 'objects', 'constructor',      'Конструктор создания объекта'],
-    ['js-objects', 'objects', 'prototype',        'Прототип'],
-    ['js-objects', 'objects', 'descriptor',       'Дескрипторы свойств'],
-    ['js-objects', 'objects', 'extends',          'Расширяемость объектов'],
-    ['js-objects', 'objects', 'conversion',       '<u-menu>toString</u-menu> <u-menu>valueOf</u-menu>'],
-    ['js-objects', 'objects', 'samples',          'Примеры'],
-
-    [1, 'Классы ES6'],
-    ['js-objects', 'class-es6', 'info',        'Теория'],
-    ['js-objects', 'class-es6', 'create',      'Объявление'],
-    ['js-objects', 'class-es6', 'inherit',     'Наследование'],
-    ['js-objects', 'class-es6', 'expression',  'Выражения классов'],
-    ['js-objects', 'class-es6', 'instanceof',  '<u-menu>instanceof</u-menu>'],
-
-    [1, 'Классы ES5 «Функциональный стиль»'],
-    ['js-objects', 'class-es5-functional', 'info',                'Теория'],
-    ['js-objects', 'class-es5-functional', 'create',              'Объявление'],
-    ['js-objects', 'class-es5-functional', 'methods-private',     'Приватный метод'],
-    ['js-objects', 'class-es5-functional', 'getters-and-setters', 'Геттеры и сеттеры'],
-    ['js-objects', 'class-es5-functional', 'inherit',             'Наследование'],
-
-    [1, 'Классы ES5 «Прототипный стиль»'],
-    ['js-objects', 'class-es5-prototype', 'info',        'Теория'],
-    ['js-objects', 'class-es5-prototype', 'methods',     'Добавление методов'],
-    ['js-objects', 'class-es5-prototype', 'inherit',     'Наследование классов'],
-    ['js-objects', 'class-es5-prototype', 'mixins',      'Примеси'],
 ];
 
 //---------------------------------------------------------------------
