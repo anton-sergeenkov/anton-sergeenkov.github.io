@@ -1,3 +1,6 @@
+//---------------------------------------------------
+// CUSTOM ELEMENTS
+//---------------------------------------------------
 let customElementRegistry = window.customElements;
 let arrCustomElements = [
 	'u-code-text',    'u-code-list',     'u-code-comment', 'u-code',
@@ -20,8 +23,9 @@ arrCustomElements.forEach(function(element) {
 });
 
 
-
-
+//---------------------------------------------------
+// VUE COMPONENTS
+//---------------------------------------------------
 Vue.component('v-two-code', {
 	props: ['type', 'comment'],
 	computed: {
@@ -55,21 +59,24 @@ var app = new Vue({
 	el: '#content',
 	data: { 
 		category: [
-			['React.js',  arrReactjs],
-			['JS',        arrJavaScript],
-			['JS Object', arrJsObjects],
-			['JS Tasks',  arrJsTasks],
-			['Теория',    arrTheory],
-			['HTML',      arrHTML],
-			['CSS',       arrCSS],
-			['Git',       arrGit],
-			['Vue.js',    arrVuejs],
-			['Webpack',   arrWebpack],
-			['NPM',       arrNpm ],
+			['Assessment', arrAssessment ],
+			['React.js',   arrReactjs],
+			['JS',         arrJavaScript],
+			['JS Object',  arrJsObjects],
+			['JS Tasks',   arrJsTasks],
+			['Теория',     arrTheory],
+			['HTML',       arrHTML],
+			['CSS',        arrCSS],
+			['Git',        arrGit],
+			['Vue.js',     arrVuejs],
+			['Webpack',    arrWebpack],
+			['NPM',        arrNpm ],
 		],
 		themesContent: null,
 		pageContent: '',
-		pageBuild: false
+		pageBuild: false,
+		hoverHeaderMenu: '', // пункт HeaderMenu на который навели
+		hoverThemesMenu: []  // пункт ThemesMenu на который навели
 	},
 
 	methods: {
@@ -98,13 +105,37 @@ var app = new Vue({
 					app.pageBuild = true;
 				}
 			});
-		}
+		},
+        handleEscapeKey(e) {
+        	// ESC
+			if (event.keyCode == 27) {
+				this.pageBuild = false;
+			}
+			// W - HeaderMenu
+			if (event.keyCode == 87) {
+				this.buildThemes(this.hoverHeaderMenu);
+			}
+			// D - ThemesMenu
+			if (event.keyCode == 68) {
+				this.buildContent(this.hoverThemesMenu[0], this.hoverThemesMenu[1], this.hoverThemesMenu[2]);
+			}
+        }
 	},
 	updated() {
 		document.querySelectorAll('pre code').forEach((block) => {
 			hljs.highlightBlock(block);
 		});
-	}
+	},
+    mounted() {
+        if (typeof document !== 'undefined') {
+            document.body.addEventListener('keyup', this.handleEscapeKey);
+        }
+    },
+    destroyed() {
+        if (typeof document !== 'undefined') {
+            document.body.removeEventListener('keyup', this.handleEscapeKey);
+        }
+    }
 })
 
 // arrOther
@@ -112,28 +143,3 @@ var app = new Vue({
 // arrJquery
 // arrCanvas
 // arrEnglish
-
-
-
-
-
-// var hoverHeaderMenu; // пункт HeaderMenu на который навели
-// var hoverThemesMenu; // пункт ThemesMenu на который навели
-
-// <div class="map-header-menu" onmouseover="hoverHeaderMenu=this"></div>
-// <div class=""map-themes-menu" onmouseover="hoverThemesMenu=this"></div>
-
-window.onkeydown = function(event) {
-	// ESC
-	if (event.keyCode == 27) {
-		app.pageBuild = false
-	}
-	// // W - HeaderMenu
-	// if (event.keyCode == 87) {
-	// 	buildThemes(hoverHeaderMenu);
-	// }
-	// // D - ThemesMenu
-	// if (event.keyCode == 68) {
-	// 	buildContent(hoverThemesMenu);
-	// }
-}
