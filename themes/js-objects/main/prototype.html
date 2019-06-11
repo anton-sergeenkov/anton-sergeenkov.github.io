@@ -9,7 +9,7 @@
 	<li>__proto__ - наследование на уровне объектов</li>
 </ul>
 
-<img src="/img/js/prototype-chain.png">
+<img src="/img/js/prototype/prototype-chain.png">
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>prototype</h3>
@@ -17,7 +17,7 @@
 <ul class="list-point">
 	<li>
 		<u-text-define>prototype</u-text-define> - свойство функции. По умолчанию является объектом с единственным свойством <u-code-text>constructor</u-code-text>, которое ссылается на саму функцию
-		<img src="/img/js/prototype-prop.png">
+		<img src="/img/js/prototype/prototype-prop.png">
 	</li>
 	<li><b>Используется:</b> при создании новых объектов оператором <u-code-text>new</u-code-text></li>
 	<li><b>Цель:</b> указывать <u-code-text>__proto__</u-code-text> для новых объектов. При создании объекта через <u-code-text>new</u-code-text>, в его прототип <u-code-text>__proto__</u-code-text> записывается ссылка из <u-code-text>prototype</u-code-text> функции-конструктора</li>
@@ -26,6 +26,15 @@
 	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <u-code-text>new</u-code-text></li>
 	<li>Значением prototype может быть только объект</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Схемы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<img src="/img/js/prototype/proto-scheme1.png" width="450px">
+</template><template v-slot:last>
+<img src="/img/js/prototype/proto-scheme2.png" width="300px">
+</template></v-two>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -49,7 +58,7 @@ var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
 <!------------------------------------------------------------->
 <h4>Пример #2</h4>
 <!------------------------------------------------------------->
-<img src="/img/js/proto2.jpg" class="center" height="250px">
+<img src="/img/js/prototype/proto-tree.jpg" class="center" height="250px">
 
 <pre><code class="js">
 function User() {
