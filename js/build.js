@@ -33,11 +33,8 @@ var arrAssessment = [
     ['js',         'functions',  'closures',             'Замыкания'],
     ['theory',     'javascript', 'architecture-runtime', 'Event Loop'],
     ['js',         'async',      'promise',              'Promise'],
-
-    ['assessment', 'js',  'hoisting',    'Всплытие'],
+    ['js',         'type-data',  'variables',            setBg(['var', 'let', 'const'])],
 ];
-
-
 
 
 //---------------------------------------------------------------------

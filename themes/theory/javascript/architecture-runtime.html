@@ -1,8 +1,8 @@
 <h2>Архитектура среды выполнения JS</h2>
 
-<pre><code class="html">
-<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" target="_blank">MDN</a>
-</code></pre>
+<u-link-wrapper>
+    <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" target="_blank">MDN</a>
+</u-link-wrapper>
 
 <h4>Определения</h4>
 <ul class="list-point">
@@ -43,7 +43,7 @@
     <li><u-text-define>3.1 Event Table</u-text-define> - <u>таблица</u> в которой находится информация о том, по какому событию необходимо поместить функцию в <u>Event Queue</u> (очередь событий)</li>
 
     <li><u-text-define>3.2 Callback/Event/Task Queue</u-text-define> - <u>очередь задач/событий</u> - FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
-
+    
     <li><u-text-define>3.3 Job Queue (ES6)</u-text-define> - <u>очередь заданий (микротаски)</u> Эта конструкцию можно считать слоем, расположенном поверх очереди цикла событий. Очередь заданий — это очередь, которая присоединена к концу каждого тика в очереди цикла событий</li>
 
     <li><u-text-define>4. Event Loop</u-text-define> - <u>цикл/петля событий</u> - наблюдает за стеком вызовов и очередью коллбэков (callback queue). Если стек вызовов пуст, цикл берёт первое событие из очереди и помещает его в стек, что приводит к запуску этого события на выполнение. Подобная итерация называется тиком (tick) цикла событий. Каждое событие — это просто коллбэк</li>
