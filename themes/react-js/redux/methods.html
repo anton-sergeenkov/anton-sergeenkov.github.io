@@ -1,18 +1,5 @@
-<h2>React-Redux</h2>
+<h2>Методы</h2>
 
-<v-pre-npm>
-npm i --save <u-code-npm>redux</u-code-npm>
-npm i --save <u-code-npm>react-redux</u-code-npm>
-</v-pre-npm>
-
-<u-link-wrapper>
-	<a href="https://react-redux.js.org/introduction/quick-start" target="_blank">Документация</a>
-    <a href="https://maxfarseer.gitbooks.io/redux-course-ru-v2/" target="_blank">Максим Пацианский "React Redux" (книга)</a>
-</u-link-wrapper>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Методы</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u-text-define>1. createStore</u-text-define> <u-code-npm>redux</u-code-npm> - создание store</li>
 
@@ -34,14 +21,3 @@ npm i --save <u-code-npm>react-redux</u-code-npm>
 
     <li><u-text-define>4. Connect</u-text-define> <u-code-npm>react-redux</u-code-npm> - подключение компонента к Store (декоратор)</li>
 </ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Однонаправленный поток данных</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ol class="list-num">
-    <li>Приложение получило начальное состояние (<u-code-text>initial state</u-code-text>)</li>
-    <li>Пользователь нажав кнопку, отправил действие (<u-code-text>dispatch action</u-code-text>)</li>
-    <li>Соответсвующий редьюсер обновил часть приложения, в согласии с тем, что узнал от действия</li>
-    <li>Приложение изменилось и теперь отражает новое состояние</li>
-    <li>... (все повторяется по кругу, с пункта 2)</li>
-</ol>

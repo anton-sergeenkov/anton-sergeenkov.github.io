@@ -136,15 +136,19 @@ var arrReactjs = [
     ['react-js', 'react-plugins', 'formik',           setBorder(['formik'])],
 
     [1, 'Redux'],
-    ['react-js', 'redux', 'info-flux',              'Flux'],
-    ['react-js', 'redux', 'info-redux',             'Redux'],
-    ['react-js', 'redux', 'functional-programming', 'Functional Programming'],
-    ['react-js', 'redux', 'react-redux',            setBorder(['react', 'react-redux'])],
+    ['react-js', 'redux', 'info',                   'Информация'],
+    ['react-js', 'redux', 'functional-programming', 'Принципы FP'],
+    ['react-js', 'redux', 'methods',                'Методы'],
 
-    ['react-js', 'redux', 'elements',               point+'Элементы'],
     ['react-js', 'redux', 'structure',              code+'Структура'],
     ['react-js', 'redux', 'connect',                setBg(['Connect'])],
     ['react-js', 'redux', 'middleware',             setBg(['Middleware'])],
+
+    ['react-js', 'redux', 'info-flux',              'Flux'],
+    ['react-js', 'redux', 'info-redux',             'Redux'],
+
+
+
 
     [1, 'Redux Plugins'],
     ['react-js', 'redux-plugins', 'redux-thunk',    setBorder(['redux-thunk', 'redux-devtools-extension'])],
