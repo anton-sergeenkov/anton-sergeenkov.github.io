@@ -1,23 +1,17 @@
 var point = '<div class="circle-menu"></div> ';
 var code = '<u-menu-code>&lt;/&gt;</u-menu-code> ';
 
-function setBorder(arr) {
-    let result = arr.map(function(element) {
-        return '<u-menu-border>'+element+'</u-menu-border>'
-    });
-    return result.join(' ');
-}
 
-function setBg(arr) {
-    let result = arr.map(function(element) {
-        return '<u-menu>'+element+'</u-menu>'
-    });
-    return result.join(' ');
-}
 
-function setBgAccent(arr) {
+function setTheme(tag, arr) {
+    let resultTag = '';
+    switch(tag) {
+        case 1: resultTag = 'u-menu'; break;
+        case 2: resultTag = 'u-menu-border'; break;
+        case 3: resultTag = 'u-menu-accent'; break;
+    }
     let result = arr.map(function(element) {
-        return '<u-menu-accent>'+element+'</u-menu-accent>'
+        return `<${resultTag}>`+element+`</${resultTag}>`
     });
     return result.join(' ');
 }
@@ -31,14 +25,11 @@ var arrJavaScript = [
     [2, 'DOM'],
     //--------------------------------------------------------------------
     [1, 'Документ и объекты страницы'],
-    ['js', 'dom', 'info',       'Информация'],
-    ['js', 'dom', 'dom',        'DOM'],
-
-    ['js', 'dom', 'element-get',     setBgAccent(['1'])+' Выборка элементов'],
-    ['js', 'dom', 'element-create',  setBgAccent(['2'])+' Создание элементов'],
-    ['js', 'dom', 'element-method',  setBgAccent(['3'])+' Методы элементов'],
-
-
+    ['js', 'dom', 'info',            'Информация'],
+    ['js', 'dom', 'dom',             'DOM'],
+    ['js', 'dom', 'element-get',     setTheme(3, ['1'])+' Выборка элементов'],
+    ['js', 'dom', 'element-create',  setTheme(3, ['2'])+' Создание элементов'],
+    ['js', 'dom', 'element-method',  setTheme(3, ['3'])+' Методы элементов'],
 
     ['js', 'dom', 'web-forms',       'Web Forms'],
     ['js', 'dom', 'bom',             'BOM'],
@@ -53,9 +44,8 @@ var arrJavaScript = [
     ['js', 'dom-events', 'samples',           'Примеры'],
 
     [1, 'Web API'],
-    
-    ['js', 'web-api', 'location',      '<u-menu>open</u-menu> <u-menu>location</u-menu>'],
-    ['js', 'web-api', 'inner-width',   '<u-menu>innerWidth/Height</u-menu> <u-menu>clientWidth/Height</u-menu>'],
+    ['js', 'web-api', 'location',      setTheme(1, ['open', 'location'])],
+    ['js', 'web-api', 'inner-width',   setTheme(1, ['innerWidth/Height', 'clientWidth/Height'])],
     ['js', 'web-api', 'media-queries', 'Media queries'],
 
 
@@ -104,17 +94,17 @@ var arrJavaScript = [
     ['js', 'es6', 'iterators',         'Iterators'],
 
     [1, 'Асинхронный код'],
-    ['js', 'async', 'collback',   '<u-menu-accent>1.</u-menu-accent> Collback Function'],
-    ['js', 'async', 'promise',    '<u-menu-accent>2.</u-menu-accent> Promise (ES6)'],
-    ['js', 'async', 'generators', '<u-menu-accent>3.</u-menu-accent> Generators (ES6)'],
-    ['js', 'async', 'async-func', '<u-menu-accent>4.</u-menu-accent> Async Function (ES2017)'],
+    ['js', 'async', 'collback',   setTheme(3, ['1'])+' Collback Function'],
+    ['js', 'async', 'promise',    setTheme(3, ['2'])+' Promise (ES6)'],
+    ['js', 'async', 'generators', setTheme(3, ['3'])+' Generators (ES6)'],
+    ['js', 'async', 'async-func', setTheme(3, ['4'])+' Async Function (ES2017)'],
     ['js', 'async', 'timeout',    '<u-menu>setTimeout</u-menu> <u-menu>setInterval</u-menu>'],
 
     [1, 'AJAX'],
     ['js', 'ajax', 'info',           'Описание'],
-    ['js', 'ajax', 'xmlhttprequest', '<u-menu-accent>1.</u-menu-accent> XMLHttpRequest'],
-    ['js', 'ajax', 'fetch',          '<u-menu-accent>2.</u-menu-accent> Fetch'],
-    ['js', 'ajax', 'axios',          '<u-menu-accent>3.</u-menu-accent> Axios'],
+    ['js', 'ajax', 'xmlhttprequest', setTheme(3, ['1'])+' XMLHttpRequest'],
+    ['js', 'ajax', 'fetch',          setTheme(3, ['2'])+' Fetch'],
+    ['js', 'ajax', 'axios',          setTheme(3, ['3'])+' Axios'],
     ['js', 'ajax', 'request-js',     'Request JS'],
     ['js', 'ajax', 'response-php',   'Response PHP'],
     ['js', 'ajax', 'jsonp',          'JSONP'],
@@ -157,10 +147,10 @@ var arrJavaScript = [
 
     [1, 'Веб-компоненты'],
     ['js', 'web-components', 'info',            'Теория'],
-    ['js', 'web-components', 'shadow-dom',      '<u-menu-accent>1.</u-menu-accent> Shadow DOM'],
-    ['js', 'web-components', 'template',        '<u-menu-accent>2.</u-menu-accent> HTML Templates'],
-    ['js', 'web-components', 'custom-elements', '<u-menu-accent>3.</u-menu-accent> Custom Elements'],
-    ['js', 'web-components', 'imports',         '<u-menu-accent>4.</u-menu-accent> HTML Imports'],
+    ['js', 'web-components', 'shadow-dom',      setTheme(3, ['1'])+' Shadow DOM'],
+    ['js', 'web-components', 'template',        setTheme(3, ['2'])+' HTML Templates'],
+    ['js', 'web-components', 'custom-elements', setTheme(3, ['3'])+' Custom Elements'],
+    ['js', 'web-components', 'imports',         setTheme(3, ['4'])+' HTML Imports'],
 ];
 
     // [1, 'WORK'],
@@ -186,21 +176,21 @@ var arrReactjs = [
     ['react-js', 'main',  'info',                     'Информация'],
     ['theory',   'other', 'virtual-dom',              'Virtual DOM'],
     ['react-js', 'main',  'structure',                code+'Структура'],
-    ['react-js', 'main',  'react-dom-create-element', setBg(['ReactDOM.createElement'])],
-    ['react-js', 'main',  'react-dom-render',         setBg(['ReactDOM.render'])],
+    ['react-js', 'main',  'react-dom-create-element', setTheme(1, ['ReactDOM.createElement'])],
+    ['react-js', 'main',  'react-dom-render',         setTheme(1, ['ReactDOM.render'])],
     ['react-js', 'main',  'jsx',                      point+'JSX'],
     ['react-js', 'main',  'fragments',                point+'Фрагменты'],
     ['react-js', 'main',  'portals',                  point+'Порталы'],
     ['react-js', 'main',  'error-boundaries',         'Предохранители'],
 
     [1, 'DOM'],
-    ['react-js', 'dom',  'refs-and-dom',               setBg(['ref'])],
-    ['react-js', 'dom',  'dangerously-set-inner-html', setBg(['dangerouslySetInnerHTML'])],
+    ['react-js', 'dom',  'refs-and-dom',               setTheme(1, ['ref'])],
+    ['react-js', 'dom',  'dangerously-set-inner-html', setTheme(1, ['dangerouslySetInnerHTML'])],
 
     [1, 'Компоненты'],
-    ['react-js', 'components', 'react-component',         setBg(['React.Component'])],
-    ['react-js', 'components', 'state',                   setBg(['state', 'setState'])],
-    ['react-js', 'components', 'props',                   setBg(['props'])],
+    ['react-js', 'components', 'react-component',         setTheme(1, ['React.Component'])],
+    ['react-js', 'components', 'state',                   setTheme(1, ['state', 'setState'])],
+    ['react-js', 'components', 'props',                   setTheme(1, ['props'])],
     ['react-js', 'components', 'components',              point+'Компоненты'],
     ['react-js', 'components', 'lifting-state-up',        point+'Подъём состояния'],
     ['react-js', 'components', 'composition',             point+'Композиция'],
@@ -211,8 +201,8 @@ var arrReactjs = [
     ['react-js', 'lifecycle', 'info',                        'Информация'],
     ['react-js', 'lifecycle', 'methods-component',           point+'Методы компонента'],
     ['react-js', 'lifecycle', 'methods-other',               point+'Методы остальные'],
-    ['react-js', 'lifecycle', 'react-component-render',      setBg(['render()'])],
-    ['react-js', 'lifecycle', 'react-component-constructor', setBg(['constructor()'])],
+    ['react-js', 'lifecycle', 'react-component-render',      setTheme(1, ['render()'])],
+    ['react-js', 'lifecycle', 'react-component-constructor', setTheme(1, ['constructor()'])],
 
     [1, 'Обработка и вывод данных'],
     ['react-js', 'processing-data-output', 'css',                   point+'CSS'],
@@ -226,29 +216,29 @@ var arrReactjs = [
     ['react-js', 'hooks', 'state-hook', 'Хук состояния'],
 
     [1, 'React Plugins'],
-    ['react-js', 'react-plugins', 'create-react-app', setBorder(['react', 'react-dom', 'create-react-app'])],
-    ['react-js', 'react-plugins', 'prop-types',       setBorder(['prop-types'])],
-    ['react-js', 'react-plugins', 'formik',           setBorder(['formik'])],
+    ['react-js', 'react-plugins', 'create-react-app', setTheme(2, ['react', 'react-dom', 'create-react-app'])],
+    ['react-js', 'react-plugins', 'prop-types',       setTheme(2, ['prop-types'])],
+    ['react-js', 'react-plugins', 'formik',           setTheme(2, ['formik'])],
 
     [1, 'Redux'],
     ['react-js', 'redux', 'info',                   'Информация'],
     ['react-js', 'redux', 'functional-programming', 'Принципы FP'],
     ['react-js', 'redux', 'methods',                'Методы'],
     ['react-js', 'redux', 'structure',              code+'Структура'],
-    ['react-js', 'redux', 'connect',                setBg(['Connect'])],
-    ['react-js', 'redux', 'middleware',             setBg(['Middleware'])],
+    ['react-js', 'redux', 'connect',                setTheme(1, ['Connect'])],
+    ['react-js', 'redux', 'middleware',             setTheme(1, ['Middleware'])],
     ['react-js', 'redux', 'info-flux',              'Flux'],
     ['react-js', 'redux', 'info-redux',             'Redux'],
 
     [1, 'Redux Plugins'],
-    ['react-js', 'redux-plugins', 'redux-thunk',    setBorder(['redux-thunk', 'redux-devtools-extension'])],
-    ['react-js', 'redux-plugins', 'redux-form',     setBorder(['redux-form'])],
-    ['react-js', 'redux-plugins', 'redux-actions',  setBorder(['redux-actions'])],
-    ['react-js', 'redux-plugins', 'redux-saga',     setBorder(['redux-saga'])],
-    ['react-js', 'redux-plugins', 'redux-logger',   setBorder(['redux-logger'])],
+    ['react-js', 'redux-plugins', 'redux-thunk',    setTheme(2, ['redux-thunk', 'redux-devtools-extension'])],
+    ['react-js', 'redux-plugins', 'redux-form',     setTheme(2, ['redux-form'])],
+    ['react-js', 'redux-plugins', 'redux-actions',  setTheme(2, ['redux-actions'])],
+    ['react-js', 'redux-plugins', 'redux-saga',     setTheme(2, ['redux-saga'])],
+    ['react-js', 'redux-plugins', 'redux-logger',   setTheme(2, ['redux-logger'])],
 
     [1, 'React Router'],
-    ['react-js', 'react-router', 'react-router',      setBorder(['react-router', 'react-router-dom'])],
+    ['react-js', 'react-router', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
     ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
     ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
     ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
@@ -256,8 +246,8 @@ var arrReactjs = [
 
     [1, 'Мемоизация'],
     ['react-js', 'memoization', 'info',                    'Информация'],
-    ['react-js', 'memoization', 'react-pure-component',    setBg(['React.PureComponent'])],
-    ['react-js', 'memoization', 'react-memo',              setBg(['React.memo'])],
+    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
+    ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
     
     [1, 'Тестирование'],
     ['react-js', 'testing', 'react-developer-tools',  'React Developer Tools'],
@@ -270,18 +260,18 @@ var arrReactjs = [
 var arrAssessment = [
     [1, 'Объекты'],
     ['assessment', 'main', 'inheritance',   'Наследование'],
-    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
-    ['js-objects', 'main', 'new',           setBg(['new'])],
-    ['js-objects', 'main', 'prototype',     setBg(['__proto__', 'prototype'])],
-    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
-    ['js-objects', 'main', 'return',        setBg(['return'])],
+    ['js-objects', 'main', 'object-create', setTheme(1, ['Object.create', 'Object.assign'])],
+    ['js-objects', 'main', 'new',           setTheme(1, ['new'])],
+    ['js-objects', 'main', 'prototype',     setTheme(1, ['__proto__', 'prototype'])],
+    ['js-objects', 'main', 'constructor',   setTheme(1, ['constructor'])],
+    ['js-objects', 'main', 'return',        setTheme(1, ['return'])],
 
     [1, 'Прочее'],
     ['js',         'main',       'context',              'Контекст'],
     ['js',         'functions',  'closures',             'Замыкания'],
     ['theory',     'javascript', 'architecture-runtime', 'Event Loop'],
     ['js',         'async',      'promise',              'Promise'],
-    ['js',         'type-data',  'variables',            setBg(['var', 'let', 'const'])],
+    ['js',         'type-data',  'variables',            setTheme(1, ['var', 'let', 'const'])],
 ];
 
 //---------------------------------------------------------------------
@@ -290,11 +280,11 @@ var arrAssessment = [
 var arrJsObjects = [
 
     [1, 'Основное'],
-    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
-    ['js-objects', 'main', 'new',           setBg(['new'])],
-    ['js-objects', 'main', 'prototype',     setBg(['__proto__', 'prototype'])],
-    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
-    ['js-objects', 'main', 'return',        setBg(['return'])],
+    ['js-objects', 'main', 'object-create', setTheme(1, ['Object.create', 'Object.assign'])],
+    ['js-objects', 'main', 'new',           setTheme(1, ['new'])],
+    ['js-objects', 'main', 'prototype',     setTheme(1, ['__proto__', 'prototype'])],
+    ['js-objects', 'main', 'constructor',   setTheme(1, ['constructor'])],
+    ['js-objects', 'main', 'return',        setTheme(1, ['return'])],
 
     [1, 'Объекты ES6'],
     ['js-objects', 'objects', 'info',             'Теория'],
@@ -772,8 +762,8 @@ var arrCSS = [
 //---------------------------------------------------------------------
 var arrEnglish = [
     [1, 'Основное'],
-    ['english', 'main', 'to-be',       setBg(['1'])+' Verb To Be'],
-    ['english', 'main', 'articles',    setBg(['2'])+' Articles'],
+    ['english', 'main', 'to-be',       setTheme(1, ['1'])+' Verb To Be'],
+    ['english', 'main', 'articles',    setTheme(1, ['2'])+' Articles'],
     ['english', 'main', 'phrases',     code+'Phrases'],
     ['english', 'main', 'nationality', 'Nationality'],
     ['english', 'main', 'other',       'Other'],
