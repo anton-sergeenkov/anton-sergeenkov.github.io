@@ -101,7 +101,7 @@ MENU-LEFT
 	color: #4aaf2d;
 	font-weight: bold;
 }
-#menu-left .theme, #menu-left > a {
+#menu-left .theme, #menu-left .section, #menu-left > a {
 	color: black;
 	text-decoration: none;
 	display: block;
@@ -123,6 +123,13 @@ MENU-LEFT
 	text-transform: uppercase;
 	color: rgba(var(--color-js), 1);
 	background: rgba(var(--color-js), 0.2);
+}
+#menu-left .section {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-other), 1);
+	background: rgba(var(--color-other), 0.2);
 }
 
 /***************************************************

@@ -15,73 +15,168 @@ function setBg(arr) {
     return result.join(' ');
 }
 
-
-//---------------------------------------------------------------------
-// ASSESSMENT
-//---------------------------------------------------------------------
-var arrAssessment = [
-    [1, 'Объекты'],
-    ['assessment', 'main', 'inheritance',   'Наследование'],
-    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
-    ['js-objects', 'main', 'new',           setBg(['new'])],
-    ['js-objects', 'main', 'prototype',     setBg(['__proto__', 'prototype'])],
-    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
-    ['js-objects', 'main', 'return',        setBg(['return'])],
-
-    [1, 'Прочее'],
-    ['js',         'main',       'context',              'Контекст'],
-    ['js',         'functions',  'closures',             'Замыкания'],
-    ['theory',     'javascript', 'architecture-runtime', 'Event Loop'],
-    ['js',         'async',      'promise',              'Promise'],
-    ['js',         'type-data',  'variables',            setBg(['var', 'let', 'const'])],
-];
+function setBgAccent(arr) {
+    let result = arr.map(function(element) {
+        return '<u-menu-accent>'+element+'</u-menu-accent>'
+    });
+    return result.join(' ');
+}
 
 
 //---------------------------------------------------------------------
-// JAVASCRIPT OBJECTS
+// JAVASCRIPT
 //---------------------------------------------------------------------
-var arrJsObjects = [
+var arrJavaScript = [
+    //--------------------------------------------------------------------
+    [2, 'DOM'],
+    //--------------------------------------------------------------------
+    [1, 'Документ и объекты страницы'],
+    ['js', 'dom', 'info',       'Информация'],
+    ['js', 'dom', 'dom',        'DOM'],
+
+    ['js', 'dom', 'element-get',     setBgAccent(['1'])+' Выборка элементов'],
+    ['js', 'dom', 'element-create',  setBgAccent(['2'])+' Создание элементов'],
+    ['js', 'dom', 'element-method',  setBgAccent(['3'])+' Методы элементов'],
+
+
+
+    ['js', 'dom', 'web-forms',       'Web Forms'],
+    ['js', 'dom', 'bom',             'BOM'],
+
+    [1, 'События'],
+    ['js', 'dom-events', 'propagation-model', 'Модель распространения событий'],
+    ['js', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
+    ['js', 'dom-events', 'delegate',          'Делегирование событий'],
+    ['js', 'dom-events', 'params-event',      'Передаваемый параметр (Event)'],
+    ['js', 'dom-events', 'list-events',       'Список событий'],
+    ['js', 'dom-events', 'prevent',           'Отмена обычного поведения'],
+    ['js', 'dom-events', 'samples',           'Примеры'],
+
+    [1, 'Web API'],
+    
+    ['js', 'web-api', 'location',      '<u-menu>open</u-menu> <u-menu>location</u-menu>'],
+    ['js', 'web-api', 'inner-width',   '<u-menu>innerWidth/Height</u-menu> <u-menu>clientWidth/Height</u-menu>'],
+    ['js', 'web-api', 'media-queries', 'Media queries'],
+
+
+
+
+    //--------------------------------------------------------------------
+    [2, 'JavaScript'],
+    //--------------------------------------------------------------------
+    [1, 'Функции'],
+    ['js', 'functions', 'info',                      'Описание'],
+    ['js', 'functions', 'announcement',              'Объявление'],
+    ['js', 'functions', 'arguments',                 'Псевдомассив аргументов "arguments"'],
+    ['js', 'functions', 'parameters',                'Параметры функции (ES6)'],
+    ['js', 'functions', 'arrow',                     'Стрелочные функции (ES6)'],
+    ['js', 'functions', 'closures',                  'Замыкания'],
+    ['js', 'functions', 'recursion',                 'Рекурсия'],
+    ['js', 'functions', 'named-function-expression', 'Named Function Expression'],
+
+    [1, 'Типы данных'],
+    ['js', 'type-data', 'type-data',         'Типы данных'],
+    ['js', 'type-data', 'variables',         '<u-menu>var</u-menu> <u-menu>let</u-menu> <u-menu>const</u-menu>'],
+    ['js', 'type-data', 'typeof',            '<u-menu>typeof</u-menu>'],
+    ['js', 'type-data', 'number',            'Числа'],
+    ['js', 'type-data', 'math',              'Math'],
+    ['js', 'type-data', 'string',            'Строки'],
+    ['js', 'type-data', 'json',              '<u-menu>JSON</u-menu>'],
+    ['js', 'type-data', 'date-time',         'Дата и время'],
+    ['js', 'type-data', 'comparison-values', 'Сравнение и логические значения'],
+    ['js', 'type-data', 'regexr',            'Регулярные выражения'],
+    ['js', 'type-data', 'object-wrappers',   'Autoboxing (Object Wrappers)'],
+
+    [1, 'Массивы'],
+    ['js', 'array', 'array-cycle', '<u-menu>forEach</u-menu> <u-menu>filter</u-menu> <u-menu>map</u-menu> <u-menu>every/some</u-menu> <u-menu>reduce/reduceRight</u-menu>'],
+    ['js', 'array', 'array',       'Массивы'],
+    ['js', 'array', 'array-obj',   'Массивы обьектов'],
+
+    [1, 'ES6'],
+    ['js', 'es6', 'map',               'Коллекции <u-menu>Map</u-menu> <u-menu>WeakMap</u-menu>'],
+    ['js', 'es6', 'set',               'Коллекции <u-menu>Set</u-menu> <u-menu>WeakSet</u-menu>'],
+    ['js', 'es6', 'spread',            'Оператор разворота'],
+    ['js', 'es6', 'destructive-array', 'Деструктивное присваивание массивов'],
+    ['js', 'es6', 'destructive-obj',   'Деструтивное присваивание объектов'],
+    ['js', 'es6', 'pattern-string',    'Шаблонные строки'],
+    ['js', 'es6', 'proxy',             'Proxy'],
+    ['js', 'es6', 'symbol',            'Symbol'],
+    ['js', 'es6', 'iterators',         'Iterators'],
+
+    [1, 'Асинхронный код'],
+    ['js', 'async', 'collback',   '<u-menu-accent>1.</u-menu-accent> Collback Function'],
+    ['js', 'async', 'promise',    '<u-menu-accent>2.</u-menu-accent> Promise (ES6)'],
+    ['js', 'async', 'generators', '<u-menu-accent>3.</u-menu-accent> Generators (ES6)'],
+    ['js', 'async', 'async-func', '<u-menu-accent>4.</u-menu-accent> Async Function (ES2017)'],
+    ['js', 'async', 'timeout',    '<u-menu>setTimeout</u-menu> <u-menu>setInterval</u-menu>'],
+
+    [1, 'AJAX'],
+    ['js', 'ajax', 'info',           'Описание'],
+    ['js', 'ajax', 'xmlhttprequest', '<u-menu-accent>1.</u-menu-accent> XMLHttpRequest'],
+    ['js', 'ajax', 'fetch',          '<u-menu-accent>2.</u-menu-accent> Fetch'],
+    ['js', 'ajax', 'axios',          '<u-menu-accent>3.</u-menu-accent> Axios'],
+    ['js', 'ajax', 'request-js',     'Request JS'],
+    ['js', 'ajax', 'response-php',   'Response PHP'],
+    ['js', 'ajax', 'jsonp',          'JSONP'],
+    ['js', 'ajax', 'cors',           'CORS'],
+    ['js', 'ajax', 'websocket',      'WebSocket'],
+    ['js', 'ajax', 'comet',          'Comet'],
+
+    [1, 'Клиентское хранилище'],
+    ['js', 'client-storage', 'web-storage', '<u-menu>localStorage</u-menu> <u-menu>sessionStorage</u-menu>'],
+    ['js', 'client-storage', 'indexed-db',  '<u-menu>IndexedDB</u-menu>'],
+    ['js', 'client-storage', 'cookie',      '<u-menu>cookie</u-menu>'],
 
     [1, 'Основное'],
-    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
-    ['js-objects', 'main', 'new',           setBg(['new'])],
-    ['js-objects', 'main', 'prototype',     setBg(['__proto__', 'prototype'])],
-    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
-    ['js-objects', 'main', 'return',        setBg(['return'])],
+    ['js', 'main', 'context',                '<u-menu>this</u-menu> <u-menu>call</u-menu> <u-menu>apply</u-menu> <u-menu>bind</u-menu>'],
+    ['js', 'main', 'cycle',                  'Циклы'],
+    ['js', 'main', 'css',                    '<u-menu>classList</u-menu> <u-menu>style</u-menu>'],
+    ['js', 'main', 'attribute',              '<u-menu>attributes</u-menu>'],
+    ['js', 'main', 'exceptions',             'Исключения'],
+    ['js', 'main', 'conditional-statements', 'Условные операторы'],
 
-    [1, 'Объекты ES6'],
-    ['js-objects', 'objects', 'info',             'Теория'],
-    ['js-objects', 'objects', 'methods',          'Методы'],
-    ['js-objects', 'objects', 'literal-notation', 'Литеральная нотация'],
-    ['js-objects', 'objects', 'for',              'Перебор объекта'],
-    ['js-objects', 'objects', 'constructor',      'Конструктор создания объекта'],
-    ['js-objects', 'objects', 'prototype',        'Прототип'],
-    ['js-objects', 'objects', 'descriptor',       'Дескрипторы свойств'],
-    ['js-objects', 'objects', 'extends',          'Расширяемость объектов'],
-    ['js-objects', 'objects', 'conversion',       '<u-menu>toString</u-menu> <u-menu>valueOf</u-menu>'],
-    ['js-objects', 'objects', 'samples',          'Примеры'],
+    [1, 'Дополнительно'],
+    ['js', 'additional', 'asynchronous-scripts',   'Асинхронные скрипты: defer/async'],
+    ['js', 'additional', 'console',                'Console'],
+    ['js', 'additional', 'method-chaining',        'Цепные вызовы методов'],
+    ['js', 'additional', 'web-workers',            'Web Workers'],
+    ['js', 'additional', 'eval',                   '<u-menu>eval</u-menu>'],
+    ['js', 'additional', 'notifications-api',      'Notifications API'],
+    ['js', 'additional', 'custom-properties-js',   'Custom Properties JS'],
+    ['js', 'additional', 'ecmascript',             'ECMAScript'],
+    ['js', 'additional', 'jsdoc',                  'Синтаксис JSDoc'],
+    ['js', 'additional', 'strict-mode',            'Strict Mode'],
 
-    [1, 'Классы ES6'],
-    ['js-objects', 'class-es6', 'info',        'Теория'],
-    ['js-objects', 'class-es6', 'create',      'Объявление'],
-    ['js-objects', 'class-es6', 'inherit',     'Наследование'],
-    ['js-objects', 'class-es6', 'expression',  'Выражения классов'],
-    ['js-objects', 'class-es6', 'instanceof',  '<u-menu>instanceof</u-menu>'],
+    //--------------------------------------------------------------------
+    [2, 'Веб-компоненты'],
+    //--------------------------------------------------------------------
+    
+    [1, 'Модули'],
+    ['js', 'modules', 'module-system', 'Модульная система'],
+    ['js', 'modules', 'module-es6',    'Модули ES6'],
 
-    [1, 'Классы ES5 «Функциональный стиль»'],
-    ['js-objects', 'class-es5-functional', 'info',                'Теория'],
-    ['js-objects', 'class-es5-functional', 'create',              'Объявление'],
-    ['js-objects', 'class-es5-functional', 'methods-private',     'Приватный метод'],
-    ['js-objects', 'class-es5-functional', 'getters-and-setters', 'Геттеры и сеттеры'],
-    ['js-objects', 'class-es5-functional', 'inherit',             'Наследование'],
-
-    [1, 'Классы ES5 «Прототипный стиль»'],
-    ['js-objects', 'class-es5-prototype', 'info',        'Теория'],
-    ['js-objects', 'class-es5-prototype', 'methods',     'Добавление методов'],
-    ['js-objects', 'class-es5-prototype', 'inherit',     'Наследование классов'],
-    ['js-objects', 'class-es5-prototype', 'mixins',      'Примеси'],
+    [1, 'Веб-компоненты'],
+    ['js', 'web-components', 'info',            'Теория'],
+    ['js', 'web-components', 'shadow-dom',      '<u-menu-accent>1.</u-menu-accent> Shadow DOM'],
+    ['js', 'web-components', 'template',        '<u-menu-accent>2.</u-menu-accent> HTML Templates'],
+    ['js', 'web-components', 'custom-elements', '<u-menu-accent>3.</u-menu-accent> Custom Elements'],
+    ['js', 'web-components', 'imports',         '<u-menu-accent>4.</u-menu-accent> HTML Imports'],
 ];
 
+    // [1, 'WORK'],
+    // ['js', 'functions', 'arrow',            point+'Стрелочные функции (ES6)'],
+    // ['js', 'modules', 'module-es6',         point+'Модули ES6'],
+    // ['js', 'ajax', 'axios',                 point+'Axios'],
+    // ['js', 'async', 'promise',              point+'Promise'],
+    // ['js', 'async', 'async-func',           point+'Async Function'],
+    // ['js', 'type-data', 'json',             point+'JSON'],
+    // ['js', 'array', 'array-cycle',          point+'forEach <u-menu>...</u-menu>'],
+    // ['js', 'es6', 'map',                    point+'map'],
+    // ['js', 'main', 'context',               point+'call <u-menu>...</u-menu>'],
+    // ['js', 'es6', 'spread',                 point+'Spread Operator'],
+    // ['js', 'es6', 'destructive-array',      point+'Деструктивное присваивание массивов'],
+    // ['js', 'es6', 'destructive-obj',        point+'Деструтивное присваивание объектов'],
+    // ['js', 'client-storage', 'web-storage', point+'WebStorage'],
 
 //---------------------------------------------------------------------
 // REACT.JS
@@ -169,6 +264,70 @@ var arrReactjs = [
     ['react-js', 'testing', 'redux-developer-tools',  'Redux DevTools'],
 ];
 
+//---------------------------------------------------------------------
+// ASSESSMENT
+//---------------------------------------------------------------------
+var arrAssessment = [
+    [1, 'Объекты'],
+    ['assessment', 'main', 'inheritance',   'Наследование'],
+    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
+    ['js-objects', 'main', 'new',           setBg(['new'])],
+    ['js-objects', 'main', 'prototype',     setBg(['__proto__', 'prototype'])],
+    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
+    ['js-objects', 'main', 'return',        setBg(['return'])],
+
+    [1, 'Прочее'],
+    ['js',         'main',       'context',              'Контекст'],
+    ['js',         'functions',  'closures',             'Замыкания'],
+    ['theory',     'javascript', 'architecture-runtime', 'Event Loop'],
+    ['js',         'async',      'promise',              'Promise'],
+    ['js',         'type-data',  'variables',            setBg(['var', 'let', 'const'])],
+];
+
+//---------------------------------------------------------------------
+// JAVASCRIPT OBJECTS
+//---------------------------------------------------------------------
+var arrJsObjects = [
+
+    [1, 'Основное'],
+    ['js-objects', 'main', 'object-create', setBg(['Object.create', 'Object.assign'])],
+    ['js-objects', 'main', 'new',           setBg(['new'])],
+    ['js-objects', 'main', 'prototype',     setBg(['__proto__', 'prototype'])],
+    ['js-objects', 'main', 'constructor',   setBg(['constructor'])],
+    ['js-objects', 'main', 'return',        setBg(['return'])],
+
+    [1, 'Объекты ES6'],
+    ['js-objects', 'objects', 'info',             'Теория'],
+    ['js-objects', 'objects', 'methods',          'Методы'],
+    ['js-objects', 'objects', 'literal-notation', 'Литеральная нотация'],
+    ['js-objects', 'objects', 'for',              'Перебор объекта'],
+    ['js-objects', 'objects', 'constructor',      'Конструктор создания объекта'],
+    ['js-objects', 'objects', 'prototype',        'Прототип'],
+    ['js-objects', 'objects', 'descriptor',       'Дескрипторы свойств'],
+    ['js-objects', 'objects', 'extends',          'Расширяемость объектов'],
+    ['js-objects', 'objects', 'conversion',       '<u-menu>toString</u-menu> <u-menu>valueOf</u-menu>'],
+    ['js-objects', 'objects', 'samples',          'Примеры'],
+
+    [1, 'Классы ES6'],
+    ['js-objects', 'class-es6', 'info',        'Теория'],
+    ['js-objects', 'class-es6', 'create',      'Объявление'],
+    ['js-objects', 'class-es6', 'inherit',     'Наследование'],
+    ['js-objects', 'class-es6', 'expression',  'Выражения классов'],
+    ['js-objects', 'class-es6', 'instanceof',  '<u-menu>instanceof</u-menu>'],
+
+    [1, 'Классы ES5 «Функциональный стиль»'],
+    ['js-objects', 'class-es5-functional', 'info',                'Теория'],
+    ['js-objects', 'class-es5-functional', 'create',              'Объявление'],
+    ['js-objects', 'class-es5-functional', 'methods-private',     'Приватный метод'],
+    ['js-objects', 'class-es5-functional', 'getters-and-setters', 'Геттеры и сеттеры'],
+    ['js-objects', 'class-es5-functional', 'inherit',             'Наследование'],
+
+    [1, 'Классы ES5 «Прототипный стиль»'],
+    ['js-objects', 'class-es5-prototype', 'info',        'Теория'],
+    ['js-objects', 'class-es5-prototype', 'methods',     'Добавление методов'],
+    ['js-objects', 'class-es5-prototype', 'inherit',     'Наследование классов'],
+    ['js-objects', 'class-es5-prototype', 'mixins',      'Примеси'],
+];
 
 //---------------------------------------------------------------------
 // WEBPACK
@@ -253,142 +412,6 @@ var arrNpm = [
     ['npm', 'gulp', 'gulp4',     'Gulp 4'],
     ['npm', 'gulp', 'gulpfile',  'gulpfile.js'],
     ['npm', 'gulp', 'other',     'Примечания'],
-];
-
-//---------------------------------------------------------------------
-// JAVASCRIPT
-//---------------------------------------------------------------------
-var arrJavaScript = [
-    [1, 'WORK'],
-    ['js', 'functions', 'arrow',            point+'Стрелочные функции (ES6)'],
-    ['js', 'modules', 'module-es6',         point+'Модули ES6'],
-    ['js', 'ajax', 'axios',                 point+'Axios'],
-    ['js', 'async', 'promise',              point+'Promise'],
-    ['js', 'async', 'async-func',           point+'Async Function'],
-    ['js', 'type-data', 'json',             point+'JSON'],
-    ['js', 'array', 'array-cycle',          point+'forEach <u-menu>...</u-menu>'],
-    ['js', 'es6', 'map',                    point+'map'],
-    ['js', 'main', 'context',               point+'call <u-menu>...</u-menu>'],
-    ['js', 'es6', 'spread',                 point+'Spread Operator'],
-    ['js', 'es6', 'destructive-array',      point+'Деструктивное присваивание массивов'],
-    ['js', 'es6', 'destructive-obj',        point+'Деструтивное присваивание объектов'],
-    ['js', 'client-storage', 'web-storage', point+'WebStorage'],
-
-
-    [1, 'Функции'],
-    ['js', 'functions', 'info',                      'Описание'],
-    ['js', 'functions', 'announcement',              'Объявление'],
-    ['js', 'functions', 'arguments',                 'Псевдомассив аргументов "arguments"'],
-    ['js', 'functions', 'parameters',                'Параметры функции (ES6)'],
-    ['js', 'functions', 'arrow',                     'Стрелочные функции (ES6)'],
-    ['js', 'functions', 'closures',                  'Замыкания'],
-    ['js', 'functions', 'recursion',                 'Рекурсия'],
-    ['js', 'functions', 'named-function-expression', 'Named Function Expression'],
-
-    [1, 'Типы данных'],
-    ['js', 'type-data', 'type-data',         'Типы данных'],
-    ['js', 'type-data', 'variables',         '<u-menu>var</u-menu> <u-menu>let</u-menu> <u-menu>const</u-menu>'],
-    ['js', 'type-data', 'typeof',            '<u-menu>typeof</u-menu>'],
-    ['js', 'type-data', 'number',            'Числа'],
-    ['js', 'type-data', 'math',              'Math'],
-    ['js', 'type-data', 'string',            'Строки'],
-    ['js', 'type-data', 'json',              '<u-menu>JSON</u-menu>'],
-    ['js', 'type-data', 'date-time',         'Дата и время'],
-    ['js', 'type-data', 'comparison-values', 'Сравнение и логические значения'],
-    ['js', 'type-data', 'regexr',            'Регулярные выражения'],
-    ['js', 'type-data', 'object-wrappers',   'Autoboxing (Object Wrappers)'],
-
-    [1, 'Основное'],
-    ['js', 'main', 'context',                '<u-menu>this</u-menu> <u-menu>call</u-menu> <u-menu>apply</u-menu> <u-menu>bind</u-menu>'],
-    ['js', 'main', 'cycle',                  'Циклы'],
-    ['js', 'main', 'css',                    '<u-menu>classList</u-menu> <u-menu>style</u-menu>'],
-    ['js', 'main', 'attribute',              '<u-menu>attributes</u-menu>'],
-    ['js', 'main', 'exceptions',             'Исключения'],
-    ['js', 'main', 'conditional-statements', 'Условные операторы'],
-
-    [1, 'Массивы'],
-    ['js', 'array', 'array-cycle', '<u-menu>forEach</u-menu> <u-menu>filter</u-menu> <u-menu>map</u-menu> <u-menu>every/some</u-menu> <u-menu>reduce/reduceRight</u-menu>'],
-    ['js', 'array', 'array',       'Массивы'],
-    ['js', 'array', 'array-obj',   'Массивы обьектов'],
-
-    [1, 'ES6'],
-    ['js', 'es6', 'map',               'Коллекции <u-menu>Map</u-menu> <u-menu>WeakMap</u-menu>'],
-    ['js', 'es6', 'set',               'Коллекции <u-menu>Set</u-menu> <u-menu>WeakSet</u-menu>'],
-    ['js', 'es6', 'spread',            'Оператор разворота'],
-    ['js', 'es6', 'destructive-array', 'Деструктивное присваивание массивов'],
-    ['js', 'es6', 'destructive-obj',   'Деструтивное присваивание объектов'],
-    ['js', 'es6', 'pattern-string',    'Шаблонные строки'],
-    ['js', 'es6', 'proxy',             'Proxy'],
-    ['js', 'es6', 'symbol',            'Symbol'],
-    ['js', 'es6', 'iterators',         'Iterators'],
-
-    [1, 'Асинхронный код'],
-    ['js', 'async', 'collback',   '<u-menu-accent>1.</u-menu-accent> Collback Function'],
-    ['js', 'async', 'promise',    '<u-menu-accent>2.</u-menu-accent> Promise (ES6)'],
-    ['js', 'async', 'generators', '<u-menu-accent>3.</u-menu-accent> Generators (ES6)'],
-    ['js', 'async', 'async-func', '<u-menu-accent>4.</u-menu-accent> Async Function (ES2017)'],
-    ['js', 'async', 'timeout',    '<u-menu>setTimeout</u-menu> <u-menu>setInterval</u-menu>'],
-
-    [1, 'AJAX'],
-    ['js', 'ajax', 'info',           'Описание'],
-    ['js', 'ajax', 'xmlhttprequest', '<u-menu-accent>1.</u-menu-accent> XMLHttpRequest'],
-    ['js', 'ajax', 'fetch',          '<u-menu-accent>2.</u-menu-accent> Fetch'],
-    ['js', 'ajax', 'axios',          '<u-menu-accent>3.</u-menu-accent> Axios'],
-    ['js', 'ajax', 'request-js',     'Request JS'],
-    ['js', 'ajax', 'response-php',   'Response PHP'],
-    ['js', 'ajax', 'jsonp',          'JSONP'],
-    ['js', 'ajax', 'cors',           'CORS'],
-    ['js', 'ajax', 'websocket',      'WebSocket'],
-    ['js', 'ajax', 'comet',          'Comet'],
-
-    [1, 'DOM-cобытия'],
-    ['js', 'dom-events', 'propagation-model', 'Модель распространения событий'],
-    ['js', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
-    ['js', 'dom-events', 'delegate',          'Делегирование событий'],
-    ['js', 'dom-events', 'params-event',      'Передаваемый параметр (Event)'],
-    ['js', 'dom-events', 'list-events',       'Список событий'],
-    ['js', 'dom-events', 'prevent',           'Отмена обычного поведения'],
-    ['js', 'dom-events', 'samples',           'Примеры'],
-
-    [1, 'DOM'],
-    ['js', 'dom', 'get-element',     'Выборка элементов'],
-    ['js', 'dom', 'methods',         'Методы элементов страницы'],
-    ['js', 'dom', 'create-element',  '<u-menu>createElement</u-menu> <u-menu>appendChild</u-menu> ...'],
-    ['js', 'dom', 'web-forms',       'Web Forms'],
-
-    [1, 'Модули'],
-    ['js', 'modules', 'module-system', 'Модульная система'],
-    ['js', 'modules', 'module-es6',    'Модули ES6'],
-
-    [1, 'Веб-компоненты'],
-    ['js', 'web-components', 'info',            'Теория'],
-    ['js', 'web-components', 'shadow-dom',      '<u-menu-accent>1.</u-menu-accent> Shadow DOM'],
-    ['js', 'web-components', 'template',        '<u-menu-accent>2.</u-menu-accent> HTML Templates'],
-    ['js', 'web-components', 'custom-elements', '<u-menu-accent>3.</u-menu-accent> Custom Elements'],
-    ['js', 'web-components', 'imports',         '<u-menu-accent>4.</u-menu-accent> HTML Imports'],
-
-    [1, 'Клиентское хранилище'],
-    ['js', 'client-storage', 'web-storage', '<u-menu>localStorage</u-menu> <u-menu>sessionStorage</u-menu>'],
-    ['js', 'client-storage', 'indexed-db',  '<u-menu>IndexedDB</u-menu>'],
-    ['js', 'client-storage', 'cookie',      '<u-menu>cookie</u-menu>'],
-
-    [1, 'Web API'],
-    ['js', 'web-api', 'web-api',       'Web API'],
-    ['js', 'web-api', 'location',      '<u-menu>open</u-menu> <u-menu>location</u-menu>'],
-    ['js', 'web-api', 'inner-width',   '<u-menu>innerWidth/Height</u-menu> <u-menu>clientWidth/Height</u-menu>'],
-    ['js', 'web-api', 'media-queries', 'Media queries'],
-
-    [1, 'Дополнительно'],
-    ['js', 'additional', 'asynchronous-scripts',   'Асинхронные скрипты: defer/async'],
-    ['js', 'additional', 'console',                'Console'],
-    ['js', 'additional', 'method-chaining',        'Цепные вызовы методов'],
-    ['js', 'additional', 'web-workers',            'Web Workers'],
-    ['js', 'additional', 'eval',                   '<u-menu>eval</u-menu>'],
-    ['js', 'additional', 'notifications-api',      'Notifications API'],
-    ['js', 'additional', 'custom-properties-js',   'Custom Properties JS'],
-    ['js', 'additional', 'ecmascript',             'ECMAScript'],
-    ['js', 'additional', 'jsdoc',                  'Синтаксис JSDoc'],
-    ['js', 'additional', 'strict-mode',            'Strict Mode'],
 ];
 
 //---------------------------------------------------------------------
@@ -795,7 +818,7 @@ function build() {
 
     arrCurrent.forEach(function(item){
 
-        if (item[0] !== 1) {
+        if (isNaN(item[0])) {
             let elementMenu = document.createElement('a');
             elementMenu.setAttribute('href', `#${item[1]}-${item[2]}`);
             elementMenu.innerHTML = item[3];
@@ -820,6 +843,13 @@ function build() {
         if (item[0] === 1) {
             let elementMenu = document.createElement('div');
             elementMenu.setAttribute('class', 'theme');
+            elementMenu.innerHTML = item[1];
+            wrapperMenu.appendChild(elementMenu);
+        }
+
+        if (item[0] === 2) {
+            let elementMenu = document.createElement('div');
+            elementMenu.setAttribute('class', 'section');
             elementMenu.innerHTML = item[1];
             wrapperMenu.appendChild(elementMenu);
         }

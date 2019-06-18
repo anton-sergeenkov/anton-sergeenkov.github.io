@@ -1,0 +1,73 @@
+<h2>Выборка элементов страницы</h2>
+
+<img src="/img/dom/dom-links.png" width="400px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Корневые элементы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+document.documentElement; // элемент HTML
+document.body;            // элемент BODY
+document.head;            // элемент HEAD
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Родственные элементы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>Дочерние элементы (дети)</b> - элементы, которые лежат непосредственно внутри данного</li>
+    <li><b>Потомки</b> - все элементы, которые лежат внутри данного, вместе с их детьми, детьми их детей и так далее. То есть, всё поддерево DOM</li>
+</ul>
+
+<pre><code class="js">
+let a = element.<u-code>childNodes</u-code>;      // все дочерние элементы, включая текстовые (псевдо-массив)
+let a = element.<u-code>children</u-code>;        // все дочерние элементы, не включая текстовые
+let a = element.<u-code>parentNode</u-code>;      // родитель 
+let a = element.<u-code>nextSibling</u-code>;     // следующий брат
+let a = element.<u-code>previousSibling</u-code>; // предыдущий брат
+let a = element.<u-code>firstChild</u-code>;      // первый ребенок
+let a = element.<u-code>lastChild</u-code>;       // последний ребенок
+</code></pre>
+
+<pre><code class="js">
+let a = document.childNodes;                       // дети с DOCTYPE и комментариями
+let a = document.children;                         // дети
+let a = document.children[0].children[1].children; // все элементы из BODY
+let a = document.body.childNodes[0];               // первый элемент
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Элементы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+let a = document.<u-code>getElementById</u-code>('item');            // по id
+let a = document.<u-code>getElementsByClassName</u-code>('item')[0]; // по названию класса (первый элемент)
+let a = document.<u-code>getElementsByName</u-code>('item');         // по атрибуту name
+let a = document.<u-code>getElementsByTagName</u-code>('img');       // по названию тега (все элементы)
+let a = document.<u-code>querySelector</u-code>('.nav.bar');         // возвращает первый элемент внутри документа
+let a = document.<u-code>querySelectorAll</u-code>('.nav');          // возвращает список элементов в пределах документа
+</code></pre>
+
+<ul class="list-point">
+    <li>Методы <u-code-text>getElementsByTagName</u-code-text> и т.д. вызывают не обычные массивы, а живые коллекции</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Формы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+let a = document.<u-code>forms[0]</u-code>;                       // первая форма на странице
+let a = document.myform;                         // форма с name=myform (если name уникальный)
+let a = document.forms[0].elements[0];           // первый элемент в форме
+let a = document.forms[0].element;               // элемент в форме с name=element
+let a = document.forms['nameForm']['nameField']; // поле формы
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Изображения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+let a = document.<u-code>images</u-code>.logo;    // img с name=logo
+let a = document.images['logo']; // img с name=logo
+let a = document.logo;           // img с name=logo (если name уникальный)
+</code></pre>

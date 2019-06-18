@@ -1,30 +1,8 @@
-<h2>Web API</h2>
+<h2>Объектная модель браузера (BOM)</h2>
 
-<!------------------------------------------------------>
-<h3>Определения</h3>
-<!------------------------------------------------------>
-<ul class="list-point">
-	<li><u-text-define>document</u-text-define> - документ, который загружается в браузер</li>
-	<li><u-text-define>window</u-text-define> - окно браузера</li>
-</ul>
-<ul class="list-point">
-	<b>Window</b> - глобальный объект, состоит из
-	<li><u-text-define>1. DOM</u-text-define> - объектная модель документа</li>
-	<li><u-text-define>2. BOM</u-text-define> - объектная модель браузера</li>
-	<li><u-text-define>3. Глобальные переменные, объекты, функции</u-text-define>  и т.д.</li>
-</ul>
-
-<!------------------------------------------------------>
-<h3>1. window.document</h3>
-<!------------------------------------------------------>
-<pre><code class="js">
-var a = window.document; // html документ
-document.write("Текст"); // вывод на экран
-</code></pre>
-
-<!------------------------------------------------------>
-<h3>2. Navigator - информация о браузере и ОС</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Navigator - информация о браузере и ОС</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var a = navigator.userAgent;     // название браузера
 var a = navigator.platform;      // ОС
@@ -34,9 +12,9 @@ var a = navigator.cookieEnabled; // включены ли куки
 var a = navigator.onLine;        // подключен ли пользователь к Интернету
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>3. Screen - данные о экране пользователя</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Screen - данные о экране пользователя</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var a = screen.width;       // ширина экрана
 var a = screen.height;      // высота экрана
@@ -45,9 +23,9 @@ var a = screen.availHeight; // доступная высота
 var a = screen.colorDepth;  // глубина цвета
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>4. Location - информация о URL, возможность перезагрузить страницу</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Location - информация о URL, возможность перезагрузить страницу</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 location.reload();           // перезагрузка страницы
 var a = location.href;       // адрес загруженной страницы
@@ -85,9 +63,9 @@ var page = location.href.indexOf('/page/');
 var page = location.pathname.indexOf('/page/');
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>5. History - вперед/назад по истории, позвляет без перезагрузки изменить страницу браузера</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. History - вперед/назад по истории, позвляет без перезагрузки изменить страницу браузера</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 window.history.back();         // эквивалент клика по кнопке назад
 window.history.forward();      // эквивалент клика по кнопке вперед
@@ -102,16 +80,16 @@ if (history && history.pushState) {
 }
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>6. Frames - содержит коллекцию всех дочерних объектов фреймов на странице</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>5. Frames - содержит коллекцию всех дочерних объектов фреймов на странице</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var a = frames;
 </code></pre>
 
-<!------------------------------------------------------>
-<h3>7. Вывод сообщения пользователю</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>6. Вывод сообщения пользователю</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 alert("Привет Мир");                      // модальное окно
 var age = prompt('Сколько Вам лет?', ''); // модальное окно с вопросом и полем ввода
