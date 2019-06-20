@@ -27,10 +27,11 @@ var arrJavaScript = [
     [1, 'Документ и объекты страницы'],
     ['js', 'dom', 'info',            'Информация'],
     ['js', 'dom', 'dom',             'DOM'],
+    ['js', 'dom', 'node',            'Узлы: тип, тег, содержимое'],
+
     ['js', 'dom', 'element-get',     setTheme(3, ['1'])+' Выборка элементов'],
     ['js', 'dom', 'element-create',  setTheme(3, ['2'])+' Создание элементов'],
     ['js', 'dom', 'element-method',  setTheme(3, ['3'])+' Методы элементов'],
-
     ['js', 'dom', 'web-forms',       'Web Forms'],
     ['js', 'dom', 'bom',             'BOM'],
 

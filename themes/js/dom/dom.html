@@ -8,16 +8,6 @@
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Типы узлов (всего 12)</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ol class="list-num">
-	<li><u-code-list>Document</u-code-list> - точка входа в DOM</li>
-    <li><u-code-list>Element Node (узел-элемент)</u-code-list> - HTML-теги. Одни узлы вложены в другие, образуя <u>дочерние узлы</u>, за счет которых образована структра дерева</li>
-    <li><u-code-list>Text Node (текстовый узел)</u-code-list> <u-code-text>#text</u-code-text> - текст внутри элементов. Текстовый узел содержит исключительно строку текста и не может иметь потомков, то есть он всегда на самом нижнем уровне. Пробелы и переводы строки – это тоже текст, полноправные символы, которые учитываются в DOM</li>
-    <li><u-code-list>Comment Node (комментарий)</u-code-list> <u-code-text>#comment</u-code-text> - комментарий</li>
-</ol>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Автоисправление</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
@@ -92,4 +82,10 @@ elems.forEach(function(elem) {
     <li>Нельзя перебирать коллекцию через <u-code-text>for..in</u-code-text></li>
     <li>Колеекции похожи на массивы, но у них есть свои свойства и методы, которых в массивах нет</li>
     <li>Цикл <u-code-text>for..in</u-code-text> выведет не только индексы <u-code-text>0, 1, 2</u-code-text>, по которым лежат узлы в коллекции, но и свойство <u-code-text>length</u-code-text> (в коллекции оно enumerable), а также функцию <u-code-text>item(n)</u-code-text> – она никогда не используется, возвращает n-й элемент коллекции, проще обратиться по индексу <u-code-text>[n]</u-code-text></li>
+</ul>
+
+<hr>
+<ul class="list-point">
+    <li><u-code-text>console.log</u-code-text> - выводит элемент в виде, удобном для исследования HTML-структуры</li>
+    <li><u-code-text>console.dir</u-code-text> - выводит элемент в виде JavaScript-объекта, удобно для анализа его свойств</li>
 </ul>
