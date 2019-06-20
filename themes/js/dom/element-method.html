@@ -1,9 +1,58 @@
 <h2>Методы элементов страницы</h2>
 
+<!------------------------------------------------------------->
+<h4>innerHTML</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>element.innerHTML</u-menu-code> - HTML-содержимое элемента в виде строки. Возвращаемое значение всегда валидный HTML-код</li>
+    <li><b>Доступ</b> на <u>чтение</u> и на <u>запись</u></li>
+    <li>Есть толбко у узлов-элементов</li>
+    <li>Добавление <u-code-text>innerHTML+=</u-code-text> осуществляет перезапись: 1. Удаляется старое содержание; 2. На его место становится новое значение innerHTML. Т.к. новое значение записывается с нуля, то все изображения и другие ресурсы будут перезагружены</li>
+    <li>Если в innerHTML есть тег <u-code-text>script</u-code-text> - он не будет выполнен</li>
+</ul>
+
+<pre><code class="js">
+element.innerHTML = '&lt;h2&gt;new text&lt;/h2&gt;';
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>outerHTML</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>element.outerHTML</u-menu-code> - содержит HTML элемента целиком</li>
+    <li><b>Доступ</b> на <u>чтение</u></li>
+    <li>Технически свойство outerHTML доступно на запись. Но при этом элемент не меняется, а заменяется на новый, который тут же создаётся из нового outerHTML. При этом переменная, в которой изначально был старый элемент, и в которой мы «перезаписали» outerHTML, остаётся со старым элементом</li>
+</ul>
+
+<pre><code class="html"><u-code-title>html</u-code-title>
+&lt;div id="wrapper"&gt;
+	&lt;h1&gt;Header&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="js"><u-code-title>js</u-code-title>
+let element = document.getElementById('wrapper');
+console.log(element.innerHTML); // =&gt; &lt;h1&gt;Header&lt;/h1&gt;
+console.log(element.outerHTML); // =&gt; &lt;div id='wrapper'&gt;&lt;h1&gt;Header&lt;/h1&gt;&lt;/div&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>nodeValue/data: содержимое текстового узла</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>element.data</u-menu-code> - не для узлов-элементов. Для текстовых узлов, комментариев и т.д.</li>
+	<li><b>Доступ</b> на <u>чтение</u> и на <u>запись</u></li>
+	<li><u-menu-code>element.nodeValue</u-menu-code> - работает так же, как <u>data</u>, но на некоторых узлах, где <u>data</u> нет, <u>nodeValue</u> есть и имеет значение <u-code-text>null</u-code-text>. Как-то использовать это отличие обычно нет причин</li>
+</ul>
+
+
+
+
+
+
 <pre><code class="js">
 element.innerText   = 'new text';           // текст (не выводит невидимые элементы)
-element.textContent = 'new text';         // текст
-element.innerHTML   = '&lt;h2&gt;new text&lt;/h2&gt;';  // html
+element.textContent = 'new text';           // текст
+element.innerHTML   = '&lt;h2&gt;new text&lt;/h2&gt;';  // HTML-содержимое элемента в виде строки
 </code></pre>
 
 <pre><code class="js">
