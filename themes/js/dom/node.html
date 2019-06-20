@@ -23,9 +23,9 @@ alert( document.body instanceof <u-code>Node</u-code> );            // true
 <h3>Свойства: tagName, nodeName, nodeType</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><u-code-type>element.tagName</u-code-type> - название HTML-тега в верхнем регистре. есть только у элементов Element (если текстовый узел будет undefined)</li>
-    <li><u-code-type>element.nodeName</u-code-type> - название узла (узел элемента или тексовый узел)</li>
-    <li><u-code-type>element.nodeType</u-code-type> - тип узла (узел элемента 1 или текстовый узел 3). только на чтение</li>
+    <li><u-code-type>element.nodeType</u-code-type> - тип узла (узел элемента 1 или текстовый узел 3). Доступен только на чтение</li>
+    <li><u-code-type>element.tagName</u-code-type> - название HTML-тега в верхнем регистре. Есть только у элементов <u>Element</u>. Если текстовый узел - будет undefined</li>
+    <li><u-code-type>element.nodeName</u-code-type> - название узла (узел элемента или тексовый узел). Определено для любых узлов <u>Node</u>. Для элементов оно равно <u>tagName</u>, а для не-элементов обычно содержит строку с типом узла</li>
 </ul>
 
 <!------------------------------------------------------------->
