@@ -1,7 +1,73 @@
 ﻿
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+
+Promise.reject(1)
+	.then(() => console.log(1))
+	.then(() => console.log(2), () => console.log(3))
+	.catch(() => console.log(4))
+	.then(
+		() => {
+			console.log(5);
+			return reject(6);
+		},
+	() => console.log(7)
+	)
+	.then(() => console.log(8), () => console.log(9));
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+
+// ES5 PROTO
+function Person(name) {
+    this.name = name;
+}
+Person.prototype.getName = function() {
+      return this.name;
+}
+
+
+function Man(name, hair) {
+    Person.call(this, name);
+    this.hair = hair;
+}
+Man.prototype = Object.create(Person.prototype);
+
+
+Man.prototype.getHair = function() {
+      return this.hair;
+}
+Man.prototype.getName = function() {
+    //Person.prototype.getName.call(this, name);
+  return `Name: ${this.name}`;
+}
+let man = new Man('Z', 'black');
+
+
+man.getName();
+
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+
+JS Flat
+var arr = [[1, 2], [1, [2]]];
+//console.log(arr.flat(1));
+//console.log(arr.reduce((acc, value) => acc.concat(value)))
+// function flattenDeep(arr1) {
+//    return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
+// }
+console.log(flattenDeep(arr));
+
+
+//-------------------------------------------------------
+//-------------------------------------------------------
+
 https://learn.javascript.ru/task/debounce
 
-//---------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
 var todo = {
   finished: true,
   tasks: [
@@ -17,7 +83,8 @@ var todo = {
 console.log(todo.getFinished())
 
 
-//---------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
 // анаграммы
 var input = [
 	"вертикаль",
@@ -39,7 +106,8 @@ var input = [
 ]
 
 
-//---------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
 function sum(a, b) {
 return a + b;
 }
@@ -56,7 +124,8 @@ function myFunc(func){
 console.info(myFunc(sum)(2)(3)); // => 5
 console.info(myFunc(mul)(2)(3)); // => 6
 
-//---------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
 var a = 1;
 
 function foo() {
@@ -70,7 +139,8 @@ foo.call(foow);
 
 fоo2();
 
-//---------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
 var obj = {
     getProp: funсtion(){
          сonsole.log(this.prop);
@@ -83,7 +153,8 @@ obj.getProp(); // ?
 var fn = obj.getProp;
 fn(); // ?
 
-//---------------------------------------
+//-------------------------------------------------------
+//-------------------------------------------------------
 var obj = {
     getProp: funсtion(){
          сonsole.log(this.prop);
@@ -95,8 +166,3 @@ obj.getProp.prop = 2;
 obj.getProp(); // ?
 var fn = obj.getProp;
 fn(); // ?
-
-
-
-
-
