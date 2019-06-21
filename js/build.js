@@ -27,12 +27,13 @@ var arrJavaScript = [
     [1, 'Документ и объекты страницы'],
     ['js', 'dom', 'info',            'Информация'],
     ['js', 'dom', 'dom',             'DOM'],
-    ['js', 'dom', 'node',            'Узлы: тип, тег, содержимое'],
-
+    ['js', 'dom', 'node',            setTheme(1, ['nodeType', 'nodeName', 'tagName'])],
     ['js', 'dom', 'element-get',     setTheme(3, ['1'])+' Выборка элементов'],
-    ['js', 'dom', 'element-create',  setTheme(3, ['2'])+' Создание элементов'],
-    ['js', 'dom', 'element-method',  setTheme(3, ['3'])+' Методы элементов'],
-    ['js', 'dom', 'web-forms',       'Web Forms'],
+    ['js', 'dom', 'element-method',  setTheme(3, ['2'])+' Методы и свойства элементов'],
+    ['js', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
+    ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
+
+    ['js', 'dom', 'web-forms',       setTheme(1, ['input', 'select'])],
     ['js', 'dom', 'bom',             'BOM'],
 
     [1, 'События'],
@@ -122,7 +123,7 @@ var arrJavaScript = [
     ['js', 'main', 'context',                '<u-menu>this</u-menu> <u-menu>call</u-menu> <u-menu>apply</u-menu> <u-menu>bind</u-menu>'],
     ['js', 'main', 'cycle',                  'Циклы'],
     ['js', 'main', 'css',                    '<u-menu>classList</u-menu> <u-menu>style</u-menu>'],
-    ['js', 'main', 'attribute',              '<u-menu>attributes</u-menu>'],
+
     ['js', 'main', 'exceptions',             'Исключения'],
     ['js', 'main', 'conditional-statements', 'Условные операторы'],
 
@@ -137,6 +138,7 @@ var arrJavaScript = [
     ['js', 'additional', 'ecmascript',             'ECMAScript'],
     ['js', 'additional', 'jsdoc',                  'Синтаксис JSDoc'],
     ['js', 'additional', 'strict-mode',            'Strict Mode'],
+    ['js', 'additional', 'polyfill',               'Полифиллы'],
 
     //--------------------------------------------------------------------
     [2, 'Веб-компоненты'],

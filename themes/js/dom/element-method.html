@@ -1,7 +1,7 @@
-<h2>Методы элементов страницы</h2>
+<h2>Методы и свойства элементов страницы</h2>
 
 <!------------------------------------------------------------->
-<h4>innerHTML</h4>
+<h4><u-code-list>innerHTML</u-code-list></h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li><u-menu-code>element.innerHTML</u-menu-code> - HTML-содержимое элемента в виде строки. Возвращаемое значение всегда валидный HTML-код</li>
@@ -16,7 +16,7 @@ element.innerHTML = '&lt;h2&gt;new text&lt;/h2&gt;';
 </code></pre>
 
 <!------------------------------------------------------------->
-<h4>outerHTML</h4>
+<h4><u-code-list>outerHTML</u-code-list></h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li><u-menu-code>element.outerHTML</u-menu-code> - содержит HTML элемента целиком</li>
@@ -36,7 +36,7 @@ console.log(element.outerHTML); // =&gt; &lt;div id='wrapper'&gt;&lt;h1&gt;Heade
 </code></pre>
 
 <!------------------------------------------------------------->
-<h4>nodeValue/data: содержимое текстового узла</h4>
+<h4><u-code-list>data</u-code-list> <u-code-list>nodeValue</u-code-list></h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li><u-menu-code>element.data</u-menu-code> - не для узлов-элементов. Для текстовых узлов, комментариев и т.д.</li>
@@ -44,15 +44,50 @@ console.log(element.outerHTML); // =&gt; &lt;div id='wrapper'&gt;&lt;h1&gt;Heade
 	<li><u-menu-code>element.nodeValue</u-menu-code> - работает так же, как <u>data</u>, но на некоторых узлах, где <u>data</u> нет, <u>nodeValue</u> есть и имеет значение <u-code-text>null</u-code-text>. Как-то использовать это отличие обычно нет причин</li>
 </ul>
 
-
-
-
-
+<!------------------------------------------------------------->
+<h4><u-code-list>textContent</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>element.textContent</u-menu-code> - содержит только текст внутри элемента включая переводы строк и пробелы, за вычетом всех тегов. element.textContent возвращает конкатенацию всех текстовых узлов внутри element</li>
+	<li><b>Доступ</b> на <u>чтение</u> и на <u>запись</u></li>
+    <li><u-menu-code>element.innerText</u-menu-code> - нестандартное свойство. Не выводит невидимые элементы: возвращает текст не в том виде, в котором он в DOM, а в том, в котором он виден - как если бы мы выбрали содержимое элемента мышкой и скопировали его. Если элемент невидим, то его текст возвращён не будет</li>
+	<li>При записи значения innerText работает так же, как и textContent</li>
+</ul>
 
 <pre><code class="js">
-element.innerText   = 'new text';           // текст (не выводит невидимые элементы)
-element.textContent = 'new text';           // текст
+element.textContent = 'New Text';
+element.innerText   = 'New Text';
 </code></pre>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>hidden</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>Свойство hidden</u-menu-code></li>
+    <li>Как правило, видим или невидим узел, определяется через CSS, свойствами <u-code-text>display</u-code-text> или <u-code-text>visibility</u-code-text></li>
+    <li>В стандарте HTML5 предусмотрен специальный атрибут и свойство для этого: <u-code-text>hidden</u-code-text></li>
+    <li>Технически, атрибут <u-code-text>hidden</u-code-text> работает так же, как <u-code-text>style="display:none"</u-code-text>. Но его проще поставить через JavaScript (меньше букв), и могут быть преимущества для скринридеров и прочих нестандартных браузеров</li>
+</ul>
+
+<pre><code class="html">
+&lt;!-- Второй и третий &lt;div&gt; скрыты --&gt;
+&lt;div&gt;Текст&lt;/div&gt;
+&lt;div <u-code>hidden</u-code>&gt;С атрибутом hidden&lt;/div&gt;
+&lt;div&gt;Со свойством hidden&lt;/div&gt;
+
+&lt;script&gt;
+	var lastDiv = document.body.children[2];
+	lastDiv.<u-code>hidden</u-code> = true;
+&lt;/script&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Свойства элементов</h4>
+<!------------------------------------------------------------->
+
+<u-link-wrapper>
+	<a href="http://w3c.github.io/html-reference/elements.html" target="_blank">W3C HTML language reference</a>
+</u-link-wrapper>
 
 <pre><code class="js">
 element.id          = 'name';
@@ -60,7 +95,14 @@ element.className   = 'nameClass1 nameClass2';
 </code></pre>
 
 <pre><code class="js">
-element.href        = 'https://www.google.com/';
-element.src         = 'image.jpg';
+element.type
+element.value      = 'New Value';
+element.href       = 'https://www.google.com/';
+element.src        = 'image.jpg';
 element.offsetTop;  // отступ от верха документа
+</code></pre>
+
+<pre><code class="js">
+// в консоли можно будет увидеть все свойства DOM-объекта document
+console.dir(document);
 </code></pre>
