@@ -35,6 +35,7 @@ var arrJavaScript = [
     ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
     ['js', 'dom', 'class-list',      setTheme(1, ['classList', 'style'])],
     ['js', 'dom', 'input',           setTheme(1, ['input', 'select'])],
+    ['js', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
 
     [1, 'События'],
     ['js', 'dom-events', 'propagation-model', 'Модель распространения событий'],
