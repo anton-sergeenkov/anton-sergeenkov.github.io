@@ -32,11 +32,12 @@ var arrJavaScript = [
     ['js', 'dom', 'element-get',     setTheme(3, ['1'])+' Выборка элементов'],
     ['js', 'dom', 'element-method',  setTheme(3, ['2'])+' Методы и свойства элементов'],
     ['js', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
+    ['js', 'dom', 'multi-insert',    setTheme(3, ['3'])+' Мультивставка'],
     ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
     ['js', 'dom', 'class-list',      setTheme(1, ['classList', 'style'])],
     ['js', 'dom', 'input',           setTheme(1, ['input', 'select'])],
     ['js', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
-
+    
     [1, 'События'],
     ['js', 'dom-events', 'propagation-model', 'Модель распространения событий'],
     ['js', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
