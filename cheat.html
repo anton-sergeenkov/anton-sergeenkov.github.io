@@ -29,6 +29,36 @@
 <body>
 <div id="content">
 
+<v-two><template v-slot:first>
+
+<div class="v-method-wrapper">
+	<v-method el="element." method="style" arg="arg1, arg2">
+	описание метода
+	</v-method>
+
+	<v-method-arg arg="arg1">
+	описание arg1
+	</v-method-arg>
+
+	<v-method-arg arg="arg2">
+	описание arg2
+	</v-method-arg>
+</div>
+
+</template><template v-slot:last>
+	<pre><code class="html">
+	&lt;div class="v-method-wrapper"&gt;
+		&lt;v-method el="element." method="style" arg="arg1, arg2"&gt;
+		описание метода
+		&lt;/v-method&gt;
+
+		&lt;v-method-arg arg="arg1"&gt;
+		описание arg1
+		&lt;/v-method-arg&gt;
+	&lt;/div&gt;
+	</code></pre>
+</template></v-two>
+
 
 <v-two><template v-slot:first>
 	<h4>Сниппеты</h4>
@@ -85,16 +115,6 @@
 <hr>
 
 <v-two><template v-slot:first>
-	<pre><code class="html"><u-code-title>html</u-code-title>
-	&lt;ul class="list-point"&gt;
-	    &lt;li&gt;&lt;u-menu-code&gt;method&lt;/u-menu-code&gt; &lt;/li&gt;
-	    &lt;ul class="list-point"&gt;
-	        &lt;li&gt;&lt;u-code-text&gt;&amp;#9776; yes&lt;/u-code-text&gt; - comment&lt;/li&gt;
-	        &lt;li&gt;&lt;u-code-text&gt;no&lt;/u-code-text&gt; - comment&lt;/li&gt;
-	    &lt;/ul&gt;
-	&lt;/ul&gt;
-	</code></pre>
-
 	<h4>Маркеры</h4>
 	<pre><code class="bash">
 	&#8226;    # &amp;#8226;

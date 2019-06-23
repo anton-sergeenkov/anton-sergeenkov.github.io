@@ -71,6 +71,31 @@ Vue.component('v-pre-npm', {
 	// 	</code></pre>`,
 })
 
+Vue.component('v-method', {
+	props: ['el', 'method', 'arg'],
+    template:
+		`<div>
+			<span class="v-method--el">{{el}}</span>
+			<span class="v-method--method">{{method}}</span>
+			<span class="v-method--arg">({{arg}})</span>
+			<span class="v-method--text">
+				- <slot></slot>
+			</span>
+		</div>`,
+})
+Vue.component('v-method-arg', {
+	props: ['arg'],
+    template:
+		`<div class="v-method-arg--wrapper">
+			<span class="v-method-arg--icon">zz</span>
+			<span class="v-method-arg--arg">{{arg}}</span>
+			<span class="v-method-arg--text">
+				&nbsp; - <slot></slot>
+			</span>
+		</div>`,
+})
+
+
 var app = new Vue({
 	el: '#content'
 })

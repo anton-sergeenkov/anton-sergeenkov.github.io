@@ -34,7 +34,7 @@ var arrJavaScript = [
     ['js', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
     ['js', 'dom', 'multi-insert',    setTheme(3, ['3'])+' Мультивставка'],
     ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
-    ['js', 'dom', 'class-list',      setTheme(1, ['classList', 'style'])],
+    ['js', 'dom', 'css',             setTheme(1, ['classList', 'style'])],
     ['js', 'dom', 'input',           setTheme(1, ['input', 'select'])],
     ['js', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
     
