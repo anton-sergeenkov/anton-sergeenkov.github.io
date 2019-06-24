@@ -32,59 +32,45 @@ v-method, v-method-arg
 	border-left: 4px solid #00C9A7;
 	line-height: 2;
 }
-.v-method--el, .v-method--method, .v-method--arg {
+.v-method-wrapper .el {
 	font-family: monospace;
 	font-size: 15px;
 }
-.v-method--el, .v-method--method, .v-method--arg, 
-.v-method--text,
-.v-method-arg--arg, .v-method-arg--text {
-	font-family: monospace;
-	font-size: 15px;
-}
-
-.v-method--el {
+.v-method-wrapper .expression {
+	padding: 4px;
 	color: #e96900;
 	background: rgba(179, 183, 104, 0.2);
-	padding: 4px;
 }
-.v-method--method {
+.v-method-wrapper .method {
 	background: #00C9A7;
 	color: #fff;
 	padding: 4px;
 	text-shadow: 0px 0px 2px #000;
 }
-.v-method--arg {
-	background: #fff;
-	padding: 4px;
-	color: #e96900;
-	background: rgba(179, 183, 104, 0.2);
-}
-.v-method--text {
+.v-method-wrapper .text {
 	margin-left: 4px;
     font-family: FiraSans-Regular;
+    color: rgba(0,0,0,0.9);
 }
 
 .v-method-arg--wrapper {
 	padding-left: 30px;
 }
-.v-method-arg--arg {
-	padding: 2px 4px;
-	border-radius: 3px;
-	background: #fff;
-	/*font-family: FiraSans-Regular;*/
-
-	border: 1px solid #e96900;
-	color: #e96900;
-	/*background: rgba(179, 183, 104, 0.2);*/
-}
-.v-method-arg--icon::before {
+.v-method-arg--wrapper .icon::before {
 	content: '⚡️';
 	padding: 2px 7px;
 	font-size: 15px;
 	color: #bf7abe;
 }
-.v-method-arg--text {
+.v-method-arg--wrapper .arg {
+	padding: 2px 4px;
+	border-radius: 3px;
+	background: #fff;
+	border: 1px solid #e96900;
+	color: #e96900;
+}
+
+.v-method-arg--wrapper .text {
 	font-family: FiraSans-Regular;
-	color: rgba(0,0,0,0.8);
+	color: rgba(0,0,0,0.7);
 }

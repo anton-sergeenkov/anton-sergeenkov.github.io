@@ -72,13 +72,14 @@ Vue.component('v-pre-npm', {
 })
 
 Vue.component('v-method', {
-	props: ['el', 'method', 'arg'],
+	props: ['before', 'method', 'after', 'arg'],
     template:
 		`<div>
-			<span class="v-method--el">{{el}}</span>
-			<span class="v-method--method">{{method}}</span>
-			<span class="v-method--arg">({{arg}})</span>
-			<span class="v-method--text">
+			<span class="el expression" v-if="before.length!==0">{{before}}</span>
+			<span class="el method">{{method}}</span>
+			<span class="el expression" v-if="after.length!==0">{{after}}</span>
+			<span class="el expression" v-if="arg.length!==0">{{arg}}</span>
+			<span class="el text">
 				- <slot></slot>
 			</span>
 		</div>`,
@@ -87,9 +88,9 @@ Vue.component('v-method-arg', {
 	props: ['arg'],
     template:
 		`<div class="v-method-arg--wrapper">
-			<span class="v-method-arg--icon">zz</span>
-			<span class="v-method-arg--arg">{{arg}}</span>
-			<span class="v-method-arg--text">
+			<span class="icon">zz</span>
+			<span class="el arg">{{arg}}</span>
+			<span class="el text">
 				&nbsp; - <slot></slot>
 			</span>
 		</div>`,
