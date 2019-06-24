@@ -34,9 +34,8 @@ var arrJavaScript = [
     ['js', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
     ['js', 'dom', 'multi-insert',    setTheme(3, ['3'])+' Мультивставка'],
     ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
-    ['js', 'dom', 'css',             setTheme(1, ['style', 'getComputedStyle'])],
     ['js', 'dom', 'class-list',      setTheme(1, ['classList'])],
-
+    ['js', 'dom', 'css',             setTheme(1, ['style', 'getComputedStyle'])],
     ['js', 'dom', 'input',           setTheme(1, ['input', 'select'])],
     ['js', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
     
@@ -53,7 +52,6 @@ var arrJavaScript = [
     ['js', 'web-api', 'location',      setTheme(1, ['open', 'location'])],
     ['js', 'web-api', 'inner-width',   setTheme(1, ['innerWidth/Height', 'clientWidth/Height'])],
     ['js', 'web-api', 'media-queries', 'Media queries'],
-
 
 
 
@@ -131,16 +129,14 @@ var arrJavaScript = [
 
     [1, 'Дополнительно'],
     ['js', 'additional', 'asynchronous-scripts',   'Асинхронные скрипты: defer/async'],
-    ['js', 'additional', 'console',                'Console'],
+    ['js', 'additional', 'console',                '<u-menu>console</u-menu>'],
     ['js', 'additional', 'method-chaining',        'Цепные вызовы методов'],
     ['js', 'additional', 'web-workers',            'Web Workers'],
     ['js', 'additional', 'eval',                   '<u-menu>eval</u-menu>'],
     ['js', 'additional', 'notifications-api',      'Notifications API'],
-    ['js', 'additional', 'custom-properties-js',   'Custom Properties JS'],
     ['js', 'additional', 'ecmascript',             'ECMAScript'],
     ['js', 'additional', 'jsdoc',                  'Синтаксис JSDoc'],
     ['js', 'additional', 'strict-mode',            'Strict Mode'],
-    ['js', 'additional', 'polyfill',               'Полифиллы'],
 
     //--------------------------------------------------------------------
     [2, 'Веб-компоненты'],
@@ -521,6 +517,7 @@ var arrTheory = [
     ['theory', 'javascript', 'architecture-runtime', 'Архитектура среды выполнения (Event Loop)'],
     ['theory', 'javascript', 'garbage-collection',   'Сборщик мусора'],
     ['theory', 'javascript', 'dictionary',           'Словарь'],
+    ['theory', 'javascript', 'polyfill',               'Полифиллы'],
 
     [1, 'Верстка'],
     ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
