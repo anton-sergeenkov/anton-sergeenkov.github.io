@@ -88,14 +88,21 @@ Vue.component('v-method-arg', {
 	props: ['arg'],
     template:
 		`<div class="v-method-arg--wrapper">
-			<span class="icon">zz</span>
+			<span class="icon"></span>
 			<span class="el arg">{{arg}}</span>
 			<span class="el text">
 				&nbsp; - <slot></slot>
 			</span>
 		</div>`,
 })
-
+Vue.component('v-method-return', {
+    template:
+		`<div class="v-method-return--wrapper">
+			<span class="icon"></span>
+			<span class="el arg">return</span>
+			<span class="el text">- <slot></slot></span>
+		</div>`,
+})
 
 var app = new Vue({
 	el: '#content'

@@ -91,10 +91,17 @@ let a = document.querySelectorAll(':hover');                // вернёт сп
 <!------------------------------------------------------------->
 <h4>elem.matches(css)</h4>
 <!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-text-define>elem.matches(css)</u-text-define> - ничего не ищет, а проверяет, удовлетворяет ли elem селектору css. Он возвращает true либо false</li>
-    <li>Бывает полезным, когда мы перебираем элементы (в массиве или по обычным навигационным ссылкам) и пытаемся отфильтровать их</li>
-</ul>
+<div class="v-method-wrapper">
+    <v-method before="elem" method="matches" after="" arg="(css)">
+    ничего не ищет, а проверяет, удовлетворяет ли elem селектору css. Бывает полезным, когда мы перебираем элементы (в массиве или по обычным навигационным ссылкам) и пытаемся отфильтровать их
+    </v-method>
+
+    <v-method-arg arg="css">
+    css селектор
+    </v-method-arg>
+
+    <v-method-return>true либо false</v-method-return>
+</div>
 
 <pre><code class="html"><u-code-title>html</u-code-title>
 &lt;div id="links">
@@ -116,10 +123,16 @@ for (var i = 0; i < elems.length; i++) {
 <!------------------------------------------------------------->
 <h4>elem.closest(css)</h4>
 <!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-text-define>elem.closest(css)</u-text-define> - ищет ближайший элемент выше по иерархии DOM, подходящий под CSS-селектор css. Сам элемент тоже включается в поиск</li>
-    <li>Метод бежит от текущего элемента вверх по цепочке родителей и проверяет, подходит ли элемент под указанный CSS-селектор. Если подходит – останавливается и возвращает его</li>
-</ul>
+<div class="v-method-wrapper">
+    <v-method before="elem" method="closest" after="" arg="(css)">
+    ищет ближайший элемент выше по иерархии DOM, подходящий под CSS-селектор css. Сам элемент тоже включается в поиск. 
+    Метод бежит от текущего элемента вверх по цепочке родителей и проверяет, подходит ли элемент под указанный CSS-селектор. Если подходит – останавливается и возвращает его
+    </v-method>
+
+    <v-method-arg arg="css">
+    css селектор
+    </v-method-arg>
+</div>
 
 <pre><code class="html"><u-code-title>html</u-code-title>
 &lt;ul&gt;
