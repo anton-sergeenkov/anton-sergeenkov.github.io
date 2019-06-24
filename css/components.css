@@ -50,7 +50,7 @@ v-method, v-method-arg, v-method-return
 	.v-method-wrapper .text {
 		margin-left: 4px;
 	    font-family: FiraSans-Regular;
-	    color: rgba(0,0,0,0.9);
+	    color: rgba(0,0,0,0.7);
 	}
 
 
@@ -88,7 +88,6 @@ v-method, v-method-arg, v-method-return
 	.v-method-return--wrapper .arg {
 		padding: 2px 4px;
 		border-radius: 3px;
-		/*background: #fff;*/
 		font-weight: bold;
 		color: #e96900;
 	}
