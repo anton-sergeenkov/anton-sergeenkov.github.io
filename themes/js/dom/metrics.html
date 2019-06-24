@@ -44,10 +44,14 @@
 </code></pre>
 
 <!------------------------------------------------------------->
-<h4><u-code-list>offsetWidth</u-code-list></h4>
-<!------------------------------------------------------------->
-<!------------------------------------------------------------->
-<h4><u-code-list>offsetHeight</u-code-list></h4>
+<h4><u-code-list>offsetWidth</u-code-list> и <u-code-list>offsetHeight</u-code-list></h4>
 <!------------------------------------------------------------->
 
+<img src="/img/dom/metrics3.png" width="450px">
 
+<ul class="list-point">
+    <li><u-text-define>offsetWidth/Height</u-text-define> - содержат «внешнюю» ширину/высоту элемента, то есть его полный размер, включая рамки border</li>
+    <hr>
+    <li><u-code>offsetWidth = 390</u-code> - внешняя ширина блока, её можно получить сложением CSS-ширины (300px, но её часть на рисунке выше отнимает прокрутка, поэтому 284 + 16), полей(2*20px) и рамок (2*25px)</li>
+    <li><u-code>offsetHeight = 290</u-code> - внешняя высота блока</li>
+</ul>
