@@ -33,6 +33,8 @@ var arrJavaScript = [
     ['js', 'dom', 'element-method',  setTheme(3, ['2'])+' Методы и свойства элементов'],
     ['js', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
     ['js', 'dom', 'multi-insert',    setTheme(3, ['3'])+' Мультивставка'],
+    ['js', 'dom', 'metrics',         setTheme(3, ['4'])+' Размеры и прокрутка элементов'],
+
     ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
     ['js', 'dom', 'class-list',      setTheme(1, ['classList'])],
     ['js', 'dom', 'css',             setTheme(1, ['style', 'getComputedStyle'])],
