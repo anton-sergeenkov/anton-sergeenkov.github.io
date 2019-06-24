@@ -1,5 +1,12 @@
 <h2>CSS</h2>
 
+<ul class="list-point">
+	<b>Все DOM-элементы предоставляют свойства</b>
+    <li><u-code-list>style</u-code-list> - это объект, в котором записывают CSS-свойства. Чтение и изменение его свойств – это работа с компонентами атрибута style</li>
+    <li><u-code-list>style.cssText</u-code-list> - строка стилей для чтения или записи. Аналог полного атрибута style</li>
+    <li><u-code-list>getComputedStyle</u-code-list> метод позволяют получить реальное, применённое сейчас к элементу свойство стиля с учётом CSS-каскада и браузерных стилей по умолчанию. getComputedStyle возвращает окончательное, непосредственно применённое к элементу (как правило)</li>
+</ul>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>element.style</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -56,11 +63,19 @@ let a = document.body.style.color; // rgb(170, 187, 204)
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вычисленное (computed) и окончательное (resolved) значения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li><b>Вычисленное (computed) значение</b> – это то, которое получено после применения всех правил CSS и CSS-наследования. Например, <u-code-text>width: auto</u-code-text> или <u-code-text>font-size: 125%</u-code-text></li>
+	<li><b>Окончательное (resolved) значение</b> – непосредственно применяемое к элементу. При этом все размеры приводятся к пикселям, например <u-code-text>width: 212px</u-code-text> или <u-code-text>font-size: 16px</u-code-text>. В некоторых браузерах пиксели могут быть дробными. getComputedStyle возвращает окончальное значение</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>getComputedStyle</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div class="v-method-wrapper">
     <v-method before="window." method="getComputedStyle" after="" arg="(element[, pseudo])">
-    получить текущее используемое значение css свойства
+    получить текущее (окончательное) используемое значение css свойства
     </v-method>
 
 	<v-method-arg arg="element">
@@ -72,23 +87,29 @@ let a = document.body.style.color; // rgb(170, 187, 204)
 	</v-method-arg>
 </div>
 
-
-
-
-
-
-
-
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>element.classList</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
-element.classList;                            // псевдо-массив классов элемента (перебор в for)
-element.classList.<u-code>add</u-code>('active');              // добавление класса
-element.classList.<u-code>remove</u-code>('active');           // удаление класса
-element.classList.<u-code>toggle</u-code>('active');           // добавление / удаление класса
-var a = element.classList.<u-code>contains</u-code>('active'); // проверяет наличие класса (true/false)
-var a = element.classList.<u-code>item</u-code>(0);            // вернет название класса по индексу 
+<pre><code class="html">
+&lt;style&gt;
+	body {
+		margin: 10px,
+		color: #fff;
+	}
+&lt;/style&gt;
+&lt;body&gt;
+	&lt;script&gt;
+		var computedStyle = <u-code>getComputedStyle</u-code>(document.body);
+		let a = computedStyle.marginTop; // отступ в пикселях
+		let a = computedStyle.color;     // цвет
+	&lt;/script&gt;
+&lt;/body&gt;
 </code></pre>
+
+<ul class="list-point">
+    <li><b>1. getComputedStyle требует полное свойство</b></li>
+    <li>Например: <u-code-text>paddingLeft, marginTop, borderLeftWidth</u-code-text>. При обращении к сокращенному: <u-code-text>padding, margin, border</u-code-text> - правильный результат не гарантируется</li>
+    <li>Допустим свойства <u-code-text>paddingLeft/paddingTop</u-code-text> взяты из разных классов CSS. Браузер не обязан объединять их в одно свойство <u-code-text>padding</u-code-text>. Иногда, в простейших случаях, когда свойство задано сразу целиком, getComputedStyle сработает для сокращённого свойства, но не во всех браузерах</li>
+
+    <hr>
+    <li><b>2. Нет доступа к стилю посещенных ссылок</b></li>
+    <li>getComputedStyle не дает доступ к этой информации, чтобы произвольная страница не могла определить, посещал ли пользователь ту или иную ссылку</li>
+    <li>Кроме того, большинство браузеров запрещают применять к :visited CSS-стили, которые могут изменить геометрию элемента, чтобы даже окольным путем нельзя было это понять. В целях безопасности</li>
+</ul>
