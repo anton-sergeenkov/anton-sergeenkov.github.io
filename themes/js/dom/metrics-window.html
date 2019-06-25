@@ -36,3 +36,29 @@ var a = window.innerWidth;  // ширина
 var a = window.innerHeight; // высота
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Получение текущей прокрутки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+let a = window.<u-code>pageYOffset</u-code>; // текущая прокрутка сверху
+let a = window.<u-code>pageXOffset</u-code>; // текущая прокрутка слева
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Ширина/высота страницы с учётом прокрутки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>documentElement.scrollWidth/scrollHeight</u-code-text> работает некорректно</li>
+</ul>
+<pre><code class="js">
+var scrollHeight = Math.max(
+	document.body.scrollHeight, document.documentElement.scrollHeight,
+	document.body.offsetHeight, document.documentElement.offsetHeight,
+	document.body.clientHeight, document.documentElement.clientHeight
+);
+alert( 'Высота с учетом прокрутки: ' + scrollHeight );
+</code></pre>
