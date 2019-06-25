@@ -15,6 +15,7 @@ var app = new Vue({
 			['Vue.js',     arrVuejs],
 			['Webpack',    arrWebpack],
 			['NPM',        arrNpm ],
+			['Sass',       arrSass ],
 		],
 		themesContent: null,
 		pageContent: '',
