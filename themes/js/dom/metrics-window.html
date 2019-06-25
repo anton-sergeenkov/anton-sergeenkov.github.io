@@ -39,11 +39,52 @@ var a = window.innerHeight; // высота
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Получение текущей прокрутки</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Свойства можно только читать, а менять нельзя</li>
+</ul>
 
-<pre><code class="js"><u-code-title>js</u-code-title>
-let a = window.<u-code>pageYOffset</u-code>; // текущая прокрутка сверху
-let a = window.<u-code>pageXOffset</u-code>; // текущая прокрутка слева
-</code></pre>
+<div class="v-method-wrapper">
+    <v-method before="window." method="pageYOffset" after="" arg="">
+    текущая прокрутка сверху
+    </v-method>
+    <v-method before="window." method="pageXOffset" after="" arg="">
+    текущая прокрутка слева
+    </v-method>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Изменение прокрутки: scrollTo, scrollBy, scrollIntoView</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Чтобы прокрутить страницу при помощи JavaScript, её DOM должен быть полностью загружен</li>
+</ul>
+
+
+<div class="v-method-wrapper">
+    <v-method before="window." method="scrollBy" after="" arg="(x, y)">
+    прокручивает страницу относительно текущих координат
+    </v-method>
+	<v-method-arg arg="x">координата</v-method-arg>
+	<v-method-arg arg="y">координата</v-method-arg>
+</div>
+
+
+<div class="v-method-wrapper">
+    <v-method before="window." method="scrollTo" after="" arg="(pageX, pageX)">
+    прокручивает страницу к указанным координатам относительно документа. Абсолютные координаты. Эквивалентен установке свойств scrollLeft/scrollTop. Координаты (0,0) - прокрутка в начало документа
+    </v-method>
+	<v-method-arg arg="pageX">координата</v-method-arg>
+	<v-method-arg arg="pageX">координата</v-method-arg>
+</div>
+
+
+<div class="v-method-wrapper">
+    <v-method before="elem." method="scrollIntoView" after="" arg="(top)">
+	вызывается на элементе и прокручивает страницу так, чтобы элемент оказался вверху, если параметр top равен true, и внизу, если top равен false. Причем, если параметр top не указан, то он считается равным true
+    </v-method>
+
+	<v-method-arg arg="top">параметр: true (элемент вверху); false (элемент внизу)</v-method-arg>
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
