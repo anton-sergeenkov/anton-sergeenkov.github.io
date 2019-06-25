@@ -1,0 +1,38 @@
+<h2>Размеры и прокрутка страницы</h2>
+
+<pre><code class="js">
+let a = document.documentElement.<u-code>clientWidth</u-code>; // ширина минус прокрутка
+let a = window.<u-code>innerWidth</u-code>;                    // вся ширина окна
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>clientWidth</u-code-list> и <u-code-list>clientHeight</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>clientWidth/Height</u-text-define> - ширина/высота видимой области окна</li>
+    <li>Если есть полоса прокрутки, возвращают именно ширину/высоту внутри неё, доступную для документа</li>
+</ul>
+
+<img src="/img/dom/document-client-width.png" width="450px">
+
+<pre><code class="js">
+var a = document.body.clientWidth;             // ширина документа (если body margin:0, совпадает с innerWidth)
+var a = document.body.clientHeight;            // высота документа (по контенту body)
+
+var a = document.documentElement.clientWidth;  // ширина документа (совпадает с innerWidth)
+var a = document.documentElement.clientHeight; // высота документа (совпадает с innerHeight)
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>innerWidth</u-code-list> и <u-code-list>innerHeight</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>innerWidth/Height</u-text-define> - хранят текущий размер окна браузера</li>
+    <li>Если есть полоса прокрутки, игнорируют её наличие</li>
+</ul>
+
+<pre><code class="js">
+var a = window.innerWidth;  // ширина
+var a = window.innerHeight; // высота
+</code></pre>
+

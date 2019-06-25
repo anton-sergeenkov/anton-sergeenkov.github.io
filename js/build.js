@@ -34,13 +34,16 @@ var arrJavaScript = [
     ['js', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
     ['js', 'dom', 'multi-insert',    setTheme(3, ['3'])+' Мультивставка'],
     ['js', 'dom', 'metrics',         setTheme(3, ['4'])+' Размеры и прокрутка элементов'],
+    ['js', 'dom', 'metrics-window',  setTheme(3, ['5'])+' Размеры и прокрутка страницы'],
 
     ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
     ['js', 'dom', 'class-list',      setTheme(1, ['classList'])],
     ['js', 'dom', 'css',             setTheme(1, ['style', 'getComputedStyle'])],
     ['js', 'dom', 'input',           setTheme(1, ['input', 'select'])],
     ['js', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
-    
+    ['js', 'dom', 'media-queries',   setTheme(1, ['matchMedia'])],
+    ['js', 'dom', 'location',        setTheme(1, ['open', 'location'])],
+
     [1, 'События'],
     ['js', 'dom-events', 'propagation-model', 'Модель распространения событий'],
     ['js', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
@@ -50,10 +53,6 @@ var arrJavaScript = [
     ['js', 'dom-events', 'prevent',           'Отмена обычного поведения'],
     ['js', 'dom-events', 'samples',           'Примеры'],
 
-    [1, 'Web API'],
-    ['js', 'web-api', 'location',      setTheme(1, ['open', 'location'])],
-    ['js', 'web-api', 'inner-width',   setTheme(1, ['innerWidth/Height', 'clientWidth/Height'])],
-    ['js', 'web-api', 'media-queries', 'Media queries'],
 
 
 
