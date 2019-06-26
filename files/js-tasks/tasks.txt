@@ -1,4 +1,27 @@
 ﻿
+//-------------------------------------------------------
+//-------------------------------------------------------
+
+Promise.resolve(55)
+.then(function (val) {
+console.log(val);
+throw new Error();
+})
+.then((val) => console.log('then', val))
+.catch((val) => {
+console.log('catch', val);
+return Promise.reject();
+})
+.then(finalHandler, finalHandler1)
+.then(finalHandler, finalHandler1)
+.then(finalHandler, finalHandler1);
+
+function finalHandler() {
+console.log('finalHandler')
+}
+function finalHandler1() {
+console.log('finalHandler1')
+}
 
 //-------------------------------------------------------
 //-------------------------------------------------------
