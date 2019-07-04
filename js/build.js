@@ -18,6 +18,44 @@ function setTheme(tag, arr) {
 
 
 //---------------------------------------------------------------------
+// ASSESSMENT
+//---------------------------------------------------------------------
+var arrAssessment = [
+    [1, 'JavaScript. Объекты'],
+    ['assessment', 'main', 'inheritance',   'Наследование'],
+    ['js-objects', 'main', 'object-create', setTheme(1, ['Object.create', 'Object.assign'])],
+    ['js-objects', 'main', 'new',           setTheme(1, ['new'])],
+    ['js-objects', 'main', 'prototype',     setTheme(1, ['__proto__', 'prototype'])],
+    ['js-objects', 'main', 'constructor',   setTheme(1, ['constructor'])],
+    ['js-objects', 'main', 'return',        setTheme(1, ['return'])],
+
+    [1, 'JavaScript'],
+    ['js',         'main',       'context',              'Контекст'],
+    ['js',         'functions',  'closures',             'Замыкания'],
+    ['theory',     'javascript', 'architecture-runtime', 'Event Loop'],
+    ['js',         'async',      'promise',              'Promise'],
+    ['js',         'type-data',  'variables',            setTheme(1, ['var', 'let', 'const'])],
+
+    [1, 'Теория. Клиент-сервер'],
+    ['theory', 'client-server', 'info',  'Клиент-сервер'],
+    ['theory', 'client-server', 'http',  'HTTP'],
+    ['theory', 'client-server', 'https', 'HTTPS'],
+    ['theory', 'client-server', 'rest',  'REST API'],
+
+    [1, 'Теория. Парадигмы программирования'],
+    ['theory', 'programming-paradigms', 'info',           'Парадигмы'],
+    ['theory', 'programming-paradigms', 'imperative',     '1. Императивное'],
+    ['theory', 'programming-paradigms', 'declarative',    '2. Декларативное'],
+    ['theory', 'programming-paradigms', 'functional',     '3. Функциональное'],
+    ['theory', 'programming-paradigms', 'oop',            '4. Объектно-ориентированное'],
+    ['theory', 'programming-paradigms', 'composition',    'Композиция'],
+    ['theory', 'programming-paradigms', 'currying',       'Каррирование / Частичное применение функций'],
+
+    [1, 'Теория'],
+    ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
+];
+
+//---------------------------------------------------------------------
 // JAVASCRIPT
 //---------------------------------------------------------------------
 var arrJavaScript = [
@@ -254,26 +292,6 @@ var arrReactjs = [
     [1, 'Тестирование'],
     ['react-js', 'testing', 'react-developer-tools',  'React Developer Tools'],
     ['react-js', 'testing', 'redux-developer-tools',  'Redux DevTools'],
-];
-
-//---------------------------------------------------------------------
-// ASSESSMENT
-//---------------------------------------------------------------------
-var arrAssessment = [
-    [1, 'Объекты'],
-    ['assessment', 'main', 'inheritance',   'Наследование'],
-    ['js-objects', 'main', 'object-create', setTheme(1, ['Object.create', 'Object.assign'])],
-    ['js-objects', 'main', 'new',           setTheme(1, ['new'])],
-    ['js-objects', 'main', 'prototype',     setTheme(1, ['__proto__', 'prototype'])],
-    ['js-objects', 'main', 'constructor',   setTheme(1, ['constructor'])],
-    ['js-objects', 'main', 'return',        setTheme(1, ['return'])],
-
-    [1, 'Прочее'],
-    ['js',         'main',       'context',              'Контекст'],
-    ['js',         'functions',  'closures',             'Замыкания'],
-    ['theory',     'javascript', 'architecture-runtime', 'Event Loop'],
-    ['js',         'async',      'promise',              'Promise'],
-    ['js',         'type-data',  'variables',            setTheme(1, ['var', 'let', 'const'])],
 ];
 
 //---------------------------------------------------------------------
@@ -518,7 +536,7 @@ var arrTheory = [
     ['theory', 'javascript', 'architecture-runtime', 'Архитектура среды выполнения (Event Loop)'],
     ['theory', 'javascript', 'garbage-collection',   'Сборщик мусора'],
     ['theory', 'javascript', 'dictionary',           'Словарь'],
-    ['theory', 'javascript', 'polyfill',               'Полифиллы'],
+    ['theory', 'javascript', 'polyfill',             'Полифиллы'],
 
     [1, 'Верстка'],
     ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
