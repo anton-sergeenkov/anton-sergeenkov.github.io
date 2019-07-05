@@ -36,20 +36,17 @@ var arrAssessment = [
     ['js',         'async',      'promise',              'Promise'],
     ['js',         'type-data',  'variables',            setTheme(1, ['var', 'let', 'const'])],
 
-    [1, 'Теория. Клиент-сервер'],
+    [1, 'Парадигмы'],
+    ['theory', 'programming-paradigms', 'oop',            setTheme(1, ['ООП'])],
+    ['theory', 'programming-paradigms', 'functional',     setTheme(1, ['ФП'])],
+    ['theory', 'programming-paradigms', 'composition',    'Композиция'],
+    ['theory', 'programming-paradigms', 'currying',       'Каррирование / Частичное применение функций'],
+
+    [1, 'Клиент-сервер'],
     ['theory', 'client-server', 'info',  'Клиент-сервер'],
     ['theory', 'client-server', 'http',  'HTTP'],
     ['theory', 'client-server', 'https', 'HTTPS'],
     ['theory', 'client-server', 'rest',  'REST API'],
-
-    [1, 'Теория. Парадигмы программирования'],
-    ['theory', 'programming-paradigms', 'info',           'Парадигмы'],
-    ['theory', 'programming-paradigms', 'imperative',     '1. Императивное'],
-    ['theory', 'programming-paradigms', 'declarative',    '2. Декларативное'],
-    ['theory', 'programming-paradigms', 'functional',     '3. Функциональное'],
-    ['theory', 'programming-paradigms', 'oop',            '4. Объектно-ориентированное'],
-    ['theory', 'programming-paradigms', 'composition',    'Композиция'],
-    ['theory', 'programming-paradigms', 'currying',       'Каррирование / Частичное применение функций'],
 
     [1, 'Теория'],
     ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
