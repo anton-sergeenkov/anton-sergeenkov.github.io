@@ -33,7 +33,6 @@ var arrAssessment = [
     ['js',         'main',       'context',              'Контекст'],
     ['js',         'functions',  'closures',             'Замыкания'],
     ['theory',     'javascript', 'architecture-runtime', 'Event Loop'],
-    ['js',         'async',      'promise',              'Promise'],
     ['js',         'type-data',  'variables',            setTheme(1, ['var', 'let', 'const'])],
 
     [1, 'Парадигмы'],
@@ -95,7 +94,7 @@ var arrJavaScript = [
     [2, 'JavaScript'],
     //--------------------------------------------------------------------
     [1, 'Функции'],
-    ['js', 'functions', 'info',                      'Описание'],
+    ['js', 'functions', 'info',                      'Информация'],
     ['js', 'functions', 'announcement',              'Объявление'],
     ['js', 'functions', 'arguments',                 'Псевдомассив аргументов "arguments"'],
     ['js', 'functions', 'parameters',                'Параметры функции (ES6)'],
@@ -103,6 +102,16 @@ var arrJavaScript = [
     ['js', 'functions', 'closures',                  'Замыкания'],
     ['js', 'functions', 'recursion',                 'Рекурсия'],
     ['js', 'functions', 'named-function-expression', 'Named Function Expression'],
+
+    [1, 'Promise'],
+    ['js', 'promise', 'info',                  'Информация'],
+    ['js', 'promise', 'methods',               'Методы'],
+    ['js', 'promise', 'method-basic',          'Использование'],
+    ['js', 'promise', 'chaining',              'Цепочки промисов'],
+    ['js', 'promise', 'method-resolve-reject', setTheme(1, ['Promise.resolve', 'Promise.reject'])],
+    ['js', 'promise', 'method-all-rase',       setTheme(1, ['Promise.all', 'Promise.race'])],
+    ['js', 'promise', 'executor',              setTheme(1, ['new Promise(executor)'])],
+    ['js', 'promise', 'samples',               'Примеры'],
 
     [1, 'Типы данных'],
     ['js', 'type-data', 'type-data',         'Типы данных'],
@@ -135,9 +144,8 @@ var arrJavaScript = [
 
     [1, 'Асинхронный код'],
     ['js', 'async', 'collback',   setTheme(3, ['1'])+' Collback Function'],
-    ['js', 'async', 'promise',    setTheme(3, ['2'])+' Promise (ES6)'],
-    ['js', 'async', 'generators', setTheme(3, ['3'])+' Generators (ES6)'],
-    ['js', 'async', 'async-func', setTheme(3, ['4'])+' Async Function (ES2017)'],
+    ['js', 'async', 'generators', setTheme(3, ['2'])+' Generators (ES6)'],
+    ['js', 'async', 'async-func', setTheme(3, ['3'])+' Async Function (ES2017)'],
     ['js', 'async', 'timeout',    '<u-menu>setTimeout</u-menu> <u-menu>setInterval</u-menu>'],
 
     [1, 'AJAX'],

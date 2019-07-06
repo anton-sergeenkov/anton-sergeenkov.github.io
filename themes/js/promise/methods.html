@@ -1,0 +1,39 @@
+<h2>Методы</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="new " method="Promise" after="" arg="(executor)">конструктор промиса</v-method>
+	<v-method-arg arg="resolve(result)">результат передается аргументом в .then</v-method-arg>
+	<v-method-arg arg="reject(error)">ошибка передается аргументом в .catch</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="" method=".then" after="" arg="(onFulfilled)">выполняется обработчик onFulfilled</v-method>
+	<v-method-return><b>result</b> -> функция или код при успешном выполнении</v-method-return>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="" method=".catch" after="" arg="(onRejected)">выполняется обработчик onRejected</v-method>
+	<v-method-return>error -> функция или код при неуспешном выполнении</v-method-return>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="Promise." method="all" after="" arg="(iterable)">возвращает промис, который ждёт, пока все переданные промисы завершатся</v-method>
+	<v-method-arg arg="iterable">массив промисов</v-method-arg>
+	<v-method-return>iterable -> [p1, p2, p3] промисы</v-method-return>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="Promise." method="race" after="" arg="(iterable)">результатом будет только первый успешно выполнившийся промис из списка</v-method>
+	<v-method-arg arg="iterable">массив промисов</v-method-arg>
+	<v-method-return>iterable -> [p1, p2, p3] промисы</v-method-return>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="Promise." method="resolve" after="" arg="(value)">создаёт успешно выполнившийся промис с результатом value</v-method>
+	<v-method-return>value -> результат</v-method-return>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="Promise." method="reject" after="" arg="(error)">создаёт уже выполнившийся промис с ошибкой error</v-method>
+	<v-method-return>value -> ошибка</v-method-return>
+</div>

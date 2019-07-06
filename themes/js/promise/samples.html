@@ -1,0 +1,40 @@
+<h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример #1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function applyForVisa(document) {
+	console.log('Обработка заявления...');
+	let promise = new Promise(function(resolve, reject) {
+		setTimeout(function() {
+			Math.random() > 0 ? resolve({}) : reject('В визе отказано');
+		}, 2000);
+	});
+	return promise;
+}
+function getVisa(visa) {
+	console.info('Виза получена');
+	return new Promise(function(resolve, reject) {
+		setTimeout(() => resolve(visa), 2000);
+	});
+}
+function bookHotel(visa) {
+	console.log(visa);
+	console.log('Бронируем отель');
+	return Promise.resolve(visa);
+	// return Promise.reject('Нет мест');
+}
+function buyTickets(booking) {
+	console.log('Покупаем билеты');
+	console.log('Бронь', booking);
+}
+applyForVisa({})
+	.then(getVisa)
+	.then(bookHotel)
+	.then(buyTickets)
+	.catch(error => console.error(error))
+	.then(() => console.log('Выведется в любом случае'));
+</code></pre>
+
+
