@@ -38,7 +38,7 @@ promise
 <h4>Функция</h4>
 <!------------------------------------------------------------->
 <pre><code class="js"><u-code-title>Объявление</u-code-title>
-function functionAsync() {
+function asyncFunc() {
 	let promise = new Promise((resolve, reject) => {
 		//
 	});
@@ -47,7 +47,7 @@ function functionAsync() {
 </code></pre>
 
 <pre><code class="js"><u-code-title>Использование</u-code-title>
-functionAsync()
+asyncFunc()
     .then(result => { ... })
     .catch(result => { ... })
 </code></pre>
@@ -57,24 +57,61 @@ functionAsync()
 <h3>2. Обработка Promise в асинхронных операциях</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
 <h4>1. Один then</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
-functionAsync()
+asyncFunc()
 	<u-code>.then</u-code>(functionResolve, functionReject);
 	// functionResolve - функция, которая сработает если обещание выполняется
-	// functionReject  - функция, которая сработает если обещание не будет выполнена
+	// functionReject  - функция, которая сработает если обещание не будет выполнено
 </code></pre>
 
-<h4>2. Цепочка then</h4>
 <pre><code class="js">
-functionAsync()
+promise.then(
+	resolved => console.log(resolved),
+	error => console.log(error)
+);
+</code></pre>
+
+
+
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+asyncFunc()
+	.then((result) => { 
+		console.log(result); 
+	})
+	.catch((error) => { 
+		console.log(error);
+	})
+
+asyncFunc()
+	.then((result) => { 
+		console.log(result); 
+	}, (error) => {
+		console.log(error);
+	})
+
+</code></pre>
+
+.then принимает 2параметра. 1й вызывается в случае успеха. 2й вызывается в случае ошибки
+
+
+<!------------------------------------------------------------->
+<h4>2. Цепочка then</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+asyncFunc()
 	<u-code>.then</u-code>(functionResolve1)
 	<u-code>.then</u-code>(functionResolve2)
 	<u-code>.catch</u-code>(functionReject);
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>3. Вызванная функция</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
-functionAsync()
+asyncFunc()
 	<u-code>.then</u-code>(functionResolve1()) // вызванная функция пропускается
 </code></pre>

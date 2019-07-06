@@ -19,13 +19,13 @@
 <div class="v-method-wrapper">
 	<v-method before="Promise." method="all" after="" arg="(iterable)">возвращает промис, который ждёт, пока все переданные промисы завершатся</v-method>
 	<v-method-arg arg="iterable">массив промисов</v-method-arg>
-	<v-method-return>iterable -> [p1, p2, p3] промисы</v-method-return>
+	<v-method-return>новый промис, который резолвится, когда резолвятся все промисы из списка</v-method-return>
 </div>
 
 <div class="v-method-wrapper">
 	<v-method before="Promise." method="race" after="" arg="(iterable)">результатом будет только первый успешно выполнившийся промис из списка</v-method>
 	<v-method-arg arg="iterable">массив промисов</v-method-arg>
-	<v-method-return>iterable -> [p1, p2, p3] промисы</v-method-return>
+	<v-method-return>первый промис из списка</v-method-return>
 </div>
 
 <div class="v-method-wrapper">
