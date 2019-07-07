@@ -56,50 +56,8 @@ var arrAssessment = [
 //---------------------------------------------------------------------
 var arrJavaScript = [
     //--------------------------------------------------------------------
-    [2, 'DOM'],
-    //--------------------------------------------------------------------
-    [1, 'Документ и объекты страницы'],
-    ['js', 'dom', 'info',            'Информация'],
-    ['js', 'dom', 'dom',             'DOM'],
-    ['js', 'dom', 'bom',             'BOM'],
-    ['js', 'dom', 'node',            setTheme(1, ['nodeType', 'nodeName', 'tagName'])],
-    ['js', 'dom', 'element-get',     setTheme(3, ['1'])+' Выборка элементов'],
-    ['js', 'dom', 'element-method',  setTheme(3, ['2'])+' Методы и свойства элементов'],
-    ['js', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
-    ['js', 'dom', 'multi-insert',    setTheme(3, ['3'])+' Мультивставка'],
-    ['js', 'dom', 'metrics',         setTheme(3, ['4'])+' Размеры и прокрутка элементов'],
-    ['js', 'dom', 'metrics-window',  setTheme(3, ['5'])+' Размеры и прокрутка страницы'],
-
-    ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
-    ['js', 'dom', 'class-list',      setTheme(1, ['classList'])],
-    ['js', 'dom', 'css',             setTheme(1, ['style', 'getComputedStyle'])],
-    ['js', 'dom', 'input',           setTheme(1, ['input', 'select'])],
-    ['js', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
-    ['js', 'dom', 'media-queries',   setTheme(1, ['matchMedia'])],
-    ['js', 'dom', 'location',        setTheme(1, ['open', 'location'])],
-
-    [1, 'События'],
-    ['js', 'dom-events', 'propagation-model', 'Модель распространения событий'],
-    ['js', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
-    ['js', 'dom-events', 'delegate',          'Делегирование событий'],
-    ['js', 'dom-events', 'params-event',      'Передаваемый параметр (Event)'],
-    ['js', 'dom-events', 'list-events',       'Список событий'],
-    ['js', 'dom-events', 'prevent',           'Отмена обычного поведения'],
-    ['js', 'dom-events', 'samples',           'Примеры'],
-
-    //--------------------------------------------------------------------
     [2, 'JavaScript'],
     //--------------------------------------------------------------------
-    [1, 'Функции'],
-    ['js', 'functions', 'info',                      'Информация'],
-    ['js', 'functions', 'announcement',              'Объявление'],
-    ['js', 'functions', 'arguments',                 'Псевдомассив аргументов "arguments"'],
-    ['js', 'functions', 'parameters',                'Параметры функции (ES6)'],
-    ['js', 'functions', 'arrow',                     'Стрелочные функции (ES6)'],
-    ['js', 'functions', 'closures',                  'Замыкания'],
-    ['js', 'functions', 'recursion',                 'Рекурсия'],
-    ['js', 'functions', 'named-function-expression', 'Named Function Expression'],
-
     [1, 'Promise'],
     ['js', 'promise', 'info',                  'Информация'],
     ['js', 'promise', 'methods',               'Методы'],
@@ -109,6 +67,16 @@ var arrJavaScript = [
     ['js', 'promise', 'method-all-rase',       setTheme(1, ['Promise.all', 'Promise.race'])],
     ['js', 'promise', 'executor',              setTheme(1, ['new Promise(executor)'])],
     ['js', 'promise', 'samples',               'Примеры'],
+
+    [1, 'Функции'],
+    ['js', 'functions', 'info',                      'Информация'],
+    ['js', 'functions', 'announcement',              'Объявление'],
+    ['js', 'functions', 'arguments',                 'Псевдомассив аргументов "arguments"'],
+    ['js', 'functions', 'parameters',                'Параметры функции (ES6)'],
+    ['js', 'functions', 'arrow',                     'Стрелочные функции (ES6)'],
+    ['js', 'functions', 'closures',                  'Замыкания'],
+    ['js', 'functions', 'recursion',                 'Рекурсия'],
+    ['js', 'functions', 'named-function-expression', 'Named Function Expression'],
 
     [1, 'Типы данных'],
     ['js', 'type-data', 'type-data',         'Типы данных'],
@@ -178,6 +146,38 @@ var arrJavaScript = [
     ['js', 'additional', 'ecmascript',             'ECMAScript'],
     ['js', 'additional', 'jsdoc',                  'Синтаксис JSDoc'],
     ['js', 'additional', 'strict-mode',            'Strict Mode'],
+
+    //--------------------------------------------------------------------
+    [2, 'DOM'],
+    //--------------------------------------------------------------------
+    [1, 'Документ и объекты страницы'],
+    ['js', 'dom', 'info',            'Информация'],
+    ['js', 'dom', 'dom',             'DOM'],
+    ['js', 'dom', 'bom',             'BOM'],
+    ['js', 'dom', 'node',            setTheme(1, ['nodeType', 'nodeName', 'tagName'])],
+    ['js', 'dom', 'element-get',     setTheme(3, ['1'])+' Выборка элементов'],
+    ['js', 'dom', 'element-method',  setTheme(3, ['2'])+' Методы и свойства элементов'],
+    ['js', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
+    ['js', 'dom', 'multi-insert',    setTheme(3, ['3'])+' Мультивставка'],
+    ['js', 'dom', 'metrics',         setTheme(3, ['4'])+' Размеры и прокрутка элементов'],
+    ['js', 'dom', 'metrics-window',  setTheme(3, ['5'])+' Размеры и прокрутка страницы'],
+
+    ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
+    ['js', 'dom', 'class-list',      setTheme(1, ['classList'])],
+    ['js', 'dom', 'css',             setTheme(1, ['style', 'getComputedStyle'])],
+    ['js', 'dom', 'input',           setTheme(1, ['input', 'select'])],
+    ['js', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
+    ['js', 'dom', 'media-queries',   setTheme(1, ['matchMedia'])],
+    ['js', 'dom', 'location',        setTheme(1, ['open', 'location'])],
+
+    [1, 'События'],
+    ['js', 'dom-events', 'propagation-model', 'Модель распространения событий'],
+    ['js', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
+    ['js', 'dom-events', 'delegate',          'Делегирование событий'],
+    ['js', 'dom-events', 'params-event',      'Передаваемый параметр (Event)'],
+    ['js', 'dom-events', 'list-events',       'Список событий'],
+    ['js', 'dom-events', 'prevent',           'Отмена обычного поведения'],
+    ['js', 'dom-events', 'samples',           'Примеры'],
 
     //--------------------------------------------------------------------
     [2, 'Веб-компоненты'],
