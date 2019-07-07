@@ -675,6 +675,8 @@ var arrJsTasks = [
     [1, 'Асинхронность'],
     ['js-task', 'asynchrony', 'promise-and-settimeout',     'Promise и setTimeout'],
     ['js-task', 'asynchrony', 'promise-and-arguments-then', 'Promise и аргументы then'],
+    ['js-task', 'asynchrony', 'promise-resolve',            'Promise Resolve'],
+    ['js-task', 'asynchrony', 'promise-reject',             'Promise Reject'],
     ['js-task', 'asynchrony', 'settimeout-for-var',         'setTimeout в for без let'],
 
     [1, 'Прочее'],

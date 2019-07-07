@@ -31,10 +31,16 @@
 
 <pre><code class="js border">
 let promise = new Promise(function(resolve, reject) {
-	resolve(arg) // => onFulfilled(arg) => .then(arg)
-	reject(arg)  // => onRejected(arg)  => .catch(arg)
+	resolve(arg) // => onFulfilled(arg) => .then(arg)  => Promise
+	reject(arg)  // => onRejected(arg)  => .catch(arg) => Promise
 });
 </code></pre>
+
+<ul class="list-point">
+	<li>.then и .catch подписка на изменение промиса</li>
+	<li>в .then и .catch передается функция-коллбэк</li>
+	<li>.then и .catch возвращают новый промис, поэтому их можно использовать по цепочке</li>
+</ul>
 
 <!------------------------------------------------------------->
 <h4>Способ использования</h4>
@@ -55,14 +61,10 @@ let promise = new Promise(function(resolve, reject) {
 
 
 <ul class="list-point red">
-	<li>При создании <u-code-text>new Promise((resolve, reject) => ...)</u-code-text> автоматически запускается функция-аргумент, которая должна вызвать <u-code-text>resolve(result)</u-code-text> при успешном выполнении и <u-code-text>reject(error)</u-code-text> – при ошибке</li>
+	<li>При создании <u-code-text>new Promise</u-code-text> автоматически запускается функция-аргумент, которая должна вызвать <u-code-text>resolve(result)</u-code-text> при успешном выполнении и <u-code-text>reject(error)</u-code-text> – при ошибке</li>
 	
 	<li>Состояние промиса изменяется 1 раз</li>
 	<li><u>Promise</u> после <u-code-text>reject/resolve</u-code-text> - неизменны. Когда промис переходит в состояние «выполнен» – с результатом (resolve) или ошибкой (reject) – это навсегда</li>
 
 	<li>Отсутствие внешнего <u-code-text>catch</u-code-text> не останавливает выполнение скрипта. Когда обработчик в промисах делает <u-code-text>throw</u-code-text> – в данном случае, при ошибке запроса, то такая ошибка не останавливает выполнение скрипта и не выводится в консоли. Она просто будет передана в ближайший следующий обработчик <u-code-text>onRejected</u-code-text></li>
-	
-	<li>.then и .catch возвращают новый промис, поэтому их можно использовать по цепочке</li>
-	<li>.then и .catch подписка на изменение промиса</li>
-	<li>в .then передается функция-коллбэк</li>
 </ul>

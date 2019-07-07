@@ -2,46 +2,6 @@
 //-------------------------------------------------------
 //-------------------------------------------------------
 
-Promise.resolve(55)
-.then(function (val) {
-console.log(val);
-throw new Error();
-})
-.then((val) => console.log('then', val))
-.catch((val) => {
-console.log('catch', val);
-return Promise.reject();
-})
-.then(finalHandler, finalHandler1)
-.then(finalHandler, finalHandler1)
-.then(finalHandler, finalHandler1);
-
-function finalHandler() {
-console.log('finalHandler')
-}
-function finalHandler1() {
-console.log('finalHandler1')
-}
-
-//-------------------------------------------------------
-//-------------------------------------------------------
-
-Promise.reject(1)
-	.then(() => console.log(1))
-	.then(() => console.log(2), () => console.log(3))
-	.catch(() => console.log(4))
-	.then(
-		() => {
-			console.log(5);
-			return reject(6);
-		},
-	() => console.log(7)
-	)
-	.then(() => console.log(8), () => console.log(9));
-
-//-------------------------------------------------------
-//-------------------------------------------------------
-
 // ES5 PROTO
 function Person(name) {
     this.name = name;
@@ -132,18 +92,14 @@ var input = [
 //-------------------------------------------------------
 //-------------------------------------------------------
 function sum(a, b) {
-return a + b;
+  return a + b;
 }
-
 function mul(a, b) {
-return a * b;
+  return a * b;
 }
-
 function myFunc(func){
-// ...
-
+  // ...
 }
-
 console.info(myFunc(sum)(2)(3)); // => 5
 console.info(myFunc(mul)(2)(3)); // => 6
 
@@ -152,14 +108,12 @@ console.info(myFunc(mul)(2)(3)); // => 6
 var a = 1;
 
 function foo() {
-consоle.log(a);
+  consоle.log(a);
 }
-
 functiоn foo2() {
-var a = 2;
-foo.call(foow);
+  var a = 2;
+  foo.call(foow);
 }
-
 fоo2();
 
 //-------------------------------------------------------
