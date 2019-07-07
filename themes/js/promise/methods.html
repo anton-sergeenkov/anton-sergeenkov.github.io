@@ -1,39 +1,43 @@
 <h2>Методы</h2>
 
 <div class="v-method-wrapper">
-    <v-method before="new " method="Promise" after="" arg="(executor)">конструктор промиса</v-method>
-	<v-method-arg arg="resolve(result)">результат передается аргументом в .then</v-method-arg>
-	<v-method-arg arg="reject(error)">ошибка передается аргументом в .catch</v-method-arg>
+    <v-method before="new " method="Promise" after="" arg="(executor)">Конструктор промиса</v-method>
+	<v-method-arg arg="executor = function(resolve, reject)">Асинхронная функция с коллбэками <u>resolve</u> и <u>reject</u>
+	<br>
+	<u-code>resolve(result)</u-code> - Вызывается при успешном выполнении промиса. Передается аргументом в <u>.then</u>
+	<br>
+	<u-code>reject(error)</u-code> - Вызывается при неудачном выполнении промиса. Передается аргументом в <u>.catch</u> или вторым аргументом в <u>.then</u>
+	</v-method-arg>
 </div>
 
 <div class="v-method-wrapper">
-	<v-method before="" method=".then" after="" arg="(onFulfilled)">выполняется обработчик onFulfilled</v-method>
-	<v-method-return><b>result</b> -> функция или код при успешном выполнении</v-method-return>
+	<v-method before="" method=".then" after="" arg="(onFulfilled, onRejected)"> Выполнение действий после выполнения промиса. Обработчик событий промиса <u>onFulfilled</u> и <u>onRejected</u></v-method>
+	<v-method-return>result -> функция или код при успешном выполнении</v-method-return>
 </div>
 
 <div class="v-method-wrapper">
-	<v-method before="" method=".catch" after="" arg="(onRejected)">выполняется обработчик onRejected</v-method>
+	<v-method before="" method=".catch" after="" arg="(onRejected)">Выполняется обработчик onRejected</v-method>
 	<v-method-return>error -> функция или код при неуспешном выполнении</v-method-return>
 </div>
 
 <div class="v-method-wrapper">
-	<v-method before="Promise." method="all" after="" arg="(iterable)">возвращает промис, который ждёт, пока все переданные промисы завершатся</v-method>
-	<v-method-arg arg="iterable">массив промисов</v-method-arg>
-	<v-method-return>новый промис, который резолвится, когда резолвятся все промисы из списка</v-method-return>
+	<v-method before="Promise." method="all" after="" arg="(iterable)">Возвращает промис, который ждёт, пока все переданные промисы завершатся</v-method>
+	<v-method-arg arg="iterable">Массив промисов</v-method-arg>
+	<v-method-return>Новый промис, который резолвится, когда резолвятся все промисы из списка</v-method-return>
 </div>
 
 <div class="v-method-wrapper">
-	<v-method before="Promise." method="race" after="" arg="(iterable)">результатом будет только первый успешно выполнившийся промис из списка</v-method>
-	<v-method-arg arg="iterable">массив промисов</v-method-arg>
-	<v-method-return>первый промис из списка</v-method-return>
+	<v-method before="Promise." method="race" after="" arg="(iterable)">Результатом будет только первый успешно выполнившийся промис из списка</v-method>
+	<v-method-arg arg="iterable">Массив промисов</v-method-arg>
+	<v-method-return>Первый промис из списка</v-method-return>
 </div>
 
 <div class="v-method-wrapper">
-	<v-method before="Promise." method="resolve" after="" arg="(value)">создаёт успешно выполнившийся промис с результатом value</v-method>
+	<v-method before="Promise." method="resolve" after="" arg="(value)">Создаёт успешно выполнившийся промис с результатом value</v-method>
 	<v-method-return>value -> результат</v-method-return>
 </div>
 
 <div class="v-method-wrapper">
-	<v-method before="Promise." method="reject" after="" arg="(error)">создаёт уже выполнившийся промис с ошибкой error</v-method>
+	<v-method before="Promise." method="reject" after="" arg="(error)">Создаёт уже выполнившийся промис с ошибкой error</v-method>
 	<v-method-return>value -> ошибка</v-method-return>
 </div>

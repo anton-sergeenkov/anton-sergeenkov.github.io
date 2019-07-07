@@ -9,14 +9,23 @@
     <li><u>reject(ошибка)</u> при ошибке <u>.catch</u></li>
 </ul>
 
+<pre><code class="js border">
+let promise = new Promise(function(resolve, reject) {
+	resolve(arg) // => onFulfilled(arg) => .then(arg)
+	reject(arg)  // => onRejected(arg)  => .catch(arg)
+});
+</code></pre>
+
 <!------------------------------------------------------------->
 <h4>Promise</h4>
 <!------------------------------------------------------------->
 <pre><code class="js"><u-code-title>Объявление</u-code-title>
 let promise = new <u-code>Promise</u-code>((resolve, reject) => {
     if (...) {
+    	// onResolved()
         <u-code>resolve</u-code>('ok');
     } else {
+    	// onRejected()
         <u-code>reject</u-code>(new Error('Api error')); // аналогично с throw
         throw new Error('Api error');   // аналогично с reject
     }
