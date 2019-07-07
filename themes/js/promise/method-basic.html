@@ -3,20 +3,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>1. Создание</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>Внути new Promise любые асинхронные операции</li>
-	<li>Промис содержит свое состояние</li>
-	<li><u>resolve</u> и <u>reject</u> функции</li>
-    <li><u>resolve(результат)</u> при успешном выполнении <u>.then</u></li>
-    <li><u>reject(ошибка)</u> при ошибке <u>.catch</u></li>
-</ul>
 
-<pre><code class="js border">
-let promise = new Promise(function(resolve, reject) {
-	resolve(arg) // => onFulfilled(arg) => .then(arg)
-	reject(arg)  // => onRejected(arg)  => .catch(arg)
-});
-</code></pre>
 
 <!------------------------------------------------------------->
 <h4>Promise</h4>
@@ -86,9 +73,9 @@ promise.then(
 </code></pre>
 
 
-
-
-<pre><code class="js"><u-code-title>js</u-code-title>
+<pre><code class="js">
+// .then принимает 2параметра
+// 1й вызывается в случае успеха. 2й вызывается в случае ошибки
 asyncFunc()
 	.then((result) => { 
 		console.log(result); 
@@ -105,8 +92,6 @@ asyncFunc()
 	})
 
 </code></pre>
-
-.then принимает 2параметра. 1й вызывается в случае успеха. 2й вызывается в случае ошибки
 
 
 <!------------------------------------------------------------->
