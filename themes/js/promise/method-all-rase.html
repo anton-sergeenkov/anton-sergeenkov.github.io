@@ -1,16 +1,20 @@
 <h2>Параллельное выполнение Promise.all и Promise.race</h2>
 
-<ul class="list-point">
-	<li><bg-methods>Promise.all</bg-methods><bg-arguments>(iterable)</bg-arguments> - получает массив (или другой итерируемый объект) промисов и возвращает промис, который ждёт, пока все переданные промисы завершатся, и переходит в состояние «выполнено» с массивом их результатов</li>
-	<li>Если какой-то из промисов завершился с ошибкой, то результатом Promise.all будет эта ошибка. При этом остальные промисы игнорируются</li>
-</ul>
+<div class="v-method-wrapper">
+    <v-method before="" method="Promise.all" after="" arg="([iterable])">Выполнение нескольких промисов. Если какой-то из промисов завершился с ошибкой, то результатом Promise.all будет эта ошибка. При этом остальные промисы игнорируются</v-method>
+	<v-method-arg arg="iterable">массив (или другой итерируемый объект) промисов</v-method-arg>
+	<v-method-return>новый промис, который ждёт, пока все переданные промисы завершатся, и переходит в состояние «выполнено» с массивом их результатов</v-method-return>
+</div>
 
-<ul class="list-point">
-	<li><bg-methods>Promise.race</bg-methods><bg-arguments>(iterable)</bg-arguments> - получает итерируемый объект с промисами, которые нужно выполнить, и возвращает новый промис</li>
-	<li>Результатом будет только первый успешно выполнившийся промис из списка. Остальные игнорируются</li>
-</ul>
+<div class="v-method-wrapper">
+    <v-method before="" method="Promise.race" after="" arg="([iterable])">Выполнение первого самого быстрого промиса. Результатом будет только первый успешно выполнившийся промис из списка. Остальные игнорируются</v-method>
+	<v-method-arg arg="iterable">массив (или другой итерируемый объект) промисов, которые нужно выполнить</v-method-arg>
+	<v-method-return>новый промис</v-method-return>
+</div>
 
+<!------------------------------------------------------------->
 <h4>Пример #1</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 var promise1 = new Promise(function(resolve, reject) {
     resolve('promise1');
@@ -25,7 +29,9 @@ Promise.<u-code>race</u-code>([promise1, promise2])
     .then(value => console.log(value)); // promise1
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>Пример #2</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 function go(num) {
 	return new Promise(function(resolve, reject) {

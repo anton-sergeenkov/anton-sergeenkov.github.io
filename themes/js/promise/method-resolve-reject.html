@@ -1,24 +1,22 @@
 <h2>Promise.resolve(value) и Promise.reject(error)</h2>
 
-<ul class="list-point">
-	<li><bg-methods>Promise.resolve</bg-methods><bg-arguments>(value)</bg-arguments> - создаёт успешно выполнившийся промис с результатом value</li>
-	<li>Promise.resolve используют, когда хотят построить асинхронную цепочку, и начальный результат уже есть</li>
-</ul>
+<div class="v-method-wrapper">
+    <v-method before="" method="Promise.resolve" after="" arg="(value)">создаёт успешно выполнившийся промис с результатом value. Используют, когда хотят построить асинхронную цепочку, и начальный результат уже есть</v-method>
+	<v-method-arg arg="value">результат</v-method-arg>
+</div>
 
-<pre><code class="js">
-// аналогичен конструкции
-new Promise((resolve) => resolve(value))
-Promise.resolve(window.location) // начать с этого значения
-	.then(httpGet) // вызвать для него httpGet
-	.then(alert) // и вывести результат
-</code></pre>
+<div class="v-method-wrapper">
+    <v-method before="" method="Promise.reject" after="" arg="(error)">создаёт уже выполнившийся промис с ошибкой error. Используется очень редко, т.к. ошибка возникает обычно не в начале цепочки, а в процессе её выполнения</v-method>
+	<v-method-arg arg="error">ошибка</v-method-arg>
+</div>
 
-<ul class="list-point">
-	<li><bg-methods>Promise.reject</bg-methods><bg-arguments>(error)</bg-arguments> - создаёт уже выполнившийся промис с ошибкой error</li>
-	<li>Метод Promise.reject используется очень редко, т.к. ошибка возникает обычно не в начале цепочки, а в процессе её выполнения</li>
-</ul>
-
-<pre><code class="js">
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+Promise.resolve(55)
+	.then(val => console.log(val))
+</template>
+<template v-slot:last>
 Promise.reject(new Error("..."))
-	.catch(alert) // Error: ...
-</code></pre>
+	.catch(val => console.log(val))
+</template>
+</v-two-code>
