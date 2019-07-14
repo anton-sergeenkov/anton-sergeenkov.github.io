@@ -21,16 +21,20 @@
 <!------------------------------------------------------------->
 <pre><code class="js">
 var promise1 = new Promise(function(resolve, reject) {
-    resolve('promise1');
-});
+	setTimeout(() => resolve('promise-1-2000'), 2000);
+})
+
 var promise2 = new Promise(function(resolve, reject) {
-    resolve('promise2');
-});
+	setTimeout(() => resolve('promise-2-1000'), 1000);
+})
 
 Promise.<u-code>all</u-code>([promise1, promise2])
-    .then(value => console.log(value)); // [ 'promise1', 'promise2' ]
-Promise.<u-code>race</u-code>([promise1, promise2])
-    .then(value => console.log(value)); // promise1
+	.then(value => console.log(value));
+	// => ["promise-1-2000", "promise-2-1000"]
+
+Promise.<u-code>race</u-code>([promise2, promise1])
+	.then(value => console.log(value));
+    // => "promise-2-1000"
 </code></pre>
 
 <!------------------------------------------------------------->
