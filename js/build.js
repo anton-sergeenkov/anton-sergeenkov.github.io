@@ -782,7 +782,7 @@ var arrCSS = [
 
 
 //---------------------------------------------------------------------
-// ENGLISH
+// Sass
 //---------------------------------------------------------------------
 var arrSass = [
     [1, 'Основное'],
@@ -808,9 +808,13 @@ var arrEnglish = [
     [1, 'Основное'],
     ['english', 'main', 'to-be',       setTheme(1, ['1'])+' Verb To Be'],
     ['english', 'main', 'articles',    setTheme(1, ['2'])+' Articles'],
-    ['english', 'main', 'phrases',     code+'Phrases'],
-    ['english', 'main', 'nationality', 'Nationality'],
+    ['english', 'main', 'phrases',     code+' Фразы'],
+    ['english', 'main', '', code+' Национальности'],
     ['english', 'main', 'other',       'Other'],
+
+    [1, 'Слова'],
+    ['english', 'words', 'nationality', 'Национальности'],  
+    ['english', 'words', 'family', 'Семья'],  
 ];
 
 
