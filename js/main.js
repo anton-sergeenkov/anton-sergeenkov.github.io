@@ -16,7 +16,6 @@ var menu = `
     <a href="/pages/linux.html"      class="menu menu-other">linux</a>
     <a href="/pages/theory.html"     class="menu menu-other">theory</a>
     <a href="/pages/other.html"      class="menu menu-other">other</a>
-    <a href="/pages/english.html"    class="menu menu-other">english</a>
     <a href="/pages/assessment.html" class="menu menu-other">assessment</a>
 
     <a href="/pages/html.html"       class="menu menu-html">html</a>

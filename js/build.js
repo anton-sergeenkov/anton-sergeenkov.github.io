@@ -801,24 +801,6 @@ var arrSass = [
 ];
 
 
-//---------------------------------------------------------------------
-// ENGLISH
-//---------------------------------------------------------------------
-var arrEnglish = [
-    [1, 'Основное'],
-    ['english', 'main', 'to-be',       setTheme(1, ['1'])+' Verb To Be'],
-    ['english', 'main', 'articles',    setTheme(1, ['2'])+' Articles'],
-    ['english', 'main', 'phrases',     code+' Фразы'],
-    ['english', 'main', '', code+' Национальности'],
-    ['english', 'main', 'other',       'Other'],
-
-    [1, 'Слова'],
-    ['english', 'words', 'nationality', 'Национальности'],  
-    ['english', 'words', 'family', 'Семья'],  
-];
-
-
-
 
 
 
@@ -840,7 +822,6 @@ switch(pageName) {
     case 'js-tasks.html':   var arrCurrent = arrJsTasks;    break;
     case 'jquery.html':     var arrCurrent = arrJquery;     break;
     case 'canvas.html':     var arrCurrent = arrCanvas;     break;
-    case 'english.html':    var arrCurrent = arrEnglish;    break;
     case 'html.html':       var arrCurrent = arrHTML;       break;
     case 'css.html':        var arrCurrent = arrCSS;        break;
     case 'assessment.html': var arrCurrent = arrAssessment; break;
