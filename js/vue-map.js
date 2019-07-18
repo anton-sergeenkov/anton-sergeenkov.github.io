@@ -7,12 +7,11 @@ var app = new Vue({
 			['React.js',   arrReactjs],
 			['JS',         arrJavaScript],
 			['JS Object',  arrJsObjects],
-			['JS Tasks',   arrJsTasks],
+			['Задачи',   arrJsTasks],
 			['Теория',     arrTheory],
 			['HTML',       arrHTML],
 			['CSS',        arrCSS],
 			['Git',        arrGit],
-			['Vue.js',     arrVuejs],
 			['Webpack',    arrWebpack],
 			['NPM',        arrNpm ],
 			['Sass',       arrSass ],
@@ -88,3 +87,4 @@ var app = new Vue({
 // arrJquery
 // arrCanvas
 // arrEnglish
+// arrVuejs

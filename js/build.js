@@ -215,6 +215,9 @@ var arrJavaScript = [
 // REACT.JS
 //---------------------------------------------------------------------
 var arrReactjs = [
+    //--------------------------------------------------------------------
+    [2, 'React.js'],
+    //--------------------------------------------------------------------
     [1, 'Информация'],
     ['react-js', 'main',  'info',                     'Информация'],
     ['theory',   'other', 'virtual-dom',              'Virtual DOM'],
@@ -263,6 +266,9 @@ var arrReactjs = [
     ['react-js', 'react-plugins', 'prop-types',       setTheme(2, ['prop-types'])],
     ['react-js', 'react-plugins', 'formik',           setTheme(2, ['formik'])],
 
+    //--------------------------------------------------------------------
+    [2, 'Redux'],
+    //--------------------------------------------------------------------
     [1, 'Redux'],
     ['react-js', 'redux', 'info',                   'Информация'],
     ['react-js', 'redux', 'functional-programming', 'Принципы FP'],
@@ -280,6 +286,9 @@ var arrReactjs = [
     ['react-js', 'redux-plugins', 'redux-saga',     setTheme(2, ['redux-saga'])],
     ['react-js', 'redux-plugins', 'redux-logger',   setTheme(2, ['redux-logger'])],
 
+    //--------------------------------------------------------------------
+    [2, 'React Router'],
+    //--------------------------------------------------------------------
     [1, 'React Router'],
     ['react-js', 'react-router', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
     ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
@@ -287,6 +296,9 @@ var arrReactjs = [
     ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
     ['react-js', 'react-router', 'page-404',          'Page 404'],
 
+    //--------------------------------------------------------------------
+    [2, 'Прочее'],
+    //--------------------------------------------------------------------
     [1, 'Мемоизация'],
     ['react-js', 'memoization', 'info',                    'Информация'],
     ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],

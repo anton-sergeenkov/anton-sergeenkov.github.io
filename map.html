@@ -11,26 +11,33 @@ body {
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0px;
+	background: #fafafa;
 }
 h2 {
 	font-size: 16px;
 	background: none;
-	color: black;
-	margin: 7px 0px;
+	margin-top: 12px;
+	margin-bottom: 7px;
 	padding: 0;
 	width: calc(100vw - 40px);
 	flex-shrink: 0;
 	border: none;
 }
+h1 {
+	width: calc(100vw - 40px);
+	flex-shrink: 0;
+	color: rgba(var(--color-js), 1);
+}
 u-menu {
-	background: rgba(255, 255, 255, 0.4);
-	color: rgba(var(--color-js)) !important;
+	background: rgba(var(--color-other), 0.2);
+	color: rgba(var(--color-js), 1) !important;
 }
 #map-header {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;
 	padding: 10px 30px;
+	background: #fff;
 	box-shadow:
 		0 16px 24px 2px rgba(33,37,41,.02), 
 		0 6px 30px 5px rgba(33,37,41,.04), 
@@ -38,13 +45,14 @@ u-menu {
 }
 #map-header .map-header-menu {
 	font-size: 16px;
-	padding: 10px 20px;
+	padding: 10px;
 	color: #fff;
 	margin: 5px;
 	border-radius: 3px;
-	font-family: FiraSans-Bold;
+	font-family: FiraSans-Medium;
 	color: rgba(var(--color-other), 1);
-	background: rgba(var(--color-other), 0.3);
+	border: 1px solid rgba(var(--color-other), 0.2);
+	background: #fafafa;
 	cursor: pointer;
 }
 #map-themes {
@@ -56,14 +64,14 @@ u-menu {
 }
 #map-themes .map-themes-menu {
 	display: inline-block;
-	padding: 10px;
-	background: rgba(var(--color-js), 0.3);
+	padding: 7px;
+	border: 1px solid rgba(var(--color-js), 0.3);
 	color: rgb(var(--color-js));
 	border-radius: 3px;
 	font-size: 14px;
-	font-weight: bold;
 	cursor: pointer;
 	margin: 0px 2px 5px 2px;
+	background: #fff;
 }
 #map-content {
 	position: fixed;
@@ -117,6 +125,7 @@ u-menu {
 		<div id="map-themes">
 			<div v-for="item in themesContent">
 				<h2 v-if="item[0]==1">{{item[1]}}</h2>
+				<h1 v-else-if="item[0]==2">{{item[1]}}</h1>
 				<div 
 					v-else 
 					@click="buildContent(item[0], item[1], item[2])" 
