@@ -259,7 +259,8 @@ var arrReactjs = [
 
     [1, 'Хуки'],
     ['react-js', 'hooks', 'info',       'Информация'],
-    ['react-js', 'hooks', 'state-hook', 'Хук состояния'],
+    ['react-js', 'hooks', 'use-state',  setTheme(1, ['useState'])+' хук состояния'],
+    ['react-js', 'hooks', 'use-effect', setTheme(1, ['useEffect'])+' хук эффекта'],
 
     [1, 'React Plugins'],
     ['react-js', 'react-plugins', 'create-react-app', setTheme(2, ['react', 'react-dom', 'create-react-app'])],

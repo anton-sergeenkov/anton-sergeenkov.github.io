@@ -1,0 +1,53 @@
+<h2>Хук эффекта useEffect</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Побочные эффекты / Эффекты</u-text-define> - операции, которые могут влиять на работу других компонентов и их нельзя выполнить во время рендера. Н-р: запрашивать данные, делать подписки или вручную менять DOM из React-компонента</li>
+
+    <li>С помощью хука эффекта <u-text-define>useEffect</u-text-define> можно выполнять побочные эффекты из функционального компонента. Он выполняет ту же роль, что и <u-code-text>componentDidMount</u-code-text>, <u-code-text>componentDidUpdate</u-code-text> и <u-code-text>componentWillUnmount</u-code-text> в React-классах, объединив их в единый API</li>
+
+    <li>Можно использовать более одного эффекта в компоненте</li>
+</ul>
+
+<pre><code class="js">
+// Компонент устанавливает заголовок документа после того, как React обновляет DOM
+import React, { useState, <u-code>useEffect</u-code> } from 'react';
+
+function Example() {
+	const [count, setCount] = useState(0);
+
+	// По принципу componentDidMount и componentDidUpdate:
+	<u-code>useEffect</u-code>(() =&gt; {
+		document.title = `Вы нажали ${count} раз`;
+	});
+
+	return (
+		&lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+			Нажми на меня
+		&lt;/button&gt;
+	);
+}
+</code></pre>
+
+<ul class="list-point">
+    <li>При вызове <u>useEffect</u>, React получает указание запустить вашу функцию с «эффектом» после того, как он отправил изменения в DOM. Поскольку эффекты объявляются внутри компонента, у них есть доступ к его <u>пропсам</u> и <u>состоянию</u>. По умолчанию, React запускает эффекты после каждого рендера, включая первый рендер</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>Из эффекта можно вернуть функцию, которая указывает эффекту, как выполнить за собой «сброс»</li>
+    <li>Например, этот компонент использует эффект, чтобы подписаться на статус друга в сети, и выполняет сброс, отписываясь от него. React будет отписываться от ChatAPI перед тем, как компонент размонтируется и перед тем, как перезапустить эффект при повторном рендере</li>
+</ul>
+
+<pre><code class="js">
+function handleStatusChange(status) {
+	setIsOnline(status.isOnline);
+}
+
+useEffect(() => {
+	ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+	return () => {
+		ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+	};
+});
+</code></pre>
