@@ -1,0 +1,23 @@
+<h2>Хук контекста useContext</h2>
+
+<pre><code class="js border">
+const value = <u-code>useContext</u-code>(MyContext);
+</code></pre>
+
+<ul class="list-point">
+    <li>Принимает объект контекста (значение, возвращённое из <u-code-text>React.createContext</u-code-text>) и возвращает текущее значение контекста для этого контекста. Текущее значение контекста определяется пропом value ближайшего <u-code-text>&lt;MyContext.Provider&gt;</u-code-text> над вызывающим компонентом в дереве</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u-text-define>useContext</u-text-define> - можно подписаться на контекст React без использования каких-либо вложений</li>
+</ul>
+
+<pre><code class="js">
+function Example() {
+	const locale = useContext(LocaleContext);
+	const theme = useContext(ThemeContext);
+	// ...
+}
+</code></pre>
