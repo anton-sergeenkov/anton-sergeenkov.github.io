@@ -1,0 +1,91 @@
+<h2>Рендер-пропсы</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Рендер-проп</u-text-define> - относится к возможности компонентов React разделять код между собой с помощью пропа, значение которого является функцией</li>
+    <li>Рендер-проп - функция, которая сообщает компоненту что необходимо рендерить</li>
+    <li>Компонент с рендер-пропом берёт функцию, которая возвращает React-элемент, и вызывает её вместо реализации собственного рендера</li>
+    <li>Любой проп, который используется компонентом и является функцией рендеринга, технически является и «рендер-пропом».</li>
+    <li>Применяется в библиотеке React Router</li>
+    <li><u>Цель:</u> инкапсулировать поведение с возможностью повторного использования</li>
+    <li>Использование рендер-пропа может свести на нет преимущество, которое даёт <u>React.PureComponent</u>, если вы создаёте функцию внутри метода render. Это связано с тем, что поверхностное сравнение пропсов всегда будет возвращать false для новых пропсов и каждый render будет генерировать новое значение для рендер-пропа</li>
+</ul>
+
+<pre><code class="html">
+&lt;DataProvider <u-code>render</u-code>={data =&gt; (
+	&lt;h1&gt;Привет, {data.target}&lt;/h1&gt;
+)}/&gt;
+</code></pre>
+
+<pre><code class="html">
+&lt;Mouse <u-code>render</u-code>={mouse =&gt; (
+	&lt;Component {...this.props} mouse={mouse} /&gt;
+)}/&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. В проп можно передать функцию</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+class App extends Component {
+	render() {
+		return &lt;Child <u-code>name={arg =&gt; "Hello " + arg}</u-code> /&gt;;
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+class Child extends Component {
+	render() {
+		return &lt;div&gt;{<u-code>this.props.name("Tony")</u-code>}&lt;/div&gt;;
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+// => Hello Tony
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>2. Реализация</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+// 1. Вызываем "render" и передаем "name"
+class AppContainer extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: "Tony"
+		};
+	}
+	render() {
+		return &lt;div&gt;{<u-code>this.props.render(this.state.name)</u-code>}&lt;/div&gt;;
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+// 2. "render" получает "name" и передает в "AppNames" в виде пропа
+class App extends Component {
+	render() {
+		return &lt;AppContainer <u-code>render={name =&gt; &lt;AppNames name={name}</u-code> /&gt;} /&gt;;
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+// 3. "AppNames" принимает name и рендерит его
+class AppNames extends Component {
+	render() {
+		return &lt;div&gt;{<u-code>this.props.name</u-code>}&lt;/div&gt;;
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+// =&gt; Tony
+</code></pre>
+

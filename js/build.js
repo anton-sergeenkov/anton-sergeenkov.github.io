@@ -242,6 +242,7 @@ var arrReactjs = [
     ['react-js', 'components', 'composition',             point+'Композиция'],
     ['react-js', 'components', 'context',                 point+'Контекст'],
     ['react-js', 'components', 'higher-order-components', point+'Компоненты высшего порядка'],
+    ['react-js', 'components', 'render-props',            point+'Рендер-проп'],
 
     [1, 'Жизненный цикл компонентов'],
     ['react-js', 'lifecycle', 'info',                        'Информация'],
@@ -276,6 +277,15 @@ var arrReactjs = [
     ['react-js', 'react-plugins', 'prop-types',       setTheme(2, ['prop-types'])],
     ['react-js', 'react-plugins', 'formik',           setTheme(2, ['formik'])],
 
+    [1, 'Мемоизация'],
+    ['react-js', 'memoization', 'info',                    'Информация'],
+    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
+    ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
+    
+    [1, 'Тестирование'],
+    ['react-js', 'testing', 'react-developer-tools',  'React Developer Tools'],
+    ['react-js', 'testing', 'redux-developer-tools',  'Redux DevTools'],
+
     //--------------------------------------------------------------------
     [2, 'Redux'],
     //--------------------------------------------------------------------
@@ -305,18 +315,6 @@ var arrReactjs = [
     ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
     ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
     ['react-js', 'react-router', 'page-404',          'Page 404'],
-
-    //--------------------------------------------------------------------
-    [2, 'Прочее'],
-    //--------------------------------------------------------------------
-    [1, 'Мемоизация'],
-    ['react-js', 'memoization', 'info',                    'Информация'],
-    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
-    ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
-    
-    [1, 'Тестирование'],
-    ['react-js', 'testing', 'react-developer-tools',  'React Developer Tools'],
-    ['react-js', 'testing', 'redux-developer-tools',  'Redux DevTools'],
 ];
 
 //---------------------------------------------------------------------
