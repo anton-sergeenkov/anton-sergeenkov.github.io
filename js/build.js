@@ -218,31 +218,20 @@ var arrReactjs = [
     //--------------------------------------------------------------------
     [2, 'React.js'],
     //--------------------------------------------------------------------
-    [1, 'Информация'],
-    ['react-js', 'main',  'info',                     'Информация'],
-    ['theory',   'other', 'virtual-dom',              'Virtual DOM'],
-    ['react-js', 'main',  'structure',                code+'Структура'],
-    ['react-js', 'main',  'react-dom-create-element', setTheme(1, ['ReactDOM.createElement'])],
-    ['react-js', 'main',  'react-dom-render',         setTheme(1, ['ReactDOM.render'])],
-    ['react-js', 'main',  'jsx',                      point+'JSX'],
-    ['react-js', 'main',  'fragments',                point+'Фрагменты'],
-    ['react-js', 'main',  'portals',                  point+'Порталы'],
-    ['react-js', 'main',  'error-boundaries',         'Предохранители'],
-
-    [1, 'DOM'],
-    ['react-js', 'dom',  'refs-and-dom',               setTheme(1, ['ref'])],
-    ['react-js', 'dom',  'dangerously-set-inner-html', setTheme(1, ['dangerouslySetInnerHTML'])],
-
     [1, 'Компоненты'],
-    ['react-js', 'components', 'react-component',         setTheme(1, ['React.Component'])],
-    ['react-js', 'components', 'state',                   setTheme(1, ['state', 'setState'])],
-    ['react-js', 'components', 'props',                   setTheme(1, ['props'])],
-    ['react-js', 'components', 'components',              point+'Компоненты'],
-    ['react-js', 'components', 'lifting-state-up',        point+'Подъём состояния'],
-    ['react-js', 'components', 'composition',             point+'Композиция'],
-    ['react-js', 'components', 'context',                 point+'Контекст'],
-    ['react-js', 'components', 'higher-order-components', point+'Компоненты высшего порядка'],
-    ['react-js', 'components', 'render-props',            point+'Рендер-проп'],
+    ['react-js', 'components',  'react-component',         setTheme(1, ['React.Component'])],
+    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])], //**
+    ['react-js', 'components',  'state',                   setTheme(1, ['state', 'setState'])],
+    ['react-js', 'components',  'props',                   setTheme(1, ['props'])],
+    ['react-js', 'dom',         'refs-and-dom',            setTheme(1, ['ref'])],                 //**
+    ['react-js', 'components',  'fragments',               setTheme(1, ['&lt;React.Fragment&gt;'])],
+    ['react-js', 'components',  'higher-order-components', point+'Higher-Order Component'],
+    ['react-js', 'components',  'render-props',            point+'Render Props'],
+    ['react-js', 'components',  'context',                 point+'Context'],
+    ['react-js', 'components',  'portals',                 point+'Portals'],
+    ['react-js', 'components',  'lifting-state-up',        point+'Подъём состояния'],
+    ['react-js', 'components',  'composition',             point+'Композиция'],
+    ['react-js', 'components',  'info',                    'Информация'],
 
     [1, 'Жизненный цикл компонентов'],
     ['react-js', 'lifecycle', 'info',                        'Информация'],
@@ -251,13 +240,44 @@ var arrReactjs = [
     ['react-js', 'lifecycle', 'react-component-render',      setTheme(1, ['render()'])],
     ['react-js', 'lifecycle', 'react-component-constructor', setTheme(1, ['constructor()'])],
 
-    [1, 'Обработка и вывод данных'],
-    ['react-js', 'processing-data-output', 'css',                   point+'CSS'],
-    ['react-js', 'processing-data-output', 'handling-events',       point+'Обработка событий'],
-    ['react-js', 'processing-data-output', 'conditional-rendering', point+'Условный рендеринг'],
-    ['react-js', 'processing-data-output', 'lists-and-keys',        point+'Списки и ключи'],
-    ['react-js', 'processing-data-output', 'forms',                 point+'Формы'],
+    [1, 'Информация'],
+    ['react-js', 'main',  'info',                     'Информация'],
+    ['theory',   'other', 'virtual-dom',              'Virtual DOM'],
+    ['react-js', 'main',  'structure',                code+'Структура'],
+    ['react-js', 'main',  'react-dom-create-element', setTheme(1, ['ReactDOM.createElement'])],
+    ['react-js', 'main',  'react-dom-render',         setTheme(1, ['ReactDOM.render'])],
+    ['react-js', 'main',  'jsx',                      point+'JSX'],
+    ['react-js', 'main',  'error-boundaries',         point+'Предохранители'],
 
+    [1, 'Обработка и вывод данных'],
+    ['react-js', 'processing-data-output', 'css',                     point+'CSS'],
+    ['react-js', 'processing-data-output', 'handling-events',         point+'Обработка событий'],
+    ['react-js', 'processing-data-output', 'conditional-rendering',   point+'Условный рендеринг'],
+    ['react-js', 'processing-data-output', 'lists-and-keys',          point+'Списки и ключи'],
+    ['react-js', 'processing-data-output', 'controlled-components',   point+'Управляемые компоненты '],
+    ['react-js', 'processing-data-output', 'uncontrolled-components', point+'Неуправляемые компоненты'],
+
+    [1, 'React Plugins'],
+    ['react-js', 'react-plugins', 'create-react-app', setTheme(2, ['react', 'react-dom', 'create-react-app'])],
+    ['react-js', 'react-plugins', 'prop-types',       setTheme(2, ['prop-types'])],
+    ['react-js', 'react-plugins', 'formik',           setTheme(2, ['formik'])],
+
+    [1, 'DOM'],
+    ['react-js', 'dom',  'refs-and-dom',               setTheme(1, ['ref'])],
+    ['react-js', 'dom',  'dangerously-set-inner-html', setTheme(1, ['dangerouslySetInnerHTML'])],
+
+    [1, 'Мемоизация'],
+    ['react-js', 'memoization', 'info',                    'Информация'],
+    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
+    ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
+
+    [1, 'Тестирование'],
+    ['react-js', 'testing', 'react-developer-tools',  'React Developer Tools'],
+    ['react-js', 'testing', 'redux-developer-tools',  'Redux DevTools'],
+
+    //--------------------------------------------------------------------
+    [2, 'React-Hooks'],
+    //--------------------------------------------------------------------
     [1, 'Хуки'],
     ['react-js', 'hooks', 'info',                  'Информация'],
     ['react-js', 'hooks', 'use-state',             setTheme(1, ['useState'])],
@@ -271,20 +291,6 @@ var arrReactjs = [
     ['react-js', 'hooks', 'use-layout-effect',     setTheme(1, ['useLayoutEffect'])],
     ['react-js', 'hooks', 'use-debug-value',       setTheme(1, ['useDebugValue'])],
     ['react-js', 'hooks', 'own-hooks',             'Создание собственных хуков'],
-
-    [1, 'React Plugins'],
-    ['react-js', 'react-plugins', 'create-react-app', setTheme(2, ['react', 'react-dom', 'create-react-app'])],
-    ['react-js', 'react-plugins', 'prop-types',       setTheme(2, ['prop-types'])],
-    ['react-js', 'react-plugins', 'formik',           setTheme(2, ['formik'])],
-
-    [1, 'Мемоизация'],
-    ['react-js', 'memoization', 'info',                    'Информация'],
-    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
-    ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
-    
-    [1, 'Тестирование'],
-    ['react-js', 'testing', 'react-developer-tools',  'React Developer Tools'],
-    ['react-js', 'testing', 'redux-developer-tools',  'Redux DevTools'],
 
     //--------------------------------------------------------------------
     [2, 'Redux'],
