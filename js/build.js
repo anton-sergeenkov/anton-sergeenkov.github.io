@@ -56,6 +56,25 @@ var arrAssessment = [
 //---------------------------------------------------------------------
 var arrJavaScript = [
     //--------------------------------------------------------------------
+    [2, 'WORK'],
+    //--------------------------------------------------------------------
+    ['js', 'main', 'ternary-operator',      'Тернарные операторы'],
+    ['js', 'functions', 'arrow',            'Arrow Function'],
+    ['js', 'modules', 'module-es6',         'ES6 Modules'],
+    ['js', 'es6', 'spread',                 'Spread Operator'],
+    ['js', 'es6', 'destructive-obj',        'Деструктуризация объектов'],
+    ['js', 'es6', 'destructive-array',      'Деструктуризация массивов'],
+    ['js', 'array', 'array-cycle',          setTheme(1, ['forEach', ''])],
+    ['js', 'es6', 'map',                    setTheme(1, ['map'])],
+
+    ['js', 'ajax', 'axios',                 'Axios'],
+    ['js', 'async', 'async-func',           'Async Function'],
+    ['js', 'type-data', 'json',             'JSON'],
+    ['js', 'main', 'context',               setTheme(1, ['this', 'call', 'apply', 'bind'])],
+    ['js', 'client-storage', 'web-storage', 'WebStorage'],
+
+
+    //--------------------------------------------------------------------
     [2, 'JavaScript'],
     //--------------------------------------------------------------------
     [1, 'Promise'],
@@ -81,25 +100,25 @@ var arrJavaScript = [
 
     [1, 'Типы данных'],
     ['js', 'type-data', 'type-data',         'Типы данных'],
-    ['js', 'type-data', 'variables',         '<u-menu>var</u-menu> <u-menu>let</u-menu> <u-menu>const</u-menu>'],
-    ['js', 'type-data', 'typeof',            '<u-menu>typeof</u-menu>'],
+    ['js', 'type-data', 'variables',         setTheme(1, ['var', 'let', 'const'])],
+    ['js', 'type-data', 'typeof',            setTheme(1, ['typeof'])],
     ['js', 'type-data', 'number',            'Числа'],
     ['js', 'type-data', 'math',              'Math'],
     ['js', 'type-data', 'string',            'Строки'],
-    ['js', 'type-data', 'json',              '<u-menu>JSON</u-menu>'],
+    ['js', 'type-data', 'json',              'JSON'],
     ['js', 'type-data', 'date-time',         'Дата и время'],
     ['js', 'type-data', 'comparison-values', 'Сравнение и логические значения'],
     ['js', 'type-data', 'regexr',            'Регулярные выражения'],
     ['js', 'type-data', 'object-wrappers',   'Autoboxing (Object Wrappers)'],
 
     [1, 'Массивы'],
-    ['js', 'array', 'array-cycle', '<u-menu>forEach</u-menu> <u-menu>filter</u-menu> <u-menu>map</u-menu> <u-menu>every/some</u-menu> <u-menu>reduce/reduceRight</u-menu>'],
+    ['js', 'array', 'array-cycle', setTheme(1, ['forEach', 'filter', 'map', 'every/some', 'reduce/reduceRight'])],
     ['js', 'array', 'array',       'Массивы'],
     ['js', 'array', 'array-obj',   'Массивы обьектов'],
 
     [1, 'ES6'],
-    ['js', 'es6', 'map',               'Коллекции <u-menu>Map</u-menu> <u-menu>WeakMap</u-menu>'],
-    ['js', 'es6', 'set',               'Коллекции <u-menu>Set</u-menu> <u-menu>WeakSet</u-menu>'],
+    ['js', 'es6', 'map',               'Коллекции '+setTheme(1, ['Map', 'WeakMap'])],
+    ['js', 'es6', 'set',               'Коллекции '+setTheme(1, ['Set', 'WeakSet'])],
     ['js', 'es6', 'spread',            'Оператор разворота'],
     ['js', 'es6', 'destructive-array', 'Деструктивное присваивание массивов'],
     ['js', 'es6', 'destructive-obj',   'Деструтивное присваивание объектов'],
@@ -112,7 +131,7 @@ var arrJavaScript = [
     ['js', 'async', 'collback',   setTheme(3, ['1'])+' Collback Function'],
     ['js', 'async', 'generators', setTheme(3, ['2'])+' Generators (ES6)'],
     ['js', 'async', 'async-func', setTheme(3, ['3'])+' Async Function (ES2017)'],
-    ['js', 'async', 'timeout',    '<u-menu>setTimeout</u-menu> <u-menu>setInterval</u-menu>'],
+    ['js', 'async', 'timeout',    setTheme(1, ['setTimeout', 'setInterval'])],
 
     [1, 'AJAX'],
     ['js', 'ajax', 'info',           'Описание'],
@@ -127,22 +146,23 @@ var arrJavaScript = [
     ['js', 'ajax', 'comet',          'Comet'],
 
     [1, 'Клиентское хранилище'],
-    ['js', 'client-storage', 'web-storage', '<u-menu>localStorage</u-menu> <u-menu>sessionStorage</u-menu>'],
-    ['js', 'client-storage', 'indexed-db',  '<u-menu>IndexedDB</u-menu>'],
-    ['js', 'client-storage', 'cookie',      '<u-menu>cookie</u-menu>'],
+    ['js', 'client-storage', 'web-storage', setTheme(1, ['localStorage', 'sessionStorage'])],
+    ['js', 'client-storage', 'indexed-db',  setTheme(1, ['IndexedDB'])],
+    ['js', 'client-storage', 'cookie',      setTheme(1, ['cookie'])],
 
     [1, 'Основное'],
-    ['js', 'main', 'context',                '<u-menu>this</u-menu> <u-menu>call</u-menu> <u-menu>apply</u-menu> <u-menu>bind</u-menu>'],
+    ['js', 'main', 'context',                setTheme(1, ['this', 'call', 'apply', 'bind'])],
     ['js', 'main', 'cycle',                  'Циклы'],
     ['js', 'main', 'exceptions',             'Исключения'],
     ['js', 'main', 'conditional-statements', 'Условные операторы'],
+    ['js', 'main', 'ternary-operator',       'Тернарные операторы'],
 
     [1, 'Дополнительно'],
     ['js', 'additional', 'asynchronous-scripts',   'Асинхронные скрипты: defer/async'],
-    ['js', 'additional', 'console',                '<u-menu>console</u-menu>'],
     ['js', 'additional', 'method-chaining',        'Цепные вызовы методов'],
     ['js', 'additional', 'web-workers',            'Web Workers'],
-    ['js', 'additional', 'eval',                   '<u-menu>eval</u-menu>'],
+    ['js', 'additional', 'console',                setTheme(1, ['console'])],
+    ['js', 'additional', 'eval',                   setTheme(1, ['eval'])],
     ['js', 'additional', 'notifications-api',      'Notifications API'],
     ['js', 'additional', 'ecmascript',             'ECMAScript'],
     ['js', 'additional', 'jsdoc',                  'Синтаксис JSDoc'],
@@ -196,20 +216,9 @@ var arrJavaScript = [
     ['js', 'web-components', 'imports',         setTheme(3, ['4'])+' HTML Imports'],
 ];
 
-    // [1, 'WORK'],
-    // ['js', 'functions', 'arrow',            point+'Стрелочные функции (ES6)'],
-    // ['js', 'modules', 'module-es6',         point+'Модули ES6'],
-    // ['js', 'ajax', 'axios',                 point+'Axios'],
-    // ['js', 'async', 'promise',              point+'Promise'],
-    // ['js', 'async', 'async-func',           point+'Async Function'],
-    // ['js', 'type-data', 'json',             point+'JSON'],
-    // ['js', 'array', 'array-cycle',          point+'forEach <u-menu>...</u-menu>'],
-    // ['js', 'es6', 'map',                    point+'map'],
-    // ['js', 'main', 'context',               point+'call <u-menu>...</u-menu>'],
-    // ['js', 'es6', 'spread',                 point+'Spread Operator'],
-    // ['js', 'es6', 'destructive-array',      point+'Деструктивное присваивание массивов'],
-    // ['js', 'es6', 'destructive-obj',        point+'Деструтивное присваивание объектов'],
-    // ['js', 'client-storage', 'web-storage', point+'WebStorage'],
+
+
+
 
 //---------------------------------------------------------------------
 // REACT.JS
