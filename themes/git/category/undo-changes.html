@@ -1,0 +1,15 @@
+<h2>Отмена изменений</h2>
+
+<pre><code class="none">
+<em>git <u-code>checkout --</u-code> file.txt</em> # Отмена изменений файла
+<em>git <u-code>reset</u-code> HEAD file.txt</em>  # Отмена индексации файла
+<em>git <u-code>commit --amend</u-code></em>       # Изменение последнего коммита
+</code></pre>
+
+<pre><code class="none">
+# Все три команды вместе дают один коммит - второй коммит заменяет результат первого
+git commit -m 'initial commit'
+git add forgotten_file
+git commit --amend
+</code></pre>
+

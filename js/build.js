@@ -420,14 +420,16 @@ var arrWebpack = [
 //---------------------------------------------------------------------
 var arrGit = [
     [1, 'Terminal'],
-    ['git', 'command', 'push_',   '<u-menu>init</u-menu> <u-menu>add</u-menu> <u-menu>commit</u-menu> <u-menu>remote</u-menu> <u-menu>push</u-menu>'],
-    ['git', 'command', 'pull_',   '<u-menu>clone</u-menu> <u-menu>pull</u-menu>'],
-    ['git', 'command', 'branch',  '<u-menu>branch</u-menu> <u-menu>checkout</u-menu> <u-menu>merge</u-menu>'],
-    ['git', 'command', 'diff',    '<u-menu>diff</u-menu>'],
-    ['git', 'command', 'config',  '<u-menu>config</u-menu>'],
-    ['git', 'command', 'status_', '<u-menu>status</u-menu> <u-menu>log</u-menu>'],
-    ['git', 'command', 'fetch',   '<u-menu>fetch</u-menu>'],
-    ['git', 'command', 'other',   '<u-menu>...</u-menu>'],
+    ['git', 'command',  'push_',        setTheme(1, ['init', 'add', 'commit', 'remote', 'push'])],
+    ['git', 'command',  'pull_',        setTheme(1, ['clone', 'pull'])],
+    ['git', 'command',  'branch',       setTheme(1, ['branch', 'checkout', 'merge'])],
+    ['git', 'command',  'diff',         setTheme(1, ['diff'])],
+    ['git', 'command',  'config',       setTheme(1, ['config'])],
+    ['git', 'command',  'status_',      setTheme(1, ['status', 'log'])],
+    ['git', 'command',  'fetch',        setTheme(1, ['fetch'])],
+    ['git', 'command',  'help',         setTheme(1, ['help'])],
+    ['git', 'command',  'other',        setTheme(1, ['...'])],
+    ['git', 'category', 'undo-changes', 'Отмена изменений'],
 
     [1, 'GitHub'],
     ['git', 'github', 'terminal-connect', point+'Connect SSH'],
@@ -440,6 +442,7 @@ var arrGit = [
     ['git', 'theory', 'vcs',     'Системы управления версиями'],
     ['git', 'theory', 'gitflow', 'Gitflow'],
 ];
+
 
 //---------------------------------------------------------------------
 // NPM

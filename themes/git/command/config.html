@@ -1,7 +1,17 @@
 <h2>CONFIG</h2>
 
-<pre><code class="none">
-<em>$ git <u-code>config</u-code> --global user.name "user_name"</em>   # задание user.name
-<em>$ git <u-code>config</u-code> --global user.email "user_email"</em> # задание user.email 
-<em>$ git <u-code>config</u-code> --list</em>                           # вывод настроек
+<pre><code class="bash">
+<em>git <u-code>config</u-code> --global user.name "user_name"</em>   # задание user.name
+<em>git <u-code>config</u-code> --global user.email "user_email"</em> # задание user.email 
+<em>git <u-code>config</u-code> --list</em>                           # вывод настроек
 </code></pre>
+
+<!------------------------------------------------------------->
+<h4>Переключение CRLF / LF</h4>
+<!------------------------------------------------------------->
+<pre><code class="bash">
+# C:\Users\serge\.gitconfig
+<em>git config --global core.autocrlf input</em>
+<em>git config --global core.safecrlf warn</em>
+</code></pre>
+
