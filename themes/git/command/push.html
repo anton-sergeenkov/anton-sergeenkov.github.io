@@ -1,0 +1,15 @@
+<div class="v-method-wrapper">
+    <v-method before="git " method="push" after="" arg="">
+    Отправка изменений на удаленный git-репозиторий
+    </v-method>
+</div>
+
+<pre><code class="bash">
+<em>git <u-code>push</u-code> --set-upstream origin master</em>                 # отправка изменений на удаленный git-репозиторий
+<em>git <u-code>push origin</u-code></em>                                       # замерджить все ветки локального репозитория на удаленный репозиторий 
+<em>git <u-code>push origin</u-code> master</em>                                # аналогично предыдущему, но делается пуш только ветки master
+<em>git <u-code>push -u origin</u-code> master</em>                             # 
+<em>git <u-code>push origin HEAD</u-code></em>                                  # запушить текущую ветку, не вводя целиком ее название
+<em>git <u-code>push -f</u-code></em>                                           # залить на сервер измененные коммиты
+<em>git <u-code>push</u-code> https://github.com/Eclerrr/readme.git master</em> # 
+</code></pre>

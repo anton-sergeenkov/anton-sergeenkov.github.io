@@ -1,0 +1,13 @@
+<div class="v-method-wrapper">
+    <v-method before="git " method="commit" after="" arg="">
+    Создание слепка (snapshot) директории и зафиксировать изменения файлов. Сохранение изменений в локальном репозитории. Берёт все данные, добавленные в индекс с помощью git add, и сохраняет их слепок во внутренней базе данных, а затем сдвигает указатель текущей ветки на этот слепок
+    </v-method>
+</div>
+
+<pre><code class="bash">
+<em>git <u-code>commit</u-code></em>                   # 
+<em>git <u-code>commit -a</u-code></em>                # добавление всех изменений в индекс без использования git add
+<em>git <u-code>commit -m</u-code> "text"</em>         # передача сообщения коммита без запуска полноценного редактора
+<em>git <u-code>commit -a -m</u-code> "text"</em>      #
+<em>git <u-code>commit --amend -m</u-code> "text"</em> # перезапишется последний коммит
+</code></pre>
