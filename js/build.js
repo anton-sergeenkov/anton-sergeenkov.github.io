@@ -216,7 +216,13 @@ var arrJavaScript = [
 ];
 
 
-
+//---------------------------------------------------------------------
+// BOOTSTRAP
+//---------------------------------------------------------------------
+var arrBootstrap = [
+    [1, 'Основное'],
+    ['bootstrap', 'main',  'info',   'Информация'],
+];
 
 
 //---------------------------------------------------------------------
@@ -869,6 +875,7 @@ switch(pageName) {
     case 'css.html':        var arrCurrent = arrCSS;        break;
     case 'assessment.html': var arrCurrent = arrAssessment; break;
     case 'sass.html':       var arrCurrent = arrSass;       break;
+    case 'bootstrap.html':  var arrCurrent = arrBootstrap;  break;
 }
 
 if ( (pageName!=='map.html') && (pageName!=='map') ) {
