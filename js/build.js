@@ -222,6 +222,9 @@ var arrJavaScript = [
 var arrBootstrap = [
     [1, 'Основное'],
     ['bootstrap', 'main',  'info',   'Информация'],
+
+    [1, 'Разметка'],
+    ['bootstrap', 'layout', 'containers', 'Контейнеры'],
 ];
 
 
