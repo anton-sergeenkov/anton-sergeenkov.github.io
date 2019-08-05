@@ -35,8 +35,66 @@
 </code></pre>
 
 
-<iframe height="517" style="width: 100%;" scrolling="no" title="Bootstrap" src="//codepen.io/Sergeenkov/embed/NQaZMg/?height=517&theme-id=light&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/Sergeenkov/pen/NQaZMg/'>Bootstrap</a> by Anton
-  (<a href='https://codepen.io/Sergeenkov'>@Sergeenkov</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+
+
+
+
+
+<div class="codepen" data-height="517" data-theme-id="light" data-default-tab="html,result" data-user="Sergeenkov" data-slug-hash="NQaZMg" data-prefill='{"title":"Bootstrap","tags":[],"stylesheets":["https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"],"scripts":["https://code.jquery.com/jquery-3.3.1.slim.min.js","https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js","https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"]}'>
+  <pre data-lang="html">&lt;div class="container">
+	&lt;h5>Растяжение колонок&lt;/h5>
+	&lt;div class="row">
+		&lt;div class="col">stretch&lt;/div>
+		&lt;div class="col">stretch&lt;/div>
+	&lt;/div>
+	
+	&lt;h5>Фиксированная ширина в частях&lt;/h5>
+	&lt;div class="row">
+		&lt;div class="col-7">7/12&lt;/div>
+		&lt;div class="col-5">5/12&lt;/div>
+	&lt;/div>
+	
+	&lt;h5>Совмещенное задание в частях и растяжения&lt;/h5>
+	&lt;div class="row">
+		&lt;div class="col">stretch&lt;/div>
+		&lt;div class="col-2">2/12&lt;/div>
+	&lt;/div>
+	
+	&lt;h5>Авто ширина&lt;/h5>
+	&lt;div class="row">
+		&lt;div class="col-auto">auto&lt;/div>
+	&lt;/div>
+	
+	&lt;h5>Мультиряд одинаковой ширины&lt;/h5>
+	&lt;div class="row">
+		&lt;div class="col">col&lt;/div>
+		&lt;div class="col">col&lt;/div>
+		&lt;div class="w-100">&lt;/div>
+		&lt;div class="col">col&lt;/div>
+		&lt;div class="col">col&lt;/div>
+	&lt;/div>
+&lt;/div>
+
+
+&lt;!-- justify-content-center --></pre>
+  <pre data-lang="css" >.row [class|="col"] {
+	border: 2px solid white;
+	padding: 10px;
+	background: #486196;
+	color: white;
+}
+.container {
+	margin-bottom: 20px;
+	border: 1px dashed #486196;
+	margin-top: 20px;
+}
+h5 {
+	background: white;
+	margin: 0;
+	padding: 5px;
+	text-align: center;
+}</pre>
+  
+</div>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
