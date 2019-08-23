@@ -295,7 +295,6 @@ var arrReactjs = [
     //--------------------------------------------------------------------
     [2, 'React-Hooks'],
     //--------------------------------------------------------------------
-    [1, 'Хуки'],
     ['react-js', 'hooks', 'info',                  'Информация'],
     ['react-js', 'hooks', 'use-state',             setTheme(1, ['useState'])],
     ['react-js', 'hooks', 'use-effect',            setTheme(1, ['useEffect'])],
@@ -312,7 +311,6 @@ var arrReactjs = [
     //--------------------------------------------------------------------
     [2, 'Redux'],
     //--------------------------------------------------------------------
-    [1, 'Redux'],
     ['react-js', 'redux', 'info',                   'Информация'],
     ['react-js', 'redux', 'functional-programming', 'Принципы FP'],
     ['react-js', 'redux', 'methods',                'Методы'],
@@ -332,13 +330,23 @@ var arrReactjs = [
     //--------------------------------------------------------------------
     [2, 'React Router'],
     //--------------------------------------------------------------------
-    [1, 'React Router'],
     ['react-js', 'react-router', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
     ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
     ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
     ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
     ['react-js', 'react-router', 'page-404',          'Page 404'],
+
+    //--------------------------------------------------------------------
+    [2, 'Material-UI'],
+    //--------------------------------------------------------------------
+    ['react-js', 'material-ui', 'spacing',     setTheme(1, ['spacing'])],
+    ['react-js', 'material-ui', 'with-styles', setTheme(1, ['makeStyles', 'withStyles'])],
+    ['react-js', 'material-ui', 'css-in-js',   'CSS in JS'],
 ];
+
+
+
+
 
 //---------------------------------------------------------------------
 // JAVASCRIPT OBJECTS

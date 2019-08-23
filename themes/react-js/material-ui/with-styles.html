@@ -1,0 +1,145 @@
+<h2>makeStyles and withStyles</h2>
+
+<pre><code class="js"><u-code-title>makeStyles</u-code-title>
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles(theme => ({
+	label: {
+		mardin: '10px',
+	},
+}));
+const MyComponent = () => {
+	const classes = useStyles();
+	return (
+		<label className={classes.label} />
+	);
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>withStyles</u-code-title>
+// MyComponent.js
+import { withStyles } from '@material-ui/core/styles';
+import styles from './MyComponentStyles';
+const MyComponent = () => {
+	return (
+		<label className={classes.label} />
+	);
+};
+export default withStyles(styles)(CRMRadio);
+
+// MyComponentStyles.js
+const MyComponentStyles = () => ({
+    label: {
+		mardin: '10px',
+    }
+});
+
+export default MyComponentStyles;
+</code></pre>
+
+
+
+
+
+
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+
+// setState
+// props
+// this
+
+//-------------------------------------------------------
+// functional component
+//-------------------------------------------------------
+type Props = {
+    id: number,
+    name: string,
+}
+
+const MyComponent = ({
+    id,
+    name,
+}: Props) => {
+
+    const myMethod = () => {
+        //
+    };
+
+    //
+    return ()
+}
+
+const renderMethod = () => (
+    <Grid>
+        ...
+    </Grid>
+);
+
+//-------------------------------------------------------
+// useState
+//-------------------------------------------------------
+import React, { useState } from 'react';
+
+const [show, setShow] = useState(false);
+setShow(true);
+
+//-------------------------------------------------------
+// useEffect
+//-------------------------------------------------------
+import React, { useEffect } from 'react';
+
+// componentDitMount
+useEffect(() => {
+	document.title = 'Новая продажа';
+}, []);
+
+// componentDidUpdate
+useEffect(() => {
+	document.title = 'Новая продажа';
+}, []);
+
+// componentWillUnmount
+useEffect(() => () => window.removeEventListener('resize', onResize), []);
+
+useEffect(() => {
+    // componentDitMount
+    window.addEventListener('resize', onResize, false);
+    // componentWillUnmount
+    return () => window.removeEventListener('resize', onResize);
+}, []);
+
+
+//-------------------------------------------------------
+// useMobile
+//-------------------------------------------------------
+import { useMobile } from 'crm-components/common/MobileContextProvider/MobileContextProvider';
+const isMobile = useMobile();
+<Dialog
+    isMobile={isMobile}
+/>
+// src\containers\LoginPage\LoginPage.jsx
+// src\components\crmUI\CRMFormLabel\CRMFormLabel.jsx
+
+</code></pre>
+
+
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+type Props = {
+	property: string,
+	property: boolean,
+	property: Object,
+	property: Array<string>,
+	property: Array<{ name: string, checked: boolean }>,
+	property: Date,
+
+	property?: string,
+	property: ?string,
+
+	onHandle: () => void,
+	onHandle: () => number,
+	onHandle: (date: ?Date) => void,
+	onHandle: (id: ?number) => void,
+	onHandle: (Object) => void,
+}
+</code></pre>
