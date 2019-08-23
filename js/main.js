@@ -9,7 +9,8 @@ var menu = `
     <a href="/pages/vue-js.html"     class="menu menu-js">vue.js</a>
     <a href="/pages/jquery.html"     class="menu menu-js">jquery</a>
     <a href="/pages/canvas.html"     class="menu menu-js">canvas</a>
-
+    
+    <a href="/pages/flow.html"       class="menu menu-other">flow</a>
     <a href="/pages/webpack.html"    class="menu menu-other">webpack</a>
     <a href="/pages/npm.html"        class="menu menu-other">npm</a>
     <a href="/pages/git.html"        class="menu menu-other">git</a>
@@ -20,7 +21,7 @@ var menu = `
 
     <a href="/pages/html.html"       class="menu menu-html">html</a>
     <a href="/pages/css.html"        class="menu menu-html">css</a>
-    <a href="/pages/sass.html"          class="menu menu-html">sass</a>
+    <a href="/pages/sass.html"       class="menu menu-html">sass</a>
     <a href="/pages/bootstrap.html"  class="menu menu-html">bootstrap</a>
 
 

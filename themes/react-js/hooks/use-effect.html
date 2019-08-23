@@ -1,5 +1,41 @@
 <h2>Хук эффекта useEffect</h2>
 
+<pre><code class="js border"><u-code-title>import</u-code-title>
+import React, { useEffect } from 'react';
+</code></pre>
+
+<pre><code class="js border"><u-code-title>componentDitMount</u-code-title>
+// componentDitMount
+useEffect(() => {
+	document.title = 'Новая продажа';
+}, []);
+</code></pre>
+
+<pre><code class="js border"><u-code-title>componentDidUpdate</u-code-title>
+// componentDidUpdate
+useEffect(() => {
+	document.title = 'Новая продажа';
+}, []);
+</code></pre>
+
+<pre><code class="js border"><u-code-title>componentWillUnmount</u-code-title>
+// componentWillUnmount
+useEffect(() => () => window.removeEventListener('resize', onResize), []);
+</code></pre>
+
+<pre><code class="js border"><u-code-title>componentDitMount and componentWillUnmount</u-code-title>
+useEffect(() => {
+    // componentDitMount
+    window.addEventListener('resize', onResize, false);
+    // componentWillUnmount
+    return () => window.removeEventListener('resize', onResize);
+}, []);
+</code></pre>
+
+
+<!-- ////////////////////////////////////////////////////// -->
+
+
 <ul class="list-point">
     <li><u-text-define>Побочные эффекты / Эффекты</u-text-define> - операции, которые могут влиять на работу других компонентов и их нельзя выполнить во время рендера. Н-р: запрашивать данные, делать подписки или вручную менять DOM из React-компонента</li>
 

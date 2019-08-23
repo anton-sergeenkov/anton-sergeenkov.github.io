@@ -345,9 +345,6 @@ var arrReactjs = [
 ];
 
 
-
-
-
 //---------------------------------------------------------------------
 // JAVASCRIPT OBJECTS
 //---------------------------------------------------------------------
@@ -861,6 +858,16 @@ var arrSass = [
 ];
 
 
+//---------------------------------------------------------------------
+// Flow
+//---------------------------------------------------------------------
+var arrFlow = [
+    [1, 'Основное'],
+    ['flow', 'main', 'info',   'Информация'],
+    ['flow', 'main', 'types',  'Types'],
+    ['flow', 'main', 'vscode', 'Настройка VSCode'],
+];
+
 
 
 
@@ -887,6 +894,7 @@ switch(pageName) {
     case 'assessment.html': var arrCurrent = arrAssessment; break;
     case 'sass.html':       var arrCurrent = arrSass;       break;
     case 'bootstrap.html':  var arrCurrent = arrBootstrap;  break;
+    case 'flow.html':       var arrCurrent = arrFlow;       break;
 }
 
 if ( (pageName!=='map.html') && (pageName!=='map') ) {

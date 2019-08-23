@@ -1,0 +1,33 @@
+<h2>Типы</h2>
+
+<pre><code class="js"><u-code-title>type</u-code-title>
+type Props = {
+	property: string,
+	property: boolean,
+	property: Object,
+	property: Array<string>,
+	property: Array<{ name: string, checked: boolean }>,
+	property: Date,
+
+	property?: string,
+	property: ?string,
+
+	onHandle: () => void,
+	onHandle: () => number,
+	onHandle: (date: ?Date) => void,
+	onHandle: (id: ?number) => void,
+	onHandle: (Object) => void,
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>types</u-code-title>
+let a:string = 'str';
+let a:number = 77;
+</code></pre>
+
+<pre><code class="js"><u-code-title>functions</u-code-title>
+function my(x: string, y: number = 77) {}
+function my(x: '1' | '2') {}       // может передаваться '1' или '2'
+function my(x: number | string) {} // может передаваться number или string
+</code></pre>
+
