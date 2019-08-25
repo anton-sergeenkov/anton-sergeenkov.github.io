@@ -34,6 +34,7 @@ var arrAssessment = [
     ['js',         'functions',  'closures',             'Замыкания'],
     ['theory',     'javascript', 'architecture-runtime', 'Event Loop'],
     ['js',         'type-data',  'variables',            setTheme(1, ['var', 'let', 'const'])],
+    ['js',         'array',      'array-cycle',          setTheme(1, ['map', 'forEach', '...'])],
 
     [1, 'Парадигмы'],
     ['theory', 'programming-paradigms', 'oop',            setTheme(1, ['ООП'])],
@@ -58,19 +59,18 @@ var arrJavaScript = [
     //--------------------------------------------------------------------
     [2, 'Work'],
     //--------------------------------------------------------------------
-    ['js', 'main', 'ternary-operator',      'Тернарные операторы'],
-    ['js', 'functions', 'arrow',            'Стрелочные функции (ES6)'],
-    ['js', 'modules', 'module-es6',         'Модули (ES6)'],
-    ['js', 'es6', 'spread',                 'Оператор разворота (ES6)'],
-    ['js', 'es6', 'destructive-obj',        'Деструктуризация объектов (ES6)'],
-    ['js', 'es6', 'destructive-array',      'Деструктуризация массивов (ES6)'],
-    ['js', 'array', 'array-cycle',          setTheme(1, ['forEach', '...'])],
-    ['js', 'es6', 'map',                    setTheme(1, ['map'])],
-    ['js', 'ajax', 'axios',                 'Axios'],
-    ['js', 'async', 'async-func',           'Async Function'],
-    ['js', 'type-data', 'json',             'JSON'],
-    ['js', 'main', 'context',               setTheme(1, ['this', 'call', 'apply', 'bind'])],
-    ['js', 'client-storage', 'web-storage', 'WebStorage'],
+    ['js', 'main',           'ternary-operator',  'Тернарные операторы'],
+    ['js', 'functions',      'arrow',             'Стрелочные функции (ES6)'],
+    ['js', 'modules',        'module-es6',        'Модули (ES6)'],
+    ['js', 'es6',            'spread',            'Оператор разворота (ES6)'],
+    ['js', 'es6',            'destructive-obj',   'Деструктуризация объектов (ES6)'],
+    ['js', 'es6',            'destructive-array', 'Деструктуризация массивов (ES6)'],
+    ['js', 'array',          'array-cycle',       setTheme(1, ['map', 'forEach', '...'])],
+    ['js', 'ajax',           'axios',             'Axios'],
+    ['js', 'async',          'async-func',        'Async Function'],
+    ['js', 'type-data',      'json',              'JSON'],
+    ['js', 'main',           'context',           setTheme(1, ['this', 'call', 'apply', 'bind'])],
+    ['js', 'client-storage', 'web-storage',       'WebStorage'],
 
 
     //--------------------------------------------------------------------
