@@ -1,18 +1,24 @@
 <h2>Динамические компоненты</h2>
 
+<!------------------------------------------------------------->
 <h4>Создание компонента</h4>
+<!------------------------------------------------------------->
 <pre><code class="html">
 &lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>Кэширование компонента (сохранение состояния)</h4>
+<!------------------------------------------------------------->
 <pre><code class="html">
 <u-code>&lt;keep-alive&gt;</u-code>
 	&lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
 <u-code>&lt;/keep-alive&gt;</u-code>
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>Пример</h4>
+<!------------------------------------------------------------->
 <pre><code class="html">
 &lt;!-- если нужна анимация, component обернуть в transition --&gt;
 &lt;div id="app"&gt;
@@ -54,7 +60,13 @@ var app = new Vue({
 })
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты import</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
 <h4>require code 1</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 components: {
 	'app-icon': require('./icons/icon-shopping-cart.vue').default
@@ -65,7 +77,9 @@ beforeCreate() {
 }
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>require code 2</h4>
+<!------------------------------------------------------------->
 <pre><code class="html">
 &lt;template&gt;
 	&lt;component :is="$options.components[name]"&gt;&lt;/component&gt;
@@ -81,6 +95,27 @@ export default {
 	created() {
 		this.$options.components[this.name] = require('./icons/icon-'+this.name+'.vue').default;
 	}
+}
+&lt;/script&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Подшрузка компонента с данными из роутинга</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;template&gt;
+    &lt;app-theme /&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    components: {
+        'app-theme': null,
+    },
+    created() {
+        this.$options.components['app-theme'] = 
+            require(`../category/${this.$route.params.name}.vue`).default;
+    }
 }
 &lt;/script&gt;
 </code></pre>
