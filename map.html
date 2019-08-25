@@ -27,6 +27,7 @@ h1 {
 	width: calc(100vw - 40px);
 	flex-shrink: 0;
 	color: rgba(var(--color-js), 1);
+	font-size: 20px;
 }
 u-menu {
 	background: rgba(var(--color-other), 0.2);
@@ -44,17 +45,25 @@ u-menu {
 		0 8px 10px -5px rgba(33,37,41,.1);
 }
 #map-header .map-header-menu {
-	font-size: 16px;
-	padding: 10px;
-	color: #fff;
-	margin: 5px;
-	border-radius: 3px;
-	font-family: FiraSans-Medium;
-	color: rgba(var(--color-other), 1);
-	border: 1px solid rgba(var(--color-other), 0.2);
-	background: #fafafa;
-	cursor: pointer;
+	color: rgba(var(--color-js), 1);
+    background: rgba(var(--color-js), 0.1);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 7px 15px;
+    margin: 5px;
+    font-family: FiraSans-Bold;
+    border-bottom: 2px solid transparent;
+    transition: 0.7s;
+    width: auto;
+    cursor: pointer;
+    font-size: 14px;
 }
+#map-header .menu-html  { color: rgba(var(--color-html),  1);   background: rgba(var(--color-html),  0.2); }
+#map-header .menu-js    { color: rgba(var(--color-js),    1);   background: rgba(var(--color-js),    0.2); }
+#map-header .menu-php   { color: rgba(var(--color-php),   1);   background: rgba(var(--color-php),   0.2); }
+#map-header .menu-other { color: rgba(var(--color-other), 1);   background: rgba(var(--color-other), 0.2); }
+#map-header .menu-fw    { color: rgba(var(--color-fw),    0.55); background: rgba(var(--color-fw),    0.2); }
+
 #map-themes {
 	display: flex;
 	flex-wrap: wrap;
@@ -119,6 +128,7 @@ u-menu {
 				@mouseover="hoverHeaderMenu = item[1]" 
 				v-html="item[0]"
 				class="map-header-menu"
+				:class="item[2]"
 			></div>
 		</div>
 

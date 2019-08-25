@@ -1,20 +1,31 @@
 
 var app = new Vue({
 	el: '#content',
-	data: { 
+	data: {
 		category: [
-			['Assessment', arrAssessment ],
-			['React.js',   arrReactjs],
-			['JS',         arrJavaScript],
-			['JS Object',  arrJsObjects],
-			['Задачи',   arrJsTasks],
-			['Теория',     arrTheory],
-			['HTML',       arrHTML],
-			['CSS',        arrCSS],
-			['Git',        arrGit],
-			['Webpack',    arrWebpack],
-			['NPM',        arrNpm ],
-			['Sass',       arrSass ],
+			['React.js',          arrReactjs,    'menu-html'],
+			['JavaScript',        arrJavaScript, 'menu-html'],
+			['JavaScript Class',  arrJsObjects,  'menu-html'],
+
+			['Git',               arrGit,        'menu-js'],
+			['Flow',              arrFlow,       'menu-js'],
+			['Webpack',           arrWebpack,    'menu-js'],
+
+			['Vue.js',            arrVuejs,      'menu-php'],
+			['Bootstrap',         arrBootstrap,  'menu-php'],
+			['HTML',              arrHTML,       'menu-php'],
+			['CSS',               arrCSS,        'menu-php'],
+			['NPM',               arrNpm,        'menu-php'],
+			['Sass',              arrSass,       'menu-php'],
+			['Canvas',            arrCanvas,     'menu-php'],
+
+			['Assessment',        arrAssessment, 'menu-other'],
+			['Задачи',            arrJsTasks,    'menu-other'],
+			['Теория',            arrTheory,     'menu-other'],
+
+			['jQuery',            arrJquery,     'menu-other'],
+			['Other',             arrOther,      'menu-other'],
+			['Linux',             arrLinux,      'menu-other'],
 		],
 		themesContent: null,
 		pageContent: '',
@@ -81,10 +92,3 @@ var app = new Vue({
         }
     }
 })
-
-// arrOther
-// arrLinux
-// arrJquery
-// arrCanvas
-// arrEnglish
-// arrVuejs
