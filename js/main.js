@@ -23,12 +23,14 @@ var menu = `
     <a href="/pages/css.html"        class="menu menu-html">css</a>
     <a href="/pages/sass.html"       class="menu menu-html">sass</a>
     <a href="/pages/bootstrap.html"  class="menu menu-html">bootstrap</a>
+    
+    <a href="/pages/svg.html"        class="menu menu-html">svg</a>
+
 
 
     <a href="/pages/+css-flexbox.html"   class="menu menu-html">flexbox</a>
     <a href="/pages/+css-grid.html"      class="menu menu-html">css grid</a>
-    <a href="/pages/+svg.html"           class="menu menu-html">svg</a>
-
+    
     <a href="/pages/+node-js.html"       class="menu menu-php">node.js</a>
     <a href="/pages/+php.html"           class="menu menu-php">php</a>
     <a href="/pages/+python.html"        class="menu menu-php">python</a>

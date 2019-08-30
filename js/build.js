@@ -869,32 +869,109 @@ var arrFlow = [
 ];
 
 
+//---------------------------------------------------------------------
+// SVG
+//---------------------------------------------------------------------
+var arrSvg = [
+    [1, 'Основное'],
+    ['svg', 'main', 'info',      'Информация'],
+    ['svg', 'main', 'figure',    'Фигуры'],
+    ['svg', 'main', 'filters',   'Фильтры'],
+    ['svg', 'main', 'gradients', 'Градиенты'],
+];
 
 
+
+
+
+
+
+
+//---------------------------------------------------------------------
+// Flexbox
+//---------------------------------------------------------------------
+var arrCssFlexbox = [
+    [1, 'Основное'],
+    ['css-flexbox', 'main', 'info',   'Информация'],
+];
+
+//---------------------------------------------------------------------
+// CSS Grid
+//---------------------------------------------------------------------
+var arrCssGrid = [
+    [1, 'Основное'],
+    ['css-grid', 'main', 'info',   'Информация'],
+];
+
+//---------------------------------------------------------------------
+// Node.js
+//---------------------------------------------------------------------
+var arrNodejs = [
+    [1, 'Основное'],
+    ['node-js', 'main', 'info',   'Информация'],
+];
+
+//---------------------------------------------------------------------
+// MySQL
+//---------------------------------------------------------------------
+var arrMySql = [
+    [1, 'Основное'],
+    ['mysql', 'main', 'info',   'Информация'],
+];
+
+//---------------------------------------------------------------------
+// PHP
+//---------------------------------------------------------------------
+var arrPhp = [
+    [1, 'Основное'],
+    ['php', 'main', 'info',   'Информация'],
+];
+
+//---------------------------------------------------------------------
+// Python
+//---------------------------------------------------------------------
+var arrPython = [
+    [1, 'Основное'],
+    ['python', 'main', 'info',   'Информация'],
+];
+
+
+
+
+ 
+ 
 
 var page = window.location.pathname.split('/');
 var pageName = page[page.length-1];
 
 switch(pageName) {
-    case 'js.html':         var arrCurrent = arrJavaScript; break;
-    case 'js-objects.html': var arrCurrent = arrJsObjects;  break;
-    case 'vue-js.html':     var arrCurrent = arrVuejs;      break;
-    case 'react-js.html':   var arrCurrent = arrReactjs;    break;
-    case 'webpack.html':    var arrCurrent = arrWebpack;    break;
-    case 'npm.html':        var arrCurrent = arrNpm;        break;
-    case 'theory.html':     var arrCurrent = arrTheory;     break;
-    case 'git.html':        var arrCurrent = arrGit;        break;
-    case 'linux.html':      var arrCurrent = arrLinux;      break;
-    case 'other.html':      var arrCurrent = arrOther;      break;
-    case 'js-tasks.html':   var arrCurrent = arrJsTasks;    break;
-    case 'jquery.html':     var arrCurrent = arrJquery;     break;
-    case 'canvas.html':     var arrCurrent = arrCanvas;     break;
-    case 'html.html':       var arrCurrent = arrHTML;       break;
-    case 'css.html':        var arrCurrent = arrCSS;        break;
-    case 'assessment.html': var arrCurrent = arrAssessment; break;
-    case 'sass.html':       var arrCurrent = arrSass;       break;
-    case 'bootstrap.html':  var arrCurrent = arrBootstrap;  break;
-    case 'flow.html':       var arrCurrent = arrFlow;       break;
+    case 'js.html':          var arrCurrent = arrJavaScript; break;
+    case 'js-objects.html':  var arrCurrent = arrJsObjects;  break;
+    case 'vue-js.html':      var arrCurrent = arrVuejs;      break;
+    case 'react-js.html':    var arrCurrent = arrReactjs;    break;
+    case 'webpack.html':     var arrCurrent = arrWebpack;    break;
+    case 'npm.html':         var arrCurrent = arrNpm;        break;
+    case 'theory.html':      var arrCurrent = arrTheory;     break;
+    case 'git.html':         var arrCurrent = arrGit;        break;
+    case 'linux.html':       var arrCurrent = arrLinux;      break;
+    case 'other.html':       var arrCurrent = arrOther;      break;
+    case 'js-tasks.html':    var arrCurrent = arrJsTasks;    break;
+    case 'jquery.html':      var arrCurrent = arrJquery;     break;
+    case 'canvas.html':      var arrCurrent = arrCanvas;     break;
+    case 'html.html':        var arrCurrent = arrHTML;       break;
+    case 'css.html':         var arrCurrent = arrCSS;        break;
+    case 'assessment.html':  var arrCurrent = arrAssessment; break;
+    case 'sass.html':        var arrCurrent = arrSass;       break;
+    case 'bootstrap.html':   var arrCurrent = arrBootstrap;  break;
+    case 'flow.html':        var arrCurrent = arrFlow;       break;
+
+    case 'svg.html':         var arrCurrent = arrSvg;        break;
+    // case 'css-flexbox.html': var arrCurrent = arrCssFlexbox; break;
+    // case 'css-grid.html':    var arrCurrent = arrCssGrid;    break;
+    // case 'mysql.html':       var arrCurrent = arrMySql;      break;
+    // case 'node-js.html':     var arrCurrent = arrNodejs;     break;
+    // case 'php.html':         var arrCurrent = arrPhp;        break;
+    // case 'python.html':      var arrCurrent = arrPython;     break;
 }
 
 if ( (pageName!=='map.html') && (pageName!=='map') ) {
