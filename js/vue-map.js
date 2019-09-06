@@ -38,6 +38,7 @@ var app = new Vue({
 		themesContent: null,
 		pageContent: '',
 		pageBuild: false,
+		showContent: false,
 		hoverHeaderMenu: '', // пункт HeaderMenu на который навели
 		hoverThemesMenu: []  // пункт ThemesMenu на который навели
 	},
@@ -68,11 +69,23 @@ var app = new Vue({
 					app.pageBuild = true;
 				}
 			});
+
+			this.showContent = true;
+			this.checkHighlightCode();
+		},
+		closeContent() {
+			this.pageBuild = false;
+			this.showContent = false
+		},
+		checkHighlightCode() {
+			document.querySelectorAll('pre code').forEach((block) => {
+				hljs.highlightBlock(block);
+			});
 		},
         handleEscapeKey(e) {
         	// ESC
 			if (event.keyCode == 27) {
-				this.pageBuild = false;
+				this.closeContent();
 			}
 			// W - HeaderMenu
 			if (event.keyCode == 87) {
@@ -85,9 +98,7 @@ var app = new Vue({
         }
 	},
 	updated() {
-		document.querySelectorAll('pre code').forEach((block) => {
-			hljs.highlightBlock(block);
-		});
+		this.checkHighlightCode();
 	},
     mounted() {
         if (typeof document !== 'undefined') {

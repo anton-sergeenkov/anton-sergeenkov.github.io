@@ -85,8 +85,8 @@ u-menu {
 #map-content {
 	position: fixed;
 	top: 0;
-	left: 0;
-	width : 100vw;
+	right: 0;
+	width: calc(100vw - 200px);
 	background: #fff;
 	padding: 30px 60px 30px 30px;
 	overflow: auto;
@@ -117,6 +117,20 @@ u-menu {
 	height: 0;
 	display: none;
 }
+
+.map-themes-content {
+	width: 200px !important;
+	padding: 5px !important;
+}
+.map-themes-content .map-themes-menu {
+	width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.h1-themes-content {
+	text-align: left;
+}
 </style>
 <body>
 
@@ -132,10 +146,10 @@ u-menu {
 			></div>
 		</div>
 
-		<div id="map-themes">
+		<div :class="{ 'map-themes-content':showContent }" id="map-themes">
 			<div v-for="item in themesContent">
 				<h2 v-if="item[0]==1">{{item[1]}}</h2>
-				<h1 v-else-if="item[0]==2">{{item[1]}}</h1>
+				<h1 v-else-if="item[0]==2" :class="{ 'h1-themes-content':showContent }">{{item[1]}}</h1>
 				<div 
 					v-else 
 					@click="buildContent(item[0], item[1], item[2])" 
@@ -148,7 +162,7 @@ u-menu {
 
 		<div id="map-content" v-show="pageBuild == true">
 			<div ref="questionContent" id="question-content"></div>
-			<div class="map-content-close" @click="pageBuild = false"></div>
+			<div class="map-content-close" @click="closeContent"></div>
 		</div>
 	</div>
 
