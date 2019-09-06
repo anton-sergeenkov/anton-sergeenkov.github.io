@@ -881,27 +881,52 @@ var arrSvg = [
 ];
 
 
-
-
-
-
-
-
 //---------------------------------------------------------------------
-// Flexbox
+// CSS Flexbox
 //---------------------------------------------------------------------
 var arrCssFlexbox = [
     [1, 'Основное'],
-    ['css-flexbox', 'main', 'info',   'Информация'],
+    ['css-flexbox', 'main', 'info', 'Информация'],
+
+    [1, 'Flex Container'],
+    ['css-flexbox', 'container', 'display',         setTheme(1, ['display'])],
+    ['css-flexbox', 'container', 'justify-content', setTheme(1, ['justify-content'])],
+    ['css-flexbox', 'container', 'align-items',     setTheme(1, ['align-items'])],
+    ['css-flexbox', 'container', 'align-content',   setTheme(1, ['align-content'])],
+    ['css-flexbox', 'container', 'flex-flow',       setTheme(1, ['flex-flow', 'flex-direction', 'flex-wrap'])],
+
+    [1, 'Flex Element'],
+    ['css-flexbox', 'element', 'flex',        setTheme(1, ['flex', 'flex-grow', 'flex-shrink', 'flex-basis'])],
+    ['css-flexbox', 'element', 'order',       setTheme(1, ['order'])],
+    ['css-flexbox', 'element', 'align-self',  setTheme(1, ['align-self'])],
+
+    [1, 'Прочее'],
+    ['css-flexbox', 'other', 'margin',  'Margin'],
+    ['css-flexbox', 'other', 'samples', 'Примеры'],
 ];
+
 
 //---------------------------------------------------------------------
 // CSS Grid
 //---------------------------------------------------------------------
 var arrCssGrid = [
     [1, 'Основное'],
-    ['css-grid', 'main', 'info',   'Информация'],
+    ['css-grid', 'main', 'info',           'Информация'],
+    ['css-grid', 'main', 'container',      'Grid Container'],
+
+    [1, 'Объединение ячеек'],
+    ['css-grid', 'element-union', 'grid-column', setTheme(1, ['grid-column', 'grid-row'])],
+    ['css-grid', 'element-union', 'grid-area',   setTheme(1, ['grid-area'])],
+
+    [1, 'Прочее'],
+    ['css-grid', 'other', 'align-elements', 'Выравнивание элементов'],
 ];
+
+
+
+
+
+
 
 //---------------------------------------------------------------------
 // Node.js
@@ -966,8 +991,8 @@ switch(pageName) {
     case 'flow.html':        var arrCurrent = arrFlow;       break;
 
     case 'svg.html':         var arrCurrent = arrSvg;        break;
-    // case 'css-flexbox.html': var arrCurrent = arrCssFlexbox; break;
-    // case 'css-grid.html':    var arrCurrent = arrCssGrid;    break;
+    case 'css-flexbox.html': var arrCurrent = arrCssFlexbox; break;
+    case 'css-grid.html':    var arrCurrent = arrCssGrid;    break;
     // case 'mysql.html':       var arrCurrent = arrMySql;      break;
     // case 'node-js.html':     var arrCurrent = arrNodejs;     break;
     // case 'php.html':         var arrCurrent = arrPhp;        break;
