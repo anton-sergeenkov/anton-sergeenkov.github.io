@@ -30,10 +30,11 @@ var app = new Vue({
 			['SVG',               arrSvg,        'menu-php'],
 			['Flexbox',           arrCssFlexbox, 'menu-php'],
 			['CSS Grid',          arrCssGrid,    'menu-php'],
-			// ['MySQL',             arrMySql,      'menu-php'],
+
 			// ['Node.js',           arrNodejs,     'menu-other'],
 			// ['PHP',               arrPhp,        'menu-other'],
 			// ['Python',            arrPython,     'menu-other'],
+			['MySQL',             arrMySql,      'menu-other'],
 		],
 		themesContent: null,
 		pageContent: '',

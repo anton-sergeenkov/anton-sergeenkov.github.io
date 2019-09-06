@@ -923,6 +923,17 @@ var arrCssGrid = [
 ];
 
 
+//---------------------------------------------------------------------
+// MySQL
+//---------------------------------------------------------------------
+var arrMySql = [
+    [1, 'Основное'],
+    ['mysql', 'main', 'sql',             'SQL-запросы'],
+    ['mysql', 'main', 'create-database', 'Создание базы данных'],
+];
+
+
+
 
 
 
@@ -936,13 +947,7 @@ var arrNodejs = [
     ['node-js', 'main', 'info',   'Информация'],
 ];
 
-//---------------------------------------------------------------------
-// MySQL
-//---------------------------------------------------------------------
-var arrMySql = [
-    [1, 'Основное'],
-    ['mysql', 'main', 'info',   'Информация'],
-];
+
 
 //---------------------------------------------------------------------
 // PHP
@@ -993,10 +998,10 @@ switch(pageName) {
     case 'svg.html':         var arrCurrent = arrSvg;        break;
     case 'css-flexbox.html': var arrCurrent = arrCssFlexbox; break;
     case 'css-grid.html':    var arrCurrent = arrCssGrid;    break;
-    // case 'mysql.html':       var arrCurrent = arrMySql;      break;
     // case 'node-js.html':     var arrCurrent = arrNodejs;     break;
     // case 'php.html':         var arrCurrent = arrPhp;        break;
     // case 'python.html':      var arrCurrent = arrPython;     break;
+    case 'mysql.html':       var arrCurrent = arrMySql;      break;
 }
 
 if ( (pageName!=='map.html') && (pageName!=='map') ) {

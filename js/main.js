@@ -27,11 +27,11 @@ var menu = `
     <a href="/pages/svg.html"         class="menu menu-html">svg</a>
     <a href="/pages/css-flexbox.html" class="menu menu-html">flexbox</a>
     <a href="/pages/css-grid.html"    class="menu menu-html">css grid</a>
-    
+
     <a href="/pages/+node-js.html"       class="menu menu-php">node.js</a>
     <a href="/pages/+php.html"           class="menu menu-php">php</a>
     <a href="/pages/+python.html"        class="menu menu-php">python</a>
-    <a href="/pages/+mysql.html"         class="menu menu-php">mysql</a>
+    <a href="/pages/mysql.html"       class="menu menu-php">mysql</a>
 `;
 
 $('#menu-top').html(menu);
