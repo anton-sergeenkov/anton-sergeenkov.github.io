@@ -31,9 +31,9 @@ var app = new Vue({
 			['Flexbox',           arrCssFlexbox, 'menu-php'],
 			['CSS Grid',          arrCssGrid,    'menu-php'],
 
-			// ['Node.js',           arrNodejs,     'menu-other'],
-			// ['PHP',               arrPhp,        'menu-other'],
-			// ['Python',            arrPython,     'menu-other'],
+			['Node.js',           arrNodejs,     'menu-other'],
+			['PHP',               arrPhp,        'menu-other'],
+			['Python',            arrPython,     'menu-other'],
 			['MySQL',             arrMySql,      'menu-other'],
 		],
 		themesContent: null,

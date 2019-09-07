@@ -933,20 +933,30 @@ var arrMySql = [
 ];
 
 
-
-
-
-
-
-
 //---------------------------------------------------------------------
 // Node.js
 //---------------------------------------------------------------------
 var arrNodejs = [
     [1, 'Основное'],
-    ['node-js', 'main', 'info',   'Информация'],
-];
+    ['node-js', 'main', 'info',     'Информация'],
+    ['node-js', 'main', 'function', 'Функции'],
+    ['node-js', 'main', 'export',   setTheme(1, ['require', 'exports'])],
+    ['node-js', 'main', 'modules',  'Модули'],
+    ['node-js', 'main', 'files',    'Файлы и директории'],
+    ['node-js', 'main', 'server',   'Сервер'],
+    ['node-js', 'main', 'stream',   'Потоки'],
+    ['node-js', 'main', 'pipe',     setTheme(1, ['.pipe'])],
+    ['node-js', 'main', 'router',   'Маршрутизация'],
+    ['node-js', 'main', 'url',     'Данные из url'],
 
+    [1, 'NPM пакеты'],
+    ['node-js', 'package', 'express',     setTheme(2, ['express'])],
+    ['node-js', 'package', 'body-parser', setTheme(2, ['body-parser'])],
+    ['node-js', 'package', 'nodemailer',  setTheme(2, ['nodemailer'])],
+
+    [1, 'Прочее'],
+    ['node-js', 'other', 'samples', 'Примеры'],
+];
 
 
 //---------------------------------------------------------------------
@@ -955,7 +965,30 @@ var arrNodejs = [
 var arrPhp = [
     [1, 'Основное'],
     ['php', 'main', 'info',   'Информация'],
+    ['php', 'main', 'variables', 'Переменные'],
+    ['php', 'main', 'if',   'Конструкция if-else'],
+    ['php', 'main', 'switch',   'Конструкция switch-case'],
+    ['php', 'main', 'cycle',   'Циклы'],
+    ['php', 'main', 'array',   'Массивы'],
+    ['php', 'main', 'function',   'Функции'],
+
+    [1, 'Прочее'],
+    ['php', 'other', 'function-php',   'Функции PHP'],
+    ['php', 'other', 'server',   'Суперглобальный массив SERVER'],
+
+    [1, 'Примеры'],
+    ['php', 'samples', 'sample1',   '#1. Файлы и директории'],
+    ['php', 'samples', 'sample2',   '#2. Изображения'],
+    ['php', 'samples', 'sample3',   '#3. Отправка email'],
+
+    [1, 'MySQL'],
+    ['php', 'mysql', 'mysql',   'Работа с MySQL'],
 ];
+
+
+
+
+
 
 //---------------------------------------------------------------------
 // Python
@@ -965,11 +998,6 @@ var arrPython = [
     ['python', 'main', 'info',   'Информация'],
 ];
 
-
-
-
- 
- 
 
 var page = window.location.pathname.split('/');
 var pageName = page[page.length-1];
@@ -994,13 +1022,12 @@ switch(pageName) {
     case 'sass.html':        var arrCurrent = arrSass;       break;
     case 'bootstrap.html':   var arrCurrent = arrBootstrap;  break;
     case 'flow.html':        var arrCurrent = arrFlow;       break;
-
     case 'svg.html':         var arrCurrent = arrSvg;        break;
     case 'css-flexbox.html': var arrCurrent = arrCssFlexbox; break;
     case 'css-grid.html':    var arrCurrent = arrCssGrid;    break;
-    // case 'node-js.html':     var arrCurrent = arrNodejs;     break;
-    // case 'php.html':         var arrCurrent = arrPhp;        break;
-    // case 'python.html':      var arrCurrent = arrPython;     break;
+    case 'node-js.html':     var arrCurrent = arrNodejs;     break;
+    case 'php.html':         var arrCurrent = arrPhp;        break;
+    case 'python.html':      var arrCurrent = arrPython;     break;
     case 'mysql.html':       var arrCurrent = arrMySql;      break;
 }
 
