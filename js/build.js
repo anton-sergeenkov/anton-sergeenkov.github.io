@@ -986,16 +986,36 @@ var arrPhp = [
 ];
 
 
-
-
-
-
 //---------------------------------------------------------------------
 // Python
 //---------------------------------------------------------------------
 var arrPython = [
     [1, 'Основное'],
-    ['python', 'main', 'info',   'Информация'],
+    ['python', 'main', 'cmd',       'CMD'],
+    ['python', 'main', 'type',      'Типы данных'],
+    ['python', 'main', 'base',      'Базовые принципы'],
+    ['python', 'main', 'if',        'Условный оператор if'],
+    ['python', 'main', 'circle',    'Циклы'],
+    ['python', 'main', 'array',     'Списки (массивы)'],
+    ['python', 'main', 'function',  'Функции'],
+    ['python', 'main', 'module',    'Модули'],
+    ['python', 'main', 'pyowm',     'Модуль определения погоды (pyowm)'],
+    ['python', 'main', 'encode',    'Изменение кодировки на utf-8'],
+    ['python', 'main', 'format',    'Форматирование строк. Метод format'],
+    ['python', 'main', 'docstring', 'Строки документирования (docstring)'],
+
+    [1, 'ООП'],
+    ['python', 'oop', 'class',   'Классы, ООП'],
+    ['python', 'oop', 'object',  'Объекты (словари)'],
+
+    [1, 'Python и MySQL'],
+    ['python', 'mysql', 'base', 'Базовые принципы'],
+
+    [1, 'SQLAlchemy'],
+    ['python', 'sqlalchemy', 'base', 'Базовые принципы'],
+
+    [1, 'Falcon'],
+    ['python', 'falcon', 'base', 'Базовые принципы'],
 ];
 
 
