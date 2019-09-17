@@ -5,18 +5,26 @@ type Props = {
 	property: string,
 	property: boolean,
 	property: Object,
-	property: Array<string>,
-	property: Array<{ name: string, checked: boolean }>,
 	property: Date,
 
+	property: Array&lt;string&gt;,
+	property: Array&lt;{ name: string, checked: boolean }&gt;,
+	property: Array&lt;*&gt;,
+	property: Array&lt;*&gt; | Array&lt;SelectItems&gt;,
+	
 	property?: string,
 	property: ?string,
 
-	onHandle: () => void,
-	onHandle: () => number,
-	onHandle: (date: ?Date) => void,
-	onHandle: (id: ?number) => void,
-	onHandle: (Object) => void,
+	onHandle: () =&gt; void,
+	onHandle: () =&gt; number,
+	onHandle: (date: ?Date) =&gt; void,
+	onHandle: (id: ?number) =&gt; void,
+	onHandle: (Object) =&gt; void,
+}
+
+type SelectItems = {
+    title: string,
+    value: string,
 }
 </code></pre>
 
