@@ -447,6 +447,7 @@ var arrGit = [
     ['git', 'command',  'fetch',        setTheme(1, ['fetch'])],
     ['git', 'command',  'pull',         setTheme(1, ['pull'])],
     ['git', 'command',  'branch',       setTheme(1, ['branch', 'checkout', 'merge'])],
+    ['git', 'command',  'rebase',       setTheme(1, ['rebase'])],
 
     ['git', 'command',  'diff',         setTheme(1, ['diff'])],
     ['git', 'command',  'config',       setTheme(1, ['config'])],
