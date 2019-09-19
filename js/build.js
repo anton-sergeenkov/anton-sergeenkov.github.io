@@ -432,7 +432,11 @@ var arrWebpack = [
 // GIT
 //---------------------------------------------------------------------
 var arrGit = [
-    [1, 'Terminal'],
+    [1, 'Use Case'],
+    ['git', 'usecase', 'reset-changes',   'Отмена изменений'],
+    ['git', 'usecase', 'checkout-branch', 'Сменить ветку без коммита'],
+
+    [1, 'Команды'],
     ['git', 'command',  'init',         setTheme(1, ['init'])],
     ['git', 'command',  'clone',        setTheme(1, ['clone'])],
     ['git', 'command',  'add',          setTheme(1, ['add'])],
@@ -447,8 +451,8 @@ var arrGit = [
     ['git', 'command',  'reset',        setTheme(1, ['reset'])],
     ['git', 'command',  'help',         setTheme(1, ['help'])],
     ['git', 'command',  'status',       setTheme(1, ['status', 'log'])],
-    ['git', 'category', 'command',      'Остальные команды'],
-    ['git', 'category', 'undo-changes', 'Отмена изменений'],
+    ['git', 'command',  'clean',        setTheme(1, ['clean'])],
+    ['git', 'main',     'command',      'Остальные команды'],
 
     [1, 'GitHub'],
     ['git', 'github', 'terminal-connect', point+'Connect SSH'],
