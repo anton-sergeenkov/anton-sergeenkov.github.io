@@ -1,5 +1,12 @@
 <h2>Отмена изменений</h2>
 
+<pre><code class="js">
+# отменить все изменения
+# убрать из индексации все файлы и директории, 
+# которые возможно уже были проиндексировалы с помощью git add
+<em>git reset --hard HEAD</em>
+</code></pre>
+
 <pre><code class="bash">
 <em>git <u-code>checkout --</u-code> file.txt</em> # Отмена изменений файла
 <em>git <u-code>reset</u-code> HEAD file.txt</em>  # Отмена индексации файла
@@ -17,3 +24,17 @@ git commit --amend
 <em>git checkout .</em>             # восстановить все
 <em>git checkout "код коммита"</em> # вернуть до состояния этого коммита
 </code></pre>
+
+<pre><code class="js">
+# Просмотреть, а затем удалить непроиндексированные файлы и папки:
+<em>git clean -nd</em>
+<em>git clean -fd</em>
+
+# Просмотреть, а затем удалить ВСЕ непроиндексированные файлы и папки, включая игнорируемые Git-ом
+<em>git clean -ndx</em>
+<em>git clean -fdx</em>
+</code></pre>
+
+
+
+
