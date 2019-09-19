@@ -1,6 +1,6 @@
 <h2>Отмена изменений</h2>
 
-<pre><code class="js">
+<pre><code class="bash">
 # отменить все изменения
 # убрать из индексации все файлы и директории, 
 # которые возможно уже были проиндексировалы с помощью git add
@@ -8,16 +8,16 @@
 </code></pre>
 
 <pre><code class="bash">
-<em>git <u-code>checkout --</u-code> file.txt</em> # Отмена изменений файла
-<em>git <u-code>reset</u-code> HEAD file.txt</em>  # Отмена индексации файла
-<em>git <u-code>commit --amend</u-code></em>       # Изменение последнего коммита
+<em>git checkout -- file.txt</em> # Отмена изменений файла
+<em>git reset HEAD file.txt</em>  # Отмена индексации файла
+<em>git commit --amend</em>       # Изменение последнего коммита
 </code></pre>
 
 <pre><code class="bash">
 # Все три команды вместе дают один коммит - второй коммит заменяет результат первого
-git commit -m 'initial commit'
-git add forgotten_file
-git commit --amend
+<em>git commit -m 'initial commit'</em>
+<em>git add forgotten_file</em>
+<em>git commit --amend</em>
 </code></pre>
 
 <pre><code class="js">
