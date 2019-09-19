@@ -433,6 +433,7 @@ var arrWebpack = [
 //---------------------------------------------------------------------
 var arrGit = [
     [1, 'Use Case'],
+    ['git', 'usecase', 'squash-commit',   'Squash Commit'],
     ['git', 'usecase', 'reset-changes',   'Отмена изменений'],
     ['git', 'usecase', 'checkout-branch', 'Сменить ветку без коммита'],
 
