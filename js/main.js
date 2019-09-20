@@ -14,6 +14,7 @@ var menu = `
     <a href="/pages/webpack.html"     class="menu menu-other">webpack</a>
     <a href="/pages/npm.html"         class="menu menu-other">npm</a>
     <a href="/pages/git.html"         class="menu menu-other">git</a>
+    <a href="/pages/ramda.html"       class="menu menu-other">ramda</a>
     <a href="/pages/linux.html"       class="menu menu-other">linux</a>
     <a href="/pages/theory.html"      class="menu menu-other">theory</a>
     <a href="/pages/other.html"       class="menu menu-other">other</a>

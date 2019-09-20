@@ -1031,6 +1031,16 @@ var arrPython = [
 ];
 
 
+//---------------------------------------------------------------------
+// Ramda
+//---------------------------------------------------------------------
+var arrRamda = [
+    [1, 'Методы'],
+    ['ramda', 'methods', 'path', setTheme(1, ['path', 'pathOr'])],
+];
+
+
+
 var page = window.location.pathname.split('/');
 var pageName = page[page.length-1];
 
@@ -1061,6 +1071,7 @@ switch(pageName) {
     case 'php.html':         var arrCurrent = arrPhp;        break;
     case 'python.html':      var arrCurrent = arrPython;     break;
     case 'mysql.html':       var arrCurrent = arrMySql;      break;
+    case 'ramda.html':       var arrCurrent = arrRamda;      break;
 }
 
 if ( (pageName!=='map.html') && (pageName!=='map') ) {

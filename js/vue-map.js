@@ -10,6 +10,7 @@ var app = new Vue({
 			['Git',               arrGit,        'menu-js'],
 			['Flow',              arrFlow,       'menu-js'],
 			['Webpack',           arrWebpack,    'menu-js'],
+			['Ramda',             arrRamda,      'menu-js'],
 
 			['Vue.js',            arrVuejs,      'menu-php'],
 			['Bootstrap',         arrBootstrap,  'menu-php'],
