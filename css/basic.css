@@ -7,9 +7,8 @@
 	--color-error:       226, 131, 174;  /*dark pink*/
 	--color-black:       0, 0, 0;        /*black*/
 	--color-dark-green:  42, 61, 47;     /*dark green*/
-
 	--color-blue:        19, 193, 247;   /*blue blue*/
-	--color-yellowgreen: 152, 195, 121;  /*yellowgreen*/z-index: ;
+	--color-yellowgreen: 152, 195, 121;  /*yellowgreen*/
 }
 
 ::-webkit-scrollbar       { width: 8px; height: 8px;}
@@ -34,7 +33,3 @@ body{
 @font-face { font-family: FiraSans-Regular; src: url(../fonts/FiraSans-Regular.ttf); }
 @font-face { font-family: FiraSans-Medium;  src: url(../fonts/FiraSans-Medium.ttf); }
 @font-face { font-family: FiraSans-Bold;    src: url(../fonts/FiraSans-Bold.ttf); }
-
-
-
-
