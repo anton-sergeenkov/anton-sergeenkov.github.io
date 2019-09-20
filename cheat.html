@@ -29,6 +29,24 @@
 <body>
 <div id="content">
 
+
+<ul class="list-point">
+    <u-text-underline>u-text-underline</u-text-underline>
+    <u-text-header>u-text-header</u-text-header>
+    <u-text-define>u-text-define</u-text-define>
+    <u-menu>u-menu</u-menu>
+    <u-menu-accent>u-menu-accent</u-menu-accent>
+    <u-menu-code>u-menu-code</u-menu-code>
+    <u-menu-border>u-menu-border</u-menu-border>
+    <br>
+    <u-code-npm>u-code-npm</u-code-npm>
+    <u-code>u-code</u-code>
+    <u-code-accent>u-code-accent</u-code-accent>
+    <u-code-text>u-code-text</u-code-text>
+    <u-code-list>u-code-list</u-code-list>
+    <u-code-comment>u-code-comment</u-code-comment>
+</ul>
+
 <v-two><template v-slot:first>
 
 <div class="v-method-wrapper">
@@ -141,11 +159,18 @@
 
 
 </div>
+	<div id="preloader"></div>
     <script src="libraries/jquery.js"></script>
 	<script src="libraries/highlight/highlight.pack.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+	<script src="js/build.js"></script>
+	<script src="js/main.js"></script>
+	<script src="module/preloader/preloader.js"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
-	<script src="js/components.js"></script>
+	<script src="js/custom-elements.js"></script>
+	<script src="js/vue-components.js"></script>
+	<script src="js/vue-pages.js"></script>
+
+	<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 </body>
 </html>

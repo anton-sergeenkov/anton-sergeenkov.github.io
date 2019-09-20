@@ -14,18 +14,10 @@
 </code></pre>
 
 <pre><code class="bash">
-<em>git <u-code-text>merge</u-code-text> features</em>           # слияние "features" в текущую ветку
-<em>git <u-code-text>merge --abort</u-code-text></em>            # 
+<em>git <u-code-text>checkout -b</u-code-text> features</em>          # создание новой ветки "features" и переключение на нее
 </code></pre>
 
 <pre><code class="bash">
 <em>git <u-code-text>push origin --delete</u-code-text> features</em> # удаление ветки в удаленном репозитории
 <em>git <u-code-text>push origin</u-code-text> :features</em>         # удаление ветки в удаленном репозитории
 </code></pre>
-
-<pre><code class="bash">
-<em>git <u-code-text>checkout</u-code-text> features</em>             # переключение на ветку "features"
-<em>git <u-code-text>checkout -b</u-code-text> features</em>          # создание новой ветки "features" и переключение на нее
-<em>git <u-code-text>checkout -b</u-code-text> bug/3-a origin/bug/3-a</em>
-</code></pre>
-
