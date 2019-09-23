@@ -23,7 +23,8 @@ const lastname = person.lastname;
 <pre><code class="js">
 const {firstname, lastname} = person;              // имена переменных должны совпадать с именами свойст объекта
 const {firstname:first, lastname:last} = person;   // изменение имен переменных
-const {firstname, lastname, age=25} = person;      // значение по умолчанию
+const {firstname, lastname, age=25} = person;      // значение по умолчанию (если age нет, присвоится 25)
+const {address: {flat=77} = {} } = person;         // значение по умолчанию (если address нет, присвоится {})
 const {['first'+'name']:first, lastname} = person; // динамическое определение имен свойст с помощью выражения в []
 </code></pre>
 
@@ -47,8 +48,12 @@ console.log(id);    // => 77
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Использование в качестве параметра функции</h3>
+<h3>Функция</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Использование в качестве параметра функции</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 const user = {
 	firstname: 'Tony',
@@ -60,9 +65,24 @@ function post(url, {data:{firstname, lastname}, cache}) {
 const result = post('api/users', {data:user, cache:false});
 </code></pre>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Возврат нескольких значений из функции</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Указание значения по умолчанию</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+function connect({
+	host = 'localhost',
+	port = 1234,
+	user = 'guest'
+}) {
+	console.log(host, port, user);
+}
+
+connect({ host: 'port' });
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Возврат нескольких значений из функции</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 function getUser() {
 	return {
@@ -71,4 +91,24 @@ function getUser() {
 	};
 }
 const {firstname, lastname} = getUser();
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Rest-элемент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Rest-элемент должени быть последним в списке</li>
+    <li>На одном уровне может быть только один rest-элемент</li>
+    <li>В rest-элемент попадут все значения, которые не были деструктурированы в выражении</li>
+</ul>
+
+<pre><code class="js">
+const users = {
+	admin: 'all',
+	moderator: 'write',
+	guest: 'read'
+}
+
+const { admin, ...otherUsers } = users;
+console.log(otherUsers); // => {moderator: "write", guest: "read"}
 </code></pre>

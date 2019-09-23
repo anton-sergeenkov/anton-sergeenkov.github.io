@@ -795,6 +795,7 @@ var arrCanvas = [
 var arrHTML = [
     [1, 'Основное'],
     ['html', 'main', 'info',            'Информация'],
+    ['html', 'main', 'content-model',   'Content Model'],
     ['html', 'main', 'custom-elements', 'Custom Elements'],
     ['html', 'main', 'html5-layout',    'Теги HTML5 Layout'],
     ['html', 'main', 'web-forms',       'Web Forms'],
@@ -1072,9 +1073,10 @@ switch(pageName) {
     case 'python.html':      var arrCurrent = arrPython;     break;
     case 'mysql.html':       var arrCurrent = arrMySql;      break;
     case 'ramda.html':       var arrCurrent = arrRamda;      break;
+    default:                 var arrCurrent = [];
 }
 
-if ( (pageName!=='map.html') && (pageName!=='map') ) {
+if ( (pageName!=='index.html') && (pageName!=='index') && (pageName!=='') ) {
     build();
 }
 
