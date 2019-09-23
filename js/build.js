@@ -233,6 +233,22 @@ var arrBootstrap = [
 //---------------------------------------------------------------------
 var arrReactjs = [
     //--------------------------------------------------------------------
+    [2, 'React-Hooks'],
+    //--------------------------------------------------------------------
+    ['react-js', 'hooks', 'info',                  'Информация'],
+    ['react-js', 'hooks', 'use-state',             setTheme(1, ['useState'])],
+    ['react-js', 'hooks', 'use-effect',            setTheme(1, ['useEffect'])],
+    ['react-js', 'hooks', 'use-context',           setTheme(1, ['useContext'])],
+    ['react-js', 'hooks', 'use-reducer',           setTheme(1, ['useReducer'])],
+    ['react-js', 'hooks', 'use-callback',          setTheme(1, ['useCallback'])],
+    ['react-js', 'hooks', 'use-memo',              setTheme(1, ['useMemo'])],
+    ['react-js', 'hooks', 'use-ref',               setTheme(1, ['useRef'])],
+    ['react-js', 'hooks', 'use-imperative-handle', setTheme(1, ['useImperativeHandle'])],
+    ['react-js', 'hooks', 'use-layout-effect',     setTheme(1, ['useLayoutEffect'])],
+    ['react-js', 'hooks', 'use-debug-value',       setTheme(1, ['useDebugValue'])],
+    ['react-js', 'hooks', 'own-hooks',             'Создание собственных хуков'],
+
+    //--------------------------------------------------------------------
     [2, 'React.js'],
     //--------------------------------------------------------------------
     [1, 'Компоненты'],
@@ -291,22 +307,6 @@ var arrReactjs = [
     [1, 'Тестирование'],
     ['react-js', 'testing', 'react-developer-tools',  'React Developer Tools'],
     ['react-js', 'testing', 'redux-developer-tools',  'Redux DevTools'],
-
-    //--------------------------------------------------------------------
-    [2, 'React-Hooks'],
-    //--------------------------------------------------------------------
-    ['react-js', 'hooks', 'info',                  'Информация'],
-    ['react-js', 'hooks', 'use-state',             setTheme(1, ['useState'])],
-    ['react-js', 'hooks', 'use-effect',            setTheme(1, ['useEffect'])],
-    ['react-js', 'hooks', 'use-context',           setTheme(1, ['useContext'])],
-    ['react-js', 'hooks', 'use-reducer',           setTheme(1, ['useReducer'])],
-    ['react-js', 'hooks', 'use-callback',          setTheme(1, ['useCallback'])],
-    ['react-js', 'hooks', 'use-memo',              setTheme(1, ['useMemo'])],
-    ['react-js', 'hooks', 'use-ref',               setTheme(1, ['useRef'])],
-    ['react-js', 'hooks', 'use-imperative-handle', setTheme(1, ['useImperativeHandle'])],
-    ['react-js', 'hooks', 'use-layout-effect',     setTheme(1, ['useLayoutEffect'])],
-    ['react-js', 'hooks', 'use-debug-value',       setTheme(1, ['useDebugValue'])],
-    ['react-js', 'hooks', 'own-hooks',             'Создание собственных хуков'],
 
     //--------------------------------------------------------------------
     [2, 'Redux'],

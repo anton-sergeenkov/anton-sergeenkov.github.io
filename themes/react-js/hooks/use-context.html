@@ -1,6 +1,8 @@
 <h2>Хук контекста useContext</h2>
 
 <pre><code class="js border">
+import React, { useContext } from 'react';
+
 const value = <u-code>useContext</u-code>(MyContext);
 </code></pre>
 
@@ -20,4 +22,49 @@ function Example() {
 	const theme = useContext(ThemeContext);
 	// ...
 }
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример: установка языка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="js"><u-code-title>index.js</u-code-title>
+import React from 'react';
+import ReactDOM from "react-dom";
+
+import LanguageContextProvider from './LanguageContextProvider';
+import { <u-code>useLanguage</u-code> } from './LanguageContextProvider';
+
+const App = () =&gt; (
+	&lt;LanguageContextProvider&gt;
+		&lt;Component /&gt;
+	&lt;/LanguageContextProvider&gt;
+);
+
+const Component = (props) =&gt; {
+	<u-code>const isLanguage = useLanguage();</u-code>
+	return (
+		&lt;&gt;
+			Hello {isLanguage}
+		&lt;/&gt;
+	);
+};
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(&lt;App /&gt;, rootElement);
+</code></pre>
+
+<pre><code class="js"><u-code-title>LanguageContextProvider.jsx</u-code-title>
+import React, { <u-code>useContext</u-code> } from 'react';
+
+const IsLanguageContext = <u-code>React.createContext('ru')</u-code>;
+
+const LanguageContextProvider = ({children, ...props}) =&gt; (
+	&lt;IsLanguageContext.Provider value={'en'} {...props}&gt;
+		{children}
+	&lt;/IsLanguageContext.Provider&gt;
+);
+
+export default LanguageContextProvider;
+export const useLanguage = () =&gt; <u-code>useContext(IsLanguageContext)</u-code>;
 </code></pre>
