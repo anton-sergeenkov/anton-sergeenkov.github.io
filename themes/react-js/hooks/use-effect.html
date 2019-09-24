@@ -1,71 +1,68 @@
 <h2>Хук эффекта useEffect</h2>
 
-<pre><code class="js">
-	import React, { useEffect } from 'react';
-
-	<u-code-wrapper><u-code-title>componentDidMount и componentDidUpdate</u-code-title>
-	useEffect(() => {
-		document.title = 'Заголовок';
-	});
-	</u-code-wrapper>
-
-	<u-code-wrapper><u-code-title>componentDidMount</u-code-title>
-	useEffect(() => {
-		document.title = 'Заголовок';
-	}, []);
-	</u-code-wrapper>
-
-	<u-code-wrapper><u-code-title>componentDidUpdate</u-code-title>
-	//
-	</u-code-wrapper>
-
-	<u-code-wrapper><u-code-title>componentWillUnmount</u-code-title>
-	useEffect(() => () => {
-		window.removeEventListener('resize', onResize);
-	}, []);
-	</u-code-wrapper>
-
-	<u-code-wrapper><u-code-title>componentDidMount and componentWillUnmount</u-code-title>
-	useEffect(() => {
-	    // componentDidMount
-	    window.addEventListener('resize', onResize, false);
-	    // componentWillUnmount
-	    return () => {
-			window.removeEventListener('resize', onResize);
-		}
-	}, []);
-	</u-code-wrapper>
+<pre><code class="js border">
+import React, { useEffect } from 'react';
 </code></pre>
 
+<pre><code class="js border">
+// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentDidUpdate</u-code-text></b>
+useEffect(() => {
+	document.title = 'Заголовок';
+});
+</code></pre>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пропуск эффектов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
-// Перевыполнит эффект, только если count изменился при отрисовке
+<pre><code class="js border">
+// <b><u-code-text>componentDidMount</u-code-text></b>
+useEffect(() => {
+	document.title = 'Заголовок';
+}, []);
+</code></pre>
+
+<pre><code class="js border">
+// <b><u-code-text>componentDidUpdate</u-code-text></b>
+// Выполнит эффект, только если count изменился при отрисовке
 useEffect(() => {
 	document.title = `Вы нажали ${this.state.count} раз`;
 }, [count]); 
+</code></pre>
+
+<pre><code class="js border">
+// <b><u-code-text>componentWillUnmount</u-code-text></b>
+useEffect(() => () => {
+	window.removeEventListener('resize', onResize);
+}, []);
+</code></pre>
+
+<pre><code class="js border">
+// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentWillUnmount</u-code-text></b>
+useEffect(() => {
+    // componentDidMount
+    window.addEventListener('resize', onResize, false);
+    // componentWillUnmount
+    return () => {
+		window.removeEventListener('resize', onResize);
+	}
+}, []);
 </code></pre>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>async await</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-two-code type="js;js" comment="componentDidMount;useEffect">
+<v-two-code type="js;js" comment="useEffect;componentDidMount">
 <template v-slot:first>
-async componentDidMount() {
-    await myAsyncFunction();
-    myFunction();
-}
-</template>
-<template v-slot:last>
 useEffect(() => {
     (async () => {
         await myAsyncFunction();
         myFunction();
     })();
 }, []);
+</template>
+<template v-slot:last>
+async componentDidMount() {
+    await myAsyncFunction();
+    myFunction();
+}
 </template>
 </v-two-code>
 

@@ -236,9 +236,10 @@ var arrReactjs = [
     [2, 'React-Hooks'],
     //--------------------------------------------------------------------
     ['react-js', 'hooks', 'info',                  'Информация'],
-    ['react-js', 'hooks', 'use-state',             setTheme(1, ['useState'])],
-    ['react-js', 'hooks', 'use-effect',            setTheme(1, ['useEffect'])],
-    ['react-js', 'hooks', 'use-context',           setTheme(1, ['useContext'])],
+    ['react-js', 'hooks', 'use-state',             setTheme(2, ['useState'])],
+    ['react-js', 'hooks', 'use-effect',            setTheme(2, ['useEffect'])],
+    ['react-js', 'hooks', 'use-context',           setTheme(2, ['useContext'])],
+
     ['react-js', 'hooks', 'use-reducer',           setTheme(1, ['useReducer'])],
     ['react-js', 'hooks', 'use-callback',          setTheme(1, ['useCallback'])],
     ['react-js', 'hooks', 'use-memo',              setTheme(1, ['useMemo'])],
