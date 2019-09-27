@@ -454,6 +454,8 @@ var arrGit = [
     ['git', 'command',  'checkout',     setTheme(1, ['checkout'])],
     ['git', 'command',  'merge',        setTheme(1, ['merge'])],
     ['git', 'command',  'rebase',       setTheme(1, ['rebase'])],
+    ['git', 'command',  'cherry-pick',  setTheme(1, ['cherry-pick'])],
+    ['git', 'command',  'revert',       setTheme(1, ['revert'])],
 
     [1, 'Команды Дополнительно'],
     ['git', 'command',  'diff',         setTheme(1, ['diff'])],
