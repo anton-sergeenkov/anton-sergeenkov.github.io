@@ -1,0 +1,33 @@
+.header-menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 70px;
+}
+.header-menu-logo {
+	height: 24px;
+}
+.header-menu-icon {
+	width: 24px;
+	height: 24px;
+	background-image: url(../../img/plus.png);
+}
+
+@media screen and (max-width: 768px) {
+    .header-menu {
+        margin-top: 46px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+	.header-menu {
+        margin-top: 40px;
+    }
+    .header-menu-logo {
+        height: 15px;
+    }
+    .header-menu-icon {
+		width: 20px;
+		height: 20px;
+    }
+}

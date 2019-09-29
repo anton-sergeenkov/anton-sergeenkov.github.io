@@ -1,0 +1,95 @@
+/******************************************************
+logo
+******************************************************/
+.blog-logo-header {
+	height: 440px;
+}
+.blog-logo-paint, .blog-logo-apple, .blog-logo-pattern {
+	width: 100%;
+	margin-top: 56px;
+	margin-bottom: 56px;
+	height: 440px;
+}
+.blog-logo-news {
+	height: 310px;
+}
+
+/******************************************************
+common
+******************************************************/
+.blog-list {
+	list-style-position: inside;
+	margin: 0;
+	padding: 0;
+	line-height: 1.8;
+}
+
+/******************************************************
+section logo
+******************************************************/
+.blog-logo {
+	height: 580px;
+	margin-top: 166px;
+	margin-bottom: 52px;
+}
+
+/******************************************************
+section experiment
+******************************************************/
+.blog-experiment {
+	margin-bottom: 190px;
+}
+.blog-experiment-wrapper {
+	width: 66%;
+}
+.blog-experiment-header {
+    margin-bottom: 34px;
+}
+
+/******************************************************
+section news
+******************************************************/
+.blog-news {
+	margin-bottom: 190px;
+}
+.blog-news-wrapper {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 24px;
+    grid-row-gap: 34px;
+}
+.blog-news .h2 {
+	margin-bottom: 100px;
+}
+.blog-news-text {
+	margin-top: 34px;
+	font-size: 18px;
+}
+
+/******************************************************
+media queries
+******************************************************/
+@media screen and (max-width: 1000px) {
+	.blog-experiment-wrapper {
+		width: 82%;
+	}
+	.blog-news-wrapper {
+	    grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.blog-experiment-wrapper {
+		width: 100%;
+	}
+	.blog-logo {
+		height: 452px;
+	}
+	.blog-news-wrapper {
+	    grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (max-width: 550px) {
+
+}
