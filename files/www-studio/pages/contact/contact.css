@@ -1,0 +1,141 @@
+/*********************************************************
+contact-form 
+*********************************************************/
+.contact-form {
+	margin-top: 241px;
+	margin-bottom: 300px;
+}
+.contact-form .h2 {
+	margin-bottom: 100px;
+}
+
+.contact-form-submit {
+	display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-column-gap: 24px;
+    grid-template-areas: 
+    	"header  header  header  .       .       .       . menu menu"
+    	"name    name    name    message message message . menu menu"
+    	"phone   phone   phone   btn     btn     btn     . menu menu"
+    	"comment comment comment .       .       .       . menu menu";
+}
+
+.contact-form-header  { grid-area: header; }
+.contact-form-name    { grid-area: name; }
+.contact-form-message { grid-area: message; }
+.contact-form-phone   { grid-area: phone; }
+.contact-form-button  { grid-area: btn; }
+.contact-form-comment { grid-area: comment; }
+.contact-form-menu    { grid-area: menu; }
+
+.contact-form-name, .contact-form-message {
+	margin-bottom: 60px;
+}
+.contact-form-comment {
+	margin-top: 30px;
+	margin-left: 9px;
+}
+.contact-form-menu {
+	font-weight: 600;
+	line-height: 3;
+	text-align: right;
+	font-size: 21px;
+}
+.contact-form-menu-phone {
+	color: var(--color-orange);
+}
+
+/*********************************************************
+contact-info
+*********************************************************/
+.contact-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 85px;
+}
+
+/*********************************************************
+ADAPTIVE
+*********************************************************/
+
+@media screen and (max-width: 1050px) {
+	.contact-form-submit {
+	    grid-template-columns: repeat(12, 1fr);
+		grid-template-areas: 
+	    	"header  header  header  header  .       .       .       .       menu menu menu menu"
+	    	"name    name    name    name    message message message message menu menu menu menu"
+	    	"phone   phone   phone   phone   btn     btn     btn     btn     menu menu menu menu"
+	    	"comment comment comment comment .       .       .       .       menu menu menu menu";
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.contact-form-submit {
+		grid-template-columns: repeat(6, 1fr);
+	    grid-template-areas:
+	    	"header   header   header   header   . ."
+	    	"name     name     name     name     . ."
+	    	"phone    phone    phone    phone    . ."
+	    	"message  message  message  message  . ."
+	    	"btn      btn      btn      btn      . ."
+	    	"comment  comment  comment  comment  . ."
+	}
+	.contact-form-name, .contact-form-phone {
+		margin-bottom: 60px;
+	}
+	.contact-form-message {
+		margin-bottom: 40px;
+	}
+	.contact-form-button {
+		margin-bottom: 34px;
+	}
+	.contact-form {
+    	margin-bottom: 116px;
+    }
+
+    .contact-form-menu {
+		display: none;
+	}
+	.contact-info {
+		flex-direction: column;
+		/*align-items: flex-start;*/
+	}
+	.contact-info .font-comment:first-child {
+		display: none;
+	}
+	.contact-info .font-comment {
+		margin: 8px 0;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.contact-form-submit {
+		grid-template-columns: 1fr;
+	    grid-template-areas:
+	    	"header"
+	    	"name"
+	    	"phone"
+	    	"message"
+	    	"btn"
+	    	"comment";
+	}
+	.contact-form .h2 {
+		margin-bottom: 70px;
+	}
+	.contact-form-name, .contact-form-phone {
+		margin-bottom: 40px;
+	}
+	.contact-form-message {
+		margin-bottom: 28px;
+	}
+	.contact-form-button {
+		margin-bottom: 24px;
+	}
+	.contact-form-comment {
+		margin-top: 0;
+	}
+	.contact-form {
+		margin-bottom: 140px;
+	}
+}
