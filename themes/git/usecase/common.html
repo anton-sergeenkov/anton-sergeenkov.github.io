@@ -11,7 +11,18 @@ git <u-code-text>pull</u-code-text>
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>2. Добавление на удаленный репозиторий</h3>
+<h3>2. Создание ветки на локальном репозитории и загрузка на удаленный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash">
+git <u-code-text>clone</u-code-text> https://github.com/Andersen-soft/front.CRM.git
+git <u-code-text>checkout -b</u-code-text> features
+git <u-code-text>add .</u-code-text>
+git <u-code-text>commit -m</u-code-text> 'text'
+git <u-code-text>push origin HEAD</u-code-text>
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Добавление на удаленный репозиторий</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="bash">
 git <u-code-text>add .</u-code-text>
