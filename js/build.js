@@ -363,8 +363,11 @@ var arrJsObjects = [
     [1, 'Методы Objects'],
     ['js-objects', 'objects-methods', 'object-create',      setTheme(1, ['Object.create'])+' __proto__'],
     ['js-objects', 'objects-methods', 'object-assign',      setTheme(1, ['Object.assign'])],
-    ['js-objects', 'objects-methods', 'prototype-of',       setTheme(1, ['Object.set/get/isPrototypeOf'])+' __proto__'],
+    ['js-objects', 'objects-methods', 'set-prototype-of',   setTheme(1, ['Object.setPrototypeOf'])+' __proto__'],
+    ['js-objects', 'objects-methods', 'get-prototype-of',   setTheme(1, ['Object.getPrototypeOf'])+' __proto__'],
+    ['js-objects', 'objects-methods', 'is-prototype-of',    setTheme(1, ['isPrototypeOf'])+' __proto__'],
     ['js-objects', 'objects-methods', 'instanceof',         setTheme(1, ['instanceof'])],
+
     ['js-objects', 'objects',         'for',                'Перебор объекта'],
     ['js-objects', 'objects',         'check-property',     'Проверка наличия свойства'],
     ['js-objects', 'objects',         'descriptor',         'Дескрипторы свойств'],

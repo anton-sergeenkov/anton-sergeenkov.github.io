@@ -10,7 +10,7 @@
 <ol class="list-num">
 
 <!-- 1 -->
-<li>Создаётся новый пустой объект через <u-code-text>Object.create</u-code-text></li>
+<li>Создаётся новый пустой объект через <u-code-text>Object.create</u-code-text>, который является <u-code-text>this</u-code-text></li>
 <pre><code class="js">
 var instance = {};
 </code></pre>
@@ -32,7 +32,7 @@ constructorReturns = FnClass.apply(instance, arguments);
 
 <!-- 4 -->
 <li>
-	Неявно возвращается <u-code-text>this</u-code-text> без вызова <u-code-text>return</u-code-text>. <br>
+	Неявно возвращается <u-code-text>this</u-code-text> без вызова <u-code-text>return</u-code-text><br>
 	<i>Возвращает экземпляр функции-класса, но если FnClass нам вернул обьект, тогда его</i>
 </li>
 <pre><code class="js">
