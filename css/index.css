@@ -6,7 +6,7 @@ body {
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0px;
-	background-color: #fafafa;
+	background-color: #f7f7f7;
 }
 h2 {
 	font-size: 16px;
@@ -87,11 +87,12 @@ map-themes
 	padding: 7px;
 	border: 1px solid rgba(var(--color-js), 0.3);
 	color: rgb(var(--color-js));
-	border-radius: 3px;
+	/*border-radius: 3px;*/
 	font-size: 14px;
 	cursor: pointer;
 	margin: 0px 2px 5px 2px;
 	background-color: #fff;
+	color: rgba(var(--color-js), 1);
 }
 .map-themes-content {
 	width: 200px !important;
@@ -100,7 +101,7 @@ map-themes
 	top: 0;
 	left: 0;
 	height: 100vh;
-	background-color: #fafafa;
+	background-color: #f0f0f0;
 	align-content: flex-start;
 }
 .map-themes-content .map-themes-menu {
