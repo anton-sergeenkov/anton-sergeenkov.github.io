@@ -55,11 +55,11 @@ STRUCTURE
 MENU-TOP
 /***************************************************/
 #menu-top {
-	padding: 15px 0px;
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
+	flex-wrap: wrap;
+	padding: 15px 0px;
 }
 #menu-top .menu {
 	text-decoration: none;

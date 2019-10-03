@@ -10,20 +10,21 @@
 
 	<div id="content">
 		<div id="map-header">
-			<div 
-				v-for="item in category" 
-				@click="buildThemes(item[1])" 
-				@mouseover="hoverHeaderMenu = item[1]" 
-				v-html="item[0]"
-				class="map-header-menu"
-				:class="item[2]"
-			></div>
+			<div  v-for="item in category">
+				<div 
+					@click="buildThemes(item[1])" 
+					@mouseover="hoverHeaderMenu = item[1]" 
+					v-html="item[0]"
+					class="map-header-menu"
+					:class="item[2]"
+				></div>
+			</div>
 		</div>
 
 		<div :class="{ 'map-themes-content':showContent }" id="map-themes">
 			<div v-for="item in themesContent">
-				<h2 v-if="item[0]==1">{{item[1]}}</h2>
-				<h1 v-else-if="item[0]==2" :class="{ 'map-themes-content-h1':showContent }">{{item[1]}}</h1>
+				<h2 v-if="item[0]==1" v-html="item[1]"></h2>
+				<h1 v-else-if="item[0]==2" v-html="item[1]" :class="{ 'map-themes-content-h1':showContent }"></h1>
 				<div 
 					v-else 
 					@click="buildContent(item[0], item[1], item[2])" 
