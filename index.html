@@ -10,15 +10,18 @@
 
 	<div id="content">
 		<div id="map-header">
-			<div  v-for="item in category">
-				<div 
+			<slot v-for="item in category">
+				<div
 					@click="buildThemes(item[1])" 
 					@mouseover="hoverHeaderMenu = item[1]" 
-					v-html="item[0]"
 					class="map-header-menu"
 					:class="item[2]"
+					v-html="item[0]"
 				></div>
-			</div>
+				<slot v-if="item[3] !== undefined">
+					<h1 style="margin: 0"></h1>
+				</slot>
+			</slot>
 		</div>
 
 		<div :class="{ 'map-themes-content':showContent }" id="map-themes">
