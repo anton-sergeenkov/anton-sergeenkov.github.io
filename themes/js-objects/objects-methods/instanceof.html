@@ -1,0 +1,18 @@
+<h2>instanceof</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="instanceof" after="" arg="">
+    проверка, какому классу принадлежит объект, с учетом прототипного наследования
+    </v-method>
+</div>
+
+<pre><code class="js">
+function Car(make, model) {
+	this.make = make;
+	this.model = model;
+}
+const auto = new Car('Honda', 'Accord');
+
+const a = auto instanceof Car; // => true
+const a = auto instanceof Object; // => true
+</code></pre>

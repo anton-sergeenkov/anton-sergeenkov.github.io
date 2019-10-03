@@ -22,12 +22,13 @@ function setTheme(tag, arr) {
 //---------------------------------------------------------------------
 var arrAssessment = [
     [1, 'JavaScript. Объекты'],
-    ['assessment', 'main', 'inheritance',   'Наследование'],
-    ['js-objects', 'main', 'object-create', setTheme(1, ['Object.create', 'Object.assign'])],
-    ['js-objects', 'main', 'new',           setTheme(1, ['new'])],
-    ['js-objects', 'main', 'prototype',     setTheme(1, ['__proto__', 'prototype'])],
-    ['js-objects', 'main', 'constructor',   setTheme(1, ['constructor'])],
-    ['js-objects', 'main', 'return',        setTheme(1, ['return'])],
+    ['js-objects', 'main',            'inheritance',   'Наследование'],
+    ['js-objects', 'objects-methods', 'object-create', setTheme(1, ['Object.create'])],
+    ['js-objects', 'objects-methods', 'object-assign', setTheme(1, ['Object.assign'])],
+    ['js-objects', 'main',            'new',           setTheme(1, ['new'])],
+    ['js-objects', 'main',            'prototype',     setTheme(1, ['__proto__', 'prototype'])],
+    ['js-objects', 'main',            'constructor',   setTheme(1, ['constructor'])],
+    ['js-objects', 'main',            'return',        setTheme(1, ['return'])],
 
     [1, 'JavaScript'],
     ['js',         'main',       'context',              'Контекст'],
@@ -352,23 +353,28 @@ var arrReactjs = [
 // JAVASCRIPT OBJECTS
 //---------------------------------------------------------------------
 var arrJsObjects = [
-
     [1, 'Основное'],
-    ['js-objects', 'main', 'object-create', setTheme(1, ['Object.create', 'Object.assign'])],
+    ['js-objects', 'main', 'inheritance',   'Наследование'],
     ['js-objects', 'main', 'new',           setTheme(1, ['new'])],
     ['js-objects', 'main', 'prototype',     setTheme(1, ['__proto__', 'prototype'])],
     ['js-objects', 'main', 'constructor',   setTheme(1, ['constructor'])],
     ['js-objects', 'main', 'return',        setTheme(1, ['return'])],
 
+    [1, 'Методы Objects'],
+    ['js-objects', 'objects-methods', 'object-create',      setTheme(1, ['Object.create'])+' __proto__'],
+    ['js-objects', 'objects-methods', 'object-assign',      setTheme(1, ['Object.assign'])],
+    ['js-objects', 'objects-methods', 'prototype-of',       setTheme(1, ['Object.set/get/isPrototypeOf'])+' __proto__'],
+    ['js-objects', 'objects-methods', 'instanceof',         setTheme(1, ['instanceof'])],
+    ['js-objects', 'objects',         'for',                'Перебор объекта'],
+    ['js-objects', 'objects',         'check-property',     'Проверка наличия свойства'],
+    ['js-objects', 'objects',         'descriptor',         'Дескрипторы свойств'],
+    ['js-objects', 'objects',         'extends',            'Расширяемость объектов'],
+
     [1, 'Объекты ES6'],
     ['js-objects', 'objects', 'info',             'Теория'],
-    ['js-objects', 'objects', 'methods',          'Методы'],
     ['js-objects', 'objects', 'literal-notation', 'Литеральная нотация'],
-    ['js-objects', 'objects', 'for',              'Перебор объекта'],
     ['js-objects', 'objects', 'constructor',      'Конструктор создания объекта'],
     ['js-objects', 'objects', 'prototype',        'Прототип'],
-    ['js-objects', 'objects', 'descriptor',       'Дескрипторы свойств'],
-    ['js-objects', 'objects', 'extends',          'Расширяемость объектов'],
     ['js-objects', 'objects', 'conversion',       '<u-menu>toString</u-menu> <u-menu>valueOf</u-menu>'],
     ['js-objects', 'objects', 'samples',          'Примеры'],
 

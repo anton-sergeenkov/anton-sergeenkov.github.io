@@ -3,7 +3,6 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Прототипный стиль</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <ul class="list-point">
 	<li><u-text-define>Класс</u-text-define> - <u>функция-конструктор</u> вместе с её <u>prototype</u></li>
 </ul>
@@ -30,9 +29,22 @@ let admin = new Admin();
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функциональный стиль</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function User(id, name) {
+	this.id = id;
+	this.name = name;
+}
+function Admin() {
+	User.apply(this, arguments);
+}
+let admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Классы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <ul class="list-point">
     <li><u-text-define>Класс</u-text-define> - функция/шаблон, предназначенный для создания объектов и методов</li>
     <li><u-text-define>Конструктор</u-text-define> - метод, который вызывается в момент создания объекта т.е. когда используется ключевое слово new он создает свойства и инициализирует, т.е. подготавливает объект к использованию. В классе может быть только 1 конструктор. Если не указать конструктор, то JS создаст пустой конструктор. Свойства указываются только в конструкторе</li>
@@ -66,18 +78,4 @@ let subtask = new SubTask('Jack', 25);
 console.log(subtask.name);    // => Jack
 console.log(subtask.surname); // => Johnson
 subtask.getName();            // => Jack
-</code></pre>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Функциональный стиль</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
-function User(id, name) {
-	this.id = id;
-	this.name = name;
-}
-function Admin() {
-	User.apply(this, arguments);
-}
-let admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
 </code></pre>
