@@ -19,10 +19,11 @@
 		<u-text-define>prototype</u-text-define> - свойство функции. По умолчанию является объектом с единственным свойством <u-code-text>constructor</u-code-text>, которое ссылается на саму функцию
 		<img src="/img/js/prototype/prototype-prop.png">
 	</li>
-	<li><b>Используется:</b> при создании новых объектов оператором <u-code-text>new</u-code-text></li>
+	<li><b>Используется:</b> как прототип при создании новых объектов оператором <u-code-text>new</u-code-text></li>
 	<li><b>Цель:</b> указывать <u-code-text>__proto__</u-code-text> для новых объектов. При создании объекта через <u-code-text>new</u-code-text>, в его прототип <u-code-text>__proto__</u-code-text> записывается ссылка из <u-code-text>prototype</u-code-text> функции-конструктора</li>
 	<hr>
 	
+	<li>Ест у каждой функции, кроме стрелочной</li>
 	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <u-code-text>new</u-code-text></li>
 	<li>Значением prototype может быть только объект</li>
 </ul>
