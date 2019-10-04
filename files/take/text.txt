@@ -1,0 +1,36 @@
+<html>
+	::before
+	<head>
+		::before
+		::after
+	</head>
+	<body>
+		::before
+		::after
+	</body>
+	::after
+</html>
+
+
+background-image
+background-position
+background-size
+background-repeat
+background-attachment
+background-origin
+background-clip
+
+
+
+
+var a = {}
+
+function clear (a) {
+   a.a=10;
+   a = null;
+}
+
+clear(a)
+console.log(a)
+
+
