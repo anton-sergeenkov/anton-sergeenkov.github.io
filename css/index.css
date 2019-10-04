@@ -87,7 +87,6 @@ map-themes
 	padding: 7px;
 	border: 1px solid rgba(var(--color-js), 0.3);
 	color: rgb(var(--color-js));
-	/*border-radius: 3px;*/
 	font-size: 14px;
 	cursor: pointer;
 	margin: 0px 2px 5px 2px;
@@ -95,23 +94,56 @@ map-themes
 	color: rgba(var(--color-js), 1);
 }
 .map-themes-content {
-	width: 200px !important;
+	width: 250px !important;
 	padding: 5px !important;
 	position: absolute;
 	top: 0;
 	left: 0;
 	height: 100vh;
-	background-color: #f0f0f0;
+	background-color: #fff;
 	align-content: flex-start;
+	padding: 0 !important;
 }
 .map-themes-content .map-themes-menu {
-	width: 200px;
+	width: 250px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+
+	color: #000 !important;
+    text-decoration: none;
+    font-size: 14px !important;
+    user-select: none;
+    border: none !important;
+    border-bottom: 1px solid rgba(var(--color-black), 0.2) !important;
+    padding: 5px 15px !important;
+    line-height: 1.7;
+    margin: 0 !important;
 }
 .map-themes-content-h1 {
 	text-align: left;
+}
+.map-themes-content h2 {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-js), 1);
+	background: rgba(var(--color-js), 0.2);
+	font-size: 14px;
+	margin: 0;
+	padding: 5px 15px;
+	border-bottom: 1px solid rgba(var(--color-black), 0.2);
+}
+.map-themes-content h1 {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-other), 1);
+	background: rgba(var(--color-other), 0.2);
+	font-size: 14px;
+	margin: 0;
+	padding: 5px 15px;
+	border-bottom: 1px solid rgba(var(--color-black), 0.2);
 }
 
 /*******************************************
