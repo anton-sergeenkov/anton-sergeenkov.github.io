@@ -373,7 +373,7 @@ var arrJsObjects = [
     ['js-objects', 'objects',         'descriptor',         'Дескрипторы свойств'],
     ['js-objects', 'objects',         'extends',            'Расширяемость объектов'],
 
-    [1, 'Объекты ES6'],
+    [1, 'Объекты ES6+'],
     ['js-objects', 'objects', 'info',             'Теория'],
     ['js-objects', 'objects', 'literal-notation', 'Литеральная нотация'],
     ['js-objects', 'objects', 'constructor',      'Конструктор создания объекта'],
@@ -381,12 +381,13 @@ var arrJsObjects = [
     ['js-objects', 'objects', 'conversion',       '<u-menu>toString</u-menu> <u-menu>valueOf</u-menu>'],
     ['js-objects', 'objects', 'samples',          'Примеры'],
 
-    [1, 'Классы ES6'],
-    ['js-objects', 'class-es6', 'info',        'Теория'],
-    ['js-objects', 'class-es6', 'create',      'Объявление'],
-    ['js-objects', 'class-es6', 'inherit',     'Наследование'],
-    ['js-objects', 'class-es6', 'expression',  'Выражения классов'],
-    ['js-objects', 'class-es6', 'instanceof',  '<u-menu>instanceof</u-menu>'],
+    [1, 'Классы ES6+'],
+    ['js-objects', 'class-es6', 'info',             'Теория'],
+    ['js-objects', 'class-es6', 'create',           'Объявление'],
+    ['js-objects', 'class-es6', 'inherit',          'Наследование'],
+    ['js-objects', 'class-es6', 'class-properties', 'Свойства классов'],
+    ['js-objects', 'class-es6', 'expression',       'Выражения классов'],
+    ['js-objects', 'class-es6', 'instanceof',       '<u-menu>instanceof</u-menu>'],
 
     [1, 'Классы ES5 «Функциональный стиль»'],
     ['js-objects', 'class-es5-functional', 'info',                'Теория'],

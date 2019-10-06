@@ -1,6 +1,15 @@
 <h2>Наследование</h2>
 
+<ul class="list-point">
+	<b><u-code-text>super()</u-code-text></b> - вызов супер-конструктора
+    <li>Если у подкласса нет конструктора, он будет использовать конструктор родителя</li>
+    <li>Если подклассу указать конструктор, то он должен вызывать в начале конструктор родительского класса <u>super()</u></li>
+    <li>метод <u>super()</u> позволяет наследовать свойства и методы из прототипа</li>
+    <li><u>super()</u> должен вызываться первым объявлением <u>this</u></li>
+</ul>
+
 <pre><code class="js">
+// создание супер-класса
 class Task {
 	constructor(title, comment) {
 		this._comment = comment; 
@@ -24,26 +33,28 @@ class Task {
 	}
 }
 Task.count = 0; // общее кол-во задач
+</code></pre>
 
+<pre><code class="js">
 // наследование между двумя классами
-// если у подкласса нет конструктора, он будет использовать конструктор родителя
-// если подклассу указать конструктор, то он должен вызывать в начале
-// конструктор родительского класса super()
-// метод super() позволяет наследовать свойства и методы из прототипа
 class SubTask extends Task {
 	constructor(title, comment, parent) {
-		super(title, comment);
+		super(title, comment); // использование конструктора из супер-класса
+		super.complete();      // использование методов из супер-класса
 		this.parent = parent;
 		console.log('create subtask');
 	}
 	// переопределение родительского метода
 	complete() {
 		// this.done = true;
-		super.complete();
+		// вызываем, если не сделали этого в конструкторе
+		// super.complete();
 		console.log(`Подзадача ${this.title} выполнена`);	
 	}
 }
+</code></pre>
 
+<pre><code class="js">
 let task = new Task('Изучить JavaScript', 'Comment Task');
 let subtask = new SubTask('Изучить ES6', 'Comment SubTask', task);
 
@@ -53,8 +64,3 @@ subtask.complete();
 console.log(SubTask.getDefaultComment());
 console.log(SubTask.count);
 </code></pre>
-
-<ul class="list-point">
-	<li>В ES6 нельзя указывать класс до его объявления</li>
-	<li>Классы не засоряют глобальное пространство имен (объект window)</li>
-</ul>
