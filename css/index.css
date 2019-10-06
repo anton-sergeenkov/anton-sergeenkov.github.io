@@ -24,10 +24,6 @@ h1 {
 	color: rgba(var(--color-js), 1);
 	font-size: 20px;
 }
-u-menu {
-	background-color: rgba(var(--color-other), 0.2);
-	color: rgba(var(--color-js), 1) !important;
-}
 #content {
 	max-width: 100%;
 }
@@ -82,6 +78,11 @@ map-themes
 	overflow: auto;
 	padding: 10px 20px;
 }
+#map-themes u-menu {
+	background-color: rgba(var(--color-other), 0.2);
+	color: rgba(var(--color-js), 1) !important;
+}
+
 #map-themes .map-themes-menu {
 	display: inline-block;
 	padding: 7px;
@@ -128,22 +129,22 @@ map-themes
 	cursor: default;
 	text-transform: uppercase;
 	color: rgba(var(--color-js), 1);
-	background: rgba(var(--color-js), 0.2);
 	font-size: 14px;
 	margin: 0;
-	padding: 5px 15px;
-	border-bottom: 1px solid rgba(var(--color-black), 0.2);
+	padding: 10px 15px;
 }
 .map-themes-content h1 {
 	font-weight: bold;
 	cursor: default;
 	text-transform: uppercase;
 	color: rgba(var(--color-other), 1);
-	background: rgba(var(--color-other), 0.2);
 	font-size: 14px;
 	margin: 0;
-	padding: 5px 15px;
-	border-bottom: 1px solid rgba(var(--color-black), 0.2);
+	padding: 10px 15px;
+}
+#map-themes.map-themes-content u-menu {
+	/*background-color: blue !important;*/
+	color: black !important;
 }
 
 /*******************************************
@@ -153,7 +154,7 @@ map-content
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: calc(100vw - 200px);
+	width: calc(100vw - 250px);
 	background: #fff;
 	padding: 30px 60px 30px 30px;
 	overflow: auto;
