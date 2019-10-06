@@ -387,7 +387,6 @@ var arrJsObjects = [
     ['js-objects', 'class-es6', 'inherit',          'Наследование'],
     ['js-objects', 'class-es6', 'class-properties', 'Свойства классов'],
     ['js-objects', 'class-es6', 'expression',       'Выражения классов'],
-    ['js-objects', 'class-es6', 'instanceof',       '<u-menu>instanceof</u-menu>'],
 
     [1, 'Классы ES5 «Функциональный стиль»'],
     ['js-objects', 'class-es5-functional', 'info',                'Теория'],
