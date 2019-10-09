@@ -124,15 +124,6 @@ map-themes
 .map-themes-content-h1 {
 	text-align: left;
 }
-.map-themes-content h2 {
-	font-weight: bold;
-	cursor: default;
-	text-transform: uppercase;
-	color: rgba(var(--color-js), 1);
-	font-size: 14px;
-	margin: 0;
-	padding: 10px 15px;
-}
 .map-themes-content h1 {
 	font-weight: bold;
 	cursor: default;
@@ -140,10 +131,18 @@ map-themes
 	color: rgba(var(--color-other), 1);
 	font-size: 14px;
 	margin: 0;
-	padding: 10px 15px;
+	padding: 10px 15px 20px 15px;
+}
+.map-themes-content h2 {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-js), 1);
+	font-size: 14px;
+	margin: 0;
+	padding: 10px 15px 20px 15px;
 }
 #map-themes.map-themes-content u-menu {
-	/*background-color: blue !important;*/
 	color: black !important;
 }
 
