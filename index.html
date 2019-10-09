@@ -25,7 +25,7 @@
 		</div>
 
 		<div :class="{ 'map-themes-content':showContent }" id="map-themes">
-			<div v-for="item in themesContent">
+			<slot v-for="item in themesContent">
 				<h2 v-if="item[0]==1" v-html="item[1]"></h2>
 				<h1 v-else-if="item[0]==2" v-html="item[1]" :class="{ 'map-themes-content-h1':showContent }"></h1>
 				<div 
@@ -35,7 +35,7 @@
 					v-html="item[3]"
 					class="map-themes-menu" 
 				></div>
-			</div>
+			</slot>
 		</div>
 
 		<div id="map-content" v-show="pageBuild == true">
