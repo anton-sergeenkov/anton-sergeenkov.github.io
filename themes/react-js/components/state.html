@@ -1,5 +1,18 @@
 <h2>Состояние React-компонентов</h2>
 
+<v-two-code type="js;js" comment="Состояние не зависит от предыдущего состояния;Состояние зависит от предыдущего состояния">
+<template v-slot:first>
+this.setState({
+	counter: 77
+});
+</template>
+<template v-slot:last>
+this.setState((state, props) => ({
+	counter: state.counter + props.increment
+}));
+</template>
+</v-two-code>
+
 <ul class="list-point">
 	<li><u-text-define>Состояние» (state)</u-text-define> - содержит данные, специфичные для этого компонента. Они могут измениться со временем. Состояние определяется пользователем и должно быть простым объектом JavaScript</li>
 	
@@ -28,10 +41,6 @@ this.<u-code>setState</u-code>({comment: 'Привет'});
 this.state.comment = 'Привет';
 </template>
 </v-two-code>
-
-
-1. Состояние не зависит от предыдущего состояния
-2. Состояние зависит от предыдущего состояния
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Асинхронное обновления состояния</h3>
