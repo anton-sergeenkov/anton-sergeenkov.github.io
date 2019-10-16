@@ -712,6 +712,7 @@ var arrTheory = [
 var arrOther = [
     [1, 'Информация'],
     ['other', 'main', 'code-editors',  'Редакторы кода'],
+    ['other', 'main', 'version',       'Политика версионирования'],
     ['other', 'main', 'server-online', 'Server Online'],
     ['other', 'main', 'name-case',     'Соглашение по именованию'],
     ['other', 'main', 'prefix',        'Префиксы'],

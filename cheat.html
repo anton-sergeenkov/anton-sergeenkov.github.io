@@ -2,8 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="icon" type="image/png" href="img/favicon.png">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="icon" type="image/png" href="../img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
 <style>
 	body {
 		max-width: 1200px;
@@ -15,14 +15,28 @@
 	    display: inline;
 	    width: 0px;
 	    height: 0px;
+	    border: none;
+	}
+	.margin-child > li {
+		margin: 2px;
+	}
+	#content {
+		display: grid;
+		grid-template-columns: 250px 700px;
+		grid-template-areas: 
+			"label   method"
+			"markers link"
+			".       link-page"
+			".       alert"
+			".       snippets";
+		grid-gap: 20px;
 	}
 	pre, code {
 		padding: 0 !important;
+		padding-top: 10px !important;
+		padding-bottom: 20px !important;
 		line-height: 1.2 !important;
 		overflow-y: hidden;
-	}
-	code.custom {
-		line-height: 1.9 !important;
 	}
 </style>
 </head>
@@ -30,42 +44,60 @@
 <div id="content">
 
 
-<ul class="list-point">
-    <u-text-underline>u-text-underline</u-text-underline>
-    <u-text-header>u-text-header</u-text-header>
-    <u-text-define>u-text-define</u-text-define>
-    <u-menu>u-menu</u-menu>
-    <u-menu-accent>u-menu-accent</u-menu-accent>
-    <u-menu-code>u-menu-code</u-menu-code>
-    <u-menu-border>u-menu-border</u-menu-border>
-    <br>
-    <u-code-npm>u-code-npm</u-code-npm>
-    <u-code>u-code</u-code>
-    <u-code-accent>u-code-accent</u-code-accent>
-    <u-code-text>u-code-text</u-code-text>
-    <u-code-list>u-code-list</u-code-list>
-    <u-code-comment>u-code-comment</u-code-comment>
+<!-- LABEL -->
+<ul class="list-point margin-child" style="grid-area: label">
+	<b>Text</b>
+	<li><u-text-underline>u-text-underline</u-text-underline></li>
+	<li><u-text-header>u-text-header</u-text-header></li>
+	<li><u-text-define>u-text-define</u-text-define></li>
+
+	<b>Menu</b>
+	<li><u-menu>u-menu</u-menu></li>
+	<li><u-menu-accent>u-menu-accent</u-menu-accent></li>
+	<li><u-menu-code>u-menu-code</u-menu-code></li>
+	<li><u-menu-border>u-menu-border</u-menu-border></li>
+
+	<b>Code</b>
+	<li><u-code-npm>u-code-npm</u-code-npm></li>
+	<li><u-code>u-code</u-code></li>
+	<li><u-code-accent>u-code-accent</u-code-accent></li>
+	<li><u-code-text>u-code-text</u-code-text></li>
+	<li><u-code-list>u-code-list</u-code-list></li>
+	<li><u-code-comment>u-code-comment</u-code-comment></li>
+
+	<pre><code class="bash"><u-code-title>u-code-title</u-code-title></code></pre>
 </ul>
 
-<v-two><template v-slot:first>
+<!-- LINK -->
+<div style="grid-area: link">
+	<u-link-wrapper>
+		<a href="#" target="_blank">Тестовая ссылка</a>
+	</u-link-wrapper>
 
-<div class="v-method-wrapper">
-    <v-method before="element." method="method" after="" arg="(arg1, arg2)">
-    описание метода
-    </v-method>
-
-	<v-method-arg arg="arg1">
-	описание arg1
-	</v-method-arg>
-
-	<v-method-arg arg="arg2">
-	описание arg2
-	</v-method-arg>
-
-	<v-method-return>element.node</v-method-return>
+	<pre><code class="html">
+	&lt;u-link-wrapper&gt;
+		&lt;a href=""&gt;&lt;/a&gt;
+	&lt;/u-link-wrapper&gt;</code></pre>
 </div>
 
-</template><template v-slot:last>
+<!-- METHOD -->
+<div style="grid-area: method">
+	<div class="v-method-wrapper">
+	    <v-method before="element." method="method" after="" arg="(arg1, arg2)">
+	    описание метода
+	    </v-method>
+
+		<v-method-arg arg="arg1">
+		описание arg1
+		</v-method-arg>
+
+		<v-method-arg arg="arg2">
+		описание arg2
+		</v-method-arg>
+
+		<v-method-return>element.node</v-method-return>
+	</div>
+
 	<pre><code class="html">
 	&lt;div class="v-method-wrapper"&gt;
 	    &lt;v-method before="element" method="method" after="" arg="(arg1, arg2)"&gt;
@@ -75,13 +107,21 @@
 		&lt;v-method-arg arg="arg1"&gt;
 		описание arg1
 		&lt;/v-method-arg&gt;
-	&lt;/div&gt;
-	</code></pre>
-</template></v-two>
+	&lt;/div&gt;</code></pre>
+</div>
 
+<!-- ALERT -->
+<div style="grid-area: alert">
+	<b>Сообщения</b>
+	<u-message-ok><code>&lt;u-message-ok&gt;text&lt;/u-message-ok&gt;</code></u-message-ok>
+	<u-message-info><code>&lt;u-message-info&gt;text&lt;/u-message-info&gt;</code></u-message-info>
+	<u-message-warn><code>&lt;u-message-warn&gt;text&lt;/u-message-warn&gt;</code></u-message-warn>
+	<u-message-error><code>&lt;u-message-error&gt;text&lt;/u-message-error&gt;</code></u-message-error>
+</div>
 
-<v-two><template v-slot:first>
-	<h4>Сниппеты</h4>
+<!-- SNIPPETS -->
+<div style="grid-area: snippets">
+	<b>Сниппеты</b>
 	<pre><code class="bash">
 	=two-code    # two flex code
 	=two         # two flex
@@ -95,55 +135,23 @@
 	=xjs         # code js
 	=xbash       # code bash
 	</code></pre>
-</template><template v-slot:last>
-	<h4>Сообщения</h4>
-	<u-message-ok><code>&lt;u-message-ok&gt;text&lt;/u-message-ok&gt;</code></u-message-ok>
-	<u-message-info><code>&lt;u-message-info&gt;text&lt;/u-message-info&gt;</code></u-message-info>
-	<u-message-warn><code>&lt;u-message-warn&gt;text&lt;/u-message-warn&gt;</code></u-message-warn>
-	<u-message-error><code>&lt;u-message-error&gt;text&lt;/u-message-error&gt;</code></u-message-error>
-</template></v-two>
+</div>
 
-<v-two>
-	<template v-slot:first>
-	<pre><code class="html custom">
-	&lt;u-code-npm&gt;&lt;/u-code-npm&gt;         <u-code-npm>NPM пакеты</u-code-npm>
-	&lt;u-code&gt;&lt;/u-code&gt;                 <u-code>Выделение кода</u-code>
-	&lt;u-code-accent&gt;&lt;/u-code-accent&gt;   <u-code>Акцентное выделение кода</u-code>
-	&lt;u-code-wrapper&gt;&lt;/u-code-wrapper&gt; Блок кода<u-code></u-code>
-	&lt;u-code-text&gt;&lt;u-code-text&gt;        <u-code-text>Код в тексте</u-code-text>
-	&lt;u-code-list&gt;&lt;/u-code-list&gt;       <u-code-list>Код в списке</u-code-list>
-	&lt;u-code-title&gt;&lt;/u-code-title&gt;     Верхний угол кода<u-code></u-code>
-	&lt;u-code-comment&gt;&lt;/u-code-comment&gt; <u-code-comment>Комментарий в коде</u-code-comment>
-	
-	&lt;v-pre-npm&gt;&lt;/v-pre-npm&gt;           NPM
-
-</template><template v-slot:last>
-	<pre><code class="html custom">
-	&lt;u-text-define&gt;&lt;/u-text-define&gt;       <u-text-define>Определение</u-text-define>
-	&lt;u-text-header&gt;&lt;/u-text-header&gt;       <u-text-header>Подзаголовок</u-text-header>
-	&lt;u-text-underline&gt;&lt;/u-text-underline&gt; <u-text-underline>Выделение текста</u-text-underline>
-	&lt;u-link-wrapper&gt;&lt;/u-link-wrapper&gt; Обертка для ссылок<u-code></u-code>
-
-	&lt;u-menu&gt;&lt;/u-menu&gt;               <u-menu>zzzz</u-menu>
-	&lt;u-menu-accent&gt;&lt;/u-menu-accent&gt; <u-menu-accent>zzzz</u-menu-accent>
-	&lt;u-menu-code&gt;&lt;/u-menu-code&gt;     <u-menu-code>zzzz</u-menu-code>
-	&lt;u-menu-border&gt;&lt;/u-menu-border&gt; <u-menu-border>zzzz</u-menu-border>
-	</code></pre>
-</template></v-two>
-
-
-<hr>
-
-<v-two><template v-slot:first>
-	<h4>Маркеры</h4>
+<!-- MARKERS -->
+<div style="grid-area: markers">
+	<b>Маркеры</b>
 	<pre><code class="bash">
 	&#8226;    # &amp;#8226;
 	&#9776;   # &amp;#9776;
 	&hellip;    # &amp;hellip;
 	&#10006;   # &amp;#10006;
 	</code></pre>
-</template><template v-slot:last>
-	<h4>Ссылки на разделы</h4>
+</div>
+
+
+<!-- LINK-PAGE -->
+<div style="grid-area: link-page">
+	<b>Ссылки на разделы</b>
 	<ul class="link-page-wrapper">
 		<li><a href="#">Ссылка 1</a></li>
 		<li><a href="#">Ссылка 2</a></li>
@@ -154,23 +162,30 @@
 		&lt;li&gt;&lt;a href="#"&gt;Ссылка 2&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 	</code></pre>
-</template></v-two>
+</div>
 
+
+
+
+
+
+
+<!--
+&lt;v-pre-npm&gt;&lt;/v-pre-npm&gt;           NPM
+ -->
 
 
 </div>
-	<div id="preloader"></div>
     <script src="libraries/jquery.js"></script>
 	<script src="libraries/highlight/highlight.pack.js"></script>
-	<script src="js/build.js"></script>
-	<script src="js/main.js"></script>
-	<script src="module/preloader/preloader.js"></script>
 
 	<script src="libraries/vue.js"></script>
 	<script src="js/custom-elements.js"></script>
 	<script src="js/vue-components.js"></script>
 	<script src="js/vue-pages.js"></script>
 
-	<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+	<script>
+		hljs.initHighlightingOnLoad();
+	</script>
 </body>
 </html>
