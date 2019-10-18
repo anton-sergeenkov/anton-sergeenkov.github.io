@@ -891,9 +891,10 @@ var arrSass = [
 //---------------------------------------------------------------------
 var arrFlow = [
     [1, 'Основное'],
-    ['flow', 'main', 'info',   'Информация'],
-    ['flow', 'main', 'types',  'Types'],
-    ['flow', 'main', 'vscode', 'Настройка VSCode'],
+    ['flow', 'main', 'info',    'Информация'],
+    ['flow', 'main', 'install', 'Установка и настройка'],
+    ['flow', 'main', 'types',   'Types'],
+    ['flow', 'main', 'vscode',  'Настройка VSCode'],
 ];
 
 
