@@ -1,12 +1,13 @@
 <h2>Регулярные выражения</h2>
 
-<pre><code class="html">
-<a href="https://regexr.com/" target="_blank">https://regexr.com/</a>
-</code></pre>
+<u-link-wrapper>
+	<a href="https://regexr.com/" target="_blank">https://regexr.com/</a>
+	<a href="https://regex101.com/" target="_blank">https://regex101.com/</a>
+</u-link-wrapper>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Expression Flags</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="html">
 <em>//g</em>          - global (все совпадения)
 <em>//i</em>          - case insensitive (регистронезависимый поиск)
@@ -20,9 +21,9 @@
 <em>/[a-zA-Z]/g</em>  - глобальный поиск
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Expressions</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="html">
 <em>a-zA-Z</em>               - строчные и заглавне буквы
 <em>0-9</em>                  - символы от 0-9
@@ -50,9 +51,9 @@
 <em>(\b\w+)@(\w+\.\w+\b)</em> - запоминающая группа. поиск email
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Класс RegExp</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var pattern = new RegExp('\w+', 'g'); // конструктор
 var pattern = /\w+/g;                 // литерал
@@ -82,11 +83,13 @@ var pattern = /новый/g;
 var result = pattern.exec(text); 
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Строки</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
 <h4>search() - возвращает позицию первого элемента</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 // игнорирует флаг global
 var text = "О дивный новый мир";
@@ -94,7 +97,9 @@ var pattern = /мы/;
 var result = text.search(pattern); // 9
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>match() - возвращает само совпадение</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 // не игнорирует флаг global
 var text = "О дивный новый мир";
@@ -102,13 +107,17 @@ var pattern = /новый/;
 var result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>split() - преобразование строки с заданным разделителем в массив </h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 var pattern = /[\s,]+/;
 var result = text.split(pattern); // разделитель пробел
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>replace() - ищет совпадение и заменяет</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 var text = 'привет мир';
 var pattern = /привет/;
@@ -126,3 +135,6 @@ str = str.replace(/–/g, '-');         // поменять "–"
 str = str.replace(/\r|\n/g, '');      // убрать перенос строки
 str = str.replace(/<\/?[^>]+>/g, ''); // удалить html теги из текста
 </code></pre>
+
+
+

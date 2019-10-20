@@ -1,28 +1,42 @@
-<h2>Fetch</h2>
+<h2>Fetch API</h2>
 
-<pre><code class="html">
-<a href="https://github.com/github/fetch" target="_blank">Полифил и описание методов</a>
-<a href="https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">MDN</a>
-</code></pre>
+<u-link-wrapper>
+    <a href="https://github.com/github/fetch" target="_blank">Полифил и описание методов</a>
+    <a href="https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">MDN</a>
+</u-link-wrapper>
 
-<pre><code class="js light">
-<bg-methods>fetch</bg-methods><bg-arguments>(url[, options])</bg-arguments>
-	<em>&#8226; url</em>     // URL, на который сделать запрос
-	<em>&#8226; options</em> // необязательный объект с настройками запроса
-</code></pre>
+<div class="v-method-wrapper">
+    <v-method before="" method="fetch" after="" arg="(url[, options])">
+    интерфейс для получения ресурсов (в том числе по сети)
+    </v-method>
 
-<pre><code class="js light">
-Свойства <bg-methods>options</bg-methods>
-	<em>&#8226; method</em>      // метод запроса
-	<em>&#8226; headers</em>     // headers
-	<em>&#8226; body</em>        // тело запроса: FormData, Blob, строка и т.д.
-	<em>&#8226; mode</em>        // одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос
-	<em>&#8226; credentials</em> // одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом
-	<em>&#8226; cache</em>       // одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кешировать запрос
-	<em>&#8226; redirect</em>    // можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки 
-</code></pre>
+    <v-method-arg arg="url">
+    URL для отправки запроса
+    </v-method-arg>
 
-<h4>Объект response (ответ)</h4>
+    <v-method-arg arg="options">
+    дополнительные параметры: метод, заголовки и так далее
+    </v-method-arg>
+
+    <v-method-return>promise</v-method-return>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства options</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-list>method</u-code-list> - метод запроса</li>
+    <li><u-code-list>headers</u-code-list> - заголовки</li>
+    <li><u-code-list>body</u-code-list> - тело запроса: FormData, Blob, строка и т.д.</li>
+    <li><u-code-list>mode</u-code-list> - одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос</li>
+    <li><u-code-list>credentials</u-code-list> - одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом</li>
+    <li><u-code-list>cache</u-code-list> - одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кешировать запрос</li>
+    <li><u-code-list>redirect</u-code-list> - можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объект response (ответ)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var a = response.headers.get('Content-Type');
 var a = response.status; 
@@ -34,13 +48,58 @@ var a = response.json();
 var a = response.text();
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Промисы и async</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="promise;async">
+<template v-slot:first>
+fetch('https://swapi.co/api/people/1/')
+    .then(res => res.json())
+    .then(body => console.log(body))
+</template>
+<template v-slot:last>
+const getResource = async (url) => {
+    const res = await fetch(url);
+    return await res.json();
+}
+getResource('https://swapi.co/api/people/1/')
+    .then(body => console.log(body))
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обработка ошибок</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li>При вызове <u>fetch</u> возвращает <u>промис</u>, который, когда получен ответ, выполняет <u>коллбэки</u> с объектом <u>Response</u> или с ошибкой, если запрос не удался</li>
-	<li>В примере мы можем <u>в первом .then</u> проанализировать ответ и, если он нас устроит – вернуть промис с нужным форматом</li>
-	<li><u>Следующий .then</u> уже будет содержать полный ответ сервера</li>
+    <li>Fetch отклоняет (reject) Promise только если произошла <u>ошибка сети</u> (сервер недоступен)</li>
+    <li>Чтобы проверить код результата, можно использовать <u-code-text>result.status</u-code-text></li>
+    <li><u-code-text>result.ok</u-code-text> содержит true, если <u-code-text>result.status</u-code-text> содержит один из OK-статусов (200-209)</li>
 </ul>
 
-<h4>Пример #1. Без передачи значений</h4>
+<pre><code class="js">
+fetch('https://swapi.co/api/people/неверный-адрес/')
+    .then(res => {
+        if (!res.ok) {
+            throw new Error(res.status);
+        }
+        return res.json();
+    })
+    .then(body => console.log(body))
+    .catch(error => console.log(error.message))
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты использования</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При вызове <u>fetch</u> возвращает <u>промис</u>, который, когда получен ответ, выполняет <u>коллбэки</u> с объектом <u>Response</u> или с ошибкой, если запрос не удался</li>
+    <li>В примере мы можем <u>в первом .then</u> проанализировать ответ и, если он нас устроит – вернуть промис с нужным форматом</li>
+    <li><u>Следующий .then</u> уже будет содержать полный ответ сервера</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Вариант #1. Без передачи значений</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 fetch('script.php')
     .then(function(response) {
@@ -54,7 +113,9 @@ fetch('script.php')
     });
 </code></pre>
 
-<h4>Пример #2. Передача одного значения</h4>
+<!------------------------------------------------------------->
+<h4>Вариант #2. Передача одного значения</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 fetch('script.php', {
 	method: 'POST',
@@ -69,7 +130,9 @@ fetch('script.php', {
 ?&gt;
 </code></pre>
 
-<h4>Пример #3. Передача JSON</h4>
+<!------------------------------------------------------------->
+<h4>Вариант #3. Передача JSON</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 fetch('script.php', {
 	method: 'POST',

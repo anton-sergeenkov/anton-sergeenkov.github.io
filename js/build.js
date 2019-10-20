@@ -291,8 +291,8 @@ var arrReactjs = [
     ['react-js', 'processing-data-output', 'handling-events',         point+'Обработка событий'],
     ['react-js', 'processing-data-output', 'conditional-rendering',   point+'Условный рендеринг'],
     ['react-js', 'processing-data-output', 'lists-and-keys',          point+'Списки и ключи'],
-    ['react-js', 'processing-data-output', 'controlled-components',   point+'Управляемые компоненты '],
-    ['react-js', 'processing-data-output', 'uncontrolled-components', point+'Неуправляемые компоненты'],
+    ['react-js', 'processing-data-output', 'controlled-components',   point+'Controlled Components'],
+    ['react-js', 'processing-data-output', 'uncontrolled-components', point+'Uncontrolled Components'],
 
     [1, 'React Plugins'],
     ['react-js', 'react-plugins', 'create-react-app', setTheme(2, ['react', 'react-dom', 'create-react-app'])],

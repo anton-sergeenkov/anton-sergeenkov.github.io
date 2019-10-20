@@ -1,17 +1,11 @@
 <h2>Плагины</h2>
 
-<ul class="link-page-wrapper">
-	<li><a href="#composition-plugins-type">Типы плагинов</a></li>
-	<li><a href="#composition-plugins-use">Использование плагинов</a></li>
-	<li><a href="#composition-plugins-create">Создание плагина</a></li>
-</ul>
-
 <ul class="list-point">
 	<li><u-text-define>Плагины</u-text-define> позволяют добавить во Vue некоторую глобальную функциональность. Область применения плагинов явно не определена</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3 id="composition-plugins-type">Типы плагинов</h3>
+<h3>Типы плагинов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ol class="list-num">
 	<li>Добавляют глобальные методы и/или свойства, например <u>vue-custom-element</u></li>
@@ -22,7 +16,7 @@
 </ol>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3 id="composition-plugins-use">Использование плагинов</h3>
+<h3>Использование плагинов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
@@ -61,7 +55,7 @@ Vue.use(VueRouter)
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3 id="composition-plugins-create">Создание плагина</h3>
+<h3>Создание плагина</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Плагин <u-code-text>Vue.js</u-code-text> должен содержать метод <u-code-text>install</u-code-text>. Этот метод будет вызываться с конструктором <u-code-text>Vue</u-code-text> в качестве первого аргумента, и с дополнительными опциями плагина в качестве второго (если передавались)</li>
