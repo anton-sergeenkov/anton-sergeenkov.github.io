@@ -1,15 +1,17 @@
 <h2>React.Component.render()</h2>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="render" after="" arg="()">
+    единственный обязательный метод в подклассе <u-code-text>React.Component</u-code-text>. При вызове он проверяет <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text></li>
+    </v-method>
+
+    <v-method-return><u>Элемент React</u>. Обычно создаётся с помощью JSX. Указывает React, что рендерить: DOM-узел или пользовательский компонент. Например, <u-code-text>&lt;div /&gt;</u-code-text> или <u-code-text>&lt;MyComponent /&gt;</u-code-text></v-method-return>
+    <v-method-return><u>Массивы и фрагменты</u>. Возвращает несколько элементов из <u-code-text>render()</u-code-text></v-method-return>
+    <v-method-return><u>Порталы</u>. Рендерит несколько дочерних элементов в другое поддерево DOM</v-method-return>
+    <v-method-return><u>Строки и числа</u>. Рендерит текстовые DOM-узлы</v-method-return>
+    <v-method-return><u>Booleans или null</u>. Ничего не рендерит. Обычно необходим для поддержки паттерна <u-code-text>return test &amp;&amp; &lt;Child /&gt;</u-code-text>, где <u-code-text>test</u-code-text> - логическое значение</v-method-return>
+</div>
+
 <ul class="list-point">
-    <li><u-text-define>render()</u-text-define> - единственный обязательный метод в подклассе <u-code-text>React.Component</u-code-text>. При вызове он проверяет <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text></li>
     <li>Функция render() должна быть <b>чистой</b>. Это означает, что она не изменяет состояние компонента, всегда возвращает один и тот же результат, не взаимодействует напрямую с браузером. Взаимодействовать с браузером необходимо в <u-code-text>componentDidMount()</u-code-text> или других методах жизненного цикла. Чистый <u-code-text>render()</u-code-text> делает компонент понятным</li>
 </ul>
-
-<b>Возвращает один из следующих вариантов</b>
-<ol class="list-num">
-    <li><u-text-underline>Элемент React</u-text-underline>. Обычно создаётся с помощью JSX. Указывает React, что рендерить: DOM-узел или пользовательский компонент. Например, <u-code-text>&lt;div /&gt;</u-code-text> или <u-code-text>&lt;MyComponent /&gt;</u-code-text></li>
-    <li><u-text-underline>Массивы и фрагменты</u-text-underline>. Возвращает несколько элементов из <u-code-text>render()</u-code-text></li>
-    <li><u-text-underline>Порталы</u-text-underline>. Рендерит несколько дочерних элементов в другое поддерево DOM</li>
-    <li><u-text-underline>Строки и числа</u-text-underline>. Рендерит текстовые DOM-узлы</li>
-    <li><u-text-underline>Booleans или null</u-text-underline>. Ничего не рендерит. Обычно необходим для поддержки паттерна <u-code-text>return test &amp;&amp; &lt;Child /&gt;</u-code-text>, где <u-code-text>test</u-code-text> - логическое значение</li>
-</ol>

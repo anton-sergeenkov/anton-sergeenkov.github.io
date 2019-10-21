@@ -6,7 +6,7 @@
 
 <img src="/img/react/component-lifecycle.png" width="800px" class="center">
 
-<pre><code class="js"><u-code-title>js</u-code-title>
+<pre><code class="js">
 Методы жизненного цикла (Lifecycle Methods)
 Lifecycle (Жизненный цикл комопонента)
 1. constructor          - создание компонента
@@ -14,11 +14,6 @@ Lifecycle (Жизненный цикл комопонента)
 3. componentDidMount    - добавление DOM-элементов к DOM-дереву на странице
 4. componentDidUpdate   - обновление компонента: получение нового prop / setState
 5. componentWillUnmount - удаляются DOM-ноды, созданные для компонента, компонент удаляется
-- getDerivedStateFromProps
-- shouldComponentUpdate
-- getSnapshotBeforeUpdate
-- getDerivedStateFromError
-
 
 Lifecycle Hooks - функции, вызываемые на каждом этапе жизненного цикла
 
@@ -27,45 +22,3 @@ UPDATES:    New Props/setState() => render() => componentDidUpdate()
 UNMOUNTING: componentWillUnmount
 ERROR:      componentDidCatch()
 </code></pre>
-
-
-<v-two><template v-slot:first>
-<!------------------------------------------------------------->
-<h4>Монтирование</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-code-text>constructor()</u-code-text></li>
-    <li><u-code-text>static getDerivedStateFromProps()</u-code-text></li>
-    <li><u-code-text>render()</u-code-text></li>
-    <li><u-code-text>componentDidMount()</u-code-text></li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>Размонтирование</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-code-text>componentWillUnmount()</u-code-text></li>
-</ul>
-
-</template><template v-slot:last>
-<!------------------------------------------------------------->
-<h4>Обновление</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-code-text>static getDerivedStateFromProps()</u-code-text></li>
-    <li><u-code-text>shouldComponentUpdate()</u-code-text></li>
-    <li><u-code-text>render()</u-code-text></li>
-    <li><u-code-text>getSnapshotBeforeUpdate()</u-code-text></li>
-    <li><u-code-text>componentDidUpdate()</u-code-text></li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>Обработка ошибок</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-code-text>static getDerivedStateFromError()</u-code-text></li>
-    <li><u-code-text>componentDidCatch()</u-code-text></li>
-</ul>
-</template></v-two>
-
-
