@@ -257,10 +257,10 @@ var arrReactjs = [
     //--------------------------------------------------------------------
     [1, 'Компоненты'],
     ['react-js', 'components',  'react-component',         setTheme(1, ['React.Component'])],
-    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])], //**
+    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
     ['react-js', 'components',  'state',                   setTheme(1, ['state', 'setState'])],
     ['react-js', 'components',  'props',                   setTheme(1, ['props'])],
-    ['react-js', 'dom',         'refs-and-dom',            setTheme(1, ['ref'])],                 //**
+    ['react-js', 'dom',         'refs-and-dom',            setTheme(1, ['ref'])],
     ['react-js', 'components',  'fragments',               setTheme(1, ['&lt;React.Fragment&gt;'])],
     ['react-js', 'components',  'higher-order-components', point+'Higher-Order Component'],
     ['react-js', 'components',  'render-props',            point+'Render Props'],
@@ -272,10 +272,19 @@ var arrReactjs = [
 
     [1, 'Жизненный цикл компонентов'],
     ['react-js', 'lifecycle', 'info',                        'Информация'],
-    ['react-js', 'lifecycle', 'methods-component',           point+'Методы компонента'],
-    ['react-js', 'lifecycle', 'methods-other',               point+'Методы остальные'],
-    ['react-js', 'lifecycle', 'react-component-render',      setTheme(1, ['render()'])],
-    ['react-js', 'lifecycle', 'react-component-constructor', setTheme(1, ['constructor()'])],
+
+    ['react-js', 'lifecycle', 'hook-render',                       setTheme(2, ['render()'])],
+    ['react-js', 'lifecycle', 'hook-constructor',                  setTheme(2, ['constructor()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-mount',          setTheme(2, ['componentDidMount()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-update',         setTheme(2, ['componentDidUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-component-will-unmount',       setTheme(2, ['componentWillUnmount()'])],
+    ['react-js', 'lifecycle', 'hook-get-derived-state-from-props', setTheme(2, ['getDerivedStateFromProps()'])],
+    ['react-js', 'lifecycle', 'hook-should-component-update',      setTheme(2, ['shouldComponentUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   setTheme(2, ['getSnapshotBeforeUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-get-derived-state-from-error', setTheme(2, ['getDerivedStateFromError()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-catch',          setTheme(2, ['componentDidCatch()'])],
+
+
 
     [1, 'Информация'],
     ['react-js', 'main',  'info',                     'Информация'],
@@ -758,11 +767,12 @@ var arrJsTasks = [
     ['js-task', 'arrays', 'duplicate-array-method',        'Метод дублирующий массив'],
 
     [1, 'Асинхронность'],
-    ['js-task', 'asynchrony', 'promise-and-settimeout',     'Promise и setTimeout'],
-    ['js-task', 'asynchrony', 'promise-and-arguments-then', 'Promise и аргументы then'],
-    ['js-task', 'asynchrony', 'promise-resolve',            'Promise Resolve'],
-    ['js-task', 'asynchrony', 'promise-reject',             'Promise Reject'],
-    ['js-task', 'asynchrony', 'settimeout-for-var',         'setTimeout в for без let'],
+    ['js-task', 'async', 'promise-make-request',       'Promise Make Request'],
+    ['js-task', 'async', 'promise-and-settimeout',     'Promise и setTimeout'],
+    ['js-task', 'async', 'promise-and-arguments-then', 'Promise и аргументы then'],
+    ['js-task', 'async', 'promise-resolve',            'Promise Resolve'],
+    ['js-task', 'async', 'promise-reject',             'Promise Reject'],
+    ['js-task', 'async', 'settimeout-for-var',         'setTimeout в for без let'],
 
     [1, 'Прочее'],
     ['js-task', 'other', 'type-casting',            'Приведение типов'],
