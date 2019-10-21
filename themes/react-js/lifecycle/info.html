@@ -5,3 +5,24 @@
 </u-link-wrapper>
 
 <img src="/img/react/component-lifecycle.png" width="800px" class="center">
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+Lifecycle (Жизненный цикл комопонента)
+1. construstor          - создание компонента
+2. render               - возвращает дерево React-элементов, которые превращаются в DOM-элементы
+3. componentDidMount    - добавление DOM-элементов к DOM-дереву на странице
+4. componentDidUpdate   - обновление компонента: получение нового prop / setState
+5. componentWillUnmount - удаляются DOM-ноды, созданные для компонента, компонент удаляется
+- getDerivedStateFromProps
+- shouldComponentUpdate
+- getSnapshotBeforeUpdate
+- getDerivedStateFromError
+
+
+Lifecycle Hooks - функции, вызываемые на каждом этапе жизненного цикла
+
+MOUNTING:   construstor() => render() => componentDidMount()
+UPDATES:    New Props/setState() => render() => componentDidUpdate()
+UNMOUNTING: componentWillUnmount
+ERROR:      componentDidCatch()
+</code></pre>
