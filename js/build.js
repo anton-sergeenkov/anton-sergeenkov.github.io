@@ -267,9 +267,12 @@ var arrReactjs = [
     ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
     ['react-js', 'components',  'state',                   setTheme(1, ['state', 'setState'])],
     ['react-js', 'components',  'props',                   setTheme(1, ['props'])],
-    ['react-js', 'dom',         'refs-and-dom',            setTheme(1, ['ref'])],
     ['react-js', 'components',  'fragments',               setTheme(1, ['&lt;React.Fragment&gt;'])],
     ['react-js', 'components',  'portals',                 setTheme(1, ['ReactDOM.createPortal '])],
+
+    [1, 'DOM'],
+    ['react-js', 'dom',  'refs-and-dom',               setTheme(1, ['ref'])],
+    ['react-js', 'dom',  'dangerously-set-inner-html', setTheme(1, ['dangerouslySetInnerHTML'])],
 
     [1, 'Паттерны'],
     ['react-js', 'patterns',  'context',                 panda+'Context API'],
@@ -311,10 +314,6 @@ var arrReactjs = [
     ['react-js', 'react-plugins', 'create-react-app', setTheme(2, ['react', 'react-dom', 'create-react-app'])],
     ['react-js', 'react-plugins', 'prop-types',       setTheme(2, ['prop-types'])],
     ['react-js', 'react-plugins', 'formik',           setTheme(2, ['formik'])],
-
-    [1, 'DOM'],
-    ['react-js', 'dom',  'refs-and-dom',               setTheme(1, ['ref'])],
-    ['react-js', 'dom',  'dangerously-set-inner-html', setTheme(1, ['dangerouslySetInnerHTML'])],
 
     [1, 'Мемоизация'],
     ['react-js', 'memoization', 'info',                    'Информация'],

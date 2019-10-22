@@ -6,19 +6,7 @@
 
 <img src="/img/react/component-lifecycle.png" width="800px" class="center">
 
-<pre><code class="js">
-Методы жизненного цикла (Lifecycle Methods)
-Lifecycle (Жизненный цикл комопонента)
-1. constructor          - создание компонента
-2. render               - возвращает дерево React-элементов, которые превращаются в DOM-элементы
-3. componentDidMount    - добавление DOM-элементов к DOM-дереву на странице
-4. componentDidUpdate   - обновление компонента: получение нового prop / setState
-5. componentWillUnmount - удаляются DOM-ноды, созданные для компонента, компонент удаляется
-
-Lifecycle Hooks - функции, вызываемые на каждом этапе жизненного цикла
-
-MOUNTING:   constructor() => render() => componentDidMount()
-UPDATES:    New Props/setState() => render() => componentDidUpdate()
-UNMOUNTING: componentWillUnmount
-ERROR:      componentDidCatch()
-</code></pre>
+<ul class="list-point">
+    <li><u-text-define>Lifecycle Methods</u-text-define> - Методы жизненного цикла</li>
+    <li><u-text-define>Lifecycle Hooks</u-text-define> - Функции, вызываемые на каждом этапе жизненного цикла</li>
+</ul>

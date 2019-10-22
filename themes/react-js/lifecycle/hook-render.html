@@ -2,14 +2,14 @@
 
 <div class="v-method-wrapper">
     <v-method before="ReactDOM." method="render" after="" arg="()">
-    рендеринг элементов. Единственный обязательный метод в подклассе <u-code-text>React.Component</u-code-text>. При вызове он проверяет <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text></li>
+    рендеринг элементов. Единственный обязательный метод в подклассе <u>React.Component</u>. При вызове он проверяет <u>this.props</u> и <u>this.state</u>. Возвращает дерево React-элементов, которые превращаются в DOM-элементы
     </v-method>
 
-    <v-method-return><u>Элемент React</u>. Обычно создаётся с помощью JSX. Указывает React, что рендерить: DOM-узел или пользовательский компонент. Например, <u-code-text>&lt;div /&gt;</u-code-text> или <u-code-text>&lt;MyComponent /&gt;</u-code-text></v-method-return>
-    <v-method-return><u>Массивы и фрагменты</u>. Возвращает несколько элементов из <u-code-text>render()</u-code-text></v-method-return>
+    <v-method-return><u>Элемент React</u>. Обычно создаётся с помощью JSX. Указывает React, что рендерить: DOM-узел или пользовательский компонент. Например, <u>&lt;div /&gt;</u> или <u>&lt;MyComponent /&gt;</u></v-method-return>
+    <v-method-return><u>Массивы и фрагменты</u>. Возвращает несколько элементов из <u>render()</u></v-method-return>
     <v-method-return><u>Порталы</u>. Рендерит несколько дочерних элементов в другое поддерево DOM</v-method-return>
     <v-method-return><u>Строки и числа</u>. Рендерит текстовые DOM-узлы</v-method-return>
-    <v-method-return><u>Booleans или null</u>. Ничего не рендерит. Обычно необходим для поддержки паттерна <u-code-text>return test &amp;&amp; &lt;Child /&gt;</u-code-text>, где <u-code-text>test</u-code-text> - логическое значение</v-method-return>
+    <v-method-return><u>Booleans или null</u>. Ничего не рендерит. Обычно необходим для поддержки паттерна <u>return test &amp;&amp; &lt;Child /&gt;</u>, где <u>test</u> - логическое значение</v-method-return>
 </div>
 
 <ul class="list-point">
