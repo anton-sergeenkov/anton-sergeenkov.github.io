@@ -1,21 +1,18 @@
 <h2>Порталы</h2>
 
+
+<div class="v-method-wrapper">
+    <v-method before="ReactDOM." method="createPortal" after="" arg="(child, container)">
+    порталы позволяют рендерить дочерние элементы в DOM-узел, который находится вне DOM-иерархии родительского компонента
+    </v-method>
+
+	<v-method-arg arg="child">любой React-компонент, который может быть отрендерен, такой как элемент, строка или фрагмент</v-method-arg>
+	<v-method-arg arg="container">DOM-элемент</v-method-arg>
+</div>
+
 <ul class="list-point">
-    <li><u-text-define>Порталы</u-text-define> - позволяют рендерить дочерние элементы в DOM-узел, который находится вне DOM-иерархии родительского компонента</li>
-    <li>Типовой случай <u>применения порталов</u> - когда в родительском компоненте заданы стили <u-code-text>overflow: hidden</u-code-text> или <u-code-text>z-index</u-code-text>, но вам нужно чтобы дочерний элемент визуально выходил за рамки своего контейнера. Например, диалоги, всплывающие карточки и всплывающие подсказки</li>
+    <li><u>Применение</u> - когда в родительском компоненте заданы стили <u-code-text>overflow: hidden</u-code-text> или <u-code-text>z-index</u-code-text>, но вам нужно чтобы дочерний элемент визуально выходил за рамки своего контейнера. Например, диалоги, всплывающие карточки и всплывающие подсказки</li>
     <li><u>Событие</u>, сгенерированное изнутри портала, будет распространяться к родителям в содержащем React-дереве, даже если эти элементы не являются родительскими в DOM-дереве</li>
-</ul>
-
-<pre><code class="js">
-ReactDOM.createPortal(child, container)
-</code></pre>
-
-<ul class="list-point">
-    <li><u-menu-code>ReactDOM.createPortal</u-menu-code> </li>
-    <ul class="list-point">
-        <li><u-code-text>child</u-code-text> - любой React-компонент, который может быть отрендерен, такой как элемент, строка или фрагмент</li>
-        <li><u-code-text>container</u-code-text> - DOM-элемент</li>
-    </ul>
 </ul>
 
 <hr>

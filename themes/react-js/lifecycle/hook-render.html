@@ -1,8 +1,8 @@
 <h2>React.Component.render()</h2>
 
 <div class="v-method-wrapper">
-    <v-method before="" method="render" after="" arg="()">
-    единственный обязательный метод в подклассе <u-code-text>React.Component</u-code-text>. При вызове он проверяет <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text></li>
+    <v-method before="ReactDOM." method="render" after="" arg="()">
+    рендеринг элементов. Единственный обязательный метод в подклассе <u-code-text>React.Component</u-code-text>. При вызове он проверяет <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text></li>
     </v-method>
 
     <v-method-return><u>Элемент React</u>. Обычно создаётся с помощью JSX. Указывает React, что рендерить: DOM-узел или пользовательский компонент. Например, <u-code-text>&lt;div /&gt;</u-code-text> или <u-code-text>&lt;MyComponent /&gt;</u-code-text></v-method-return>
@@ -15,3 +15,44 @@
 <ul class="list-point">
     <li>Функция render() должна быть <b>чистой</b>. Это означает, что она не изменяет состояние компонента, всегда возвращает один и тот же результат, не взаимодействует напрямую с браузером. Взаимодействовать с браузером необходимо в <u-code-text>componentDidMount()</u-code-text> или других методах жизненного цикла. Чистый <u-code-text>render()</u-code-text> делает компонент понятным</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>ReactDOM.render() - рендеринг элементов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>Элементы</u-text-define> - это то, «из чего сделаны» компоненты</li>
+	<li>В отличие от DOM-элементов, элементы React - это простые объекты, не отнимающие много ресурсов. React DOM обновляет DOM, чтобы он соответствовал переданным React-элементам</li>
+	<li><u-code-text>ReactDOM.render()</u-code-text> - рендеринг React-элемента в узел DOM</li>
+	<li>Элементы React иммутабельны. После создания элемента, нельзя изменить его потомков или атрибуты. Элемент похож на кадр в фильме: он отражает состояние интерфейса в конкретный момент времени</li>
+</ul>
+
+<pre><code class="js">
+ReactDOM.render(
+	&lt;App /&gt;,
+	document.getElementById('root')
+);
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Рендеринг</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Элементы могут описывать и наши собственные компоненты</li>
+	<li>Когда React встречает подобный элемент, он собирает все JSX-атрибуты в один объект и передаёт их нашему компоненту. Этот объект называется <u>«пропсы» (props)</u></li>
+</ul>
+
+<pre><code class="js">
+function Welcome(props) {
+	return &lt;h1&gt;Привет, {props.name}&lt;/h1&gt;;
+}
+
+const element = &lt;Welcome name="Алиса" /&gt;;
+ReactDOM.render(element, document.getElementById('root'));
+</code></pre>
+
+<ol class="list-num">
+	<li>Мы передаём React-элемент <u-code-text>&lt;Welcome name="Алиса" /&gt;</u-code-text> в <u-code-text>ReactDOM.render()</u-code-text></li>
+	<li>React вызывает наш компонент <u-code-text>Welcome</u-code-text> с пропсами <u-code-text>{name: 'Алиса'}</u-code-text></li>
+	<li>Наш компонент <u-code-text>Welcome</u-code-text> возвращает элемент <u-code-text>&lt;h1&gt;Привет, Алиса&lt;/h1&gt;</u-code-text> в качестве результата</li>
+	<li>React DOM делает минимальные изменения в DOM, чтобы получилось <u-code-text>&lt;h1&gt;Привет, Алиса&lt;/h1&gt;</u-code-text></li>
+</ol>

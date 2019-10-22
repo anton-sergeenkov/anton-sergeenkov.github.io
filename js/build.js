@@ -1,7 +1,11 @@
-var point = '<div class="circle-menu"></div> ';
-var code = '<u-menu-code>&lt;/&gt;</u-menu-code> ';
+const point = '<div class="circle-menu"></div> ';
+const code = '<u-menu-code>&lt;/&gt;</u-menu-code> ';
 
-
+const panda  = '🐼 ';
+const bear   = '🐻 ';
+const koala  = '🐨 ';
+const babuin = '🦍 ';
+const mouse  = '🐹 ';
 
 function setTheme(tag, arr) {
     let resultTag = '';
@@ -9,6 +13,8 @@ function setTheme(tag, arr) {
         case 1: resultTag = 'u-menu'; break;
         case 2: resultTag = 'u-menu-border'; break;
         case 3: resultTag = 'u-menu-accent'; break;
+        case 3: resultTag = 'u-menu-accent'; break;
+        case 4: resultTag = '🐼'; break;
     }
     let result = arr.map(function(element) {
         return `<${resultTag}>`+element+`</${resultTag}>`
@@ -256,52 +262,50 @@ var arrReactjs = [
     [2, 'React.js'],
     //--------------------------------------------------------------------
     [1, 'Компоненты'],
+    ['react-js', 'components',  'info',                    'Информация'],
     ['react-js', 'components',  'react-component',         setTheme(1, ['React.Component'])],
     ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
     ['react-js', 'components',  'state',                   setTheme(1, ['state', 'setState'])],
     ['react-js', 'components',  'props',                   setTheme(1, ['props'])],
     ['react-js', 'dom',         'refs-and-dom',            setTheme(1, ['ref'])],
     ['react-js', 'components',  'fragments',               setTheme(1, ['&lt;React.Fragment&gt;'])],
-    ['react-js', 'components',  'higher-order-components', point+'Higher-Order Component'],
-    ['react-js', 'components',  'render-props',            point+'Render Props'],
-    ['react-js', 'components',  'context',                 point+'Context'],
-    ['react-js', 'components',  'portals',                 point+'Portals'],
-    ['react-js', 'components',  'lifting-state-up',        point+'Подъём состояния'],
-    ['react-js', 'components',  'composition',             point+'Композиция'],
-    ['react-js', 'components',  'info',                    'Информация'],
+    ['react-js', 'components',  'portals',                 setTheme(1, ['ReactDOM.createPortal '])],
+
+    [1, 'Паттерны'],
+    ['react-js', 'patterns',  'context',                 panda+'Context API'],
+    ['react-js', 'patterns',  'higher-order-components', panda+'Higher-Order Component'],
+    ['react-js', 'patterns',  'render-props',            panda+'Render Props'],
+    ['react-js', 'patterns',  'lifting-state-up',        point+'Подъём состояния'],
+    ['react-js', 'patterns',  'composition',             point+'Композиция: '+setTheme(1, ['props.children'])],
+
+    [1, 'Обработка и вывод данных'],
+    ['react-js', 'processing-data-output', 'handling-events',         bear+'Обработка событий'],
+    ['react-js', 'processing-data-output', 'controlled-components',   bear+'Controlled Components'],
+    ['react-js', 'processing-data-output', 'uncontrolled-components', bear+'Uncontrolled Components'],
+    ['react-js', 'processing-data-output', 'css',                     point+'CSS'],
+    ['react-js', 'processing-data-output', 'conditional-rendering',   point+'Условный рендеринг'],
+    ['react-js', 'processing-data-output', 'lists-and-keys',          point+'Списки и ключи'],
 
     [1, 'Жизненный цикл компонентов'],
-    ['react-js', 'lifecycle', 'info',                        'Информация'],
-
-    ['react-js', 'lifecycle', 'hook-render',                       setTheme(2, ['render()'])],
-    ['react-js', 'lifecycle', 'hook-constructor',                  setTheme(2, ['constructor()'])],
-    ['react-js', 'lifecycle', 'hook-component-did-mount',          setTheme(2, ['componentDidMount()'])],
-    ['react-js', 'lifecycle', 'hook-component-did-update',         setTheme(2, ['componentDidUpdate()'])],
-    ['react-js', 'lifecycle', 'hook-component-will-unmount',       setTheme(2, ['componentWillUnmount()'])],
-    ['react-js', 'lifecycle', 'hook-get-derived-state-from-props', setTheme(2, ['getDerivedStateFromProps()'])],
-    ['react-js', 'lifecycle', 'hook-should-component-update',      setTheme(2, ['shouldComponentUpdate()'])],
-    ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   setTheme(2, ['getSnapshotBeforeUpdate()'])],
-    ['react-js', 'lifecycle', 'hook-get-derived-state-from-error', setTheme(2, ['getDerivedStateFromError()'])],
-    ['react-js', 'lifecycle', 'hook-component-did-catch',          setTheme(2, ['componentDidCatch()'])],
-
-
+    ['react-js', 'lifecycle', 'info',                              'Информация'],
+    ['react-js', 'lifecycle', 'hook-render',                       point+'&nbsp;'+setTheme(1, ['ReactDOM.render()'])],
+    ['react-js', 'lifecycle', 'hook-constructor',                  point+'&nbsp;'+setTheme(1, ['constructor()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-mount',          babuin+setTheme(1, ['componentDidMount()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-update',         babuin+setTheme(1, ['componentDidUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-component-will-unmount',       babuin+setTheme(1, ['componentWillUnmount()'])],
+    ['react-js', 'lifecycle', 'hook-get-derived-state-from-props', point+'&nbsp;'+setTheme(1, ['getDerivedStateFromProps()'])],
+    ['react-js', 'lifecycle', 'hook-should-component-update',      point+'&nbsp;'+setTheme(1, ['shouldComponentUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   point+'&nbsp;'+setTheme(1, ['getSnapshotBeforeUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-get-derived-state-from-error', bear+setTheme(1, ['getDerivedStateFromError()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-catch',          bear+setTheme(1, ['componentDidCatch()'])],
 
     [1, 'Информация'],
     ['react-js', 'main',  'info',                     'Информация'],
     ['theory',   'other', 'virtual-dom',              'Virtual DOM'],
     ['react-js', 'main',  'structure',                code+'Структура'],
+    ['react-js', 'main',  'jsx',                      babuin+'JSX'],
     ['react-js', 'main',  'react-dom-create-element', setTheme(1, ['ReactDOM.createElement'])],
-    ['react-js', 'main',  'react-dom-render',         setTheme(1, ['ReactDOM.render'])],
-    ['react-js', 'main',  'jsx',                      point+'JSX'],
     ['react-js', 'main',  'error-boundaries',         point+'Предохранители'],
-
-    [1, 'Обработка и вывод данных'],
-    ['react-js', 'processing-data-output', 'css',                     point+'CSS'],
-    ['react-js', 'processing-data-output', 'handling-events',         point+'Обработка событий'],
-    ['react-js', 'processing-data-output', 'conditional-rendering',   point+'Условный рендеринг'],
-    ['react-js', 'processing-data-output', 'lists-and-keys',          point+'Списки и ключи'],
-    ['react-js', 'processing-data-output', 'controlled-components',   point+'Controlled Components'],
-    ['react-js', 'processing-data-output', 'uncontrolled-components', point+'Uncontrolled Components'],
 
     [1, 'React Plugins'],
     ['react-js', 'react-plugins', 'create-react-app', setTheme(2, ['react', 'react-dom', 'create-react-app'])],
