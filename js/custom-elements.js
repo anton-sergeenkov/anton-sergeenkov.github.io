@@ -10,7 +10,7 @@ let arrCustomElements = [
 	'u-menu-accent',  'u-menu-code',     'u-menu-border',  'u-text-underline',
 	'u-fr1',          'u-fr2',           'u-fr3',
 
-	'bg-methods',     'bg-arguments',
+	'bg-methods',     'bg-arguments', 'u-menu-unactive'
 ];
 
 arrCustomElements.forEach(function(element) {

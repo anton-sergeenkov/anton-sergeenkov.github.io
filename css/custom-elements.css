@@ -73,11 +73,17 @@ u-menu, u-menu-accent, u-menu-code, u-menu-border {
 	color: black !important;
 }
 u-menu {
-	background: rgba(var(--color-other), 0.3);
+    background: rgba(245, 224, 66, 0.3);
+    border: 1px solid rgba(245, 224, 66, 1);
+    border-radius: 3px;
+}
+u-menu-unactive {
+    text-decoration: underline;
 }
 u-menu-accent {
 	background: rgba(var(--color-html), 0.35);
 	color: rgba(var(--color-dark-green), 1) !important;
+	border-radius: 3px;
 }
 u-menu-code {
 	color: rgba(var(--color-php), 1) !important;
@@ -85,8 +91,10 @@ u-menu-code {
 	border-radius: 3px;
 }
 u-menu-border {
-	background: rgba(var(--color-other), 0.3);
-	border-left: 5px solid yellowgreen;
+	background: rgba(245, 224, 66, 0.3);
+    border: 1px solid rgba(159, 194, 47, 1);
+    border-radius: 0px 3px 3px 0px;
+    border-left: 5px solid rgba(159, 194, 47, 1);
 }
 
 /*******************************************

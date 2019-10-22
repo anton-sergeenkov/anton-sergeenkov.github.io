@@ -7,8 +7,12 @@
 
 	<v-method-arg arg="prevProps">предыдущий prop</v-method-arg>
 	<v-method-arg arg="prevState">предыдущий state</v-method-arg>
-	<v-method-arg arg="snapshot"></v-method-arg>
+	<v-method-arg arg="snapshot">snapshot</v-method-arg>
 </div>
+
+<ul class="list-point">
+    <li>Необходимо делать сравнение пропсов: если не сделать - будет бесконечный цикл: <u-code-text>render -> componentDidUpdate -> render ...</u-code-text></li>
+</ul>
 
 <pre><code class="js">
 componentDidUpdate(prevProps) {

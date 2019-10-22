@@ -18,7 +18,7 @@ export default class App extends Component {
 		super(props);
 		this.state = { hasError: false };
 	}
-	static getDerivedStateFromError(error) {
+	<u-code>static getDerivedStateFromError</u-code>(error) {
 		// Обновить состояние с тем, чтобы следующий рендер показал запасной UI
 		return { hasError: true };
 	}

@@ -1,12 +1,6 @@
 const point = '<div class="circle-menu"></div> ';
 const code = '<u-menu-code>&lt;/&gt;</u-menu-code> ';
 
-const panda  = '🐼 ';
-const bear   = '🐻 ';
-const koala  = '🐨 ';
-const babuin = '🦍 ';
-const mouse  = '🐹 ';
-
 function setTheme(tag, arr) {
     let resultTag = '';
     switch(tag) {
@@ -14,7 +8,7 @@ function setTheme(tag, arr) {
         case 2: resultTag = 'u-menu-border'; break;
         case 3: resultTag = 'u-menu-accent'; break;
         case 3: resultTag = 'u-menu-accent'; break;
-        case 4: resultTag = '🐼'; break;
+        case 4: resultTag = 'u-menu-unactive'; break;
     }
     let result = arr.map(function(element) {
         return `<${resultTag}>`+element+`</${resultTag}>`
@@ -237,79 +231,100 @@ var arrBootstrap = [
 ];
 
 
+
+
+const emoji = {
+    theory:     '📑 ',
+    code:       '⚡️ ',
+    panda:      '🐼 ',
+    bear:      '🐻 ',
+    koala:     '🐨 ',
+    water:     '💧 ',
+
+    cookie:    '🍪 ',
+    babuin:    '🦍 ',
+    mouse:     '🐹 ',
+    boom:      '💥 ',
+    fire:      '🔥 ',
+    donut:     '🍩 ',
+    pizza:     '🍕 ',
+}
+
+
 //---------------------------------------------------------------------
 // REACT.JS
 //---------------------------------------------------------------------
 var arrReactjs = [
     //--------------------------------------------------------------------
-    [2, 'React-Hooks'],
-    //--------------------------------------------------------------------
-    ['react-js', 'hooks', 'info',                  'Информация'],
-    ['react-js', 'hooks', 'use-state',             setTheme(2, ['useState'])],
-    ['react-js', 'hooks', 'use-effect',            setTheme(2, ['useEffect'])],
-    ['react-js', 'hooks', 'use-context',           setTheme(2, ['useContext'])],
-
-    ['react-js', 'hooks', 'use-reducer',           setTheme(1, ['useReducer'])],
-    ['react-js', 'hooks', 'use-callback',          setTheme(1, ['useCallback'])],
-    ['react-js', 'hooks', 'use-memo',              setTheme(1, ['useMemo'])],
-    ['react-js', 'hooks', 'use-ref',               setTheme(1, ['useRef'])],
-    ['react-js', 'hooks', 'use-imperative-handle', setTheme(1, ['useImperativeHandle'])],
-    ['react-js', 'hooks', 'use-layout-effect',     setTheme(1, ['useLayoutEffect'])],
-    ['react-js', 'hooks', 'use-debug-value',       setTheme(1, ['useDebugValue'])],
-    ['react-js', 'hooks', 'own-hooks',             'Создание собственных хуков'],
-
-    //--------------------------------------------------------------------
     [2, 'React.js'],
     //--------------------------------------------------------------------
-    [1, 'Компоненты'],
-    ['react-js', 'components',  'info',                    'Информация'],
-    ['react-js', 'components',  'react-component',         setTheme(1, ['React.Component'])],
-    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
-    ['react-js', 'components',  'state',                   setTheme(1, ['state', 'setState'])],
-    ['react-js', 'components',  'props',                   setTheme(1, ['props'])],
-    ['react-js', 'components',  'fragments',               setTheme(1, ['&lt;React.Fragment&gt;'])],
-    ['react-js', 'components',  'portals',                 setTheme(1, ['ReactDOM.createPortal '])],
+    [1, 'Информация'],
+    ['react-js', 'info',  'info',                     emoji.theory+'Информация'],
+    ['theory',   'other', 'virtual-dom',              emoji.theory+'Virtual DOM'],
+    ['react-js', 'info',  'structure',                emoji.code+'Структура'],
 
-    [1, 'DOM'],
-    ['react-js', 'dom',  'refs-and-dom',               setTheme(1, ['ref'])],
-    ['react-js', 'dom',  'dangerously-set-inner-html', setTheme(1, ['dangerouslySetInnerHTML'])],
+    [1, 'Компоненты'],
+    ['react-js', 'components',  'info',                     emoji.panda+'Компоненты'],
+    ['react-js', 'components',  'jsx',                      emoji.panda+'JSX'],
+    ['react-js', 'components',  'react-dom-create-element', setTheme(1, ['ReactDOM.createElement'])],
+    ['react-js', 'components',  'react-component',          setTheme(1, ['React.Component'])],
+    ['react-js', 'memoization', 'react-pure-component',     setTheme(1, ['React.PureComponent'])],
+    ['react-js', 'components',  'state',                    setTheme(1, ['state', 'setState'])],
+    ['react-js', 'components',  'props',                    setTheme(1, ['props'])],
+    ['react-js', 'components',  'refs',                     setTheme(1, ['ref'])],
+    ['react-js', 'components',  'fragments',                setTheme(1, ['&lt;React.Fragment&gt;'])],
+    ['react-js', 'components',  'portals',                  setTheme(1, ['ReactDOM.createPortal '])],
 
     [1, 'Паттерны'],
-    ['react-js', 'patterns',  'context',                 panda+'Context API'],
-    ['react-js', 'patterns',  'higher-order-components', panda+'Higher-Order Component'],
-    ['react-js', 'patterns',  'render-props',            panda+'Render Props'],
-    ['react-js', 'patterns',  'lifting-state-up',        point+'Подъём состояния'],
-    ['react-js', 'patterns',  'composition',             point+'Композиция: '+setTheme(1, ['props.children'])],
+    ['react-js', 'patterns',  'context',                 emoji.panda+'Context API'],
+    ['react-js', 'patterns',  'higher-order-components', emoji.panda+'Higher-Order Component'],
+    ['react-js', 'patterns',  'render-props',            emoji.panda+'Render Props'],
+    ['react-js', 'patterns',  'lifting-state-up',        emoji.panda+'Подъём состояния'],
+    ['react-js', 'patterns',  'composition',             setTheme(1, ['props.children'])+' композиция'],
 
     [1, 'Обработка и вывод данных'],
-    ['react-js', 'processing-data-output', 'handling-events',         bear+'Обработка событий'],
-    ['react-js', 'processing-data-output', 'controlled-components',   bear+'Controlled Components'],
-    ['react-js', 'processing-data-output', 'uncontrolled-components', bear+'Uncontrolled Components'],
-    ['react-js', 'processing-data-output', 'css',                     point+'CSS'],
-    ['react-js', 'processing-data-output', 'conditional-rendering',   point+'Условный рендеринг'],
-    ['react-js', 'processing-data-output', 'lists-and-keys',          point+'Списки и ключи'],
+    ['react-js', 'processing-data-output', 'handling-events',         emoji.cookie+'Обработка событий'],
+    ['react-js', 'processing-data-output', 'controlled-components',   emoji.cookie+'Controlled Components'],
+    ['react-js', 'processing-data-output', 'uncontrolled-components', emoji.cookie+'Uncontrolled Components'],
+    ['react-js', 'processing-data-output', 'css',                     emoji.cookie+'CSS'],
+    ['react-js', 'processing-data-output', 'conditional-rendering',   emoji.cookie+'Условный рендеринг'],
+    ['react-js', 'processing-data-output', 'lists-and-keys',          emoji.cookie+'Списки и ключи'],
 
+    //--------------------------------------------------------------------
+    [2, 'React-Жизненный цикл'],
+    //--------------------------------------------------------------------
     [1, 'Жизненный цикл компонентов'],
-    ['react-js', 'lifecycle', 'info',                              'Информация'],
-    ['react-js', 'lifecycle', 'hook-render',                       point+'&nbsp;'+setTheme(1, ['ReactDOM.render()'])],
-    ['react-js', 'lifecycle', 'hook-constructor',                  point+'&nbsp;'+setTheme(1, ['constructor()'])],
-    ['react-js', 'lifecycle', 'hook-component-did-mount',          babuin+setTheme(1, ['componentDidMount()'])],
-    ['react-js', 'lifecycle', 'hook-component-did-update',         babuin+setTheme(1, ['componentDidUpdate()'])],
-    ['react-js', 'lifecycle', 'hook-component-will-unmount',       babuin+setTheme(1, ['componentWillUnmount()'])],
-    ['react-js', 'lifecycle', 'hook-get-derived-state-from-props', point+'&nbsp;'+setTheme(1, ['getDerivedStateFromProps()'])],
-    ['react-js', 'lifecycle', 'hook-should-component-update',      point+'&nbsp;'+setTheme(1, ['shouldComponentUpdate()'])],
-    ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   point+'&nbsp;'+setTheme(1, ['getSnapshotBeforeUpdate()'])],
-    ['react-js', 'lifecycle', 'hook-get-derived-state-from-error', bear+setTheme(1, ['getDerivedStateFromError()'])],
-    ['react-js', 'lifecycle', 'hook-component-did-catch',          bear+setTheme(1, ['componentDidCatch()'])],
+    ['react-js', 'lifecycle', 'info',                              emoji.theory+'Информация'],
+    ['react-js', 'lifecycle', 'hook-render',                       emoji.pizza+setTheme(4, ['ReactDOM.render()'])],
+    ['react-js', 'lifecycle', 'hook-constructor',                  emoji.pizza+setTheme(4, ['constructor()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-mount',          emoji.pizza+setTheme(4, ['componentDidMount()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-update',         emoji.pizza+setTheme(4, ['componentDidUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-component-will-unmount',       emoji.pizza+setTheme(4, ['componentWillUnmount()'])],
+    ['react-js', 'lifecycle', 'hook-get-derived-state-from-props', emoji.pizza+setTheme(4, ['getDerivedStateFromProps()'])],
+    ['react-js', 'lifecycle', 'hook-should-component-update',      emoji.pizza+setTheme(4, ['shouldComponentUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   emoji.pizza+setTheme(4, ['getSnapshotBeforeUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-get-derived-state-from-error', emoji.pizza+setTheme(4, ['getDerivedStateFromError()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-catch',          emoji.pizza+setTheme(4, ['componentDidCatch()'])],
 
-    [1, 'Информация'],
-    ['react-js', 'main',  'info',                     'Информация'],
-    ['theory',   'other', 'virtual-dom',              'Virtual DOM'],
-    ['react-js', 'main',  'structure',                code+'Структура'],
-    ['react-js', 'main',  'jsx',                      babuin+'JSX'],
-    ['react-js', 'main',  'react-dom-create-element', setTheme(1, ['ReactDOM.createElement'])],
-    ['react-js', 'main',  'error-boundaries',         point+'Предохранители'],
+    //--------------------------------------------------------------------
+    [2, 'React-Hooks'],
+    //--------------------------------------------------------------------
+    ['react-js', 'hooks', 'info',                  emoji.theory+'Информация'],
+    ['react-js', 'hooks', 'use-state',             emoji.fire+setTheme(4, ['useState'])],
+    ['react-js', 'hooks', 'use-effect',            emoji.fire+setTheme(4, ['useEffect'])],
+    ['react-js', 'hooks', 'use-context',           emoji.fire+setTheme(4, ['useContext'])],
+    ['react-js', 'hooks', 'use-ref',               emoji.fire+setTheme(4, ['useRef'])],
+    ['react-js', 'hooks', 'use-memo',              emoji.fire+setTheme(4, ['useMemo'])],
+    ['react-js', 'hooks', 'use-callback',          emoji.fire+setTheme(4, ['useCallback'])],
+    ['react-js', 'hooks', 'use-reducer',           emoji.fire+setTheme(4, ['useReducer'])],
+    ['react-js', 'hooks', 'use-imperative-handle', emoji.fire+setTheme(4, ['useImperativeHandle'])],
+    ['react-js', 'hooks', 'use-layout-effect',     emoji.fire+setTheme(4, ['useLayoutEffect'])],
+    ['react-js', 'hooks', 'use-debug-value',       emoji.fire+setTheme(4, ['useDebugValue'])],
+    ['react-js', 'hooks', 'own-hooks',             emoji.theory+'Создание собственных хуков'],
 
+    //--------------------------------------------------------------------
+    [2, 'React.js-Остальное'],
+    //--------------------------------------------------------------------
     [1, 'React Plugins'],
     ['react-js', 'react-plugins', 'create-react-app', setTheme(2, ['react', 'react-dom', 'create-react-app'])],
     ['react-js', 'react-plugins', 'prop-types',       setTheme(2, ['prop-types'])],
@@ -319,6 +334,10 @@ var arrReactjs = [
     ['react-js', 'memoization', 'info',                    'Информация'],
     ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
     ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
+
+    [1, 'Прочее'],
+    ['react-js', 'other',  'error-boundaries',           point+'Предохранители'],
+    ['react-js', 'other',  'dangerously-set-inner-html', setTheme(1, ['dangerouslySetInnerHTML'])],
 
     [1, 'Тестирование'],
     ['react-js', 'testing', 'react-developer-tools',  'React Developer Tools'],
