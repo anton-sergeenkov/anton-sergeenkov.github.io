@@ -1,6 +1,22 @@
 const point = '<div class="circle-menu"></div> ';
 const code = '<u-menu-code>&lt;/&gt;</u-menu-code> ';
 
+const emoji = {
+    theory:    '📑 ',
+    code:      '⚡️ ',
+    panda:     '🐼 ',
+    bear:      '🐻 ',
+    koala:     '🐨 ',
+    water:     '💧 ',
+    cookie:    '🍪 ',
+    babuin:    '🦍 ',
+    mouse:     '🐹 ',
+    boom:      '💥 ',
+    fire:      '🔥 ',
+    donut:     '🍩 ',
+    pizza:     '🍕 ',
+}
+
 function setTheme(tag, arr) {
     let resultTag = '';
     switch(tag) {
@@ -229,26 +245,6 @@ var arrBootstrap = [
     [1, 'Разметка'],
     ['bootstrap', 'layout', 'containers', 'Контейнеры'],
 ];
-
-
-
-
-const emoji = {
-    theory:     '📑 ',
-    code:       '⚡️ ',
-    panda:      '🐼 ',
-    bear:      '🐻 ',
-    koala:     '🐨 ',
-    water:     '💧 ',
-
-    cookie:    '🍪 ',
-    babuin:    '🦍 ',
-    mouse:     '🐹 ',
-    boom:      '💥 ',
-    fire:      '🔥 ',
-    donut:     '🍩 ',
-    pizza:     '🍕 ',
-}
 
 
 //---------------------------------------------------------------------
