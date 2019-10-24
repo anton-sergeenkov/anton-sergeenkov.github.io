@@ -274,11 +274,11 @@ var arrReactjs = [
     ['react-js', 'api',  'portals',                                   emoji.boom+'Порталы'],
 
     [1, 'Паттерны'],
-    ['react-js', 'patterns',  'higher-order-components',              emoji.koala+'Higher-Order Component'],
-    ['react-js', 'patterns',  'render-props',                         emoji.koala+'Render Props'],
-    ['react-js', 'patterns',  'element-props',                        emoji.koala+'Свойства-элементы'],
-    ['react-js', 'patterns',  'lifting-state-up',                     emoji.koala+'Подъём состояния'],
-    ['react-js', 'patterns',  'composition',                          emoji.koala+'Композиция и props.children'],
+    ['react-js', 'patterns',  'higher-order-components',              emoji.donut+'Higher-Order Component'],
+    ['react-js', 'patterns',  'render-props',                         emoji.donut+'Render Props'],
+    ['react-js', 'patterns',  'element-props',                        emoji.donut+'Свойства-элементы'],
+    ['react-js', 'patterns',  'lifting-state-up',                     emoji.donut+'Подъём состояния'],
+    ['react-js', 'patterns',  'children',                             emoji.donut+'Children'],
 
     [1, 'Обработка и вывод данных'],
     ['react-js', 'processing-data-output', 'handling-events',         emoji.cookie+'Обработка событий'],
