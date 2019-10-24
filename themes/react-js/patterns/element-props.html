@@ -1,0 +1,57 @@
+<h2>Свойства-элементы</h2>
+
+<ul class="list-point">
+    <li>В prop может передаваться JSX</li>
+    <li>В prop может передаваться объект, который представляет из себя React-элемент</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. Указание функции</h4>
+<!------------------------------------------------------------->
+<pre><code class="js"><u-code-title>js</u-code-title>
+const App = () =&gt; {
+	return (
+		&lt;&gt;
+			{Sample()}
+		&lt;/&gt;
+	);
+};
+
+const Sample = () =&gt; {
+	return (&lt;h1&gt;Sample&lt;/h1&gt;);
+};
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>2. Указание объекта</h4>
+<!------------------------------------------------------------->
+<pre><code class="js"><u-code-title>js</u-code-title>
+const App = () =&gt; {
+	return (
+		&lt;&gt;
+			{element}
+		&lt;/&gt;
+	);
+};
+
+const element = (&lt;h1&gt;Hello&lt;/h1&gt;);
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>3. Передача в компонент</h4>
+<!------------------------------------------------------------->
+<pre><code class="js"><u-code-title>js</u-code-title>
+const App = () =&gt; {
+	const element = (&lt;h1&gt;Hello&lt;/h1&gt;);
+	return &lt;Child elementObject={element} elementJsx={&lt;h1&gt;Hello&lt;/h1&gt;} /&gt;
+};
+
+const Child = (props) =&gt; {
+	return (
+		&lt;&gt;
+			{props.elementObject}
+			{props.elementJsx}
+		&lt;/&gt;
+	);
+}
+</code></pre>

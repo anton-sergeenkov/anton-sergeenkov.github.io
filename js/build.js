@@ -275,6 +275,7 @@ var arrReactjs = [
     ['react-js', 'patterns',  'context',                 emoji.panda+'Context API'],
     ['react-js', 'patterns',  'higher-order-components', emoji.panda+'Higher-Order Component'],
     ['react-js', 'patterns',  'render-props',            emoji.panda+'Render Props'],
+    ['react-js', 'patterns',  'element-props',           emoji.panda+'Свойства-элементы'],
     ['react-js', 'patterns',  'lifting-state-up',        emoji.panda+'Подъём состояния'],
     ['react-js', 'patterns',  'composition',             setTheme(1, ['props.children'])+' композиция'],
 
