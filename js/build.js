@@ -68,6 +68,139 @@ var arrAssessment = [
     ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
 ];
 
+
+//---------------------------------------------------------------------
+// REACT.JS
+//---------------------------------------------------------------------
+var arrReactjs = [
+    //--------------------------------------------------------------------
+    [2, 'React.js'],
+    //--------------------------------------------------------------------
+    [1, 'Информация'],
+    ['react-js', 'info',  'info',                                     emoji.theory+'Информация'],
+    ['theory',   'other', 'virtual-dom',                              emoji.theory+'Virtual DOM'],
+    ['react-js', 'info',  'structure',                                emoji.code+'Структура'],
+
+    [1, 'Компоненты'],
+    ['react-js', 'components',  'info',                               emoji.panda+'Компоненты'],
+    ['react-js', 'components',  'jsx',                                emoji.panda+'JSX'],
+    ['react-js', 'components',  'react-dom-create-element',           setTheme(1, ['ReactDOM.createElement'])],
+    ['react-js', 'components',  'react-component',                    setTheme(1, ['React.Component'])],
+    ['react-js', 'memoization', 'react-pure-component',               setTheme(1, ['React.PureComponent'])],
+    ['react-js', 'components',  'state',                              setTheme(1, ['state', 'setState'])],
+    ['react-js', 'components',  'props',                              setTheme(1, ['props'])],
+
+    [1, 'API'],
+    ['react-js', 'api',  'children',                                  emoji.boom+'Children'],
+    ['react-js', 'api',  'context',                                   emoji.boom+'Context API'],
+    ['react-js', 'api',  'refs',                                      emoji.boom+'Рефы'],
+    ['react-js', 'api',  'fragments',                                 emoji.boom+'Фрагменты'],
+    ['react-js', 'api',  'portals',                                   emoji.boom+'Порталы'],
+
+    [1, 'Паттерны'],
+    ['react-js', 'patterns',  'higher-order-components',              emoji.donut+'Higher-Order Component'],
+    ['react-js', 'patterns',  'render-props',                         emoji.donut+'Render Props'],
+    ['react-js', 'patterns',  'element-props',                        emoji.donut+'Свойства-элементы'],
+    ['react-js', 'patterns',  'lifting-state-up',                     emoji.donut+'Подъём состояния'],
+
+    [1, 'Обработка и вывод данных'],
+    ['react-js', 'processing-data-output', 'handling-events',         emoji.cookie+'Обработка событий'],
+    ['react-js', 'processing-data-output', 'controlled-components',   emoji.cookie+'Controlled Components'],
+    ['react-js', 'processing-data-output', 'uncontrolled-components', emoji.cookie+'Uncontrolled Components'],
+    ['react-js', 'processing-data-output', 'css',                     emoji.cookie+'CSS'],
+    ['react-js', 'processing-data-output', 'conditional-rendering',   emoji.cookie+'Условный рендеринг'],
+    ['react-js', 'processing-data-output', 'lists-and-keys',          emoji.cookie+'Списки и ключи'],
+
+    //--------------------------------------------------------------------
+    [2, 'React-Жизненный цикл'],
+    //--------------------------------------------------------------------
+    [1, 'Жизненный цикл компонентов'],
+    ['react-js', 'lifecycle', 'info',                              emoji.theory+'Информация'],
+    ['react-js', 'lifecycle', 'hook-render',                       emoji.pizza+setTheme(4, ['ReactDOM.render()'])],
+    ['react-js', 'lifecycle', 'hook-constructor',                  emoji.pizza+setTheme(4, ['constructor()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-mount',          emoji.pizza+setTheme(4, ['componentDidMount()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-update',         emoji.pizza+setTheme(4, ['componentDidUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-component-will-unmount',       emoji.pizza+setTheme(4, ['componentWillUnmount()'])],
+    ['react-js', 'lifecycle', 'hook-get-derived-state-from-props', emoji.pizza+setTheme(4, ['getDerivedStateFromProps()'])],
+    ['react-js', 'lifecycle', 'hook-should-component-update',      emoji.pizza+setTheme(4, ['shouldComponentUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   emoji.pizza+setTheme(4, ['getSnapshotBeforeUpdate()'])],
+    ['react-js', 'lifecycle', 'hook-get-derived-state-from-error', emoji.pizza+setTheme(4, ['getDerivedStateFromError()'])],
+    ['react-js', 'lifecycle', 'hook-component-did-catch',          emoji.pizza+setTheme(4, ['componentDidCatch()'])],
+
+    //--------------------------------------------------------------------
+    [2, 'React-Hooks'],
+    //--------------------------------------------------------------------
+    ['react-js', 'hooks', 'info',                  emoji.theory+'Информация'],
+    ['react-js', 'hooks', 'use-state',             emoji.fire+setTheme(4, ['useState'])],
+    ['react-js', 'hooks', 'use-effect',            emoji.fire+setTheme(4, ['useEffect'])],
+    ['react-js', 'hooks', 'use-context',           emoji.fire+setTheme(4, ['useContext'])],
+    ['react-js', 'hooks', 'use-ref',               emoji.fire+setTheme(4, ['useRef'])],
+    ['react-js', 'hooks', 'use-memo',              emoji.fire+setTheme(4, ['useMemo'])],
+    ['react-js', 'hooks', 'use-callback',          emoji.fire+setTheme(4, ['useCallback'])],
+    ['react-js', 'hooks', 'use-reducer',           emoji.fire+setTheme(4, ['useReducer'])],
+    ['react-js', 'hooks', 'use-imperative-handle', emoji.fire+setTheme(4, ['useImperativeHandle'])],
+    ['react-js', 'hooks', 'use-layout-effect',     emoji.fire+setTheme(4, ['useLayoutEffect'])],
+    ['react-js', 'hooks', 'use-debug-value',       emoji.fire+setTheme(4, ['useDebugValue'])],
+    ['react-js', 'hooks', 'own-hooks',             emoji.theory+'Создание собственных хуков'],
+
+    //--------------------------------------------------------------------
+    [2, 'React.js-Остальное'],
+    //--------------------------------------------------------------------
+    [1, 'React Plugins'],
+    ['react-js', 'react-plugins', 'create-react-app',      setTheme(2, ['react', 'react-dom', 'create-react-app'])],
+    ['react-js', 'react-plugins', 'prop-types',            setTheme(2, ['prop-types'])],
+    ['react-js', 'react-plugins', 'formik',                setTheme(2, ['formik'])],
+
+    [1, 'Мемоизация'],
+    ['react-js', 'memoization', 'info',                    'Информация'],
+    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
+    ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
+
+    [1, 'Прочее'],
+    ['react-js', 'other',  'error-boundaries',             point+'Предохранители'],
+    ['react-js', 'other',  'dangerously-set-inner-html',   setTheme(1, ['dangerouslySetInnerHTML'])],
+
+    [1, 'Тестирование'],
+    ['react-js', 'testing', 'react-developer-tools',       'React Developer Tools'],
+    ['react-js', 'testing', 'redux-developer-tools',       'Redux DevTools'],
+
+    //--------------------------------------------------------------------
+    [2, 'Redux'],
+    //--------------------------------------------------------------------
+    ['react-js', 'redux', 'info',                   'Информация'],
+    ['react-js', 'redux', 'functional-programming', 'Принципы FP'],
+    ['react-js', 'redux', 'methods',                'Методы'],
+    ['react-js', 'redux', 'structure',              code+'Структура'],
+    ['react-js', 'redux', 'connect',                setTheme(1, ['Connect'])],
+    ['react-js', 'redux', 'middleware',             setTheme(1, ['Middleware'])],
+    ['react-js', 'redux', 'info-flux',              'Flux'],
+    ['react-js', 'redux', 'info-redux',             'Redux'],
+
+    [1, 'Redux Plugins'],
+    ['react-js', 'redux-plugins', 'redux-thunk',    setTheme(2, ['redux-thunk', 'redux-devtools-extension'])],
+    ['react-js', 'redux-plugins', 'redux-form',     setTheme(2, ['redux-form'])],
+    ['react-js', 'redux-plugins', 'redux-actions',  setTheme(2, ['redux-actions'])],
+    ['react-js', 'redux-plugins', 'redux-saga',     setTheme(2, ['redux-saga'])],
+    ['react-js', 'redux-plugins', 'redux-logger',   setTheme(2, ['redux-logger'])],
+
+    //--------------------------------------------------------------------
+    [2, 'React Router'],
+    //--------------------------------------------------------------------
+    ['react-js', 'react-router', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
+    ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
+    ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
+    ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
+    ['react-js', 'react-router', 'page-404',          'Page 404'],
+
+    //--------------------------------------------------------------------
+    [2, 'Material-UI'],
+    //--------------------------------------------------------------------
+    ['react-js', 'material-ui', 'spacing',     setTheme(1, ['spacing'])],
+    ['react-js', 'material-ui', 'with-styles', setTheme(1, ['makeStyles', 'withStyles'])],
+    ['react-js', 'material-ui', 'css-in-js',   'CSS in JS'],
+];
+
+
 //---------------------------------------------------------------------
 // JAVASCRIPT
 //---------------------------------------------------------------------
@@ -235,150 +368,6 @@ var arrJavaScript = [
 
 
 //---------------------------------------------------------------------
-// BOOTSTRAP
-//---------------------------------------------------------------------
-var arrBootstrap = [
-    [1, 'Основное'],
-    ['bootstrap', 'main',  'info',   'Информация'],
-
-    [1, 'Разметка'],
-    ['bootstrap', 'layout', 'containers', 'Контейнеры'],
-];
-
-
-//---------------------------------------------------------------------
-// REACT.JS
-//---------------------------------------------------------------------
-var arrReactjs = [
-    //--------------------------------------------------------------------
-    [2, 'React.js'],
-    //--------------------------------------------------------------------
-    [1, 'Информация'],
-    ['react-js', 'info',  'info',                                     emoji.theory+'Информация'],
-    ['theory',   'other', 'virtual-dom',                              emoji.theory+'Virtual DOM'],
-    ['react-js', 'info',  'structure',                                emoji.code+'Структура'],
-
-    [1, 'Компоненты'],
-    ['react-js', 'components',  'info',                               emoji.panda+'Компоненты'],
-    ['react-js', 'components',  'jsx',                                emoji.panda+'JSX'],
-    ['react-js', 'components',  'react-dom-create-element',           setTheme(1, ['ReactDOM.createElement'])],
-    ['react-js', 'components',  'react-component',                    setTheme(1, ['React.Component'])],
-    ['react-js', 'memoization', 'react-pure-component',               setTheme(1, ['React.PureComponent'])],
-    ['react-js', 'components',  'state',                              setTheme(1, ['state', 'setState'])],
-    ['react-js', 'components',  'props',                              setTheme(1, ['props'])],
-
-    [1, 'API'],
-    ['react-js', 'api',  'context',                                   emoji.boom+'Context API'],
-    ['react-js', 'api',  'refs',                                      emoji.boom+'Рефы'],
-    ['react-js', 'api',  'fragments',                                 emoji.boom+'Фрагменты'],
-    ['react-js', 'api',  'portals',                                   emoji.boom+'Порталы'],
-
-    [1, 'Паттерны'],
-    ['react-js', 'patterns',  'higher-order-components',              emoji.donut+'Higher-Order Component'],
-    ['react-js', 'patterns',  'render-props',                         emoji.donut+'Render Props'],
-    ['react-js', 'patterns',  'element-props',                        emoji.donut+'Свойства-элементы'],
-    ['react-js', 'patterns',  'lifting-state-up',                     emoji.donut+'Подъём состояния'],
-    ['react-js', 'patterns',  'children',                             emoji.donut+'Children'],
-
-    [1, 'Обработка и вывод данных'],
-    ['react-js', 'processing-data-output', 'handling-events',         emoji.cookie+'Обработка событий'],
-    ['react-js', 'processing-data-output', 'controlled-components',   emoji.cookie+'Controlled Components'],
-    ['react-js', 'processing-data-output', 'uncontrolled-components', emoji.cookie+'Uncontrolled Components'],
-    ['react-js', 'processing-data-output', 'css',                     emoji.cookie+'CSS'],
-    ['react-js', 'processing-data-output', 'conditional-rendering',   emoji.cookie+'Условный рендеринг'],
-    ['react-js', 'processing-data-output', 'lists-and-keys',          emoji.cookie+'Списки и ключи'],
-
-    //--------------------------------------------------------------------
-    [2, 'React-Жизненный цикл'],
-    //--------------------------------------------------------------------
-    [1, 'Жизненный цикл компонентов'],
-    ['react-js', 'lifecycle', 'info',                              emoji.theory+'Информация'],
-    ['react-js', 'lifecycle', 'hook-render',                       emoji.pizza+setTheme(4, ['ReactDOM.render()'])],
-    ['react-js', 'lifecycle', 'hook-constructor',                  emoji.pizza+setTheme(4, ['constructor()'])],
-    ['react-js', 'lifecycle', 'hook-component-did-mount',          emoji.pizza+setTheme(4, ['componentDidMount()'])],
-    ['react-js', 'lifecycle', 'hook-component-did-update',         emoji.pizza+setTheme(4, ['componentDidUpdate()'])],
-    ['react-js', 'lifecycle', 'hook-component-will-unmount',       emoji.pizza+setTheme(4, ['componentWillUnmount()'])],
-    ['react-js', 'lifecycle', 'hook-get-derived-state-from-props', emoji.pizza+setTheme(4, ['getDerivedStateFromProps()'])],
-    ['react-js', 'lifecycle', 'hook-should-component-update',      emoji.pizza+setTheme(4, ['shouldComponentUpdate()'])],
-    ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   emoji.pizza+setTheme(4, ['getSnapshotBeforeUpdate()'])],
-    ['react-js', 'lifecycle', 'hook-get-derived-state-from-error', emoji.pizza+setTheme(4, ['getDerivedStateFromError()'])],
-    ['react-js', 'lifecycle', 'hook-component-did-catch',          emoji.pizza+setTheme(4, ['componentDidCatch()'])],
-
-    //--------------------------------------------------------------------
-    [2, 'React-Hooks'],
-    //--------------------------------------------------------------------
-    ['react-js', 'hooks', 'info',                  emoji.theory+'Информация'],
-    ['react-js', 'hooks', 'use-state',             emoji.fire+setTheme(4, ['useState'])],
-    ['react-js', 'hooks', 'use-effect',            emoji.fire+setTheme(4, ['useEffect'])],
-    ['react-js', 'hooks', 'use-context',           emoji.fire+setTheme(4, ['useContext'])],
-    ['react-js', 'hooks', 'use-ref',               emoji.fire+setTheme(4, ['useRef'])],
-    ['react-js', 'hooks', 'use-memo',              emoji.fire+setTheme(4, ['useMemo'])],
-    ['react-js', 'hooks', 'use-callback',          emoji.fire+setTheme(4, ['useCallback'])],
-    ['react-js', 'hooks', 'use-reducer',           emoji.fire+setTheme(4, ['useReducer'])],
-    ['react-js', 'hooks', 'use-imperative-handle', emoji.fire+setTheme(4, ['useImperativeHandle'])],
-    ['react-js', 'hooks', 'use-layout-effect',     emoji.fire+setTheme(4, ['useLayoutEffect'])],
-    ['react-js', 'hooks', 'use-debug-value',       emoji.fire+setTheme(4, ['useDebugValue'])],
-    ['react-js', 'hooks', 'own-hooks',             emoji.theory+'Создание собственных хуков'],
-
-    //--------------------------------------------------------------------
-    [2, 'React.js-Остальное'],
-    //--------------------------------------------------------------------
-    [1, 'React Plugins'],
-    ['react-js', 'react-plugins', 'create-react-app',      setTheme(2, ['react', 'react-dom', 'create-react-app'])],
-    ['react-js', 'react-plugins', 'prop-types',            setTheme(2, ['prop-types'])],
-    ['react-js', 'react-plugins', 'formik',                setTheme(2, ['formik'])],
-
-    [1, 'Мемоизация'],
-    ['react-js', 'memoization', 'info',                    'Информация'],
-    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
-    ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
-
-    [1, 'Прочее'],
-    ['react-js', 'other',  'error-boundaries',             point+'Предохранители'],
-    ['react-js', 'other',  'dangerously-set-inner-html',   setTheme(1, ['dangerouslySetInnerHTML'])],
-
-    [1, 'Тестирование'],
-    ['react-js', 'testing', 'react-developer-tools',       'React Developer Tools'],
-    ['react-js', 'testing', 'redux-developer-tools',       'Redux DevTools'],
-
-    //--------------------------------------------------------------------
-    [2, 'Redux'],
-    //--------------------------------------------------------------------
-    ['react-js', 'redux', 'info',                   'Информация'],
-    ['react-js', 'redux', 'functional-programming', 'Принципы FP'],
-    ['react-js', 'redux', 'methods',                'Методы'],
-    ['react-js', 'redux', 'structure',              code+'Структура'],
-    ['react-js', 'redux', 'connect',                setTheme(1, ['Connect'])],
-    ['react-js', 'redux', 'middleware',             setTheme(1, ['Middleware'])],
-    ['react-js', 'redux', 'info-flux',              'Flux'],
-    ['react-js', 'redux', 'info-redux',             'Redux'],
-
-    [1, 'Redux Plugins'],
-    ['react-js', 'redux-plugins', 'redux-thunk',    setTheme(2, ['redux-thunk', 'redux-devtools-extension'])],
-    ['react-js', 'redux-plugins', 'redux-form',     setTheme(2, ['redux-form'])],
-    ['react-js', 'redux-plugins', 'redux-actions',  setTheme(2, ['redux-actions'])],
-    ['react-js', 'redux-plugins', 'redux-saga',     setTheme(2, ['redux-saga'])],
-    ['react-js', 'redux-plugins', 'redux-logger',   setTheme(2, ['redux-logger'])],
-
-    //--------------------------------------------------------------------
-    [2, 'React Router'],
-    //--------------------------------------------------------------------
-    ['react-js', 'react-router', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
-    ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
-    ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
-    ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
-    ['react-js', 'react-router', 'page-404',          'Page 404'],
-
-    //--------------------------------------------------------------------
-    [2, 'Material-UI'],
-    //--------------------------------------------------------------------
-    ['react-js', 'material-ui', 'spacing',     setTheme(1, ['spacing'])],
-    ['react-js', 'material-ui', 'with-styles', setTheme(1, ['makeStyles', 'withStyles'])],
-    ['react-js', 'material-ui', 'css-in-js',   'CSS in JS'],
-];
-
-
-//---------------------------------------------------------------------
 // JAVASCRIPT OBJECTS
 //---------------------------------------------------------------------
 var arrJsObjects = [
@@ -430,6 +419,19 @@ var arrJsObjects = [
     ['js-objects', 'class-es5-prototype', 'inherit',     'Наследование классов'],
     ['js-objects', 'class-es5-prototype', 'mixins',      'Примеси'],
 ];
+
+
+//---------------------------------------------------------------------
+// BOOTSTRAP
+//---------------------------------------------------------------------
+var arrBootstrap = [
+    [1, 'Основное'],
+    ['bootstrap', 'main',  'info',   'Информация'],
+
+    [1, 'Разметка'],
+    ['bootstrap', 'layout', 'containers', 'Контейнеры'],
+];
+
 
 //---------------------------------------------------------------------
 // WEBPACK
