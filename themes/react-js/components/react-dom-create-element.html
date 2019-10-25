@@ -4,14 +4,25 @@
     <li>Код, написанный с использованием <u-code-text>JSX</u-code-text>, будет преобразован в <u-code-text>React.createElement()</u-code-text></li>
 </ul>
 
-<ul class="list-point">
-    <li><u-menu-code>React.createElement</u-menu-code> - создаёт и возвращает новый React-элемент определённого типа</li>
-    <ul class="list-point">
-        <li><u-code-text>type</u-code-text> - строка, содержащая имя тега (например, 'div' или 'span'), React-компонент (класс или функция) или React-фрагмент</li>
-        <li><u-code-text>[props]</u-code-text></li>
-        <li><u-code-text>[...children]</u-code-text></li>
-    </ul>
-</ul>
+<div class="v-method-wrapper">
+    <v-method before="React." method="createElement" after="" arg="(type, [props], [...children])">
+    Создаёт и возвращает новый React-элемент определённого типа
+    </v-method>
+
+	<v-method-arg arg="type">
+		строка, содержащая:
+		<ul class="list-point">
+		    <li>Имя тега (например, 'div' или 'span')</li>
+		    <li>React-компонент (класс или функция)</li>
+		    <li>React-фрагмент</li>
+		</ul>
+	</v-method-arg>
+
+	<v-method-arg arg="[props]">props</v-method-arg>
+	<v-method-arg arg="[...children]">children</v-method-arg>
+
+	<v-method-return>Новый React-элемент определённого типа</v-method-return>
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Варианты createElement</h3>
