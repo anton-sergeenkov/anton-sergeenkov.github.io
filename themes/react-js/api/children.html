@@ -1,12 +1,10 @@
 <h2>Children</h2>
 
-
 <div class="v-method-wrapper">
     <v-method before="props." method="children" after="" arg="">
     передаст дочерние элементы сразу на вывод
     </v-method>
 </div>
-
 
 <div class="v-method-wrapper">
     <v-method before="React." method="Children" after="" arg="">
@@ -52,4 +50,42 @@ const Child = (props) =&gt; (
 		})}
 	&lt;/&gt;
 );
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Передача в child массива</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+const App = () =&gt; (
+	&lt;Child color="blue"&gt;
+		{['First', 'Second', 'Third']}
+	&lt;/Child&gt;
+);
+
+const Child = (props) =&gt; (
+	&lt;&gt;
+		{props.children}
+	&lt;/&gt;
+);
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Передача в child функции (Render Props)</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+const App = () =&gt; (
+	&lt;Child color="blue"&gt;
+		{(element) =&gt; {
+			return &lt;h2&gt;{element}&lt;/h2&gt;
+		}}
+	&lt;/Child&gt;
+);
+
+const Child = (props) =&gt; {
+	return (
+		&lt;&gt;
+			{props.children('test')}
+		&lt;/&gt;
+	);
+};
 </code></pre>
