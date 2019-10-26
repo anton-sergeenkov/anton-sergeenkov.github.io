@@ -5,6 +5,20 @@
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>null</u>, <u>undefined</u>, <u>true</u>, <u>false</u> игнорируются</li>
+    <li><u>object</u> нельзя использовать</li>
+</ul>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+const arr = [];
+{arr.length &amp;&amp; &lt;Component /&gt;} // =&gt; 0
+!!arr.length &amp;&amp; &lt;Component /&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Установка babel</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="bash">

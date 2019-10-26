@@ -735,6 +735,7 @@ var arrTheory = [
     ['theory', 'technology', 'jira', 'Jira'],
 
     [1, 'Прочее'],
+    ['theory', 'other', 'typing',               'Типизация'],
     ['theory', 'other', 'web-applications',     'Виды веб-приложений'],
     ['theory', 'other', 'evolution-web-design', 'Эволюция веб-дизайна'],
     ['theory', 'other', 'frameworks',           'Фреймворки'],
@@ -779,6 +780,7 @@ var arrJsTasks = [
     [1, 'Объекты'],
     ['js-task', 'objects', 'calling-function-as-object', 'Обращение к функции как к объекту'],
     ['js-task', 'objects', 'prototype-inheritance',      'Прототипное наследование'],
+    ['js-task', 'objects', 'copy-and-null',              'Копирование и null'],
 
     [1, 'Полифилы'],
     ['js-task', 'polyphyls', 'object-create',     'Object.create'],
@@ -795,6 +797,7 @@ var arrJsTasks = [
     ['js-task', 'async', 'promise-make-request',       'Promise Make Request'],
     ['js-task', 'async', 'promise-and-settimeout',     'Promise и setTimeout'],
     ['js-task', 'async', 'promise-and-arguments-then', 'Promise и аргументы then'],
+    ['js-task', 'async', 'promise-resolve-reject',     'Promise Resolve / Reject'],
     ['js-task', 'async', 'promise-resolve',            'Promise Resolve'],
     ['js-task', 'async', 'promise-reject',             'Promise Reject'],
     ['js-task', 'async', 'settimeout-for-var',         'setTimeout в for без let'],
