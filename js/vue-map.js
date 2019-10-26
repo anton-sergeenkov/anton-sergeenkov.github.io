@@ -11,6 +11,7 @@ var app = new Vue({
 
 			['Git',               arrGit,        'menu-php'],
 			['Flow',              arrFlow,       'menu-php'],
+			['TypeScript',        arrTypescript, 'menu-php'],
 			['Webpack',           arrWebpack,    'menu-php'],
 			['NPM',               arrNpm,        'menu-php'],
 			['Ramda',             arrRamda,      'menu-php', true],

@@ -1093,6 +1093,18 @@ var arrRamda = [
 
 
 
+//---------------------------------------------------------------------
+// Ramda
+//---------------------------------------------------------------------
+var arrTypescript = [
+    [1, 'Основное'],
+    ['typescript', 'main', 'info',    'Информация'],
+    ['typescript', 'main', 'install', 'Установка и настройка'],
+];
+
+
+
+
 var page = window.location.pathname.split('/');
 var pageName = page[page.length-1];
 
@@ -1124,6 +1136,7 @@ switch(pageName) {
     case 'python.html':      var arrCurrent = arrPython;     break;
     case 'mysql.html':       var arrCurrent = arrMySql;      break;
     case 'ramda.html':       var arrCurrent = arrRamda;      break;
+    case 'typescript.html':  var arrCurrent = arrTypescript; break;
     default:                 var arrCurrent = [];
 }
 

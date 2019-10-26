@@ -11,6 +11,7 @@ var menu = `
     <a href="/pages/canvas.html"      class="menu menu-js">canvas</a>
     
     <a href="/pages/flow.html"        class="menu menu-other">flow</a>
+    <a href="/pages/typescript.html"  class="menu menu-other">typescript</a>
     <a href="/pages/webpack.html"     class="menu menu-other">webpack</a>
     <a href="/pages/npm.html"         class="menu menu-other">npm</a>
     <a href="/pages/git.html"         class="menu menu-other">git</a>
