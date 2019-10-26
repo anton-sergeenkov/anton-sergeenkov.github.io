@@ -1,56 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<link rel="icon" type="image/png" href="img/favicon.png">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<title>Антон Сергеенков. Портфолио Frontend-разработчика</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="img/favicon/favicon.png">
+	<link href="module/preloader/preloader.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-	<div id="content">
-		<div id="map-header">
-			<slot v-for="item in category">
-				<div
-					@click="buildThemes(item[1])" 
-					@mouseover="hoverHeaderMenu = item[1]" 
-					class="map-header-menu"
-					:class="item[2]"
-					v-html="item[0]"
-				></div>
-				<slot v-if="item[3] !== undefined">
-					<h1 style="margin: 0"></h1>
-				</slot>
-			</slot>
+	<header class="starter">
+		<nav class="starter-menu">
+			<ul>
+				<li><a href="#profile">Профайл</a></li>
+				<li><a href="#skills">Навыки</a></li>
+				<li><a href="#portfolio">Портфолио</a></li>
+				<li><a href="#contact">Связь</a></li>
+			</ul>
+		</nav>
+
+		<div class="starter-about">
+			<img src="img/starter/go.jpg">
+			<div class="line"></div>
+			<div class="text">
+				<p>Портфолио</p>
+				<p>frontend-разработчика</p>
+			</div>
 		</div>
 
-		<div :class="{ 'map-themes-content':showContent }" id="map-themes">
-			<slot v-for="item in themesContent">
-				<h2 v-if="item[0]==1" v-html="item[1]"></h2>
-				<h1 v-else-if="item[0]==2" v-html="item[1]" :class="{ 'map-themes-content-h1':showContent }"></h1>
-				<div 
-					v-else 
-					@click="buildContent(item[0], item[1], item[2])" 
-					@mouseover="hoverThemesMenu = [item[0], item[1], item[2]]"
-					v-html="item[3]"
-					class="map-themes-menu" 
-				></div>
-			</slot>
+		<div class="starter-scroll">
+			<a href="#profile"><i class="fab fa-gitter"></i></a>
 		</div>
+	</header>
 
-		<div id="map-content" v-show="pageBuild == true">
-			<div ref="questionContent" id="question-content"></div>
-			<div class="map-content-close" @click="closeContent"></div>
+	<section class="profile" id="profile">
+		<h2>Профайл / Frontend Developer</h2>
+		<div class="content">
+			<div class="profile-photo"></div>
+			<div class="profile-content">
+				<h3>Антон Сергеенков</h3>
+				<p>Frontend Developer</p>
+				<p>
+					<i class="fas fa-external-link-alt"></i>
+					<a href="https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA/edit?usp=sharing" target="_blank">Резюме</a>
+				</p>
+				<p>
+					<i class="fas fa-external-link-alt"></i>
+					<a href="https://github.com/anton-sergeenkov" target="_blank">GitHub</a>
+				</p>
+				<p>
+					<i class="fas fa-external-link-alt"></i>
+					<a href="https://codepen.io/Sergeenkov/" target="_blank">CodePen</a>
+				</p>
+				<a href="https://vk.com/warnes" class="btn-dark-shadow" target="_blank">связаться со мной</a>
+			</div>
+			<div class="profile-direction">
+				<h3>Направления разработки</h3>
+				<p><i class="fab fa-cloudsmith"></i>Frontend разработка</p>
+				<p><i class="fab fa-cloudsmith"></i>Backend разработка</p>
+				<p><i class="fab fa-cloudsmith"></i>UI Design</p>
+				<p><i class="fab fa-cloudsmith"></i>Компьютерная графика</p>
+				<p><i class="fab fa-cloudsmith"></i>Проектирование инормационных систем</p>
+			</div>
 		</div>
-	</div>
+	</section>
 
-	<script src="libraries/vue.js"></script>
-	<script src="libraries/jquery.js"></script>
-	<script src="libraries/highlight/highlight.pack.js"></script>
-	<script src="js/build.js"></script>
+	<section class="skills" id="skills">
+		<h2>Навыки</h2>
+		<div class="content">
+			<div class="chart" data-percent="90">HTML5</div>
+			<div class="chart" data-percent="85">CSS3</div>
+			<div class="chart" data-percent="70">JavaScript</div>
+			<div class="chart" data-percent="45">VueJS</div>
+			<div class="chart" data-percent="45">jQuery</div>
+			<div class="chart" data-percent="35">PHP</div>
+			<!-- <div class="chart" data-percent="70">Sass</div> -->
+			<!-- <div class="chart" data-percent="20">Python</div> -->
+			<!-- <div class="chart" data-percent="70">SQL</div> -->
+			<!-- <div class="chart" data-percent="20">UI Design</div> -->
+		</div>
+	</section>
 
-	<script src="js/custom-elements.js"></script>
-	<script src="js/vue-components.js"></script>
-	<script src="js/vue-map.js"></script>	
+	<section class="portfolio" id="portfolio">
+		<h2>Портфолио</h2>
+		<div class="content">
+			<div class="content-detailing">
+				<div class="picture"></div>
+				<div class="wrapper-description"></div>
+				<div class="close" onclick="showPortfolio();"></div>
+			</div>
+			<div class="content-preview"></div>
+		</div>
+	</section>
+
+	<section class="contact" id="contact">
+		<h2>Связь</h2>
+		<div class="content">
+			<a class="contact-icon" href="https://github.com/anton-sergeenkov" target="_blank"></a>
+			<a class="contact-icon" href="https://codepen.io/Sergeenkov/" target="_blank"></a>
+			<a class="contact-icon" href="https://vk.com/warnes" target="target="_blank"></a>
+			<a class="contact-icon" href="https://www.facebook.com/profile.php?id=100002126643722" target="_blank"></a>
+			<a class="contact-icon" href="https://www.instagram.com/anton.sergeenkov/" target="_blank"></a>
+			<a class="contact-icon" href="mailto:warnes23@yandex.ru"></a>
+		</div>
+	</section>
+
+	<div id="preloader"></div>
+
+	<script src="libs/jquery/jquery-3.3.1.min.js"></script>
+	<script src="module/preloader/preloader.js"></script>
+	<script src="libs/easypiechart/jquery.easypiechart.min.js"></script>
+	<script src="js/portfolio.js"></script>
+	<script src="js/common.js"></script>
 </body>
 </html>

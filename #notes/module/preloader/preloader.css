@@ -8,8 +8,8 @@
     left: 0;
     bottom: 0;
     background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url(wait.svg);
-    background-color: #191919;
+    background-position: center center;   
+    background-image: url(wait.gif);  
+    background-color: white;
     z-index: 2;
 }

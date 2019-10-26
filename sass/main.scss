@@ -1,0 +1,62 @@
+
+@import "_include";
+
+@font-face { font-family: PT-Sans-Bold; src: url(../fonts/PT_Sans-Web-Bold.ttf); }
+@font-face { font-family: PT-Sans-Regular; src: url(../fonts/PT_Sans-Web-Regular.ttf); }
+
+
+::-webkit-scrollbar       { width: 9px; height: 9px;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: rgba(255,255,255,0.2); border-radius: 2px;}
+::-webkit-scrollbar-track { background-color: rgba(255,255,255,0.1); }
+
+
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: $font-s;
+	font-family: $font-family-main;
+	line-height: 1.75;
+	background: $color-dark;
+}
+*, :after, :before {
+	box-sizing: border-box;
+}
+section {
+	@include flex-center;
+	flex-direction: column;
+	padding: 90px 0px;
+}
+.content {
+	width: 80%;
+	max-width: 1200px;
+}
+h2 {
+	margin-bottom: 65px;
+	color: $color-light;
+	text-align: center;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+.btn-dark-shadow {
+	display: inline-block;
+	text-align: center;
+	padding: 10px 20px;
+	transition: 0.7s;
+	font-family: $font-family-header;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+	color: $color-light;
+	letter-spacing: 1px;
+	background: darken($color-gray,20%);
+	box-shadow: 5px 5px 0 0 darken($color-light, 30%);
+	&:hover {
+		background: darken($color-gray,10%);
+		box-shadow: 5px 5px 0 0 darken($color-light, 10%);
+	}
+}
