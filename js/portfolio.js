@@ -101,16 +101,6 @@ var portfolio = new Array(
 		description:  'разработка онлайн конструктора визиток для организации «Бизнес-стиль»'
 	},
 	{
-		img:          17,
-		website:      'https://anton-sergeenkov.github.io/webnotes/',
-		mirror:       '',
-		github:       '',
-		project:      '',
-		organization: '',
-		technologies: 'HTML, CSS, JavaScript, jQuery',
-		description:  'Интерактивный справочник по веб-разработке'
-	},
-	{
 		img:          13,
 		website:      'http://masterlilia.ru/',
 		mirror:       'www/portfolio/23-masterlilia/index.html',
@@ -141,6 +131,16 @@ var portfolio = new Array(
 		description:  'разработка интернет-магазина (витрины) с адаптивной вёрсткой и корзиной товаров для компании «Дверной Формат»'
 	},
 	{
+		img:          18,
+		website:      'https://astek-plazma.ru',
+		mirror:       '',
+		github:       '',
+		project:      '',
+		organization: 'Astek',
+		technologies: 'HTML, CSS, Vue.js, Vuex, JavaScript, Ajax',
+		description:  'Разработка сайта для Astek - производителя промышленного оборудования'
+	},
+	{
 		img:          16,
 		website:      'http://it-school58.ru/ ',
 		mirror:       'www/portfolio/29-itschool/index.html',
@@ -169,5 +169,5 @@ var portfolio = new Array(
 		organization: '',
 		technologies: 'HTML, CSS, JavaScript, jQuery, Ajax, PHP, SQL',
 		description:  'Разработка сайта модельного агентства с административной панелью управления контентом'
-	}
+	},
 );
