@@ -5,20 +5,14 @@
 	<title>Антон Сергеенков. Портфолио Frontend-разработчика</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="img/favicon/favicon.png">
-
-	<link rel="stylesheet" href="css/basic.css">
-	<link rel="stylesheet" href="css/1-starter.css">
-	<link rel="stylesheet" href="css/2-profile.css">
-	<link rel="stylesheet" href="css/3-skills.css">
-	<link rel="stylesheet" href="css/4-portfolio.css">
-	<link rel="stylesheet" href="css/5-contact.css">
-
-	<!-- <link href="module/preloader/preloader.css" rel="stylesheet" type="text/css"> -->
+	<link href="module/preloader/preloader.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-	<header class="starter flex-center full-screen">
+	<header class="starter">
 		<nav class="starter-menu">
 			<ul>
 				<li><a href="#profile">Профайл</a></li>
@@ -29,19 +23,23 @@
 		</nav>
 
 		<div class="starter-about">
-			<img src="img/starter/go.png">
+			<img src="img/starter/go.jpg">
 			<div class="line"></div>
 			<div class="text">
 				<p>Портфолио</p>
 				<p>frontend-разработчика</p>
 			</div>
 		</div>
+
+		<div class="starter-scroll">
+			<a href="#profile"><i class="fab fa-gitter"></i></a>
+		</div>
 	</header>
 
-	<section class="section profile" id="profile">
-		<h2 class="header">Профайл / Frontend Developer</h2>
+	<section class="profile" id="profile">
+		<h2>Профайл / Frontend Developer</h2>
 		<div class="content">
-			<div class="profile-photo img-cover-top"></div>
+			<div class="profile-photo"></div>
 			<div class="profile-content">
 				<h3>Антон Сергеенков</h3>
 				<p>Frontend Developer</p>
@@ -70,56 +68,47 @@
 		</div>
 	</section>
 
-
-	<section class="section skills" id="skills">
-		<h2 class="header">Навыки</h2>
+	<section class="skills" id="skills">
+		<h2>Навыки</h2>
 		<div class="content">
-
-			<div class="skills__wrapper">
-				<div class="skills__container" v-for="tech in techContent" :style="{ gridArea: tech.grid }">
-					<div class="skills__header" v-text="tech.title"></div>
-					<ul class="skills__list">
-						<li class="skills__list-item" v-for="skill in tech.skill">{{skill}}</li>
-					</ul>
-				</div>
-			</div>
-
+			<div class="chart" data-percent="90">HTML5</div>
+			<div class="chart" data-percent="85">CSS3</div>
+			<div class="chart" data-percent="80">JavaScript</div>
+			<div class="chart" data-percent="85">React.js</div>
+			<div class="chart" data-percent="65">Vue.js</div>
 		</div>
 	</section>
 
-	<section class="section portfolio" id="portfolio">
-		<h2 class="header">Портфолио <span style="color: orange">&lt;17 /&gt;</span></h2>
+	<section class="portfolio" id="portfolio">
+		<h2>Портфолио <span style="color: orange">&lt;17 /&gt;</span></h2>
 		<div class="content">
 			<div class="content-detailing">
-				<div class="picture img-cover-center"></div>
+				<div class="picture"></div>
 				<div class="wrapper-description"></div>
-				<div class="close img-contain" onclick="showPortfolio();"></div>
+				<div class="close" onclick="showPortfolio();"></div>
 			</div>
 			<div class="content-preview"></div>
 		</div>
 	</section>
 
-	<section class="section contact img-cover-center" id="contact">
-		<h2 class="header">Связь</h2>
+	<section class="contact" id="contact">
+		<h2>Связь</h2>
 		<div class="content">
-			<a class="contact-icon flex-center" href="https://github.com/anton-sergeenkov" target="_blank"></a>
-			<a class="contact-icon flex-center" href="https://codepen.io/Sergeenkov/" target="_blank"></a>
-			<a class="contact-icon flex-center" href="https://vk.com/warnes" target="_blank"></a>
-			<a class="contact-icon flex-center" href="https://www.facebook.com/profile.php?id=100002126643722" target="_blank"></a>
-			<a class="contact-icon flex-center" href="https://www.instagram.com/anton.sergeenkov/" target="_blank"></a>
-			<a class="contact-icon flex-center" href="mailto:warnes23@yandex.ru"></a>
+			<a class="contact-icon" href="https://github.com/anton-sergeenkov" target="_blank"></a>
+			<a class="contact-icon" href="https://codepen.io/Sergeenkov/" target="_blank"></a>
+			<a class="contact-icon" href="https://vk.com/warnes" target="target="_blank"></a>
+			<a class="contact-icon" href="https://www.facebook.com/profile.php?id=100002126643722" target="_blank"></a>
+			<a class="contact-icon" href="https://www.instagram.com/anton.sergeenkov/" target="_blank"></a>
+			<a class="contact-icon" href="mailto:warnes23@yandex.ru"></a>
 		</div>
 	</section>
 
-	<!-- <div id="preloader"></div> -->
+	<div id="preloader"></div>
+
 	<script src="libs/jquery/jquery-3.3.1.min.js"></script>
-	<!-- <script src="module/preloader/preloader.js"></script> -->
-
-	<script src="api/portfolio.js"></script>
-	<script src="api/skills.js"></script>
-	<script src="libs/vue.js"></script>
-	<script src="js/vue-components.js"></script>
-
+	<script src="module/preloader/preloader.js"></script>
+	<script src="libs/easypiechart/jquery.easypiechart.min.js"></script>
+	<script src="js/portfolio.js"></script>
 	<script src="js/common.js"></script>
 </body>
 </html>

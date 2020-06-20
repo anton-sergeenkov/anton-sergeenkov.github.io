@@ -11,6 +11,25 @@ $('.starter-scroll a, .starter-menu a').on('click', function(e){
 	});
 });
 
+
+//------------------------------------------------------------------------------
+// SKILLS CHART
+//------------------------------------------------------------------------------
+$(function() {
+    $('.chart').easyPieChart({
+        barColor: '#e0e0e2',
+        trackColor: 'rgba(0,0,0,0.2)',
+        lineWidth: 20,
+        lineCap: 'butt',
+        scaleColor: false,
+        size: 150
+    });
+});
+
+// barColor: '#513983',
+// trackColor: '#181c28',
+
+
 //------------------------------------------------------------------------------
 // PORTFOLIIO
 //------------------------------------------------------------------------------
@@ -19,15 +38,12 @@ getPortfolio();
 function getPortfolio() {
     for (var i = portfolio.length; i>0; i--) {
         var html =
-			`<a href="#portfolio">
-				<div
-					class="portfolio-item img-cover-top flex-center"
-					style="background-image: url(img/portfolio/${portfolio[i-1].img}.jpg);"
-					onclick="detailingPortfolio(${i-1})"
-				></div>
-			</a>`;
+			'<a href="#portfolio">'+
+				'<div class="portfolio-item" style="background-image: url(img/portfolio/'+portfolio[i-1].img+'.jpg);" onclick="detailingPortfolio('+(i-1)+');"></div>'+
+			'</a>';
         $('.portfolio .content-preview').append(html);
     }
+
 }
 
 function detailingPortfolio(id) {

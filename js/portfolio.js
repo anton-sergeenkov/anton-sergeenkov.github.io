@@ -1,5 +1,5 @@
 
-const portfolio = [
+var portfolio = new Array(
     {
 		img:          1,
 		website:      'http://фсбмск.рф/',
@@ -170,4 +170,4 @@ const portfolio = [
 		technologies: 'HTML, CSS, JavaScript, jQuery, Ajax, PHP, SQL',
 		description:  'Разработка сайта модельного агентства с административной панелью управления контентом'
 	},
-];
+);
