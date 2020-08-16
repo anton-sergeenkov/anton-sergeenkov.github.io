@@ -1,5 +1,9 @@
+:root {
+	--color-accent: #f7df1e;
+}
+
 .skills {
-	background-image: linear-gradient(to right bottom, #181c28, #1c2033, #20243e, #272849, #2f2b53);
+	background-image: #181c28;
 }
 .skills__wrapper {
 	margin: auto;
@@ -13,16 +17,17 @@
 		"html  html    tech "
 }
 .skills__container {
-	box-shadow: var(--shadow-border-light);
-	background-color: var(--color-light);
+	/*box-shadow: var(--shadow-border-light);*/
+	/*background-color: var(--color-light);*/
 	padding: 20px;
+	border: 1px solid #000;
 }
 .skills__header {
 	margin-bottom: 10px;
 	padding: 5px 10px;
-	border-bottom: 1px solid var(--color-dark);
+	border-bottom: 1px solid var(--color-accent);
 	text-transform: uppercase;
-	color: var(--color-dark);
+	color: var(--color-accent);
 }
 .skills__list {
 	display: flex;
@@ -34,8 +39,9 @@
 .skills__list-item {
 	margin: 4px;
 	padding: 2px 7px;
-	border: 1px solid var(--color-dark);
 	border-radius: var(--border-radius);
 	font-size: var(--font-xxs);
-	color: var(--color-dark);
+
+	border: 1px solid rgba(247, 223, 30, 0.15);
+	color: rgba(247, 223, 30, 0.65);
 }
