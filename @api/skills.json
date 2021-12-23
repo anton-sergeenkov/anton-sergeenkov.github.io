@@ -1,38 +1,80 @@
 [
-	{
-		"title": "Верстка",
-		"skill": [
-			["HTML5", "CSS3"],
-			["Bootstrap", "Flexbox", "CSS Grid"], 
-			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
-			["CSS-in-JS", "CSS Modules"]
-		]
-	},
-	{
-		"title": "JavaScript",
-		"skill": [
-			["HTML5", "CSS3"],
-			["Bootstrap", "Flexbox", "CSS Grid"], 
-			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
-			["CSS-in-JS", "CSS Modules"]
-		]
-	},
-	{
-		"title": "Vue.js",
-		"skill": [
-			["HTML5", "CSS3"],
-			["Bootstrap", "Flexbox", "CSS Grid"], 
-			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
-			["CSS-in-JS", "CSS Modules"]
-		]
-	},
-	{
-		"title": "Тестирование",
-		"skill": [
-			["HTML5", "CSS3"],
-			["Bootstrap", "Flexbox", "CSS Grid"], 
-			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
-			["CSS-in-JS", "CSS Modules"]
-		]
-	}
+    {
+        "title": "Layout",
+        "skill": [
+            ["HTML5", "CSS3"],
+            ["Flexbox", "CSS Grid"],
+            ["Bootstrap", "Sass", "PostCSS", "CSS-in-JS", "CSS Modules"],
+            ["SVG", "CSS Custom Properties"]
+        ]
+    },
+    {
+        "title": "Frontend",
+        "skill": [
+            ["TypeScript", "Flow"],
+            ["JavaScript", "ES5", "ES6+", "Canvas"],
+            ["Webpack", "Babel", "Gulp"],
+            ["NPM", "Yarn"],
+            ["Axios", "jQuery"],
+            ["ramda", "lodash"]
+        ]
+    },
+    {
+        "title": "Framework React.js",
+        "skill": [
+            ["React.js", "React Hooks"],
+            ["Next.js"],
+            ["redux", "react-redux", "reselect", "redux-thunk"],
+            ["react-router"],
+            ["formik", "react-final-form", "yup"],
+            ["react-query"],
+            ["Material-UI", "Storybook", "PropTypes"]
+        ]
+    },
+    {
+        "title": "Framework Vue.js",
+        "skill": [
+            ["Vue.js", "Vuex", "Vue Router"],
+            ["VuePress"],
+            ["Vue CLI 3", "Vuetify.js"]
+        ]
+    },
+    {
+        "title": "Backend",
+        "skill": [
+            ["Node.js"],
+            ["MySQL", "SQL"]
+        ]
+    },
+    {
+        "title": "Testing",
+        "skill": [
+            ["Jest", "Enzyme"],
+            ["Cypress"]
+        ]
+    },
+    {
+        "title": "Technologies",
+        "skill": [
+            ["Git", "GitHub", "GitLab", "Bitbucket"],
+            ["Jira"],
+            ["Jenkins"]
+        ]
+    },
+    {
+        "title": "Methodology",
+        "skill": [
+            ["Agile", "Scrum"],
+            ["Gitflow"]
+        ]
+    },
+    {
+        "title": "Other (starting knowledge)",
+        "skill": [
+            ["OpenGL", "Ogre3D"],
+            ["PHP", "Python", "C++", "Java", "C#", "Delphi"],
+            ["Firebird"],
+            ["WordPress"]
+        ]
+    }
 ]
