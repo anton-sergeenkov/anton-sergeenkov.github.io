@@ -1,7 +1,7 @@
 [
     {
         "title": "Layout",
-        "skill": [
+        "items": [
             ["HTML5", "CSS3"],
             ["Flexbox", "CSS Grid"],
             ["Bootstrap", "Sass", "PostCSS", "CSS-in-JS", "CSS Modules"],
@@ -10,7 +10,7 @@
     },
     {
         "title": "Frontend",
-        "skill": [
+        "items": [
             ["TypeScript", "Flow"],
             ["JavaScript", "ES5", "ES6+", "Canvas"],
             ["Webpack", "Babel", "Gulp"],
@@ -21,7 +21,7 @@
     },
     {
         "title": "Framework React.js",
-        "skill": [
+        "items": [
             ["React.js", "React Hooks"],
             ["Next.js"],
             ["redux", "react-redux", "reselect", "redux-thunk"],
@@ -33,7 +33,7 @@
     },
     {
         "title": "Framework Vue.js",
-        "skill": [
+        "items": [
             ["Vue.js", "Vuex", "Vue Router"],
             ["VuePress"],
             ["Vue CLI 3", "Vuetify.js"]
@@ -41,21 +41,21 @@
     },
     {
         "title": "Backend",
-        "skill": [
+        "items": [
             ["Node.js"],
             ["MySQL", "SQL"]
         ]
     },
     {
         "title": "Testing",
-        "skill": [
+        "items": [
             ["Jest", "Enzyme"],
             ["Cypress"]
         ]
     },
     {
         "title": "Technologies",
-        "skill": [
+        "items": [
             ["Git", "GitHub", "GitLab", "Bitbucket"],
             ["Jira"],
             ["Jenkins"]
@@ -63,14 +63,14 @@
     },
     {
         "title": "Methodology",
-        "skill": [
+        "items": [
             ["Agile", "Scrum"],
             ["Gitflow"]
         ]
     },
     {
         "title": "Other (starting knowledge)",
-        "skill": [
+        "items": [
             ["OpenGL", "Ogre3D"],
             ["PHP", "Python", "C++", "Java", "C#", "Delphi"],
             ["Firebird"],
