@@ -52,14 +52,15 @@ STACK
 	padding: 0 15px;
 }
 #stack .list-item {
-	margin: 10px 5px;
+	margin: 5px;
 	font-size: 11px;
 	color: rgba(var(--color-gray), 1);
 }
 #stack .list-text {
+	display: inline-block;
 	margin-right: 5px;
+	margin-top: 5px;
 	padding: 3px 5px;
-	white-space: nowrap;
 	font-size: 14px;
 	font-family: Consolas;
 	color: var(--color-dark);
