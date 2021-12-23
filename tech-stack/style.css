@@ -59,11 +59,18 @@ STACK
 #stack .list-text {
 	margin-right: 5px;
 	padding: 3px 5px;
+	white-space: nowrap;
 	font-size: 14px;
 	font-family: Consolas;
 	color: var(--color-dark);
 	border-radius: 6px;
 	background-color: rgba(var(--color-gray), .2);
+}
+
+@media screen and (max-width: 850px) {
+	#stack.wrapper {
+		width: 90%;
+	}
 }
 
 /***************************************************
