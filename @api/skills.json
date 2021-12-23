@@ -1,0 +1,38 @@
+[
+	{
+		"title": "Верстка",
+		"skill": [
+			["HTML5", "CSS3"],
+			["Bootstrap", "Flexbox", "CSS Grid"], 
+			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
+			["CSS-in-JS", "CSS Modules"],
+		],
+	},
+	{
+		"title": "JavaScript",
+		"skill": [
+			["HTML5", "CSS3"],
+			["Bootstrap", "Flexbox", "CSS Grid"], 
+			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
+			["CSS-in-JS", "CSS Modules"],
+		],
+	},
+	{
+		"title": "Vue.js",
+		"skill": [
+			["HTML5", "CSS3"],
+			["Bootstrap", "Flexbox", "CSS Grid"], 
+			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
+			["CSS-in-JS", "CSS Modules"],
+		],
+	},
+	{
+		"title": "Тестирование",
+		"skill": [
+			["HTML5", "CSS3"],
+			["Bootstrap", "Flexbox", "CSS Grid"], 
+			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
+			["CSS-in-JS", "CSS Modules"],
+		],
+	},
+]
