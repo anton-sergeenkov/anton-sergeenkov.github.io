@@ -5,8 +5,8 @@
 			["HTML5", "CSS3"],
 			["Bootstrap", "Flexbox", "CSS Grid"], 
 			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
-			["CSS-in-JS", "CSS Modules"],
-		],
+			["CSS-in-JS", "CSS Modules"]
+		]
 	},
 	{
 		"title": "JavaScript",
@@ -14,8 +14,8 @@
 			["HTML5", "CSS3"],
 			["Bootstrap", "Flexbox", "CSS Grid"], 
 			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
-			["CSS-in-JS", "CSS Modules"],
-		],
+			["CSS-in-JS", "CSS Modules"]
+		]
 	},
 	{
 		"title": "Vue.js",
@@ -23,8 +23,8 @@
 			["HTML5", "CSS3"],
 			["Bootstrap", "Flexbox", "CSS Grid"], 
 			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
-			["CSS-in-JS", "CSS Modules"],
-		],
+			["CSS-in-JS", "CSS Modules"]
+		]
 	},
 	{
 		"title": "Тестирование",
@@ -32,7 +32,7 @@
 			["HTML5", "CSS3"],
 			["Bootstrap", "Flexbox", "CSS Grid"], 
 			["SVG", "CSS Custom Properties", "Sass", "PostCSS"],
-			["CSS-in-JS", "CSS Modules"],
-		],
+			["CSS-in-JS", "CSS Modules"]
+		]
 	}
 ]
