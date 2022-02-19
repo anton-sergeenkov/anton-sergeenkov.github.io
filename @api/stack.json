@@ -12,7 +12,7 @@
         "title": "Frontend",
         "items": [
             ["TypeScript", "Flow"],
-            ["JavaScript", "ES5", "ES6+", "Canvas"],
+            ["JavaScript", "ES5", "ES6", "ESNext", "Canvas"],
             ["Webpack", "Babel", "Gulp"],
             ["NPM", "Yarn"],
             ["Axios", "jQuery"],
