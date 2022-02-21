@@ -1,4 +1,5 @@
 // https://raw.githubusercontent.com/anton-sergeenkov/anton-sergeenkov.github.io/master/%40api/stack.json
+
 const api = '/@api/stack.json';
 
 new Vue({

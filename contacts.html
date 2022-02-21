@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Антон Сергеенков. Портфолио Frontend-разработчика</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="img/favicon/favicon.png">
+
+	<link rel="stylesheet" href="./@contacts/style.css">
+</head>
+<body>
+
+	<div id="contacts">
+		<table>
+			<tr v-for="contact in contactsContent">
+				<td><span class="header" v-text="contact.title"></span></td>
+				<td><a :href="contact.url" v-text="contact.url" target="_blank"></a></td>
+				<td><span class="badge" v-text="contact.username"></span></td>
+			</tr>
+		</table>
+	</div>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
+	<script src="./@contacts/script.js"></script>
+
+</body>
+</html>

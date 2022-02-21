@@ -1,0 +1,59 @@
+/***************************************************
+COMMON
+/***************************************************/
+:root {
+	--color-white: #ffffff;
+	--color-light: #f8f9fa;
+	--color-gray:  #6b6b6b;
+	--color-dark:  #24292f;
+	--color-brown: 179, 183, 104;
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background-color: var(--color-light);
+}
+
+/***************************************************
+TABLE
+/***************************************************/
+table {
+	border-collapse: collapse;
+	margin: auto;
+	margin-top: 20px;
+}
+td {
+	padding: 25px;
+}
+tr {
+	border-bottom: 10px solid var(--color-light);
+	background-color: var(--color-white);
+	margin-bottom: 10px;
+}
+
+/***************************************************
+ELEMENTS
+/***************************************************/
+.header {
+	padding-bottom: 5px;
+	font-size: 17px;
+	font-weight: 600;
+	font-family: "Segoe UI", Helvetica, Arial;
+	color: var(--color-dark);
+}
+a {
+	color: var(--color-gray);
+}
+.badge {
+	padding: 5px 7px;
+	font-size: 14px;
+	font-family: Consolas;
+	color: var(--color-dark);
+	border-radius: 6px;
+	background-color: rgba(var(--color-brown), .2);
+	color: rgb(var(--color-brown))
+}
