@@ -11,13 +11,13 @@
 <body>
 
 	<div id="contacts">
-		<table>
-			<tr v-for="contact in contactsContent">
-				<td><span class="header" v-text="contact.title"></span></td>
-				<td><a :href="contact.url" v-text="contact.url" target="_blank"></a></td>
-				<td><span class="badge" v-text="contact.username"></span></td>
-			</tr>
-		</table>
+		<div class="wrapper">
+			<div class="container" v-for="contact in contactsContent">
+				<div class="item"><span class="header" v-text="contact.title"></span></div>
+				<div class="item"><a :href="contact.url" v-text="contact.url" target="_blank"></a></div>
+				<div class="item"><span class="badge" v-text="contact.username"></span></div>
+			</div>
+		<div/>
 	</div>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
