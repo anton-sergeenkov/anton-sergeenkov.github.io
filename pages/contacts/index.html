@@ -4,17 +4,17 @@
 	<meta charset="UTF-8">
 	<title>Антон Сергеенков. Портфолио Frontend-разработчика</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="img/favicon/favicon.png">
+	<link rel="icon" type="image/png" href="/img/favicon/favicon.png">
 
-	<link rel="stylesheet" href="./@contacts/style.css">
+	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
 	<div id="contacts">
-		<div v-for="contact in contactsContent">
+		<div v-for="contact in contactsContent" class="wrapper">
 			<h4 v-text="contact.title" class="header"></h4>
-			<div class="wrapper">
-				<div class="container" v-for="data in contact.data">
+			<div class="wrapper-item">
+				<div class="container-item" v-for="data in contact.data">
 					<div class="item"><span class="title" v-text="data.title"></span></div>
 					<div class="item"><a :href="data.url" v-text="data.url" target="_blank"></a></div>
 					<div class="item"><span class="badge" v-text="data.username" v-if="data.username !== ''"></span></div>
@@ -24,11 +24,7 @@
 	</div>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
-	<script src="./@contacts/script.js"></script>
+	<script src="./script.js"></script>
 
 </body>
 </html>
-
-
-
-
