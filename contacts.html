@@ -11,13 +11,16 @@
 <body>
 
 	<div id="contacts">
-		<div class="wrapper">
-			<div class="container" v-for="contact in contactsContent">
-				<div class="item"><span class="header" v-text="contact.title"></span></div>
-				<div class="item"><a :href="contact.url" v-text="contact.url" target="_blank"></a></div>
-				<div class="item"><span class="badge" v-text="contact.username" v-if="contact.username !== ''"></span></div>
+		<div v-for="contact in contactsContent">
+			<h4 v-text="contact.title" class="header"></h4>
+			<div class="wrapper">
+				<div class="container" v-for="data in contact.data">
+					<div class="item"><span class="title" v-text="data.title"></span></div>
+					<div class="item"><a :href="data.url" v-text="data.url" target="_blank"></a></div>
+					<div class="item"><span class="badge" v-text="data.username" v-if="data.username !== ''"></span></div>
+				</div>
 			</div>
-		<div/>
+		</div>
 	</div>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
@@ -25,3 +28,7 @@
 
 </body>
 </html>
+
+
+
+

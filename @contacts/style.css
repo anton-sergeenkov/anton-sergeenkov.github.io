@@ -31,8 +31,13 @@ TABLE
 	flex-wrap: wrap;
 	grid-template-columns: auto auto auto;
 	margin: auto;
+	width: 800px;
+}
+.header {
+	margin: auto;
 	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 0;
+	padding: 10px;
 	width: 800px;
 }
 .wrapper .item {
@@ -54,7 +59,7 @@ TABLE
 /***************************************************
 ELEMENTS
 /***************************************************/
-.header {
+.title {
 	padding-bottom: 5px;
 	font-size: 17px;
 	font-weight: 600;
