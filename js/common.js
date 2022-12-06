@@ -2,7 +2,7 @@
 //------------------------------------------------------------------------------
 // HEADER MENU
 //------------------------------------------------------------------------------
-$('.starter-scroll a, .starter-menu .prevent').on('click', function(e){
+$('.starter-scroll a, .starter-menu a').on('click', function(e){
 	e.preventDefault();
 	$(document).off('scroll');
 	var anchor = $(this).attr('href');
