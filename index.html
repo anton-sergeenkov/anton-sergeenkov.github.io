@@ -1,115 +1,69 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Антон Сергеенков. Портфолио Frontend-разработчика</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="img/favicon/favicon.png">
-	<link href="module/preloader/preloader.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/index.css">
+    <title>Anton Sergeenkov. Frontend Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="img/favicon.svg" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
+    <div id="root" class="wrapper">
 
-	<header class="starter">
-		<nav class="starter-menu">
-			<ul>
-				<li><a class="prevent" href="#profile">Профайл</a></li>
-				<li><a class="prevent" href="#portfolio">Freelance</a></li>
+    <!-- HEADER -->
+    <header class="header__container">
+        <div class="header__logo"></div>
+        <div class="header__content">
+            <h1 class="header__text">Anton Sergeenkov</h1>
+            <h2 class="header__text">Frontend Developer</h2>
+            <div class="list__container">
+                <slot v-for="item in linksMain">
+                    <div v-html="item.name"></div>
+                    <a
+                        class="list__link"
+                        :href="item.link"
+                        target="_blank"
+                        v-html="item.title ? item.title : item.link"
+                    ></a>
+                </slot>
+            </div>
+        </div>
+    </header>
 
-				<li><a href="/pages/contacts">🔖 Контакты</a></li>
-				<li><a href="/pages/stack">🔖 Стек технологий</a></li>
-				<li><a href="/pages/qr">🔖 QR</a></li>
-			</ul>
-		</nav>
+    <!-- PROJECTS -->
+    <section>
+        <h2>Проекты</h2>
+        <div class="courses__container">
+            <div class="courses__course" v-for="itemProjects in sectionProjects">
+                <a
+                    :href="itemProjects.link"
+                    class="courses__logo"
+                    target="_blank"
+                >
+                <div class="courses__logo_item" :style="'background-image: url('+itemProjects.img+');'"></div>
+                </a>
+                <div class="courses__content">
+                    <h3 v-html="itemProjects.title"></h3>
+                    <div class="courses__description" v-html="itemProjects.description"></div>
+                    <div class="courses__links">
+                        <div v-for="item in itemProjects.links">
+                            <span>› </span>
+                            <a
+                                class="courses__link"
+                                :href="item.link"
+                                target="_blank"
+                                v-html="item.name"
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<div class="starter-about">
-			<img src="img/starter/go.jpg">
-			<div class="line"></div>
-			<div class="text">
-				<p>Портфолио</p>
-				<p>frontend-разработчика</p>
-			</div>
-		</div>
+    </div>
 
-		<div class="starter-scroll">
-			<a href="#profile"><i class="fab fa-gitter"></i></a>
-		</div>
-	</header>
-
-	<section class="profile" id="profile">
-		<h2>Профайл / Frontend Developer</h2>
-		<div class="content">
-			<div class="profile-photo"></div>
-			<div class="profile-content">
-				<h3>Антон Сергеенков</h3>
-				<p>Frontend Developer</p>
-				<p><i class="fas fa-external-link-alt"></i><a href="/pages/contacts">Контакты</a></p>
-				<p><i class="fas fa-external-link-alt"></i><a href="/pages/stack">Стек технологий</a></p>
-				<p><i class="fas fa-external-link-alt"></i><a href="/pages/qr">QR</a></p>
-				<p>
-					<i class="fas fa-external-link-alt"></i>
-					<a href="https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA/edit?usp=sharing" target="_blank">Резюме</a>
-				</p>
-				<p>
-					<i class="fas fa-external-link-alt"></i>
-					<a href="https://github.com/anton-sergeenkov" target="_blank">GitHub</a>
-				</p>
-				<a href="https://vk.com/anton.sergeenkov" class="btn-dark-shadow" target="_blank">связаться со мной</a>
-			</div>
-			<div class="profile-direction">
-				<h3>Направления разработки</h3>
-				<p><i class="fab fa-cloudsmith"></i>Frontend разработка</p>
-				<p><i class="fab fa-cloudsmith"></i>Backend разработка</p>
-				<p><i class="fab fa-cloudsmith"></i>UI / UX Design</p>
-				<p><i class="fab fa-cloudsmith"></i>Компьютерная графика</p>
-				<p><i class="fab fa-cloudsmith"></i>Проектирование инормационных систем</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- <section class="skills" id="skills">
-		<h2>Навыки</h2>
-		<div class="content">
-			<div class="chart" data-percent="90">HTML5</div>
-			<div class="chart" data-percent="85">CSS3</div>
-			<div class="chart" data-percent="80">JavaScript</div>
-			<div class="chart" data-percent="85">React.js</div>
-			<div class="chart" data-percent="65">Vue.js</div>
-		</div>
-	</section> -->
-
-	<section class="portfolio" id="portfolio">
-		<h2>Freelance <span style="color: orange">&lt;17 /&gt;</span></h2>
-		<div class="content">
-			<div class="content-detailing">
-				<div class="picture"></div>
-				<div class="wrapper-description"></div>
-				<div class="close" onclick="showPortfolio();"></div>
-			</div>
-			<div class="content-preview"></div>
-		</div>
-	</section>
-
-	<!-- <section class="contact" id="contact">
-		<h2>Связь</h2>
-		<div class="content">
-			<a class="contact-icon" href="https://github.com/anton-sergeenkov" target="_blank"></a>
-			<a class="contact-icon" href="https://codepen.io/Sergeenkov/" target="_blank"></a>
-			<a class="contact-icon" href="https://vk.com/warnes" target="target="_blank"></a>
-			<a class="contact-icon" href="https://www.facebook.com/profile.php?id=100002126643722" target="_blank"></a>
-			<a class="contact-icon" href="https://www.instagram.com/anton.sergeenkov/" target="_blank"></a>
-			<a class="contact-icon" href="mailto:warnes23@yandex.ru"></a>
-		</div>
-	</section> -->
-
-	<div id="preloader"></div>
-
-	<script src="libs/jquery/jquery-3.3.1.min.js"></script>
-	<script src="module/preloader/preloader.js"></script>
-	<script src="libs/easypiechart/jquery.easypiechart.min.js"></script>
-	<script src="js/portfolio.js"></script>
-	<script src="js/common.js"></script>
+    <script src="libs/vue.js"></script>
+    <script src="js/vue.js"></script>
 </body>
 </html>
