@@ -33,23 +33,23 @@
     <!-- PROJECTS -->
     <section>
         <h2>Проекты</h2>
-        <div class="courses__container">
-            <div class="courses__course" v-for="itemProjects in sectionProjects">
+        <div class="projects__container">
+            <div class="projects__item" v-for="itemProjects in sectionProjects">
                 <a
                     :href="itemProjects.link"
-                    class="courses__logo"
+                    class="projects__logo"
                     target="_blank"
                 >
-                <div class="courses__logo_item" :style="'background-image: url('+itemProjects.img+');'"></div>
+                    <div class="projects__logo_item" :style="'background-image: url('+itemProjects.img+');'"></div>
                 </a>
-                <div class="courses__content">
+                <div class="projects__content">
                     <h3 v-html="itemProjects.title"></h3>
-                    <div class="courses__description" v-html="itemProjects.description"></div>
-                    <div class="courses__links">
+                    <div class="projects__description" v-html="itemProjects.description"></div>
+                    <div class="projects__links">
                         <div v-for="item in itemProjects.links">
                             <span>› </span>
                             <a
-                                class="courses__link"
+                                class="projects__links_item"
                                 :href="item.link"
                                 target="_blank"
                                 v-html="item.name"
