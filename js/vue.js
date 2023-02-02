@@ -39,9 +39,6 @@ const ARR_PROJECTS = [
             { name: 'Группа ВКонтакте', link: 'https://vk.com/workshop_panda' },
         ],
     },
-
-    panda_develop
-    
     {
         title: "Блог Berserker",
         link: 'https://dzen.ru/berserker',
