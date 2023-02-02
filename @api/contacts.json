@@ -63,8 +63,15 @@
 		"title": "CV",
 		"data": [
 			{
+				"url": "https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA/",
+				"title": "Google Doc",
+				"long": true,
+				"username": ""
+			},
+			{
 				"url": "https://penza.hh.ru/resume/4f49e957ff05faa54c0039ed1f42525a674d33",
 				"title": "Head Hunter",
+				"long": true,
 				"username": ""
 			},
 			{
