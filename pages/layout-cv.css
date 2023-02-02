@@ -17,6 +17,9 @@ LAYOUT
 .g-container {
 	margin-bottom: 40px;
 }
+.g-container:last-child {
+	margin-bottom: 0;
+}
 .g-header {
 	margin-bottom: 10px;
 	padding: 5px 10px;
@@ -29,6 +32,10 @@ LAYOUT
 	font-family: var(--font-segoe);
 	color: rgb(var(--color-blue-dark));
 }
+
+/***************************************************
+LIST
+/***************************************************/
 .g-list {
 	padding: 0 15px;
 }
@@ -37,18 +44,24 @@ LAYOUT
 	font-size: 11px;
 	color: rgba(var(--color-gray-dark), 1);
 }
-.g-list-text {
+.g-list-badge {
 	display: inline-block;
 	margin-right: 5px;
 	margin-top: 5px;
 	padding: 3px 5px;
 	font-size: 14px;
-	font-family: Consolas;
+	font-family: var(--font-consolas);
 	color: rgba(var(--color-blue-dark));
 	border-radius: 6px;
 	background-color: rgba(var(--color-gray-dark), .2);
 }
+.g-list-badge:last-child {
+	margin-right: 0;
+}
 
+/***************************************************
+ADAPTIVE
+/***************************************************/
 @media screen and (max-width: 850px) {
 	.g-wrapper {
 		width: 90%;
