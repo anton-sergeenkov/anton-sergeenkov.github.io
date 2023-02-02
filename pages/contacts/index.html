@@ -2,13 +2,12 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Антон Сергеенков. Портфолио Frontend-разработчика</title>
+    <title>Anton Sergeenkov. Frontend Developer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="../../img/favicon.svg">
 
 	<link rel="stylesheet" href="../basic.css">
 	<link rel="stylesheet" href="../layout-cv.css">
-
 	<!-- <link rel="stylesheet" href="./style.css"> -->
 </head>
 <body>
@@ -24,7 +23,7 @@
 				<li class="g-list-item" v-for="data in contact.data">
 					<div class="g-list-item-wrapper">
 						<span class="g-list-badge" v-text="data.title"></span>
-						<a class="g-list-link" :href="data.url" v-text="data.url" target="_blank"></a>
+						<a class="g-list-link" :href="data.url" v-text="data.alias ? data.alias : data.url" target="_blank"></a>
 						<!-- <span class="g-list-badge-outline" v-text="data.username" v-if="data.username !== ''"></span> -->
 					</div>
 				</li>
