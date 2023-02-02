@@ -31,12 +31,12 @@ const ARR_PROJECTS = [
     },
     {
         title: "Веб-мастерская Panda",
-        link: 'https://vk.com/penza_web',
+        link: 'https://vk.com/panda_develop',
         img: PATH_IMG+'projects/panda.png',
-        description: 'Веб-мастерская по созданию сайтов и freelance проекты',
+        description: 'Веб-мастерская по созданию сайтов и Freelance проекты',
         links: [
-            { name: 'Сайт', link: 'https://vk.com/penza_web' },
-            { name: 'ВК', link: 'https://vk.com/penza_web' },
+            { name: 'Сайт', link: 'https://vk.com/dev_workshop' },
+            { name: 'Группа ВКонтакте', link: 'https://vk.com/dev_workshop' },
         ],
     },
     {
