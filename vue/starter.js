@@ -1,19 +1,19 @@
 
 /*
 Let's Code
-› Сайт             https://anton-sergeenkov.github.io/
-› Контакты         https://anton-sergeenkov.github.io/pages/contacts/
-› Стек технологий  https://anton-sergeenkov.github.io/pages/stack/
-› Scan QR          https://anton-sergeenkov.github.io/pages/qr/
-› CV               https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA/
+› Сайт             https://anton-sergeenkov.github.io
+› Контакты         https://anton-sergeenkov.github.io/contacts
+› Стек технологий  https://anton-sergeenkov.github.io/stack
+› Scan QR          https://anton-sergeenkov.github.io/qr
+› CV               https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA
 */
 
 const ARR_LINKS_MAIN = [
-    { name: '› Сайт',             link: 'https://anton-sergeenkov.github.io/' },
-    { name: '› Контакты',         link: 'https://anton-sergeenkov.github.io/pages/contacts/' },
-    { name: '› Стек технологий',  link: 'https://anton-sergeenkov.github.io/pages/stack/' },
-    { name: '› Scan QR',          link: 'https://anton-sergeenkov.github.io/pages/qr/' },
-    { name: '› CV',               title: 'Google Doc', link: 'https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA/' },
+    { name: '› Сайт',             link: 'https://anton-sergeenkov.github.io' },
+    { name: '› Контакты',         link: 'https://anton-sergeenkov.github.io/contacts' },
+    { name: '› Стек технологий',  link: 'https://anton-sergeenkov.github.io/stack' },
+    { name: '› Scan QR',          link: 'https://anton-sergeenkov.github.io/qr' },
+    { name: '› CV',               title: 'Google Doc', link: 'https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA' },
 ];
 
 const PATH_IMG = 'img/';
