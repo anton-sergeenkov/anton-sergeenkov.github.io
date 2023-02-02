@@ -31,14 +31,17 @@ const ARR_PROJECTS = [
     },
     {
         title: "Веб-мастерская Panda",
-        link: 'https://vk.com/panda_develop',
+        link: 'https://workshop-panda.github.io/',
         img: PATH_IMG+'projects/panda.png',
         description: 'Веб-мастерская по созданию сайтов и Freelance проекты',
         links: [
-            { name: 'Сайт', link: 'https://vk.com/dev_workshop' },
-            { name: 'Группа ВКонтакте', link: 'https://vk.com/dev_workshop' },
+            { name: 'Сайт', link: 'https://workshop-panda.github.io/' },
+            { name: 'Группа ВКонтакте', link: 'https://vk.com/workshop_panda' },
         ],
     },
+
+    panda_develop
+    
     {
         title: "Блог Berserker",
         link: 'https://dzen.ru/berserker',
