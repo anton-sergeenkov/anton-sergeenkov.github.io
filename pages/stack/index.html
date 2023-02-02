@@ -21,7 +21,9 @@
 
 			<ul class="g-list">
 				<li class="g-list-item" v-for="stackArr in stackObj.items">
-					<span class="g-list-badge" v-for="stackItem in stackArr" v-text="stackItem"></span>
+					<div class="g-list-item-wrapper">
+						<span class="g-list-badge" v-for="stackItem in stackArr" v-text="stackItem"></span>
+					</div>
 				</li>
 			</ul>
 

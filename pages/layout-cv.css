@@ -40,16 +40,18 @@ LIST
 	padding: 0 15px;
 }
 .g-list-item {
-	margin: 5px;
-	font-size: 11px;
+	margin: 10px 5px;
+	font-size: 14px;
 	color: rgba(var(--color-gray-dark), 1);
+}
+.g-list-item-wrapper {
+	display: flex;
+	align-items: center;
 }
 .g-list-badge {
 	display: inline-block;
 	margin-right: 5px;
-	margin-top: 5px;
 	padding: 3px 5px;
-	font-size: 14px;
 	font-family: var(--font-consolas);
 	color: rgba(var(--color-blue-dark));
 	border-radius: 6px;
@@ -57,6 +59,17 @@ LIST
 }
 .g-list-badge:last-child {
 	margin-right: 0;
+}
+.g-list-link {
+	color: rgb(var(--color-blue-dark));
+	margin-right: 5px;
+}
+.g-list-badge-outline {
+	padding: 3px 5px;
+	font-family: var(--font-consolas);
+	color: rgba(var(--color-blue-dark));
+	border: 1px solid rgba(var(--color-gray-dark), .2);
+	border-radius: 6px;
 }
 
 /***************************************************
