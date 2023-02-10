@@ -123,6 +123,43 @@ COMMON
 	margin-bottom: 30px;
 }
 
+
+/***************************************************
+MENU
+/***************************************************/
+.menu {}
+.menu__list {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+}
+.menu__list_item {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-right: 10px;
+
+}
+.menu__list_item:last-child {
+	margin-right: 0;
+}
+.menu__list_link {
+    display: block;
+	color: #4b4b4d;
+	transition: 0.4s;
+	text-decoration: none;
+	padding: 2px 10px;
+	color: rgba(5, 25, 55, .9);
+	font-weight: 500;
+/*	border-radius: 10px;*/
+/*	box-shadow: var(--box-shadow);*/
+	border: 1px solid transparent;
+}
+.menu__list_link:hover {
+	border-bottom: 1px solid rgba(5, 25, 55, .7);
+}
+
 /***************************************************
 HEADER
 /***************************************************/
