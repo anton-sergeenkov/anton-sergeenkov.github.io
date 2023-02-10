@@ -23,6 +23,11 @@
 		"title": "Messengers",
 		"data": [
 			{
+				"url": "https://join.skype.com/invite/hZmBtAZQ0EXY",
+				"title": "Skype",
+				"username": "sergeenkov.anton"
+			},
+			{
 				"url": "https://t.me/anton_sergeenkov",
 				"title": "Telegram",
 				"username": "anton_sergeenkov"
@@ -36,11 +41,6 @@
 				"url": "https://viber.click/79674466458",
 				"title": "Viber",
 				"username": ""
-			},
-			{
-				"url": "https://join.skype.com/invite/hZmBtAZQ0EXY",
-				"title": "Skype",
-				"username": "sergeenkov.anton"
 			}
 		]
 	},
