@@ -30,6 +30,15 @@ const ARR_PROJECTS = [
         ],
     },
     {
+        title: "Блог Berserker",
+        link: 'https://dzen.ru/berserker',
+        img: PATH_IMG+'projects/berserker.png',
+        description: 'Блог по скандинавской и славянской мифологии',
+        links: [
+            { name: 'Яндекс Дзен', link: 'https://dzen.ru/berserker' },
+        ],
+    },
+    {
         title: "Веб-мастерская Panda",
         link: 'https://workshop-panda.github.io/',
         img: PATH_IMG+'projects/panda.png',
@@ -37,15 +46,6 @@ const ARR_PROJECTS = [
         links: [
             { name: 'Сайт', link: 'https://workshop-panda.github.io/' },
             { name: 'Группа ВКонтакте', link: 'https://vk.com/workshop_panda' },
-        ],
-    },
-    {
-        title: "Блог Berserker",
-        link: 'https://dzen.ru/berserker',
-        img: PATH_IMG+'projects/berserker.png',
-        description: 'Блог по скандинавской и славянской мифологии',
-        links: [
-            { name: 'Яндекс Дзен', link: 'https://dzen.ru/berserker' },
         ],
     },
 ];
