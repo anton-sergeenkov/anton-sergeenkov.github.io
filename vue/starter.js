@@ -9,12 +9,11 @@ Let's Code
 */
 
 const ARR_LINKS_MAIN = [
-    { name: '› Website',             link: 'https://anton-sergeenkov.github.io' },
-    { name: '› GitHub',             link: 'https://github.com/anton-sergeenkov' },
-    // { name: '› Contacts',            link: 'https://anton-sergeenkov.github.io/contacts' },
-    // { name: '› Technologies Stack',  link: 'https://anton-sergeenkov.github.io/stack' },
-    // { name: '› Scan QR',             link: 'https://anton-sergeenkov.github.io/qr' },
-    { name: '› CV',                  title: 'Google Doc', link: 'https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA' },
+    { name: '› Website',   link: 'https://anton-sergeenkov.github.io' },
+    { name: '› GitHub',    link: 'https://github.com/anton-sergeenkov' },
+    { name: '› LinkedIn',  link: 'https://www.linkedin.com/in/sergeenkov-anton' },
+    { name: '› Telegram',  link: 'https://t.me/anton_sergeenkov ' },
+    { name: '› CV',        title: 'Google Doc', link: 'https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA' },
 ];
 
 const PATH_IMG = 'img/';
