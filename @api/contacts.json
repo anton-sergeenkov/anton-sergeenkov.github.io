@@ -75,6 +75,12 @@
 		"title": "CV",
 		"data": [
 			{
+				"url": "https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA",
+				"title": "Google Doc",
+				"alias": "Google Doc",
+				"username": ""
+			},
+			{
 				"url": "https://career.habr.com/anton-sergeenkov",
 				"title": "Habr Career",
 				"username": ""
@@ -82,7 +88,7 @@
 			{
 				"url": "https://hh.ru/resume/4f49e957ff05faa54c0039ed1f42525a674d33",
 				"title": "Head Hunter",
-				"alias": "CV on Head Hunter",
+				"alias": "Head Hunter",
 				"username": ""
 			}
 		]
