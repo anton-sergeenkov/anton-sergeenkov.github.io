@@ -12,7 +12,7 @@ const ARR_LINKS_MAIN = [
     { name: '› Website',   link: 'https://anton-sergeenkov.github.io' },
     { name: '› GitHub',    link: 'https://github.com/anton-sergeenkov' },
     { name: '› LinkedIn',  link: 'https://www.linkedin.com/in/sergeenkov-anton' },
-    { name: '› Telegram',  link: 'https://t.me/anton_sergeenkov ' },
+    { name: '› Telegram',  link: 'https://t.me/anton_sergeenkov' },
     { name: '› CV',        title: 'Google Doc', link: 'https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA' },
 ];
 
