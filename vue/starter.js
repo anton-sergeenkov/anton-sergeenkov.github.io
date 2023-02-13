@@ -19,41 +19,41 @@ const PATH_IMG = 'img/';
 
 const ARR_PROJECTS = [
     {
-        title: "Школа Let's Code",
+        title: "Courses \"Let's Code\"",
         link: 'https://letscode-dev.github.io/',
         img: PATH_IMG+'projects/letscode.png',
-        description: 'Школа программирования, курсы и менторство',
+        description: 'School of programming, courses and mentoring',
         links: [
-            { name: 'Сайт', link: 'https://letscode-dev.github.io/' },
+            { name: 'Website', link: 'https://letscode-dev.github.io/' },
             { name: 'YouTube', link: 'https://www.youtube.com/c/letscode-dev' },
         ],
     },
     {
-        title: "Блог Berserker",
+        title: "Blog \"Berserker\"",
         link: 'https://dzen.ru/berserker',
         img: PATH_IMG+'projects/berserker.png',
-        description: 'Блог по скандинавской и славянской мифологии',
+        description: 'Blog on Scandinavian and Slavic mythology',
         links: [
-            { name: 'Яндекс Дзен', link: 'https://dzen.ru/berserker' },
+            { name: 'Yandex Dzen', link: 'https://dzen.ru/berserker' },
         ],
     },
     {
-        title: "Статьи на Habr",
+        title: "Habr Publications",
         link: 'https://habr.com/ru/users/anton-sergeenkov/posts/',
         img: PATH_IMG+'projects/habr.png',
-        description: 'Публикации на Habr',
+        description: 'Publications on website Habr',
         links: [
             { name: 'Habr', link: 'https://habr.com/ru/users/anton-sergeenkov/posts/' },
         ],
     },
     {
-        title: "Веб-мастерская Panda",
+        title: "Web studio \"Panda\"",
         link: 'https://workshop-panda.github.io/',
         img: PATH_IMG+'projects/panda.png',
-        description: 'Веб-мастерская по созданию сайтов и Freelance проекты',
+        description: 'Website development web studio and Freelance projects',
         links: [
-            { name: 'Сайт', link: 'https://workshop-panda.github.io/' },
-            { name: 'Группа ВКонтакте', link: 'https://vk.com/workshop_panda' },
+            { name: 'Website', link: 'https://workshop-panda.github.io/' },
+            { name: 'VKontakte community', link: 'https://vk.com/workshop_panda' },
         ],
     },
 ];
