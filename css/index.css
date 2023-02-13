@@ -215,8 +215,8 @@ PROJECTS
 /***************************************************/
 .projects__container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 .projects__item {
 	background-color: #fff;
@@ -229,7 +229,7 @@ PROJECTS
 .projects__logo {
     display: flex;
 	width: 100%;
-	height: 250px;
+	height: 230px;
 	background-color: rgba(227, 227, 168, .2);
 	box-shadow: inset 0 0 2px 0 rgba(227, 227, 168, .2);
 	border: 4px solid #fff;
@@ -295,6 +295,12 @@ ADAPTIVE
 		background-position: top top;
 		background-image: url(../img/profile/ava-small.png);
 	}
+}
+
+@media screen and (max-width: 1150px) {
+    .projects__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media screen and (max-width: 900px) {
