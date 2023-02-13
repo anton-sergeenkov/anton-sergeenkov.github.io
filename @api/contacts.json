@@ -8,13 +8,13 @@
 				"username": "sergeenkov-anton"
 			},
 			{
-				"url": "https://vk.com/anton.sergeenkov",
-				"title": "ВКонтакте",
+				"url": "https://www.instagram.com/anton.sergeenkov",
+				"title": "Instagram",
 				"username": "anton.sergeenkov"
 			},
 			{
-				"url": "https://www.instagram.com/anton.sergeenkov",
-				"title": "Instagram",
+				"url": "https://vk.com/anton.sergeenkov",
+				"title": "VKontakte",
 				"username": "anton.sergeenkov"
 			}
 		]
@@ -54,8 +54,20 @@
 			},
 			{
 				"url": "https://habr.com/ru/users/anton-sergeenkov",
-				"title": "Хабр",
+				"title": "Habr",
 				"username": "@anton-sergeenkov"
+			},
+			{
+				"url": "https://codesandbox.io/u/anton-sergeenkov",
+				"title": "CodeSandbox",
+			},
+			{
+				"url": "https://codepen.io/anton-sergeenkov",
+				"title": "CodePen",
+			},
+			{
+				"url": "https://www.npmjs.com/~anton-sergeenkov",
+				"title": "NPM",
 			}
 		]
 	},
@@ -64,11 +76,11 @@
 		"data": [
 			{
 				"url": "https://career.habr.com/anton-sergeenkov",
-				"title": "Хабр Карьера",
+				"title": "Habr Career",
 				"username": ""
 			},
 			{
-				"url": "https://penza.hh.ru/resume/4f49e957ff05faa54c0039ed1f42525a674d33",
+				"url": "https://hh.ru/resume/4f49e957ff05faa54c0039ed1f42525a674d33",
 				"title": "Head Hunter",
 				"alias": "CV on Head Hunter",
 				"username": ""
