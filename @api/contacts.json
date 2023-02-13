@@ -48,6 +48,10 @@
 		"title": "Developer",
 		"data": [
 			{
+				"url": "https://anton-sergeenkov.github.io",
+				"title": "Website"
+			},
+			{
 				"url": "https://github.com/anton-sergeenkov",
 				"title": "GitHub",
 				"username": "anton-sergeenkov"
