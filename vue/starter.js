@@ -39,6 +39,15 @@ const ARR_PROJECTS = [
         ],
     },
     {
+        title: "Статьи на Habr",
+        link: 'https://habr.com/ru/users/anton-sergeenkov/posts/',
+        img: PATH_IMG+'projects/habr.png',
+        description: 'Публикации на Habr',
+        links: [
+            { name: 'Habr', link: 'https://habr.com/ru/users/anton-sergeenkov/posts/' },
+        ],
+    },
+    {
         title: "Веб-мастерская Panda",
         link: 'https://workshop-panda.github.io/',
         img: PATH_IMG+'projects/panda.png',
