@@ -54,7 +54,9 @@
         "items": [
             ["Git", "GitHub", "GitLab", "Bitbucket"],
             ["Jira", "Confluence"],
-            ["Jenkins"]
+            ["Jenkins"],
+            ["Windows", "Linux"],
+            ["Visual Studio Code"]
         ]
     },
     {
