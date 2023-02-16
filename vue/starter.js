@@ -53,7 +53,7 @@ const ARR_PROJECTS = [
         description: 'Website development web studio and Freelance projects',
         links: [
             { name: 'Website', link: 'https://workshop-panda.github.io/' },
-            { name: 'VKontakte community', link: 'https://vk.com/workshop_panda' },
+            { name: 'VKontakte Community', link: 'https://vk.com/workshop_panda' },
         ],
     },
 ];
