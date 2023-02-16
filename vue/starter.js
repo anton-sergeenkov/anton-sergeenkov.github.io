@@ -9,10 +9,10 @@ Let's Code
 */
 
 const ARR_LINKS_MAIN = [
+    { name: '› CV',        link: 'https://anton-sergeenkov.github.io/files/cv.pdf' },
     { name: '› GitHub',    link: 'https://github.com/anton-sergeenkov' },
     { name: '› LinkedIn',  link: 'https://www.linkedin.com/in/sergeenkov-anton' },
     { name: '› Telegram',  link: 'https://t.me/anton_sergeenkov' },
-    { name: '› CV',        title: 'Google Doc', link: 'https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA' },
 ];
 
 const PATH_IMG = 'img/';
