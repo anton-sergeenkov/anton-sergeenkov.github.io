@@ -32,7 +32,7 @@ const ARR_PROJECTS = [
         title: "Blog \"Berserker\"",
         link: 'https://dzen.ru/berserker',
         img: PATH_IMG+'projects/berserker.png',
-        description: 'Blog on Scandinavian and Slavic mythology',
+        description: 'Blog about Scandinavian and Slavic mythology',
         links: [
             { name: 'Yandex Dzen', link: 'https://dzen.ru/berserker' },
         ],
