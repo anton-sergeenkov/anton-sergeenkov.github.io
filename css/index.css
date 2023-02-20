@@ -157,14 +157,14 @@ MENU
 	border-bottom: 1px solid rgba(5, 25, 55, .5);
 }
 .menu__list_link-accent {
-	background-color: rgba(0, 0, 0, .7);
+	background-color: rgba(22, 36, 84, .8);
 	color: #fff;
 	border-radius: 20px;
 	min-width: 50px;
 	text-align: center;
 }
 .menu__list_link-accent:hover {
-	filter: invert(60%);
+	background-color: #000;
 }
 .menu__list_item-splitter {
 	width: 2px;
@@ -305,7 +305,7 @@ SOCIAL
 .socialContainer {
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: 20px;
+	margin-top: 30px;
 }
 .socialLink {
 	display: block;
