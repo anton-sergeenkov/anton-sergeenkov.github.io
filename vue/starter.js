@@ -58,14 +58,56 @@ const ARR_PROJECTS = [
     },
 ];
 
+const socialIconsPath = 'img/social-icons/';
+
+const ARR_SOCIAL_ICONS = [
+    {
+        img: socialIconsPath+'linkedin.png',
+        title:'Linkedin',
+        link: 'https://www.linkedin.com/in/sergeenkov-anton'
+    },
+    {
+        img: socialIconsPath+'github.png',
+        title:'GitHub',
+        link: 'https://github.com/anton-sergeenkov'
+    },
+    {
+        img: socialIconsPath+'telegram.png',
+        title:'Telegram',
+        link: 'https://t.me/anton_sergeenkov'
+    },
+    {
+        img: socialIconsPath+'skype.png',
+        title:'Skype',
+        link: 'https://join.skype.com/invite/hZmBtAZQ0EXY'
+    },
+    {
+        img: socialIconsPath+'facebook.png',
+        title:'Facebook',
+        link: 'https://www.facebook.com/profile.php?id=100002126643722'
+    },
+    {
+        img: socialIconsPath+'instagram.png',
+        title:'Instagram',
+        link: 'https://www.instagram.com/anton.sergeenkov'
+    },
+    {
+        img: socialIconsPath+'vk.png',
+        title:'VKontakte',
+        link: 'https://vk.com/anton.sergeenkov'
+    },
+];
+
 new Vue({
     el: '#root',
     data: {
         linksMain: null,
         sectionProjects: null,
+        socialIcons: null,
     },
     mounted() {
         this.linksMain = ARR_LINKS_MAIN;
         this.sectionProjects = ARR_PROJECTS;
+        this.socialIcons = ARR_SOCIAL_ICONS;
     },
 });

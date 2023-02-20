@@ -300,6 +300,45 @@ PROJECTS
 
 
 /***************************************************
+SOCIAL
+/***************************************************/
+.socialContainer {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+.socialLink {
+	display: block;
+	width: 32px;
+	height: 32px;
+	margin-right: 10px;
+	margin-top: 10px;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	filter: invert(35%);
+	opacity: .9;
+	transition: 0.4s;
+}
+.socialLink:last-child {
+	margin-right: 0;
+}
+.socialLink:hover {
+	filter: invert(0);
+	opacity: 1;
+}
+.socialLink[data-title]:hover::after {
+	content: attr(data-title);
+	position: absolute;
+	top: calc(100% + 10px);
+	left: -100%;
+	width: calc(100% * 3);
+	color: #000;
+	text-align: center;
+}
+
+
+/***************************************************
 ADAPTIVE
 /***************************************************/
 @media screen and (max-width: 1055px) {

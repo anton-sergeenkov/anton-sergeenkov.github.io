@@ -14,9 +14,6 @@
     <!-- MENU -->
     <nav>
         <ul class="menu__list">
-<!--             <li class="menu__list_item">
-                <a class="menu__list_link" href="index.html">Starter</a>
-            </li> -->
             <li class="menu__list_item">
                 <a class="menu__list_link menu__list_link-accent" href="files/cv.pdf" target="_blank">CV</a>
             </li>
@@ -49,6 +46,19 @@
                         v-html="item.title ? item.title : item.link"
                     ></a>
                 </slot>
+            </div>
+
+            <div class="socialContainer">
+                <a
+                    v-for="item in socialIcons"
+                    :href="item.link"
+                    :style="'background-image: url('+item.img+');'"
+                    :data-title="item.title"
+                    :alt="item.title"
+                    class="socialLink"
+                    target="_blank" 
+                >
+                </a>
             </div>
         </div>
     </header>
