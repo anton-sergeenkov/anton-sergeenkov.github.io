@@ -22,7 +22,7 @@ LAYOUT
 }
 .g-header-text {
 	padding-bottom: 5px;
-	border-bottom: 1px solid rgba(var(--color-gray-dark), 1);
+	border-bottom: 1px solid rgba(var(--color-gray-medium), 1);
 	font-size: 17px;
 	font-weight: 600;
 	font-family: var(--font-segoe);
@@ -38,7 +38,7 @@ LIST
 .g-list-item {
 	margin: 5px;
 	font-size: 14px;
-	color: rgba(var(--color-gray-dark), 1);
+	color: rgba(var(--color-gray-medium), 1);
 }
 .g-list-item-wrapper {
 	display: flex;
@@ -53,7 +53,7 @@ LIST
 	font-family: var(--font-consolas);
 	color: rgba(var(--color-blue-gray));
 	border-radius: 6px;
-	background-color: rgba(var(--color-gray-dark), .2);
+	background-color: rgba(var(--color-gray-medium), .2);
 }
 .g-list-badge:last-child {
 	margin-right: 0;
@@ -62,7 +62,7 @@ LIST
 	padding: 3px 5px;
 	font-family: var(--font-consolas);
 	color: rgba(var(--color-blue-gray));
-	border: 1px solid rgba(var(--color-gray-dark), .2);
+	border: 1px solid rgba(var(--color-gray-medium), .2);
 	border-radius: 6px;
 }
 

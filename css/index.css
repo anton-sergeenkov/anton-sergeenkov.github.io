@@ -61,7 +61,7 @@ MENU
 }
 .menu__list_link {
     display: block;
-	color: #4b4b4d;
+	color: rgb(var(--color-gray-dark));
 	transition: 0.4s;
 	text-decoration: none;
 	padding: 2px 0px;
@@ -129,14 +129,14 @@ LIST
 .list__link {
     padding-left: 20px;
     display: block;
-	color: #4b4b4d;
+	color: rgb(var(--color-gray-dark));
 	transition: 0.4s;
 	text-decoration: none;
 }
 .list__link::after {
 	content: '';
 	display: block;
-	border-bottom: 1px dashed #4b4b4d;
+	border-bottom: 1px dashed rgb(var(--color-gray-dark));
 	opacity: .45;
 }
 .list__link:hover {
