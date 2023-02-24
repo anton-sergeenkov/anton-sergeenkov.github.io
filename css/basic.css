@@ -1,16 +1,16 @@
 
 :root {
-	--color-black:        0, 0, 0;        /* #000000 */
-	--color-dark:         43, 43, 43;     /* #2b2b2b */
-	--color-blue-dark:    5, 25, 54;      /* #051936 */
-	--color-blue-gray:    36, 41, 47;     /* #24292f */
-	--color-gray-dark:    175, 184, 193;  /* #afb8c1 */
-	--color-dark-medium:  221, 221, 221;  /* #dddddd */
-	--color-gray-light:   248, 249, 250;  /* #f8f9fa */
-	--color-white:        255, 255, 255;  /* #ffffff */
-	--color-blue-violet:  99, 66, 245;    /* #6342f5 */
-	--color-sea:          10, 216, 216;   /* #0ad8d8 */
-	--color-sand:         227, 227, 170;  /* #e3e3aa */
+	--color-black:       0, 0, 0;        /* #000000 */
+	--color-dark:        43, 43, 43;     /* #2b2b2b */
+	--color-blue-dark:   5, 25, 54;      /* #051936 */
+	--color-blue-gray:   36, 41, 47;     /* #24292f */
+	--color-gray-dark:   175, 184, 193;  /* #afb8c1 */
+	--color-dark-medium: 221, 221, 221;  /* #dddddd */
+	--color-gray-light:  248, 249, 250;  /* #f8f9fa */
+	--color-white:       255, 255, 255;  /* #ffffff */
+	--color-blue-violet: 99, 66, 245;    /* #6342f5 */
+	--color-sea:         10, 216, 216;   /* #0ad8d8 */
+	--color-sand:        227, 227, 170;  /* #e3e3aa */
 
 	--border-radius-logo: 10px;
 	--shadow:
