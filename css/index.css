@@ -27,10 +27,6 @@ h3 {
 	font-size: 18px;
     color: #444444;
 }
-h4 {
-	margin: 15px 0px 15px 0px;
-	padding-bottom: 5px;
-}
 
 
 /***************************************************
@@ -69,12 +65,12 @@ MENU
 	transition: 0.4s;
 	text-decoration: none;
 	padding: 2px 0px;
-	color: rgba(5, 25, 55, .9);
+	color: rgba(var(--color-blue-dark), .9);
 	font-weight: 500;
 	border: 1px solid transparent;
 }
 .menu__list_link:hover {
-	border-bottom: 1px solid rgba(5, 25, 55, .5);
+	border-bottom: 1px solid rgba(var(--color-blue-dark), .5);
 }
 .menu__list_link-accent {
 	background-color: rgba(22, 36, 84, .8);
@@ -90,7 +86,7 @@ MENU
 	width: 2px;
 	height: 20px;
 	display: inline;
-	background-color: rgba(5, 25, 55, .2);
+	background-color: rgba(var(--color-blue-dark), .2);
 	border-radius: 10px;
 	margin-right: 20px;
 }
@@ -143,7 +139,7 @@ LIST
 	opacity: .45;
 }
 .list__link:hover {
-	color: #6342f5;
+	color: rgb(var(--color-blue-violet));
 	opacity: 1;
 }
 

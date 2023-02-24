@@ -26,7 +26,7 @@ LAYOUT
 	font-size: 17px;
 	font-weight: 600;
 	font-family: var(--font-segoe);
-	color: rgb(var(--color-blue-dark));
+	color: rgb(var(--color-blue-gray));
 }
 
 /***************************************************
@@ -51,7 +51,7 @@ LIST
 	margin-top: 5px;
 	padding: 3px 5px;
 	font-family: var(--font-consolas);
-	color: rgba(var(--color-blue-dark));
+	color: rgba(var(--color-blue-gray));
 	border-radius: 6px;
 	background-color: rgba(var(--color-gray-dark), .2);
 }
@@ -61,7 +61,7 @@ LIST
 .g-list-badge-outline {
 	padding: 3px 5px;
 	font-family: var(--font-consolas);
-	color: rgba(var(--color-blue-dark));
+	color: rgba(var(--color-blue-gray));
 	border: 1px solid rgba(var(--color-gray-dark), .2);
 	border-radius: 6px;
 }
@@ -69,9 +69,9 @@ LIST
 .g-list-link {
 	display: block;
 	margin-top: 5px;
-	color: rgb(var(--color-blue-dark));
+	color: rgb(var(--color-blue-gray));
 	margin-right: 5px;
-	border-bottom: 1px dashed rgba(var(--color-blue-dark), .4);
+	border-bottom: 1px dashed rgba(var(--color-blue-gray), .4);
 	text-decoration: none;
 	transition: 0.4s;
 	padding: 3px 0;
