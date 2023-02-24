@@ -73,11 +73,12 @@ MENU
 	border-bottom: 1px solid rgba(var(--color-blue-dark), .5);
 }
 .menu__list_link-accent {
-	background-color: rgba(22, 36, 84, .8);
+	background-color: rgba(var(--color-blue-violet), .8);
 	color: rgb(var(--color-white));
 	border-radius: 20px;
 	min-width: 50px;
 	text-align: center;
+	box-shadow: var(--shadow);
 }
 .menu__list_link-accent:hover {
 	background-color: rgb(var(--color-black));
@@ -229,7 +230,7 @@ SOCIAL
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
-	filter: invert(35%);
+	filter: invert(25%);
 	opacity: .9;
 	transition: 0.4s;
 }
