@@ -52,18 +52,25 @@
                 <div>› Tools</div>
                 <div class="badge__container">
                     <span>Git</span>
+                    <span>Webpack</span>
                     <span>Jira</span>
+                </div>
+                <div>› Methodology</div>
+                <div class="badge__container">
+                    <span>Agile</span>
+                    <span>Scrum</span>
+                    <span>Gitflow</span>
                 </div>
             </div>
 
-            <div class="socialContainer">
+            <div class="social__container">
                 <a
                     v-for="item in socialIcons"
                     :href="item.link"
                     :style="'background-image: url('+item.img+');'"
                     :data-title="item.title"
                     :alt="item.title"
-                    class="socialLink"
+                    class="social__link"
                     target="_blank" 
                 >
                 </a>

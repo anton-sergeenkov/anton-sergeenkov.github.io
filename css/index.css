@@ -124,11 +124,12 @@ LIST
 .list__container {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 5px 30px;
+    gap: 5px 20px;
 }
 
 .badge__container span {
 	margin-right: 5px;
+	font-size: 14px;
 	text-decoration: none;
 	transition: 0.4s;
 	padding: 3px 5px;
@@ -209,12 +210,12 @@ PROJECTS
 /***************************************************
 SOCIAL
 /***************************************************/
-.socialContainer {
+.social__container {
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 30px;
 }
-.socialLink {
+.social__link {
 	display: block;
 	width: 30px;
 	height: 30px;
@@ -223,17 +224,17 @@ SOCIAL
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
-	opacity: .55;
+	opacity: .30;
 	transition: .4s;
 }
-.socialLink:last-child {
+.social__link:last-child {
 	margin-right: 0;
 }
-.socialLink:hover {
+.social__link:hover {
 	filter: invert(0);
 	opacity: .9;
 }
-.socialLink[data-title]:hover::after {
+.social__link[data-title]:hover::after {
 	content: attr(data-title);
 	position: absolute;
 	top: calc(100% + 10px);
