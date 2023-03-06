@@ -124,24 +124,18 @@ LIST
 .list__container {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 5px;
+    gap: 5px 30px;
 }
-.list__link {
-    padding-left: 20px;
-    display: block;
-	color: rgb(var(--color-gray-dark));
-	transition: 0.4s;
+
+.badge-light {
+	color: rgb(var(--color-blue-gray));
+	margin-right: 5px;
 	text-decoration: none;
-}
-.list__link::after {
-	content: '';
-	display: block;
-	border-bottom: 1px dashed rgb(var(--color-gray-dark));
-	opacity: .45;
-}
-.list__link:hover {
-	color: rgb(var(--color-blue-violet));
-	opacity: 1;
+	transition: 0.4s;
+	padding: 3px 5px;
+	border-radius: 6px;
+	background-color: rgba(var(--color-gray-medium), .15);
+	color: rgba(var(--color-blue-gray));
 }
 
 
@@ -230,9 +224,10 @@ SOCIAL
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
-	filter: invert(25%);
-	opacity: .45;
+	opacity: .55;
 	transition: .4s;
+	background-color: rgba(var(--color-gray-medium), .15);
+	border-radius: 50%;
 }
 .socialLink:last-child {
 	margin-right: 0;
@@ -312,9 +307,6 @@ ADAPTIVE
 	}
     .list__container {
         grid-template-columns: 1fr;
-    }
-    .list__link {
-        padding: 0;
     }
 }
 @media screen and (max-width: 450px) {

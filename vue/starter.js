@@ -8,13 +8,6 @@ Let's Code
 › CV               https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA
 */
 
-const ARR_LINKS_MAIN = [
-    { name: '› CV',        link: 'https://anton-sergeenkov.github.io/files/cv.pdf' },
-    { name: '› GitHub',    link: 'https://github.com/anton-sergeenkov' },
-    { name: '› LinkedIn',  link: 'https://www.linkedin.com/in/sergeenkov-anton' },
-    { name: '› Telegram',  link: 'https://t.me/anton_sergeenkov' },
-];
-
 const PATH_IMG = 'img/';
 
 const ARR_PROJECTS = [
@@ -101,12 +94,10 @@ const ARR_SOCIAL_ICONS = [
 new Vue({
     el: '#root',
     data: {
-        linksMain: null,
         sectionProjects: null,
         socialIcons: null,
     },
     mounted() {
-        this.linksMain = ARR_LINKS_MAIN;
         this.sectionProjects = ARR_PROJECTS;
         this.socialIcons = ARR_SOCIAL_ICONS;
     },
