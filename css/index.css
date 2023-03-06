@@ -225,8 +225,6 @@ SOCIAL
 	background-repeat: no-repeat;
 	opacity: .55;
 	transition: .4s;
-	background-color: rgba(var(--color-gray-medium), .15);
-	border-radius: 50%;
 }
 .socialLink:last-child {
 	margin-right: 0;
