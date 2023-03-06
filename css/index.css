@@ -93,14 +93,14 @@ MENU
 }
 
 /***************************************************
-HEADER
+PROFILE
 /***************************************************/
-.header__container {
+.profile__container {
 	display: flex;
     margin-top: 30px;
     background-color: rgb(var(--color-white));
 }
-.header__logo {
+.profile__logo {
 	width: 400px;
 	height: 550px;
 	flex-shrink: 0;
@@ -108,10 +108,10 @@ HEADER
 	background-position: center center;
 	background-size: cover;
 }
-.header__content {
+.profile__content {
 	padding: 50px;
 }
-.header__text {
+.profile__header {
 	margin: 0;
 	padding: 0;
     margin-bottom: 25px;
@@ -251,11 +251,11 @@ SOCIAL
 ADAPTIVE
 /***************************************************/
 @media screen and (max-width: 1055px) {
-	.header__container {
+	.profile__container {
 		align-items: center;
 		padding-bottom: 30px;
 	}
-	.header__logo {
+	.profile__logo {
 		width: 200px;
 		height: 200px;
 		border-radius: 50%;
@@ -271,12 +271,12 @@ ADAPTIVE
 }
 
 @media screen and (max-width: 900px) {
-    .header__container {
+    .profile__container {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
     }
-    .header__logo {
+    .profile__logo {
     	margin-top: 30px;
     	margin-left: 50px;
     	margin-right: 50px;
@@ -286,15 +286,15 @@ ADAPTIVE
     }
 }
 @media screen and (max-width: 660px) {
-	.header__logo {
+	.profile__logo {
 		margin: 20px auto;
 		margin-bottom: 0;
 	}
-	.header__text {
+	.profile__header {
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
-    .header__content {
+    .profile__content {
         padding: 20px;
     }
     .projects__container {
@@ -302,7 +302,7 @@ ADAPTIVE
         width: 70%;
         margin: auto;
     }
-	.header__container {
+	.profile__container {
 		margin-top: 10px;
 	}
     .list__container {
