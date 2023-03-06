@@ -223,23 +223,23 @@ SOCIAL
 }
 .socialLink {
 	display: block;
-	width: 32px;
-	height: 32px;
+	width: 30px;
+	height: 30px;
 	margin-right: 10px;
 	margin-top: 10px;
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
 	filter: invert(25%);
-	opacity: .9;
-	transition: 0.4s;
+	opacity: .45;
+	transition: .4s;
 }
 .socialLink:last-child {
 	margin-right: 0;
 }
 .socialLink:hover {
 	filter: invert(0);
-	opacity: 1;
+	opacity: .9;
 }
 .socialLink[data-title]:hover::after {
 	content: attr(data-title);
