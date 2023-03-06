@@ -70,7 +70,7 @@
                     :style="'background-image: url('+item.img+');'"
                     :data-title="item.title"
                     :alt="item.title"
-                    class="social__link"
+                    :class="item.active ? 'social__link social__link--active' : 'social__link'"
                     target="_blank" 
                 >
                 </a>

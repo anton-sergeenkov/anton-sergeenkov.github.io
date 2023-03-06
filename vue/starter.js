@@ -57,17 +57,20 @@ const ARR_SOCIAL_ICONS = [
     {
         img: socialIconsPath+'linkedin.png',
         title:'Linkedin',
-        link: 'https://www.linkedin.com/in/sergeenkov-anton'
+        link: 'https://www.linkedin.com/in/sergeenkov-anton',
+        active: true
     },
     {
         img: socialIconsPath+'github.png',
         title:'GitHub',
-        link: 'https://github.com/anton-sergeenkov'
+        link: 'https://github.com/anton-sergeenkov',
+        active: true
     },
     {
         img: socialIconsPath+'telegram.png',
         title:'Telegram',
-        link: 'https://t.me/anton_sergeenkov'
+        link: 'https://t.me/anton_sergeenkov',
+        active: true
     },
     {
         img: socialIconsPath+'skype.png',

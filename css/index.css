@@ -231,7 +231,8 @@ SOCIAL
 .social__link:last-child {
 	margin-right: 0;
 }
-.social__link:hover {
+.social__link:hover,
+.social__link--active {
 	filter: invert(0);
 	opacity: .9;
 }
