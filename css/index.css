@@ -5,35 +5,28 @@ body {
 	max-width: 1200px;
 	margin: auto;
 	padding: 20px;
-}
-
-
-/***************************************************
-TAGS
-/***************************************************/
-h1 {
-	font-size: 25px;
-	margin: 0;
-	text-align: left;
-}
-h2 {
-	margin: 5px 0px 15px 0px;
-	padding: 15px;
-	font-size: 22px;
-}
-h3 {
-	margin: 0;
-	text-align: left;
-	font-size: 18px;
-    color: #444444;
+	padding-bottom: 50px;
 }
 
 
 /***************************************************
 COMMON
 /***************************************************/
-.wrapper {
-	margin-bottom: 30px;
+.h1 {
+	font-size: 25px;
+	margin: 0;
+	text-align: left;
+}
+.h2 {
+	margin: 5px 0px 15px 0px;
+	padding: 15px;
+	font-size: 22px;
+}
+.h3 {
+	margin: 0;
+	text-align: left;
+	font-size: 18px;
+    color: #444444;
 }
 .section {
     margin-top: 20px;
@@ -72,7 +65,7 @@ MENU
 .menu__list_link:hover {
 	border-bottom: 1px solid rgba(var(--color-blue-dark), .5);
 }
-.menu__list_link-accent {
+.menu__list_link--accent {
 	background-color: rgba(var(--color-blue-violet), .8);
 	color: rgb(var(--color-white));
 	border-radius: 20px;
@@ -80,7 +73,7 @@ MENU
 	text-align: center;
 	box-shadow: var(--shadow);
 }
-.menu__list_link-accent:hover {
+.menu__list_link--accent:hover {
 	background-color: rgb(var(--color-black));
 }
 .menu__list_item-splitter {

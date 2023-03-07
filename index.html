@@ -10,13 +10,14 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-    <div id="root" class="wrapper">
+
+    <div id="root">
 
     <!-- MENU -->
     <nav>
         <ul class="menu__list">
             <li class="menu__list_item">
-                <a class="menu__list_link menu__list_link-accent" href="files/cv.pdf" target="_blank">CV</a>
+                <a class="menu__list_link menu__list_link--accent" href="files/cv.pdf" target="_blank">CV</a>
             </li>
             <li class="menu__list_item">
                 <a class="menu__list_link" href="contacts.html" target="_blank">Contacts</a>
@@ -35,8 +36,8 @@
     <header class="profile__container">
         <div class="profile__logo"></div>
         <div class="profile__content">
-            <h1 class="profile__header">Anton Sergeenkov</h1>
-            <h2 class="profile__header">Frontend Developer</h2>
+            <h1 class="h1 profile__header">Anton Sergeenkov</h1>
+            <h2 class="h2 profile__header">Frontend Developer</h2>
 
             <div class="list__container">
                 <slot v-for="itemStack in stack">
@@ -64,7 +65,7 @@
 
     <!-- PROJECTS -->
     <section class="section">
-        <h2>Projects</h2>
+        <h2 class="h2">Projects</h2>
         <div class="projects__container">
             <div class="projects__item" v-for="itemProjects in sectionProjects">
                 <a
@@ -75,7 +76,7 @@
                     <div class="projects__logo_item" :style="'background-image: url('+itemProjects.img+');'"></div>
                 </a>
                 <div class="projects__content">
-                    <h3 v-html="itemProjects.title"></h3>
+                    <h3 class="h3" v-html="itemProjects.title"></h3>
                     <div class="projects__description" v-html="itemProjects.description"></div>
                     <div class="projects__links">
                         <div v-for="item in itemProjects.links">
