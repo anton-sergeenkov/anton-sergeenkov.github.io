@@ -31,36 +31,20 @@
         </ul>
     </nav>
 
-    <!-- HEADER -->
+    <!-- PROFILE -->
     <header class="profile__container">
         <div class="profile__logo"></div>
         <div class="profile__content">
             <h1 class="profile__header">Anton Sergeenkov</h1>
             <h2 class="profile__header">Frontend Developer</h2>
+
             <div class="list__container">
-                <div>› Frontend</div>
-                <div class="badge__container">
-                    <span>React.js</span>
-                    <span>Vue.js</span>
-                    <span>Next.js</span>
-                    <span>TypeScript</span>
-                </div>
-                <div>› Backend</div>
-                <div class="badge__container">
-                    <span>Node.js</span>
-                </div>
-                <div>› Tools</div>
-                <div class="badge__container">
-                    <span>Git</span>
-                    <span>Webpack</span>
-                    <span>Jira</span>
-                </div>
-                <div>› Methodology</div>
-                <div class="badge__container">
-                    <span>Agile</span>
-                    <span>Scrum</span>
-                    <span>Gitflow</span>
-                </div>
+                <slot v-for="itemStack in stack">
+                    <div v-html="'› '+itemStack.title"></div>
+                    <div class="badge__container">
+                        <span v-for="item in itemStack.items" v-html="item"></span>
+                    </div>
+                </slot>
             </div>
 
             <div class="social__container">

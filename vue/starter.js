@@ -10,6 +10,25 @@ Let's Code
 
 const PATH_IMG = 'img/';
 
+const ARR_STACK = [
+    {
+        title: 'Frontend',
+        items: ['React.js', 'Vue.js', 'Next.js', 'TypeScript']
+    },
+    {
+        title: 'Backend',
+        items: ['Node.js']
+    },
+    {
+        title: 'Tools',
+        items: ['Git', 'Webpack', 'Jira']
+    },
+    {
+        title: 'Methodology',
+        items: ['Agile', 'Scrum', 'Gitflow']
+    },
+];
+
 const ARR_PROJECTS = [
     {
         title: "Courses \"Let's Code\"",
@@ -99,9 +118,11 @@ new Vue({
     data: {
         sectionProjects: null,
         socialIcons: null,
+        stack: null,
     },
     mounted() {
         this.sectionProjects = ARR_PROJECTS;
         this.socialIcons = ARR_SOCIAL_ICONS;
+        this.stack = ARR_STACK;
     },
 });
