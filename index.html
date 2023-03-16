@@ -16,18 +16,18 @@
     <!-- MENU -->
     <nav>
         <ul class="menu__list">
-            <li class="menu__list_item">
-                <a class="menu__list_link menu__list_link--accent" href="files/cv.pdf" target="_blank">CV</a>
+            <li class="menu__item">
+                <a class="menu__link menu__link_accent" href="files/cv.pdf" target="_blank">CV</a>
             </li>
-            <li class="menu__list_item">
-                <a class="menu__list_link" href="contacts.html" target="_blank">Contacts</a>
+            <li class="menu__item">
+                <a class="menu__link" href="contacts.html" target="_blank">Contacts</a>
             </li>
-            <li class="menu__list_item">
-                <a class="menu__list_link" href="stack.html" target="_blank">Technologies Stack</a>
+            <li class="menu__item">
+                <a class="menu__link" href="stack.html" target="_blank">Technologies Stack</a>
             </li>
-            <li class="menu__list_item-splitter"></li>
-            <li class="menu__list_item">
-                <a class="menu__list_link" href="qr.html" target="_blank">Scan QR</a>
+            <li class="menu__splitter"></li>
+            <li class="menu__item">
+                <a class="menu__link" href="qr.html" target="_blank">Scan QR</a>
             </li>
         </ul>
     </nav>
@@ -39,23 +39,23 @@
             <h1 class="h1 profile__header">Anton Sergeenkov</h1>
             <h2 class="h2 profile__header">Frontend Developer (React / Vue)</h2>
 
-            <div class="list__container">
+            <div class="profile__stack">
                 <slot v-for="itemStack in stack">
                     <div v-html="'› '+itemStack.title"></div>
-                    <div class="badge__container">
+                    <div class="profile__stack-badge">
                         <span v-for="item in itemStack.items" v-html="item"></span>
                     </div>
                 </slot>
             </div>
 
-            <div class="social__container">
+            <div class="profile__social">
                 <a
                     v-for="item in socialIcons"
                     :href="item.link"
                     :style="'background-image: url('+item.img+');'"
                     :data-title="item.title"
                     :alt="item.title"
-                    :class="item.active ? 'social__link social__link--active' : 'social__link'"
+                    :class="item.active ? 'profile__social-link profile__social-link_active' : 'profile__social-link'"
                     target="_blank" 
                 >
                 </a>
@@ -63,7 +63,7 @@
         </div>
     </header>
 
-    <!-- PROJECTS -->
+    <!-- 🥥 PROJECTS -->
     <section class="section">
         <h2 class="h2">Projects</h2>
         <div class="projects__container">
