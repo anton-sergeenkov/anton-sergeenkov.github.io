@@ -1,11 +1,10 @@
 
 body {
-	line-height: 1.7;
-	font-size: 16px;
 	max-width: 1200px;
 	margin: auto;
 	padding: 20px;
 	padding-bottom: 50px;
+	line-height: 1.7;
 }
 
 
@@ -18,15 +17,15 @@ COMMON
 	text-align: left;
 }
 .h2 {
+	font-size: 22px;
 	margin: 5px 0px 15px 0px;
 	padding: 15px;
-	font-size: 22px;
 }
 .h3 {
+	font-size: 18px;
 	margin: 0;
 	text-align: left;
-	font-size: 18px;
-    color: #444444;
+    color: rgb(var(--color-gray-dark));
 }
 .section {
     margin-top: 20px;
@@ -56,37 +55,36 @@ MENU
 
 .menu__link {
     display: block;
-	color: rgb(var(--color-gray-dark));
-	transition: 0.4s;
-	text-decoration: none;
-	padding: 2px 0px;
-	color: rgba(var(--color-blue-dark), .9);
-	font-weight: 500;
 	border: 1px solid transparent;
+	padding: 2px 0px;
+	font-weight: 500;
+	text-decoration: none;
+	color: rgba(var(--color-blue-dark), .9);
+	transition: var(--transition);
 }
 .menu__link:hover {
 	border-bottom: 1px solid rgba(var(--color-blue-dark), .5);
 }
 
 .menu__link_accent {
-	background-color: rgba(var(--color-blue-violet), .8);
-	color: rgb(var(--color-white));
-	border-radius: 20px;
 	min-width: 50px;
+	border-radius: 20px;
 	text-align: center;
 	box-shadow: var(--shadow);
+	background-color: rgba(var(--color-blue-violet), .8);
+	color: rgb(var(--color-white));
 }
 .menu__link_accent:hover {
 	background-color: rgb(var(--color-black));
 }
 
 .menu__splitter {
+	display: inline;
 	width: 2px;
 	height: 20px;
-	display: inline;
-	background-color: rgba(var(--color-blue-dark), .2);
-	border-radius: 10px;
 	margin-right: 20px;
+	border-radius: 10px;
+	background-color: rgba(var(--color-blue-dark), .2);
 }
 
 /***************************************************
@@ -128,13 +126,13 @@ PROFILE
 
 .profile__stack-badge span {
 	margin-right: 5px;
-	font-size: 14px;
-	text-decoration: none;
-	transition: 0.4s;
 	padding: 3px 5px;
+	font-size: 14px;
 	border-radius: 6px;
+	text-decoration: none;
 	background-color: rgba(var(--color-gray-medium), .15);
 	color: rgba(var(--color-blue-gray));
+	transition: var(--transition);
 }
 
 /* social */
@@ -152,7 +150,7 @@ PROFILE
 	background-position: center center;
 	background-repeat: no-repeat;
 	opacity: .30;
-	transition: .4s;
+	transition: var(--transition);
 }
 .profile__social-link:last-child {
 	margin-right: 0;
@@ -168,8 +166,8 @@ PROFILE
 	top: calc(100% + 10px);
 	left: -100%;
 	width: calc(100% * 3);
-	color: rgb(var(--color-black));
 	text-align: center;
+	color: rgb(var(--color-black));
 }
 
 
@@ -190,25 +188,24 @@ PROJECTS
     display: flex;
 	width: 100%;
 	height: 230px;
-	background-color: rgb(var(--color-gray-light));
-	box-shadow: inset 0 0 2px 0 rgba(var(--color-sand), .2);
 	border: 4px solid rgb(var(--color-white));
 	border-radius: var(--border-radius-logo);
-	transition: 0.5s;
+	box-shadow: inset 0 0 2px 0 rgba(var(--color-sand), .2);
+	background-color: rgb(var(--color-gray-light));
+	transition: var(--transition-long);
 }
 .projects__logo:hover {
 	filter: grayscale(50%) opacity(50%);
 	background-color: rgba(var(--color-sand), .4);
 }
-.projects__logo_item {
+.projects__logo_img {
 	width: 70%;
 	height: 70%;
 	margin: auto;
 	background-position: center center;
 	background-size: contain;
 	background-repeat: no-repeat;
-	transition: 1s;
-	filter: drop-shadow(2px 2px 2px #162454);
+	filter: drop-shadow(2px 2px 2px rgb(var(--color-blue-dark)));
 }
 
 .projects__content {
@@ -218,12 +215,12 @@ PROJECTS
 	padding: 20px;
 }
 .projects__description {
-	margin-top: 20px;
-	border-left: 4px solid rgba(22, 36, 84, .1);
-	padding-left: 10px;
-	min-height: 50px;
 	display: flex;
 	align-items: center;
+	min-height: 50px;
+	margin-top: 20px;
+	border-left: 4px solid rgba(var(--color-blue-dark), .1);
+	padding-left: 10px;
 	line-height: 1.4;
 }
 .projects__links {
@@ -231,10 +228,10 @@ PROJECTS
     color: rgb(var(--color-black));
 }
 .projects__links_item {
-	color: #666666;
-	transition: 0.4s;
     line-height: 5px;
     text-decoration: none;
+	color: rgb(var(--color-gray-dark));
+	transition: var(--transition);
 }
 .projects__links_item:hover {
 	color: rgb(var(--color-black));
@@ -253,8 +250,8 @@ ADAPTIVE
 		width: 200px;
 		height: 200px;
 		border-radius: 50%;
-		background-position: top top;
 		background-image: url(../img/profile/ava-small.png);
+		background-position: top top;
 	}
 }
 
@@ -279,6 +276,7 @@ ADAPTIVE
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media screen and (max-width: 660px) {
 	.profile__logo {
 		margin: 20px auto;
@@ -303,6 +301,7 @@ ADAPTIVE
         grid-template-columns: 1fr;
     }
 }
+
 @media screen and (max-width: 450px) {
 	.projects__container {
 		width: 100%;

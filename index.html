@@ -64,7 +64,7 @@
         </div>
     </header>
 
-    <!-- 🥥 PROJECTS -->
+    <!-- PROJECTS -->
     <section class="section">
         <h2 class="h2">Projects</h2>
         <div class="projects__container">
@@ -74,8 +74,9 @@
                     class="projects__logo"
                     target="_blank"
                 >
-                    <div class="projects__logo_item" :style="'background-image: url('+itemProjects.img+');'"></div>
+                    <div class="projects__logo_img" :style="'background-image: url('+itemProjects.img+');'"></div>
                 </a>
+
                 <div class="projects__content">
                     <h3 class="h3" v-html="itemProjects.title"></h3>
                     <div class="projects__description" v-html="itemProjects.description"></div>
