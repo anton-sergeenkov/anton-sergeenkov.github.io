@@ -22,6 +22,9 @@ body {
 	height: 100vh;
 }
 
+.wrapper-website   .qr { background-color: rgba(var(--color-sand), .7); }
+.wrapper-telegram  .qr { background-color: rgba(var(--color-sea), .4); }
+.wrapper-instagram .qr { background-color: rgba(var(--color-blue-violet), .2); }
 
 @media screen and (max-width: 1280px) {
 	body {
@@ -33,10 +36,17 @@ body {
 	.qr {
 		width: 450px;
 		margin: 0;
+		background-color: #fff;
 	}
-	.wrapper-website   { background-color: rgb(var(--color-sand)); }
-	.wrapper-telegram  { background-color: rgb(var(--color-sea)); }
-	.wrapper-instagram { background-color: rgb(var(--color-blue-violet)); }
+	.wrapper-website   { background-color: rgba(var(--color-sand), .7); }
+	.wrapper-telegram  { background-color: rgba(var(--color-sea), .4); }
+	.wrapper-instagram { background-color: rgba(var(--color-blue-violet), .3); }
+
+	.wrapper-website .qr,
+	.wrapper-telegram .qr,
+	.wrapper-instagram .qr {
+		background-color: rgba(var(--color-white), .9);
+	}
 }
 
 @media screen and (max-width: 620px) {
