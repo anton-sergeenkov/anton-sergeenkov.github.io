@@ -43,15 +43,9 @@ body {
 		width: 450px;
 		background-color: #fff;
 	}
-	.wrapper-website   { background-color: rgba(var(--color-sand), .7); }
-	.wrapper-telegram  { background-color: rgba(var(--color-sea), .4); }
-	.wrapper-instagram { background-color: rgba(var(--color-blue-violet), .3); }
-
-	.wrapper-website .qr,
-	.wrapper-telegram .qr,
-	.wrapper-instagram .qr {
-		background-color: rgba(var(--color-white), .9);
-	}
+	.wrapper-website   { background-color: rgb(var(--color-gray-light)); }
+	.wrapper-telegram  { background-color: rgb(var(--color-white)); }
+	.wrapper-instagram { background-color: rgb(var(--color-gray-light)); }
 }
 
 @media screen and (max-width: 620px) {
@@ -62,4 +56,3 @@ body {
 		padding: 30px;
 	}
 }
-
