@@ -13,13 +13,19 @@ body {
 	box-shadow: var(--shadow);
 	border-radius: 20px;
 	margin: 30px;
-}	
+}
+
+.title {
+	font-size: 19px;
+	font-family: var(--font-pt-sans);
+}
 
 .wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	flex-direction: column;
 }
 
 .wrapper-website   .qr { background-color: rgba(var(--color-sand), .7); }
@@ -35,7 +41,6 @@ body {
 	}
 	.qr {
 		width: 450px;
-		margin: 0;
 		background-color: #fff;
 	}
 	.wrapper-website   { background-color: rgba(var(--color-sand), .7); }
