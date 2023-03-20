@@ -5,35 +5,46 @@ body {
 	align-items: center;
 	width: 100%;
 	min-height: 100vh;
-	background-color: var(--color-gray-light);
-	background-image: var(--linear-gradient-blue-violet);
-	background-repeat: no-repeat;
-	background-size: cover;
 }
 
 .qr {
 	width: 350px;
-	background-color: #fff;
+	background-color: rgba(var(--color-white), .9);
 	box-shadow: var(--shadow);
 	border-radius: 20px;
 	margin: 30px;
 }	
 
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+
 @media screen and (max-width: 1280px) {
 	body {
 		flex-direction: column;
 	}
-	.qr {
-		margin: 50px;
+	.wrapper {
+		width: 100%;
 	}
+	.qr {
+		width: 450px;
+		margin: 0;
+	}
+	.wrapper-website   { background-color: rgb(var(--color-sand)); }
+	.wrapper-telegram  { background-color: rgb(var(--color-sea)); }
+	.wrapper-instagram { background-color: rgb(var(--color-blue-violet)); }
 }
 
 @media screen and (max-width: 620px) {
 	.qr {
 		width: 100%;
 	}
-	body {
-		padding: 20px;
+	.wrapper {
+		padding: 30px;
 	}
 }
 
