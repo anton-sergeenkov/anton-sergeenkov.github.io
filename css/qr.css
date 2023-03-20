@@ -41,6 +41,8 @@ body {
 	}
 	.qr {
 		width: 450px;
+		margin: 0;
+		margin-bottom: 30px;
 		background-color: #fff;
 	}
 	.wrapper-website   { background-color: rgb(var(--color-gray-light)); }
