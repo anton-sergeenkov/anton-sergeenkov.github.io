@@ -16,17 +16,15 @@
     <!-- MENU -->
     <nav>
         <ul class="menu__list">
-            <li class="menu__item">
-                <a class="menu__link menu__link_accent" href="files/cv.pdf" target="_blank">CV</a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="contacts.html" target="_blank">Contacts</a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="stack.html" target="_blank">Technologies Stack</a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="qr.html" target="_blank">Scan QR</a>
+            <li v-for="item in menu" class="menu__item">
+                <a
+                    v-html="item.title"
+                    :href="item.href"
+                    :class="item.accent && 'menu__link_accent'"
+                    class="menu__link"
+                    target="_blank"
+                >
+                </a>
             </li>
         </ul>
     </nav>

@@ -8,6 +8,26 @@ Let's Code
 › CV               https://docs.google.com/document/d/1bFV29u7COEo9mzoAMLKWbKo87WfZn4VpkRHE3SQ25FA
 */
 
+const ARR_MENU_LINKS = [
+    {
+        href: 'files/cv.pdf',
+        title: 'CV',
+        accent: true,
+    },
+    {
+        href: 'contacts.html',
+        title: 'Contacts',
+    },
+    {
+        href: 'stack.html',
+        title: 'Technologies Stack',
+    },
+    {
+        href: 'qr.html',
+        title: 'Scan QR',
+    },
+];
+
 const ARR_STACK = [
     {
         title: 'Frontend',
@@ -116,11 +136,13 @@ const ARR_SOCIAL_ICONS = [
 new Vue({
     el: '#root',
     data: {
+        menu: null,
         projects: null,
         socialIcons: null,
         stack: null,
     },
     mounted() {
+        this.menu = ARR_MENU_LINKS;
         this.projects = ARR_PROJECTS;
         this.socialIcons = ARR_SOCIAL_ICONS;
         this.stack = ARR_STACK;
