@@ -233,36 +233,28 @@ PROJECTS
 /***************************************************
 ADAPTIVE
 /***************************************************/
-@media screen and (max-width: 1055px) {
-	.profile__container {
-		align-items: center;
-		padding-bottom: 30px;
-	}
-	.profile__logo {
-		width: 200px;
-		height: 200px;
-		border-radius: 50%;
-		background-image: url(../img/profile/ava-small.png);
-		background-position: top top;
-	}
-}
-
 @media screen and (max-width: 1150px) {
     .projects__container {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 940px) {
     .profile__container {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+		padding-bottom: 30px;
     }
-    .profile__logo {
+	.profile__logo {
+		width: 200px;
+		height: 200px;
     	margin-top: 30px;
     	margin-left: 50px;
     	margin-right: 50px;
+		border-radius: 50%;
+		background-image: url(../img/profile/ava-small.png);
+		background-position: top top;
     }
     .projects__container {
         grid-template-columns: repeat(2, 1fr);
