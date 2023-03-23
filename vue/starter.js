@@ -79,7 +79,7 @@ const ARR_PROJECTS = [
         ],
     },
     {
-        title: "Web studio \"Panda\"",
+        title: "Web Studio \"Panda\"",
         link: 'https://workshop-panda.github.io/',
         img: PATH_IMG_PROJECTS+'panda.png',
         description: 'Website development web studio and Freelance projects',
