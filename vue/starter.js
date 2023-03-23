@@ -15,12 +15,12 @@ const ARR_MENU_LINKS = [
         accent: true,
     },
     {
-        href: 'contacts.html',
-        title: 'Contacts',
-    },
-    {
         href: 'stack.html',
         title: 'Technologies Stack',
+    },
+    {
+        href: 'contacts.html',
+        title: 'Contacts',
     },
     {
         href: 'qr.html',
