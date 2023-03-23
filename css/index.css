@@ -63,7 +63,7 @@ MENU
 	transition: var(--transition);
 }
 .menu__link:hover {
-	border-bottom: 1px solid rgba(var(--color-blue-dark), .5);
+	color: rgb(var(--color-blue-violet));
 }
 
 .menu__link_accent {
@@ -76,6 +76,7 @@ MENU
 }
 .menu__link_accent:hover {
 	background-color: rgb(var(--color-black));
+	color: rgb(var(--color-white));
 }
 
 
@@ -221,7 +222,7 @@ PROJECTS
 	transition: var(--transition);
 }
 .projects__links_item:hover {
-	color: rgb(var(--color-black));
+	color: rgb(var(--color-blue-violet));
 }
 
 
