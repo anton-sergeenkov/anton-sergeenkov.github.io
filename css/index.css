@@ -25,7 +25,7 @@ COMMON
 	font-size: 18px;
 	margin: 0;
 	text-align: left;
-    color: rgb(var(--color-gray-dark));
+	color: rgba(var(--color-blue-violet), .8);
 }
 .section {
     margin-top: 20px;
@@ -213,7 +213,7 @@ PROJECTS
 	align-items: center;
 	min-height: 50px;
 	margin-top: 20px;
-	border-left: 4px solid rgba(var(--color-blue-dark), .1);
+	border-left: 3px solid rgba(var(--color-blue-violet), .4);
 	padding-left: 10px;
 	line-height: 1.4;
 }
