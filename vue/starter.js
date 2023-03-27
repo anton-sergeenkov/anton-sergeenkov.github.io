@@ -53,7 +53,8 @@ const ARR_PROJECTS = [
     {
         title: "Courses \"Let's Code\"",
         link: 'https://letscode-dev.github.io/',
-        img: PATH_IMG_PROJECTS+'letscode.png',
+        img: PATH_IMG_PROJECTS+'letscode.svg',
+        imgBig: true,
         description: 'School of programming, courses and mentoring',
         links: [
             { name: 'Website', link: 'https://letscode-dev.github.io/' },
@@ -63,7 +64,7 @@ const ARR_PROJECTS = [
     {
         title: "Blog \"Berserker\"",
         link: 'https://dzen.ru/berserker',
-        img: PATH_IMG_PROJECTS+'berserker.png',
+        img: PATH_IMG_PROJECTS+'berserker.svg',
         description: 'Blog about Scandinavian and Slavic mythology',
         links: [
             { name: 'Yandex Dzen', link: 'https://dzen.ru/berserker' },
@@ -72,7 +73,8 @@ const ARR_PROJECTS = [
     {
         title: "Habr Publications",
         link: 'https://habr.com/ru/users/anton-sergeenkov/posts/',
-        img: PATH_IMG_PROJECTS+'habr.png',
+        img: PATH_IMG_PROJECTS+'habr.svg',
+        imgBig: true,
         description: 'Publications on website Habr',
         links: [
             { name: 'Habr', link: 'https://habr.com/ru/users/anton-sergeenkov/posts/' },
@@ -81,7 +83,7 @@ const ARR_PROJECTS = [
     {
         title: "Web Studio \"Panda\"",
         link: 'https://workshop-panda.github.io/',
-        img: PATH_IMG_PROJECTS+'panda.png',
+        img: PATH_IMG_PROJECTS+'panda.svg',
         description: 'Website development web studio and Freelance projects',
         links: [
             { name: 'Website', link: 'https://workshop-panda.github.io/' },

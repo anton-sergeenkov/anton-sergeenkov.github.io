@@ -186,14 +186,16 @@ PROJECTS
 .projects__logo:hover {
 	filter: grayscale(50%) opacity(50%);
 }
+.projects__logo_small { padding: 20px 40px; }
+.projects__logo_big   { padding: 50px; }
+
 .projects__logo_img {
-	width: 70%;
-	height: 70%;
+	width: 100%;
+	height: 100%;
 	margin: auto;
 	background-position: center center;
 	background-size: contain;
 	background-repeat: no-repeat;
-	filter: drop-shadow(2px 2px 2px rgb(var(--color-blue-dark)));
 }
 
 .projects__content {
@@ -233,6 +235,12 @@ ADAPTIVE
     .projects__container {
         grid-template-columns: repeat(3, 1fr);
     }
+ 	.projects__logo_big {
+		padding: 70px;
+	}
+ 	.projects__logo_small {
+		padding: 50px;
+	}
 }
 
 @media screen and (max-width: 940px) {
