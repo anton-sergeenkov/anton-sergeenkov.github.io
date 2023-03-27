@@ -217,13 +217,12 @@ PROJECTS
 }
 .projects__description::before {
 	content: '';
-	width: 5px;
+	flex-shrink: 0;
+	width: 4px;
 	height: 40px;
 	margin-right: 10px;
 	border-radius: 12px;
-	/* box-shadow: var(--shadow); */
-	/* border: 1px solid rgba(var(--color-blue-violet), .4); */
-	background-color: rgba(var(--color-blue-violet), .4);
+	background-color: rgba(var(--color-blue-violet), .3);
 }
 
 .projects__links {
