@@ -74,7 +74,6 @@ const ARR_PROJECTS = [
         title: "Habr Publications",
         link: 'https://habr.com/ru/users/anton-sergeenkov/posts/',
         img: PATH_IMG_PROJECTS+'habr.svg',
-        imgBig: true,
         description: 'Publications on website Habr',
         links: [
             { name: 'Habr', link: 'https://habr.com/ru/users/anton-sergeenkov/posts/' },
