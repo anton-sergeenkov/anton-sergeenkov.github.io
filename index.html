@@ -82,12 +82,13 @@
                     <h3 class="h3" v-html="itemProjects.title"></h3>
                     <div class="projects__description" v-html="itemProjects.description"></div>
                     <div class="projects__links">
-                        <div v-for="item in itemProjects.links">
+                        <div v-for="item in itemProjects.links" class="projects__links_item">
+                            <span>› </span>
                             <a
-                                class="projects__links_item"
+                                class="projects__links_link"
                                 :href="item.link"
                                 target="_blank"
-                                v-html="'› '+item.name"
+                                v-html="item.name"
                             ></a>
                         </div>
                     </div>
