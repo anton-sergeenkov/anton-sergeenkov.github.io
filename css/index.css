@@ -142,7 +142,7 @@ PROFILE
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
-	opacity: .30;
+	opacity: .3;
 	transition: var(--transition);
 }
 .profile__social-link:last-child {
@@ -151,7 +151,7 @@ PROFILE
 .profile__social-link:hover,
 .profile__social-link_active {
 	filter: invert(0);
-	opacity: .9;
+	opacity: .8;
 }
 .profile__social-link[data-title]:hover::after {
 	content: attr(data-title);
