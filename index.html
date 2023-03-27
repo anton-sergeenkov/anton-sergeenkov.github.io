@@ -69,10 +69,13 @@
                 <a
                     :href="itemProjects.link"
                     class="projects__logo"
-                    :class="itemProjects.imgBig ? 'projects__logo_big' : 'projects__logo_small'"
                     target="_blank"
                 >
-                    <div class="projects__logo_img" :style="'background-image: url('+itemProjects.img+');'"></div>
+                    <div
+                        class="projects__logo_img"
+                        :class="itemProjects.imgBig ? 'projects__logo_big' : 'projects__logo_small'"
+                        :style="'background-image: url('+itemProjects.img+');'"
+                    ></div>
                 </a>
 
                 <div class="projects__content">
