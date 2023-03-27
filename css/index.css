@@ -213,10 +213,19 @@ PROJECTS
 	align-items: center;
 	min-height: 50px;
 	margin-top: 20px;
-	border-left: 3px solid rgba(var(--color-blue-violet), .4);
-	padding-left: 10px;
 	line-height: 1.4;
 }
+.projects__description::before {
+	content: '';
+	width: 5px;
+	height: 40px;
+	margin-right: 10px;
+	border-radius: 12px;
+	/* box-shadow: var(--shadow); */
+	/* border: 1px solid rgba(var(--color-blue-violet), .4); */
+	background-color: rgba(var(--color-blue-violet), .4);
+}
+
 .projects__links {
     margin-top: 20px;
     color: rgb(var(--color-black));
