@@ -180,7 +180,7 @@ PROJECTS
 .projects__logo {
     display: flex;
 	width: 100%;
-	height: 200px;
+	height: 170px;
 	transition: var(--transition-long);
 }
 .projects__logo:hover {
