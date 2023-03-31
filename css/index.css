@@ -243,6 +243,20 @@ PROJECTS
 	color: rgb(var(--color-blue-violet));
 }
 
+/***************************************************
+STACK
+/***************************************************/
+.stack__container {
+	width: 400px; 
+	background-color: rgb(var(--color-white));
+	box-shadow: var(--shadow);
+	padding: 20px;
+}
+.stack__item {
+	margin: 10px;
+	cursor: pointer;
+}
+
 
 /***************************************************
 ADAPTIVE

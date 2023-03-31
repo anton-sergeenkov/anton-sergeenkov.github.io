@@ -134,6 +134,8 @@ const ARR_SOCIAL_ICONS = [
     },
 ];
 
+const apiStack = 'https://raw.githubusercontent.com/anton-sergeenkov/anton-sergeenkov.github.io/master/%40api/stack.json';
+
 new Vue({
     el: '#root',
     data: {
@@ -141,6 +143,7 @@ new Vue({
         projects: null,
         socialIcons: null,
         stack: null,
+        stackContent: null
     },
     mounted() {
         this.menu = ARR_MENU_LINKS;
@@ -148,4 +151,11 @@ new Vue({
         this.socialIcons = ARR_SOCIAL_ICONS;
         this.stack = ARR_STACK;
     },
+	created() {
+		fetch(apiStack)
+			.then(res => res.json())
+			.then(body => {
+				this.stackContent = body
+			})
+	}
 });

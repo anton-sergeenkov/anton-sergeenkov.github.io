@@ -7,6 +7,8 @@
     <link rel="icon" href="img/favicon.svg" />
 
     <link rel="stylesheet" type="text/css" href="css/basic.css">
+    <link rel="stylesheet" type="text/css" href="css/details.css">
+	<link rel="stylesheet" type="text/css" href="css/list.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
@@ -97,7 +99,28 @@
         </div>
     </section>
 
+    <!-- STACK -->
+    <!--
+     <section class="section">
+        <h2 class="h2">Technologies Stack</h2>
+        <div class="stack__container">
+            <div class="stack__item" v-for="stackObj in stackContent">
+                <details>
+                    <summary v-text="stackObj.title"></summary>
+                    <ul class="g-list">
+                        <li class="g-list-item" v-for="stackArr in stackObj.items">
+                            <div class="g-list-item-wrapper">
+                                <span class="g-list-badge" v-for="stackItem in stackArr" v-text="stackItem"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </details>
+
+            </div>
+        </div>
+    </section>
     </div>
+    -->
 
     <script src="libs/vue.js"></script>
     <script src="vue/starter.js"></script>
