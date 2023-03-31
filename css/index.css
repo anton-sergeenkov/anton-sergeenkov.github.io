@@ -30,6 +30,11 @@ COMMON
 .section {
     margin-top: 20px;
 }
+.gradient-text {
+	background: -webkit-linear-gradient(right bottom, #162454, #533389, #0ad8d8, #7a359f);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 
 
 /***************************************************
@@ -91,10 +96,9 @@ PROFILE
     background-color: rgb(var(--color-white));
 }
 .profile__logo {
-	width: 400px;
-	height: 550px;
+	width: 300px;
 	flex-shrink: 0;
-	background-image: url(../img/profile/ava.png);
+	background-image: url(../img/profile/ava.jpg);
 	background-position: center center;
 	background-size: cover;
 }
@@ -281,7 +285,7 @@ ADAPTIVE
     	margin-left: 50px;
     	margin-right: 50px;
 		border-radius: 50%;
-		background-image: url(../img/profile/ava-small.png);
+/*		background-image: url(../img/profile/ava-small.png);*/
 		background-position: top top;
     }
     .projects__container {
