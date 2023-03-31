@@ -13,9 +13,10 @@
 	--color-sea:         10, 216, 216;   /* #0ad8d8 */
 	--color-sand:        227, 227, 170;  /* #e3e3aa */
 
-	--transition:         .4s;
-	--transition-long:    .7s;
-	--border-radius-logo: 10px;
+	--transition:           .4s;
+	--transition-long:      .7s;
+	--border-radius-logo:   10px;
+	--border-radius-global: 3px;
 	--shadow:
 		0 16px 24px 2px  rgba(33, 37, 41, .02), 
 		0 6px  30px 5px  rgba(33, 37, 41, .04), 

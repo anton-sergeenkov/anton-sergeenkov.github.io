@@ -93,6 +93,8 @@ PROFILE
 .profile__container {
 	display: flex;
     margin-top: 30px;
+    overflow: auto;
+    border-radius: var(--border-radius-global);
     background-color: rgb(var(--color-white));
 }
 .profile__logo {
@@ -177,9 +179,11 @@ PROJECTS
     gap: 20px;
 }
 .projects__item {
-	background-color: rgb(var(--color-white));
-	box-shadow: var(--shadow);
+	overflow: auto;
 	border: 1px solid rgba(var(--color-sea), .2);
+	border-radius: var(--border-radius-global);
+	box-shadow: var(--shadow);
+	background-color: rgb(var(--color-white));
 }
 
 .projects__logo {
@@ -190,7 +194,7 @@ PROJECTS
 	background-color: rgba(var(--color-sea), .1);
 }
 .projects__logo:hover {
-	filter: grayscale(50%) opacity(50%);
+	opacity: .5;
 }
 
 .projects__logo_img {
