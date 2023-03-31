@@ -25,13 +25,13 @@ COMMON
 	font-size: 18px;
 	margin: 0;
 	text-align: left;
-	color: rgba(var(--color-blue-violet), .8);
+/*	color: rgba(var(--color-blue-violet), .8);*/
 }
 .section {
     margin-top: 20px;
 }
 .gradient-text {
-	background: -webkit-linear-gradient(right bottom, #162454, #533389, #0ad8d8, #7a359f);
+	background: -webkit-linear-gradient(right bottom, #162454, #533389, #0a9ed8, #7a359f);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -179,6 +179,7 @@ PROJECTS
 .projects__item {
 	background-color: rgb(var(--color-white));
 	box-shadow: var(--shadow);
+	border: 1px solid rgba(var(--color-sea), .2);
 }
 
 .projects__logo {
@@ -186,6 +187,7 @@ PROJECTS
 	width: 100%;
 	height: 190px;
 	transition: var(--transition-long);
+	background-color: rgba(var(--color-sea), .1);
 }
 .projects__logo:hover {
 	filter: grayscale(50%) opacity(50%);
