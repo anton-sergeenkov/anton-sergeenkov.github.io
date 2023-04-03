@@ -180,7 +180,7 @@ PROJECTS
 }
 .projects__item {
 	overflow: auto;
-	border: 1px solid rgba(var(--color-sea), .1);
+/*	border: 1px solid rgba(var(--color-sea), .1);*/
 	border-radius: var(--border-radius-global);
 	box-shadow: var(--shadow);
 	background-color: rgb(var(--color-white));
