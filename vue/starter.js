@@ -95,42 +95,52 @@ const PATH_ICONS_SOCIAL = 'img/social-icons/';
 
 const ARR_SOCIAL_ICONS = [
     {
-        img: PATH_ICONS_SOCIAL+'linkedin.png',
+        img: PATH_ICONS_SOCIAL+'linkedin.svg',
         title:'Linkedin',
         link: 'https://www.linkedin.com/in/sergeenkov-anton',
         active: true
     },
     {
-        img: PATH_ICONS_SOCIAL+'github.png',
+        img: PATH_ICONS_SOCIAL+'github.svg',
         title:'GitHub',
         link: 'https://github.com/anton-sergeenkov',
         active: true
     },
     {
-        img: PATH_ICONS_SOCIAL+'telegram.png',
+        img: PATH_ICONS_SOCIAL+'telegram.svg',
         title:'Telegram',
         link: 'https://t.me/anton_sergeenkov',
         active: true
     },
     {
-        img: PATH_ICONS_SOCIAL+'skype.png',
+        img: PATH_ICONS_SOCIAL+'skype.svg',
         title:'Skype',
-        link: 'https://join.skype.com/invite/hZmBtAZQ0EXY'
+        link: 'https://join.skype.com/invite/hZmBtAZQ0EXY',
+        active: true
     },
     {
-        img: PATH_ICONS_SOCIAL+'facebook.png',
+        img: PATH_ICONS_SOCIAL+'facebook.svg',
         title:'Facebook',
-        link: 'https://www.facebook.com/profile.php?id=100002126643722'
+        link: 'https://www.facebook.com/profile.php?id=100002126643722',
+        active: true
     },
     {
-        img: PATH_ICONS_SOCIAL+'instagram.png',
+        img: PATH_ICONS_SOCIAL+'instagram.svg',
         title:'Instagram',
-        link: 'https://www.instagram.com/anton.sergeenkov'
+        link: 'https://www.instagram.com/anton.sergeenkov',
+        active: true
     },
     {
-        img: PATH_ICONS_SOCIAL+'vk.png',
+        img: PATH_ICONS_SOCIAL+'youtube.svg',
+        title:'YouTube',
+        link: 'https://www.youtube.com/c/letscode-dev',
+        active: true
+    },
+    {
+        img: PATH_ICONS_SOCIAL+'vk.svg',
         title:'VKontakte',
-        link: 'https://vk.com/anton.sergeenkov'
+        link: 'https://vk.com/anton.sergeenkov',
+        active: true
     },
 ];
 
