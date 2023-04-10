@@ -7,7 +7,14 @@
 	x="0"
 	y="0"
 >
-	<g fill="#2b2b2b">
+	<defs>
+		<linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+			<stop offset="0%" stop-color="#0a3ad8" />
+			<stop offset="100%" stop-color="#970ad8" />
+		</linearGradient>
+	</defs>
+
+	<g fill="url(#bgGradient)">
 		<circle cx="186.182" cy="186.182" r="23.273"></circle>
 		<path d="M162.909 221.091h46.545v128h-46.545z"></path>
 		<path d="M318.371 221.091c-34.909 0-39.098 20.713-39.098 20.713v-20.713h-46.545v128h46.545v-69.818s0-23.273 19.782-23.273c11.636 0 15.127 10.356 15.127 23.273v69.818h46.545v-69.818c0-36.422-15.825-58.182-42.356-58.182z"></path>
