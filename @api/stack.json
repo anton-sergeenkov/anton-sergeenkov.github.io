@@ -2,9 +2,9 @@
     {
         "title": "Framework React.js",
         "items": [
-            ["React.js", "React Hooks", "PropTypes", "react-router"],
+            ["React.js", "React Router"],
             ["Next.js"],
-            ["redux", "react-redux", "reselect", "redux-thunk"],
+            ["Redux", "reselect", "redux-thunk"],
             ["formik", "react-final-form", "yup"],
             ["react-query", "Material-UI", "Storybook"]
         ]
@@ -21,7 +21,7 @@
         "title": "Frontend",
         "items": [
             ["TypeScript", "Flow"],
-            ["JavaScript", "ES5 / ES6+", "Canvas"],
+            ["JavaScript", "ES5 / ES6+", "HTLM5 Canvas"],
             ["Webpack", "Babel", "Gulp", "NPM", "Yarn"],
             ["ramda", "lodash", "axios", "jQuery"]
         ]
@@ -31,7 +31,7 @@
         "items": [
             ["HTML5", "CSS3"],
             ["Flexbox", "CSS Grid"],
-            ["Bootstrap", "Sass", "PostCSS", "CSS-in-JS", "CSS Modules"],
+            ["Bootstrap", "SASS", "PostCSS", "CSS-in-JS", "CSS Modules"],
             ["SVG", "CSS Custom Properties"]
         ]
     },
