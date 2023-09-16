@@ -4,17 +4,18 @@
         "items": [
             ["React.js", "React Router"],
             ["Next.js"],
-            ["Redux", "reselect", "redux-thunk"],
-            ["formik", "react-final-form", "yup"],
-            ["react-query", "Material-UI", "Storybook"]
+            ["Redux", "Redux Toolkit", "Redux Thunk", "Redux Saga", "Reselect"],
+            ["Formik", "React Final Form", "Yup"],
+            ["React Query"],
+            ["Material-UI", "Storybook"]
         ]
     },
     {
         "title": "Framework Vue.js",
         "items": [
             ["Vue.js", "Vuex", "Vue Router"],
-            ["VuePress"],
-            ["Vue CLI 3", "Vuetify.js"]
+            ["Vue CLI", "Vuetify.js"],
+            ["VuePress"]
         ]
     },
     {
@@ -22,8 +23,9 @@
         "items": [
             ["TypeScript", "Flow"],
             ["JavaScript", "ES5 / ES6+", "HTLM5 Canvas"],
-            ["Webpack", "Babel", "Gulp", "NPM", "Yarn"],
-            ["ramda", "lodash", "axios", "jQuery"]
+            ["ESLint", "Prettier", "Husky"],
+            ["Webpack", "Gulp", "NPM", "Yarn"],
+            ["Lodash", "Ramda", "Axios", "jQuery"]
         ]
     },
     {
@@ -37,17 +39,11 @@
     },
     {
         "title": "Backend",
-        "items": [
-            ["Node.js"],
-            ["MySQL", "SQL"]
-        ]
+        "items": [["Node.js"], ["MySQL", "SQL"]]
     },
     {
         "title": "Testing",
-        "items": [
-            ["Jest", "Enzyme"],
-            ["Cypress"]
-        ]
+        "items": [["Jest", "Enzyme"], ["Cypress"]]
     },
     {
         "title": "Technologies",
@@ -61,10 +57,7 @@
     },
     {
         "title": "Methodology",
-        "items": [
-            ["Agile", "Scrum"],
-            ["Gitflow"]
-        ]
+        "items": [["Agile", "Scrum"], ["Gitflow"]]
     },
     {
         "title": "Other (starting knowledge)",
