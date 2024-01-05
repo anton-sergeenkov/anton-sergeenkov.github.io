@@ -1,0 +1,52 @@
+{
+  "name": "lets-code",
+  "version": "0.1.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "gh-pages": "gh-pages -d out -t true",
+    "commit": "git add . && git commit -m \"Bash Script Commit\" && git push origin head",
+    "create-nojekyll": "node -r esm ./node.js/nojekyll.js",
+    "copy-cv": "node -r esm ./node.js/copy-cv.js",
+    "deploy": "npm run commit && npm run build && npm run create-nojekyll && npm run copy-cv && npm run gh-pages",
+    "format": "prettier --write .",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/icons-material": "^5.15.1",
+    "@mui/material": "^5.15.1",
+    "classnames": "^2.3.2",
+    "dotenv": "^16.3.1",
+    "esm": "^3.2.25",
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-prettier": "^5.1.2",
+    "gh-pages": "^6.1.1",
+    "prettier": "^3.1.1",
+    "prettier-config-nick": "^1.0.8"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "react/jsx-no-target-blank": "off"
+    }
+  },
+  "prettier": "prettier-config-nick"
+}

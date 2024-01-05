@@ -1,0 +1,38 @@
+.container {
+  height: var(--height-header);
+  display: flex;
+  align-items: center;
+}
+.list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+
+  .listItem {
+    margin-right: 15px;
+    list-style-type: none;
+  }
+  .listItem:last-child {
+    margin-right: 0;
+  }
+  .listItem a {
+    text-decoration: none;
+  }
+}
+
+.mobile {
+  display: none;
+}
+
+/***************************************************
+ADAPTIVE
+/***************************************************/
+@media screen and (max-width: 600px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+}
