@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className={styles.wrapper}>
       <div className={cn(styles.container, "section-width")}>
-        Anton Sergeenkov. React / Vue Frontend Developer ⭐️
+        Anton Sergeenkov. React / Vue Frontend Developer
       </div>
     </div>
   )
