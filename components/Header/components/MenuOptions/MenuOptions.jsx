@@ -26,9 +26,8 @@ const MenuOptions = (props) => {
     setAnchorEl(null)
   }
 
-  // TODO: div вместо span
   return (
-    <span className={className}>
+    <div className={className}>
       <MenuButton
         accent={accent}
         onClick={handleClick}
@@ -74,7 +73,7 @@ const MenuOptions = (props) => {
           </MenuItem>
         ))}
       </Menu>
-    </span>
+    </div>
   )
 }
 

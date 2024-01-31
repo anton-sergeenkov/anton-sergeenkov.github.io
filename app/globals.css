@@ -15,12 +15,12 @@
   --color-blue: #3a3ae7;
   --color-sea: #c0eeee;
 
-  --color-black-opacity-1: rgba(43, 43, 43, .1);
-  --color-black-opacity-7: rgba(0, 0, 0, .7);
-  --color-white-opacity-1: rgba(255, 255, 255, .1);
-  --color-white-opacity-2: rgba(255, 255, 255, .2);
-  --color-yellow-opacity-1: rgba(216, 228, 122, .1);
-  --color-yellow-opacity-3: rgba(216, 228, 122, .3);
+  --color-black-opacity-1: rgba(43, 43, 43, 0.1);
+  --color-black-opacity-7: rgba(0, 0, 0, 0.7);
+  --color-white-opacity-1: rgba(255, 255, 255, 0.1);
+  --color-white-opacity-2: rgba(255, 255, 255, 0.2);
+  --color-yellow-opacity-1: rgba(216, 228, 122, 0.1);
+  --color-yellow-opacity-3: rgba(216, 228, 122, 0.3);
 
   --border-radius-chip: 16px;
   --border-radius-logo: 10px;
@@ -37,6 +37,10 @@
     /* #e2e9b3, #d4ecc0, #c9eecf, #c5efdc, #c6eee6 */ #eee5fb,
     #def2fa
   );
+
+  --scrollbar-thumb: rgb(137, 137, 137);
+  --scrollbar-track: rgb(207, 207, 207);
+  --scrollbar-corner: var(--scrollbar-thumb);
 }
 
 html {
@@ -62,23 +66,20 @@ body {
 /***************************************************
 SCROLL
 /***************************************************/
-/* * {
-  scrollbar-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.1);
-  scrollbar-width: thin;
-}
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(43, 36, 50);
+  background-color: var(--scrollbar-thumb);
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--scrollbar-track);
 }
 ::-webkit-scrollbar-corner {
-  background-color: rgba(0, 0, 0, 0.7);
-} */
+  background-color: var(--scrollbar-corner);
+}
 
 /***************************************************
 SECTIONS
@@ -97,8 +98,10 @@ SECTIONS
 .section-starter {
   margin-bottom: 40px;
 }
-.section-width {}
-.section-header {}
+.section-width {
+}
+.section-header {
+}
 
 /***************************************************
 CLASSES
@@ -118,16 +121,16 @@ CLASSES
 }
 .link {
   --color: var(--color-black-lighter);
-  
+
   font-size: 14px;
   font-family: var(--font-roboto-regular);
   color: var(--color);
   text-decoration: none;
 
-  background: linear-gradient(to bottom,var(--color) 50%,var(--color) 50%);
-	background-repeat: repeat-x;
-	background-position: 0 100%;
-	background-size: .5px .5px;
+  background: linear-gradient(to bottom, var(--color) 50%, var(--color) 50%);
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 0.5px 0.5px;
 
   justify-content: flex-start;
   align-items: flex-start;
