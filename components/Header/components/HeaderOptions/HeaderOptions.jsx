@@ -40,7 +40,7 @@ const HeaderOptions = (props) => {
 
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         {ROUTES.map((item, index) => (
-          <span className={styles.link} key={index}>
+          <div className={styles.link} key={index}>
             <MenuItem
               onClick={handleClose}
               sx={{
@@ -52,7 +52,7 @@ const HeaderOptions = (props) => {
             >
               <MenuRoutes item={item} />
             </MenuItem>
-          </span>
+          </div>
         ))}
       </Menu>
     </>
