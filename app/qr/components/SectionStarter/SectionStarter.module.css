@@ -1,0 +1,31 @@
+.wrapper {
+  --spacing: 40px;
+}
+
+.container {
+  overflow: auto;
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  padding: var(--spacing);
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+  box-shadow: var(--box-shadow-flat);
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/***************************************************
+ADAPTIVE
+/***************************************************/
+@media screen and (max-width: 670px) {
+  /*  */
+}
