@@ -5,10 +5,10 @@ import coverPanda from "./img/panda.svg"
 
 export const LIST_PROJECTS = [
   {
-    title: 'Courses "Let\'s Code"',
+    title: 'Educational project "Let\'s Code"',
     link: "https://letscode-dev.github.io/",
     img: coverLetscode,
-    description: "School of programming, courses and mentoring",
+    description: "School of Frontend Development, courses and mentoring",
     links: [
       { name: "Website", link: "https://letscode-dev.github.io/" },
       { name: "YouTube", link: "https://www.youtube.com/c/letscode-dev" },
