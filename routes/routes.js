@@ -11,10 +11,10 @@ export const ROUTES = [
     title: "Contacts",
     path: "/contacts",
   },
-  // {
-  //   title: "QR",
-  //   path: "/qr",
-  // },
+  {
+    title: "QR",
+    path: "/qr",
+  },
   // {
   //   title: "Contacts",
   //   path: "/contacts",
