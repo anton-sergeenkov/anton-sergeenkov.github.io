@@ -1,7 +1,7 @@
 export const LIST_CONTACTS = [
   {
     title: "Social Network",
-    data: [
+    items: [
       {
         url: "https://www.linkedin.com/in/sergeenkov-anton",
         title: "LinkedIn",
@@ -20,13 +20,13 @@ export const LIST_CONTACTS = [
       {
         url: "https://www.facebook.com/profile.php?id=100002126643722",
         title: "Facebook",
-        alias: "Facebook",
+        alias: "profile",
       },
     ],
   },
   {
     title: "Messengers",
-    data: [
+    items: [
       {
         url: "https://join.skype.com/invite/hZmBtAZQ0EXY",
         title: "Skype",
@@ -61,7 +61,7 @@ export const LIST_CONTACTS = [
   },
   {
     title: "Developer",
-    data: [
+    items: [
       {
         url: "https://anton-sergeenkov.github.io",
         title: "Website",
@@ -96,7 +96,7 @@ export const LIST_CONTACTS = [
   },
   {
     title: "CV",
-    data: [
+    items: [
       {
         url: "https://anton-sergeenkov.github.io/cv-en.pdf",
         title: "CV (en)",
@@ -109,16 +109,16 @@ export const LIST_CONTACTS = [
         url: "https://career.habr.com/anton-sergeenkov",
         title: "Habr Career",
       },
-      {
-        url: "https://hh.ru/resume/4f49e957ff05faa54c0039ed1f42525a674d33",
-        title: "Head Hunter",
-        alias: "Head Hunter",
-      },
+      // {
+      //   url: "https://hh.ru/resume/4f49e957ff05faa54c0039ed1f42525a674d33",
+      //   title: "Head Hunter",
+      //   alias: "Head Hunter",
+      // },
     ],
   },
   {
     title: "E-mail",
-    data: [
+    items: [
       {
         url: "mailto:anthony.sergeenkov@gmail.com",
         title: "Google Mail",

@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Anton Sergeenkov. Frontend Developer (React / Vue)",
-  description: "Technologies Stack",
+  description: "Contacts",
 }
 
 const RootLayout = (props) => {

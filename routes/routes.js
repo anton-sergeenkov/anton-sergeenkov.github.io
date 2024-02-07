@@ -7,6 +7,10 @@ export const ROUTES = [
     title: "Technologies Stack",
     path: "/stack",
   },
+  {
+    title: "Contacts",
+    path: "/contacts",
+  },
   // {
   //   title: "Contacts",
   //   path: "/contacts",

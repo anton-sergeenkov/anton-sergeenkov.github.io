@@ -1,0 +1,75 @@
+.wrapper {
+  --spacing: 40px;
+}
+
+.container {
+  overflow: auto;
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  padding: var(--spacing);
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+}
+.listItem {
+  margin: 7px 0;
+  margin-left: 10px;
+  font-size: 14px;
+  color: var(--color-black-lighter);
+  /* list-style: inside; */
+  list-style-type: disc;
+}
+.listItem::marker {
+  color: var(--color-black-lighter);
+  font-size: 12px;
+}
+.listWrapper {
+  margin-bottom: 30px;
+}
+.listWrapper:last-child {
+  margin-bottom: 0;
+}
+
+.listItemContainer {
+  display: block;
+}
+
+.chip {
+  margin-right: 5px;
+  background-color: var(--color-gray-light);
+}
+.chip:last-child {
+  margin-right: 0;
+}
+
+/***************************************************
+ADAPTIVE
+/***************************************************/
+@media screen and (max-width: 670px) {
+  .chip {
+    margin-bottom: 5px;
+  }
+  .chip:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .listItemContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .listItemContainer a {
+    background: none;
+    color: var(--color-blue);
+    font-family: var(--font-roboto-light);
+  }
+}
