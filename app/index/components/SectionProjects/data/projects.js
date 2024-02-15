@@ -2,6 +2,7 @@ import coverLetscode from "./img/letscode.svg"
 import coverBerserker from "./img/berserker.svg"
 import coverHabr from "./img/habr.svg"
 import coverPanda from "./img/panda.svg"
+import coverHike from "./img/hike.svg"
 
 export const LIST_PROJECTS = [
   {
@@ -41,6 +42,22 @@ export const LIST_PROJECTS = [
     links: [
       { name: "Website", link: "https://workshop-panda.github.io/" },
       { name: "VKontakte Community", link: "https://vk.com/workshop_panda" },
+    ],
+  },
+  {
+    title: "Travel project \"Hike 'n' Ride\"",
+    link: "https://tony-sawyer.notion.site/Hiking-51a53ceb32a14e6b85bab365f442e4b9",
+    img: coverHike,
+    description: "A project about traveling, hiking and mountains",
+    links: [
+      {
+        name: "Website",
+        link: "https://tony-sawyer.notion.site/Hiking-51a53ceb32a14e6b85bab365f442e4b9",
+      },
+      {
+        name: "Instagram",
+        link: "https://www.instagram.com/anton.sergeenkov/",
+      },
     ],
   },
 ]
