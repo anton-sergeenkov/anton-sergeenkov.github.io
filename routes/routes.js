@@ -33,6 +33,5 @@ export const ROUTES_CV = [
   {
     title: "Russian version",
     path: "https://anton-sergeenkov.github.io/cv-ru.pdf",
-    disabled: true,
   },
 ]
