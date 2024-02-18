@@ -14,8 +14,7 @@
   position: relative;
   padding: 10px;
   border-radius: var(--border-radius);
-  background-image: var(--gradient-sea);
-  background-color: var(--color-white);
+  background-color: rgba(201, 238, 207, 0.2);
   border: 1px solid #c9eecf;
 }
 .logo {
@@ -26,22 +25,38 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  background-color: var(--color-gray-light);
+  background-color: var(--color-white);
   transition: 1s;
   box-shadow: var(--box-shadow-flat);
   cursor: pointer;
-  border: 1px solid transparent;
+  opacity: 0.65;
 }
 .logo:hover {
-  filter: grayscale(50%);
-  border: 1px solid #205f7a;
+  opacity: 0.9;
 }
 .title {
   padding: 10px;
   padding-bottom: 0;
-  font-size: 14px;
-  font-family: var(--font-roboto-light);
+  font-size: 15px;
+  font-family: var(--font-roboto-regular);
   color: var(--color-gray-medium);
+}
+
+.modal {
+  display: flex;
+  backdrop-filter: blur(5px);
+}
+.modalLogo {
+  display: block;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
 /***************************************************
@@ -62,5 +77,11 @@ ADAPTIVE
 @media screen and (max-width: 570px) {
   .listContainer {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .modalLogo {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
   }
 }
