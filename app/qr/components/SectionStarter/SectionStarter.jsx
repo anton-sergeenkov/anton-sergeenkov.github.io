@@ -52,7 +52,7 @@ const SectionStarter = () => {
                 }}
               ></div>
               {LIST_QR[itemIndex]?.name && (
-                <div className={cn(styles.modalName, "textGradient")}>
+                <div className={styles.modalName}>
                   {LIST_QR[itemIndex]?.name}
                 </div>
               )}
