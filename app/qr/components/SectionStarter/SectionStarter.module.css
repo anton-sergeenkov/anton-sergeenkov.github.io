@@ -46,17 +46,26 @@
   display: flex;
   backdrop-filter: blur(5px);
 }
-.modalLogo {
+.modalContent {
   display: block;
-  width: 500px;
-  height: 500px;
   margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
   background-color: var(--color-white);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+
+  .modalLogo {
+    width: 500px;
+    height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .modalName {
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+    top: -20px;
+  }
 }
 
 /***************************************************
@@ -79,9 +88,31 @@ ADAPTIVE
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .modalLogo {
+  .modalContent {
     width: 100%;
     height: 100%;
     border-radius: 0;
+
+    .modalLogo {
+      width: 100%;
+      height: 400px;
+      margin: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .modalContent {
+    .modalName {
+      top: -30px;
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .modalContent {
+    .modalName {
+      top: -70px;
+    }
   }
 }

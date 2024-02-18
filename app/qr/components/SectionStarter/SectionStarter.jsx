@@ -12,10 +12,10 @@ import styles from "./SectionStarter.module.css"
 
 const SectionStarter = () => {
   const [open, setOpen] = useState(false)
-  const [image, setImage] = useState(null)
+  const [itemIndex, setItemIndex] = useState(null)
 
-  const handleOpen = (img) => {
-    setImage(img)
+  const handleOpen = (index) => {
+    setItemIndex(index)
     setOpen(true)
   }
 
@@ -28,7 +28,7 @@ const SectionStarter = () => {
           {LIST_QR.map((item, index) => (
             <div className={styles.itemContainer} key={index}>
               <div
-                onClick={() => handleOpen(item.img.src)}
+                onClick={() => handleOpen(index)}
                 className={styles.logo}
                 style={{
                   backgroundImage: `url(${item.img.src})`,
@@ -44,13 +44,19 @@ const SectionStarter = () => {
             onClose={handleClose}
             className={styles.modal}
           >
-            <div
-              onClick={handleClose}
-              className={styles.modalLogo}
-              style={{
-                backgroundImage: `url(${image})`,
-              }}
-            ></div>
+            <div onClick={handleClose} className={styles.modalContent}>
+              <div
+                className={styles.modalLogo}
+                style={{
+                  backgroundImage: `url(${LIST_QR[itemIndex]?.img.src})`,
+                }}
+              ></div>
+              {LIST_QR[itemIndex]?.name && (
+                <div className={cn(styles.modalName, "textGradient")}>
+                  {LIST_QR[itemIndex]?.name}
+                </div>
+              )}
+            </div>
           </Modal>
         </div>
       </div>

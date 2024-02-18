@@ -6,10 +6,12 @@ export const LIST_QR = [
   {
     title: "Instagram",
     img: coverInstagram,
+    name: "anton.sergeenkov",
   },
   {
     title: "Telegram",
     img: coverTelegram,
+    name: "anton_sergeenkov",
   },
   {
     title: "Website",
