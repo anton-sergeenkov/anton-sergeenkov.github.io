@@ -65,8 +65,15 @@
     font-size: 22px;
     position: relative;
     top: -20px;
-    background-color: var(--color-gray-normal);
   }
+}
+
+.chip {
+  padding: 2px 14px;
+  font-size: 12px;
+  background-color: #fff;
+  font-size: 20px;
+  background-color: var(--color-gray-normal);
 }
 
 /***************************************************

@@ -4,6 +4,8 @@ import { useState } from "react"
 
 import Modal from "@mui/material/Modal"
 
+import Chip from "../../../../ui-kit/Chip"
+
 import cn from "classnames"
 
 import { LIST_QR } from "./data/qr"
@@ -53,7 +55,9 @@ const SectionStarter = () => {
               ></div>
               {LIST_QR[itemIndex]?.name && (
                 <div className={styles.modalName}>
-                  {LIST_QR[itemIndex]?.name}
+                  <Chip className={styles.chip}>
+                    {LIST_QR[itemIndex]?.name}
+                  </Chip>
                 </div>
               )}
             </div>
