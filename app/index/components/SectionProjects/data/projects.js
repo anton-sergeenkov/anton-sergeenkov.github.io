@@ -3,6 +3,7 @@ import coverBerserker from "./img/berserker.svg"
 import coverHabr from "./img/habr.svg"
 import coverPanda from "./img/panda.svg"
 import coverHike from "./img/hike.svg"
+import coverJedicoffee from "./img/jedicoffee.svg"
 
 export const LIST_PROJECTS = [
   {
@@ -57,6 +58,18 @@ export const LIST_PROJECTS = [
       {
         name: "Instagram",
         link: "https://www.instagram.com/anton.sergeenkov/",
+      },
+    ],
+  },
+  {
+    title: 'Fun project "Jedi Coffee"',
+    link: "https://www.instagram.com/jedi.coffee/",
+    img: coverJedicoffee,
+    description: "I'm just taking pictures of coffee cups",
+    links: [
+      {
+        name: "Instagram",
+        link: "https://www.instagram.com/jedi.coffee/",
       },
     ],
   },
