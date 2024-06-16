@@ -2,7 +2,7 @@ import { Fragment } from "react"
 import cn from "classnames"
 
 import { LIST_STACK } from "./data/stack"
-import { ChipsListDefault } from "@/sawyer-react-lib/ui-kit"
+import { ChipsList } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./SectionStack.module.css"
 
@@ -13,9 +13,10 @@ const SectionStack = () => {
         <Fragment key={index}>
           <div>› {element.title}</div>
           <div className={styles.badge}>
-            <ChipsListDefault
+            <ChipsList
+              theme="default-light"
               items={element.items}
-              classNameChip={styles.chip}
+              className={styles.chip}
             />
           </div>
         </Fragment>
