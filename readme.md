@@ -1,12 +1,7 @@
 # Readme
 
 ### Development
-- В родительской директории проекта должен быть репозиторий `@sawyer-react-lib`
-```
-> @sawyer-react-lib
-> anton-sergeenkov.github.io
-```
-- У проекта `@sawyer-react-lib` должны быть установлены зависимости
+- Настроить проект `-sawyer-react-lib-` https://github.com/anton-sergeenkov/-sawyer-react-lib-/blob/main/readme.md
 
 ### Deploy
 1. Остановить dev server

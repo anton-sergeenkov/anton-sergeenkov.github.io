@@ -13,7 +13,7 @@
       "@/node.js/*": ["node.js/*"],
       "@/routes/*": ["routes/*"],
 
-      "@/sawyer-react-lib/*": ["../@sawyer-react-lib/*"]
+      "@/sawyer-react-lib/*": ["../-sawyer-react-lib-/*"]
     }
   }
 }
