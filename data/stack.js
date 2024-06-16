@@ -25,7 +25,7 @@ export const LIST_TECHNOLOGIES_STACK = [
       ["JavaScript", "ES5 / ES6+", "HTLM5 Canvas", "Web Components"],
       ["ESLint", "Prettier", "Husky"],
       ["Webpack", "Gulp", "NPM", "Yarn"],
-      ["Lodash", "Ramda", "Axios", "jQuery"],
+      ["Lodash", "Ramda", "Axios", "SWR", "jQuery"],
     ],
   },
   {
@@ -49,7 +49,7 @@ export const LIST_TECHNOLOGIES_STACK = [
     title: "Technologies",
     items: [
       ["Git", "GitHub", "GitLab", "Bitbucket"],
-      ["Jira", "Confluence"],
+      ["Jira", "Redmine", "Confluence"],
       ["Jenkins"],
       ["Windows", "macOS", "Linux"],
       ["Visual Studio Code", "WebStorm"],

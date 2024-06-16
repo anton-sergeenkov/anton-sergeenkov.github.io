@@ -1,5 +1,5 @@
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 import SectionStarter from "./index/components/SectionStarter"
 import SectionProjects from "./index/components/SectionProjects"
 

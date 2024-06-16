@@ -1,12 +1,9 @@
 "use client"
 
 import { useState } from "react"
-
-import Modal from "@mui/material/Modal"
-
-import Chip from "../../../../ui-kit/Chip"
-
 import cn from "classnames"
+
+import { Chip, Modal } from "@/sawyer-react-lib/ui-kit"
 
 import { LIST_QR } from "./data/qr"
 

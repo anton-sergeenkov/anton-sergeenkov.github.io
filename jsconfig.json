@@ -1,7 +1,19 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./app/*"]
+      // "@/*": ["./app/*"],
+      // "@/ui-kit/*": ["ui-kit/*"],
+
+      "@/app/*": ["app/*"],
+      "@/components/*": ["components/*"],
+      "@/data/*": ["data/*"],
+      "@/files/*": ["files/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/node.js/*": ["node.js/*"],
+      "@/routes/*": ["routes/*"],
+
+      "@/sawyer-react-lib/*": ["../@sawyer-react-lib/*"]
     }
   }
 }

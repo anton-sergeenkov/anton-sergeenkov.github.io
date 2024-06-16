@@ -2,7 +2,7 @@
 import cn from "classnames"
 
 import { LIST_PROJECTS } from "./data/projects"
-import TypographyH2 from "../../../../ui-kit/TypographyH2"
+import { TypographyH2 } from "@/sawyer-react-lib/ui-kit"
 // import Options from "./components/Options"
 
 import styles from "./SectionProjects.module.css"

@@ -7,7 +7,7 @@ import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
-import { ROUTES } from "../../../../routes/routes"
+import { ROUTES } from "@/routes/routes"
 
 import MenuRoutes from "../MenuRoutes"
 import MenuButton from "../MenuButton/MenuButton"

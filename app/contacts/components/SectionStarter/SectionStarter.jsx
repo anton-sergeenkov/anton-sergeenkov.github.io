@@ -2,9 +2,9 @@
 
 import cn from "classnames"
 
-import { LIST_CONTACTS } from "../../../../data/contacts"
+import { Chip } from "@/sawyer-react-lib/ui-kit"
 
-import Chip from "../../../../ui-kit/Chip"
+import { LIST_CONTACTS } from "@/data/contacts"
 
 import styles from "./SectionStarter.module.css"
 

@@ -1,6 +1,6 @@
 // import cn from 'classnames'
 
-import Button from "@mui/material/Button"
+import { Button } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./MenuButton.module.css"
 

@@ -6,7 +6,8 @@ import { useState } from "react"
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
-import Button from "@mui/material/Button"
+
+import { Button } from "@/sawyer-react-lib/ui-kit"
 
 import MenuButton from "../MenuButton/MenuButton"
 

@@ -2,7 +2,7 @@
 
 import cn from "classnames"
 
-import { ROUTES, ROUTES_CV } from "../../routes/routes"
+import { ROUTES, ROUTES_CV } from "@/routes/routes"
 
 import MenuOptions from "./components/MenuOptions"
 import HeaderOptions from "./components/HeaderOptions"

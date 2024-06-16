@@ -2,9 +2,9 @@
 
 import cn from "classnames"
 
-import { LIST_TECHNOLOGIES_STACK } from "../../../../data/stack"
+import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
 
-import ChipsListDefault from "../../../../ui-kit/ChipsListDefault"
+import { ChipsListDefault } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./SectionStarter.module.css"
 
