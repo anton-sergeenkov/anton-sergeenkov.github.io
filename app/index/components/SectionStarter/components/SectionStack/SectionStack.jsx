@@ -13,11 +13,7 @@ const SectionStack = () => {
         <Fragment key={index}>
           <div>› {element.title}</div>
           <div className={styles.badge}>
-            <ChipsList
-              theme="default-light"
-              items={element.items}
-              className={styles.chip}
-            />
+            <ChipsList items={element.items} className={styles.chip} />
           </div>
         </Fragment>
       ))}

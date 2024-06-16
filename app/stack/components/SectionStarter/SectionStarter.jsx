@@ -21,11 +21,7 @@ const SectionStarter = () => {
                 {elementStack.items.map((itemStack, indexStack) => (
                   <li key={indexStack} className={styles.listItem}>
                     <span>
-                      <ChipsList
-                        theme="default-light"
-                        items={itemStack}
-                        className={styles.chip}
-                      />
+                      <ChipsList items={itemStack} className={styles.chip} />
                     </span>
                   </li>
                 ))}
