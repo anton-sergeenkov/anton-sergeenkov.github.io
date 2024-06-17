@@ -121,10 +121,10 @@ CLASSES
   -webkit-text-fill-color: transparent;
 }
 .link {
-  --color: var(--color-black-lighter);
+  --color: var(--color-blue);
 
   font-size: 14px;
-  font-family: var(--font-roboto-regular);
+  font-family: var(--font-roboto-light);
   color: var(--color);
   text-decoration: none;
 

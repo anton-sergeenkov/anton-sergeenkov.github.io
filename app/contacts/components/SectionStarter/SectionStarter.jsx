@@ -2,7 +2,7 @@
 
 import cn from "classnames"
 
-import { Chips } from "@/sawyer-react-lib/ui-kit"
+import { Chips, Link } from "@/sawyer-react-lib/ui-kit"
 
 import { LIST_CONTACTS } from "@/data/contacts"
 
@@ -25,15 +25,16 @@ const SectionStarter = () => {
                         items={[itemContact.title]}
                         className={styles.chips}
                       />
-                      <a
+                      <Link
                         href={itemContact.url}
-                        className="link"
-                        target="_blank"
+                        theme={{
+                          notUnderlined: true,
+                        }}
                       >
                         {itemContact.alias
                           ? itemContact.alias
                           : itemContact.url}
-                      </a>
+                      </Link>
                     </div>
                   </li>
                 ))}

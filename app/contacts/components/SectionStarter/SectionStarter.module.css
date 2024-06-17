@@ -59,9 +59,4 @@ ADAPTIVE
     align-items: flex-start;
     flex-direction: column;
   }
-  .listItemContainer a {
-    background: none;
-    color: var(--color-blue);
-    font-family: var(--font-roboto-light);
-  }
 }
