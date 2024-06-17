@@ -56,11 +56,6 @@ const SectionStarter = () => {
               ></div>
               {LIST_QR[itemIndex]?.name && (
                 <div className={styles.modalName}>
-                  {/* <ChipsList
-                    items={[LIST_QR[itemIndex]?.name]}
-                    className={styles.chips}
-                  /> */}
-
                   <Typography
                     tag="h2"
                     theme={{ mode: "dark-filled" }}

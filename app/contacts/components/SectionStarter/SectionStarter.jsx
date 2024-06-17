@@ -2,7 +2,7 @@
 
 import cn from "classnames"
 
-import { ChipsList } from "@/sawyer-react-lib/ui-kit"
+import { Chips } from "@/sawyer-react-lib/ui-kit"
 
 import { LIST_CONTACTS } from "@/data/contacts"
 
@@ -21,7 +21,7 @@ const SectionStarter = () => {
                 {elementCategory.items.map((itemContact, indexContact) => (
                   <li key={indexContact} className={styles.listItem}>
                     <div className={styles.listItemContainer}>
-                      <ChipsList
+                      <Chips
                         items={[itemContact.title]}
                         className={styles.chips}
                       />
