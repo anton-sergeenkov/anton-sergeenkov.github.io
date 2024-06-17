@@ -23,7 +23,7 @@ const SectionStarter = () => {
   return (
     <div className={cn(styles.wrapper, "section-starter")}>
       <div className={cn(styles.container)}>
-        <Typography tag="h2" theme={{ mode: "dark-filled" }}>
+        <Typography tag="h2" theme={{ mode: "light-outline" }}>
           QR Codes
         </Typography>
 
