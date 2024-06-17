@@ -59,4 +59,9 @@ ADAPTIVE
     align-items: flex-start;
     flex-direction: column;
   }
+  .listItemContainer a {
+    background: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }

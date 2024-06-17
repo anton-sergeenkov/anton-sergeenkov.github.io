@@ -2,7 +2,7 @@
 import cn from "classnames"
 
 import { LIST_PROJECTS } from "./data/projects"
-import { Typography } from "@/sawyer-react-lib/ui-kit"
+import { Typography, LinkElement } from "@/sawyer-react-lib/ui-kit"
 // import Options from "./components/Options"
 
 import styles from "./SectionProjects.module.css"
@@ -35,9 +35,14 @@ const SectionProjects = () => {
 
                 {itemCources.links.map((itemLink, indexLink) => (
                   <div key={indexLink}>
-                    <a href={itemLink.link} target="_blank" className="link">
+                    <LinkElement
+                      href={itemLink.link}
+                      theme={{
+                        mode: 'dark-underlined',
+                      }}
+                    >
                       {itemLink.name}
-                    </a>
+                    </LinkElement>
                   </div>
                 ))}
 
