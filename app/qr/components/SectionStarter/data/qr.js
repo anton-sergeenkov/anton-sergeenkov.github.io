@@ -16,5 +16,6 @@ export const LIST_QR = [
   {
     title: "Website",
     img: coverWebsite,
+    name: "anton-sergeenkov.github.io",
   },
 ]

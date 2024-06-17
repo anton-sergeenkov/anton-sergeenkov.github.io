@@ -2,7 +2,7 @@
 
 import cn from "classnames"
 
-import { Chip } from "@/sawyer-react-lib/ui-kit"
+import { ChipsList } from "@/sawyer-react-lib/ui-kit"
 
 import { LIST_CONTACTS } from "@/data/contacts"
 
@@ -21,7 +21,10 @@ const SectionStarter = () => {
                 {elementCategory.items.map((itemContact, indexContact) => (
                   <li key={indexContact} className={styles.listItem}>
                     <div className={styles.listItemContainer}>
-                      <Chip className={styles.chip}>{itemContact.title}</Chip>
+                      <ChipsList
+                        items={[itemContact.title]}
+                        className={styles.chips}
+                      />
                       <a
                         href={itemContact.url}
                         className="link"

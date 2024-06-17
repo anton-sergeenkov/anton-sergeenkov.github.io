@@ -3,7 +3,7 @@
 import { useState } from "react"
 import cn from "classnames"
 
-import { Chip, Modal } from "@/sawyer-react-lib/ui-kit"
+import { Modal, Typography } from "@/sawyer-react-lib/ui-kit"
 
 import { LIST_QR } from "./data/qr"
 
@@ -21,8 +21,12 @@ const SectionStarter = () => {
   const handleClose = () => setOpen(false)
 
   return (
-    <div className={cn(styles.wrapper)}>
-      <div className={cn(styles.container, "section")}>
+    <div className={cn(styles.wrapper, "section-starter")}>
+      <div className={cn(styles.container)}>
+        <Typography tag="h2" theme={{ mode: "dark-filled" }}>
+          QR Codes
+        </Typography>
+
         <div className={styles.listContainer}>
           {LIST_QR.map((item, index) => (
             <div className={styles.itemContainer} key={index}>
@@ -52,9 +56,18 @@ const SectionStarter = () => {
               ></div>
               {LIST_QR[itemIndex]?.name && (
                 <div className={styles.modalName}>
-                  <Chip className={styles.chip}>
+                  {/* <ChipsList
+                    items={[LIST_QR[itemIndex]?.name]}
+                    className={styles.chips}
+                  /> */}
+
+                  <Typography
+                    tag="h2"
+                    theme={{ mode: "dark-filled" }}
+                    className={styles.typographyUsername}
+                  >
                     {LIST_QR[itemIndex]?.name}
-                  </Chip>
+                  </Typography>
                 </div>
               )}
             </div>

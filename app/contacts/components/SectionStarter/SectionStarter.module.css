@@ -40,22 +40,14 @@
   display: block;
 }
 
-.chip {
-  margin-right: 5px;
-  background-color: var(--color-gray-light);
-}
-.chip:last-child {
-  margin-right: 0;
-}
-
 /***************************************************
 ADAPTIVE
 /***************************************************/
 @media screen and (max-width: 670px) {
-  .chip {
+  .chips {
     margin-bottom: 5px;
   }
-  .chip:last-child {
+  .chips:last-child {
     margin-bottom: 0;
   }
 }
