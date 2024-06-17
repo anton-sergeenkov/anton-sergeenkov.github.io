@@ -1,6 +1,6 @@
 // import cn from 'classnames'
 
-import { Button } from "@/sawyer-react-lib/ui-kit"
+import { ButtonElement } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./MenuButton.module.css"
 
@@ -28,7 +28,7 @@ const MenuButton = (props) => {
   const { accent, className, children, onClick = null, endIcon = null } = props
 
   return (
-    <Button
+    <ButtonElement
       className={className}
       size="small"
       variant="filled"
@@ -51,7 +51,7 @@ const MenuButton = (props) => {
       >
         {children}
       </span>
-    </Button>
+    </ButtonElement>
   )
 }
 

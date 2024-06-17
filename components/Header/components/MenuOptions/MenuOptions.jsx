@@ -7,7 +7,7 @@ import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
-import { Button } from "@/sawyer-react-lib/ui-kit"
+import { ButtonElement } from "@/sawyer-react-lib/ui-kit"
 
 import MenuButton from "../MenuButton/MenuButton"
 
@@ -49,7 +49,7 @@ const MenuOptions = (props) => {
               cursor: "default",
             }}
           >
-            <Button
+            <ButtonElement
               size="small"
               fullWidth
               variant="text"
@@ -70,7 +70,7 @@ const MenuOptions = (props) => {
               ) : (
                 <span>{itemMenu.title}</span>
               )}
-            </Button>
+            </ButtonElement>
           </MenuItem>
         ))}
       </Menu>

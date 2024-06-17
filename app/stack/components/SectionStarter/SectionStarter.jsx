@@ -4,7 +4,7 @@ import cn from "classnames"
 
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
 
-import { Chips } from "@/sawyer-react-lib/ui-kit"
+import { ChipsElement } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./SectionStarter.module.css"
 
@@ -21,7 +21,7 @@ const SectionStarter = () => {
                 {elementStack.items.map((itemStack, indexStack) => (
                   <li key={indexStack} className={styles.listItem}>
                     <span>
-                      <Chips items={itemStack} className={styles.chip} />
+                      <ChipsElement items={itemStack} className={styles.chip} />
                     </span>
                   </li>
                 ))}

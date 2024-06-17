@@ -3,7 +3,7 @@
 import { useState } from "react"
 import cn from "classnames"
 
-import { Modal, Typography } from "@/sawyer-react-lib/ui-kit"
+import { ModalElement, TypographyElement } from "@/sawyer-react-lib/ui-kit"
 
 import { LIST_QR } from "./data/qr"
 
@@ -23,9 +23,9 @@ const SectionStarter = () => {
   return (
     <div className={cn(styles.wrapper, "section-starter")}>
       <div className={cn(styles.container)}>
-        <Typography tag="h2" theme={{ mode: "light-outline" }}>
+        <TypographyElement tag="h2" theme={{ mode: "light-outline" }}>
           QR Codes
-        </Typography>
+        </TypographyElement>
 
         <div className={styles.listContainer}>
           {LIST_QR.map((item, index) => (
@@ -41,7 +41,7 @@ const SectionStarter = () => {
             </div>
           ))}
 
-          <Modal
+          <ModalElement
             disableAutoFocus
             open={open}
             onClose={handleClose}
@@ -56,17 +56,17 @@ const SectionStarter = () => {
               ></div>
               {LIST_QR[itemIndex]?.name && (
                 <div className={styles.modalName}>
-                  <Typography
+                  <TypographyElement
                     tag="h2"
                     theme={{ mode: "dark-filled" }}
                     className={styles.typographyUsername}
                   >
                     {LIST_QR[itemIndex]?.name}
-                  </Typography>
+                  </TypographyElement>
                 </div>
               )}
             </div>
-          </Modal>
+          </ModalElement>
         </div>
       </div>
     </div>

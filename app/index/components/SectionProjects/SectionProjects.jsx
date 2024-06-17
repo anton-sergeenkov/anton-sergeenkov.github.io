@@ -2,7 +2,7 @@
 import cn from "classnames"
 
 import { LIST_PROJECTS } from "./data/projects"
-import { Typography, LinkElement } from "@/sawyer-react-lib/ui-kit"
+import { TypographyElement, LinkElement } from "@/sawyer-react-lib/ui-kit"
 // import Options from "./components/Options"
 
 import styles from "./SectionProjects.module.css"
@@ -11,9 +11,9 @@ const SectionProjects = () => {
   return (
     <div className={styles.wrapper} id="projects">
       <div className={cn(styles.container, "section")}>
-        <Typography tag="h2" theme={{ mode: "dark-filled" }}>
+        <TypographyElement tag="h2" theme={{ mode: "dark-filled" }}>
           Projects
-        </Typography>
+        </TypographyElement>
 
         <div className={styles.coursesContainer}>
           {LIST_PROJECTS.map((itemCources, indexCources) => (
