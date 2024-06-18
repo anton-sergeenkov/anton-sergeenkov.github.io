@@ -12,6 +12,7 @@
 }
 .link button span {
   width: 100%;
+  text-align: left;
 }
 .link a {
   display: block;

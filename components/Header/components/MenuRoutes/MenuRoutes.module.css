@@ -1,6 +1,3 @@
 .item {
 	width: 100%;
 }
-.item a.active {
-	color: var(--color-blue);
-}

@@ -38,7 +38,7 @@ const SectionProjects = () => {
                     <LinkElement
                       href={itemLink.link}
                       theme={{
-                        mode: 'dark-underlined',
+                        mode: "dark-underlined",
                       }}
                     >
                       {itemLink.name}

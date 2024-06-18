@@ -2,53 +2,45 @@
 
 import { ButtonElement } from "@/sawyer-react-lib/ui-kit"
 
+import { getTheme } from "./utils"
+
 import styles from "./MenuButton.module.css"
 
-export const ButtonStyles = {
-  textTransform: "none",
-  fontFamily: "var(--font-roboto-regular)",
-  borderRadius: "20px",
-  border: "1px solid transparent",
-  backgroundColor: "transparent",
-  width: "auto",
-  color: "#2b2b2b",
-  padding: "4px 10px",
-  transition: ".4s",
-}
-
-export const ButtonStylesSelected = {
-  backgroundColor: "#8167f7",
-  color: "#edeeef",
-  ":hover": {
-    backgroundColor: "#2b2b2b",
-  },
-}
-
 const MenuButton = (props) => {
-  const { accent, className, children, onClick = null, endIcon = null } = props
+  const {
+    accent,
+    active,
+    className,
+    children,
+    onClick = null,
+    endIcon = null,
+  } = props
+
+  const { StylesButton, StylesButtonActive, StylesButtonAccent } =
+    getTheme("light-violet")
+
+  const stylesButton = {
+    ...StylesButton,
+    ...(accent && StylesButtonAccent),
+  }
+
+  const stylesText = {
+    ...(accent
+      ? { color: StylesButtonAccent.color }
+      : { color: StylesButton.color }),
+    ...(!accent && active && StylesButtonActive),
+  }
 
   return (
     <ButtonElement
       className={className}
       size="small"
       variant="filled"
-      sx={
-        !accent
-          ? ButtonStyles
-          : {
-              ...ButtonStyles,
-              ...ButtonStylesSelected,
-            }
-      }
+      sx={stylesButton}
       onClick={onClick}
       endIcon={endIcon}
     >
-      <span
-        style={{
-          color: !accent ? ButtonStyles.color : ButtonStylesSelected.color,
-        }}
-        className={styles.text}
-      >
+      <span style={stylesText} className={styles.text}>
         {children}
       </span>
     </ButtonElement>

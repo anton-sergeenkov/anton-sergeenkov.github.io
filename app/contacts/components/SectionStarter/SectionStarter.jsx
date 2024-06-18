@@ -28,7 +28,7 @@ const SectionStarter = () => {
                       <LinkElement
                         href={itemContact.url}
                         theme={{
-                          mode: 'blue-underlined-thin',
+                          mode: "blue-underlined-thin",
                         }}
                       >
                         {itemContact.alias

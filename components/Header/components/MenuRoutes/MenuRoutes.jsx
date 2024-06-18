@@ -14,14 +14,11 @@ const MenuRoutes = (props) => {
 
   return (
     <div className={styles.item}>
-      <MenuButton accent={accent}>
-        <Link
-          href={item.path}
-          className={pathname === item.path ? styles.active : null}
-        >
+      <Link href={item.path}>
+        <MenuButton accent={accent} active={pathname === item.path}>
           {item.title}
-        </Link>
-      </MenuButton>
+        </MenuButton>
+      </Link>
     </div>
   )
 }
