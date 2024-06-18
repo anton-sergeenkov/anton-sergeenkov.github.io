@@ -1,5 +1,8 @@
 export const theme = {
-  StylesButton: {},
-  StylesTextActive: {},
+  StylesButtonDefault: {},
   StylesButtonAccent: {},
+  StylesButtonActive: {},
+  StylesTextDefault: {},
+  StylesTextAccent: {},
+  StylesTextActive: {},
 }

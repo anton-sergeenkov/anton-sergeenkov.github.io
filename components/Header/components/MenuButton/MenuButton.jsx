@@ -16,18 +16,24 @@ const MenuButton = (props) => {
     endIcon = null,
   } = props
 
-  const { StylesButton, StylesButtonAccent, StylesTextActive } =
-    getTheme("light-violet")
+  const {
+    StylesButtonDefault,
+    StylesButtonAccent,
+    StylesButtonActive,
+    StylesTextDefault,
+    StylesTextAccent,
+    StylesTextActive,
+  } = getTheme("light-violet")
 
   const stylesButton = {
-    ...StylesButton,
+    ...StylesButtonDefault,
     ...(accent && StylesButtonAccent),
+    ...(!accent && active && StylesButtonActive),
   }
 
   const stylesText = {
-    ...(accent
-      ? { color: StylesButtonAccent.color }
-      : { color: StylesButton.color }),
+    ...StylesTextDefault,
+    ...(accent && StylesTextAccent),
     ...(!accent && active && StylesTextActive),
   }
 
