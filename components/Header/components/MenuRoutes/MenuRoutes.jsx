@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 
 import { THEME_MENU } from "@/constants/theme"
 
-import MenuButton from "../MenuButton"
+import { MenuButtonElement } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./MenuRoutes.module.css"
 
@@ -17,13 +17,14 @@ const MenuRoutes = (props) => {
   return (
     <div className={styles.item}>
       <Link href={item.path}>
-        <MenuButton
+        12
+        <MenuButtonElement
           theme={{ mode: THEME_MENU }}
           isAccent={isAccent}
           isActive={pathname === item.path}
         >
           {item.title}
-        </MenuButton>
+        </MenuButtonElement>
       </Link>
     </div>
   )
