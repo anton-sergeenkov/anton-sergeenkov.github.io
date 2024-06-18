@@ -16,7 +16,7 @@ const MenuButton = (props) => {
     endIcon = null,
   } = props
 
-  const { StylesButton, StylesButtonActive, StylesButtonAccent } =
+  const { StylesButton, StylesButtonAccent, StylesTextActive } =
     getTheme("light-violet")
 
   const stylesButton = {
@@ -28,7 +28,7 @@ const MenuButton = (props) => {
     ...(accent
       ? { color: StylesButtonAccent.color }
       : { color: StylesButton.color }),
-    ...(!accent && active && StylesButtonActive),
+    ...(!accent && active && StylesTextActive),
   }
 
   return (
@@ -40,9 +40,7 @@ const MenuButton = (props) => {
       onClick={onClick}
       endIcon={endIcon}
     >
-      <span style={stylesText} className={styles.text}>
-        {children}
-      </span>
+      <span style={stylesText}>{children}</span>
     </ButtonElement>
   )
 }

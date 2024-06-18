@@ -23,10 +23,6 @@ const StylesButton = {
   transition: ".4s",
 }
 
-const StylesButtonActive = {
-  color: CONFIG_COLORS.active.color,
-}
-
 const StylesButtonAccent = {
   backgroundColor: CONFIG_COLORS.accent.bg,
   color: CONFIG_COLORS.accent.color,
@@ -35,8 +31,12 @@ const StylesButtonAccent = {
   },
 }
 
+const StylesTextActive = {
+  color: CONFIG_COLORS.active.color,
+}
+
 export const theme = {
   StylesButton,
-  StylesButtonActive,
   StylesButtonAccent,
+  StylesTextActive,
 }
