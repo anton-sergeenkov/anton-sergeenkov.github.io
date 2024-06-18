@@ -20,7 +20,7 @@ const Header = () => {
               title: "CV",
               items: ROUTES_CV,
             }}
-            accent
+            isAccent
           />
         </li>
 

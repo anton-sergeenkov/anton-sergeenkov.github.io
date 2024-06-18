@@ -15,7 +15,7 @@ import MenuButton from "../MenuButton/MenuButton"
 import styles from "./HeaderOptions.module.css"
 
 const HeaderOptions = (props) => {
-  const { accent } = props
+  const { isAccent } = props
 
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
@@ -31,7 +31,7 @@ const HeaderOptions = (props) => {
   return (
     <>
       <MenuButton
-        accent={accent}
+        isAccent={isAccent}
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >

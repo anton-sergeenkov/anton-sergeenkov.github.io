@@ -8,14 +8,14 @@ import MenuButton from "../MenuButton"
 import styles from "./MenuRoutes.module.css"
 
 const MenuRoutes = (props) => {
-  const { item, accent } = props
+  const { item, isAccent } = props
 
   const pathname = usePathname()
 
   return (
     <div className={styles.item}>
       <Link href={item.path}>
-        <MenuButton accent={accent} active={pathname === item.path}>
+        <MenuButton isAccent={isAccent} isActive={pathname === item.path}>
           {item.title}
         </MenuButton>
       </Link>

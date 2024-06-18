@@ -8,15 +8,19 @@ import { getStyles } from "./utils"
 
 const MenuButton = (props) => {
   const {
-    accent,
-    active,
+    isAccent,
+    isActive,
     className,
     children,
     onClick = null,
     endIcon = null,
   } = props
 
-  const { stylesButton, stylesText } = getStyles("light-violet", accent, active)
+  const { stylesButton, stylesText } = getStyles(
+    "light-violet",
+    isAccent,
+    isActive,
+  )
 
   return (
     <ButtonElement

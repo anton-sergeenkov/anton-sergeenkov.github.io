@@ -11,7 +11,7 @@ export const getTheme = (theme) => {
 }
 
 const themes = ["light-violet"]
-export const getStyles = (theme, accent, active) => {
+export const getStyles = (theme, isAccent, isActive) => {
   const {
     // Button
     StylesButtonDefault,
@@ -25,14 +25,14 @@ export const getStyles = (theme, accent, active) => {
 
   const stylesButton = {
     ...StylesButtonDefault,
-    ...(accent && StylesButtonAccent),
-    ...(!accent && active && StylesButtonActive),
+    ...(isAccent && StylesButtonAccent),
+    ...(!isAccent && isActive && StylesButtonActive),
   }
 
   const stylesText = {
     ...StylesTextDefault,
-    ...(accent && StylesTextAccent),
-    ...(!accent && active && StylesTextActive),
+    ...(isAccent && StylesTextAccent),
+    ...(!isAccent && isActive && StylesTextActive),
   }
 
   return {
