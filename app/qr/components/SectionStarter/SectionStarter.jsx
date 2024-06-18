@@ -21,12 +21,8 @@ const SectionStarter = () => {
   const handleClose = () => setOpen(false)
 
   return (
-    <div className={cn(styles.wrapper, "section-starter")}>
-      <div className={cn(styles.container)}>
-        <TypographyElement tag="h2" theme={{ mode: "light-outline" }}>
-          QR Codes
-        </TypographyElement>
-
+    <div className={cn(styles.wrapper)}>
+      <div className={cn(styles.container, "section")}>
         <div className={styles.listContainer}>
           {LIST_QR.map((item, index) => (
             <div className={styles.itemContainer} key={index}>
