@@ -2,7 +2,7 @@
 
 import { ButtonElement } from "@/sawyer-react-lib/ui-kit"
 
-import { getTheme } from "./utils"
+import { getStyles } from "./utils"
 
 // import styles from "./MenuButton.module.css"
 
@@ -16,26 +16,7 @@ const MenuButton = (props) => {
     endIcon = null,
   } = props
 
-  const {
-    StylesButtonDefault,
-    StylesButtonAccent,
-    StylesButtonActive,
-    StylesTextDefault,
-    StylesTextAccent,
-    StylesTextActive,
-  } = getTheme("light-violet")
-
-  const stylesButton = {
-    ...StylesButtonDefault,
-    ...(accent && StylesButtonAccent),
-    ...(!accent && active && StylesButtonActive),
-  }
-
-  const stylesText = {
-    ...StylesTextDefault,
-    ...(accent && StylesTextAccent),
-    ...(!accent && active && StylesTextActive),
-  }
+  const { stylesButton, stylesText } = getStyles("light-violet", accent, active)
 
   return (
     <ButtonElement
