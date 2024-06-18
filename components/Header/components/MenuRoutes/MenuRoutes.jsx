@@ -17,7 +17,6 @@ const MenuRoutes = (props) => {
   return (
     <div className={styles.item}>
       <Link href={item.path}>
-        12
         <MenuButtonElement
           theme={{ mode: THEME_MENU }}
           isAccent={isAccent}

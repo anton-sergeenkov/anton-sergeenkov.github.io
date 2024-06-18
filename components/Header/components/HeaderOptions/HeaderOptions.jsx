@@ -10,8 +10,9 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import { ROUTES } from "@/routes/routes"
 import { THEME_MENU } from "@/constants/theme"
 
+import { MenuButtonElement } from "@/sawyer-react-lib/ui-kit"
+
 import MenuRoutes from "../MenuRoutes"
-import MenuButton from "../MenuButton/MenuButton"
 
 import styles from "./HeaderOptions.module.css"
 
@@ -31,14 +32,14 @@ const HeaderOptions = (props) => {
 
   return (
     <>
-      <MenuButton
+      <MenuButtonElement
         theme={{ mode: THEME_MENU }}
         isAccent={isAccent}
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
         Menu
-      </MenuButton>
+      </MenuButtonElement>
 
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         {ROUTES.map((item, index) => (
