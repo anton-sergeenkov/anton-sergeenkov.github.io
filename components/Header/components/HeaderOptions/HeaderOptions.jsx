@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
 import { ROUTES } from "@/routes/routes"
+import { THEME_MENU } from "@/constants/theme"
 
 import MenuRoutes from "../MenuRoutes"
 import MenuButton from "../MenuButton/MenuButton"
@@ -31,6 +32,7 @@ const HeaderOptions = (props) => {
   return (
     <>
       <MenuButton
+        theme={{ mode: THEME_MENU }}
         isAccent={isAccent}
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}

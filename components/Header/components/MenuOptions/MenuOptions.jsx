@@ -9,6 +9,8 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 
 import { ButtonElement } from "@/sawyer-react-lib/ui-kit"
 
+import { THEME_MENU } from "@/constants/theme"
+
 import MenuButton from "../MenuButton/MenuButton"
 
 import styles from "./MenuOptions.module.css"
@@ -30,6 +32,7 @@ const MenuOptions = (props) => {
   return (
     <div className={className}>
       <MenuButton
+        theme={{ mode: THEME_MENU }}
         isAccent={isAccent}
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}

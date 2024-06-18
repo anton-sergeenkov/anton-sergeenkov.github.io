@@ -1,6 +1,8 @@
 import { theme as themeLightViolet } from "./themes/light-violet"
 import { theme as themeDefault } from "./themes/default"
 
+const themes = ["light-violet"]
+
 export const getTheme = (theme) => {
   switch (theme) {
     case "light-violet":
@@ -10,7 +12,6 @@ export const getTheme = (theme) => {
   }
 }
 
-const themes = ["light-violet"]
 export const getStyles = (theme, isAccent, isActive) => {
   const {
     // Button

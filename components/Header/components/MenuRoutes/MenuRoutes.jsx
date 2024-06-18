@@ -3,6 +3,8 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
+import { THEME_MENU } from "@/constants/theme"
+
 import MenuButton from "../MenuButton"
 
 import styles from "./MenuRoutes.module.css"
@@ -15,7 +17,11 @@ const MenuRoutes = (props) => {
   return (
     <div className={styles.item}>
       <Link href={item.path}>
-        <MenuButton isAccent={isAccent} isActive={pathname === item.path}>
+        <MenuButton
+          theme={{ mode: THEME_MENU }}
+          isAccent={isAccent}
+          isActive={pathname === item.path}
+        >
           {item.title}
         </MenuButton>
       </Link>
