@@ -10,9 +10,10 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import { ROUTES } from "@/routes/routes"
 import { THEME_MENU } from "@/constants/theme"
 
-import { MenuButtonElement } from "@/sawyer-react-lib/ui-kit"
-
-import MenuRoutes from "../MenuRoutes"
+import {
+  MenuButtonElement,
+  MenuItemRoutesElement,
+} from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./HeaderOptions.module.css"
 
@@ -53,7 +54,7 @@ const HeaderOptions = (props) => {
                 cursor: "default",
               }}
             >
-              <MenuRoutes item={item} />
+              <MenuItemRoutesElement theme={{ mode: THEME_MENU }} item={item} />
             </MenuItem>
           </div>
         ))}
