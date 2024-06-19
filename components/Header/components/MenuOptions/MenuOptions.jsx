@@ -2,8 +2,8 @@
 
 // import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined'
 import MenuItem from "@mui/material/MenuItem"
-import { ButtonElement } from "@/sawyer-react-lib/ui-kit"
-import MenuToggleElement from "../MenuToggleElement"
+
+import { ButtonElement, MenuToggleElement } from "@/sawyer-react-lib/ui-kit"
 
 import { THEME_MENU } from "@/constants/theme"
 

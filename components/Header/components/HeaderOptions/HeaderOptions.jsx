@@ -5,9 +5,10 @@ import MenuItem from "@mui/material/MenuItem"
 import { ROUTES } from "@/routes/routes"
 import { THEME_MENU } from "@/constants/theme"
 
-import { MenuItemRoutesElement } from "@/sawyer-react-lib/ui-kit"
-
-import MenuToggleElement from "../MenuToggleElement"
+import {
+  MenuItemRoutesElement,
+  MenuToggleElement,
+} from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./HeaderOptions.module.css"
 
