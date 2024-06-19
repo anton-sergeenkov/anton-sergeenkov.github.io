@@ -9,6 +9,7 @@ import {
   MenuItemRoutesElement,
   MenuItemGroupLinksElement,
   MenuItemGroupRoutesElement,
+  // MenuItemHashElement,
 } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./Header.module.css"
@@ -42,6 +43,15 @@ const Header = () => {
             title="Menu"
           />
         </li>
+
+        {/* FIXME: not used, not styled link */}
+        {/* <MenuItemHashElement
+          theme={{ mode: THEME_MENU }}
+          item={{
+            title: "Test",
+            hash: "test",
+          }}
+        /> */}
       </ul>
     </div>
   )
