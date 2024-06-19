@@ -5,12 +5,10 @@ import MenuItem from "@mui/material/MenuItem"
 
 import { ButtonElement, MenuToggleElement } from "@/sawyer-react-lib/ui-kit"
 
-import { THEME_MENU } from "@/constants/theme"
+import styles from "./MenuItemGroupLinksElement.module.css"
 
-import styles from "./MenuOptions.module.css"
-
-const MenuOptionsContent = (props) => {
-  const { list, handleClose } = props
+const ChildComponent = (props) => {
+  const { theme, list, handleClose } = props
 
   return (
     <>
@@ -53,19 +51,19 @@ const MenuOptionsContent = (props) => {
   )
 }
 
-const MenuOptions = (props) => {
-  const { item, isAccent, className } = props
+const MenuItemGroupLinksElement = (props) => {
+  const { theme, list, title, isAccent, className } = props
 
   return (
     <MenuToggleElement
       className={className}
-      theme={{ mode: THEME_MENU }}
-      list={item}
-      title={item.title}
+      theme={theme}
+      list={list}
+      title={title}
       isAccent={isAccent}
-      Component={MenuOptionsContent}
+      Component={ChildComponent}
     />
   )
 }
 
-export default MenuOptions
+export default MenuItemGroupLinksElement

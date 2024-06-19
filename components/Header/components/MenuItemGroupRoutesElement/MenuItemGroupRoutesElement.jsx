@@ -2,18 +2,15 @@
 
 import MenuItem from "@mui/material/MenuItem"
 
-import { ROUTES } from "@/routes/routes"
-import { THEME_MENU } from "@/constants/theme"
-
 import {
   MenuItemRoutesElement,
   MenuToggleElement,
 } from "@/sawyer-react-lib/ui-kit"
 
-import styles from "./HeaderOptions.module.css"
+import styles from "./MenuItemGroupRoutesElement.module.css"
 
-const HeaderOptionsContent = (props) => {
-  const { list, handleClose } = props
+const ChildComponent = (props) => {
+  const { theme, list, handleClose } = props
 
   return (
     <>
@@ -28,7 +25,7 @@ const HeaderOptionsContent = (props) => {
               cursor: "default",
             }}
           >
-            <MenuItemRoutesElement theme={{ mode: THEME_MENU }} item={item} />
+            <MenuItemRoutesElement theme={theme} item={item} />
           </MenuItem>
         </div>
       ))}
@@ -36,19 +33,19 @@ const HeaderOptionsContent = (props) => {
   )
 }
 
-const HeaderOptions = (props) => {
-  const { className, isAccent } = props
+const MenuItemGroupRoutesElement = (props) => {
+  const { theme, list, title, isAccent, className } = props
 
   return (
     <MenuToggleElement
       className={className}
-      theme={{ mode: THEME_MENU }}
-      list={ROUTES}
-      title="Menu"
+      theme={theme}
+      list={list}
+      title={title}
       isAccent={isAccent}
-      Component={HeaderOptionsContent}
+      Component={ChildComponent}
     />
   )
 }
 
-export default HeaderOptions
+export default MenuItemGroupRoutesElement

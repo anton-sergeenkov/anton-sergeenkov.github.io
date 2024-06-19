@@ -5,8 +5,10 @@ import cn from "classnames"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
 import { THEME_MENU } from "@/constants/theme"
 
-import MenuOptions from "./components/MenuOptions"
-import HeaderOptions from "./components/HeaderOptions"
+import MenuItemGroupLinksElement from "./components/MenuItemGroupLinksElement"
+import MenuItemGroupRoutesElement from "./components/MenuItemGroupRoutesElement"
+
+// import { ButtonElement, MenuToggleElement } from "@/sawyer-react-lib/ui-kit"
 
 import { MenuItemRoutesElement } from "@/sawyer-react-lib/ui-kit"
 
@@ -17,11 +19,13 @@ const Header = () => {
     <div className={cn(styles.container, "section-header")}>
       <ul className={cn(styles.list)}>
         <li className={styles.listItem}>
-          <MenuOptions
-            item={{
+          <MenuItemGroupLinksElement
+            theme={{ mode: THEME_MENU }}
+            list={{
               title: "CV",
               items: ROUTES_CV,
             }}
+            title="CV"
             isAccent
           />
         </li>
@@ -33,7 +37,11 @@ const Header = () => {
         ))}
 
         <li className={cn(styles.listItem, styles.mobile)}>
-          <HeaderOptions />
+          <MenuItemGroupRoutesElement
+            theme={{ mode: THEME_MENU }}
+            title="Menu"
+            list={ROUTES}
+          />
         </li>
       </ul>
     </div>
