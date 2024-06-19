@@ -5,12 +5,11 @@ import cn from "classnames"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
 import { THEME_MENU } from "@/constants/theme"
 
-import MenuItemGroupLinksElement from "./components/MenuItemGroupLinksElement"
-import MenuItemGroupRoutesElement from "./components/MenuItemGroupRoutesElement"
-
-// import { ButtonElement, MenuToggleElement } from "@/sawyer-react-lib/ui-kit"
-
-import { MenuItemRoutesElement } from "@/sawyer-react-lib/ui-kit"
+import {
+  MenuItemRoutesElement,
+  MenuItemGroupLinksElement,
+  MenuItemGroupRoutesElement,
+} from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./Header.module.css"
 
@@ -39,8 +38,8 @@ const Header = () => {
         <li className={cn(styles.listItem, styles.mobile)}>
           <MenuItemGroupRoutesElement
             theme={{ mode: THEME_MENU }}
-            title="Menu"
             list={ROUTES}
+            title="Menu"
           />
         </li>
       </ul>
