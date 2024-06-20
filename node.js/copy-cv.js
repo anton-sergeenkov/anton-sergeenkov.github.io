@@ -19,15 +19,3 @@ try {
 } catch (error) {
   console.error(error)
 }
-
-// Старый путь для файла
-if (!fs.existsSync("./out/files")) {
-  fs.mkdirSync("./out/files")
-}
-
-try {
-  fs.copyFileSync("./files/cv-en.pdf", "./out/files/cv.pdf")
-  console.log('File "files/cv" copied successfully')
-} catch (error) {
-  console.error(error)
-}
