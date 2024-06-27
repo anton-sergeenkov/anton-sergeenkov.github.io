@@ -3,7 +3,7 @@ import cn from "classnames"
 
 import { LIST_PROJECTS } from "./data/projects"
 import { TypographyElement, LinkElement } from "@/sawyer-react-lib/ui-kit"
-// import Options from "./components/Options"
+import Options from "./components/Options"
 
 import styles from "./SectionProjects.module.css"
 
@@ -46,9 +46,9 @@ const SectionProjects = () => {
                   </div>
                 ))}
 
-                {/* <div className={styles.options} title="Ссылки">
+                <div className={styles.options} title="Ссылки">
                   <Options options={itemCources.links} />
-                </div> */}
+                </div>
               </div>
             </div>
           ))}

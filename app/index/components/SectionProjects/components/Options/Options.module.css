@@ -9,21 +9,4 @@
 .link {
   font-size: 13px;
   font-family: var(--font-roboto-light);
-  color: var(--color-black-lighter);
-
-  /* link */
-  --color: var(--color-black-lighter);
-
-  font-size: 14px;
-  font-family: var(--font-roboto-regular);
-  color: var(--color);
-  text-decoration: none;
-
-  background: linear-gradient(to bottom, var(--color) 50%, var(--color) 50%);
-  background-repeat: repeat-x;
-  background-position: 0 100%;
-  background-size: 0.5px 0.5px;
-
-  justify-content: flex-start;
-  align-items: flex-start;
 }

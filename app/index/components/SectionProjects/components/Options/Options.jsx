@@ -1,13 +1,14 @@
 "use client"
 
 import { useState } from "react"
-import cn from "classnames"
+// import cn from "classnames"
 
 import IconButton from "@mui/material/IconButton"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
-
 import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
+
+import { LinkElement } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./Options.module.css"
 
@@ -38,14 +39,15 @@ const Options = (props) => {
             onClick={handleClose}
             sx={{ minHeight: "auto" }}
           >
-            <a
-              // FIXME:
-              className={cn("link", styles.link)}
+            <LinkElement
               href={item.link}
-              target="_blank"
+              theme={{
+                mode: "dark-underlined",
+              }}
+              className={styles.link}
             >
               {item.name}
-            </a>
+            </LinkElement>
           </MenuItem>
         ))}
       </Menu>
