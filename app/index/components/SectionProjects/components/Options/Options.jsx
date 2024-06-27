@@ -39,6 +39,7 @@ const Options = (props) => {
             sx={{ minHeight: "auto" }}
           >
             <a
+              // FIXME:
               className={cn("link", styles.link)}
               href={item.link}
               target="_blank"

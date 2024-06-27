@@ -5,12 +5,20 @@
 ### Вынести
 - app\index\components\SectionProjects\components\Options\Options.jsx
 - hooks\useMobile.js
-- app\globals.css
+- app\local.css
 
 ### Общее
+- Ui-компонент для section
+- Ui-компонент для textGradient
 - CV. Ссылка не на всю ширину
 - Общие стили для выпадающего списка CV и меню
 - Добавить TypeScript
+
+### Ui-компоненты
+Файл app\local.css
+- section
+- textGradient
+- h1, h2, h3
 
 ---
 
