@@ -16,10 +16,10 @@ ADAPTIVE
 }
 
 @media screen and (max-width: 450px) {
-  .chip {
+  .chips {
     margin-bottom: 5px;
   }
-  .chip:last-child {
+  .chips:last-child {
     margin-bottom: 0;
   }
 }

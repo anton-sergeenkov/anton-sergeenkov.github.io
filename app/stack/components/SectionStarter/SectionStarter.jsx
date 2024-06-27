@@ -24,6 +24,7 @@ const SectionStarter = () => {
                       <ChipsElement
                         items={itemStack}
                         className={styles.chips}
+                        isUserSelect
                       />
                     </span>
                   </li>
