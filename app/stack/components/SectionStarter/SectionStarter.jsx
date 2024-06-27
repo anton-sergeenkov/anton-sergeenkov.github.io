@@ -21,7 +21,10 @@ const SectionStarter = () => {
                 {elementStack.items.map((itemStack, indexStack) => (
                   <li key={indexStack} className={styles.listItem}>
                     <span>
-                      <ChipsElement items={itemStack} className={styles.chip} />
+                      <ChipsElement
+                        items={itemStack}
+                        className={styles.chips}
+                      />
                     </span>
                   </li>
                 ))}
