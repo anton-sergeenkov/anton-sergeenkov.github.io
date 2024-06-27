@@ -4,25 +4,23 @@
 
 ### Вынести
 - app\index\components\SectionProjects\components\Options\Options.jsx
-- hooks\useMobile.js
-- app\local.css
-
-### Общее
-- Ui-компонент для section
-- Ui-компонент для textGradient
-- CV. Ссылка не на всю ширину
-- Общие стили для выпадающего списка CV и меню
-- Добавить TypeScript
 
 ### Ui-компоненты
-Файл app\local.css
+Из файла "app\local.css" создать Ui-компоненты
 - section
 - textGradient
 - h1, h2, h3
 
+### Fix
+- CV. Ссылка не на всю ширину
+- Общие стили для выпадающего списка CV и меню
+
+### Глобальные
+- Добавить TypeScript
+
 ---
 
-## ⭐️ Development and Deploy
+## ⭐️ Development
 
 ### Development
 - Настроить проект `-sawyer-react-lib-` https://github.com/anton-sergeenkov/-sawyer-react-lib-/blob/main/readme.md
