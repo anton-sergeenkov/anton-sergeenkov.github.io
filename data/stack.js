@@ -6,8 +6,8 @@ export const LIST_TECHNOLOGIES_STACK = [
       ["Next.js"],
       ["Redux", "Redux Toolkit", "Redux Saga", "Redux Thunk", "Reselect"],
       ["Formik", "React Hook Form", "Yup"],
-      ["React Query"],
-      ["Material-UI", "Storybook"],
+      ["React Query", "React Flow"],
+      ["MUI", "Storybook"],
     ],
   },
   {
@@ -22,10 +22,11 @@ export const LIST_TECHNOLOGIES_STACK = [
     title: "Frontend",
     items: [
       ["TypeScript", "Flow"],
-      ["JavaScript", "ES5 / ES6+", "HTLM5 Canvas", "Web Components"],
+      ["JavaScript", "ES5", "ES6+", "HTLM5 Canvas", "Web Components"],
+      ["Axios", "SWR"],
       ["ESLint", "Prettier", "Husky"],
       ["Webpack", "Gulp", "NPM", "Yarn"],
-      ["Lodash", "Ramda", "Axios", "SWR", "jQuery"],
+      ["Lodash", "Ramda", "jQuery"],
     ],
   },
   {
