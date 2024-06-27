@@ -1,4 +1,4 @@
-import FontClasses from "./fonts"
+import FontClasses from "@/sawyer-react-lib/data/fonts"
 
 import "./globals.css"
 

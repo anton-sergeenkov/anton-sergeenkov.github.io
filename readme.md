@@ -1,5 +1,21 @@
 # Readme
 
+## ⭐️ TODO
+
+### Вынести
+- app\index\components\SectionProjects\components\Options\Options.jsx
+- hooks\useMobile.js
+- app\globals.css
+
+### Общее
+- CV. Ссылка не на всю ширину
+- Общие стили для выпадающего списка CV и меню
+- Добавить TypeScript
+
+---
+
+## ⭐️ Development and Deploy
+
 ### Development
 - Настроить проект `-sawyer-react-lib-` https://github.com/anton-sergeenkov/-sawyer-react-lib-/blob/main/readme.md
 

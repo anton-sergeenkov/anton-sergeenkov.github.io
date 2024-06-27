@@ -61,7 +61,7 @@ body {
   box-sizing: border-box;
 }
 *::selection {
-  background: var(--color-sea);
+  background: var(--color-black-opacity-1);
 }
 
 /***************************************************
