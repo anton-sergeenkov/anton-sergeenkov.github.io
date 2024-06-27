@@ -24,6 +24,7 @@ const SectionStarter = () => {
                       <ChipsElement
                         items={[itemContact.title]}
                         className={styles.chips}
+                        isUserSelect={true}
                       />
                       <LinkElement
                         href={itemContact.url}
