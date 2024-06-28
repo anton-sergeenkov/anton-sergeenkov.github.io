@@ -3,11 +3,14 @@
 ## ⭐️ TODO
 
 ### Ui-компоненты
-Из файла "app\local.css" создать Ui-компоненты
+
+**Из файла "app\local.css" создать Ui-компоненты**
 - section
 - textGradient
 - h1, h2, h3
-Вынести
+
+**Вынести**
+- app\index\components\SectionProjects\GridPictureContentElement\GridPictureContentElement.jsx
 - app\index\components\SectionStarter\components\SectionLinks\SectionLinks.jsx
 
 ### Fix
