@@ -2,14 +2,13 @@
 
 ## ⭐️ TODO
 
-### Вынести
-- app\index\components\SectionProjects\components\Options\Options.jsx
-
 ### Ui-компоненты
 Из файла "app\local.css" создать Ui-компоненты
 - section
 - textGradient
 - h1, h2, h3
+Вынести
+- app\index\components\SectionStarter\components\SectionLinks\SectionLinks.jsx
 
 ### Fix
 - CV. Ссылка не на всю ширину
