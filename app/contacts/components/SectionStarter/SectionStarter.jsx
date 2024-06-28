@@ -4,6 +4,7 @@ import cn from "classnames"
 
 import { ChipsElement, LinkElement } from "@/sawyer-react-lib/ui-kit"
 
+import { THEME_LINK } from "@/constants/theme"
 import { LIST_CONTACTS } from "@/data/contacts"
 
 import styles from "./SectionStarter.module.css"
@@ -29,7 +30,7 @@ const SectionStarter = () => {
                       <LinkElement
                         href={itemContact.url}
                         theme={{
-                          mode: "blue-underlined-thin",
+                          mode: THEME_LINK,
                         }}
                       >
                         {itemContact.alias

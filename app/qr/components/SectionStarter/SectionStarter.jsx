@@ -3,6 +3,7 @@
 import { useState } from "react"
 import cn from "classnames"
 
+import { THEME_HEADER } from "@/constants/theme"
 import { ModalElement, TypographyElement } from "@/sawyer-react-lib/ui-kit"
 
 import { LIST_QR } from "./data/qr"
@@ -54,7 +55,7 @@ const SectionStarter = () => {
                 <div className={styles.modalName}>
                   <TypographyElement
                     tag="h2"
-                    theme={{ mode: "dark-filled" }}
+                    theme={{ mode: THEME_HEADER }}
                     className={styles.typographyUsername}
                   >
                     {LIST_QR[itemIndex]?.name}
