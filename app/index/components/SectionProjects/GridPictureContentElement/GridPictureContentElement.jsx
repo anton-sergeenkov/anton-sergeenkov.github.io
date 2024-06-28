@@ -54,11 +54,7 @@ const GridPictureContentElement = (props) => {
               </div>
             ))}
 
-            {isOptions && (
-              <div className={styles.options}>
-                <OptionsElement options={item.links} />
-              </div>
-            )}
+            {isOptions && <OptionsElement options={item.links} />}
           </div>
         </div>
       ))}

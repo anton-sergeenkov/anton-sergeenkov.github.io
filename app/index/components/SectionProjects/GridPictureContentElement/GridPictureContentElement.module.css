@@ -44,20 +44,6 @@
     font-size: 14px;
     font-family: var(--font-roboto-light);
   }
-  .options {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    /* border: 1px solid #000; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    color: var(--color-white);
-    background-color: var(--color-white-opacity-2); */
-  }
 }
 
 /***************************************************

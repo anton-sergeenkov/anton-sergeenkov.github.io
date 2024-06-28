@@ -15,7 +15,7 @@ const SectionProjects = () => {
           Projects
         </TypographyElement>
 
-        <GridPictureContentElement items={LIST_PROJECTS} isOptions />
+        <GridPictureContentElement items={LIST_PROJECTS} />
       </div>
     </div>
   )
