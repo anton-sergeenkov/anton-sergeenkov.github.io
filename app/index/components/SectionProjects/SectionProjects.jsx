@@ -2,13 +2,10 @@
 import cn from "classnames"
 
 import { LIST_PROJECTS } from "./data/projects"
-import {
-  TypographyElement,
-  LinkElement,
-  OptionsElement,
-} from "@/sawyer-react-lib/ui-kit"
-
+import { TypographyElement } from "@/sawyer-react-lib/ui-kit"
 import styles from "./SectionProjects.module.css"
+
+import GridPictureContentElement from "./GridPictureContentElement/GridPictureContentElement"
 
 const SectionProjects = () => {
   return (
@@ -18,44 +15,7 @@ const SectionProjects = () => {
           Projects
         </TypographyElement>
 
-        <div className={styles.coursesContainer}>
-          {LIST_PROJECTS.map((itemCources, indexCources) => (
-            <div className={styles.courseContainer} key={indexCources}>
-              <a
-                href={itemCources.link}
-                className={styles.logo}
-                style={{
-                  backgroundImage: `url(${itemCources.img.src})`,
-                }}
-                target="_blank"
-              ></a>
-
-              <div className={styles.contentContainer}>
-                <h3 className={styles.h3}>{itemCources.title}</h3>
-                <div className={styles.description}>
-                  {itemCources.description}
-                </div>
-
-                {itemCources.links.map((itemLink, indexLink) => (
-                  <div key={indexLink}>
-                    <LinkElement
-                      href={itemLink.link}
-                      theme={{
-                        mode: "dark-underlined",
-                      }}
-                    >
-                      {itemLink.name}
-                    </LinkElement>
-                  </div>
-                ))}
-
-                <div className={styles.options} title="Ссылки">
-                  <OptionsElement options={itemCources.links} />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <GridPictureContentElement items={LIST_PROJECTS} isOptions />
       </div>
     </div>
   )
