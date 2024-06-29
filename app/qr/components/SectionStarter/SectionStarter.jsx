@@ -25,16 +25,16 @@ const SectionStarter = () => {
     <div className={cn(styles.wrapper)}>
       <div className={cn(styles.container, "section")}>
         <div className={styles.listContainer}>
-          {LIST_QR.map((item, index) => (
+          {LIST_QR.map((element, index) => (
             <div className={styles.itemContainer} key={index}>
               <div
                 onClick={() => handleOpen(index)}
                 className={styles.logo}
                 style={{
-                  backgroundImage: `url(${item.img.src})`,
+                  backgroundImage: `url(${element.img.src})`,
                 }}
               ></div>
-              <div className={styles.title}>{item.title}</div>
+              <div className={styles.title}>{element.title}</div>
             </div>
           ))}
 

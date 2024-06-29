@@ -9,10 +9,6 @@
 - textGradient
 - h1, h2, h3
 
-**Вынести**
-- app\index\components\SectionProjects\GridPictureContentElement\GridPictureContentElement.jsx
-- app\index\components\SectionStarter\components\SectionLinks\SectionLinks.jsx
-
 ### Fix
 - CV. Ссылка не на всю ширину
 - Общие стили для выпадающего списка CV и меню

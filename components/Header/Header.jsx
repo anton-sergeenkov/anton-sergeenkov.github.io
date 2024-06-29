@@ -30,9 +30,12 @@ const Header = () => {
           />
         </li>
 
-        {ROUTES.map((item, index) => (
+        {ROUTES.map((element, index) => (
           <li className={cn(styles.listItem, styles.desktop)} key={index}>
-            <MenuItemRoutesElement theme={{ mode: THEME_MENU }} item={item} />
+            <MenuItemRoutesElement
+              theme={{ mode: THEME_MENU }}
+              item={element}
+            />
           </li>
         ))}
 

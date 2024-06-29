@@ -1,7 +1,8 @@
 import cn from "classnames"
 
+import { SocialLinksElement } from "@/sawyer-react-lib/ui-kit"
 import SectionStack from "./components/SectionStack"
-import SectionLinks from "./components/SectionLinks"
+import { LIST_LINKS } from "./data/links"
 
 import styles from "./SectionStarter.module.css"
 
@@ -18,7 +19,7 @@ const SectionStarter = () => {
           </h2>
 
           <SectionStack />
-          <SectionLinks />
+          <SocialLinksElement list={LIST_LINKS} />
         </div>
       </div>
     </div>

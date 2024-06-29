@@ -3,7 +3,10 @@ import cn from "classnames"
 
 import { THEME_CARD_LINK, THEME_HEADER, THEME_CARD } from "@/constants/theme"
 import { LIST_PROJECTS } from "./data/projects"
-import { TypographyElement, LayoutCardElement } from "@/sawyer-react-lib/ui-kit"
+import {
+  TypographyElement,
+  LayoutCardsElement,
+} from "@/sawyer-react-lib/ui-kit"
 import styles from "./SectionProjects.module.css"
 
 const SectionProjects = () => {
@@ -14,7 +17,7 @@ const SectionProjects = () => {
           Projects
         </TypographyElement>
 
-        <LayoutCardElement
+        <LayoutCardsElement
           items={LIST_PROJECTS}
           theme={{
             mode: THEME_CARD,
