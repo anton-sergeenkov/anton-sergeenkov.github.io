@@ -36,3 +36,19 @@
 3. `npm run copy-cv` - копирование файлов cv в директории "out"
 4. `npm run gh-pages` - commit и push файлов из директории out в ветку "gh-pages" на удаленном репозитории
 5. `npm run commit` - commit и push в ветку "master" на удаленном репозитории
+
+---
+
+## ⭐️ Known Issues
+
+### Ошибка MUI для компонента <Menu />
+- Описание проблемы: При клике на кнопку открывается выпадающий список, при этом скрывается скролл и происходит смещение части интерфейса
+- Что происходит в коде: На body навешивается `<body style="padding-right: 11px; overflow: hidden;">`
+- Решение 1: резервировать место для скролла, чтобы он был виден всегда. Реализовано в https://letscode-dev.github.io/
+- Решение 2: добавить стили
+```css
+body {
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
+```
