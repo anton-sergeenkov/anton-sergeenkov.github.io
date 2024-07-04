@@ -4,7 +4,14 @@ export const LIST_TECHNOLOGIES_STACK = [
     items: [
       ["React.js", "React Router"],
       ["Next.js"],
-      ["Redux", "Redux Toolkit", "Redux Saga", "Redux Thunk", "Reselect"],
+      [
+        "Redux",
+        "Redux Toolkit",
+        "Redux Saga",
+        "Redux Thunk",
+        "Reselect",
+        "Zustand",
+      ],
       ["Formik", "React Hook Form", "Yup"],
       ["React Query", "React Flow"],
       ["MUI", "Storybook"],
