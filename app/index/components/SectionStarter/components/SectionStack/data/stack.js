@@ -9,7 +9,7 @@ export const LIST_STACK = [
   },
   {
     title: "Tools",
-    items: ["Git", "Webpack", "Jira"],
+    items: ["Git", "Vite", "Webpack", "Jira"],
   },
   {
     title: "Methodology",

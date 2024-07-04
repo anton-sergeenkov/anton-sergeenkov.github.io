@@ -25,7 +25,7 @@ export const LIST_TECHNOLOGIES_STACK = [
       ["JavaScript", "ES5", "ES6+", "HTLM5 Canvas", "Web Components"],
       ["Axios", "SWR"],
       ["ESLint", "Prettier", "Husky"],
-      ["Webpack", "Gulp", "NPM", "Yarn"],
+      ["Vite", "Webpack", "Gulp", "NPM", "Yarn"],
       ["Lodash", "Ramda", "jQuery"],
     ],
   },
