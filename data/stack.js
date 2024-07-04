@@ -65,7 +65,7 @@ export const LIST_TECHNOLOGIES_STACK = [
     title: "Additional Experience",
     items: [
       ["OpenGL", "Ogre3D"],
-      ["PHP", "Python", "C++", "Java", "C#", "Delphi"],
+      ["PHP", "Python", "C++", "C#", "Java", "Delphi"],
       ["Firebird"],
       ["WordPress"],
     ],
