@@ -6,13 +6,13 @@ import { LIST_PROJECTS } from "./data/projects"
 import {
   TypographyElement,
   LayoutCardsElement,
-  LayoutSection,
+  LayoutSectionElement,
 } from "@/sawyer-react-lib/ui-kit"
 import styles from "./SectionProjects.module.css"
 
 const SectionProjects = () => {
   return (
-    <LayoutSection className={styles.wrapper}>
+    <LayoutSectionElement className={styles.wrapper}>
       <div className={cn(styles.container)} id="projects">
         <TypographyElement tag="h2" theme={{ mode: THEME_HEADER }}>
           Projects
@@ -28,7 +28,7 @@ const SectionProjects = () => {
           }}
         />
       </div>
-    </LayoutSection>
+    </LayoutSectionElement>
   )
 }
 

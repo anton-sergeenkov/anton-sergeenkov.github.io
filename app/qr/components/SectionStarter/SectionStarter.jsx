@@ -7,7 +7,7 @@ import { THEME_HEADER } from "@/constants/theme"
 import {
   ModalElement,
   TypographyElement,
-  LayoutSection,
+  LayoutSectionElement,
 } from "@/sawyer-react-lib/ui-kit"
 
 import { LIST_QR } from "./data/qr"
@@ -26,7 +26,7 @@ const SectionStarter = () => {
   const handleClose = () => setOpen(false)
 
   return (
-    <LayoutSection className={styles.wrapper}>
+    <LayoutSectionElement className={styles.wrapper}>
       <div className={styles.listContainer}>
         {LIST_QR.map((element, index) => (
           <div className={styles.itemContainer} key={index}>
@@ -68,7 +68,7 @@ const SectionStarter = () => {
           </div>
         </ModalElement>
       </div>
-    </LayoutSection>
+    </LayoutSectionElement>
   )
 }
 

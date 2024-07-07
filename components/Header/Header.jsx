@@ -1,7 +1,7 @@
 "use client"
 
 import cn from "classnames"
-import { LayoutSection } from "@/sawyer-react-lib/ui-kit"
+import { LayoutSectionElement } from "@/sawyer-react-lib/ui-kit"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
 import { THEME_MENU } from "@/constants/theme"
 
@@ -16,7 +16,10 @@ import styles from "./Header.module.css"
 
 const Header = () => {
   return (
-    <LayoutSection className={styles.wrapper} theme={{ mode: "header-footer" }}>
+    <LayoutSectionElement
+      className={styles.wrapper}
+      theme={{ mode: "header-footer" }}
+    >
       <ul className={cn(styles.list)}>
         <li className={styles.listItem}>
           <MenuItemGroupLinksElement
@@ -56,7 +59,7 @@ const Header = () => {
           }}
         /> */}
       </ul>
-    </LayoutSection>
+    </LayoutSectionElement>
   )
 }
 
