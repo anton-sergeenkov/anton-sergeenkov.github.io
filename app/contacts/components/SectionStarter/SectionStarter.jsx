@@ -8,7 +8,7 @@ import {
   LayoutSectionElement,
 } from "@/sawyer-react-lib/ui-kit"
 
-import { THEME_LINK } from "@/constants/theme"
+import { THEME } from "@/constants/theme"
 import { LIST_CONTACTS } from "@/data/contacts"
 
 import styles from "./SectionStarter.module.css"
@@ -34,7 +34,7 @@ const SectionStarter = () => {
                       <LinkElement
                         href={itemContact.url}
                         theme={{
-                          mode: THEME_LINK,
+                          mode: THEME.LINK,
                         }}
                       >
                         {itemContact.alias
