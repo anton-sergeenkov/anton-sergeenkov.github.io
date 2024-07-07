@@ -3,7 +3,7 @@
 import { useState } from "react"
 import cn from "classnames"
 
-import { THEME_HEADER } from "@/constants/theme"
+import { THEME_H2 } from "@/constants/theme"
 import {
   ModalElement,
   TypographyElement,
@@ -56,9 +56,10 @@ const SectionStarter = () => {
             ></div>
             {LIST_QR[itemIndex]?.name && (
               <div className={styles.modalName}>
+                {/* TODO: */}
                 <TypographyElement
                   tag="h2"
-                  theme={{ mode: THEME_HEADER }}
+                  theme={{ mode: THEME_H2 }}
                   className={styles.typographyUsername}
                 >
                   {LIST_QR[itemIndex]?.name}

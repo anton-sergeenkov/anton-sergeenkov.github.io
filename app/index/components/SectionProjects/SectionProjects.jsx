@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import cn from "classnames"
 
-import { THEME_CARD_LINK, THEME_HEADER, THEME_CARD } from "@/constants/theme"
+import { THEME_CARD_LINK, THEME_H2, THEME_CARD } from "@/constants/theme"
 import { LIST_PROJECTS } from "./data/projects"
 import {
   TypographyElement,
@@ -14,10 +14,10 @@ const SectionProjects = () => {
   return (
     <LayoutSectionElement className={styles.wrapper}>
       <div className={cn(styles.container)} id="projects">
-        <TypographyElement tag="h2" theme={{ mode: THEME_HEADER }}>
+        {/* TODO: */}
+        <TypographyElement tag="h2" theme={{ mode: THEME_H2 }}>
           Projects
         </TypographyElement>
-
         <LayoutCardsElement
           items={LIST_PROJECTS}
           theme={{
