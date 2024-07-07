@@ -7,7 +7,6 @@
 ### Ui-компоненты
 
 **Из файла "app\local.css" создать Ui-компоненты**
-- textGradient
 - h1, h2, h3
 
 ### Fix
