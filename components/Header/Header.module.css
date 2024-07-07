@@ -1,4 +1,4 @@
-.container {
+.wrapper {
   height: var(--height-header);
   display: flex;
   align-items: center;
