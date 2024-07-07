@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import cn from "classnames"
+// import cn from "classnames"
 
 import { THEME_H2 } from "@/constants/theme"
 import {
@@ -27,47 +27,49 @@ const SectionStarter = () => {
 
   return (
     <LayoutSectionElement className={styles.wrapper}>
-      <div className={styles.listContainer}>
-        {LIST_QR.map((element, index) => (
-          <div className={styles.itemContainer} key={index}>
-            <div
-              onClick={() => handleOpen(index)}
-              className={styles.logo}
-              style={{
-                backgroundImage: `url(${element.img.src})`,
-              }}
-            ></div>
-            <div className={styles.title}>{element.title}</div>
-          </div>
-        ))}
+      <div className={styles.container}>
+        <div className={styles.listContainer}>
+          {LIST_QR.map((element, index) => (
+            <div className={styles.itemContainer} key={index}>
+              <div
+                onClick={() => handleOpen(index)}
+                className={styles.logo}
+                style={{
+                  backgroundImage: `url(${element.img.src})`,
+                }}
+              ></div>
+              <div className={styles.title}>{element.title}</div>
+            </div>
+          ))}
 
-        <ModalElement
-          disableAutoFocus
-          open={open}
-          onClose={handleClose}
-          className={styles.modal}
-        >
-          <div onClick={handleClose} className={styles.modalContent}>
-            <div
-              className={styles.modalLogo}
-              style={{
-                backgroundImage: `url(${LIST_QR[itemIndex]?.img.src})`,
-              }}
-            ></div>
-            {LIST_QR[itemIndex]?.name && (
-              <div className={styles.modalName}>
-                {/* TODO: */}
-                <TypographyElement
-                  tag="h2"
-                  theme={{ mode: THEME_H2 }}
-                  className={styles.typographyUsername}
-                >
-                  {LIST_QR[itemIndex]?.name}
-                </TypographyElement>
-              </div>
-            )}
-          </div>
-        </ModalElement>
+          <ModalElement
+            disableAutoFocus
+            open={open}
+            onClose={handleClose}
+            className={styles.modal}
+          >
+            <div onClick={handleClose} className={styles.modalContent}>
+              <div
+                className={styles.modalLogo}
+                style={{
+                  backgroundImage: `url(${LIST_QR[itemIndex]?.img.src})`,
+                }}
+              ></div>
+              {LIST_QR[itemIndex]?.name && (
+                <div className={styles.modalName}>
+                  {/* TODO: */}
+                  <TypographyElement
+                    tag="h2"
+                    theme={{ mode: THEME_H2 }}
+                    className={styles.typographyUsername}
+                  >
+                    {LIST_QR[itemIndex]?.name}
+                  </TypographyElement>
+                </div>
+              )}
+            </div>
+          </ModalElement>
+        </div>
       </div>
     </LayoutSectionElement>
   )
