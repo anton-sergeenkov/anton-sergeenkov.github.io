@@ -2,7 +2,11 @@
 
 import cn from "classnames"
 
-import { ChipsElement, LinkElement } from "@/sawyer-react-lib/ui-kit"
+import {
+  ChipsElement,
+  LinkElement,
+  LayoutSection,
+} from "@/sawyer-react-lib/ui-kit"
 
 import { THEME_LINK } from "@/constants/theme"
 import { LIST_CONTACTS } from "@/data/contacts"
@@ -11,7 +15,7 @@ import styles from "./SectionStarter.module.css"
 
 const SectionStarter = () => {
   return (
-    <div className={cn(styles.wrapper, "section")}>
+    <LayoutSection className={styles.wrapper}>
       <div className={styles.container}>
         <ul className={styles.list}>
           {LIST_CONTACTS.map((elementCategory, elementIndex) => (
@@ -45,7 +49,7 @@ const SectionStarter = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </LayoutSection>
   )
 }
 

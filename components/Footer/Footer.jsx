@@ -1,13 +1,17 @@
 import cn from "classnames"
+import { LayoutSection } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./Footer.module.css"
 
 const Footer = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={cn(styles.container, "section", "section-header-footer")}>
+      <LayoutSection
+        className={styles.container}
+        theme={{ mode: "header-footer" }}
+      >
         Anton Sergeenkov. React / Vue Frontend Developer
-      </div>
+      </LayoutSection>
     </div>
   )
 }

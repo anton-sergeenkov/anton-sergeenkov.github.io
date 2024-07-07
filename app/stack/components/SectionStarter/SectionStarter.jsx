@@ -4,13 +4,13 @@ import cn from "classnames"
 
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
 
-import { ChipsElement } from "@/sawyer-react-lib/ui-kit"
+import { ChipsElement, LayoutSection } from "@/sawyer-react-lib/ui-kit"
 
 import styles from "./SectionStarter.module.css"
 
 const SectionStarter = () => {
   return (
-    <div className={cn(styles.wrapper, "section")}>
+    <LayoutSection className={styles.wrapper}>
       <div className={styles.container}>
         <ul className={styles.list}>
           {LIST_TECHNOLOGIES_STACK.map((elementStack, elementIndex) => (
@@ -34,7 +34,7 @@ const SectionStarter = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </LayoutSection>
   )
 }
 

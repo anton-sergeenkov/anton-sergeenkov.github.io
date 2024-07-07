@@ -1,27 +1,4 @@
 /***************************************************
-SECTIONS
-/***************************************************/
-.section {
-  max-width: 1200px;
-  margin: auto;
-  margin-bottom: 40px;
-  padding: 0 40px;
-}
-
-.section-header-footer {
-  margin-bottom: 0;
-}
-
-/***************************************************
-ADAPTIVE
-/***************************************************/
-@media screen and (max-width: 600px) {
-  .section {
-    padding: 0 20px;
-  }
-}
-
-/***************************************************
 CLASSES
 /***************************************************/
 .textGradient {
@@ -33,6 +10,7 @@ CLASSES
     #0a9ed8,
     #162454
   );
+
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
