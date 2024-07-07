@@ -10,7 +10,7 @@ import styles from "./SectionStarter.module.css"
 
 const SectionStarter = () => {
   return (
-    <div className={cn(styles.wrapper, "section-starter")}>
+    <div className={cn(styles.wrapper, "section")}>
       <div className={styles.container}>
         <ul className={styles.list}>
           {LIST_TECHNOLOGIES_STACK.map((elementStack, elementIndex) => (

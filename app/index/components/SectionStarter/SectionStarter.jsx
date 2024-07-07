@@ -8,19 +8,17 @@ import styles from "./SectionStarter.module.css"
 
 const SectionStarter = () => {
   return (
-    <div className={cn(styles.wrapper, "section-starter")}>
-      <div className={styles.container}>
-        <div className={styles.logo}></div>
+    <div className={cn(styles.container, "section")}>
+      <div className={styles.logo}></div>
 
-        <div className={styles.content}>
-          <h1 className={cn(styles.textHeader, styles.h1)}>Anton Sergeenkov</h1>
-          <h2 className={cn(styles.textHeader, styles.h2, "textGradient")}>
-            Frontend Developer
-          </h2>
+      <div className={styles.content}>
+        <h1 className={cn(styles.textHeader, styles.h1)}>Anton Sergeenkov</h1>
+        <h2 className={cn(styles.textHeader, styles.h2, "textGradient")}>
+          Frontend Developer
+        </h2>
 
-          <SectionStack />
-          <SocialLinksElement list={LIST_LINKS} />
-        </div>
+        <SectionStack />
+        <SocialLinksElement list={LIST_LINKS} />
       </div>
     </div>
   )

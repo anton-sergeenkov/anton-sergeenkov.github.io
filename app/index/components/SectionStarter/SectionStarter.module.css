@@ -1,32 +1,26 @@
-.wrapper {
+.container {
   --spacing: 45px;
 
-  .container {
-    display: flex;
-    overflow: auto;
-    border-radius: var(--border-radius);
-    background-color: var(--color-white);
-    /* box-shadow: var(--box-shadow-flat); */
-  }
+  display: flex;
+  overflow: auto;
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
 }
 
-.container {
-  .logo {
-    width: 300px;
-    height: auto;
-    flex-shrink: 0;
-    background-color: var(--color-black-lighter);
-    background-image: url(./img/avatar.jpg);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .content {
-    padding: var(--spacing);
-  }
+.container .logo {
+  width: 300px;
+  height: auto;
+  flex-shrink: 0;
+  background-color: var(--color-black-lighter);
+  background-image: url(./img/avatar.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.content {
+.container .content {
+  padding: var(--spacing);
+
   .textHeader {
     margin: 0;
     padding: 0;
@@ -43,27 +37,11 @@
   }
 }
 
-.containerChips {
-  margin-top: var(--spacing);
-
-  .chip {
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 4px 15px;
-    font-size: 13px;
-    color: var(--color-white);
-    background-color: var(--color-white-opacity-1);
-  }
-  .chip:last-child {
-    margin-right: 0;
-  }
-}
-
 /***************************************************
 ADAPTIVE
 /***************************************************/
 @media screen and (max-width: 930px) {
-  .wrapper .container {
+  .container {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;

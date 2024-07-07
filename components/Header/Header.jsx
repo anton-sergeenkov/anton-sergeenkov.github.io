@@ -16,7 +16,7 @@ import styles from "./Header.module.css"
 
 const Header = () => {
   return (
-    <div className={cn(styles.container, "section-header")}>
+    <div className={cn(styles.container, "section", "section-header-footer")}>
       <ul className={cn(styles.list)}>
         <li className={styles.listItem}>
           <MenuItemGroupLinksElement
