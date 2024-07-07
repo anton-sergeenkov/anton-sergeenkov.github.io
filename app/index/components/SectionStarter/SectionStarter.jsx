@@ -7,6 +7,7 @@ import {
 } from "@/sawyer-react-lib/ui-kit"
 import SectionStack from "./components/SectionStack"
 import { LIST_LINKS } from "./data/links"
+import { THEME_TEXT_GRADIENT } from "@/constants/theme"
 
 import styles from "./SectionStarter.module.css"
 
@@ -19,7 +20,7 @@ const SectionStarter = () => {
         <div className={styles.content}>
           <h1 className={cn(styles.textHeader, styles.h1)}>Anton Sergeenkov</h1>
 
-          <TypographyGradientElement theme={{ mode: "darkblue-blue" }}>
+          <TypographyGradientElement theme={{ mode: THEME_TEXT_GRADIENT }}>
             <h2 className={cn(styles.textHeader, styles.h2)}>
               Frontend Developer
             </h2>

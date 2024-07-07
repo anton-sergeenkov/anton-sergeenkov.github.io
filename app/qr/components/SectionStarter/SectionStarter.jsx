@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 // import cn from "classnames"
-
+import { THEME_CHIPS_DARK } from "@/constants/theme"
 import {
   ModalElement,
   LayoutSectionElement,
@@ -59,7 +59,7 @@ const SectionStarter = () => {
                   <ChipsElement
                     items={[LIST_QR[itemIndex]?.name]}
                     className={styles.typographyUsername}
-                    theme={{ mode: "dark" }}
+                    theme={{ mode: THEME_CHIPS_DARK }}
                     isUserSelect
                   />
                 </div>

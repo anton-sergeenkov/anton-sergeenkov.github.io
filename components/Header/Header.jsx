@@ -3,7 +3,7 @@
 import cn from "classnames"
 import { LayoutSectionElement } from "@/sawyer-react-lib/ui-kit"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
-import { THEME_MENU } from "@/constants/theme"
+import { THEME_MENU, THEME_HEADER_FOOTER } from "@/constants/theme"
 
 import {
   MenuItemRoutesElement,
@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <LayoutSectionElement
       className={styles.wrapper}
-      theme={{ mode: "header-footer" }}
+      theme={{ mode: THEME_HEADER_FOOTER }}
     >
       <ul className={cn(styles.list)}>
         <li className={styles.listItem}>
