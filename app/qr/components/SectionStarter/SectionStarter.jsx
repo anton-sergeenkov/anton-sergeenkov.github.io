@@ -3,11 +3,10 @@
 import { useState } from "react"
 // import cn from "classnames"
 
-import { THEME_H2 } from "@/constants/theme"
 import {
   ModalElement,
-  TypographyElement,
   LayoutSectionElement,
+  ChipsElement,
 } from "@/sawyer-react-lib/ui-kit"
 
 import { LIST_QR } from "./data/qr"
@@ -57,14 +56,12 @@ const SectionStarter = () => {
               ></div>
               {LIST_QR[itemIndex]?.name && (
                 <div className={styles.modalName}>
-                  {/* FIXME: */}
-                  <TypographyElement
-                    tag="h2"
-                    theme={{ mode: THEME_H2 }}
+                  <ChipsElement
+                    items={[LIST_QR[itemIndex]?.name]}
                     className={styles.typographyUsername}
-                  >
-                    {LIST_QR[itemIndex]?.name}
-                  </TypographyElement>
+                    theme={{ mode: "dark" }}
+                    isUserSelect
+                  />
                 </div>
               )}
             </div>
