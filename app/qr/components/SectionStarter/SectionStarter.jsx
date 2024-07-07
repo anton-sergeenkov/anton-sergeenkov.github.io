@@ -57,7 +57,7 @@ const SectionStarter = () => {
               ></div>
               {LIST_QR[itemIndex]?.name && (
                 <div className={styles.modalName}>
-                  {/* TODO: */}
+                  {/* FIXME: */}
                   <TypographyElement
                     tag="h2"
                     theme={{ mode: THEME_H2 }}

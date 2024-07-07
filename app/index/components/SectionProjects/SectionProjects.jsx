@@ -14,7 +14,6 @@ const SectionProjects = () => {
   return (
     <LayoutSectionElement className={styles.wrapper}>
       <div className={cn(styles.container)} id="projects">
-        {/* TODO: */}
         <TypographyElement tag="h2" theme={{ mode: THEME_H2 }}>
           Projects
         </TypographyElement>
