@@ -15,14 +15,6 @@ export const ROUTES = [
     title: "QR",
     path: "/qr",
   },
-  // {
-  //   title: "Contacts",
-  //   path: "/contacts",
-  // },
-  // {
-  //   title: "Scan QR",
-  //   path: "/qr",
-  // },
 ]
 
 export const ROUTES_CV = [
