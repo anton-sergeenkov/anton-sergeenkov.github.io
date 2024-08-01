@@ -1,11 +1,5 @@
 # ⭐️ TODO
 
-**Посмотреть что можно вынести из**
-- app\contacts
-- app\index
-- app\qr
-- app\stack
-
 **TypeScript**
 - Добавить TypeScript
 - Добавить tslint
