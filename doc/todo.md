@@ -1,3 +1,7 @@
+# ⭐️ Linter
+
+- Удалить плалин `eslint-config-react-app`
+
 # ⭐️ TODO
 
 **TypeScript**
