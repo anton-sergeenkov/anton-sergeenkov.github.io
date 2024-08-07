@@ -7,7 +7,7 @@ export const metadata = {
   description: "Portfolio",
 }
 
-const RootLayout = (props) => {
+const RootLayout = (props: IRootLayout) => {
   const { children } = props
 
   return (
