@@ -1,20 +1,17 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      // "@/*": ["./app/*"],
-      // "@/ui-kit/*": ["ui-kit/*"],
+  // "compilerOptions": {
+  //   "baseUrl": ".",
+  //   "paths": {
+  //     "@/app/*": ["app/*"],
+  //     "@/components/*": ["components/*"],
+  //     "@/data/*": ["data/*"],
+  //     "@/files/*": ["files/*"],
+  //     "@/hooks/*": ["hooks/*"],
+  //     "@/node.js/*": ["node.js/*"],
+  //     "@/routes/*": ["routes/*"],
+  //     "@/constants/*": ["constants/*"],
 
-      "@/app/*": ["app/*"],
-      "@/components/*": ["components/*"],
-      "@/data/*": ["data/*"],
-      "@/files/*": ["files/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/node.js/*": ["node.js/*"],
-      "@/routes/*": ["routes/*"],
-      "@/constants/*": ["constants/*"],
-
-      "@/sawyer-react-lib/*": ["../-sawyer-react-lib-/*"]
-    }
-  }
+  //     "@/sawyer-react-lib/*": ["../-sawyer-react-lib-/*"]
+  //   }
+  // }
 }
