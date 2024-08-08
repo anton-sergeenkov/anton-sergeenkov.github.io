@@ -11,7 +11,7 @@ import { THEME } from "@/constants/theme"
 
 import styles from "./SectionStarter.module.css"
 
-const SectionStarter = () => {
+const SectionStarter: React.FC = () => {
   return (
     <LayoutSectionElement className={styles.wrapper}>
       <div className={cn(styles.container)}>
