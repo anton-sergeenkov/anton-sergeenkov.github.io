@@ -1,6 +1,8 @@
 
 # ⭐️ TODO
 
+- Ошибки в консоли Терминала
+
 **Формат импорта из Ui-Kit**
 ```js
 import { TypographyElement } from "@/sawyer-react-lib/ui-kit"

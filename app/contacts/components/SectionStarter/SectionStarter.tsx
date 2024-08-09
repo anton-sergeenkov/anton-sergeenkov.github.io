@@ -1,13 +1,8 @@
 "use client"
 
 // import cn from "classnames"
-
-import {
-  ChipsElement,
-  LinkElement,
-  LayoutSectionElement,
-} from "@/sawyer-react-lib/ui-kit"
-
+import { LinkElement, LayoutSectionElement } from "@/sawyer-react-lib/ui-kit"
+import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
 import { THEME } from "@/constants/theme"
 import { LIST_CONTACTS } from "@/data/contacts"
 

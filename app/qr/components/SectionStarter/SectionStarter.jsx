@@ -3,11 +3,8 @@
 import { useState } from "react"
 // import cn from "classnames"
 import { THEME } from "@/constants/theme"
-import {
-  ModalElement,
-  LayoutSectionElement,
-  ChipsElement,
-} from "@/sawyer-react-lib/ui-kit"
+import { ModalElement, LayoutSectionElement } from "@/sawyer-react-lib/ui-kit"
+import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
 
 import { LIST_QR } from "./data/qr"
 
