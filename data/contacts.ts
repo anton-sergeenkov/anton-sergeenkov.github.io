@@ -1,4 +1,16 @@
-export const LIST_CONTACTS = [
+export interface IContactsListItems {
+  url: string
+  title: string
+  username?: string
+  alias?: string
+}
+
+export interface IContactsList {
+  title: string
+  items: IContactsListItems[]
+}
+
+export const LIST_CONTACTS: IContactsList[] = [
   {
     title: "Social Network",
     items: [
