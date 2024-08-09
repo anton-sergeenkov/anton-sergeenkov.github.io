@@ -1,10 +1,11 @@
 import cn from "classnames"
 
 import {
-  SocialLinksElement,
   LayoutSectionElement,
   TypographyGradientElement,
 } from "@/sawyer-react-lib/ui-kit"
+import SocialLinksElement from "@/sawyer-react-lib/ui-kit/surfaces/SocialLinksElement"
+
 import SectionStack from "./components/SectionStack"
 import { LIST_LINKS } from "./data/links"
 import { THEME } from "@/constants/theme"
