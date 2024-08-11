@@ -1,8 +1,9 @@
 import { ThemeMode as ThemeChipsElement } from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
 import { ThemeMode as ThemeTypographyGradientElement } from "@/sawyer-react-lib/ui-kit/basic/TypographyGradientElement"
+import { ThemeMode as ThemeMenuButtonElement } from "@/sawyer-react-lib/ui-kit/menu-navigation/MenuButtonElement"
 
 export const THEME = {
-  MENU: "light-violet", // MenuItemGroupRoutesElement
+  MENU: ThemeMenuButtonElement.LIGHT_VIOLET, // MenuItemGroupRoutesElement
   LINK: "blue-underlined-thin", // LinkElement
   LINK_CARD: "dark-underlined", // LinkElement
   H2: "dark-filled", // TypographyElement
