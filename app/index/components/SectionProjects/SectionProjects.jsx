@@ -5,9 +5,10 @@ import { THEME } from "@/constants/theme"
 import { LIST_PROJECTS } from "./data/projects"
 import {
   TypographyElement,
-  LayoutCardsElement,
   LayoutSectionElement,
 } from "@/sawyer-react-lib/ui-kit"
+import LayoutCardsElement from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
+
 import styles from "./SectionProjects.module.css"
 
 const SectionProjects = () => {
