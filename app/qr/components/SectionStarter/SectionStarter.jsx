@@ -3,7 +3,7 @@
 import { useState } from "react"
 // import cn from "classnames"
 import { THEME } from "@/constants/theme"
-import { ModalElement } from "@/sawyer-react-lib/ui-kit"
+import ModalElement from "@/sawyer-react-lib/ui-kit/basic/ModalElement"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
 
@@ -40,10 +40,12 @@ const SectionStarter = () => {
           ))}
 
           <ModalElement
-            disableAutoFocus
-            open={open}
-            onClose={handleClose}
-            className={styles.modal}
+            modalProps={{
+              className: styles.modal,
+              disableAutoFocus: true,
+              open,
+              onClose: handleClose,
+            }}
           >
             <div onClick={handleClose} className={styles.modalContent}>
               <div
