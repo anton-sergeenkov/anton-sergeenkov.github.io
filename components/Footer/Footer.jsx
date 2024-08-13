@@ -1,5 +1,5 @@
 // import cn from "classnames"
-import { LayoutSectionElement } from "@/sawyer-react-lib/ui-kit"
+import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import { THEME } from "@/constants/theme"
 
 import styles from "./Footer.module.css"

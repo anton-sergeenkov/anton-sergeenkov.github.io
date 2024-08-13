@@ -1,6 +1,6 @@
 import cn from "classnames"
 
-import { LayoutSectionElement } from "@/sawyer-react-lib/ui-kit"
+import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import SocialLinksElement from "@/sawyer-react-lib/ui-kit/surfaces/SocialLinksElement"
 import TypographyGradientElement from "@/sawyer-react-lib/ui-kit/basic/TypographyGradientElement"
 import SectionStack from "./components/SectionStack"

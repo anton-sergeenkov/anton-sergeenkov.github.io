@@ -3,7 +3,7 @@
 // import cn from "classnames"
 
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
-import { LayoutSectionElement } from "@/sawyer-react-lib/ui-kit"
+import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
 
 import styles from "./SectionStarter.module.css"

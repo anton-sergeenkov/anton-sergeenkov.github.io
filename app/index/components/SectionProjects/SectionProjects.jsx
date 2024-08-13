@@ -3,10 +3,8 @@ import cn from "classnames"
 
 import { THEME } from "@/constants/theme"
 import { LIST_PROJECTS } from "./data/projects"
-import {
-  TypographyElement,
-  LayoutSectionElement,
-} from "@/sawyer-react-lib/ui-kit"
+import { TypographyElement } from "@/sawyer-react-lib/ui-kit"
+import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import LayoutCardsElement from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
 
 import styles from "./SectionProjects.module.css"
