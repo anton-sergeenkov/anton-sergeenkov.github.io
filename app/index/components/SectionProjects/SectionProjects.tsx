@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import cn from "classnames"
 
 import { THEME } from "@/constants/theme"
