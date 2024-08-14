@@ -9,8 +9,8 @@ import {
   MenuItemRoutesElement,
   MenuItemGroupLinksElement,
   MenuItemGroupRoutesElement,
-  // MenuItemHashElement,
 } from "@/sawyer-react-lib/ui-kit"
+// import MenuItemHashElement from "@/sawyer-react-lib/ui-kit/menu-items/MenuItemHashElement"
 
 import styles from "./Header.module.css"
 
