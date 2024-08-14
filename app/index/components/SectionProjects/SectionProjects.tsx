@@ -3,7 +3,9 @@ import cn from "classnames"
 
 import { THEME } from "@/constants/theme"
 import { LIST_PROJECTS } from "./data/projects"
-import { TypographyElement } from "@/sawyer-react-lib/ui-kit"
+import TypographyElement, {
+  Tag,
+} from "@/sawyer-react-lib/ui-kit/basic/TypographyElement"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import LayoutCardsElement from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
 
@@ -13,7 +15,7 @@ const SectionProjects = () => {
   return (
     <LayoutSectionElement className={styles.wrapper}>
       <div className={cn(styles.container)} id="projects">
-        <TypographyElement tag="h2" theme={{ mode: THEME.H2 }}>
+        <TypographyElement tag={Tag.H2} theme={{ mode: THEME.H2 }}>
           Projects
         </TypographyElement>
         <LayoutCardsElement
