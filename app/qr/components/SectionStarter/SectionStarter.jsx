@@ -15,7 +15,7 @@ const SectionStarter = () => {
   const [open, setOpen] = useState(false)
   const [itemIndex, setItemIndex] = useState(null)
 
-  const handleOpen = (index) => {
+  const onClickOpen = (index) => {
     setItemIndex(index)
     setOpen(true)
   }
@@ -29,7 +29,7 @@ const SectionStarter = () => {
           {LIST_QR.map((element, index) => (
             <div className={styles.itemContainer} key={index}>
               <div
-                onClick={() => handleOpen(index)}
+                onClick={() => onClickOpen(index)}
                 className={styles.logo}
                 style={{
                   backgroundImage: `url(${element.img.src})`,
