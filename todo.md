@@ -1,16 +1,8 @@
 ## ⭐️ TODO
 
-**Формат импорта из Ui-Kit**
-
-```js
-import { TypographyElement } from "@/sawyer-react-lib/ui-kit"
-
-import {
-    TypographyElement,
-    ITypographyElement,
-    constants
-} from "@/sawyer-react-lib/ui-kit/basic/TypographyElement"
-```
+- Формат импорта из Ui-Kit с полным путем
+- Собрать и задеплоить приложение с TypeScript
+- После добавления TypeScript, обновить версию в package.json и обновить changelog.md
 
 ## ⭐️ FEATURES
 
