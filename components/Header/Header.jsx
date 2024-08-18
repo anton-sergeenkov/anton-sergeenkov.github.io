@@ -6,10 +6,11 @@ import { ROUTES, ROUTES_CV } from "@/routes/routes"
 import { THEME } from "@/constants/theme"
 
 import {
-  MenuItemRoutesElement,
   MenuItemGroupLinksElement,
   MenuItemGroupRoutesElement,
 } from "@/sawyer-react-lib/ui-kit"
+import MenuItemRoutesElement from "@/sawyer-react-lib/ui-kit/menu-items/MenuItemRoutesElement"
+
 // import MenuItemHashElement from "@/sawyer-react-lib/ui-kit/menu-items/MenuItemHashElement"
 
 import styles from "./Header.module.css"
