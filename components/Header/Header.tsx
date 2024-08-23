@@ -13,7 +13,7 @@ import MenuItemRoutesElement from "@/sawyer-react-lib/ui-kit/menu-items/MenuItem
 
 import styles from "./Header.module.css"
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <LayoutSectionElement
       className={styles.wrapper}

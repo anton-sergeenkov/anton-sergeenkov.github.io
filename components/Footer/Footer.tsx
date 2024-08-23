@@ -4,7 +4,7 @@ import { THEME } from "@/constants/theme"
 
 import styles from "./Footer.module.css"
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <LayoutSectionElement
