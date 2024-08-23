@@ -1,4 +1,9 @@
-export const LIST_TECHNOLOGIES_STACK = [
+interface IListTechnologiesStack {
+  title: string
+  items: string[][]
+}
+
+export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
   {
     title: "Framework React.js",
     items: [

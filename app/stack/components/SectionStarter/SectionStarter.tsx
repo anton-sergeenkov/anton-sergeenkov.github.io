@@ -8,7 +8,7 @@ import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
 
 import styles from "./SectionStarter.module.css"
 
-const SectionStarter = () => {
+const SectionStarter: React.FC = () => {
   return (
     <LayoutSectionElement className={styles.wrapper}>
       <div className={styles.container}>
