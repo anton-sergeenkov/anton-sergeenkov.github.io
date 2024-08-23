@@ -3,7 +3,7 @@ import Footer from "@/components/Footer"
 import SectionStarter from "./index/components/SectionStarter"
 import SectionProjects from "./index/components/SectionProjects"
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div>
       <Header />
