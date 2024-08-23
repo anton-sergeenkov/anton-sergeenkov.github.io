@@ -5,10 +5,8 @@ import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSection
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
 import { THEME } from "@/constants/theme"
 
-import {
-  MenuItemGroupLinksElement,
-  MenuItemGroupRoutesElement,
-} from "@/sawyer-react-lib/ui-kit"
+import MenuItemGroupLinksElement from "@/sawyer-react-lib/ui-kit/menu-items/MenuItemGroupLinksElement"
+import MenuItemGroupRoutesElement from "@/sawyer-react-lib/ui-kit/menu-items/MenuItemGroupRoutesElement"
 import MenuItemRoutesElement from "@/sawyer-react-lib/ui-kit/menu-items/MenuItemRoutesElement"
 
 // import MenuItemHashElement from "@/sawyer-react-lib/ui-kit/menu-items/MenuItemHashElement"
