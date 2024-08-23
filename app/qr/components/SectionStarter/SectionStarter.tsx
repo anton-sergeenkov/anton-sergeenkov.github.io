@@ -11,11 +11,11 @@ import { LIST_QR } from "./data/qr"
 
 import styles from "./SectionStarter.module.css"
 
-const SectionStarter = () => {
+const SectionStarter: React.FC = () => {
   const [open, setOpen] = useState(false)
-  const [itemIndex, setItemIndex] = useState(null)
+  const [itemIndex, setItemIndex] = useState<null | number>(null)
 
-  const onClickOpen = (index) => {
+  const onClickOpen = (index: number) => {
     setItemIndex(index)
     setOpen(true)
   }
@@ -48,21 +48,23 @@ const SectionStarter = () => {
             }}
           >
             <div onClick={handleClose} className={styles.modalContent}>
-              <div
-                className={styles.modalLogo}
-                style={{
-                  backgroundImage: `url(${LIST_QR[itemIndex]?.img.src})`,
-                }}
-              ></div>
-              {LIST_QR[itemIndex]?.name && (
-                <div className={styles.modalName}>
-                  <ChipsElement
-                    items={[LIST_QR[itemIndex]?.name]}
-                    className={styles.typographyUsername}
-                    theme={{ mode: THEME.CHIPS_DARK }}
-                    isUserSelect
+              {itemIndex !== null && (
+                <>
+                  <div
+                    className={styles.modalLogo}
+                    style={{
+                      backgroundImage: `url(${LIST_QR[itemIndex]?.img.src})`,
+                    }}
                   />
-                </div>
+                  <div className={styles.modalName}>
+                    <ChipsElement
+                      items={[LIST_QR[itemIndex]?.name]}
+                      className={styles.typographyUsername}
+                      theme={{ mode: THEME.CHIPS_DARK }}
+                      isUserSelect
+                    />
+                  </div>
+                </>
               )}
             </div>
           </ModalElement>

@@ -6,7 +6,7 @@ import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
 
 import styles from "./SectionStack.module.css"
 
-const SectionStack = () => {
+const SectionStack: React.FC = () => {
   return (
     <div className={cn(styles.container)}>
       {LIST_STACK.map((element, index) => (

@@ -2,7 +2,15 @@ import coverInstagram from "./img/qr-instagram.svg"
 import coverTelegram from "./img/qr-telegram.svg"
 import coverWebsite from "./img/qr-website.svg"
 
-export const LIST_QR = [
+import type { IStaticImageData } from "@/sawyer-react-lib/types/common"
+
+interface IListQR {
+  title: string
+  img: IStaticImageData
+  name: string
+}
+
+export const LIST_QR: IListQR[] = [
   {
     title: "Instagram",
     img: coverInstagram,

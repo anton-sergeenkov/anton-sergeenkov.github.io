@@ -1,4 +1,6 @@
-export const LIST_STACK = [
+import type { IListCommon } from "@/sawyer-react-lib/types/common"
+
+export const LIST_STACK: IListCommon[] = [
   {
     title: "Frontend",
     items: ["React.js", "Vue.js", "Next.js", "TypeScript"],

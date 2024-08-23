@@ -10,7 +10,7 @@ import LayoutCardsElement from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElem
 
 import styles from "./SectionProjects.module.css"
 
-const SectionProjects = () => {
+const SectionProjects: React.FC = () => {
   return (
     <LayoutSectionElement className={styles.wrapper}>
       <div className={cn(styles.container)} id="projects">
