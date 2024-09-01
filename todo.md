@@ -16,3 +16,4 @@
 ## ⭐️ ADDITIONAL
 
 - Добавить TSLint
+- Warning: browsecSiteContentScript: data is not for auth
