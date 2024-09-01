@@ -1,4 +1,6 @@
-export const ROUTES = [
+import { IMenuItem } from "@/sawyer-react-lib/types/common"
+
+export const ROUTES: IMenuItem[] = [
   {
     title: "Profile",
     path: "/",
@@ -17,7 +19,7 @@ export const ROUTES = [
   },
 ]
 
-export const ROUTES_CV = [
+export const ROUTES_CV: IMenuItem[] = [
   {
     title: "English version",
     path: "https://anton-sergeenkov.github.io/cv-en.pdf",
