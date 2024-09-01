@@ -4,7 +4,7 @@ import "@/sawyer-react-lib/app/globals.css"
 
 export const metadata = {
   title: "Anton Sergeenkov. Frontend Developer (React / Vue)",
-  description: "Portfolio",
+  description: "Portfolio Sawyer",
 }
 
 const RootLayout: React.FC<IRootLayout> = (props) => {
