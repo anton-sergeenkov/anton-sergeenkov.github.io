@@ -18,8 +18,8 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
         "Zustand",
       ],
       ["Formik", "React Hook Form", "Yup"],
-      ["React Query", "React Flow"],
-      ["MUI", "Storybook"],
+      ["SWR", "React Query"],
+      ["MUI", "Storybook", "React Flow"],
     ],
   },
   {
@@ -35,7 +35,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
     items: [
       ["TypeScript", "Flow"],
       ["JavaScript", "ES5", "ES6+", "HTLM5 Canvas", "Web Components"],
-      ["Axios", "SWR"],
+      ["Axios"],
       ["ESLint", "Prettier", "Husky"],
       ["Vite", "Webpack", "Gulp", "NPM", "Yarn"],
       ["Lodash", "Ramda", "jQuery"],
