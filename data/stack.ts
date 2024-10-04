@@ -18,7 +18,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
         "Zustand",
       ],
       ["Formik", "React Hook Form", "Yup"],
-      ["SWR", "React Query"],
+      ["SWR", "TanStack Query"],
       ["MUI", "Storybook", "React Flow"],
     ],
   },
