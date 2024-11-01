@@ -1,20 +1,37 @@
 .wrapper {
-  background-color: var(--color-black-lighter);
+  /* background-color: var(--color-black-lighter); */
+  background-color: var(--color-gray-35);
 }
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 60px;
-  padding: 0 20px;
+  /* height: 60px; */
+  height: 75px;
+  /* padding: 0 20px; */
   font-size: 14px;
   text-align: center;
-  color: var(--color-gray);
 }
-/* .logo {
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-    padding: 5px;
-    opacity: .7;
-} */
+.items {
+  padding: 10px;
+  /* color: var(--color-gray-50); */
+  color: var(--color-gray-80);
+}
+
+.logoConteiner {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 45px;
+  height: 45px;
+  margin-right: 15px;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+
+  background-color: var(--color-black-lighter);
+  background-image: url(./img/avatar.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

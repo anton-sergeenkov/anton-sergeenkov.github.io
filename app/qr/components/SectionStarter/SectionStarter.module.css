@@ -19,7 +19,7 @@
   padding: 10px;
   border-radius: var(--border-radius);
   /* background-color: rgba(201, 238, 207, 0.2); */
-  background-color: var(--color-gray-light);
+  background-color: var(--color-gray-10);
   border: 1px solid #c9eecf;
 }
 .logo {
@@ -44,7 +44,7 @@
   padding-bottom: 0;
   font-size: 15px;
   font-family: var(--font-roboto-regular);
-  color: var(--color-gray-medium);
+  color: var(--color-gray-80);
 }
 
 .modal {

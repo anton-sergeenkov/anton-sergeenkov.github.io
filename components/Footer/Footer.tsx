@@ -1,4 +1,4 @@
-// import cn from "classnames"
+import cn from "classnames"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import { THEME } from "@/constants/theme"
 
@@ -11,7 +11,10 @@ const Footer: React.FC = () => {
         className={styles.container}
         theme={{ mode: THEME.HEADER_FOOTER }}
       >
-        Anton Sergeenkov. React / Vue Frontend Developer
+        <span className={cn(styles.items, styles.logoConteiner)}>
+          <div className={styles.logo}></div>Anton Sergeenkov
+        </span>
+        <span className={styles.items}>React / Vue Frontend Developer</span>
       </LayoutSectionElement>
     </div>
   )
