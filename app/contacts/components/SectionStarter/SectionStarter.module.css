@@ -39,6 +39,7 @@
 .listItemContainer {
   display: flex;
   gap: 5px;
+  font-family: var(--font-roboto-light);
 }
 .listItemContainer a {
   background: none;
