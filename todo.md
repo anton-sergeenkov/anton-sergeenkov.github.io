@@ -1,6 +1,6 @@
 ## ⭐️ TODO
 
-- none
+- None
 
 ## ⭐️ PAGES
 
