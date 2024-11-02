@@ -2,17 +2,19 @@
 
 - none
 
-## ⭐️ FEATURES
+## ⭐️ PAGES
 
-**Feature**
-- Добавить секцию с репозиториями
+**Profile**
+- Добавить секцию с репозиториями. Добавить таблицу
 
-**Technologies Stack. Сохранение в PDF**
+**Technologies Stack**
+- Сохранение в PDF
 - https://docs.fileforge.com/react-print/welcome/setup
 - https://react-pdf.org/
 
 **Contacts**
 - Кнопка для копирования ссылки
+- Добавить таблицу
 
 ## ⭐️ ADDITIONAL
 
