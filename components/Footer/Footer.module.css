@@ -25,13 +25,37 @@
 .logo {
   width: 45px;
   height: 45px;
+  flex-shrink: 0;
   margin-right: 15px;
   border-radius: 50%;
   box-shadow: var(--box-shadow);
-
-  background-color: var(--color-black-lighter);
   background-image: url(./img/avatar.png);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.chips {
+  padding: 3px 4px;
+  border-radius: 5px;
+  line-height: 1;
+}
+.chips:last-child {
+  margin-right: 5px;
+}
+.chip1 {
+  margin-right: 5px;
+}
+.chip2 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/***************************************************
+ADAPTIVE
+/***************************************************/
+@media screen and (max-width: 600px) {
+  .logo {
+    display: none;
+  }
 }
