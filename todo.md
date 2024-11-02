@@ -1,6 +1,21 @@
 ## ⭐️ TODO
 
-- None
+**Container**
+- Вынести логику из "container" внутри <LayoutSectionElement />
+- Pages: stack, contacts, qr
+
+```css
+.wrapper {
+  --spacing: 40px;
+}
+
+.container {
+  overflow: auto;
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  padding: var(--spacing);
+}
+```
 
 ## ⭐️ PAGES
 
