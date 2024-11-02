@@ -7,7 +7,7 @@ import { ThemeMode as ThemeTypographyElement } from "@/sawyer-react-lib/ui-kit/b
 import { ThemeMode as ThemeLinkElement } from "@/sawyer-react-lib/ui-kit/basic/LinkElement"
 
 export const THEME = {
-  MENU: ThemeMenuButtonElement.LIGHT_VIOLET, // MenuItemGroupRoutesElement
+  MENU: ThemeMenuButtonElement.LIGHT_BLUE, // MenuItemGroupRoutesElement
   CARD: ThemeLayoutCardsElement.LIGHT, // LayoutCardsElement
   TEXT_GRADIENT: ThemeTypographyGradientElement.DARKBLUE_BLUE, // TypographyGradientElement
   CHIPS_DARK: ThemeChipsElement.DARK, // ChipsElement
