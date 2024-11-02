@@ -37,30 +37,23 @@
 }
 
 .listItemContainer {
-  display: block;
+  display: flex;
+  gap: 5px;
+}
+.listItemContainer a {
+  background: none;
 }
 
 /***************************************************
 ADAPTIVE
 /***************************************************/
-@media screen and (max-width: 670px) {
-  .chips {
-    margin-bottom: 5px;
-  }
-  .chips:last-child {
-    margin-bottom: 0;
-  }
-}
-
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 615px) {
   .listItemContainer {
-    display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
   }
   .listItemContainer a {
-    background: none;
     margin-top: 5px;
     margin-bottom: 5px;
   }

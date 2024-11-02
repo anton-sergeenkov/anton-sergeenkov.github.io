@@ -22,11 +22,8 @@ const SectionStarter: React.FC = () => {
                 {elementCategory.items.map((itemContact, indexContact) => (
                   <li key={indexContact} className={styles.listItem}>
                     <div className={styles.listItemContainer}>
-                      <ChipsElement
-                        items={[itemContact.title]}
-                        className={styles.chips}
-                        isUserSelect
-                      />
+                      <span>{itemContact.title}</span>
+
                       <LinkElement
                         href={itemContact.url}
                         theme={{

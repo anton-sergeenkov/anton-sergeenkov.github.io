@@ -11,6 +11,9 @@
 - https://docs.fileforge.com/react-print/welcome/setup
 - https://react-pdf.org/
 
+**Contacts**
+- Кнопка для копирования ссылки
+
 ## ⭐️ ADDITIONAL
 
 - Добавить TSLint
