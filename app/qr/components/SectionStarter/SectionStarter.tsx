@@ -23,7 +23,7 @@ const SectionStarter: React.FC = () => {
   const handleClose = () => setOpen(false)
 
   return (
-    <LayoutSectionElement className={styles.wrapper}>
+    <LayoutSectionElement isTopSpacing className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.listContainer}>
           {LIST_QR.map((element, index) => (

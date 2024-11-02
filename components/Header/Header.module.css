@@ -1,5 +1,14 @@
 .wrapper {
-  height: var(--height-header);
+  /* TODO: */
+  /* background-color: #f8f8ff; */
+  /* border-bottom: 1px solid #eeeeff; */
+  margin-top: var(--spacing-blocks);
+}
+
+.container {
+  /* TODO: */
+  /* height: var(--height-header); */
+
   display: flex;
   align-items: center;
 }

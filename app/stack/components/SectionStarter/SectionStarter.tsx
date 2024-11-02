@@ -10,7 +10,7 @@ import styles from "./SectionStarter.module.css"
 
 const SectionStarter: React.FC = () => {
   return (
-    <LayoutSectionElement className={styles.wrapper}>
+    <LayoutSectionElement isTopSpacing className={styles.wrapper}>
       <div className={styles.container}>
         <ul className={styles.list}>
           {LIST_TECHNOLOGIES_STACK.map((elementStack, elementIndex) => (
