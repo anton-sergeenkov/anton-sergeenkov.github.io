@@ -24,51 +24,49 @@ const SectionStarter: React.FC = () => {
 
   return (
     <LayoutSectionElement isTopSpacing className={styles.wrapper}>
-      <div className={styles.container}>
-        <div className={styles.listContainer}>
-          {LIST_QR.map((element, index) => (
-            <div className={styles.itemContainer} key={index}>
-              <div
-                onClick={() => onClickOpen(index)}
-                className={styles.logo}
-                style={{
-                  backgroundImage: `url(${element.img.src})`,
-                }}
-              ></div>
-              <div className={styles.title}>{element.title}</div>
-            </div>
-          ))}
+      <div className={styles.listContainer}>
+        {LIST_QR.map((element, index) => (
+          <div className={styles.itemContainer} key={index}>
+            <div
+              onClick={() => onClickOpen(index)}
+              className={styles.logo}
+              style={{
+                backgroundImage: `url(${element.img.src})`,
+              }}
+            ></div>
+            <div className={styles.title}>{element.title}</div>
+          </div>
+        ))}
 
-          <ModalElement
-            modalProps={{
-              className: styles.modal,
-              disableAutoFocus: true,
-              open,
-              onClose: handleClose,
-            }}
-          >
-            <div onClick={handleClose} className={styles.modalContent}>
-              {itemIndex !== null && (
-                <>
-                  <div
-                    className={styles.modalLogo}
-                    style={{
-                      backgroundImage: `url(${LIST_QR[itemIndex]?.img.src})`,
-                    }}
+        <ModalElement
+          modalProps={{
+            className: styles.modal,
+            disableAutoFocus: true,
+            open,
+            onClose: handleClose,
+          }}
+        >
+          <div onClick={handleClose} className={styles.modalContent}>
+            {itemIndex !== null && (
+              <>
+                <div
+                  className={styles.modalLogo}
+                  style={{
+                    backgroundImage: `url(${LIST_QR[itemIndex]?.img.src})`,
+                  }}
+                />
+                <div className={styles.modalName}>
+                  <ChipsElement
+                    items={[LIST_QR[itemIndex]?.name]}
+                    className={styles.typographyUsername}
+                    theme={{ mode: THEME.CHIPS_DARK }}
+                    isUserSelect
                   />
-                  <div className={styles.modalName}>
-                    <ChipsElement
-                      items={[LIST_QR[itemIndex]?.name]}
-                      className={styles.typographyUsername}
-                      theme={{ mode: THEME.CHIPS_DARK }}
-                      isUserSelect
-                    />
-                  </div>
-                </>
-              )}
-            </div>
-          </ModalElement>
-        </div>
+                </div>
+              </>
+            )}
+          </div>
+        </ModalElement>
       </div>
     </LayoutSectionElement>
   )
