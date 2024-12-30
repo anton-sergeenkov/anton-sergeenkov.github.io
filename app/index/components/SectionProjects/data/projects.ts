@@ -49,13 +49,13 @@ export const LIST_PROJECTS: ILayoutCardsElementItems[] = [
   },
   {
     title: "Travel project \"Hike 'n' Ride\"",
-    link: "https://tony-sawyer.notion.site/Hiking-51a53ceb32a14e6b85bab365f442e4b9",
+    link: "https://t.me/hikenride_channel",
     img: coverHike,
     description: "A project about traveling, hiking and mountains",
     links: [
       {
-        name: "Website",
-        link: "https://tony-sawyer.notion.site/Hiking-51a53ceb32a14e6b85bab365f442e4b9",
+        name: "Telegram Channel",
+        link: "https://t.me/hikenride_channel",
       },
       {
         name: "Instagram",
