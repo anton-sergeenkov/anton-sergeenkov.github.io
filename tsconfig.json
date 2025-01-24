@@ -28,7 +28,8 @@
       "@/routes/*": ["routes/*"],
       "@/constants/*": ["constants/*"],
       "@/sawyer-react-lib/*": ["../-sawyer-react-lib-/*"]
-    }
+    },
+    "target": "ES2017"
   },
   "include": [
     "../-sawyer-react-lib-/types/global.d.ts",
