@@ -14,7 +14,7 @@ export const ROUTES: IMenuItem[] = [
     path: "/contacts",
   },
   {
-    title: "QR",
+    title: "QR1",
     path: "/qr",
   },
 ]
