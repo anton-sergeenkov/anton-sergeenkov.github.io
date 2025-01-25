@@ -18,7 +18,7 @@ const ButtonElementsComponent = () => {
             onClick,
           }}
         >
-          contained
+          variant: contained
         </ButtonElement>
         <ButtonElement
           buttonProps={{
@@ -27,7 +27,7 @@ const ButtonElementsComponent = () => {
             onClick,
           }}
         >
-          outlined
+          variant: outlined
         </ButtonElement>
         <ButtonElement
           buttonProps={{
@@ -36,7 +36,7 @@ const ButtonElementsComponent = () => {
             onClick,
           }}
         >
-          text
+          variant: text
         </ButtonElement>
       </div>
     </div>
