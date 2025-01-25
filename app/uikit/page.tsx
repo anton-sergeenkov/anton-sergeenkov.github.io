@@ -5,7 +5,7 @@ import LayoutCardsElements from "./components/LayoutCardsElements"
 
 const AppPage: React.FC = () => {
   return (
-    <div style={{ padding: "20px", background: "#e6e6e6" }}>
+    <div style={{ padding: "10px 30px", background: "#e6e6e6" }}>
       <ButtonElements />
       <LinkElements />
       <ChipsElements />
