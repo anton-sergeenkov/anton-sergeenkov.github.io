@@ -19,6 +19,10 @@
 
 **Header**
 - Вынести Header в UiKit
+- Вынести основной каркас со списком <ul>
+- Добавить иконку
+
+---
 
 ## ⭐️ PAGES
 
@@ -36,8 +40,3 @@
 
 **QR**
 - Добавить LinkedIn
-
-## ⭐️ ADDITIONAL
-
-- Добавить TSLint
-- Warning: browsecSiteContentScript: data is not for auth
