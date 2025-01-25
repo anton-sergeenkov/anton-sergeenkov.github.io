@@ -74,6 +74,10 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
     items: [["Agile", "Scrum", "Kanban"], ["Gitflow"]],
   },
   {
+    title: "AI Assistants",
+    items: [["Cline", "GitHub Copilot"]],
+  },
+  {
     title: "Additional Experience",
     items: [
       ["OpenGL", "Ogre3D"],
