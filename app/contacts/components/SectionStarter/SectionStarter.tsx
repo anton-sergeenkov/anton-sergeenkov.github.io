@@ -1,10 +1,11 @@
 "use client"
 
-// import cn from "classnames"
+import cn from "classnames"
 import LinkElement from "@/sawyer-react-lib/ui-kit/basic/LinkElement"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import { THEME } from "@/constants/theme"
 import { LIST_CONTACTS } from "@/data/contacts"
+import { robotoLight } from "@/sawyer-react-lib/app/fonts"
 
 import styles from "./SectionStarter.module.css"
 
@@ -20,7 +21,12 @@ const SectionStarter: React.FC = () => {
               <ul className={styles.list}>
                 {elementCategory.items.map((itemContact, indexContact) => (
                   <li key={indexContact} className={styles.listItem}>
-                    <div className={styles.listItemContainer}>
+                    <div
+                      className={cn(
+                        robotoLight.className,
+                        styles.listItemContainer,
+                      )}
+                    >
                       <span>{itemContact.title}</span>
 
                       <LinkElement
