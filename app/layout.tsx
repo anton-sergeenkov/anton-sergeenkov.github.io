@@ -1,5 +1,4 @@
-import FontClasses from "@/sawyer-react-lib/app/fonts"
-
+import { robotoRegular } from "@/sawyer-react-lib/app/fonts"
 import "@/sawyer-react-lib/app/globals.css"
 
 export const metadata = {
@@ -11,7 +10,7 @@ const RootLayout: React.FC<IRootLayout> = (props) => {
   const { children } = props
 
   return (
-    <html lang="ru" className={FontClasses}>
+    <html lang="en" className={robotoRegular.className}>
       <body>{children}</body>
     </html>
   )
