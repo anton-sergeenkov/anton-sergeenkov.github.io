@@ -1,6 +1,6 @@
 "use client"
 
-import ButtonElement from "@/sawyer-react-lib/ui-kit/basic/ButtonElement"
+import UiButton from "@/sawyer-react-lib/ui-kit/basic/UiButton"
 
 const ButtonElementsComponent = () => {
   const onClick = () => {
@@ -11,7 +11,7 @@ const ButtonElementsComponent = () => {
     <div>
       <h3>Buttons</h3>
       <div style={{ display: "flex", gap: "20px" }}>
-        <ButtonElement
+        <UiButton
           buttonProps={{
             size: "small",
             variant: "contained",
@@ -19,8 +19,8 @@ const ButtonElementsComponent = () => {
           }}
         >
           variant: contained
-        </ButtonElement>
-        <ButtonElement
+        </UiButton>
+        <UiButton
           buttonProps={{
             size: "small",
             variant: "outlined",
@@ -28,8 +28,8 @@ const ButtonElementsComponent = () => {
           }}
         >
           variant: outlined
-        </ButtonElement>
-        <ButtonElement
+        </UiButton>
+        <UiButton
           buttonProps={{
             size: "small",
             variant: "text",
@@ -37,7 +37,7 @@ const ButtonElementsComponent = () => {
           }}
         >
           variant: text
-        </ButtonElement>
+        </UiButton>
       </div>
     </div>
   )
