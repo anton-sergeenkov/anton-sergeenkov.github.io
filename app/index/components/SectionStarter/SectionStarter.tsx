@@ -1,6 +1,7 @@
 import cn from "classnames"
 
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
+import LayoutSectionContainerElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionContainerElement"
 import SocialLinksElement from "@/sawyer-react-lib/ui-kit/surfaces/SocialLinksElement"
 import TypographyGradientElement from "@/sawyer-react-lib/ui-kit/basic/TypographyGradientElement"
 import SectionStack from "./components/SectionStack"
@@ -12,7 +13,10 @@ import styles from "./SectionStarter.module.css"
 const SectionStarter: React.FC = () => {
   return (
     <LayoutSectionElement isTopSpacing className={styles.wrapper}>
-      <div className={cn(styles.container)}>
+      <LayoutSectionContainerElement
+        isNoPadding
+        className={cn(styles.container)}
+      >
         <div className={styles.logo}></div>
 
         <div className={styles.content}>
@@ -27,7 +31,7 @@ const SectionStarter: React.FC = () => {
           <SectionStack />
           <SocialLinksElement list={LIST_LINKS} />
         </div>
-      </div>
+      </LayoutSectionContainerElement>
     </LayoutSectionElement>
   )
 }

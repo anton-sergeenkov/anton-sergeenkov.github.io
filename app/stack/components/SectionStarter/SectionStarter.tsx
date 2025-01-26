@@ -4,6 +4,7 @@
 
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
+import LayoutSectionContainerElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionContainerElement"
 import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
 
 import styles from "./SectionStarter.module.css"
@@ -11,7 +12,7 @@ import styles from "./SectionStarter.module.css"
 const SectionStarter: React.FC = () => {
   return (
     <LayoutSectionElement isTopSpacing className={styles.wrapper}>
-      <div className={styles.container}>
+      <LayoutSectionContainerElement className={styles.container}>
         <ul className={styles.list}>
           {LIST_TECHNOLOGIES_STACK.map((elementStack, elementIndex) => (
             <div key={elementIndex} className={styles.listWrapper}>
@@ -33,7 +34,7 @@ const SectionStarter: React.FC = () => {
             </div>
           ))}
         </ul>
-      </div>
+      </LayoutSectionContainerElement>
     </LayoutSectionElement>
   )
 }

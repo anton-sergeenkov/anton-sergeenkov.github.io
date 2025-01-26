@@ -4,9 +4,6 @@
 
 .container {
   display: flex;
-  overflow: auto;
-  border-radius: var(--border-radius);
-  background-color: var(--color-white);
 }
 
 .container .logo {

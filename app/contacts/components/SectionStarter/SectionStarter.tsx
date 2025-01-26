@@ -3,6 +3,7 @@
 import cn from "classnames"
 import LinkElement from "@/sawyer-react-lib/ui-kit/basic/LinkElement"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
+import LayoutSectionContainerElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionContainerElement"
 import { THEME } from "@/constants/theme"
 import { LIST_CONTACTS } from "@/data/contacts"
 import { robotoLight } from "@/sawyer-react-lib/app/fonts"
@@ -12,7 +13,7 @@ import styles from "./SectionStarter.module.css"
 const SectionStarter: React.FC = () => {
   return (
     <LayoutSectionElement isTopSpacing className={styles.wrapper}>
-      <div className={styles.container}>
+      <LayoutSectionContainerElement className={styles.container}>
         <ul className={styles.list}>
           {LIST_CONTACTS.map((elementCategory, elementIndex) => (
             <div key={elementIndex} className={styles.listWrapper}>
@@ -46,7 +47,7 @@ const SectionStarter: React.FC = () => {
             </div>
           ))}
         </ul>
-      </div>
+      </LayoutSectionContainerElement>
     </LayoutSectionElement>
   )
 }
