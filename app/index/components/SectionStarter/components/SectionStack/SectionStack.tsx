@@ -2,7 +2,7 @@ import { Fragment } from "react"
 import cn from "classnames"
 
 import { LIST_STACK } from "./data/stack"
-import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
+import UiChips from "@/sawyer-react-lib/ui-kit/basic/UiChips"
 
 import styles from "./SectionStack.module.css"
 
@@ -13,7 +13,7 @@ const SectionStack: React.FC = () => {
         <Fragment key={index}>
           <div>› {element.title}</div>
           <div className={styles.badge}>
-            <ChipsElement
+            <UiChips
               items={element.items}
               className={styles.chips}
               isUserSelect

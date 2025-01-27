@@ -5,7 +5,7 @@ import { useState } from "react"
 import { THEME } from "@/constants/theme"
 import ModalElement from "@/sawyer-react-lib/ui-kit/basic/ModalElement"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
-import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
+import UiChips from "@/sawyer-react-lib/ui-kit/basic/UiChips"
 
 import { LIST_QR } from "./data/qr"
 
@@ -56,7 +56,7 @@ const SectionStarter: React.FC = () => {
                   }}
                 />
                 <div className={styles.modalName}>
-                  <ChipsElement
+                  <UiChips
                     items={[LIST_QR[itemIndex]?.name]}
                     className={styles.typographyUsername}
                     theme={{ mode: THEME.CHIPS_DARK }}

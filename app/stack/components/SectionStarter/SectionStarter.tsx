@@ -5,7 +5,7 @@
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import LayoutSectionContainerElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionContainerElement"
-import ChipsElement from "@/sawyer-react-lib/ui-kit/basic/ChipsElement"
+import UiChips from "@/sawyer-react-lib/ui-kit/basic/UiChips"
 
 import styles from "./SectionStarter.module.css"
 
@@ -22,7 +22,7 @@ const SectionStarter: React.FC = () => {
                 {elementStack.items.map((itemStack, indexStack) => (
                   <li key={indexStack} className={styles.listItem}>
                     <span>
-                      <ChipsElement
+                      <UiChips
                         items={itemStack}
                         className={styles.chips}
                         isUserSelect
