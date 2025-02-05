@@ -89,7 +89,7 @@ export const LIST_CONTACTS: IContactsList[] = [
         username: "@anton-sergeenkov",
       },
       {
-        url: "https://habr.com/ru/users/anton-sergeenkov/posts",
+        url: "https://habr.com/ru/users/anton-sergeenkov/articles/",
         title: "Habr Publications",
       },
       {

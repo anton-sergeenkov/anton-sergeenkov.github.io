@@ -27,13 +27,13 @@ export const LIST_PROJECTS: ILayoutCardsElementItems[] = [
   },
   {
     title: "Habr Publications",
-    link: "https://habr.com/ru/users/anton-sergeenkov/posts/",
+    link: "https://habr.com/ru/users/anton-sergeenkov/articles/",
     img: coverHabr,
     description: "Development publications on website Habr",
     links: [
       {
         name: "Habr",
-        link: "https://habr.com/ru/users/anton-sergeenkov/posts/",
+        link: "https://habr.com/ru/users/anton-sergeenkov/articles/",
       },
     ],
   },
