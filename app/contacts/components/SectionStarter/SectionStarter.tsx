@@ -1,7 +1,7 @@
 "use client"
 
 import cn from "classnames"
-import LinkElement from "@/sawyer-react-lib/ui-kit/basic/LinkElement"
+import UiLink from "@/sawyer-react-lib/ui-kit/basic/UiLink"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import LayoutSectionContainerElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionContainerElement"
 import { THEME } from "@/constants/theme"
@@ -30,7 +30,7 @@ const SectionStarter: React.FC = () => {
                     >
                       <span>{itemContact.title}</span>
 
-                      <LinkElement
+                      <UiLink
                         href={itemContact.url}
                         theme={{
                           mode: THEME.LINK,
@@ -39,7 +39,7 @@ const SectionStarter: React.FC = () => {
                         {itemContact.alias
                           ? itemContact.alias
                           : itemContact.url}
-                      </LinkElement>
+                      </UiLink>
                     </div>
                   </li>
                 ))}

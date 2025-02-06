@@ -4,7 +4,7 @@ import { ThemeMode as ThemeUiMenuButton } from "@/sawyer-react-lib/ui-kit/menu-n
 import { ThemeMode as ThemeUiLayoutCards } from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
 import { ThemeMode as ThemeUiLayoutSection } from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import { ThemeMode as ThemeUiTypography } from "@/sawyer-react-lib/ui-kit/basic/TypographyElement"
-import { ThemeMode as ThemeUiLink } from "@/sawyer-react-lib/ui-kit/basic/LinkElement"
+import { ThemeMode as ThemeUiLink } from "@/sawyer-react-lib/ui-kit/basic/UiLink"
 
 export const THEME = {
   MENU: ThemeUiMenuButton.LIGHT_BLUE, // MenuItemGroupRoutesElement
@@ -13,8 +13,8 @@ export const THEME = {
   CHIPS_DARK: ThemeUiChips.DARK, // UiChips
   HEADER_FOOTER: ThemeUiLayoutSection.HEADER_FOOTER, // LayoutSectionElement
   H2: ThemeUiTypography.DARK_FILLED, // TypographyElement
-  LINK: ThemeUiLink.BLUE_UNDERLINED_THIN, // LinkElement
-  LINK_CARD: ThemeUiLink.DARK_UNDERLINED, // LinkElement
+  LINK: ThemeUiLink.BLUE_UNDERLINED_THIN, // UiLink
+  LINK_CARD: ThemeUiLink.DARK_UNDERLINED, // UiLink
 }
 
 // import { THEME } from "@/constants/theme"

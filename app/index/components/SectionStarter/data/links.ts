@@ -3,9 +3,9 @@ import coverLinkedin from "./img/linkedin.svg"
 import coverGithub from "./img/github.svg"
 import coverInstagram from "./img/instagram.svg"
 
-import type { ISocialLinksElementList } from "@/sawyer-react-lib/ui-kit/surfaces/SocialLinksElement"
+import type { IUiSocialLinksList } from "@/sawyer-react-lib/ui-kit/surfaces/SocialLinksElement"
 
-export const LIST_LINKS: ISocialLinksElementList[] = [
+export const LIST_LINKS: IUiSocialLinksList[] = [
   {
     img: coverLinkedin,
     title: "Linkedin",

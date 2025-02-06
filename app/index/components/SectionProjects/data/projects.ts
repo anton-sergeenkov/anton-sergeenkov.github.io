@@ -1,4 +1,4 @@
-import type { ILayoutCardsElementItems } from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
+import type { UiLayoutCardsItems } from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
 
 import coverLetscode from "./img/letscode.svg"
 import coverBerserker from "./img/berserker.svg"
@@ -7,7 +7,7 @@ import coverPanda from "./img/panda.svg"
 import coverHike from "./img/hike.svg"
 import coverJedicoffee from "./img/jedicoffee.svg"
 
-export const LIST_PROJECTS: ILayoutCardsElementItems[] = [
+export const LIST_PROJECTS: UiLayoutCardsItems[] = [
   {
     title: 'Educational project "Let\'s Code"',
     link: "https://letscode-dev.github.io/",

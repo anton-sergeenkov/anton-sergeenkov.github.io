@@ -4,7 +4,7 @@ import LayoutCardsElement, {
   ThemeMode as ThemeModeLayoutCards,
 } from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
 
-import { ThemeMode as ThemeModeLink } from "@/sawyer-react-lib/ui-kit/basic/LinkElement"
+import { ThemeMode as ThemeModeLink } from "@/sawyer-react-lib/ui-kit/basic/UiLink"
 
 import coverImage from "./img/image.svg"
 
