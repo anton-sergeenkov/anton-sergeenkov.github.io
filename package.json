@@ -1,6 +1,6 @@
 {
-  "name": "lets-code",
-  "version": "0.2.1",
+  "name": "anton-sergeenkov",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
