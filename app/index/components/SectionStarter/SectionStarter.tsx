@@ -1,9 +1,9 @@
 import cn from "classnames"
 
-import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
-import LayoutSectionContainerElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionContainerElement"
-import SocialLinksElement from "@/sawyer-react-lib/ui-kit/surfaces/SocialLinksElement"
-import TypographyGradientElement from "@/sawyer-react-lib/ui-kit/basic/TypographyGradientElement"
+import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
+import LayoutSectionContainerElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionContainerElement"
+import SocialLinksElement from "@/sawyer-ui/ui-kit/surfaces/SocialLinksElement"
+import TypographyGradientElement from "@/sawyer-ui/ui-kit/basic/TypographyGradientElement"
 import SectionStack from "./components/SectionStack"
 import { LIST_LINKS } from "./data/links"
 import { THEME } from "@/constants/theme"

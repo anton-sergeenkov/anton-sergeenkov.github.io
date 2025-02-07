@@ -1,11 +1,11 @@
 "use client"
 
 import cn from "classnames"
-import UiLink from "@/sawyer-react-lib/ui-kit/basic/UiLink"
-import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
-import LayoutSectionContainerElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionContainerElement"
+import UiLink from "@/sawyer-ui/ui-kit/basic/UiLink"
+import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
+import LayoutSectionContainerElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionContainerElement"
 import { LIST_CONTACTS } from "@/data/contacts"
-import { robotoLight } from "@/sawyer-react-lib/app/fonts"
+import { robotoLight } from "@/sawyer-ui/app/fonts"
 
 import styles from "./SectionStarter.module.css"
 

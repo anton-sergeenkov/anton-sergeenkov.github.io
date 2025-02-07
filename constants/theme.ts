@@ -1,7 +1,7 @@
-import { ThemeMode as ThemeUiTypography } from "@/sawyer-react-lib/ui-kit/basic/TypographyElement"
-import { ThemeMode as ThemeUiTypographyGradient } from "@/sawyer-react-lib/ui-kit/basic/TypographyGradientElement"
-import { ThemeMode as ThemeUiMenuButton } from "@/sawyer-react-lib/ui-kit/menu/UiMenuNavButton"
-import { ThemeMode as ThemeUiLayoutSection } from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
+import { ThemeMode as ThemeUiTypography } from "@/sawyer-ui/ui-kit/basic/TypographyElement"
+import { ThemeMode as ThemeUiTypographyGradient } from "@/sawyer-ui/ui-kit/basic/TypographyGradientElement"
+import { ThemeMode as ThemeUiMenuButton } from "@/sawyer-ui/ui-kit/menu/UiMenuNavButton"
+import { ThemeMode as ThemeUiLayoutSection } from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
 
 export const THEME = {
   H2: ThemeUiTypography.DARK_FILLED, // TypographyElement

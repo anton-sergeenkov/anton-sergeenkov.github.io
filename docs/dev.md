@@ -1,7 +1,7 @@
 # ⭐️ Development
 
 ## Development
-- Настроить проект `-sawyer-react-lib-` https://github.com/anton-sergeenkov/-sawyer-react-lib-/blob/main/docs/dev.md
+- Настроить проект `sawyer-ui` https://github.com/anton-sergeenkov/sawyer-ui/blob/main/docs/dev.md
 
 ## Deploy
 1. Остановить dev server

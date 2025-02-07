@@ -27,12 +27,12 @@
       "@/node.js/*": ["node.js/*"],
       "@/routes/*": ["routes/*"],
       "@/constants/*": ["constants/*"],
-      "@/sawyer-react-lib/*": ["../-sawyer-react-lib-/*"]
+      "@/sawyer-ui/*": ["../sawyer-ui/*"]
     },
     "target": "ES2017"
   },
   "include": [
-    "../-sawyer-react-lib-/types/global.d.ts",
+    "../sawyer-ui/types/global.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",

@@ -1,15 +1,15 @@
 "use client"
 
 import cn from "classnames"
-import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
+import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
 import { THEME } from "@/constants/theme"
 
-import UiMenuItemGroupLinks from "@/sawyer-react-lib/ui-kit/menu/UiMenuItemGroupLinks"
-import UiMenuItemGroupRoutes from "@/sawyer-react-lib/ui-kit/menu/UiMenuItemGroupRoutes"
-import UiMenuItemRoutes from "@/sawyer-react-lib/ui-kit/menu/UiMenuItemRoutes"
+import UiMenuItemGroupLinks from "@/sawyer-ui/ui-kit/menu/UiMenuItemGroupLinks"
+import UiMenuItemGroupRoutes from "@/sawyer-ui/ui-kit/menu/UiMenuItemGroupRoutes"
+import UiMenuItemRoutes from "@/sawyer-ui/ui-kit/menu/UiMenuItemRoutes"
 
-// import UiMenuItemHash from "@/sawyer-react-lib/ui-kit/menu/UiMenuItemHash"
+// import UiMenuItemHash from "@/sawyer-ui/ui-kit/menu/UiMenuItemHash"
 
 import styles from "./Header.module.css"
 

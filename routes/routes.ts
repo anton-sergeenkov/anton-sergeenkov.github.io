@@ -1,4 +1,4 @@
-import { IMenuItem } from "@/sawyer-react-lib/types/common"
+import { IMenuItem } from "@/sawyer-ui/types/common"
 
 export const ROUTES: IMenuItem[] = [
   {

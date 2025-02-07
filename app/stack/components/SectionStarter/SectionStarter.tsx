@@ -3,9 +3,9 @@
 // import cn from "classnames"
 
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
-import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
-import LayoutSectionContainerElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionContainerElement"
-import UiChips from "@/sawyer-react-lib/ui-kit/basic/UiChips"
+import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
+import LayoutSectionContainerElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionContainerElement"
+import UiChips from "@/sawyer-ui/ui-kit/basic/UiChips"
 
 import styles from "./SectionStarter.module.css"
 

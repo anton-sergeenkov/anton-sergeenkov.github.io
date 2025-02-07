@@ -1,4 +1,4 @@
-import type { IListCommon } from "@/sawyer-react-lib/types/common"
+import type { IListCommon } from "@/sawyer-ui/types/common"
 
 export const LIST_STACK: IListCommon[] = [
   {

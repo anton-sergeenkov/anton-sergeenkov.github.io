@@ -4,9 +4,9 @@ import { THEME } from "@/constants/theme"
 import { LIST_PROJECTS } from "./data/projects"
 import TypographyElement, {
   Tag,
-} from "@/sawyer-react-lib/ui-kit/basic/TypographyElement"
-import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
-import UiLayoutCards from "@/sawyer-react-lib/ui-kit/layout/UiLayoutCards"
+} from "@/sawyer-ui/ui-kit/basic/TypographyElement"
+import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
+import UiLayoutCards from "@/sawyer-ui/ui-kit/layout/UiLayoutCards"
 
 import styles from "./SectionProjects.module.css"
 

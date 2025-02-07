@@ -2,7 +2,7 @@ import coverInstagram from "./img/qr-instagram.svg"
 import coverTelegram from "./img/qr-telegram.svg"
 import coverWebsite from "./img/qr-website.svg"
 
-import type { IStaticImageData } from "@/sawyer-react-lib/types/common"
+import type { IStaticImageData } from "@/sawyer-ui/types/common"
 
 interface IListQR {
   title: string
