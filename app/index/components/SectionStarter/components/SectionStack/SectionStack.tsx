@@ -13,11 +13,7 @@ const SectionStack: React.FC = () => {
         <Fragment key={index}>
           <div>› {element.title}</div>
           <div className={styles.badge}>
-            <UiChips
-              items={element.items}
-              className={styles.chips}
-              isUserSelect
-            />
+            <UiChips items={element.items} className={styles.chips} />
           </div>
         </Fragment>
       ))}

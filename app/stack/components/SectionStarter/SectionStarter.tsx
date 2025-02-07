@@ -22,11 +22,7 @@ const SectionStarter: React.FC = () => {
                 {elementStack.items.map((itemStack, indexStack) => (
                   <li key={indexStack} className={styles.listItem}>
                     <span>
-                      <UiChips
-                        items={itemStack}
-                        className={styles.chips}
-                        isUserSelect
-                      />
+                      <UiChips items={itemStack} className={styles.chips} />
                     </span>
                   </li>
                 ))}

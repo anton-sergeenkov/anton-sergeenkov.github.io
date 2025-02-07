@@ -59,8 +59,7 @@ const SectionStarter: React.FC = () => {
                   <UiChips
                     items={[LIST_QR[itemIndex]?.name]}
                     className={styles.typographyUsername}
-                    theme={{ mode: THEME.CHIPS_DARK }}
-                    isUserSelect
+                    theme="dark"
                   />
                 </div>
               </>
