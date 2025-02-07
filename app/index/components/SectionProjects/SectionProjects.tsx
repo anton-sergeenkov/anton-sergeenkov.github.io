@@ -17,12 +17,7 @@ const SectionProjects: React.FC = () => {
         <TypographyElement tag={Tag.H2} theme={{ mode: THEME.H2 }}>
           Projects
         </TypographyElement>
-        <UiLayoutCards
-          items={LIST_PROJECTS}
-          themeLink={{
-            mode: THEME.LINK_CARD,
-          }}
-        />
+        <UiLayoutCards items={LIST_PROJECTS} themeLink="dark-underlined" />
       </div>
     </LayoutSectionElement>
   )

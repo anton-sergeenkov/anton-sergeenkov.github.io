@@ -4,7 +4,6 @@ import cn from "classnames"
 import UiLink from "@/sawyer-react-lib/ui-kit/basic/UiLink"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import LayoutSectionContainerElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionContainerElement"
-import { THEME } from "@/constants/theme"
 import { LIST_CONTACTS } from "@/data/contacts"
 import { robotoLight } from "@/sawyer-react-lib/app/fonts"
 
@@ -32,9 +31,7 @@ const SectionStarter: React.FC = () => {
 
                       <UiLink
                         href={itemContact.url}
-                        theme={{
-                          mode: THEME.LINK,
-                        }}
+                        theme="blue-underlined-thin"
                       >
                         {itemContact.alias
                           ? itemContact.alias
