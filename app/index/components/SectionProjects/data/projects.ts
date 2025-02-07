@@ -1,4 +1,4 @@
-import type { UiLayoutCardsItems } from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
+import type { UiLayoutCardsItems } from "@/sawyer-react-lib/ui-kit/layout/UiLayoutCards"
 
 import coverLetscode from "./img/letscode.svg"
 import coverBerserker from "./img/berserker.svg"

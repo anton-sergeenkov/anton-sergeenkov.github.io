@@ -2,7 +2,6 @@ import Wrapper from "./components/Wrapper"
 
 import UiLinkComponent from "./elements/UiLinkComponent"
 import UiChipsComponent from "./elements/UiChipsComponent"
-import UiLayoutCardsComponent from "./elements/UiLayoutCardsComponent"
 
 const AppPage: React.FC = () => {
   return (
@@ -13,10 +12,6 @@ const AppPage: React.FC = () => {
 
       <Wrapper isColumn isDark title="Chips">
         <UiChipsComponent />
-      </Wrapper>
-
-      <Wrapper isColumn isDark title="LayoutCards">
-        <UiLayoutCardsComponent />
       </Wrapper>
     </div>
   )

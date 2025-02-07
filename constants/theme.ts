@@ -1,14 +1,14 @@
 import { ThemeMode as ThemeUiChips } from "@/sawyer-react-lib/ui-kit/basic/UiChips"
 import { ThemeMode as ThemeUiTypographyGradient } from "@/sawyer-react-lib/ui-kit/basic/TypographyGradientElement"
 import { ThemeMode as ThemeUiMenuButton } from "@/sawyer-react-lib/ui-kit/menu-navigation/MenuButtonElement"
-import { ThemeMode as ThemeUiLayoutCards } from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
+import { ThemeMode as ThemeUiLayoutCards } from "@/sawyer-react-lib/ui-kit/layout/UiLayoutCards"
 import { ThemeMode as ThemeUiLayoutSection } from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
 import { ThemeMode as ThemeUiTypography } from "@/sawyer-react-lib/ui-kit/basic/TypographyElement"
 import { ThemeMode as ThemeUiLink } from "@/sawyer-react-lib/ui-kit/basic/UiLink"
 
 export const THEME = {
   MENU: ThemeUiMenuButton.LIGHT_BLUE, // MenuItemGroupRoutesElement
-  CARD: ThemeUiLayoutCards.LIGHT, // LayoutCardsElement
+  CARD: ThemeUiLayoutCards.LIGHT, // UiLayoutCards
   TEXT_GRADIENT: ThemeUiTypographyGradient.DARKBLUE_BLUE, // TypographyGradientElement
   CHIPS_DARK: ThemeUiChips.DARK, // UiChips
   HEADER_FOOTER: ThemeUiLayoutSection.HEADER_FOOTER, // LayoutSectionElement

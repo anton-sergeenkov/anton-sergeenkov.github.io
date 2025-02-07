@@ -6,7 +6,7 @@ import TypographyElement, {
   Tag,
 } from "@/sawyer-react-lib/ui-kit/basic/TypographyElement"
 import LayoutSectionElement from "@/sawyer-react-lib/ui-kit/layout/LayoutSectionElement"
-import LayoutCardsElement from "@/sawyer-react-lib/ui-kit/layout/LayoutCardsElement"
+import UiLayoutCards from "@/sawyer-react-lib/ui-kit/layout/UiLayoutCards"
 
 import styles from "./SectionProjects.module.css"
 
@@ -17,7 +17,7 @@ const SectionProjects: React.FC = () => {
         <TypographyElement tag={Tag.H2} theme={{ mode: THEME.H2 }}>
           Projects
         </TypographyElement>
-        <LayoutCardsElement
+        <UiLayoutCards
           items={LIST_PROJECTS}
           theme={{
             mode: THEME.CARD,
