@@ -19,9 +19,6 @@ const SectionProjects: React.FC = () => {
         </TypographyElement>
         <UiLayoutCards
           items={LIST_PROJECTS}
-          theme={{
-            mode: THEME.CARD,
-          }}
           themeLink={{
             mode: THEME.LINK_CARD,
           }}
