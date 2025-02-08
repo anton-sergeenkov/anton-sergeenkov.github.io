@@ -3,7 +3,7 @@
 // import cn from "classnames"
 
 import { useState } from "react"
-import UiModal from "@/sawyer-ui/ui-kit/basic/UiModal"
+import { UiModal } from "@/sawyer-ui/ui-kit"
 import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
 import { UiChips } from "@/sawyer-ui/ui-kit"
 
@@ -39,12 +39,10 @@ const SectionStarter: React.FC = () => {
         ))}
 
         <UiModal
-          modalProps={{
-            className: styles.modal,
-            disableAutoFocus: true,
-            open,
-            onClose: handleClose,
-          }}
+          className={styles.modal}
+          disableAutoFocus={true}
+          open={open}
+          onClose={handleClose}
         >
           <div onClick={handleClose} className={styles.modalContent}>
             {itemIndex !== null && (
