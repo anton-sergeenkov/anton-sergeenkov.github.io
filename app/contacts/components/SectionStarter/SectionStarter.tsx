@@ -1,7 +1,8 @@
 "use client"
 
 import cn from "classnames"
-import UiLink from "@/sawyer-ui/ui-kit/basic/UiLink"
+
+import { UiLink } from "@/sawyer-ui/ui-kit"
 import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
 import LayoutSectionContainerElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionContainerElement"
 import { LIST_CONTACTS } from "@/data/contacts"

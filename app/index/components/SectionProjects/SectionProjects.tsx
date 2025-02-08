@@ -6,7 +6,7 @@ import TypographyElement, {
   Tag,
 } from "@/sawyer-ui/ui-kit/basic/TypographyElement"
 import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
-import UiLayoutCards from "@/sawyer-ui/ui-kit/layout/UiLayoutCards"
+import { UiLayoutCards } from "@/sawyer-ui/ui-kit"
 
 import styles from "./SectionProjects.module.css"
 

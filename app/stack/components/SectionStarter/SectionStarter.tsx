@@ -5,7 +5,7 @@
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
 import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
 import LayoutSectionContainerElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionContainerElement"
-import UiChips from "@/sawyer-ui/ui-kit/basic/UiChips"
+import { UiChips } from "@/sawyer-ui/ui-kit"
 
 import styles from "./SectionStarter.module.css"
 

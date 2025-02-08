@@ -2,7 +2,7 @@ import { Fragment } from "react"
 import cn from "classnames"
 
 import { LIST_STACK } from "./data/stack"
-import UiChips from "@/sawyer-ui/ui-kit/basic/UiChips"
+import { UiChips } from "@/sawyer-ui/ui-kit"
 
 import styles from "./SectionStack.module.css"
 

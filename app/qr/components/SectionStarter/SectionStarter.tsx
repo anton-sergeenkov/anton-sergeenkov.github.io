@@ -1,11 +1,11 @@
 "use client"
 
-import { useState } from "react"
 // import cn from "classnames"
-import { THEME } from "@/constants/theme"
+
+import { useState } from "react"
 import ModalElement from "@/sawyer-ui/ui-kit/basic/ModalElement"
 import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
-import UiChips from "@/sawyer-ui/ui-kit/basic/UiChips"
+import { UiChips } from "@/sawyer-ui/ui-kit"
 
 import { LIST_QR } from "./data/qr"
 
