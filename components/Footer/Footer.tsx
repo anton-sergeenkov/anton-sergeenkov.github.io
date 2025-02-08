@@ -1,5 +1,5 @@
 import cn from "classnames"
-import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
+import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
 import { THEME } from "@/constants/theme"
 
 import styles from "./Footer.module.css"
@@ -7,7 +7,7 @@ import styles from "./Footer.module.css"
 const Footer: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <LayoutSectionElement
+      <UiLayoutSection
         className={styles.container}
         theme={{ mode: THEME.HEADER_FOOTER }}
       >
@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
           <div className={styles.logo}></div>Anton Sergeenkov
         </span>
         <span className={styles.items}>React & Vue Frontend Developer</span>
-      </LayoutSectionElement>
+      </UiLayoutSection>
     </div>
   )
 }

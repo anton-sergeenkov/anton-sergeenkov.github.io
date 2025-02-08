@@ -1,7 +1,7 @@
 "use client"
 
 import cn from "classnames"
-import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
+import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
 import { THEME } from "@/constants/theme"
 
@@ -16,7 +16,7 @@ import styles from "./Header.module.css"
 const Header: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <LayoutSectionElement
+      <UiLayoutSection
         className={styles.container}
         theme={{ mode: THEME.HEADER_FOOTER }}
       >
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
           }}
         /> */}
         </ul>
-      </LayoutSectionElement>
+      </UiLayoutSection>
     </div>
   )
 }

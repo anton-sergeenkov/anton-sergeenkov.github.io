@@ -3,16 +3,16 @@
 // import cn from "classnames"
 
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
-import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
-import LayoutSectionContainerElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionContainerElement"
+import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
+import UiLayoutSectionContainer from "@/sawyer-ui/ui-kit/layout/UiLayoutSectionContainer"
 import { UiChips } from "@/sawyer-ui/ui-kit"
 
 import styles from "./SectionStarter.module.css"
 
 const SectionStarter: React.FC = () => {
   return (
-    <LayoutSectionElement isTopSpacing className={styles.wrapper}>
-      <LayoutSectionContainerElement className={styles.container}>
+    <UiLayoutSection isTopSpacing className={styles.wrapper}>
+      <UiLayoutSectionContainer className={styles.container}>
         <ul className={styles.list}>
           {LIST_TECHNOLOGIES_STACK.map((elementStack, elementIndex) => (
             <div key={elementIndex} className={styles.listWrapper}>
@@ -30,8 +30,8 @@ const SectionStarter: React.FC = () => {
             </div>
           ))}
         </ul>
-      </LayoutSectionContainerElement>
-    </LayoutSectionElement>
+      </UiLayoutSectionContainer>
+    </UiLayoutSection>
   )
 }
 

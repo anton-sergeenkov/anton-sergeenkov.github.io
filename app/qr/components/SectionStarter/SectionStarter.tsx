@@ -3,8 +3,8 @@
 // import cn from "classnames"
 
 import { useState } from "react"
-import ModalElement from "@/sawyer-ui/ui-kit/basic/ModalElement"
-import LayoutSectionElement from "@/sawyer-ui/ui-kit/layout/LayoutSectionElement"
+import UiModal from "@/sawyer-ui/ui-kit/basic/UiModal"
+import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
 import { UiChips } from "@/sawyer-ui/ui-kit"
 
 import { LIST_QR } from "./data/qr"
@@ -23,7 +23,7 @@ const SectionStarter: React.FC = () => {
   const handleClose = () => setOpen(false)
 
   return (
-    <LayoutSectionElement isTopSpacing className={styles.wrapper}>
+    <UiLayoutSection isTopSpacing className={styles.wrapper}>
       <div className={styles.listContainer}>
         {LIST_QR.map((element, index) => (
           <div className={styles.itemContainer} key={index}>
@@ -38,7 +38,7 @@ const SectionStarter: React.FC = () => {
           </div>
         ))}
 
-        <ModalElement
+        <UiModal
           modalProps={{
             className: styles.modal,
             disableAutoFocus: true,
@@ -65,9 +65,9 @@ const SectionStarter: React.FC = () => {
               </>
             )}
           </div>
-        </ModalElement>
+        </UiModal>
       </div>
-    </LayoutSectionElement>
+    </UiLayoutSection>
   )
 }
 
