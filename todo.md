@@ -17,5 +17,5 @@
 - https://react-pdf.org/
 
 ## Projects
-- UI-KIt
+- Добавить UI-KIt
 - https://anton-sergeenkov.github.io/sawyer-ui/
