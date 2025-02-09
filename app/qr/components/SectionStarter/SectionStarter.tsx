@@ -22,6 +22,30 @@ const SectionStarter: React.FC = () => {
 
   const handleClose = () => setOpen(false)
 
+  const modalContent = () => {
+    if (itemIndex === null) {
+      return <></>
+    }
+
+    return (
+      <>
+        <div
+          className={styles.modalLogo}
+          style={{
+            backgroundImage: `url(${LIST_QR[itemIndex]?.img.src})`,
+          }}
+        />
+        <div className={styles.modalName}>
+          <UiChips
+            items={[LIST_QR[itemIndex]?.name]}
+            className={styles.typographyUsername}
+            theme="dark"
+          />
+        </div>
+      </>
+    )
+  }
+
   return (
     <UiLayoutSection isTopSpacing className={styles.wrapper}>
       <div className={styles.listContainer}>
@@ -45,25 +69,7 @@ const SectionStarter: React.FC = () => {
           className={styles.modalContent}
           isContentClickClose
         >
-          <>
-            {itemIndex !== null && (
-              <>
-                <div
-                  className={styles.modalLogo}
-                  style={{
-                    backgroundImage: `url(${LIST_QR[itemIndex]?.img.src})`,
-                  }}
-                />
-                <div className={styles.modalName}>
-                  <UiChips
-                    items={[LIST_QR[itemIndex]?.name]}
-                    className={styles.typographyUsername}
-                    theme="dark"
-                  />
-                </div>
-              </>
-            )}
-          </>
+          {modalContent()}
         </UiModal>
       </div>
     </UiLayoutSection>
