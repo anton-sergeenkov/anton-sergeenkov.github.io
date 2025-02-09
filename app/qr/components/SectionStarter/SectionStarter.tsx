@@ -39,12 +39,13 @@ const SectionStarter: React.FC = () => {
         ))}
 
         <UiModal
-          className={styles.modal}
           disableAutoFocus={true}
           open={open}
           onClose={handleClose}
+          className={styles.modalContent}
+          isContentClickClose
         >
-          <div onClick={handleClose} className={styles.modalContent}>
+          <>
             {itemIndex !== null && (
               <>
                 <div
@@ -62,7 +63,7 @@ const SectionStarter: React.FC = () => {
                 </div>
               </>
             )}
-          </div>
+          </>
         </UiModal>
       </div>
     </UiLayoutSection>
