@@ -21,7 +21,7 @@ const SectionStarter: React.FC = () => {
         <div className={styles.content}>
           <h1 className={cn(styles.textHeader, styles.h1)}>Anton Sergeenkov</h1>
 
-          <UiTypographyGradient theme="darkblue-blue">
+          <UiTypographyGradient theme="blue-lightblue">
             <h2 className={cn(styles.textHeader, styles.h2)}>
               Frontend Developer
             </h2>
