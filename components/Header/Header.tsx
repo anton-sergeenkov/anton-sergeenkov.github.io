@@ -2,7 +2,6 @@
 
 import cn from "classnames"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
-import { THEME } from "@/constants/theme"
 
 import { UiLayoutSection } from "@/sawyer-ui/ui-kit"
 
@@ -14,6 +13,8 @@ import UiMenuItemRoutes from "@/sawyer-ui/ui-kit/menu/UiMenuItemRoutes"
 
 import styles from "./Header.module.css"
 
+const THEME_MENU = "light-blue"
+
 const Header: React.FC = () => {
   return (
     <div className={styles.wrapper}>
@@ -21,7 +22,7 @@ const Header: React.FC = () => {
         <ul className={cn(styles.list)}>
           <li className={styles.listItem}>
             <UiMenuItemGroupLinks
-              theme={{ mode: THEME.MENU }}
+              theme={THEME_MENU}
               list={{
                 title: "CV",
                 items: ROUTES_CV,
@@ -33,13 +34,13 @@ const Header: React.FC = () => {
 
           {ROUTES.map((element, index) => (
             <li className={cn(styles.listItem, styles.desktop)} key={index}>
-              <UiMenuItemRoutes theme={{ mode: THEME.MENU }} item={element} />
+              <UiMenuItemRoutes theme={THEME_MENU} item={element} />
             </li>
           ))}
 
           <li className={cn(styles.listItem, styles.mobile)}>
             <UiMenuItemGroupRoutes
-              theme={{ mode: THEME.MENU }}
+              theme={THEME_MENU}
               list={ROUTES}
               title="Menu"
             />
@@ -47,7 +48,7 @@ const Header: React.FC = () => {
 
           {/* FIXME: not used, not styled link */}
           {/* <UiMenuItemHash
-          theme={{ mode: THEME.MENU }}
+          theme={THEME_MENU}
           item={{
             title: "Test",
             hash: "test",
