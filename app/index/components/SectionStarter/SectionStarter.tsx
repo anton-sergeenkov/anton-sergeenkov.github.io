@@ -1,14 +1,15 @@
 import cn from "classnames"
 
-import { UiTypographyGradient } from "@/sawyer-ui/ui-kit"
+import {
+  UiTypographyGradient,
+  UiLayoutSection,
+  UiLayoutSectionContainer,
+} from "@/sawyer-ui/ui-kit"
 
-import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
-import UiLayoutSectionContainer from "@/sawyer-ui/ui-kit/layout/UiLayoutSectionContainer"
 import UiSocialLinks from "@/sawyer-ui/ui-kit/surfaces/UiSocialLinks"
 
 import SectionStack from "./components/SectionStack"
 import { LIST_LINKS } from "./data/links"
-import { THEME } from "@/constants/theme"
 
 import styles from "./SectionStarter.module.css"
 

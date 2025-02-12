@@ -2,9 +2,12 @@
 
 import cn from "classnames"
 
-import { UiLink } from "@/sawyer-ui/ui-kit"
-import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
-import UiLayoutSectionContainer from "@/sawyer-ui/ui-kit/layout/UiLayoutSectionContainer"
+import {
+  UiLink,
+  UiLayoutSection,
+  UiLayoutSectionContainer,
+} from "@/sawyer-ui/ui-kit"
+
 import { LIST_CONTACTS } from "@/data/contacts"
 import { robotoLight } from "@/sawyer-ui/app/fonts"
 

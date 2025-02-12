@@ -3,9 +3,11 @@
 // import cn from "classnames"
 
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
-import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
-import UiLayoutSectionContainer from "@/sawyer-ui/ui-kit/layout/UiLayoutSectionContainer"
-import { UiChips } from "@/sawyer-ui/ui-kit"
+import {
+  UiChips,
+  UiLayoutSection,
+  UiLayoutSectionContainer,
+} from "@/sawyer-ui/ui-kit"
 
 import styles from "./SectionStarter.module.css"
 

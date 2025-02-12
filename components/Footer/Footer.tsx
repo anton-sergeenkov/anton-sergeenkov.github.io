@@ -1,16 +1,12 @@
 import cn from "classnames"
-import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
-import { THEME } from "@/constants/theme"
+import { UiLayoutSection } from "@/sawyer-ui/ui-kit"
 
 import styles from "./Footer.module.css"
 
 const Footer: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <UiLayoutSection
-        className={styles.container}
-        theme={{ mode: THEME.HEADER_FOOTER }}
-      >
+      <UiLayoutSection className={styles.container} theme="header-footer">
         <span className={cn(styles.items, styles.logoConteiner)}>
           <div className={styles.logo}></div>Anton Sergeenkov
         </span>

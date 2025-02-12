@@ -1,9 +1,10 @@
 "use client"
 
 import cn from "classnames"
-import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
 import { THEME } from "@/constants/theme"
+
+import { UiLayoutSection } from "@/sawyer-ui/ui-kit"
 
 import UiMenuItemGroupLinks from "@/sawyer-ui/ui-kit/menu/UiMenuItemGroupLinks"
 import UiMenuItemGroupRoutes from "@/sawyer-ui/ui-kit/menu/UiMenuItemGroupRoutes"
@@ -16,10 +17,7 @@ import styles from "./Header.module.css"
 const Header: React.FC = () => {
   return (
     <div className={styles.wrapper}>
-      <UiLayoutSection
-        className={styles.container}
-        theme={{ mode: THEME.HEADER_FOOTER }}
-      >
+      <UiLayoutSection className={styles.container} theme="header-footer">
         <ul className={cn(styles.list)}>
           <li className={styles.listItem}>
             <UiMenuItemGroupLinks

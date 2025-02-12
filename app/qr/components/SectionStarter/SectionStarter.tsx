@@ -3,9 +3,8 @@
 // import cn from "classnames"
 
 import { useState } from "react"
-import { UiModal } from "@/sawyer-ui/ui-kit"
-import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
-import { UiChips } from "@/sawyer-ui/ui-kit"
+
+import { UiModal, UiChips, UiLayoutSection } from "@/sawyer-ui/ui-kit"
 
 import { LIST_QR } from "./data/qr"
 

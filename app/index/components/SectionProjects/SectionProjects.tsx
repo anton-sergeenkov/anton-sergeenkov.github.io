@@ -1,8 +1,11 @@
 import cn from "classnames"
 
 import { LIST_PROJECTS } from "./data/projects"
-import { UiTypography, UiLayoutCards } from "@/sawyer-ui/ui-kit"
-import UiLayoutSection from "@/sawyer-ui/ui-kit/layout/UiLayoutSection"
+import {
+  UiTypography,
+  UiLayoutCards,
+  UiLayoutSection,
+} from "@/sawyer-ui/ui-kit"
 
 import styles from "./SectionProjects.module.css"
 
