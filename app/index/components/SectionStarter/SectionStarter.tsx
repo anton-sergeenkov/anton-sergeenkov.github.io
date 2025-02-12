@@ -4,9 +4,8 @@ import {
   UiTypographyGradient,
   UiLayoutSection,
   UiLayoutSectionContainer,
+  UiSocialLinks,
 } from "@/sawyer-ui/ui-kit"
-
-import UiSocialLinks from "@/sawyer-ui/ui-kit/surfaces/UiSocialLinks"
 
 import SectionStack from "./components/SectionStack"
 import { LIST_LINKS } from "./data/links"
