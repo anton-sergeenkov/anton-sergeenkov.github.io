@@ -6,6 +6,7 @@ import coverHabr from "./img/habr.svg"
 import coverPanda from "./img/panda.svg"
 import coverHike from "./img/hike.svg"
 import coverJedicoffee from "./img/jedicoffee.svg"
+import coverUikit from "./img/ui-kit.svg"
 
 export const LIST_PROJECTS: IUiLayoutCardsItems[] = [
   {
@@ -38,13 +39,19 @@ export const LIST_PROJECTS: IUiLayoutCardsItems[] = [
     ],
   },
   {
-    title: 'Web Studio "Panda"',
-    link: "https://workshop-panda.github.io/",
-    img: coverPanda,
-    description: "Website development web studio and Freelance projects",
+    title: 'Dev project "Sawyer-Ui"',
+    link: "https://anton-sergeenkov.github.io/sawyer-ui/",
+    img: coverUikit,
+    description: "Ui-Kit for Developers",
     links: [
-      { name: "Website", link: "https://workshop-panda.github.io/" },
-      { name: "VKontakte Community", link: "https://vk.com/workshop_panda" },
+      {
+        name: "StoryBook",
+        link: "https://anton-sergeenkov.github.io/sawyer-ui/",
+      },
+      {
+        name: "GitHub",
+        link: "https://github.com/anton-sergeenkov/sawyer-ui/",
+      },
     ],
   },
   {
@@ -73,6 +80,16 @@ export const LIST_PROJECTS: IUiLayoutCardsItems[] = [
         name: "Instagram",
         link: "https://www.instagram.com/jedi.coffee/",
       },
+    ],
+  },
+  {
+    title: 'Web Studio "Panda"',
+    link: "https://workshop-panda.github.io/",
+    img: coverPanda,
+    description: "Website development web studio and Freelance projects",
+    links: [
+      { name: "Website", link: "https://workshop-panda.github.io/" },
+      { name: "VKontakte Community", link: "https://vk.com/workshop_panda" },
     ],
   },
 ]
