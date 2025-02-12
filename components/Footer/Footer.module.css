@@ -1,6 +1,7 @@
 .wrapper {
-  background-color: var(--color-black-lighter);
+  /* background-color: var(--color-black-lighter); */
   /* background-color: var(--color-gray-35); */
+  background-color: #fff;
 }
 .container {
   display: flex;
@@ -12,8 +13,8 @@
 }
 .items {
   padding: 10px;
-  color: var(--color-gray-50);
-  /* color: var(--color-gray-80); */
+  /* color: var(--color-gray-50); */
+  color: var(--color-gray-80);
 }
 
 .logoConteiner {
