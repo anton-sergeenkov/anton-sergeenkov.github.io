@@ -3,13 +3,13 @@
 import cn from "classnames"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
 
-import { UiLayoutSection } from "@/sawyer-ui/ui-kit"
-
-import UiMenuItemGroupLinks from "@/sawyer-ui/ui-kit/menu/UiMenuItemGroupLinks"
-import UiMenuItemGroupRoutes from "@/sawyer-ui/ui-kit/menu/UiMenuItemGroupRoutes"
-import UiMenuItemRoutes from "@/sawyer-ui/ui-kit/menu/UiMenuItemRoutes"
-
-// import UiMenuItemHash from "@/sawyer-ui/ui-kit/menu/UiMenuItemHash"
+import {
+  UiLayoutSection,
+  UiMenuItemGroupLinks,
+  UiMenuItemGroupRoutes,
+  UiMenuItemRoutes,
+  // UiMenuItemHash,
+} from "@/sawyer-ui/ui-kit"
 
 import styles from "./Header.module.css"
 
