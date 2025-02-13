@@ -1,7 +1,7 @@
 import cn from "classnames"
 
 import {
-  UiTypographyGradient,
+  UiTextGradient,
   UiLayoutSection,
   UiLayoutSectionContainer,
   UiSocialLinks,
@@ -21,11 +21,11 @@ const SectionStarter: React.FC = () => {
         <div className={styles.content}>
           <h1 className={cn(styles.textHeader, styles.h1)}>Anton Sergeenkov</h1>
 
-          <UiTypographyGradient theme="blue-lightblue">
+          <UiTextGradient theme="blue-lightblue">
             <h2 className={cn(styles.textHeader, styles.h2)}>
               Frontend Developer
             </h2>
-          </UiTypographyGradient>
+          </UiTextGradient>
 
           <SectionStack />
           <UiSocialLinks list={LIST_LINKS} />
