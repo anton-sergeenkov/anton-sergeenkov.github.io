@@ -38,6 +38,16 @@ const Header: React.FC = () => {
             </li>
           ))}
 
+          {/* <li className={cn(styles.listItem, styles.desktop)}>
+            <UiMenuItemHash
+              theme={THEME_MENU}
+              item={{
+                title: "About",
+                hash: "about",
+              }}
+            />
+          </li> */}
+
           <li className={cn(styles.listItem, styles.mobile)}>
             <UiMenuItemGroupRoutes
               theme={THEME_MENU}
@@ -45,15 +55,6 @@ const Header: React.FC = () => {
               title="Menu"
             />
           </li>
-
-          {/* FIXME: not used, not styled link */}
-          {/* <UiMenuItemHash
-          theme={THEME_MENU}
-          item={{
-            title: "Test",
-            hash: "test",
-          }}
-        /> */}
         </ul>
       </UiLayoutSection>
     </div>
