@@ -5,8 +5,7 @@ import { ROUTES, ROUTES_CV } from "@/routes/routes"
 
 import {
   UiLayoutSection,
-  UiMenuItemGroupLinks,
-  UiMenuItemGroupRoutes,
+  UiMenuItemGroup,
   UiMenuItemRoutes,
   // UiMenuItemHash,
 } from "@/sawyer-ui/ui-kit"
@@ -21,7 +20,8 @@ const Header: React.FC = () => {
       <UiLayoutSection className={styles.container} theme="header-footer">
         <ul className={cn(styles.list)}>
           <li className={styles.listItem}>
-            <UiMenuItemGroupLinks
+            <UiMenuItemGroup
+              type="links"
               theme={THEME_MENU}
               list={ROUTES_CV}
               title="CV"
@@ -46,7 +46,8 @@ const Header: React.FC = () => {
           </li> */}
 
           <li className={cn(styles.listItem, styles.mobile)}>
-            <UiMenuItemGroupRoutes
+            <UiMenuItemGroup
+              type="routes"
               theme={THEME_MENU}
               list={ROUTES}
               title="Menu"
