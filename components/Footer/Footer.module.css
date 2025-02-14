@@ -1,7 +1,7 @@
 .wrapper {
   /* background-color: var(--color-black-lighter); */
   /* background-color: var(--color-gray-35); */
-  background-color: #fff;
+  background-color: var(--color-white);
   border-top: 1px solid var(--color-gray-30);
 }
 .container {
