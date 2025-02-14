@@ -23,10 +23,7 @@ const Header: React.FC = () => {
           <li className={styles.listItem}>
             <UiMenuItemGroupLinks
               theme={THEME_MENU}
-              list={{
-                title: "CV",
-                items: ROUTES_CV,
-              }}
+              list={ROUTES_CV}
               title="CV"
               isAccent
             />
