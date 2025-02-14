@@ -40,12 +40,23 @@
 /***************************************************
 ADAPTIVE
 /***************************************************/
+
+/* FIXME: single case*/
+@media screen and (min-width: 930px) {
+  .wrapper div {
+    padding-bottom: 0;
+  }
+}
+
 @media screen and (max-width: 930px) {
+  .wrapper {
+    background-color: #fff;
+  }
+
   .container {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 30px;
   }
 
   .container .logo {

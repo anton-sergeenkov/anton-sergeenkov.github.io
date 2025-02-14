@@ -14,7 +14,7 @@ import styles from "./SectionStarter.module.css"
 
 const SectionStarter: React.FC = () => {
   return (
-    <UiLayoutSection isTopSpacing className={styles.wrapper}>
+    <UiLayoutSection className={styles.wrapper}>
       <UiLayoutSectionContainer isNoPadding className={cn(styles.container)}>
         <div className={styles.logo}></div>
 

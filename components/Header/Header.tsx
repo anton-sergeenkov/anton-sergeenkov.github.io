@@ -16,8 +16,12 @@ const THEME_MENU = "light-blue"
 
 const Header: React.FC = () => {
   return (
-    <div className={styles.wrapper}>
-      <UiLayoutSection className={styles.container} theme="header-footer">
+    <UiLayoutSection
+      className={styles.wrapper}
+      theme="header-footer"
+      isSpacingY={false}
+    >
+      <div className={styles.container}>
         <ul className={cn(styles.list)}>
           <li className={styles.listItem}>
             <UiMenuItemGroup
@@ -54,8 +58,8 @@ const Header: React.FC = () => {
             />
           </li>
         </ul>
-      </UiLayoutSection>
-    </div>
+      </div>
+    </UiLayoutSection>
   )
 }
 

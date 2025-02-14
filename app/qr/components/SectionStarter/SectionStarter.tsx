@@ -46,7 +46,7 @@ const SectionStarter: React.FC = () => {
   }
 
   return (
-    <UiLayoutSection isTopSpacing className={styles.wrapper}>
+    <UiLayoutSection className={styles.wrapper}>
       <div className={styles.listContainer}>
         {LIST_QR.map((element, index) => (
           <div className={styles.itemContainer} key={index}>
