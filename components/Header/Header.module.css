@@ -1,17 +1,26 @@
-.wrapper {
-  /* TODO: */
-  /* background-color: #f8f8ff; */
-  /* border-bottom: 1px solid #eeeeff; */
+/* FIXME: Case 1 */
+/* .wrapper {
   margin-top: var(--spacing-blocks);
 }
-
 .container {
-  /* TODO: */
-  /* height: var(--height-header); */
+  display: flex;
+  align-items: center;
+} */
 
+/* FIXME: Case 2 */
+.wrapper {
+  background-color: #fff;
+  border-bottom: 1px solid #eeeeff;
+}
+.container {
+  height: var(--height-header);
   display: flex;
   align-items: center;
 }
+
+/***************************************************
+COMMON
+/***************************************************/
 .list {
   display: flex;
   margin: 0;
