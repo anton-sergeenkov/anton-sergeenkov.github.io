@@ -2,11 +2,7 @@
 
 import cn from "classnames"
 
-import {
-  UiLink,
-  UiLayoutSection,
-  UiLayoutSectionContainer,
-} from "@/sawyer-ui/ui-kit"
+import { UiLink, UiLayoutSection, UiLayoutPaper } from "@/sawyer-ui/ui-kit"
 
 import { LIST_CONTACTS } from "@/data/contacts"
 import { robotoLight } from "@/sawyer-ui/app/fonts"
@@ -16,7 +12,7 @@ import styles from "./SectionStarter.module.css"
 const SectionStarter: React.FC = () => {
   return (
     <UiLayoutSection className={styles.wrapper}>
-      <UiLayoutSectionContainer className={styles.container}>
+      <UiLayoutPaper className={styles.container}>
         <ul className={styles.list}>
           {LIST_CONTACTS.map((elementCategory, elementIndex) => (
             <div key={elementIndex} className={styles.listWrapper}>
@@ -48,7 +44,7 @@ const SectionStarter: React.FC = () => {
             </div>
           ))}
         </ul>
-      </UiLayoutSectionContainer>
+      </UiLayoutPaper>
     </UiLayoutSection>
   )
 }

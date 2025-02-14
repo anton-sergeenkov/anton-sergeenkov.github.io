@@ -3,7 +3,7 @@ import cn from "classnames"
 import {
   UiTextGradient,
   UiLayoutSection,
-  UiLayoutSectionContainer,
+  UiLayoutPaper,
   UiSocialLinks,
 } from "@/sawyer-ui/ui-kit"
 
@@ -15,7 +15,7 @@ import styles from "./SectionStarter.module.css"
 const SectionStarter: React.FC = () => {
   return (
     <UiLayoutSection className={styles.wrapper}>
-      <UiLayoutSectionContainer isNoPadding className={cn(styles.container)}>
+      <UiLayoutPaper isNoPadding className={cn(styles.container)}>
         <div className={styles.logo}></div>
 
         <div className={styles.content}>
@@ -30,7 +30,7 @@ const SectionStarter: React.FC = () => {
           <SectionStack />
           <UiSocialLinks list={LIST_LINKS} />
         </div>
-      </UiLayoutSectionContainer>
+      </UiLayoutPaper>
     </UiLayoutSection>
   )
 }
