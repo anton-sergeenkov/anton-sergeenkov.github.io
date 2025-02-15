@@ -29,10 +29,7 @@ const SectionStarter: React.FC = () => {
                     >
                       <span>{itemContact.title}</span>
 
-                      <UiLink
-                        href={itemContact.url}
-                        theme="blue-underlined-thin"
-                      >
+                      <UiLink href={itemContact.url} theme="blue-underlined">
                         {itemContact.alias
                           ? itemContact.alias
                           : itemContact.url}
