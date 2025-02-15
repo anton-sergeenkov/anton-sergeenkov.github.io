@@ -7,7 +7,6 @@ import {
   UiMenuItemGroup,
   UiMenuItemRoutes,
   UiLayoutHeader,
-  // UiMenuItemHash,
 } from "@/sawyer-ui/ui-kit"
 
 import styles from "./Header.module.css"
@@ -45,16 +44,6 @@ const Header: React.FC = () => {
             <UiMenuItemRoutes theme={THEME_MENU} item={element} />
           </li>
         ))}
-
-        {/* <li className={cn(styles.desktop)}>
-            <UiMenuItemHash
-              theme={THEME_MENU}
-              item={{
-                title: "About",
-                hash: "about",
-              }}
-            />
-          </li> */}
       </ul>
     </UiLayoutHeader>
   )
