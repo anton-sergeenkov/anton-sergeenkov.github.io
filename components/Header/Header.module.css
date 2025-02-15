@@ -1,34 +1,3 @@
-.wrapper {
-  background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-gray-30);
-}
-.container {
-  height: var(--height-header);
-  display: flex;
-  align-items: center;
-}
-
-/***************************************************
-COMMON
-/***************************************************/
-.list {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-
-  .listItem {
-    margin-right: 15px;
-    list-style-type: none;
-  }
-  .listItem:last-child {
-    margin-right: 0;
-  }
-  .listItem a {
-    text-decoration: none;
-  }
-}
-
 .mobile {
   display: none;
 }

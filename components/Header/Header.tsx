@@ -4,9 +4,9 @@ import cn from "classnames"
 import { ROUTES, ROUTES_CV } from "@/routes/routes"
 
 import {
-  UiLayoutSection,
   UiMenuItemGroup,
   UiMenuItemRoutes,
+  UiLayoutHeader,
   // UiMenuItemHash,
 } from "@/sawyer-ui/ui-kit"
 
@@ -16,30 +16,37 @@ const THEME_MENU = "light-blue"
 
 const Header: React.FC = () => {
   return (
-    <UiLayoutSection
-      className={styles.wrapper}
-      theme="header-footer"
-      isSpacingY={false}
-    >
-      <div className={styles.container}>
-        <ul className={cn(styles.list)}>
-          <li className={styles.listItem}>
-            <UiMenuItemGroup
-              type="links"
-              theme={THEME_MENU}
-              list={ROUTES_CV}
-              title="CV"
-              isAccent
-            />
+    <UiLayoutHeader>
+      <ul>
+        {/* Links (Desktop + Mobile) */}
+        <li>
+          <UiMenuItemGroup
+            type="links"
+            theme={THEME_MENU}
+            list={ROUTES_CV}
+            title="CV"
+            isAccent
+          />
+        </li>
+
+        {/* Routes (Mobile) */}
+        <li className={cn(styles.mobile)}>
+          <UiMenuItemGroup
+            type="routes"
+            theme={THEME_MENU}
+            list={ROUTES}
+            title="Menu"
+          />
+        </li>
+
+        {/* Routes (Desktop) */}
+        {ROUTES.map((element, index) => (
+          <li className={cn(styles.desktop)} key={index}>
+            <UiMenuItemRoutes theme={THEME_MENU} item={element} />
           </li>
+        ))}
 
-          {ROUTES.map((element, index) => (
-            <li className={cn(styles.listItem, styles.desktop)} key={index}>
-              <UiMenuItemRoutes theme={THEME_MENU} item={element} />
-            </li>
-          ))}
-
-          {/* <li className={cn(styles.listItem, styles.desktop)}>
+        {/* <li className={cn(styles.desktop)}>
             <UiMenuItemHash
               theme={THEME_MENU}
               item={{
@@ -48,18 +55,8 @@ const Header: React.FC = () => {
               }}
             />
           </li> */}
-
-          <li className={cn(styles.listItem, styles.mobile)}>
-            <UiMenuItemGroup
-              type="routes"
-              theme={THEME_MENU}
-              list={ROUTES}
-              title="Menu"
-            />
-          </li>
-        </ul>
-      </div>
-    </UiLayoutSection>
+      </ul>
+    </UiLayoutHeader>
   )
 }
 
