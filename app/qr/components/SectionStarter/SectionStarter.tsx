@@ -8,7 +8,7 @@ import {
   UiModal,
   UiChips,
   UiLayoutSection,
-  UiTextHeaderSection,
+  UiHeaderSection,
 } from "@/sawyer-ui/ui-kit"
 
 import { LIST_QR } from "./data/qr"
@@ -52,7 +52,7 @@ const SectionStarter: React.FC = () => {
 
   return (
     <UiLayoutSection className={styles.wrapper}>
-      <UiTextHeaderSection>QR Codes</UiTextHeaderSection>
+      <UiHeaderSection>QR Codes</UiHeaderSection>
 
       <div className={styles.listContainer}>
         {LIST_QR.map((element, index) => (

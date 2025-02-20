@@ -7,7 +7,7 @@ import {
   UiChips,
   UiLayoutSection,
   UiLayoutPaper,
-  UiTextHeaderSection,
+  UiHeaderSection,
 } from "@/sawyer-ui/ui-kit"
 
 import styles from "./SectionStarter.module.css"
@@ -15,7 +15,7 @@ import styles from "./SectionStarter.module.css"
 const SectionStarter: React.FC = () => {
   return (
     <UiLayoutSection className={styles.wrapper}>
-      <UiTextHeaderSection>Technologies Stack</UiTextHeaderSection>
+      <UiHeaderSection>Technologies Stack</UiHeaderSection>
 
       <UiLayoutPaper className={styles.container}>
         <ul className={styles.list}>

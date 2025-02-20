@@ -6,7 +6,7 @@ import {
   UiLink,
   UiLayoutSection,
   UiLayoutPaper,
-  UiTextHeaderSection,
+  UiHeaderSection,
 } from "@/sawyer-ui/ui-kit"
 
 import { LIST_CONTACTS } from "@/data/contacts"
@@ -17,7 +17,7 @@ import styles from "./SectionStarter.module.css"
 const SectionStarter: React.FC = () => {
   return (
     <UiLayoutSection className={styles.wrapper}>
-      <UiTextHeaderSection>Contacts</UiTextHeaderSection>
+      <UiHeaderSection>Contacts</UiHeaderSection>
 
       <UiLayoutPaper className={styles.container}>
         <ul className={styles.list}>

@@ -2,7 +2,7 @@ import cn from "classnames"
 
 import { LIST_PROJECTS } from "./data/projects"
 import {
-  UiTextHeaderSection,
+  UiHeaderSection,
   UiLayoutCards,
   UiLayoutSection,
 } from "@/sawyer-ui/ui-kit"
@@ -13,7 +13,7 @@ const SectionProjects: React.FC = () => {
   return (
     <UiLayoutSection className={styles.wrapper}>
       <div className={cn(styles.container)} id="projects">
-        <UiTextHeaderSection theme="dark-filled">Projects</UiTextHeaderSection>
+        <UiHeaderSection theme="dark-filled">Projects</UiHeaderSection>
         <UiLayoutCards items={LIST_PROJECTS} themeLink="dark-underlined" />
       </div>
     </UiLayoutSection>
