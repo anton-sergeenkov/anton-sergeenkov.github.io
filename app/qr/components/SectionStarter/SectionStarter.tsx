@@ -4,7 +4,12 @@
 
 import { useState } from "react"
 
-import { UiModal, UiChips, UiLayoutSection } from "@/sawyer-ui/ui-kit"
+import {
+  UiModal,
+  UiChips,
+  UiLayoutSection,
+  UiTextHeaderSection,
+} from "@/sawyer-ui/ui-kit"
 
 import { LIST_QR } from "./data/qr"
 
@@ -47,6 +52,8 @@ const SectionStarter: React.FC = () => {
 
   return (
     <UiLayoutSection className={styles.wrapper}>
+      <UiTextHeaderSection>QR Codes</UiTextHeaderSection>
+
       <div className={styles.listContainer}>
         {LIST_QR.map((element, index) => (
           <div className={styles.itemContainer} key={index}>

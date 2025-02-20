@@ -3,13 +3,20 @@
 // import cn from "classnames"
 
 import { LIST_TECHNOLOGIES_STACK } from "@/data/stack"
-import { UiChips, UiLayoutSection, UiLayoutPaper } from "@/sawyer-ui/ui-kit"
+import {
+  UiChips,
+  UiLayoutSection,
+  UiLayoutPaper,
+  UiTextHeaderSection,
+} from "@/sawyer-ui/ui-kit"
 
 import styles from "./SectionStarter.module.css"
 
 const SectionStarter: React.FC = () => {
   return (
     <UiLayoutSection className={styles.wrapper}>
+      <UiTextHeaderSection>Technologies Stack</UiTextHeaderSection>
+
       <UiLayoutPaper className={styles.container}>
         <ul className={styles.list}>
           {LIST_TECHNOLOGIES_STACK.map((elementStack, elementIndex) => (
