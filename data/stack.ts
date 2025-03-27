@@ -26,7 +26,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
     title: "Framework Vue.js",
     items: [
       ["Vue.js", "Vuex", "Vue Router"],
-      ["Vue CLI", "Vuetify.js"],
+      ["Vue CLI", "Vuetify"],
       ["VuePress"],
     ],
   },
@@ -66,7 +66,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
       ["Jenkins"],
       ["Windows", "macOS", "Linux"],
       ["Visual Studio Code", "WebStorm"],
-      ["Figma"],
+      ["Figma", "Obsidian"],
     ],
   },
   {
@@ -74,8 +74,8 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
     items: [["Agile", "Scrum", "Kanban"], ["Gitflow"]],
   },
   {
-    title: "AI Assistants",
-    items: [["Cline", "GitHub Copilot"]],
+    title: "AI Assistants and LLM",
+    items: [["Cline", "GitHub Copilot", "Claude"]],
   },
   {
     title: "Additional Experience",
