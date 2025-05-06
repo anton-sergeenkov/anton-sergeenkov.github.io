@@ -62,7 +62,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
     title: "Technologies",
     items: [
       ["Git", "GitHub", "GitLab", "Bitbucket"],
-      ["Jira", "Redmine", "Confluence"],
+      ["Jira", "Linear", "Redmine", "Asana", "Confluence"],
       ["Jenkins"],
       ["Windows", "macOS", "Linux"],
       ["Visual Studio Code", "WebStorm"],
