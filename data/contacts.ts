@@ -121,11 +121,11 @@ export const LIST_CONTACTS: IContactsList[] = [
         url: "https://career.habr.com/anton-sergeenkov",
         title: "Habr Career",
       },
-      // {
-      //   url: "https://hh.ru/resume/4f49e957ff05faa54c0039ed1f42525a674d33",
-      //   title: "Head Hunter",
-      //   alias: "Head Hunter",
-      // },
+      {
+        url: "https://hh.ru/resume/4f49e957ff05faa54c0039ed1f42525a674d33",
+        title: "Head Hunter",
+        alias: "Head Hunter",
+      },
     ],
   },
   {
