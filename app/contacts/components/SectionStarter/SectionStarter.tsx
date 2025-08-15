@@ -34,7 +34,7 @@ const SectionStarter: React.FC = () => {
                         styles.listItemContainer,
                       )}
                     >
-                      <span>{itemContact.title}</span>
+                      <span>{itemContact.title}:</span>
 
                       <UiLink href={itemContact.url} theme="blue-underlined">
                         {itemContact.alias

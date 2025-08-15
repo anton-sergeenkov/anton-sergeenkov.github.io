@@ -33,7 +33,7 @@
 
 .listItemContainer {
   display: flex;
-  gap: 5px;
+  gap: 3px; 
 }
 .listItemContainer a {
   background: none;
