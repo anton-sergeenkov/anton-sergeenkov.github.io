@@ -11,7 +11,7 @@ const SectionStack: React.FC = () => {
     <div className={cn(styles.container)}>
       {LIST_STACK.map((element, index) => (
         <Fragment key={index}>
-          <div>› {element.title}</div>
+          <div className={styles.title}>› {element.title}</div>
           <div className={styles.badge}>
             <UiChips items={element.items} className={styles.chips} />
           </div>

@@ -23,7 +23,7 @@ const SectionStarter: React.FC = () => {
 
           <UiTextGradient theme="blue-lightblue">
             <h2 className={cn(styles.textHeader, styles.h2)}>
-              Frontend Developer
+              Senior Frontend Developer
             </h2>
           </UiTextGradient>
 
