@@ -56,13 +56,13 @@ export const LIST_PROJECTS: IUiLayoutCardsItems[] = [
   },
   {
     title: "Travel project \"Hike 'n' Ride\"",
-    link: "https://t.me/hikenride_channel",
+    link: "https://t.me/hike_n_ride",
     img: coverHike,
     description: "A project about traveling, hiking and mountains",
     links: [
       {
         name: "Telegram Channel",
-        link: "https://t.me/hikenride_channel",
+        link: "https://t.me/hike_n_ride",
       },
       {
         name: "Instagram",
