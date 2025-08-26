@@ -11,7 +11,7 @@
   width: 300px;
   height: auto;
   flex-shrink: 0;
-  background-color: var(--color-black-lighter);
+  background-color: #d2cdbf;
   background-image: url(./img/avatar.png);
   background-position: center center;
   background-size: cover;
