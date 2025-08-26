@@ -15,7 +15,7 @@ import styles from "./SectionStarter.module.css"
 const SectionStarter: React.FC = () => {
   return (
     <UiLayoutSection className={styles.wrapper}>
-      <UiLayoutPaper isNoPadding className={cn(styles.container)}>
+      <UiLayoutPaper withShadow className={cn(styles.container)}>
         <div className={styles.logo}></div>
 
         <div className={styles.content}>

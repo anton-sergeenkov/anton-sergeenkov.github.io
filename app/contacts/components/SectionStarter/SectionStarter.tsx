@@ -19,7 +19,7 @@ const SectionStarter: React.FC = () => {
     <UiLayoutSection className={styles.wrapper}>
       <UiHeaderSection>Contacts</UiHeaderSection>
 
-      <UiLayoutPaper className={styles.container}>
+      <UiLayoutPaper withShadow className={styles.container}>
         <ul className={styles.list}>
           {LIST_CONTACTS.map((elementCategory, elementIndex) => (
             <div key={elementIndex} className={styles.listWrapper}>

@@ -17,7 +17,7 @@ const SectionStarter: React.FC = () => {
     <UiLayoutSection className={styles.wrapper}>
       <UiHeaderSection>Technologies Stack</UiHeaderSection>
 
-      <UiLayoutPaper className={styles.container}>
+      <UiLayoutPaper withShadow className={styles.container}>
         <ul className={styles.list}>
           {LIST_TECHNOLOGIES_STACK.map((elementStack, elementIndex) => (
             <div key={elementIndex} className={styles.listWrapper}>

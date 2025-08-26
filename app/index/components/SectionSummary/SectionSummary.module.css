@@ -1,0 +1,13 @@
+.wrapper {
+  background-color: var(--color-white);
+}
+.container {
+}
+
+.wrapperList ul {
+  margin-top: 10px;
+}
+.wrapperList ul:last-child {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
