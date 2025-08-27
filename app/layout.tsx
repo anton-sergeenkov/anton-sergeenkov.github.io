@@ -1,5 +1,6 @@
 import { robotoRegular } from "@/sawyer-ui/app/fonts"
 import "@/sawyer-ui/app/globals.css"
+import "./styles.css"
 
 export const metadata = {
   title: "Anton Sergeenkov. Frontend Developer (React / Vue)",
