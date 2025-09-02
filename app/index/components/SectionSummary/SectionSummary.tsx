@@ -22,11 +22,15 @@ const SectionSummary: React.FC = () => {
         <div className={styles.wrapperList}>
           {summary.map((elementSummary, indexSummary) => (
             <>
-              <UiTextGradient theme="darkblue-violet">
-                <UiTypography noSpacing tag="h3" key={indexSummary}>
-                  {elementSummary.title}
-                </UiTypography>
-              </UiTextGradient>
+              <UiTypography
+                className={styles.title}
+                noSpacing
+                tag="h3"
+                key={indexSummary}
+              >
+                {elementSummary.title}
+              </UiTypography>
+
               <ul>
                 {elementSummary.items.map((elementItem, indexItem) => (
                   <li className={cn(robotoLight.className)} key={indexItem}>

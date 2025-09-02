@@ -11,3 +11,7 @@
   margin-top: 10px;
   margin-bottom: 0;
 }
+
+.title {
+  color: var(--color-blue);
+}
