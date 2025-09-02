@@ -2,3 +2,7 @@
 }
 .container {
 }
+
+.itemLayoutCards {
+  box-shadow: var(--box-shadow-bottom-blue);
+}

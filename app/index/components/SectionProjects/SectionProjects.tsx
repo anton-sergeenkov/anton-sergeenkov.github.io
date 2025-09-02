@@ -14,7 +14,13 @@ const SectionProjects: React.FC = () => {
     <UiLayoutSection className={styles.wrapper}>
       <div className={cn(styles.container)} id="projects">
         <UiHeaderSection theme="dark-filled">Projects</UiHeaderSection>
-        <UiLayoutCards items={LIST_PROJECTS} themeLink="dark-underlined" />
+        <UiLayoutCards
+          items={LIST_PROJECTS}
+          themeLink="dark-underlined"
+          classes={{
+            item: styles.itemLayoutCards,
+          }}
+        />
       </div>
     </UiLayoutSection>
   )
