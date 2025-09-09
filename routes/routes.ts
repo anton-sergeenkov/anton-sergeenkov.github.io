@@ -9,10 +9,10 @@ export const ROUTES: IMenuItem[] = [
     title: "Technologies Stack",
     path: "/stack",
   },
-  {
-    title: "Contacts",
-    path: "/contacts",
-  },
+  // {
+  //   title: "Contacts",
+  //   path: "/contacts",
+  // },
   {
     title: "QR",
     path: "/qr",
