@@ -1,45 +1,73 @@
 .wrapper {
-  background-color: var(--color-white);
+  /* background-color: var(--color-white); */
+  background-image: var(--bg-gradient-blue-violet);
 }
 
-.container {
-}
+.containerItems {
+  column-count: 4;
+  column-gap: 10px;
 
-.title {
-  margin-bottom: 10px;
+  .item {
+    display: inline-block;
+    width: 100%;
+    /* FIXME: Остается отступ внутри containerItems */
+    margin-bottom: 5px;
+    padding: 15px 20px !important;
+    box-shadow: var(--box-shadow-bottom-blue) !important;
+  }
+
+  .title {
+    display: block;
+    margin-bottom: 10px;
+  }
 }
 
 .list {
   margin: 0;
   padding: 0;
 }
+
 .listItem {
-  margin: 7px 0;
-  margin-left: 10px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 0;
+  margin-bottom: 7px;
+  padding-left: 10px;
   font-size: 14px;
   color: var(--color-black-lighter);
-  /* list-style: inside; */
-  list-style-type: disc;
 }
-.listItem::marker {
-  color: var(--color-black-lighter);
+.listItem::before {
+  content: "•";
+  position: absolute;
+  /* FIXME: Зависит от размера шрифта */
+  top: 4px;
+  left: 0;
   font-size: 12px;
+  color: var(--color-black-lighter);
 }
-.listWrapper {
-  margin-bottom: 30px;
-}
-.listWrapper:last-child {
+.listItem:last-child {
   margin-bottom: 0;
+}
+
+.chips {
 }
 
 /***************************************************
 ADAPTIVE
 /***************************************************/
-@media screen and (max-width: 670px) {
-  .chips {
-    margin-bottom: 5px;
+@media screen and (max-width: 1035px) {
+  .containerItems {
+    column-count: 3;
   }
-  .chips:last-child {
-    margin-bottom: 0;
+}
+@media screen and (max-width: 835px) {
+  .containerItems {
+    column-count: 2;
+  }
+}
+@media screen and (max-width: 600px) {
+  .containerItems {
+    column-count: 1;
   }
 }

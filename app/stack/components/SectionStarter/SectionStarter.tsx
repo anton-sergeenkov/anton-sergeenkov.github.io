@@ -8,6 +8,7 @@ import {
   UiLayoutSection,
   UiLayoutPaper,
   UiHeaderSection,
+  UiTypography,
 } from "@/sawyer-ui/ui-kit"
 
 import styles from "./SectionStarter.module.css"
@@ -17,25 +18,23 @@ const SectionStarter: React.FC = () => {
     <UiLayoutSection className={styles.wrapper}>
       <UiHeaderSection>Technologies Stack</UiHeaderSection>
 
-      <UiLayoutPaper withShadow className={styles.container}>
-        <ul className={styles.list}>
-          {LIST_TECHNOLOGIES_STACK.map((elementStack, elementIndex) => (
-            <div key={elementIndex} className={styles.listWrapper}>
-              <div className={styles.title}>{elementStack.title}</div>
+      <div className={styles.containerItems}>
+        {LIST_TECHNOLOGIES_STACK.map((elementStack, elementIndex) => (
+          <UiLayoutPaper key={elementIndex} className={styles.item}>
+            <UiTypography className={styles.title}>
+              {elementStack.title}
+            </UiTypography>
 
-              <ul className={styles.list}>
-                {elementStack.items.map((itemStack, indexStack) => (
-                  <li key={indexStack} className={styles.listItem}>
-                    <span>
-                      <UiChips items={itemStack} className={styles.chips} />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </ul>
-      </UiLayoutPaper>
+            <ul className={styles.list}>
+              {elementStack.items.map((itemStack, indexStack) => (
+                <li key={indexStack} className={styles.listItem}>
+                  <UiChips items={itemStack} className={styles.chips} />
+                </li>
+              ))}
+            </ul>
+          </UiLayoutPaper>
+        ))}
+      </div>
     </UiLayoutSection>
   )
 }

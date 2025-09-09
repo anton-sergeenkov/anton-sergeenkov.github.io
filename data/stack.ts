@@ -5,7 +5,7 @@ interface IListTechnologiesStack {
 
 export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
   {
-    title: "Framework React.js",
+    title: "React Ecosystem",
     items: [
       ["React.js", "React Router"],
       ["Next.js"],
@@ -23,7 +23,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
     ],
   },
   {
-    title: "Framework Vue.js",
+    title: "Vue.js Ecosystem",
     items: [
       ["Vue.js", "Vuex", "Vue Router"],
       ["Vue CLI", "Vuetify"],

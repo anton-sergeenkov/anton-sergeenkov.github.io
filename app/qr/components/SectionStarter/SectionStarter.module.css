@@ -1,8 +1,9 @@
 .wrapper {
-  background-color: var(--color-white);
+  /* background-color: var(--color-white); */
   /* header + footer + border 2px */
   min-height: calc(100vh - var(--height-header) - var(--height-footer) - 2px);
   --spacing: 40px;
+  background-image: var(--bg-gradient-blue-violet);
 }
 
 .listContainer {
