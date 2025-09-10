@@ -1,6 +1,7 @@
 export const summary = [
   {
-    title: "Software Engineer with 9 years of experience in Web Development",
+    title:
+      "Software Engineer with 7 years of experience in Frontend Development",
     items: [
       "React - 6 years, Vue.js - 1 year, TypeScript - 4 years",
       "Areas of technical expertise: application and business logic design, UI development, using AI assistants in development, Unit and E2E testing coverage, CI/CD, Code Review",
