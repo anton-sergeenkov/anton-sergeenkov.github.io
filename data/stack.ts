@@ -71,7 +71,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
   },
   {
     title: "Methodology",
-    items: [["Agile", "Scrum", "Kanban"], ["Gitflow"]],
+    items: [["Agile", "Scrum", "Kanban"], ["Gitflow Workflow"]],
   },
   {
     title: "AI Assistants and LLM",

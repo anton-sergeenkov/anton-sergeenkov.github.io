@@ -15,6 +15,6 @@ export const LIST_STACK: IListCommon[] = [
   },
   {
     title: "Methodology",
-    items: ["Agile", "Scrum", "Gitflow"],
+    items: ["Agile", "Scrum", "Gitflow Workflow"],
   },
 ]
