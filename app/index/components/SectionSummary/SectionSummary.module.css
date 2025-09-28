@@ -5,11 +5,9 @@
 }
 
 .wrapperList ul {
-  margin-top: 10px;
-}
-.wrapperList ul:last-child {
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  border-left: 1px solid var(--color-gray-35);
 }
 
 .title {

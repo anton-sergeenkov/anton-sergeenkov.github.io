@@ -28,6 +28,7 @@ const SectionStarter: React.FC = () => {
           </UiTextGradient>
 
           <SectionStack />
+
           <UiSocialLinks list={LIST_LINKS} />
         </div>
       </UiLayoutPaper>

@@ -10,11 +10,11 @@ export const LIST_STACK: IListCommon[] = [
     items: ["Node.js"],
   },
   {
-    title: "Tools",
-    items: ["Git", "Vite", "Webpack", "Cypress", "Jira"],
+    title: "AI & Tools",
+    items: ["Cursor", "Copilot", "Git", "Vite", "Cypress", "Jira"],
   },
   {
     title: "Methodology",
-    items: ["Agile", "Scrum", "Gitflow Workflow"],
+    items: ["Agile", "Scrum", "Gitflow Workflow", "FSD"],
   },
 ]

@@ -21,13 +21,8 @@ const SectionSummary: React.FC = () => {
 
         <div className={styles.wrapperList}>
           {summary.map((elementSummary, indexSummary) => (
-            <>
-              <UiTypography
-                className={styles.title}
-                noSpacing
-                tag="h3"
-                key={indexSummary}
-              >
+            <div key={indexSummary}>
+              <UiTypography className={styles.title} noSpacing tag="h3">
                 {elementSummary.title}
               </UiTypography>
 
@@ -38,7 +33,7 @@ const SectionSummary: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </>
+            </div>
           ))}
         </div>
       </div>
