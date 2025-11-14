@@ -56,7 +56,11 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
   },
   {
     title: "Testing",
-    items: [["Jest", "Vitest", "Enzyme"], ["Cypress"]],
+    items: [
+      ["Jest", "Vitest", "Enzyme"],
+      ["Cypress"],
+      ["BrowserStack"]
+    ],
   },
   {
     title: "Technologies",
