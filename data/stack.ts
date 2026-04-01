@@ -26,9 +26,13 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
     title: "Vue.js Ecosystem",
     items: [
       ["Vue.js", "Vuex", "Vue Router"],
-      ["Vue CLI", "Vuetify"],
+      ["Vue CLI", "Element Plus", "Vuetify"],
       ["VuePress"],
     ],
+  },
+  {
+    title: "Svelte Ecosystem",
+    items: [["Svelte"]],
   },
   {
     title: "Frontend",
@@ -56,11 +60,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
   },
   {
     title: "Testing",
-    items: [
-      ["Jest", "Vitest", "Enzyme"],
-      ["Cypress"],
-      ["BrowserStack"]
-    ],
+    items: [["Jest", "Vitest", "Enzyme"], ["Cypress"], ["BrowserStack"]],
   },
   {
     title: "Technologies",
@@ -80,7 +80,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
   {
     title: "AI Assistants and LLM",
     items: [
-      ["Cursor", "Cline", "GitHub Copilot"],
+      ["Cursor", "Codex", "Cline", "GitHub Copilot"],
       ["Claude", "OpenAI"],
     ],
   },
