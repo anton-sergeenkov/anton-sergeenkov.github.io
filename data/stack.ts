@@ -50,7 +50,14 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
     items: [
       ["HTML5", "CSS3"],
       ["Flexbox", "CSS Grid"],
-      ["Bootstrap", "SASS", "PostCSS", "CSS-in-JS", "CSS Modules"],
+      [
+        "Tailwind CSS",
+        "Bootstrap",
+        "SASS",
+        "PostCSS",
+        "CSS-in-JS",
+        "CSS Modules",
+      ],
       ["SVG", "CSS Custom Properties"],
     ],
   },
