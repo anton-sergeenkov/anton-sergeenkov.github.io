@@ -78,6 +78,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
       ["Windows", "macOS", "Linux"],
       ["Visual Studio Code", "WebStorm"],
       ["Figma", "Obsidian"],
+      ["OneSignal"],
     ],
   },
   {
