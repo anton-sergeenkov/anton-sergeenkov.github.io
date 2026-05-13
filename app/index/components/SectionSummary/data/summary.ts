@@ -2,7 +2,7 @@ export const summary = [
   {
     title: "Hard Skills",
     items: [
-      "Software Engineer with 7 years of experience in Web Development (React - 6 years, Next.js - 2 years, Vue.js - 1,5 years, TypeScript - 4 years, Svelte)",
+      "Software Engineer with 7 years of experience in Web Development (React - 6 years, Next.js - 2 years, Vue.js - 2 years, TypeScript - 4 years, Svelte - 1/2 year)",
       "Designing high-load, scalable web applications using modern technologies and development approaches",
     ],
   },
