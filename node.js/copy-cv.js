@@ -19,3 +19,10 @@ try {
 } catch (error) {
   console.error(error)
 }
+
+try {
+  fs.copyFileSync("./files/chaukhi-pass.pdf", "./out/chaukhi-pass.pdf")
+  console.log('File "chaukhi-pass" copied successfully')
+} catch (error) {
+  console.error(error)
+}
