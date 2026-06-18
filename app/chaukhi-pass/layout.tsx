@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Chaukhi Pass",
-  description: "Hike",
+  title: "Перевал Чаухи",
+  description: "Двухдневный поход с палатками 25 - 26 июля",
 }
 
 const RootLayout: React.FC<IRootLayout> = (props) => {

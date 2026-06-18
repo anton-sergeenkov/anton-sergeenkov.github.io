@@ -1,6 +1,4 @@
 import Image from "next/image"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
 
 import img1 from "./img/1.png"
 import img2 from "./img/2.png"
@@ -40,7 +38,7 @@ const AppPage: React.FC = () => {
           key={index}
           className={styles.img}
           src={src}
-          alt={`Chaukhi Pass ${index + 1}`}
+          alt="Chaukhi Pass"
           width={700}
           height={1000}
         />
