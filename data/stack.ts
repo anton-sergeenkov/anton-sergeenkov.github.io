@@ -88,7 +88,7 @@ export const LIST_TECHNOLOGIES_STACK: IListTechnologiesStack[] = [
   {
     title: "AI Assistants and LLM",
     items: [
-      ["Cursor", "Codex", "Cline", "GitHub Copilot"],
+      ["Claude Code", "Cursor", "Codex", "Cline", "GitHub Copilot"],
       ["Claude", "OpenAI"],
     ],
   },
