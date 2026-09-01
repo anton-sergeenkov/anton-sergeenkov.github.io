@@ -11,7 +11,16 @@ export const LIST_STACK: IListCommon[] = [
   },
   {
     title: "AI & Tools",
-    items: ["Cursor", "Codex", "Copilot", "Git", "Vite", "Cypress", "Jira"],
+    items: [
+      "Claude Code",
+      "Cursor",
+      "Codex",
+      "Copilot",
+      "Git",
+      "Vite",
+      "Cypress",
+      "Jira",
+    ],
   },
   {
     title: "Methodology",

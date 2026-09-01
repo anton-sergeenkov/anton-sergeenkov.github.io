@@ -11,7 +11,7 @@ export const summary = [
     title: "Technical expertise",
     items: [
       "Application architecture design, business logic and UI development",
-      "Using AI assistants in development (Cursor, Codex, Cline, Copilot)",
+      "Using AI assistants in development (Claude Code, Cursor, Codex, Cline, Copilot)",
       "Unit and E2E testing coverage (Jest, Enzyme, Cypress)",
       "CI/CD, Code Review, Gitflow Workflow",
       "Experience in Backend development (Node.js)",
