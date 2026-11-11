@@ -1,5 +1,5 @@
-import { robotoRegular } from "@/sawyer-ui/app/fonts"
-import "@/sawyer-ui/app/globals.css"
+import { robotoRegular } from "sawyer-ui/fonts"
+import "sawyer-ui/styles.css"
 import "./styles.css"
 
 export const metadata = {

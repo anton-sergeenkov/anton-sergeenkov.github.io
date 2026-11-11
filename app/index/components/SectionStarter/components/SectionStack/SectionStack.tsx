@@ -2,9 +2,9 @@ import { Fragment } from "react"
 import cn from "classnames"
 
 import { LIST_STACK } from "./data/stack"
-import { UiChips } from "@/sawyer-ui/ui-kit"
+import { UiChips } from "sawyer-ui"
 
-import { robotoLight } from "@/sawyer-ui/app/fonts"
+import { robotoLight } from "sawyer-ui/fonts"
 
 import styles from "./SectionStack.module.css"
 

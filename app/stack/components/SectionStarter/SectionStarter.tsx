@@ -9,7 +9,7 @@ import {
   UiLayoutPaper,
   UiHeaderSection,
   UiTypography,
-} from "@/sawyer-ui/ui-kit"
+} from "sawyer-ui"
 
 import styles from "./SectionStarter.module.css"
 

@@ -15,16 +15,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^6.4.1",
-    "@mui/material": "^6.4.1",
     "classnames": "^2.5.1",
     "dotenv": "^16.4.7",
-    "esm": "^3.2.25",
     "next": "^15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sawyer-ui": "^0.3.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.9",

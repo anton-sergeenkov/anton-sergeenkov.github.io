@@ -1,7 +1,8 @@
 # ⭐️ Development
 
 ## Development
-- Настроить проект `sawyer-ui` https://github.com/anton-sergeenkov/sawyer-ui/blob/main/docs/dev.md
+- Ui-Kit подключается как npm-пакет `sawyer-ui` https://www.npmjs.com/package/sawyer-ui
+- Обновление пакета: `npm i sawyer-ui@latest`
 
 ## Deploy
 1. Остановить dev server
@@ -16,8 +17,8 @@
 
 ## Packages
 ```bash
-npm i --save react react-dom next esm dotenv classnames
-npm i --save @mui/material @mui/icons-material @emotion/react @emotion/styled
+npm i --save react react-dom next dotenv classnames
+npm i --save sawyer-ui # MUI и Emotion устанавливаются вместе с пакетом
 
 npm i --save-dev typescript gh-pages
 npm i --save-dev @types/react @types/react-dom @types/node

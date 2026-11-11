@@ -1,4 +1,4 @@
-import { IMenuItem } from "@/sawyer-ui/types/common"
+import type { IMenuItem } from "sawyer-ui"
 
 export const ROUTES: IMenuItem[] = [
   {

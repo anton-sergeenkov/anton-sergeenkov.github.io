@@ -1,4 +1,4 @@
-import type { IUiLayoutCardsItems } from "@/sawyer-ui/ui-kit"
+import type { IUiLayoutCardsItems } from "sawyer-ui"
 
 import coverLetscode from "./img/letscode.svg"
 import coverBerserker from "./img/berserker.svg"

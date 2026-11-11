@@ -4,12 +4,7 @@
 
 import { useState } from "react"
 
-import {
-  UiModal,
-  UiChips,
-  UiLayoutSection,
-  UiHeaderSection,
-} from "@/sawyer-ui/ui-kit"
+import { UiModal, UiChips, UiLayoutSection, UiHeaderSection } from "sawyer-ui"
 
 import { LIST_QR } from "./data/qr"
 

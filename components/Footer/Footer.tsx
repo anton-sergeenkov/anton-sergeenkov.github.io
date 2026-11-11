@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { UiLayoutSection } from "@/sawyer-ui/ui-kit"
+import { UiLayoutSection } from "sawyer-ui"
 
 import styles from "./Footer.module.css"
 

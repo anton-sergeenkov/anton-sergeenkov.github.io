@@ -5,9 +5,9 @@ import {
   UiLayoutSection,
   UiTypography,
   UiTextGradient,
-} from "@/sawyer-ui/ui-kit"
+} from "sawyer-ui"
 
-import { robotoLight } from "@/sawyer-ui/app/fonts"
+import { robotoLight } from "sawyer-ui/fonts"
 
 import { summary } from "./data/summary"
 

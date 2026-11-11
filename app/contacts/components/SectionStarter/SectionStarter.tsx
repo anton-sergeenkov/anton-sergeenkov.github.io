@@ -7,10 +7,10 @@ import {
   UiLayoutSection,
   UiLayoutPaper,
   UiHeaderSection,
-} from "@/sawyer-ui/ui-kit"
+} from "sawyer-ui"
 
 import { LIST_CONTACTS } from "@/data/contacts"
-import { robotoLight } from "@/sawyer-ui/app/fonts"
+import { robotoLight } from "sawyer-ui/fonts"
 
 import styles from "./SectionStarter.module.css"
 

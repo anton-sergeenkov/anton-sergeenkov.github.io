@@ -3,7 +3,7 @@ import coverTelegram from "./img/qr-telegram.svg"
 import coverWebsite from "./img/qr-website.svg"
 import coverLinkedin from "./img/qr-linkedin.svg"
 
-import type { IStaticImageData } from "@/sawyer-ui/types/common"
+import type { IStaticImageData } from "sawyer-ui"
 
 interface IListQR {
   title: string

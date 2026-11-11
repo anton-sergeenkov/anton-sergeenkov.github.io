@@ -5,7 +5,7 @@ import {
   UiLayoutSection,
   UiLayoutPaper,
   UiSocialLinks,
-} from "@/sawyer-ui/ui-kit"
+} from "sawyer-ui"
 
 import SectionStack from "./components/SectionStack"
 import { LIST_LINKS } from "./data/links"
