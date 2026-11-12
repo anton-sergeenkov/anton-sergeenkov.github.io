@@ -1,8 +1,8 @@
 1:"$Sreact.fragment"
 2:"static/chunks/c16f53c3-48562147c0e072ee.js"
-3:"static/chunks/277-2beccbdf596c776d.js"
-4:"static/chunks/app/page-14dcee7396c55ba1.js"
-5:I[1328,["545","$2","277","$3","974","$4"],"UiProvider"]
+3:"static/chunks/56-4367394e2e4c36c9.js"
+4:"static/chunks/app/page-c6d36c28f02d1253.js"
+5:I[5645,["545","$2","56","$3","974","$4"],"UiProvider"]
 6:I[7121,[],""]
 7:I[4581,[],""]
 e:I[484,[],"OutletBoundary"]
@@ -15,14 +15,14 @@ f:"$Sreact.suspense"
 :HL["/_next/static/css/f2fa547b9a281926.css","style"]
 :HL["/_next/static/css/454c04452759e26d.css","style"]
 :HL["/_next/static/css/735b2db1e78768f5.css","style"]
-:HL["/_next/static/css/3db78854c38a9291.css","style"]
+:HL["/_next/static/css/2462f3dddc0785ca.css","style"]
 :HL["/_next/static/css/ef46db3751d8e999.css","style"]
 9:X
 c:X
 c:C
 d:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],null,["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]]}],"p":"$@11","v":null,"s":"$9"}}]]
 a:[["children",{"s":"_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L7",null,{}]}]]}],"p":"$@b","v":"$c","s":"$9"},"c":"$Qd"}]]
-0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/f2fa547b9a281926.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/454c04452759e26d.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/css/735b2db1e78768f5.css","precedence":"next"}],["$","link","3",{"rel":"stylesheet","href":"/_next/static/css/3db78854c38a9291.css","precedence":"next"}],["$","link","4",{"rel":"stylesheet","href":"/_next/static/css/ef46db3751d8e999.css","precedence":"next"}]],["$","html",null,{"lang":"en","className":"__className_322d82","children":["$","body",null,{"children":["$","$L5",null,{"children":["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L7",null,{}]}]}]}]}]]}],"p":"$@8","v":null,"s":"$9"},"c":"$Qa"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L13",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L15",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$f",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Anton Sergeenkov. Frontend Developer (React / Vue)"}],["$","meta","1",{"name":"description","content":"Portfolio"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?de3dad026dc9e60c","type":"image/x-icon","sizes":"100x100"}],["$","$L16","3",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@17","v":null,"s":"$9"}},"a":"$@18","u":"$@19","b":"A2cZme0CTSde-eE5axgEU"}
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/f2fa547b9a281926.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/454c04452759e26d.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/css/735b2db1e78768f5.css","precedence":"next"}],["$","link","3",{"rel":"stylesheet","href":"/_next/static/css/2462f3dddc0785ca.css","precedence":"next"}],["$","link","4",{"rel":"stylesheet","href":"/_next/static/css/ef46db3751d8e999.css","precedence":"next"}]],["$","html",null,{"lang":"en","className":"__className_322d82","children":["$","body",null,{"children":["$","$L5",null,{"children":["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L7",null,{}]}]}]}]}]]}],"p":"$@8","v":null,"s":"$9"},"c":"$Qa"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L13",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L15",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$f",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Anton Sergeenkov. Frontend Developer (React / Vue)"}],["$","meta","1",{"name":"description","content":"Portfolio"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?de3dad026dc9e60c","type":"image/x-icon","sizes":"100x100"}],["$","$L16","3",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@17","v":null,"s":"$9"}},"a":"$@18","u":"$@19","b":"Wdh_7niPPWPNoEYRaarD3"}
 10:null
 9:300
 19:true
