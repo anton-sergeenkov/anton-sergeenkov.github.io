@@ -17,7 +17,7 @@ const SectionStack: React.FC = () => {
             › {element.title}
           </div>
           <div className={styles.badge}>
-            <UiChips items={element.items} className={styles.chips} />
+            <UiChips items={element.items} />
           </div>
         </Fragment>
       ))}

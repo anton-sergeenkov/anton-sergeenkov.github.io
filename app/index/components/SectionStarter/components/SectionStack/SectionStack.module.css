@@ -9,20 +9,19 @@
 .title {
 }
 
+/* Плашки переносятся на новую строку с тем же отступом по вертикали, что и по
+   горизонтали: 5px (по горизонтали — margin-right у плашек UiChips) */
+.badge {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 5px;
+}
+
 /***************************************************
 ADAPTIVE
 /***************************************************/
 @media screen and (max-width: 600px) {
   .container {
     grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .chips {
-    margin-bottom: 5px;
-  }
-  .chips:last-child {
-    margin-bottom: 0;
   }
 }

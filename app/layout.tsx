@@ -1,3 +1,4 @@
+import { UiProvider } from "sawyer-ui"
 import { robotoRegular } from "sawyer-ui/fonts"
 import "sawyer-ui/styles.css"
 import "./styles.css"
@@ -12,7 +13,10 @@ const RootLayout: React.FC<IRootLayout> = (props) => {
 
   return (
     <html lang="en" className={robotoRegular.className}>
-      <body>{children}</body>
+      <body>
+        {/* Провайдер Mantine с темой sawyer-ui: без него компоненты пакета не работают */}
+        <UiProvider>{children}</UiProvider>
+      </body>
     </html>
   )
 }

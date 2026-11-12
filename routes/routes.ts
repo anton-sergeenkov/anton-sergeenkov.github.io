@@ -1,5 +1,7 @@
 import type { IMenuItem } from "sawyer-ui"
 
+// Пути со слешем на конце, как адреса страниц (trailingSlash в next.config.js):
+// по совпадению с текущим адресом подсвечивается активный пункт меню
 export const ROUTES: IMenuItem[] = [
   {
     title: "Profile",
@@ -7,15 +9,15 @@ export const ROUTES: IMenuItem[] = [
   },
   {
     title: "Technologies Stack",
-    path: "/stack",
+    path: "/stack/",
   },
   // {
   //   title: "Contacts",
-  //   path: "/contacts",
+  //   path: "/contacts/",
   // },
   {
     title: "QR",
-    path: "/qr",
+    path: "/qr/",
   },
 ]
 
